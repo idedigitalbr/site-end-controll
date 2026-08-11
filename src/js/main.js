@@ -70,19 +70,19 @@
       });
     });
 
-    // Toggle para Submenus Análise / Gestão
-    const nestedSubmenuHeaders = document.querySelectorAll('.nested-submenu-header');
-    nestedSubmenuHeaders.forEach(function (header) {
-      header.addEventListener('click', function (e) {
-        e.preventDefault();
-        e.stopPropagation();
-        const group = header.closest('.nested-submenu-group');
-        if (group) {
-          const isActive = group.classList.toggle('is-active');
-          header.setAttribute('aria-expanded', String(isActive));
-        }
-      });
-    });
+    // Toggle para Submenuzinho do Item 1 (Gerenciamento de Projetos -> Análise / Gestão)
+    const itemWithSubmenu = document.querySelector('.item-with-submenu');
+    if (itemWithSubmenu) {
+      const trigger = itemWithSubmenu.querySelector('.item-has-children');
+      if (trigger) {
+        trigger.addEventListener('click', function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          const isOpen = itemWithSubmenu.classList.toggle('is-open');
+          trigger.setAttribute('aria-expanded', String(isOpen));
+        });
+      }
+    }
   }
 
   /* ===================================================================
