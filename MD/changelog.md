@@ -1,12 +1,12 @@
 # Changelog — ENDCONTROL Engenharia
 
-## [2026-08-11] - Submenuzinho em "1. Gerenciamento de Projetos": Análise e Gestão
+## [2026-08-11] - Submenuzinho no Botão 1: Design de Árvore Conectora (Fechado por Padrão)
 
-### Changed & Fixed
-- **Menu Principal (`index.html`, `header.css`, `main.js`):** Restaurada a lista completa das 12 soluções de engenharia da EndControl na ordem original.
-- **Submenuzinho no Botão 1 (`index.html`, `header.css`, `main.js`):** Adicionado submenuzinho expansível para baixo diretamente sob o item `1. Gerenciamento de Projetos`, contendo as duas opções:
-  - • Análise
-  - • Gestão
+### Changed & Refined
+- **Menu Principal (`index.html`, `header.css`, `main.js`):** Ajustado o submenu de `1. Gerenciamento de Projetos` para corresponder exatamente à imagem de referência:
+  - **Estado Inicial:** Inicia **fechado por padrão** e expande **exclusivamente ao clicar** no Botão 1.
+  - **Design de Árvore (Branch/Tree Layout):** Adicionada linha conectora azul ciano (`#00abe3`) unindo o item principal aos sub-itens **• Análise** e **• Gestão**.
+  - **Chevrons:** Indicadores de expansão `v` (fechado) e `^` (aberto em 180°) padronizados em todos os itens.
 
 ## [2026-08-11] - Ajuste do Menu de Navegação: "Nossas Soluções" (12 Soluções)
 
