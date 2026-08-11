@@ -1,12 +1,10 @@
 # Changelog — ENDCONTROL Engenharia
 
-## [2026-08-11] - Submenuzinho no Botão 1: Design de Árvore Conectora (Fechado por Padrão)
+## [2026-08-11] - Ajuste Fino dos Chevrons: Exclusividade no Botão 1
 
-### Changed & Refined
-- **Menu Principal (`index.html`, `header.css`, `main.js`):** Ajustado o submenu de `1. Gerenciamento de Projetos` para corresponder exatamente à imagem de referência:
-  - **Estado Inicial:** Inicia **fechado por padrão** e expande **exclusivamente ao clicar** no Botão 1.
-  - **Design de Árvore (Branch/Tree Layout):** Adicionada linha conectora azul ciano (`#00abe3`) unindo o item principal aos sub-itens **• Análise** e **• Gestão**.
-  - **Chevrons:** Indicadores de expansão `v` (fechado) e `^` (aberto em 180°) padronizados em todos os itens.
+### Fixed & Refined
+- **Menu Principal (`index.html`):** Mantido o chevron indicador `v` (que rotaciona para `^` ao expandir) **exclusivamente no Botão 1 (`1. Gerenciamento de Projetos`)**, pois é o único item que possui o submenuzinho (**Análise** e **Gestão**).
+- Os demais itens (2 a 12) permanecem como links diretos sem ícone de expansão.
 
 ## [2026-08-11] - Ajuste do Menu de Navegação: "Nossas Soluções" (12 Soluções)
 
