@@ -1,0 +1,23 @@
+name: endcontrol
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: endcontrol-web
+    restart: always
+    networks:
+      - default
+      - proxy
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.endcontrol-router.rule=Host(`endcontrol.suporteide.digital`)"
+      - "traefik.http.routers.endcontrol-router.entrypoints=websecure"
+      - "traefik.http.routers.endcontrol-router.tls=true"
+      - "traefik.http.routers.endcontrol-router.tls.certresolver=letsencrypt"
+      - "traefik.http.services.endcontrol-service.loadbalancer.server.port=80"
+
+networks:
+  proxy:
+    external: true

@@ -1,0 +1,74 @@
+:root {
+  /* Fonte padrão */
+  --font-primary: "Inter", sans-serif;
+
+  /* Paleta oficial ENDCONTROL */
+  --color-bg-primary: #071429;
+  --color-bg-secondary: #0A1B33;
+  --color-bg-deep: #020B18;
+
+  --color-primary: #009CFF;
+  --color-primary-strong: #007BFF;
+  --color-primary-light: #18B7FF;
+  --color-cyan: #00C2FF;
+
+  --color-text-primary: #F5F7FB;
+  --color-text-secondary: #C7D0DE;
+  --color-text-muted: #8FA3BC;
+
+  --color-border-blue: rgba(0, 156, 255, 0.35);
+  --color-card-bg: rgba(7, 20, 41, 0.78);
+  --color-card-bg-solid: #0B1B31;
+
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 22px;
+  --radius-xl: 28px;
+  --radius-pill: 999px;
+
+  --shadow-card: 0 24px 80px rgba(0, 0, 0, 0.35);
+  --shadow-blue: 0 18px 48px rgba(0, 156, 255, 0.25);
+
+  --container-max: 1440px;
+  --container-padding-desktop: 72px;
+  --container-padding-tablet: 40px;
+  --container-padding-mobile: 22px;
+
+  /* Cores de apoio vindas das fotografias */
+  --color-industrial-copper: #994E35;
+  --color-industrial-orange: #C57049;
+  --color-metal-gray: #67768C;
+  --color-logo-slate: #68A1AF;
+  --color-logo-slate-rgb: 104, 161, 175;
+
+  /* Mapeamento de compatibilidade com variáveis antigas */
+  --black: var(--color-bg-deep);
+  --graphite: var(--color-bg-secondary);
+  --yellow: var(--color-primary);
+  --red: var(--color-cyan);
+
+  /* Neutros de interface remapeados para visual escuro premium */
+  --ink: var(--color-text-primary);
+  --cream: var(--color-bg-secondary);
+  --paper: var(--color-bg-primary);
+  --muted: var(--color-text-muted);
+  --line: rgba(0, 156, 255, 0.15);
+  --line-dark: rgba(0, 156, 255, 0.25);
+
+  /* Cores de atmosfera */
+  --green: #10b981;
+  --wine: #4b1020;
+  --orange: var(--color-industrial-orange);
+
+  /* Estilização Premium e Glassmorphism */
+  --gold-gradient: linear-gradient(135deg, var(--color-primary-strong), var(--color-cyan));
+  --bg-gradient: radial-gradient(circle at 12% 0%, rgba(0, 156, 255, 0.12), transparent 38%), 
+                 radial-gradient(circle at 88% 14%, rgba(0, 194, 255, 0.08), transparent 28%), 
+                 var(--color-bg-primary);
+  --glass-surface: var(--color-card-bg);
+  --glass-border: var(--color-border-blue);
+  --glass-border-glow: rgba(0, 194, 255, 0.35);
+
+  --radius: var(--radius-lg);
+  --shadow: var(--shadow-card);
+}

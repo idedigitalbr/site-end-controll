@@ -1,0 +1,669 @@
+/* ==========================================================================
+   Design System: Presença Nacional (Claro) e Rodapé Corporativo (Escuro)
+   ========================================================================== */
+
+/* --- Seção Clara: Presença Nacional --- */
+.presenca-nacional-light {
+  position: relative;
+  background: #f0f5f7; /* unified soft slate background in logo tone */
+  color: #1e293b;
+  padding: 80px 0;
+  overflow: hidden;
+  font-family: var(--font-primary);
+  border-top: 1px solid rgba(104, 161, 175, 0.15);
+}
+
+.container-presenca {
+  width: min(1380px, calc(100% - 60px));
+  margin: 0 auto;
+}
+
+.presenca-light-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1.2fr 1.6fr;
+  gap: 40px;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.presenca-info-column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.presenca-eyebrow {
+  font-family: var(--font-primary);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-logo-slate); /* brand slate color from logo */
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.presenca-heading {
+  font-size: 2.25rem;
+  font-weight: 800;
+  font-family: var(--font-primary);
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  margin: 0;
+  color: #0b1a30;
+}
+
+.presenca-heading .highlight {
+  color: #0056b3;
+}
+
+.presenca-paragraph {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #475569;
+  margin: 0;
+}
+
+/* Mini Cards de Estatísticas */
+.presenca-stats-container {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.stat-mini-card {
+  flex: 1;
+  background: #ffffff;
+  border: 1px solid rgba(104, 161, 175, 0.15);
+  border-radius: 12px;
+  padding: 14px 10px;
+  box-shadow: 0 4px 12px rgba(104, 161, 175, 0.02);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.stat-mini-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(104, 161, 175, 0.06);
+  border-color: rgba(104, 161, 175, 0.35);
+}
+
+.stat-mini-card .stat-value {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #0056b3;
+  font-family: var(--font-primary);
+  line-height: 1;
+}
+
+.stat-mini-card .stat-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #64748b;
+  line-height: 1.3;
+  white-space: nowrap;
+}
+
+/* Coluna do Mapa */
+.presenca-map-column {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.map-wrapper-light {
+  width: 100%;
+  max-width: 440px;
+  position: relative;
+}
+
+.static-map-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  opacity: 1;
+  transition: opacity 0.4s ease, -webkit-mask-image 0.4s ease, mask-image 0.4s ease;
+}
+
+/* Quando o usuário passa o mouse sobre a seção (grid), ativamos o spotlight:
+   - Centro (área sob hover/ativa): 100% opacidade.
+   - Demais áreas que podem ser clicadas (hotspots): 50% opacidade.
+   - Restante do mapa (regiões não clicáveis): 10% opacidade.
+*/
+.presenca-light-grid:hover .static-map-image {
+  -webkit-mask-image: radial-gradient(circle 165px at var(--spotlight-x, 50%) var(--spotlight-y, 50%), black 0%, black 25%, rgba(0, 0, 0, 0.5) 55%, rgba(0, 0, 0, 0.1) 80%);
+  mask-image: radial-gradient(circle 165px at var(--spotlight-x, 50%) var(--spotlight-y, 50%), black 0%, black 25%, rgba(0, 0, 0, 0.5) 55%, rgba(0, 0, 0, 0.1) 80%);
+}
+
+/* Âncoras do mapa com interatividade e pulsação estilo radar */
+.map-anchor {
+  position: absolute;
+  width: 90px; /* Área de toque/hover muito maior para facilidade de uso */
+  height: 90px;
+  background-color: transparent;
+  pointer-events: auto; /* Habilitar cliques/hover */
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  z-index: 10;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Pulsação do Radar em cada âncora - Duas ondas concêntricas de tamanho e espessura aliviados */
+.map-anchor::before,
+.map-anchor::after {
+  content: '';
+  position: absolute;
+  width: 36px; /* Tamanho menor para não poluir o mapa */
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid #00d2ff; /* Linha mais fina e discreta */
+  box-shadow: 0 0 4px rgba(0, 210, 255, 0.3); /* Brilho suave */
+  opacity: 0;
+  transform: scale(0.2);
+  pointer-events: none;
+}
+
+/* Primeira onda do radar */
+.map-anchor::before {
+  animation: radar-pulse 2.5s infinite cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Segunda onda do radar (com delay) */
+.map-anchor::after {
+  animation: radar-pulse 2.5s infinite cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  animation-delay: 1.25s;
+}
+
+/* Delays para cada âncora para pulsações descompassadas e orgânicas */
+#anchor-norte::before { animation-delay: 0s; }
+#anchor-norte::after { animation-delay: 1.25s; }
+
+#anchor-nordeste::before { animation-delay: 0.5s; }
+#anchor-nordeste::after { animation-delay: 1.75s; }
+
+#anchor-centro-oeste::before { animation-delay: 1.0s; }
+#anchor-centro-oeste::after { animation-delay: 2.25s; }
+
+#anchor-sudeste::before { animation-delay: 1.5s; }
+#anchor-sudeste::after { animation-delay: 2.75s; }
+
+#anchor-sul::before { animation-delay: 2.0s; }
+#anchor-sul::after { animation-delay: 3.25s; }
+
+/* Âncora ativa ou sob hover pulsa com um pouco mais de brilho e velocidade */
+.map-anchor.active::before,
+.map-anchor.active::after,
+.map-anchor:hover::before,
+.map-anchor:hover::after {
+  border-color: #00d2ff;
+  box-shadow: 0 0 6px rgba(0, 210, 255, 0.5);
+  animation-duration: 1.8s;
+}
+
+/* O delay do ::after ativo também precisa ser sincronizado com a nova duração (1.8s / 2 = 0.9s) */
+.map-anchor.active::after,
+.map-anchor:hover::after {
+  animation-delay: 0.9s !important;
+}
+
+@keyframes radar-pulse {
+  0% {
+    transform: scale(0.2);
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+/* Efeito Glow / Brilho adicional da regiao ativa */
+.map-glow-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0;
+  z-index: 3;
+  transition: opacity 0.4s ease;
+  background-image: radial-gradient(circle 110px at var(--spotlight-x, 50%) var(--spotlight-y, 50%), rgba(0, 210, 255, 0.4) 0%, rgba(0, 86, 179, 0.18) 50%, transparent 80%);
+  mix-blend-mode: screen;
+}
+
+/* O brilho só fica ativo quando o grid está sob hover */
+.presenca-light-grid:hover .map-glow-overlay.active {
+  opacity: 1;
+}
+
+/* Linhas de Conexão SVG Overlay */
+.connection-lines-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.connection-line {
+  stroke: rgba(0, 86, 179, 0.12);
+  stroke-width: 1px;
+  fill: none;
+  transition: stroke 0.4s ease, stroke-width 0.4s ease, filter 0.4s ease;
+}
+
+.connection-line.active {
+  stroke: #0056b3;
+  stroke-width: 2.2px;
+  fill: none;
+  filter: drop-shadow(0 0 3px rgba(0, 136, 255, 0.7));
+}
+
+/* Coluna dos Cards de Informações */
+.presenca-cards-column {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  width: 100%;
+  align-items: stretch; /* Cards com mesma altura */
+}
+
+.info-card-panel {
+  background: #ffffff;
+  border: 1px solid rgba(104, 161, 175, 0.15);
+  border-radius: 20px;
+  padding: 28px 24px;
+  box-shadow: 0 6px 20px rgba(104, 161, 175, 0.03);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transition: all 0.3s ease;
+}
+
+.info-card-panel:hover {
+  box-shadow: 0 14px 40px rgba(104, 161, 175, 0.06);
+  border-color: rgba(104, 161, 175, 0.3);
+}
+
+.panel-card-title {
+  font-family: var(--font-primary);
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: var(--color-logo-slate);
+  letter-spacing: 0.1em;
+  margin: 0;
+  text-transform: uppercase;
+  padding-bottom: 0;
+}
+
+.panel-card-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.panel-card-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  font-size: 0.88rem;
+  color: #475569;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.panel-card-list li:hover {
+  background: rgba(0, 86, 179, 0.03);
+  transform: translateX(4px);
+}
+
+.panel-card-list li.active {
+  background: rgba(0, 86, 179, 0.06);
+  border-color: rgba(0, 86, 179, 0.15);
+  box-shadow: 0 4px 15px rgba(0, 86, 179, 0.08), 0 0 10px rgba(0, 136, 255, 0.15);
+  transform: translateX(4px);
+}
+
+.panel-card-list li strong {
+  display: block;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #0b1a30;
+  margin-bottom: 2px;
+  transition: color 0.25s ease;
+}
+
+.panel-card-list li.active strong {
+  color: #0056b3;
+}
+
+.panel-card-list li span {
+  font-size: 0.78rem;
+  color: #64748b;
+  font-weight: 400;
+}
+
+/* Marcador estilo rádio concêntrico */
+.region-marker {
+  width: 14px;
+  height: 14px;
+  border: 1.5px solid #0056b3;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  position: relative;
+  margin-top: 3px;
+  background-color: #ffffff;
+  transition: all 0.25s ease;
+}
+
+.region-marker::after {
+  content: "";
+  width: 6px;
+  height: 6px;
+  background-color: #0056b3;
+  border-radius: 50%;
+  transition: all 0.25s ease;
+}
+
+/* Ícones de Setores */
+.sectors-list li {
+  cursor: default;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 8px 12px;
+}
+
+.sectors-list li:hover {
+  background: none;
+  border-color: transparent;
+}
+
+.sectors-list li span {
+  font-size: 0.88rem;
+  color: #0b1a30;
+  font-weight: 600;
+}
+
+.sector-icon-svg {
+  width: 22px;
+  height: 22px;
+  stroke: #0056b3;
+  stroke-width: 1.8;
+  flex-shrink: 0;
+}
+
+
+/* --- Rodapé Escuro --- */
+.footer-dark-section {
+  background: #040d1a;
+  color: #ffffff;
+  padding: 80px 0 40px;
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid rgba(0, 171, 227, 0.15);
+  font-family: var(--font-primary);
+}
+
+.footer-dark-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(rgba(0, 171, 227, 0.02) 1px, transparent 1px);
+  background-size: 20px 20px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.footer-links-grid {
+  display: grid;
+  grid-template-columns: 1.5fr repeat(4, 1fr);
+  gap: 40px;
+  margin-bottom: 50px;
+  position: relative;
+  z-index: 5;
+}
+
+.footer-info-block {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.footer-info-logo {
+  height: 40px;
+  width: auto;
+  align-self: flex-start;
+}
+
+.footer-info-text {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.55);
+  margin: 0;
+}
+
+.footer-social-icons {
+  display: flex;
+  gap: 12px;
+}
+
+.footer-social-icons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.7);
+  transition: all 0.3s ease;
+}
+
+.footer-social-icons a:hover {
+  background: rgba(0, 171, 227, 0.15);
+  border-color: #00abe3;
+  color: #00abe3;
+  transform: translateY(-2px);
+}
+
+.footer-social-icons a svg {
+  width: 16px;
+  height: 16px;
+}
+
+.footer-nav-block {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.footer-nav-title {
+  font-family: var(--font-primary);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #00abe3;
+  letter-spacing: 0.1em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.footer-nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-nav-list a {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.55);
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.footer-nav-list a:hover {
+  color: #00abe3;
+  padding-left: 4px;
+}
+
+.contact-nav-block .footer-nav-list {
+  gap: 14px;
+}
+
+.contact-nav-block .footer-nav-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.5;
+}
+
+.contact-nav-block .footer-nav-list li svg {
+  width: 16px;
+  height: 16px;
+  color: #00abe3;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.contact-nav-block .footer-nav-list li a {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.contact-nav-block .footer-nav-list li a:hover {
+  color: #00abe3;
+}
+
+.presenca-bottom-bar {
+  position: relative;
+  margin-top: 60px;
+  padding-top: 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 5;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.presenca-watermark-icon {
+  height: 32px;
+  width: auto;
+  opacity: 0.15;
+  filter: brightness(1.2);
+  transition: opacity 0.3s ease;
+}
+
+.presenca-phrase-dev {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.45);
+  margin: 0;
+}
+
+/* --- Ajustes Responsividade --- */
+@media (max-width: 1200px) {
+  .presenca-light-grid {
+    grid-template-columns: 1.2fr 1.6fr;
+  }
+  .presenca-cards-column {
+    grid-column: span 2;
+  }
+  .footer-links-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
+  .footer-info-block {
+    grid-column: span 3;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 992px) {
+  .presenca-light-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .presenca-map-column {
+    order: -1;
+  }
+  .presenca-cards-column {
+    grid-column: span 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .presenca-heading {
+    font-size: 1.8rem;
+  }
+  .presenca-stats-container {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .presenca-cards-column {
+    grid-template-columns: 1fr;
+  }
+  .footer-links-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .footer-info-block {
+    grid-column: span 2;
+  }
+  .presenca-bottom-bar {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-links-grid {
+    grid-template-columns: 1fr;
+  }
+  .footer-info-block {
+    grid-column: span 1;
+  }
+}
+
+/* Suporte para preferência de movimentos reduzidos */
+@media (prefers-reduced-motion: reduce) {
+  .stat-mini-card,
+  .info-card-panel,
+  .panel-card-list li,
+  .connection-line {
+    transition: none !important;
+  }
+}
