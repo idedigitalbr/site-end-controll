@@ -11,16 +11,91 @@
   background: var(--color-bg-deep);
 }
 
-/* Imagem de Fundo */
+/* Container e Slideshow das Imagens de Fundo */
+.hero-bg-slider {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
 .hero-bg-photo {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: right top; /* Posiciona no canto superior direito */
+  object-position: center top;
   z-index: 1;
   pointer-events: none;
+  opacity: 0;
+  transform: scale(1.06);
+  transition: opacity 1.6s cubic-bezier(0.4, 0, 0.2, 1), transform 8s ease-out;
+  will-change: opacity, transform;
+}
+
+.hero-bg-photo.prev-active {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 1;
+}
+
+.hero-bg-photo.active {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 2;
+}
+
+/* Botões de Seta Ultra-Minimalistas (Apenas o Ícone de Seta Puro) */
+.hero-arrow-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 44px;
+  height: 44px;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  color: rgba(255, 255, 255, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  padding: 0;
+  outline: none;
+}
+
+.hero-arrow-btn:hover {
+  color: var(--color-cyan, #00c2ff);
+  transform: translateY(-50%) scale(1.3);
+  filter: drop-shadow(0 0 12px rgba(0, 194, 255, 0.9));
+}
+
+.hero-arrow-btn:active {
+  transform: translateY(-50%) scale(1.05);
+}
+
+.hero-arrow-prev {
+  left: 28px;
+  right: auto;
+}
+
+.hero-arrow-next {
+  right: 28px;
+}
+
+@media (max-width: 768px) {
+  .hero-arrow-prev {
+    left: 12px;
+  }
+  .hero-arrow-next {
+    right: 12px;
+  }
 }
 
 /* Overlay lateral principal — forte na esquerda, imagem limpa a partir de 65% */
