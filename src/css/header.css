@@ -1,4 +1,4 @@
-﻿.site-header {
+.site-header {
   position: fixed;
   top: 0;
   left: 0;
@@ -266,7 +266,7 @@
 
 /* Submenu Rico com Logos à Esquerda e Glow temático */
 .dropdown-rich-menu {
-  background: rgba(11, 11, 11, 0.9) !important;
+  background: rgba(11, 11, 11, 0.95) !important;
   backdrop-filter: blur(16px) !important;
   -webkit-backdrop-filter: blur(16px) !important;
   border: 1px solid rgba(255, 255, 255, 0.12) !important;
@@ -275,23 +275,46 @@
   display: flex;
   flex-direction: column;
   gap: 6px;
-  min-width: 260px !important;
+  min-width: 320px !important;
+  max-height: 500px;
+  overflow-y: auto;
   z-index: 1100 !important;
+}
+
+/* Custom Scrollbar para Submenu */
+.dropdown-rich-menu::-webkit-scrollbar {
+  width: 5px;
+}
+.dropdown-rich-menu::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+}
+.dropdown-rich-menu::-webkit-scrollbar-thumb {
+  background: #00abe3;
+  border-radius: 4px;
 }
 
 .dropdown-item-rich {
   display: flex !important;
   align-items: center;
   gap: 12px;
-  padding: 8px 12px !important;
+  padding: 8px 14px !important;
   background: rgba(255, 255, 255, 0.03) !important;
   border: 1px solid rgba(255, 255, 255, 0.05) !important;
   border-radius: 999px !important;
   color: rgba(255, 255, 255, 0.85) !important;
   text-decoration: none;
-  font-weight: 700 !important;
-  font-size: 0.88rem !important;
+  font-weight: 600 !important;
+  font-size: 0.86rem !important;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.dropdown-item-rich:hover {
+  background: rgba(0, 171, 227, 0.12) !important;
+  border-color: #00abe3 !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 15px rgba(0, 171, 227, 0.35) !important;
+  transform: translateX(3px);
 }
 
 .dropdown-item-logo {
@@ -301,10 +324,17 @@
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background: #ffffff;
+  background: rgba(0, 171, 227, 0.12);
+  color: #00abe3;
   padding: 3px;
   flex-shrink: 0;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.dropdown-item-rich:hover .dropdown-item-logo {
+  background: rgba(0, 171, 227, 0.25);
+  transform: scale(1.08);
 }
 
 .dropdown-item-logo img {
@@ -315,6 +345,7 @@
 
 .dropdown-item-text {
   flex-grow: 1;
+  white-space: nowrap;
 }
 
 /* Efeito Glow Temático de Hover por marca */

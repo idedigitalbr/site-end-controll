@@ -34,12 +34,17 @@
   --container-padding-tablet: 40px;
   --container-padding-mobile: 22px;
 
-  /* Cores de apoio vindas das fotografias */
+  /* Cores de apoio vindas das fotografias e Identidade Visual */
   --color-industrial-copper: #994E35;
   --color-industrial-orange: #C57049;
   --color-metal-gray: #67768C;
   --color-logo-slate: #68A1AF;
   --color-logo-slate-rgb: 104, 161, 175;
+
+  /* Identidade Visual EndControl (Cores de apoio) */
+  --color-azul-fraco: #67a8b8;
+  --color-cinza-forte: #9ac3cd;
+  --color-cinza-fraco: #cce6ed;
 
   /* Mapeamento de compatibilidade com variáveis antigas */
   --black: var(--color-bg-deep);

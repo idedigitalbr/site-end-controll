@@ -233,10 +233,10 @@ p {
 
 .testimonials-section-premium {
   position: relative;
-  background: #060b1e url('../../assets/Paginas Imgs/HOME/S4 DEPOIMENTOS/bg-MEDIO-azul-v2-depoimentos.webp') no-repeat center center / cover !important;
+  background: var(--color-cinza-forte, #9ac3cd) !important;
   padding: 90px 0;
   overflow: hidden;
-  color: #fff !important;
+  color: #071429 !important;
   border-radius: 28px !important;
   margin: 0 0 -28px !important;
   width: 100% !important;
@@ -319,9 +319,9 @@ p {
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  border: 1.5px solid #0062e3 !important;
-  background: rgba(6, 11, 30, 0.6) !important;
-  color: #ffffff !important;
+  border: 1.5px solid #071429 !important;
+  background: #ffffff !important;
+  color: #071429 !important;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   display: flex;
@@ -330,7 +330,7 @@ p {
   cursor: pointer;
   transition: all 0.3s ease;
   padding: 0;
-  box-shadow: 0 0 15px rgba(0, 98, 227, 0.3);
+  box-shadow: 0 4px 16px rgba(7, 20, 41, 0.18);
 }
 
 .testimonials-prev-btn {
@@ -343,10 +343,10 @@ p {
 
 .testimonials-prev-btn:hover,
 .testimonials-next-btn:hover {
-  background: #0062e3 !important;
+  background: #071429 !important;
   color: #ffffff !important;
-  border-color: #00d2ff !important;
-  box-shadow: 0 0 20px rgba(0, 210, 255, 0.6);
+  border-color: #071429 !important;
+  box-shadow: 0 0 18px rgba(7, 20, 41, 0.4);
   transform: translateY(-50%) scale(1.05);
 }
 
@@ -498,10 +498,10 @@ p {
   font-size: 0.75rem;
   font-weight: 800;
   letter-spacing: 0.15em;
-  color: #ffffff !important;
-  background: rgba(6, 11, 30, 0.6) !important;
-  border: 1px solid rgba(0, 98, 227, 0.5) !important;
-  box-shadow: 0 0 10px rgba(0, 98, 227, 0.3) !important;
+  color: #071429 !important;
+  background: rgba(255, 255, 255, 0.45) !important;
+  border: 1px solid rgba(7, 20, 41, 0.2) !important;
+  box-shadow: 0 2px 8px rgba(7, 20, 41, 0.08) !important;
   padding: 8px 18px;
   border-radius: 999px;
   margin-bottom: 24px;
@@ -512,10 +512,10 @@ p {
 .testimonial-badge-kicker .badge-dot {
   width: 6px;
   height: 6px;
-  background-color: #00d2ff;
+  background-color: #071429;
   border-radius: 50%;
   display: inline-block;
-  box-shadow: 0 0 8px #00d2ff;
+  box-shadow: 0 0 6px rgba(7, 20, 41, 0.4);
 }
 
 .testimonials-heading {
@@ -523,18 +523,18 @@ p {
   font-weight: 900;
   line-height: 1.08;
   letter-spacing: -0.04em;
-  color: #ffffff !important;
+  color: #071429 !important;
   margin-bottom: 16px;
 }
 
 .testimonials-heading .highlight-red {
-  color: #00abe3 !important;
+  color: #00399f !important;
 }
 
 .testimonials-divider {
   width: 150px;
   height: 3px;
-  background: linear-gradient(90deg, #00d2ff, #0062e3, transparent) !important;
+  background: linear-gradient(90deg, #071429, #67a8b8, transparent) !important;
   margin-bottom: 24px;
   border-radius: 2px;
 }
@@ -546,9 +546,10 @@ p {
 
 .testimonials-subheading {
   font-size: 1.1rem;
-  color: rgba(255, 255, 255, 0.7) !important;
+  color: #1e2f3d !important;
   line-height: 1.5;
   margin: 0;
+  font-weight: 500;
 }
 
 /* Cards de Depoimento Premium (Preto Translúcido) */
@@ -3620,8 +3621,8 @@ textarea.form-control {
   margin: 0 !important;
   border-radius: 0 0 28px 28px !important;
   box-shadow: none !important;
-  background: #020818;
-  color: #fff;
+  background: var(--color-cinza-fraco, #cce6ed) !important;
+  color: #071429;
   padding: 100px 0;
   overflow: hidden;
 }
@@ -3647,22 +3648,21 @@ textarea.form-control {
   border-radius: 24px;
   overflow: hidden;
   min-height: 320px;
-  background: #020b24; /* Deep navy blue matching the print */
-  border: 1.5px solid #005ae0; /* Neon blue border */
+  background: #071429;
+  border: 1.5px solid #67a8b8;
   box-shadow: 
-    0 0 18px rgba(0, 98, 227, 0.3),
-    inset 0 0 12px rgba(0, 98, 227, 0.15),
-    0 20px 50px rgba(0, 0, 0, 0.5);
+    0 14px 40px rgba(7, 20, 41, 0.18),
+    inset 0 0 12px rgba(103, 168, 184, 0.15);
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease, box-shadow 0.4s ease;
 }
 
 .oportunidades-card:hover {
   transform: translateY(-6px);
-  border-color: #00abe3; /* Neon cyan on hover */
+  border-color: #0056b3;
   box-shadow: 
-    0 0 25px rgba(0, 171, 227, 0.55),
-    inset 0 0 15px rgba(0, 171, 227, 0.25),
-    0 24px 60px rgba(0, 0, 0, 0.6);
+    0 0 25px rgba(7, 20, 41, 0.35),
+    inset 0 0 15px rgba(103, 168, 184, 0.25),
+    0 20px 45px rgba(7, 20, 41, 0.25);
 }
 
 /* Photo background */
@@ -3680,18 +3680,18 @@ textarea.form-control {
   transform: scale(1.03);
 }
 
-/* Horizontal dark blue gradient overlay */
+/* Horizontal dark gradient overlay */
 .oportunidades-card-overlay {
   position: absolute;
   inset: 0;
   z-index: 1;
   background: linear-gradient(
     to right,
-    rgba(2, 11, 36, 0.98) 0%,
-    rgba(2, 11, 36, 0.95) 30%,
-    rgba(2, 11, 36, 0.82) 55%,
-    rgba(2, 11, 36, 0.35) 78%,
-    rgba(2, 11, 36, 0.12) 100%
+    rgba(7, 20, 41, 0.98) 0%,
+    rgba(7, 20, 41, 0.94) 35%,
+    rgba(7, 20, 41, 0.82) 60%,
+    rgba(7, 20, 41, 0.35) 82%,
+    rgba(7, 20, 41, 0.12) 100%
   );
   pointer-events: none;
 }

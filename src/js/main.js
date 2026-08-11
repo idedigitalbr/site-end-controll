@@ -1296,6 +1296,113 @@
   }
 
   /* ===================================================================
+     Hero Background Photo Slideshow (Arrow Navigation + Auto-Play)
+     =================================================================== */
+  function initHeroSlider() {
+    var sliderContainer = document.querySelector('.hero-bg-slider');
+    if (!sliderContainer) return;
+
+    var photos = sliderContainer.querySelectorAll('.hero-bg-photo');
+    if (photos.length < 2) return;
+
+    var prevBtn = document.getElementById('heroArrowPrev');
+    var nextBtn = document.getElementById('heroArrowNext');
+
+    var currentIndex = 0;
+    var slideInterval = null;
+    var transitionTimeout = null;
+    var INTERVAL_TIME = 5000; // 5 segundos por fotografia
+
+    // Pre-carregar imagens para transição fluida
+    photos.forEach(function (img) {
+      if (img.src) {
+        var temp = new Image();
+        temp.src = img.src;
+      }
+    });
+
+    function goToSlide(index) {
+      if (index === currentIndex) return;
+      var prevPhoto = photos[currentIndex];
+      currentIndex = (index + photos.length) % photos.length;
+      var nextPhoto = photos[currentIndex];
+
+      if (transitionTimeout) {
+        clearTimeout(transitionTimeout);
+      }
+
+      // Garante limpeza prévia de prev-active
+      photos.forEach(function (p) {
+        p.classList.remove('prev-active');
+      });
+
+      // Foto anterior mantida visível por baixo durante a transição
+      prevPhoto.classList.remove('active');
+      prevPhoto.classList.add('prev-active');
+
+      // Nova foto entra por cima com fade suave
+      nextPhoto.classList.add('active');
+
+      // Remove prev-active após a transição de 1.6s
+      transitionTimeout = setTimeout(function () {
+        prevPhoto.classList.remove('prev-active');
+      }, 1600);
+    }
+
+    function nextSlide() {
+      goToSlide(currentIndex + 1);
+    }
+
+    function prevSlide() {
+      goToSlide(currentIndex - 1);
+    }
+
+    function startTimer() {
+      stopTimer();
+      slideInterval = setInterval(nextSlide, INTERVAL_TIME);
+    }
+
+    function stopTimer() {
+      if (slideInterval) {
+        clearInterval(slideInterval);
+        slideInterval = null;
+      }
+    }
+
+    function resetTimer() {
+      startTimer();
+    }
+
+    // Eventos Exclusivos dos Botões de Seta
+    if (prevBtn) {
+      prevBtn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        prevSlide();
+        resetTimer();
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        nextSlide();
+        resetTimer();
+      });
+    }
+
+    // Pausar transição quando a aba estiver em segundo plano para economia de memória
+    document.addEventListener('visibilitychange', function () {
+      if (document.hidden) {
+        stopTimer();
+      } else {
+        startTimer();
+      }
+    });
+
+    startTimer();
+  }
+
+  /* ===================================================================
      Bootstrap
      =================================================================== */
   document.addEventListener('DOMContentLoaded', function () {
@@ -1310,5 +1417,6 @@
     initTestimonialsCarousel();
     initTrajetoriaTimeline();
     initMobileScrollHighlights();
+    initHeroSlider();
   });
 })();
