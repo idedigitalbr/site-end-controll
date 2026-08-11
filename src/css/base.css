@@ -1,0 +1,150 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-primary) !important;
+}
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+html.modal-open {
+  overflow: hidden !important;
+  height: 100% !important;
+}
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-primary);
+  overflow-x: hidden;
+}
+body.modal-open {
+  overflow: hidden !important;
+  height: 100% !important;
+  position: relative !important;
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+.container {
+  width: min(1180px, calc(100% - 80px));
+  margin: 0 auto;
+}
+.section {
+  position: relative;
+  padding: 96px 0;
+  scroll-margin-top: 30px;
+}
+
+/* Accessibility Utilities */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* ==========================================================================
+   Configuração Padrão de Botões (ENDCONTROL)
+   ========================================================================== */
+
+/* 1. Botão Preenchido (Anexo 2): Azul Sólido, Compacto, Cantos Arredondados (12px), Sombra Azul */
+.btn.primary,
+.btn-primary,
+.btn-primary-blue,
+.btn-filled,
+.btn-contacts-menu,
+.btn-card-primary {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 10px !important;
+  min-height: 46px !important;
+  height: 46px !important;
+  padding: 0 24px !important;
+  border-radius: 12px !important; /* Cantos arredondados (Anexo 1) */
+  border: 1.5px solid transparent !important;
+  font-family: var(--font-primary) !important;
+  font-weight: 700 !important;
+  font-size: 15px !important;
+  color: #ffffff !important;
+  background: var(--color-primary) !important; /* Azul Preenchido */
+  box-shadow: 0 4px 15px rgba(0, 156, 255, 0.25) !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  cursor: pointer !important;
+  text-decoration: none !important;
+}
+
+.btn.primary:hover,
+.btn-primary:hover,
+.btn-primary-blue:hover,
+.btn-filled:hover,
+.btn-contacts-menu:hover,
+.btn-card-primary:hover {
+  background: #0056b3 !important;
+  box-shadow: 0 6px 20px rgba(0, 156, 255, 0.45) !important;
+  transform: translateY(-2px) !important;
+  color: #ffffff !important;
+}
+
+/* 2. Botão Vazado (Anexo 1): Borda Ciano, Transparente, Compacto, Cantos Arredondados (12px), Glow Neon */
+.btn.secondary,
+.btn-secondary,
+.btn-outline,
+.btn-outline-white,
+.oportunidades-card-btn,
+.btn-card-secondary {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 10px !important;
+  min-height: 46px !important;
+  height: 46px !important;
+  padding: 0 24px !important;
+  border-radius: 12px !important; /* Cantos arredondados (Anexo 1) */
+  border: 1.5px solid var(--color-cyan) !important; /* Borda Ciano */
+  font-family: var(--font-primary) !important;
+  font-weight: 700 !important;
+  font-size: 15px !important;
+  color: #ffffff !important;
+  background: transparent !important; /* Vazado */
+  box-shadow: 0 0 10px rgba(0, 194, 255, 0.35), inset 0 0 6px rgba(0, 194, 255, 0.15) !important; /* Glow Neon Ciano */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  cursor: pointer !important;
+  text-decoration: none !important;
+}
+
+.btn.secondary:hover,
+.btn-secondary:hover,
+.btn-outline:hover,
+.btn-outline-white:hover,
+.oportunidades-card-btn:hover,
+.btn-card-secondary:hover {
+  background: rgba(0, 194, 255, 0.08) !important;
+  border-color: var(--color-primary-light) !important;
+  box-shadow: 0 0 18px rgba(0, 194, 255, 0.65), inset 0 0 10px rgba(0, 194, 255, 0.3) !important; /* Glow Neon Intensificado */
+  transform: translateY(-2px) !important;
+  color: #ffffff !important;
+}
+
+/* Forçar cores de texto brancas para os botões nas marcas */
+.theme-plaza .btn-card-primary,
+.theme-wine .btn-card-primary,
+.theme-super .btn-card-primary,
+.theme-farma .btn-card-primary,
+.theme-park .btn-card-primary {
+  color: #ffffff !important;
+}
+

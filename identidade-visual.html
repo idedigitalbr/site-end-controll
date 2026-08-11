@@ -1,0 +1,1630 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Central de Identidade Visual | ENDCONTROL Engenharia</title>
+  <meta name="description" content="Manual interativo para comparativo das identidades visuais: Atual (+B), Proposta (ENDCONTROL) e Referência." />
+  
+  <link rel="icon" type="image/webp" href="./assets/Logos/icon-endcontrol.webp" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  
+  <!-- Script de Fallback Automático de Imagens e Vídeos -->
+  <script>
+    document.addEventListener('error', function(event) {
+      const target = event.target;
+      const tagName = target.tagName.toLowerCase();
+      
+      if (tagName === 'img' || tagName === 'video' || tagName === 'source') {
+        const element = target;
+        let fallbackCount = parseInt(element.getAttribute('data-fallback-count') || '0', 10);
+        const srcUrl = element.getAttribute('src') || element.getAttribute('srcset');
+        if (!srcUrl) return;
+        
+        let assetPath = '';
+        if (srcUrl.includes('/assets/')) {
+          assetPath = 'assets/' + srcUrl.split('/assets/')[1];
+        } else if (srcUrl.includes('assets/')) {
+          assetPath = 'assets/' + srcUrl.split('assets/')[1];
+        } else {
+          return;
+        }
+        
+        // Priorizar o caminho local (./assets) para carregar offline da própria pasta do projeto
+        const fallbacks = [
+          './' + assetPath,                      // 1º Fallback: Local relativo
+          'https://endcontrol.com.br/' + assetPath // 2º Fallback: Servidor de produção online
+        ];
+        
+        if (fallbackCount < fallbacks.length) {
+          const nextFallback = fallbacks[fallbackCount];
+          element.setAttribute('data-fallback-count', fallbackCount + 1);
+          
+          if (tagName === 'source') {
+            element.setAttribute('srcset', nextFallback);
+            const videoParent = element.parentNode;
+            if (videoParent && videoParent.tagName.toLowerCase() === 'video') {
+              videoParent.load();
+              if (videoParent.hasAttribute('autoplay')) {
+                videoParent.play().catch(function() {});
+              }
+            }
+          } else {
+            element.setAttribute('src', nextFallback);
+            if (tagName === 'video') {
+              element.load();
+              if (element.hasAttribute('autoplay')) {
+                element.play().catch(function() {});
+              }
+            }
+          }
+        }
+      }
+    }, true);
+
+    // Corrigir Background Images do CSS quando aberto localmente
+    window.addEventListener('DOMContentLoaded', function() {
+      if (window.location.protocol === 'file:') {
+        for (let i = 0; i < document.styleSheets.length; i++) {
+          try {
+            const sheet = document.styleSheets[i];
+            const rules = sheet.cssRules || sheet.rules;
+            if (!rules) continue;
+            for (let j = 0; j < rules.length; j++) {
+              const rule = rules[j];
+              if (rule.style && rule.style.backgroundImage) {
+                const bg = rule.style.backgroundImage;
+                if (bg && bg.includes('/assets/')) {
+                  const parts = bg.split('/assets/');
+                  const assetPath = 'assets/' + parts[1].replace(/['"\)]/g, '');
+                  rule.style.backgroundImage = "url('./" + assetPath + "')";
+                } else if (bg && bg.includes('assets/') && !bg.includes('./assets/') && !bg.includes('../assets/')) {
+                  const parts = bg.split('assets/');
+                  const assetPath = 'assets/' + parts[1].replace(/['"\)]/g, '');
+                  rule.style.backgroundImage = "url('./" + assetPath + "')";
+                }
+              }
+            }
+          } catch (e) {
+            // Ignorar erros de cross-origin
+          }
+        }
+      }
+    });
+  </script>
+
+  <style>
+    :root {
+      /* Estilos Gerais do Guia */
+      --guide-bg: #080c14;
+      --guide-card: #161f2c;
+      --guide-cyan: #00abe3;
+      --guide-slate: #68a1af;
+      --guide-white: #ffffff;
+      --guide-border: rgba(104, 161, 175, 0.15);
+      
+      /* Cores ENDCONTROL */
+      --ec-yellow: #FFC400;
+      --ec-red: #F20D18;
+      --ec-cyan: #00abe3;
+      --ec-slate: #68a1af;
+      
+      /* Cores Referência (Apresentação 2026) */
+      --ref-blue-royal: #0062e3;
+      --ref-cyan-electric: #00abe3;
+      --ref-bg-dark: #0a1128;
+      --ref-bg-light: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--guide-bg);
+      color: var(--guide-white);
+      font-family: 'Arimo', sans-serif;
+      line-height: 1.6;
+      padding: 40px 20px;
+    }
+
+    .guide-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .logo-container {
+      margin-bottom: 20px;
+    }
+
+    .logo-img {
+      max-width: 250px;
+      height: auto;
+    }
+
+    h1 {
+      font-family: 'Roboto Condensed', sans-serif;
+      font-size: 2.3rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+
+    .subtitle {
+      color: var(--guide-slate);
+      font-size: 1.1rem;
+      margin-top: 5px;
+    }
+
+    /* Sistema de Abas (Tabs) */
+    .tabs-nav {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 45px;
+      border-bottom: 1px solid var(--guide-border);
+      padding-bottom: 15px;
+      flex-wrap: wrap;
+    }
+
+    .tab-btn {
+      background: transparent;
+      border: 1px solid var(--guide-border);
+      color: var(--guide-slate);
+      padding: 12px 24px;
+      border-radius: 30px;
+      font-family: 'Roboto Condensed', sans-serif;
+      font-weight: bold;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .tab-btn:hover {
+      color: var(--guide-white);
+      border-color: var(--guide-slate);
+    }
+
+    .tab-btn.active {
+      color: var(--guide-bg);
+      background: var(--guide-cyan);
+      border-color: var(--guide-cyan);
+      box-shadow: 0 0 15px rgba(0, 171, 227, 0.4);
+    }
+
+    /* Conteúdo das Abas */
+    .tab-content {
+      display: none;
+      animation: fadeIn 0.4s ease forwards;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    section {
+      background: var(--guide-card);
+      border: 1px solid var(--guide-border);
+      border-radius: 16px;
+      padding: 30px;
+      margin-bottom: 40px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    h2 {
+      font-family: 'Roboto Condensed', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 25px;
+      border-bottom: 2px solid var(--guide-border);
+      padding-bottom: 10px;
+      color: var(--guide-cyan);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .tab-atual h2 { color: #ffd000; }
+    .tab-ref h2 { color: #a855f7; }
+
+    /* Paleta Padronizada */
+    .palette-list {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-bottom: 30px;
+    }
+
+    .palette-item {
+      display: flex;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.2);
+      border: 1px solid var(--guide-border);
+      border-radius: 10px;
+      padding: 12px 20px;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .palette-label {
+      font-family: 'Roboto Condensed', sans-serif;
+      font-weight: bold;
+      width: 250px;
+      color: var(--guide-slate);
+    }
+
+    .tab-atual .palette-label { color: #ffe066; }
+    .tab-ref .palette-label { color: #c084fc; }
+
+    .palette-swatch-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      flex: 1;
+      min-width: 280px;
+    }
+
+    .palette-swatch {
+      width: 45px;
+      height: 45px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      flex-shrink: 0;
+    }
+
+    .palette-hex {
+      font-family: monospace;
+      font-size: 1.05rem;
+      font-weight: bold;
+    }
+
+    .palette-desc {
+      font-size: 0.9rem;
+      color: #a3b8cc;
+    }
+
+    /* Tipografia Padronizada */
+    .typo-spec-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+
+    .typo-spec-table th, .typo-spec-table td {
+      padding: 12px 15px;
+      text-align: left;
+      border-bottom: 1px solid var(--guide-border);
+    }
+
+    .typo-spec-table th {
+      font-family: 'Roboto Condensed', sans-serif;
+      color: var(--guide-slate);
+      text-transform: uppercase;
+      font-size: 0.9rem;
+    }
+
+    .typo-spec-table td strong {
+      color: var(--guide-cyan);
+    }
+
+    .tab-atual .typo-spec-table td strong {
+      color: #ffd000;
+    }
+    
+    .tab-ref .typo-spec-table td strong {
+      color: #a855f7;
+    }
+
+    /* Seções de Exemplo (Preview Igual ao Site Real) */
+    .preview-container {
+      margin-top: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    .preview-block {
+      border-radius: 16px;
+      border: 1px solid var(--guide-border);
+      overflow: hidden;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    .preview-header-bar {
+      background: rgba(0, 0, 0, 0.4);
+      padding: 12px 20px;
+      font-family: 'Roboto Condensed', sans-serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.5px;
+      color: var(--guide-slate);
+      border-bottom: 1px solid var(--guide-border);
+    }
+
+    .preview-content-split {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      padding: 60px 40px;
+      gap: 50px;
+      align-items: center;
+      position: relative;
+    }
+
+    @media (max-width: 950px) {
+      .preview-content-split {
+        grid-template-columns: 1fr;
+        padding: 40px 20px;
+        gap: 40px;
+      }
+    }
+
+    .preview-text-col {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
+    }
+
+    /* Dotted background pattern */
+    .dotted-bg-dark {
+      background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1.5px, transparent 1.5px);
+      background-size: 24px 24px;
+    }
+
+    .dotted-bg-light {
+      background-image: radial-gradient(rgba(0, 0, 0, 0.06) 1.5px, transparent 1.5px);
+      background-size: 24px 24px;
+    }
+
+    /* Tags / Pills */
+    .pill-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 18px;
+      border-radius: 30px;
+      font-family: 'Roboto Condensed', sans-serif;
+      font-weight: bold;
+      font-size: 0.85rem;
+      letter-spacing: 0.5px;
+    }
+
+    .pill-icon {
+      width: 14px;
+      height: 14px;
+      stroke-width: 2.5;
+    }
+
+    /* Headings */
+    .real-title {
+      font-family: 'Roboto Condensed', sans-serif;
+      font-size: 2.7rem;
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+    }
+
+    .accent-bar {
+      width: 60px;
+      height: 3px;
+      border-radius: 2px;
+    }
+
+    .real-paragraph {
+      font-family: 'Arimo', sans-serif;
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+
+    /* Buttons */
+    .btn-real {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 32px;
+      border-radius: 30px;
+      font-family: 'Roboto Condensed', sans-serif;
+      font-weight: bold;
+      font-size: 0.95rem;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    /* Right side frame & glow */
+    .right-frame-wrapper {
+      position: relative;
+      width: 100%;
+    }
+
+    .right-media-card {
+      width: 100%;
+      height: 300px;
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: #111;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .right-media-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Play button overlay */
+    .play-overlay-btn {
+      width: 65px;
+      height: 65px;
+      background: #ffffff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      position: absolute;
+      z-index: 2;
+    }
+
+    .play-icon-svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    /* Floating Overlap Card */
+    .floating-overlap-card {
+      position: absolute;
+      bottom: -15px;
+      right: -15px;
+      width: 320px;
+      padding: 18px;
+      border-radius: 12px;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      z-index: 3;
+    }
+
+    @media (max-width: 600px) {
+      .floating-overlap-card {
+        position: relative;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        margin-top: 15px;
+      }
+    }
+
+    .floating-card-icon-wrapper {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .floating-card-text-wrapper {
+      font-size: 0.88rem;
+      line-height: 1.4;
+      font-family: 'Arimo', sans-serif;
+    }
+
+    /* ==========================================
+       ESTILOS ESPECÍFICOS - ABA 1 (+B ATUAL)
+       ========================================== */
+    /* Dark Mode +B */
+    .preview-plusb-dark {
+      background-color: #050505;
+      color: #ffffff;
+    }
+    .preview-plusb-dark .pill-tag {
+      background: #FFC400;
+      color: #000000;
+    }
+    .preview-plusb-dark .real-title span {
+      color: #F20D18;
+    }
+    .preview-plusb-dark .accent-bar {
+      background: #FFC400;
+    }
+    .preview-plusb-dark .real-paragraph {
+      color: #cccccc;
+    }
+    .preview-plusb-dark .btn-real {
+      background: #FFC400;
+      color: #000000;
+    }
+    .preview-plusb-dark .right-media-card {
+      box-shadow: 0 0 35px rgba(255, 196, 0, 0.25);
+    }
+    .preview-plusb-dark .floating-overlap-card {
+      background: rgba(10, 10, 10, 0.9);
+      backdrop-filter: blur(10px);
+    }
+    .preview-plusb-dark .floating-card-icon-wrapper {
+      background: rgba(255, 196, 0, 0.1);
+      color: #FFC400;
+    }
+    .preview-plusb-dark .floating-card-text-wrapper {
+      color: #ffffff;
+    }
+    .preview-plusb-dark .floating-card-text-wrapper span {
+      color: #FFC400;
+      font-weight: bold;
+    }
+
+    /* Light Mode +B */
+    .preview-plusb-light {
+      background-color: #fffaf0;
+      color: #1a1a1a;
+    }
+    .preview-plusb-light .pill-tag {
+      background: transparent;
+      border: 1px solid #FFC400;
+      color: #c99300;
+    }
+    .preview-plusb-light .real-title span {
+      color: #F20D18;
+    }
+    .preview-plusb-light .accent-bar {
+      background: #FFC400;
+    }
+    .preview-plusb-light .real-paragraph {
+      color: #444444;
+    }
+    .preview-plusb-light .btn-real {
+      background: #FFC400;
+      color: #000000;
+    }
+    .preview-plusb-light .right-media-card {
+      box-shadow: 0 10px 30px rgba(255, 196, 0, 0.15);
+    }
+    .preview-plusb-light .floating-overlap-card {
+      background: rgba(255, 255, 255, 0.95);
+      border-color: rgba(255, 196, 0, 0.2);
+    }
+    .preview-plusb-light .floating-card-icon-wrapper {
+      background: rgba(255, 196, 0, 0.1);
+      color: #FFC400;
+    }
+    .preview-plusb-light .floating-card-text-wrapper {
+      color: #1a1a1a;
+    }
+    .preview-plusb-light .floating-card-text-wrapper span {
+      color: #c99300;
+      font-weight: bold;
+    }
+
+    /* ==========================================
+       ESTILOS ESPECÍFICOS - ABA 2 (ENDCONTROL PROPOSTA)
+       ========================================== */
+    /* Dark Mode ENDCONTROL */
+    .preview-ec-dark {
+      background-color: #080c14;
+      color: #ffffff;
+    }
+    .preview-ec-dark .pill-tag {
+      background: transparent;
+      border: 1px solid #00abe3;
+      color: #00abe3;
+    }
+    .preview-ec-dark .real-title span {
+      color: #00abe3;
+    }
+    .preview-ec-dark .accent-bar {
+      background: #00abe3;
+    }
+    .preview-ec-dark .real-paragraph {
+      color: #a3b8cc;
+    }
+    .preview-ec-dark .btn-real {
+      background: #00abe3;
+      color: #080c14;
+    }
+    .preview-ec-dark .btn-real:hover {
+      background: #00befc;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0, 171, 227, 0.3);
+    }
+    .preview-ec-dark .right-media-card {
+      box-shadow: 0 0 35px rgba(0, 171, 227, 0.25);
+      border-color: rgba(0, 171, 227, 0.3);
+    }
+    .preview-ec-dark .floating-overlap-card {
+      background: rgba(22, 31, 44, 0.9);
+      backdrop-filter: blur(10px);
+      border-color: rgba(0, 171, 227, 0.2);
+    }
+    .preview-ec-dark .floating-card-icon-wrapper {
+      background: rgba(0, 171, 227, 0.1);
+      color: #00abe3;
+    }
+    .preview-ec-dark .floating-card-text-wrapper {
+      color: #ffffff;
+    }
+    .preview-ec-dark .floating-card-text-wrapper span {
+      color: #00abe3;
+      font-weight: bold;
+    }
+
+    /* Light Mode ENDCONTROL */
+    .preview-ec-light {
+      background-color: #fffaf0;
+      color: #080c14;
+    }
+    .preview-ec-light .pill-tag {
+      background: transparent;
+      border: 1px solid #00abe3;
+      color: #00abe3;
+    }
+    .preview-ec-light .real-title span {
+      color: #00abe3;
+    }
+    .preview-ec-light .accent-bar {
+      background: #00abe3;
+    }
+    .preview-ec-light .real-paragraph {
+      color: #4b6b75;
+    }
+    .preview-ec-light .btn-real {
+      background: #00abe3;
+      color: #080c14;
+    }
+    .preview-ec-light .btn-real:hover {
+      background: #00befc;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0, 171, 227, 0.3);
+    }
+    .preview-ec-light .right-media-card {
+      box-shadow: 0 10px 30px rgba(0, 171, 227, 0.15);
+      border-color: rgba(0, 171, 227, 0.3);
+    }
+    .preview-ec-light .floating-overlap-card {
+      background: rgba(255, 255, 255, 0.95);
+      border-color: rgba(0, 171, 227, 0.2);
+    }
+    .preview-ec-light .floating-card-icon-wrapper {
+      background: rgba(0, 171, 227, 0.1);
+      color: #00abe3;
+    }
+    .preview-ec-light .floating-card-text-wrapper {
+      color: #080c14;
+    }
+    .preview-ec-light .floating-card-text-wrapper span {
+      color: #00abe3;
+      font-weight: bold;
+    }
+
+    /* ==========================================
+       ESTILOS ESPECÍFICOS - ABA 3 (REFERÊNCIA DE DESIGN)
+       ========================================== */
+    /* Dark Mode REFERÊNCIA */
+    .preview-ref-dark {
+      background-color: var(--ref-bg-dark);
+      color: #ffffff;
+    }
+    .preview-ref-dark .pill-tag {
+      background: transparent;
+      border: 1px solid var(--ref-cyan-electric);
+      color: var(--ref-cyan-electric);
+    }
+    .preview-ref-dark .real-title span {
+      color: var(--ref-cyan-electric);
+    }
+    .preview-ref-dark .accent-bar {
+      background: var(--ref-cyan-electric);
+    }
+    .preview-ref-dark .real-paragraph {
+      color: #a3b8cc;
+    }
+    .preview-ref-dark .btn-real {
+      background: var(--ref-blue-royal);
+      color: #ffffff;
+      box-shadow: 0 4px 15px rgba(0, 98, 227, 0.3);
+    }
+    .preview-ref-dark .btn-real:hover {
+      background: #0050b8;
+      transform: translateY(-2px);
+    }
+    .preview-ref-dark .right-media-card {
+      box-shadow: 0 0 35px rgba(0, 98, 227, 0.2);
+      border-color: rgba(0, 98, 227, 0.3);
+    }
+    .preview-ref-dark .floating-overlap-card {
+      background: rgba(14, 22, 38, 0.95);
+      border-color: rgba(0, 171, 227, 0.3);
+    }
+    .preview-ref-dark .floating-card-icon-wrapper {
+      background: rgba(0, 171, 227, 0.1);
+      color: var(--ref-cyan-electric);
+    }
+    .preview-ref-dark .floating-card-text-wrapper {
+      color: #ffffff;
+    }
+    .preview-ref-dark .floating-card-text-wrapper span {
+      color: var(--ref-cyan-electric);
+      font-weight: bold;
+    }
+
+    /* Light Mode REFERÊNCIA */
+    .preview-ref-light {
+      background-color: var(--ref-bg-light);
+      color: #06103c;
+    }
+    .preview-ref-light .pill-tag {
+      background: transparent;
+      border: 1px solid var(--ref-blue-royal);
+      color: var(--ref-blue-royal);
+    }
+    .preview-ref-light .real-title span {
+      color: var(--ref-blue-royal);
+    }
+    .preview-ref-light .accent-bar {
+      background: var(--ref-blue-royal);
+    }
+    .preview-ref-light .real-paragraph {
+      color: #4b5a75;
+    }
+    .preview-ref-light .btn-real {
+      background: var(--ref-blue-royal);
+      color: #ffffff;
+      box-shadow: 0 4px 15px rgba(0, 98, 227, 0.3);
+    }
+    .preview-ref-light .btn-real:hover {
+      background: #0050b8;
+      transform: translateY(-2px);
+    }
+    .preview-ref-light .right-media-card {
+      box-shadow: 0 10px 30px rgba(0, 98, 227, 0.15);
+      border-color: rgba(0, 98, 227, 0.2);
+    }
+    .preview-ref-light .floating-overlap-card {
+      background: rgba(255, 255, 255, 0.95);
+      border-color: rgba(0, 98, 227, 0.2);
+    }
+    .preview-ref-light .floating-card-icon-wrapper {
+      background: rgba(0, 98, 227, 0.1);
+      color: var(--ref-blue-royal);
+    }
+    .preview-ref-light .floating-card-text-wrapper {
+      color: #06103c;
+    }
+    .preview-ref-light .floating-card-text-wrapper span {
+      color: var(--ref-blue-royal);
+      font-weight: bold;
+    }
+
+    /* Elementos da Galeria do Portfólio */
+    .tab-ref h2 {
+      color: #a855f7;
+    }
+
+    .slide-viewer-box {
+      background: #0d121d;
+      border: 1px solid rgba(168, 85, 247, 0.2);
+      border-radius: 16px;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    .viewer-desc {
+      color: var(--guide-slate);
+      font-size: 1rem;
+      border-left: 3px solid #a855f7;
+      padding-left: 15px;
+    }
+
+    .slide-stage {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #000;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .slide-stage img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transition: opacity 0.3s ease;
+    }
+
+    /* Controles de slide */
+    .slide-control {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 55px;
+      height: 55px;
+      background: rgba(13, 18, 29, 0.85);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(168, 85, 247, 0.3);
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      z-index: 10;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .slide-control:hover {
+      background: #a855f7;
+      border-color: #a855f7;
+      color: #000;
+      box-shadow: 0 0 15px rgba(168, 85, 247, 0.5);
+    }
+
+    .control-prev { left: 20px; }
+    .control-next { right: 20px; }
+
+    .control-icon {
+      width: 24px;
+      height: 24px;
+      stroke-width: 2.5;
+    }
+
+    /* Barra de informações do Slide */
+    .slide-info-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 10px;
+      font-family: 'Roboto Condensed', sans-serif;
+      font-weight: bold;
+      color: var(--guide-slate);
+    }
+
+    .slide-counter {
+      font-size: 1.1rem;
+      color: #fff;
+    }
+
+    .slide-badge {
+      background: rgba(168, 85, 247, 0.15);
+      color: #c084fc;
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      border: 1px solid rgba(168, 85, 247, 0.3);
+    }
+
+    /* Thumbnail Carousel (Horizontal Scroll) */
+    .thumb-tray-container {
+      width: 100%;
+      overflow-x: auto;
+      padding: 10px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      scrollbar-width: thin;
+      scrollbar-color: #a855f7 rgba(0, 0, 0, 0.2);
+    }
+
+    .thumb-tray-container::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    .thumb-tray-container::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 4px;
+    }
+
+    .thumb-tray-container::-webkit-scrollbar-thumb {
+      background: #a855f7;
+      border-radius: 4px;
+    }
+
+    .thumb-list {
+      display: flex;
+      gap: 12px;
+      padding-bottom: 5px;
+    }
+
+    .thumb-item {
+      flex: 0 0 140px;
+      aspect-ratio: 16 / 9;
+      background: #000;
+      border-radius: 6px;
+      overflow: hidden;
+      cursor: pointer;
+      border: 2px solid transparent;
+      opacity: 0.5;
+      transition: all 0.3s ease;
+    }
+
+    .thumb-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .thumb-item:hover {
+      opacity: 0.8;
+      border-color: rgba(168, 85, 247, 0.5);
+    }
+
+    .thumb-item.active {
+      opacity: 1;
+      border-color: #a855f7;
+      box-shadow: 0 0 10px rgba(168, 85, 247, 0.3);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="guide-container">
+    <header>
+      <div class="logo-container">
+        <img class="logo-img" src="./assets/Logos/logo-principal-endcontrol-horizontal.webp" alt="ENDCONTROL Engenharia" />
+      </div>
+      <h1>Central de Identidade Visual</h1>
+      <p class="subtitle">Análise e comparativo de cores, tipografias e diretrizes estéticas</p>
+    </header>
+
+    <!-- NAVEGAÇÃO ENTRE ABAS -->
+    <div class="tabs-nav">
+      <button class="tab-btn" data-target="tab-atual">1. Identidade Atual (+B)</button>
+      <button class="tab-btn" data-target="tab-endcontrol">2. Identidade ENDCONTROL (Proposta)</button>
+      <button class="tab-btn active" data-target="tab-ref">3. Identidade de Referência (Ref)</button>
+    </div>
+
+    <!-- ==========================================
+         ABA 1: IDENTIDADE ATUAL (+B)
+         ========================================== -->
+    <div class="tab-content tab-atual" id="tab-atual">
+      
+      <!-- PALETA DE CORES -->
+      <section>
+        <h2>Paleta de Cores Cloned (Grupo +B)</h2>
+        <div class="palette-list">
+          
+          <div class="palette-item">
+            <div class="palette-label">Cor Primária</div>
+            <div class="palette-swatch-wrapper">
+              <div class="palette-swatch" style="background-color: #FFC400;"></div>
+              <div>
+                <span class="palette-hex">#FFC400</span>
+                <p class="palette-desc">Amarelo vibrante de varejo, usado em botões primários e destaques do menu.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="palette-item">
+            <div class="palette-label">Cor Secundária</div>
+            <div class="palette-swatch-wrapper">
+              <div class="palette-swatch" style="background-color: #F20D18;"></div>
+              <div>
+                <span class="palette-hex">#F20D18</span>
+                <p class="palette-desc">Vermelho de apoio, utilizado em banners, badges secundárias e rodapé.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="palette-item">
+            <div class="palette-label">Cor para Backgrounds Escuros</div>
+            <div class="palette-swatch-wrapper">
+              <div class="palette-swatch" style="background-color: #000000;"></div>
+              <div>
+                <span class="palette-hex">#000000</span>
+                <p class="palette-desc">Preto absoluto utilizado nas seções escuras e fundos estruturais do site de varejo.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="palette-item">
+            <div class="palette-label">Cor para Backgrounds Claros</div>
+            <div class="palette-swatch-wrapper">
+              <div class="palette-swatch" style="background-color: #ffffff;"></div>
+              <div>
+                <span class="palette-hex">#ffffff</span>
+                <p class="palette-desc">Branco puro utilizado em seções de conteúdo do feed e blocos informativos.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- TIPOGRAFIA -->
+      <section>
+        <h2>Especificações de Tipografia (+B)</h2>
+        <table class="typo-spec-table">
+          <thead>
+            <tr>
+              <th>Elemento</th>
+              <th>Família Tipográfica</th>
+              <th>Estilo / Caixa</th>
+              <th>Exemplo de Configuração CSS</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Headline (Títulos)</strong></td>
+              <td>Roboto Condensed</td>
+              <td>Normal (Sentence Case)</td>
+              <td><code>font-family: 'Roboto Condensed'; text-transform: none;</code></td>
+            </tr>
+            <tr>
+              <td><strong>Subtextos & Corpo</strong></td>
+              <td>Arimo</td>
+              <td>Normal (Caixa Alta e Baixa)</td>
+              <td><code>font-family: 'Arimo'; text-transform: none;</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- SEÇÃO DE EXEMPLO (LIVE PREVIEW) -->
+      <section>
+        <h2>Exemplos de Aplicação Prática (+B)</h2>
+        <div class="preview-container">
+          
+          <!-- Bloco Escuro (+B) -->
+          <div class="preview-block">
+            <div class="preview-header-bar">Aplicação Real em Fundo Escuro (Dark Mode)</div>
+            <div class="preview-content-split preview-plusb-dark dotted-bg-dark">
+              <div class="preview-text-col">
+                <div class="pill-tag">
+                  <svg class="pill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+                  <span>Sobre o Grupo</span>
+                </div>
+                <h3 class="real-title">O maior ecossistema de varejo, saúde e gastronomia do <span>Norte.</span></h3>
+                <div class="accent-bar"></div>
+                <p class="real-paragraph">Desde 2015, o Grupo +B vem construindo uma trajetória de crescimento sólido e consistente na Amazônia, com foco em gerar valor real para nossos clientes, parceiros e comunidades.</p>
+                <button class="btn-real">Saiba mais sobre nós &rarr;</button>
+              </div>
+              <div class="right-frame-wrapper">
+                <div class="right-media-card">
+                  <!-- Play button mimicking the video frame -->
+                  <div class="play-overlay-btn">
+                    <svg class="play-icon-svg" viewBox="0 0 24 24" fill="#F20D18"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                  </div>
+                  <img src="./assets/Fotografias/Supermercado +B/01_Fachadas/unid-alcindo-foto-de-fachada-da-loja.webp" alt="Estrutura Grupo +B" />
+                </div>
+                <!-- Overlap Glass Card -->
+                <div class="floating-overlap-card">
+                  <div class="floating-card-icon-wrapper">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                  </div>
+                  <div class="floating-card-text-wrapper">
+                    Crescimento que gera valor, impacto e desenvolvimento <span>sustentável</span> para a nossa região.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bloco Claro (+B) -->
+          <div class="preview-block">
+            <div class="preview-header-bar">Aplicação Real em Fundo Claro (Light Mode)</div>
+            <div class="preview-content-split preview-plusb-light dotted-bg-light">
+              <div class="preview-text-col">
+                <div class="pill-tag">
+                  <svg class="pill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+                  <span>Sobre o Grupo</span>
+                </div>
+                <h3 class="real-title">O maior ecossistema de varejo, saúde e gastronomia do <span>Norte.</span></h3>
+                <div class="accent-bar"></div>
+                <p class="real-paragraph">Desde 2015, o Grupo +B vem construindo uma trajetória de crescimento sólido e consistente na Amazônia, com foco em gerar valor real para nossos clientes, parceiros e comunidades.</p>
+                <button class="btn-real">Saiba mais sobre nós &rarr;</button>
+              </div>
+              <div class="right-frame-wrapper">
+                <div class="right-media-card">
+                  <!-- Play button mimicking the video frame -->
+                  <div class="play-overlay-btn">
+                    <svg class="play-icon-svg" viewBox="0 0 24 24" fill="#F20D18"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                  </div>
+                  <img src="./assets/Fotografias/Supermercado +B/01_Fachadas/unid-tapana-foto-de-fachada-frontal-da-loja.webp" alt="Varejo Grupo +B" />
+                </div>
+                <!-- Overlap Glass Card -->
+                <div class="floating-overlap-card">
+                  <div class="floating-card-icon-wrapper">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                  </div>
+                  <div class="floating-card-text-wrapper">
+                    Crescimento que gera valor, impacto e desenvolvimento <span>sustentável</span> para a nossa região.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+    </div>
+
+    <!-- ==========================================
+         ABA 2: IDENTIDADE PROPOSTA (ENDCONTROL)
+         ========================================== -->
+    <div class="tab-content tab-endcontrol" id="tab-endcontrol">
+      
+      <!-- PALETA DE CORES -->
+      <section>
+        <h2>Paleta de Cores Proposta (ENDCONTROL)</h2>
+        <div class="palette-list">
+          
+          <div class="palette-item">
+            <div class="palette-label">Cor Primária</div>
+            <div class="palette-swatch-wrapper">
+              <div class="palette-swatch" style="background-color: #00abe3;"></div>
+              <div>
+                <span class="palette-hex">#00abe3</span>
+                <p class="palette-desc">Ciano Elétrico / Destaque: Usado para ressaltar a tecnologia, o ciano representa precisão técnica, modernidade e confiabilidade em instrumentações.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="palette-item">
+            <div class="palette-label">Cor Secundária</div>
+            <div class="palette-swatch-wrapper">
+              <div class="palette-swatch" style="background-color: #68a1af;"></div>
+              <div>
+                <span class="palette-hex">#68a1af</span>
+                <p class="palette-desc">Slate / Azul Ardósia: Cor de apoio técnico para parágrafos secundários, ícones menores, linhas divisórias e bordas de cards.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="palette-item">
+            <div class="palette-label">Cor para Backgrounds Escuros</div>
+            <div class="palette-swatch-wrapper">
+              <div class="palette-swatch" style="background-color: #080c14;"></div>
+              <div>
+                <span class="palette-hex">#080c14</span>
+                <p class="palette-desc">Preto/Azul Profundo: Cor estrutural para o plano de fundo do site. (Cards e caixas utilizarão a variação de grafite <code>#161f2c</code> e azul escuro <code>#121824</code>).</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="palette-item">
+            <div class="palette-label">Cor para Backgrounds Claros</div>
+            <div class="palette-swatch-wrapper">
+              <div class="palette-swatch" style="background-color: #ffffff;"></div>
+              <div>
+                <span class="palette-hex">#ffffff</span>
+                <p class="palette-desc">Branco Técnico: Usado em tabelas técnicas, relatórios e seções claras (como o Accordion FAQ) para garantir excelente legibilidade de contratos.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- TIPOGRAFIA -->
+      <section>
+        <h2>Especificações de Tipografia (ENDCONTROL)</h2>
+        <table class="typo-spec-table">
+          <thead>
+            <tr>
+              <th>Elemento</th>
+              <th>Família Tipográfica</th>
+              <th>Estilo / Caixa (Regra Apple)</th>
+              <th>Exemplo de Configuração CSS</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Headline (Títulos)</strong></td>
+              <td>Roboto Condensed</td>
+              <td>Normal (Caixa Alta e Baixa / Nunca tudo maiúsculo)</td>
+              <td><code>font-family: 'Roboto Condensed'; font-weight: 700; text-transform: none;</code></td>
+            </tr>
+            <tr>
+              <td><strong>Subtextos & Corpo</strong></td>
+              <td>Arimo</td>
+              <td>Normal (Caixa Alta e Baixa)</td>
+              <td><code>font-family: 'Arimo'; font-weight: 400; text-transform: none;</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- SEÇÃO DE EXEMPLO (LIVE PREVIEW) -->
+      <section>
+        <h2>Exemplos de Aplicação Prática (ENDCONTROL)</h2>
+        <div class="preview-container">
+          
+          <!-- Bloco Escuro (ENDCONTROL) -->
+          <div class="preview-block">
+            <div class="preview-header-bar">Aplicação Nova em Fundo Escuro (Dark Mode - ENDCONTROL)</div>
+            <div class="preview-content-split preview-ec-dark dotted-bg-dark">
+              <div class="preview-text-col">
+                <div class="pill-tag">
+                  <svg class="pill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+                  <span>Sobre a ENDCONTROL</span>
+                </div>
+                <h3 class="real-title">Inteligência técnica e inovação focadas na sua <span>segurança operacional.</span></h3>
+                <div class="accent-bar"></div>
+                <p class="real-paragraph">Desde 2015, a ENDCONTROL Engenharia atua como referência em integridade industrial e conformidade normativa, consolidando um portfólio robusto de soluções integradas de engenharia de alta confiabilidade.</p>
+                <button class="btn-real">Saiba mais sobre nós &rarr;</button>
+              </div>
+              <div class="right-frame-wrapper">
+                <div class="right-media-card">
+                  <img src="./assets/Fotografias/Estrutura Fisica/estrutura-fisica-planta-industrial-3d.webp" alt="Estrutura ENDCONTROL" />
+                </div>
+                <!-- Overlap Glass Card -->
+                <div class="floating-overlap-card">
+                  <div class="floating-card-icon-wrapper">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 11 2 2 4-4"/></svg>
+                  </div>
+                  <div class="floating-card-text-wrapper">
+                    Inteligência em integridade: da inspeção à decisão <span>executável</span> com alta confiabilidade.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bloco Claro (ENDCONTROL) -->
+          <div class="preview-block">
+            <div class="preview-header-bar">Aplicação Nova em Fundo Claro (Light Mode - ENDCONTROL)</div>
+            <div class="preview-content-split preview-ec-light dotted-bg-light">
+              <div class="preview-text-col">
+                <div class="pill-tag">
+                  <svg class="pill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+                  <span>Sobre a ENDCONTROL</span>
+                </div>
+                <h3 class="real-title">Inteligência técnica e inovação focadas na sua <span>segurança operacional.</span></h3>
+                <div class="accent-bar"></div>
+                <p class="real-paragraph">Desde 2015, a ENDCONTROL Engenharia atua como referência em integridade industrial e conformidade normativa, consolidando um portfólio robusto de soluções integradas de engenharia de alta confiabilidade.</p>
+                <button class="btn-real">Saiba mais sobre nós &rarr;</button>
+              </div>
+              <div class="right-frame-wrapper">
+                <div class="right-media-card">
+                  <img src="./assets/Fotografias/editadas/laboratorio-analise-placa-eletronica-edit.webp" alt="Laboratório ENDCONTROL" />
+                </div>
+                <!-- Overlap Glass Card -->
+                <div class="floating-overlap-card">
+                  <div class="floating-card-icon-wrapper">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 11 2 2 4-4"/></svg>
+                  </div>
+                  <div class="floating-card-text-wrapper">
+                    Inteligência em integridade: da inspeção à decisão <span>executável</span> com alta confiabilidade.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+    </div>
+
+    <!-- ==========================================
+         ABA 3: IDENTIDADE DE REFERÊNCIA (REF)
+         ========================================== -->
+    <div class="tab-content tab-ref active" id="tab-ref">
+      
+      <!-- PALETA DE CORES DE REFERÊNCIA -->
+      <section>
+        <h2>Paleta de Cores de Referência (Slides Portfólio 2026)</h2>
+        <div class="palette-list">
+          
+          <div class="palette-item">
+            <div class="palette-label">Cor Primária</div>
+            <div class="palette-swatch-wrapper">
+              <div class="palette-swatch" style="background-color: #0062e3;"></div>
+              <div>
+                <span class="palette-hex">#0062e3</span>
+                <p class="palette-desc">Azul Royal Corporativo: Cor primária de destaque de texto, botões de ação e títulos no tema claro do PDF institucional.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="palette-item">
+            <div class="palette-label">Cor Secundária</div>
+            <div class="palette-swatch-wrapper">
+              <div class="palette-swatch" style="background-color: #00abe3;"></div>
+              <div>
+                <span class="palette-hex">#00abe3</span>
+                <p class="palette-desc">Ciano Elétrico / Detalhes: Utilizado para destacar palavras-chave, ícones, elementos de dados e brilhos tecnológicos em fundo escuro.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="palette-item">
+            <div class="palette-label">Cor para Backgrounds Escuros</div>
+            <div class="palette-swatch-wrapper">
+              <div class="palette-swatch" style="background-color: #0a1128;"></div>
+              <div>
+                <span class="palette-hex">#0a1128</span>
+                <p class="palette-desc">Azul Escuro Industrial: Plano de fundo profundo e tecnológico característico das capas e diagramas complexos do portfólio 2026.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="palette-item">
+            <div class="palette-label">Cor para Backgrounds Claros</div>
+            <div class="palette-swatch-wrapper">
+              <div class="palette-swatch" style="background-color: #ffffff;"></div>
+              <div>
+                <span class="palette-hex">#ffffff</span>
+                <p class="palette-desc">Branco Técnico Puro: Utilizado nas páginas de conteúdo denso do portfólio, dando uma pegada de documento de alto padrão (Clean Book).</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- TIPOGRAFIA DE REFERÊNCIA -->
+      <section>
+        <h2>Especificações de Tipografia (Slides Portfólio 2026)</h2>
+        <table class="typo-spec-table">
+          <thead>
+            <tr>
+              <th>Elemento</th>
+              <th>Família Tipográfica</th>
+              <th>Estilo / Caixa (Referência Portfólio)</th>
+              <th>Exemplo de Configuração CSS</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Headline (Títulos)</strong></td>
+              <td>Roboto Condensed</td>
+              <td>Normal (Caixa Alta e Baixa / Nunca uppercase)</td>
+              <td><code>font-family: 'Roboto Condensed'; font-weight: 700; text-transform: none;</code></td>
+            </tr>
+            <tr>
+              <td><strong>Subtextos & Corpo</strong></td>
+              <td>Arimo</td>
+              <td>Normal (Caixa Alta e Baixa)</td>
+              <td><code>font-family: 'Arimo'; font-weight: 400; text-transform: none;</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- SEÇÃO DE EXEMPLO (LIVE PREVIEW) DA REFERÊNCIA -->
+      <section>
+        <h2>Exemplos de Aplicação Prática (Paleta Referência 2026)</h2>
+        <div class="preview-container">
+          
+          <!-- Bloco Escuro (Referência) -->
+          <div class="preview-block">
+            <div class="preview-header-bar">Aplicação com Cores de Referência em Fundo Escuro (Dark Mode)</div>
+            <div class="preview-content-split preview-ref-dark dotted-bg-dark">
+              <div class="preview-text-col">
+                <div class="pill-tag">
+                  <svg class="pill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+                  <span>Sobre a ENDCONTROL</span>
+                </div>
+                <h3 class="real-title">Inteligência técnica e inovação focadas na sua <span>segurança operacional.</span></h3>
+                <div class="accent-bar"></div>
+                <p class="real-paragraph">Desde 2015, a ENDCONTROL Engenharia atua como referência em integridade industrial e conformidade normativa, consolidando um portfólio robusto de soluções integradas de engenharia de alta confiabilidade.</p>
+                <button class="btn-real">Saiba mais sobre nós &rarr;</button>
+              </div>
+              <div class="right-frame-wrapper">
+                <div class="right-media-card">
+                  <img src="./assets/Fotografias/Estrutura Fisica/estrutura-fisica-planta-industrial-3d.webp" alt="Estrutura ENDCONTROL" />
+                </div>
+                <!-- Overlap Glass Card -->
+                <div class="floating-overlap-card">
+                  <div class="floating-card-icon-wrapper">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 11 2 2 4-4"/></svg>
+                  </div>
+                  <div class="floating-card-text-wrapper">
+                    Inteligência em integridade: da inspeção à decisão <span>executável</span> com alta confiabilidade.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bloco Claro (Referência) -->
+          <div class="preview-block">
+            <div class="preview-header-bar">Aplicação com Cores de Referência em Fundo Claro (Light Mode)</div>
+            <div class="preview-content-split preview-ref-light dotted-bg-light">
+              <div class="preview-text-col">
+                <div class="pill-tag">
+                  <svg class="pill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+                  <span>Sobre a ENDCONTROL</span>
+                </div>
+                <h3 class="real-title">Inteligência técnica e inovação focadas na sua <span>segurança operacional.</span></h3>
+                <div class="accent-bar"></div>
+                <p class="real-paragraph">Desde 2015, a ENDCONTROL Engenharia atua como referência em integridade industrial e conformidade normativa, consolidando um portfólio robusto de soluções integradas de engenharia de alta confiabilidade.</p>
+                <button class="btn-real">Saiba mais sobre nós &rarr;</button>
+              </div>
+              <div class="right-frame-wrapper">
+                <div class="right-media-card">
+                  <img src="./assets/Fotografias/editadas/laboratorio-analise-placa-eletronica-edit.webp" alt="Laboratório ENDCONTROL" />
+                </div>
+                <!-- Overlap Glass Card -->
+                <div class="floating-overlap-card">
+                  <div class="floating-card-icon-wrapper">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 11 2 2 4-4"/></svg>
+                  </div>
+                  <div class="floating-card-text-wrapper">
+                    Inteligência em integridade: da inspeção à decisão <span>executável</span> com alta confiabilidade.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- APRESENTAÇÃO E SLIDES DE APOIO -->
+      <section>
+        <h2>Slides Originais de Referência (Portfólio 2026)</h2>
+        
+        <div class="slide-viewer-box">
+          <p class="viewer-desc">
+            Use os controles abaixo para inspecionar os slides originais do portfólio. As cores, o contraste dos botões e as caixas de texto simuladas acima foram extraídas diretamente deste material de referência.
+          </p>
+
+          <div class="slide-stage">
+            <button class="slide-control control-prev" id="slide-prev" aria-label="Slide anterior">
+              <svg class="control-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <button class="slide-control control-next" id="slide-next" aria-label="Próximo slide">
+              <svg class="control-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+            
+            <img id="stage-img" src="./assets/Imagens/Apresentacao Portfolio 2026 (Design Alto Nivel)/1.png" alt="Slide 1 de 28" />
+          </div>
+
+          <div class="slide-info-bar">
+            <div class="slide-counter">Slide <span id="current-index">1</span> de 28</div>
+            <div class="slide-badge">Referência de Design</div>
+          </div>
+
+          <!-- Thumbnail scroll tray -->
+          <div class="thumb-tray-container">
+            <div class="thumb-list" id="thumb-list-inner">
+              <!-- JS will inject the 28 slides here -->
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- AÇÕES DE NAVEGAÇÃO GLOBAL -->
+    <div class="actions-global">
+      <a href="./index.html" class="btn-nav btn-nav-primary">
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+        Voltar para a Home
+      </a>
+      <a href="./links.html" class="btn-nav btn-nav-secondary">Canais de Contato</a>
+    </div>
+  </div>
+
+  <!-- SCRIPT DE ABAS E APRESENTAÇÃO DE SLIDES -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // 1. Alternador de Abas (Tabs)
+      const tabButtons = document.querySelectorAll('.tab-btn');
+      const tabContents = document.querySelectorAll('.tab-content');
+
+      tabButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const targetId = btn.getAttribute('data-target');
+
+          // Alternar classes ativa nos botões
+          tabButtons.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+
+          // Alternar conteúdos ativos
+          tabContents.forEach(content => {
+            content.classList.remove('active');
+            if (content.id === targetId) {
+              content.classList.add('active');
+            }
+          });
+        });
+      });
+
+      // 2. Controlador do visualizador de slides (Aba 3)
+      const totalSlides = 28;
+      let currentSlide = 1;
+      
+      const stageImg = document.getElementById('stage-img');
+      const currentIndexEl = document.getElementById('current-index');
+      const btnPrev = document.getElementById('slide-prev');
+      const btnNext = document.getElementById('slide-next');
+      const thumbListInner = document.getElementById('thumb-list-inner');
+
+      // Gerar os thumbnails dinamicamente
+      for (let i = 1; i <= totalSlides; i++) {
+        const thumbItem = document.createElement('div');
+        thumbItem.className = 'thumb-item' + (i === 1 ? ' active' : '');
+        thumbItem.setAttribute('data-slide', i);
+        
+        const thumbImg = document.createElement('img');
+        thumbImg.src = `./assets/Imagens/Apresentacao Portfolio 2026 (Design Alto Nivel)/${i}.png`;
+        thumbImg.alt = `Miniatura slide ${i}`;
+        thumbImg.loading = 'lazy';
+        
+        thumbItem.appendChild(thumbImg);
+        thumbListInner.appendChild(thumbItem);
+
+        // Click no thumbnail
+        thumbItem.addEventListener('click', () => {
+          goToSlide(i);
+        });
+      }
+
+      const thumbnails = document.querySelectorAll('.thumb-item');
+
+      function goToSlide(n) {
+        // Garantir limites
+        if (n < 1) n = totalSlides;
+        if (n > totalSlides) n = 1;
+        
+        currentSlide = n;
+        
+        // Efeito fade
+        stageImg.style.opacity = 0;
+        
+        setTimeout(() => {
+          stageImg.src = `./assets/Imagens/Apresentacao Portfolio 2026 (Design Alto Nivel)/${currentSlide}.png`;
+          stageImg.alt = `Slide ${currentSlide} de ${totalSlides}`;
+          currentIndexEl.textContent = currentSlide;
+          stageImg.style.opacity = 1;
+          
+          // Atualizar thumbnail ativo
+          thumbnails.forEach((thumb, idx) => {
+            if (idx + 1 === currentSlide) {
+              thumb.classList.add('active');
+              // Auto-scroll para o thumbnail ativo no container horizontal
+              thumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+            } else {
+              thumb.classList.remove('active');
+            }
+          });
+        }, 150);
+      }
+
+      // Controles anteriores e próximos
+      btnPrev.addEventListener('click', () => goToSlide(currentSlide - 1));
+      btnNext.addEventListener('click', () => goToSlide(currentSlide + 1));
+
+      // Suporte a teclas direcionais (setas do teclado) ao focar na aba
+      document.addEventListener('keydown', function(event) {
+        // Apenas atua se a aba de referência estiver ativa na tela
+        const refTab = document.getElementById('tab-ref');
+        if (refTab.classList.contains('active')) {
+          if (event.key === 'ArrowLeft') {
+            goToSlide(currentSlide - 1);
+          } else if (event.key === 'ArrowRight') {
+            goToSlide(currentSlide + 1);
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html>

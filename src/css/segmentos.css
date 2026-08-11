@@ -1,0 +1,336 @@
+/* ==========================================================================
+   SEÇÃO SEGMENTOS DE ATUAÇÃO
+   ========================================================================== */
+
+.segmentos-secao {
+  background: #f0f5f7; /* brand standard light slate */
+  padding: 100px 0;
+  position: relative;
+}
+
+.segmentos-head {
+  text-align: center;
+  max-width: 850px;
+  margin: 0 auto 56px auto;
+}
+
+.segmentos-eyebrow {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #0062e3; /* royal blue accent */
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.segmentos-title {
+  font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+  font-weight: 800;
+  color: #071429;
+  line-height: 1.2;
+  margin: 0 0 16px 0;
+}
+
+.segmentos-highlight {
+  color: #0062e3;
+}
+
+.segmentos-subtitle {
+  font-size: 1.05rem;
+  color: #4a5568;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Painel da Grade */
+.segmentos-panel {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background-color: rgba(0, 98, 227, 0.12); /* blue divider lines */
+  border-top: 1px solid rgba(0, 98, 227, 0.15);
+  border-bottom: 1px solid rgba(0, 98, 227, 0.15);
+  border-right: 1px solid rgba(0, 98, 227, 0.15);
+  border-left: none;
+  border-radius: 0 24px 24px 0;
+  /* overflow: visible; removed overflow: hidden to allow shadow glow overflow */
+  width: 100%;
+  position: relative;
+}
+
+/* Card */
+.segmentos-card {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  background: #f0f5f7; /* brand standard light slate */
+  transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease, z-index 0s 0.3s;
+}
+
+/* Rounded corners on right edge cards (overflow is visible on panel to show glow) */
+.segmentos-card:nth-child(4) {
+  border-top-right-radius: 24px;
+}
+.segmentos-card:nth-child(12) {
+  border-bottom-right-radius: 24px;
+}
+
+.segmentos-card:hover {
+  z-index: 10;
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 12px 30px rgba(0, 98, 227, 0.16), 0 4px 12px rgba(0, 196, 255, 0.08);
+  transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease, z-index 0s;
+}
+
+.segmentos-card-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Degradê com base sólida branca atrás do texto/ícone (primeiros 32%), suavizando até sumir em 72% */
+.segmentos-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    #ffffff 0%, 
+    #ffffff 32%, 
+    rgba(255, 255, 255, 0.92) 42%, 
+    rgba(255, 255, 255, 0.50) 55%, 
+    rgba(255, 255, 255, 0) 72%
+  );
+  z-index: 1;
+  transition: background 0.4s ease;
+}
+
+/* Ajuste de cor de fundo sutil no hover */
+.segmentos-card:hover::before {
+  background: linear-gradient(90deg, 
+    #f4f8ff 0%, 
+    #f4f8ff 32%, 
+    rgba(244, 248, 255, 0.92) 42%, 
+    rgba(244, 248, 255, 0.50) 55%, 
+    rgba(244, 248, 255, 0) 72%
+  );
+}
+
+.segmentos-card-content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 24px 36px;
+  box-sizing: border-box;
+}
+
+.segmentos-card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0062e3; /* Brand blue */
+  flex-shrink: 0;
+  padding-right: 24px;
+  border-right: 1.5px solid rgba(0, 98, 227, 0.16); /* vertical divider line */
+  margin-right: 24px;
+  height: 40px;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease, border-color 0.3s ease;
+}
+
+.segmentos-card-icon svg {
+  width: 36px; /* Larger icon */
+  height: 36px;
+  display: block;
+}
+
+.segmentos-card-label {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #0b2545; /* Dark navy slate from reference card */
+  line-height: 1.3;
+  position: relative;
+  z-index: 1;
+  transition: color 0.3s ease, text-shadow 0.3s ease, transform 0.3s ease;
+  /* Halo/Sombra branca de alta legibilidade */
+  text-shadow: 
+    0 0 6px #ffffff,
+    0 0 12px #ffffff,
+    -1px -1px 0 #ffffff,
+     1px -1px 0 #ffffff,
+    -1px  1px 0 #ffffff,
+     1px  1px 0 #ffffff;
+}
+
+/* Fumaça branca suave por trás do texto sem parecer retângulo sólido */
+.segmentos-card-label::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: -12px;
+  right: -12px;
+  bottom: -8px;
+  background: rgba(255, 255, 255, 0.75);
+  filter: blur(8px);
+  z-index: -1;
+  border-radius: 8px;
+  pointer-events: none;
+  transition: background 0.3s ease, filter 0.3s ease;
+}
+
+/* Efeitos de Hover */
+.segmentos-card:hover .segmentos-card-bg {
+  transform: scale(1.08);
+}
+
+.segmentos-card:hover .segmentos-card-icon {
+  color: #004dc0;
+  border-color: rgba(0, 98, 227, 0.35);
+  transform: scale(1.05);
+}
+
+.segmentos-card:hover .segmentos-card-label {
+  color: #004dc0;
+  transform: translateX(3px);
+  /* Glow azul/ciano elegante e controlado */
+  text-shadow: 
+    0 0 6px rgba(0, 98, 227, 0.45),
+    0 0 12px rgba(0, 196, 255, 0.35),
+    0 0 20px #ffffff;
+}
+
+.segmentos-card:hover .segmentos-card-label::before {
+  background: rgba(0, 196, 255, 0.12);
+  filter: blur(10px);
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+  .segmentos-panel {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .segmentos-secao {
+    padding: 80px 0;
+  }
+  .segmentos-panel {
+    grid-template-columns: repeat(2, 1fr);
+    border-radius: 0 16px 16px 0;
+  }
+  /* Reset desktop nth-child rounding */
+  .segmentos-card:nth-child(4) {
+    border-top-right-radius: 0;
+  }
+  .segmentos-card:nth-child(12) {
+    border-bottom-right-radius: 0;
+  }
+  /* Set tablet nth-child rounding */
+  .segmentos-card:nth-child(2) {
+    border-top-right-radius: 16px;
+  }
+  .segmentos-card:nth-child(12) {
+    border-bottom-right-radius: 16px;
+  }
+  .segmentos-card {
+    height: 160px;
+  }
+  .segmentos-card::before {
+    background: linear-gradient(90deg, 
+      #ffffff 0%, 
+      #ffffff 35%, 
+      rgba(255, 255, 255, 0.92) 45%, 
+      rgba(255, 255, 255, 0.50) 60%, 
+      rgba(255, 255, 255, 0) 75%
+    );
+  }
+  .segmentos-card:hover::before {
+    background: linear-gradient(90deg, 
+      #f4f8ff 0%, 
+      #f4f8ff 35%, 
+      rgba(244, 248, 255, 0.92) 45%, 
+      rgba(244, 248, 255, 0.50) 60%, 
+      rgba(244, 248, 255, 0) 75%
+    );
+  }
+  .segmentos-card-content {
+    padding: 20px 24px;
+  }
+  .segmentos-card-icon {
+    padding-right: 16px;
+    margin-right: 16px;
+    height: 30px;
+  }
+  .segmentos-card-icon svg {
+    width: 28px; /* Larger icon on tablet */
+    height: 28px;
+  }
+  .segmentos-card-label {
+    font-size: 1.05rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .segmentos-panel {
+    grid-template-columns: 1fr;
+    border-radius: 0;
+    border-right: none;
+  }
+  /* Reset tablet nth-child rounding */
+  .segmentos-card:nth-child(2) {
+    border-top-right-radius: 0;
+  }
+  .segmentos-card:nth-child(12) {
+    border-bottom-right-radius: 0;
+  }
+  .segmentos-card {
+    height: 130px;
+  }
+  .segmentos-card-content {
+    padding: 16px 20px;
+  }
+  .segmentos-card::before {
+    background: linear-gradient(90deg, 
+      #ffffff 0%, 
+      #ffffff 42%, 
+      rgba(255, 255, 255, 0.92) 52%, 
+      rgba(255, 255, 255, 0.50) 68%, 
+      rgba(255, 255, 255, 0) 80%
+    );
+  }
+  .segmentos-card:hover::before {
+    background: linear-gradient(90deg, 
+      #f4f8ff 0%, 
+      #f4f8ff 42%, 
+      rgba(244, 248, 255, 0.92) 52%, 
+      rgba(244, 248, 255, 0.50) 68%, 
+      rgba(244, 248, 255, 0) 80%
+    );
+  }
+  .segmentos-card-icon {
+    padding-right: 14px;
+    margin-right: 14px;
+    height: 26px;
+  }
+  .segmentos-card-icon svg {
+    width: 25px; /* Larger icon on mobile */
+    height: 25px;
+  }
+  .segmentos-card-label {
+    font-size: 1rem;
+  }
+}

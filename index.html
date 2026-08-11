@@ -1,0 +1,1927 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ENDCONTROL Engenharia | Inteligência em Integridade Industrial</title>
+  <meta name="description" content="Líder em integridade mecânica, inspeções industriais, ensaios não destrutivos (ENDs), calibração e adequações normativas (NR-13, 12, 11) de alta confiabilidade." />
+  <!-- SEO Meta Tags -->
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://endcontrol.com.br/index.html" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://endcontrol.com.br/index.html" />
+  <meta property="og:title" content="ENDCONTROL Engenharia | Inteligência em Integridade Industrial" />
+  <meta property="og:description" content="Engenharia industrial de alta confiabilidade que garante segurança, integridade operacional e conformidade aos seus ativos críticos." />
+  <meta property="og:image" content="https://endcontrol.com.br/assets/Logos/logo-principal-endcontrol-horizontal.webp" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://endcontrol.com.br/index.html" />
+  <meta name="twitter:title" content="ENDCONTROL | Inteligência em Integridade Industrial" />
+  <meta name="twitter:description" content="Engenharia industrial de alta confiabilidade que garante segurança, integridade operacional e conformidade aos seus ativos críticos." />
+  <meta name="twitter:image" content="https://endcontrol.com.br/assets/Logos/logo-principal-endcontrol-horizontal.webp" />
+
+  <!-- Schema.org JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "ENDCONTROL Engenharia",
+    "url": "https://endcontrol.com.br",
+    "logo": "https://endcontrol.com.br/assets/Logos/logo-principal-endcontrol-horizontal.webp",
+    "image": "https://endcontrol.com.br/assets/Logos/logo-principal-endcontrol-horizontal.webp",
+    "description": "Engenharia industrial de alta confiabilidade especializada em integridade estrutural, inspeção de ativos críticos, ensaios não destrutivos (ENDs) e conformidade normativa (NR-13, NR-12, NR-11).",
+    "foundingDate": "2015",
+    "telephone": "+55-91-3200-1000",
+    "email": "contato@endcontrol.com.br",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Av. Alcindo Cacela, 2120",
+      "addressLocality": "Belém",
+      "addressRegion": "PA",
+      "postalCode": "66040-020",
+      "addressCountry": "BR"
+    },
+    "areaServed": ["PA", "SP", "RJ", "BA", "CE", "RO", "AC"],
+    "knowsAbout": [
+      "Integridade Mecânica",
+      "Inspeção NR-13",
+      "Ensaios Não Destrutivos (END/NDT)",
+      "Inspeção Baseada em Risco (RBI)",
+      "Adequação NR-12",
+      "Acesso por Cordas"
+    ]
+  }
+  </script>
+
+  <link rel="icon" type="image/webp" href="./assets/Logos/icon-endcontrol.webp" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="preload" href="./assets/Logos/logo-principal-endcontrol-horizontal.webp" as="image" />
+  <link rel="stylesheet" href="./src/css/tokens.css" />
+  <link rel="stylesheet" href="./src/css/base.css" />
+  <link rel="stylesheet" href="./src/css/header.css" />
+  <link rel="stylesheet" href="./src/css/hero.css?v=6.0" />
+  <link rel="stylesheet" href="./src/css/solucoes.css" />
+  <link rel="stylesheet" href="./src/css/sections.css?v=5.8" />
+  <link rel="stylesheet" href="./src/css/work-units-footer.css" />
+  <link rel="stylesheet" href="./src/css/presenca-nacional.css" />
+  <link rel="stylesheet" href="./src/css/components.css" />
+  <link rel="stylesheet" href="./src/css/brand-pages.css?v=5.8" />
+  <link rel="stylesheet" href="./src/css/links.css" />
+  <link rel="stylesheet" href="./src/css/timeline.css?v=5.8" />
+  <link rel="stylesheet" href="./src/css/album.css?v=5.8" />
+  <link rel="stylesheet" href="./src/css/segmentos.css" />
+  <link rel="stylesheet" href="./src/css/responsive.css?v=5.8" />
+
+  <!-- Script de Fallback Automático de Imagens e Vídeos -->
+  <script>
+    document.addEventListener('error', function(event) {
+      const target = event.target;
+      const tagName = target.tagName.toLowerCase();
+      
+      if (tagName === 'img' || tagName === 'video' || tagName === 'source') {
+        const element = target;
+        if (element.hasAttribute('data-no-fallback')) return;
+        let fallbackCount = parseInt(element.getAttribute('data-fallback-count') || '0', 10);
+        const srcUrl = element.getAttribute('src') || element.getAttribute('srcset');
+        if (!srcUrl) return;
+        
+        let assetPath = '';
+        if (srcUrl.includes('/assets/')) {
+          assetPath = 'assets/' + srcUrl.split('/assets/')[1];
+        } else if (srcUrl.includes('assets/')) {
+          assetPath = 'assets/' + srcUrl.split('assets/')[1];
+        } else {
+          return;
+        }
+        
+        // Priorizar o caminho local (./assets) para carregar offline da própria pasta do projeto
+        const fallbacks = [
+          './' + assetPath,                      // 1º Fallback: Local relativo
+          'https://endcontrol.com.br/' + assetPath // 2º Fallback: Servidor de produção online
+        ];
+        
+        if (fallbackCount < fallbacks.length) {
+          const nextFallback = fallbacks[fallbackCount];
+          element.setAttribute('data-fallback-count', fallbackCount + 1);
+          
+          if (tagName === 'source') {
+            element.setAttribute('srcset', nextFallback);
+            const videoParent = element.parentNode;
+            if (videoParent && videoParent.tagName.toLowerCase() === 'video') {
+              videoParent.load();
+              if (videoParent.hasAttribute('autoplay')) {
+                videoParent.play().catch(function() {});
+              }
+            }
+          } else {
+            element.setAttribute('src', nextFallback);
+            if (tagName === 'video') {
+              element.load();
+              if (element.hasAttribute('autoplay')) {
+                element.play().catch(function() {});
+              }
+            }
+          }
+        }
+      }
+    }, true);
+
+    // Corrigir Background Images do CSS quando aberto localmente
+    window.addEventListener('DOMContentLoaded', function() {
+      if (window.location.protocol === 'file:') {
+        for (let i = 0; i < document.styleSheets.length; i++) {
+          try {
+            const sheet = document.styleSheets[i];
+            const rules = sheet.cssRules || sheet.rules;
+            if (!rules) continue;
+            for (let j = 0; j < rules.length; j++) {
+              const rule = rules[j];
+              if (rule.style && rule.style.backgroundImage) {
+                const bg = rule.style.backgroundImage;
+                if (bg && bg.includes('/assets/')) {
+                  const parts = bg.split('/assets/');
+                  const assetPath = 'assets/' + parts[1].replace(/['"\)]/g, '');
+                  rule.style.backgroundImage = "url('./" + assetPath + "')";
+                } else if (bg && bg.includes('assets/') && !bg.includes('./assets/') && !bg.includes('../assets/')) {
+                  const parts = bg.split('assets/');
+                  const assetPath = 'assets/' + parts[1].replace(/['"\)]/g, '');
+                  rule.style.backgroundImage = "url('./" + assetPath + "')";
+                }
+              }
+            }
+          } catch (e) {
+            // Ignorar erros de cross-origin
+          }
+        }
+      }
+    });
+  </script>
+</head>
+<body>
+  <header class="site-header" id="topo">
+    <div class="brand-group">
+      <a class="brand-main" href="#home" aria-label="ENDCONTROL Engenharia">
+        <img src="./assets/Logos/logo-endcontrol-horizontal-negativo.png" alt="Logo ENDCONTROL" width="468" height="54" />
+      </a>
+    </div>
+
+    <button class="menu-toggle" aria-expanded="false" aria-controls="main-menu" aria-label="Abrir menu">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="main-menu" id="main-menu">
+      <a>Home</a>
+      <a id="menu-link-sobre">Sobre Nós</a>
+      <div class="dropdown">
+        <a class="drop-link" aria-haspopup="true">Nossas Divisões</a>
+        <div class="drop-panel dropdown-rich-menu" aria-label="Submenu Nossas Divisões">
+          <a class="dropdown-item-rich brand-integridade brand-plaza" href="#divisao-integridade">
+            <span class="dropdown-item-logo" style="background: rgba(0,171,227,0.1); color: #00abe3;">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </span>
+            <span class="dropdown-item-text">Integridade Estrutural & Projetos</span>
+          </a>
+          <a class="dropdown-item-rich brand-ativos brand-super" href="#divisao-ativos">
+            <span class="dropdown-item-logo" style="background: rgba(0,171,227,0.1); color: #00abe3;">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+            </span>
+            <span class="dropdown-item-text">Inspeção de Ativos Críticos</span>
+          </a>
+          <a class="dropdown-item-rich brand-ensaios brand-wine" href="#divisao-ensaios">
+            <span class="dropdown-item-logo" style="background: rgba(0,171,227,0.1); color: #00abe3;">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20M12 2v20M4.93 4.93l14.14 14.14M4.93 19.07L19.07 4.93"/></svg>
+            </span>
+            <span class="dropdown-item-text">Ensaios Não Destrutivos (ENDs)</span>
+          </a>
+          <a class="dropdown-item-rich brand-normativa brand-park" href="#divisao-normativa">
+            <span class="dropdown-item-logo" style="background: rgba(0,171,227,0.1); color: #00abe3;">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            </span>
+            <span class="dropdown-item-text">Adequação Normativa (NRs)</span>
+          </a>
+          <a class="dropdown-item-rich brand-tecnologia brand-farma" href="#divisao-tecnologia">
+            <span class="dropdown-item-logo" style="background: rgba(0,171,227,0.1); color: #00abe3;">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+            </span>
+            <span class="dropdown-item-text">Tecnologia & Consultoria</span>
+          </a>
+        </div>
+      </div>
+      <div class="dropdown contacts-dropdown">
+        <a class="drop-link btn-contacts-menu" aria-haspopup="true">Contatos</a>
+        <div class="drop-panel" aria-label="Submenu Contatos">
+          <a>Falar com Especialista</a>
+          <a>Canais de Contato</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="wf-main-content" data-wf-version="5.0">
+
+    <!-- ════════════════════════════════════════════════════════════════════════
+         SEÇÃO HERO ESTÁTICA — TOPO DA PÁGINA
+         ════════════════════════════════════════════════════════════════════════ -->
+    <section class="hero-static-container" id="home">
+      
+      <!-- Imagem de Fundo Oficial -->
+      <img src="./assets/Paginas Imgs/HOME/S1 TOPO/topo-f (1).webp" 
+           alt="Técnico realizando inspeção de ultrassom em solda de tubulação" 
+           class="hero-bg-photo" />
+
+      <!-- Overlays de Contraste e Atmosfera -->
+      <div class="hero-overlay-dark"></div>
+      <div class="hero-overlay-blue-tint"></div>
+      <div class="hero-overlay-bottom"></div>
+
+      <!-- Camada de Elementos Tecnológicos HUD -->
+      <div class="hero-hud-layer">
+        <!-- SVG Circuitos -->
+        <svg class="hud-circuit-svg" viewBox="0 0 800 600" fill="none">
+          <!-- Linhas de Conexão -->
+          <path d="M 520 220 L 590 290 L 710 290" stroke="rgba(0, 194, 255, 0.28)" stroke-width="1.5" />
+          <path d="M 610 120 L 680 190 L 680 340 L 650 370" stroke="rgba(0, 194, 255, 0.2)" stroke-dasharray="4 4" stroke-width="1.5" />
+          <path d="M 740 180 L 740 400 L 760 420" stroke="rgba(0, 194, 255, 0.15)" stroke-width="1" />
+          
+          <!-- Nós Circulares -->
+          <circle cx="590" cy="290" r="4.5" fill="var(--color-cyan)" class="hud-pulsing-node" />
+          <circle cx="710" cy="290" r="3" fill="var(--color-cyan)" />
+          <circle cx="680" cy="190" r="3" fill="var(--color-cyan)" />
+          <circle cx="650" cy="370" r="4" fill="var(--color-cyan)" class="hud-pulsing-node" />
+        </svg>
+
+        <!-- Grid de Pontos -->
+        <div class="hud-dots-grid"></div>
+
+        <!-- Brilho no canto direito -->
+        <div class="hud-blur-glow"></div>
+      </div>
+
+      <!-- Conteúdo do Hero -->
+      <div class="hero-content-wrapper">
+        <div class="hero-main-info">
+          
+          <!-- Badge Superior -->
+          <div class="hero-badge-pill">
+            <span class="hero-badge-text">Excelência</span>
+            <span class="hero-badge-dot">•</span>
+            <span class="hero-badge-text">Precisão</span>
+            <span class="hero-badge-dot">•</span>
+            <span class="hero-badge-text">Tecnologia</span>
+          </div>
+
+          <!-- Título Principal -->
+          <h1 class="hero-title-main">
+            Engenharia de integridade para ativos que sustentam<br>
+            <span class="highlight-cyan">grandes operações</span>
+          </h1>
+
+          <!-- Descrição / Subtítulo -->
+          <p class="hero-lead-desc">
+            Inspeções especializadas, ensaios não destrutivos e calibração de alta confiabilidade para proteger ativos críticos, pessoas e processos.
+          </p>
+
+          <!-- Divisor Luminoso -->
+          <div class="hero-separator-glow"></div>
+
+          <!-- Botões CTAs -->
+          <div class="hero-actions-container">
+            <a href="https://wa.me/5591984040710" target="_blank" class="btn primary btn-hero" rel="noopener noreferrer">
+              <span>Fale com um especialista</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+            <a href="#solucoes" class="btn secondary btn-hero">
+              <span>Conheça nossas soluções</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Faixa Inferior de Benefícios -->
+      <div class="hero-benefits-bar">
+        <div class="benefits-grid">
+          
+          <!-- Item 1: Atuação Técnica -->
+          <div class="benefit-item">
+            <div class="benefit-icon-box">
+              <svg class="benefit-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+            </div>
+            <div class="benefit-text-box">
+              <h3 class="benefit-title">Atuação técnica</h3>
+              <p class="benefit-desc">Inspeções conduzidas com método e confiabilidade</p>
+            </div>
+          </div>
+
+          <!-- Item 2: Integridade de Ativos -->
+          <div class="benefit-item">
+            <div class="benefit-icon-box">
+              <svg class="benefit-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                <polyline points="9 11 11 13 15 9"></polyline>
+              </svg>
+            </div>
+            <div class="benefit-text-box">
+              <h3 class="benefit-title">Integridade de ativos</h3>
+              <p class="benefit-desc">Avaliação especializada para ambientes críticos</p>
+            </div>
+          </div>
+
+          <!-- Item 3: Tecnologia em Campo -->
+          <div class="benefit-item">
+            <div class="benefit-icon-box">
+              <svg class="benefit-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="8" y="9" width="8" height="12" rx="1.5" ry="1.5"></rect>
+                <path d="M12 1a8 8 0 0 1 5 2"></path>
+                <path d="M12 4a4 4 0 0 1 2 1"></path>
+                <path d="M12 1a8 8 0 0 0-5 2"></path>
+                <path d="M12 4a4 4 0 0 0-2 1"></path>
+                <circle cx="12" cy="15" r="1.5" fill="currentColor"></circle>
+              </svg>
+            </div>
+            <div class="benefit-text-box">
+              <h3 class="benefit-title">Tecnologia em campo</h3>
+              <p class="benefit-desc">Recursos que ampliam precisão e segurança</p>
+            </div>
+          </div>
+
+          <!-- Item 4: Compromisso Operacional -->
+          <div class="benefit-item">
+            <div class="benefit-icon-box">
+              <svg class="benefit-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+            </div>
+            <div class="benefit-text-box">
+              <h3 class="benefit-title">Compromisso operacional</h3>
+              <p class="benefit-desc">Suporte para maior confiança nas decisões</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Brilho Neon Inferior central -->
+        <div class="benefits-accent-light">
+          <div class="accent-line-glow"></div>
+          <div class="accent-dot-glow"></div>
+        </div>
+      </div>
+
+    </section>
+
+
+    <section class="section about-premium-section wf-section section-full-width" id="sobre" data-wf-label="SEÇÃO SOBRE A ENDCONTROL - LAYOUT PREMIUM">
+      <!-- Ambient Lights / Background Tech Glows & Grid -->
+      <div class="about-bg-glow glow-top-left"></div>
+      <div class="about-bg-glow glow-bottom-right"></div>
+      <div class="about-tech-pattern"></div>
+      <div class="about-tech-radar radar-top-left"></div>
+      <div class="about-tech-radar radar-bottom-right-slow"></div>
+      <div class="about-tech-line line-horizontal-top"></div>
+      <div class="about-tech-line line-vertical-right"></div>
+      <div class="about-tech-line line-sliding-middle"></div>
+      <div class="about-tech-dots dots-top-right"></div>
+      <div class="about-tech-dots dots-bottom-left"></div>
+      <div class="about-tech-coordinates">X: 42.793 | Y: 10.608</div>
+
+      <div class="container about-container">
+        <!-- Main Top Row (2 Columns: Content Left, Photo Right) -->
+        <div class="about-main-grid">
+          
+          <!-- Left Column: Content -->
+          <div class="about-content-col reveal">
+            <!-- Top Tag / Eyebrow -->
+            <span class="about-eyebrow">SOBRE A ENDCONTROL</span>
+
+            <!-- Headline -->
+            <h2 class="about-headline">
+              Excelência técnica<br>
+              que gera <span class="highlight-blue-gradient">confiança<br>e resultado.</span>
+            </h2>
+
+            <!-- Body Paragraphs -->
+            <div class="about-paragraphs">
+              <p>A Endcontrol Engenharia é referência nacional em <strong>integridade industrial</strong>, inspeções, ensaios não destrutivos e consultoria técnica.</p>
+              <p>Combinamos conhecimento técnico, tecnologia e inovação para entregar <strong>segurança</strong>, <strong>eficiência</strong> e <strong>sustentabilidade</strong> aos nossos clientes e parceiros.</p>
+            </div>
+
+            <!-- Saiba Mais CTA Button -->
+            <div class="about-cta">
+              <a href="#sobre" class="btn-about-outline-premium">
+                <span class="btn-about-icon-circle">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </span>
+                <span class="btn-about-text">Saiba mais sobre a EndControl</span>
+                <svg class="btn-about-arrow-right" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right Column: Overlapping Images -->
+          <div class="about-photo-col reveal delay-1">
+            <div class="about-media-bloom"></div>
+            <div class="about-media-wrapper">
+              <div class="about-media-glow"></div>
+              <div class="about-hud-frame"></div>
+              <span class="about-hud-corner corner-tl"></span>
+              <span class="about-hud-corner corner-tr"></span>
+              <span class="about-hud-corner corner-bl"></span>
+              <span class="about-hud-corner corner-br"></span>
+              <div class="about-media-scan-line"></div>
+              
+              <div class="about-media-grid">
+                <div class="about-media-main">
+                  <img src="./assets/Fotografias/editadas/operacional-engenheiros-inspecao-bomba-edit.webp" alt="Técnico da EndControl em operação industrial" loading="lazy" />
+                </div>
+                <div class="about-media-side">
+                  <div class="about-media-side-top">
+                    <img src="./assets/Fotografias/editadas/operacional-inspecao-ultrassom-casco-estrutura-edit.webp" alt="Equipe técnica em inspeção industrial" loading="lazy" />
+                  </div>
+                  <div class="about-media-side-bottom">
+                    <img src="./assets/Fotografias/editadas/operacional-discussao-engenheiros-tela-edit.webp" alt="Discussão técnica de engenheiros na EndControl" loading="lazy" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Row: Consolidated Values Banner -->
+        <div class="about-values-banner reveal">
+          <!-- Item 1: Segurança -->
+          <div class="about-value-item">
+            <div class="about-value-icon-wrapper">
+              <div class="about-value-icon-glow"></div>
+              <div class="about-value-icon-circle">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                </svg>
+              </div>
+            </div>
+            <div class="about-value-text">
+              <h3>Segurança</h3>
+              <p>Proteção e conformidade em todos os processos e operações.</p>
+            </div>
+          </div>
+
+          <!-- Item 2: Confiabilidade -->
+          <div class="about-value-item">
+            <div class="about-value-icon-wrapper">
+              <div class="about-value-icon-glow"></div>
+              <div class="about-value-icon-circle">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                  <path d="m9 11 2 2 4-4"/>
+                </svg>
+              </div>
+            </div>
+            <div class="about-value-text">
+              <h3>Confiabilidade</h3>
+              <p>Precisão e rigor técnico que geram confiança nos resultados.</p>
+            </div>
+          </div>
+
+          <!-- Item 3: Eficiência -->
+          <div class="about-value-item">
+            <div class="about-value-icon-wrapper">
+              <div class="about-value-icon-glow"></div>
+              <div class="about-value-icon-circle">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                </svg>
+              </div>
+            </div>
+            <div class="about-value-text">
+              <h3>Eficiência</h3>
+              <p>Soluções que aumentam a performance e reduzem paradas.</p>
+            </div>
+          </div>
+
+          <!-- Item 4: Sustentabilidade -->
+          <div class="about-value-item">
+            <div class="about-value-icon-wrapper">
+              <div class="about-value-icon-glow"></div>
+              <div class="about-value-icon-circle">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/>
+                  <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>
+                </svg>
+              </div>
+            </div>
+            <div class="about-value-text">
+              <h3>Sustentabilidade</h3>
+              <p>Atuamos com responsabilidade e foco no futuro das indústrias.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════════════════════════════════
+         SEÇÃO NOSSAS SOLUÇÕES — ORBITAL RADAR
+         ════════════════════════════════════════════════════════════════════════ -->
+    <section class="solucoes-section section-full-width" id="solucoes" data-wf-label="SEÇÃO NOSSAS SOLUÇÕES">
+      <div class="solucoes-bg-image"><img src="./assets/Fotografias/editadas/operacional-tecnico-refinaria-noite-edit.webp" alt="" aria-hidden="true" loading="lazy" /></div>
+      <div class="solucoes-center-halo"></div>
+      <div class="solucoes-grid-pattern"></div>
+      <div class="scan-line"></div>
+      <div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div>
+
+      <div class="solucoes-main-content">
+
+        <!-- COL ESQUERDA -->
+        <div class="solucoes-left-col">
+          <div class="hud-frame"><div class="hud-corner hud-corner--tl"></div><div class="hud-corner hud-corner--bl"></div></div>
+          <div class="solucoes-badge"><span class="solucoes-badge-text">Soluções Integradas</span></div>
+          <h2 class="solucoes-heading">Soluções <em>integradas</em><br>para cada desafio<br>industrial.</h2>
+          <p class="solucoes-description">Atuamos de forma completa e integrada para aumentar a confiabilidade, a segurança e a performance dos seus ativos industriais.</p>
+          <div class="solucoes-stats-left">
+            <div class="stat-item"><div class="stat-icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div class="stat-text"><div class="stat-number">+18 <span>anos</span></div><div class="stat-label">de experiência</div></div></div>
+            <div class="stat-item"><div class="stat-icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div class="stat-text"><div class="stat-number">+300</div><div class="stat-label">especialistas</div></div></div>
+            <div class="stat-item"><div class="stat-icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div><div class="stat-text"><div class="stat-label">Atuação em todo<br>o território nacional</div></div></div>
+          </div>
+        </div>
+
+        <!-- COL CENTRAL — ORBITAL + RADAR -->
+        <div class="solucoes-center-area" id="orbitalDiagram">
+          <div class="orbital-ring orbital-ring-1"><div class="orbital-dot od-1"></div><div class="orbital-dot od-3"></div></div>
+          <div class="orbital-ring orbital-ring-2"><div class="orbital-dot od-5"></div></div>
+          <div class="orbital-ring orbital-ring-3"><div class="orbital-dot od-2"></div><div class="orbital-dot od-4"></div></div>
+          <div class="orbital-ring orbital-ring-4"><div class="orbital-dot od-6"></div></div>
+          <div class="orbital-ring orbital-ring-5"></div>
+
+          <!-- RADAR -->
+          <div class="radar-sweep-container" id="radarSweep">
+            <div class="radar-sweep-sector"></div>
+            <div class="radar-sweep-line"></div>
+            <div class="radar-center-pulse"></div>
+          </div>
+
+          <div class="orbital-center-glow"></div>
+          <div class="orbital-center-logo"><img src="./assets/Logos/logo-endcontrol-vertical-mono-negativo.webp" alt="ENDCONTROL Engenharia" /></div>
+
+          <div class="orbital-tech-label">
+            <div class="tech-label-line"></div>
+            <span class="tech-label-text">SYS.INTEGRATION // V4.2.1</span>
+            <div class="tech-label-line tech-label-line--right"></div>
+          </div>
+
+          <!-- ÍCONES DE SERVIÇO -->
+          <div class="service-node node-pos-0" data-index="0" id="node-0">
+            <div class="service-node-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2 20h20"/><path d="M4 20v-4"/><path d="M8 20v-8"/><path d="M12 20V8"/><path d="M16 20v-8"/><path d="M20 20v-4"/>
+                <path d="M4 16l4-4 4 0 4 0 4 4"/>
+                <path d="M8 12l4-4 4 4"/>
+              </svg>
+            </div>
+            <span class="service-node-label">Integridade<br>Estrutural</span>
+          </div>
+
+          <div class="service-node node-pos-1" data-index="1" id="node-1">
+            <div class="service-node-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="10.5" cy="10.5" r="7.5"/>
+                <line x1="16" y1="16" x2="22" y2="22"/>
+                <path d="M7 13h7"/><path d="M7 10l3.5-3.5L14 10"/>
+              </svg>
+            </div>
+            <span class="service-node-label">Inspeção<br>em OAE</span>
+          </div>
+
+          <div class="service-node node-pos-2" data-index="2" id="node-2">
+            <div class="service-node-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="6" y="3" width="12" height="18" rx="2"/>
+                <circle cx="12" cy="15" r="2"/>
+                <path d="M9 8h6"/><path d="M9 5.5h6"/>
+                <path d="M3 8c1.5-1 2-3 2-5"/><path d="M21 8c-1.5-1-2-3-2-5"/>
+              </svg>
+            </div>
+            <span class="service-node-label">ENDs</span>
+            <span class="service-node-sublabel">(Ensaios Não<br>Destrutivos)</span>
+          </div>
+
+          <div class="service-node node-pos-3" data-index="3" id="node-3">
+            <div class="service-node-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+              </svg>
+            </div>
+            <span class="service-node-label">Soldagem e<br>Qualificação</span>
+          </div>
+
+          <div class="service-node node-pos-4" data-index="4" id="node-4">
+            <div class="service-node-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="4" width="20" height="16" rx="1.5"/>
+                <path d="M2 8h20"/><path d="M6 4v16"/>
+                <path d="M10 12h6"/><path d="M10 15h4"/>
+                <circle cx="13" cy="12" r="0" fill="currentColor"/>
+              </svg>
+            </div>
+            <span class="service-node-label">Projetos de<br>Engenharia</span>
+          </div>
+
+          <div class="service-node node-pos-5" data-index="5" id="node-5">
+            <div class="service-node-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="5" y="5" width="14" height="14" rx="2"/>
+                <rect x="9" y="9" width="6" height="6" rx="1"/>
+                <path d="M9 2v3"/><path d="M15 2v3"/><path d="M9 19v3"/><path d="M15 19v3"/>
+                <path d="M2 9h3"/><path d="M2 15h3"/><path d="M19 9h3"/><path d="M19 15h3"/>
+              </svg>
+            </div>
+            <span class="service-node-label">Soluções<br>Tecnológicas</span>
+          </div>
+        </div>
+
+        <!-- COL DIREITA — Card -->
+        <div class="solucoes-right-col">
+          <div class="highlight-card" id="highlightCard">
+            <div class="highlight-card-image">
+              <img id="cardImage" src="./assets/Fotografias/editadas/operacional-alpinismo-industrial-escada-tanque-edit.webp" alt="Inspeção em OAE" />
+              <div class="highlight-card-image-overlay"></div>
+              <div class="highlight-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><span>Destaque</span></div>
+            </div>
+            <div class="highlight-card-body" id="cardBody">
+              <h3 class="highlight-card-title" id="cardTitle">Inspeção em OAE</h3>
+              <p class="highlight-card-desc" id="cardDesc">Avaliações técnicas especializadas em Obras de Arte Especiais, com foco em segurança, durabilidade e conformidade normativa.</p>
+              <ul class="highlight-card-list" id="cardList">
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Inspeções visuais e instrumentadas</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Mapeamento de danos e anomalias</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Relatórios técnicos e pareceres</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Suporte à gestão de ativos</li>
+              </ul>
+              <a href="#" class="highlight-card-cta" id="cardCta">Saiba mais sobre Inspeção em OAE <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+            </div>
+            <div class="card-progress" id="cardProgress"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="solucoes-bottom-bar">
+        <div class="bottom-bar-inner">
+          <div class="bottom-bar-feed">
+            <div class="feed-item"><span class="feed-label">Data_Feed</span><span class="feed-value">24.05.2024 &nbsp; 14:37:22</span></div>
+            <div class="feed-separator"></div>
+            <div class="feed-item"><span class="feed-label">Status</span><span class="feed-value status-online">ONLINE</span></div>
+          </div>
+          <div class="bottom-bar-stats" id="statsBar">
+            <div class="bar-stat"><span class="bar-stat-label">Cobertura Nacional</span><span class="bar-stat-value" data-target="100" data-suffix="%">0%</span></div>
+            <div class="bar-stat"><span class="bar-stat-label">Projetos Entregues</span><span class="bar-stat-value" data-target="1250" data-prefix="+" data-separator=".">0</span></div>
+            <div class="bar-stat"><span class="bar-stat-label">Índice de Confiabilidade</span><span class="bar-stat-value" data-target="99.7" data-suffix="%" data-decimal="true">0%</span></div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+
+    <!-- SEÇÃO DEPOIMENTOS PREMIUM -->
+    <section class="testimonials-section-premium" id="depoimentos" data-wf-label="SEÇÃO DEPOIMENTOS - PREMIUM">
+      <div class="container">
+        <div class="testimonials-premium-grid">
+          
+          <!-- Coluna 1: Texto e Controles -->
+          <div class="testimonials-copy-col reveal">
+            <span class="testimonial-badge-kicker">
+              <span class="badge-dot"></span>DEPOIMENTOS
+            </span>
+            <h2 class="testimonials-heading">Empresas que <br> já confiaram <br> na <span class="highlight-red">Endcontrol</span></h2>
+            <div class="testimonials-divider"></div>
+            <p class="testimonials-subheading">Parceiros e clientes industriais que compartilham como a Endcontrol faz a diferença em segurança, conformidade e desempenho operacional.</p>
+          </div>
+          
+          <!-- Coluna 2: Carrossel de Cards Vídeo -->
+          <div class="testimonials-carousel-wrapper reveal delay-1">
+            
+            <!-- Seta Anterior -->
+            <button class="testimonials-prev-btn" id="dep-prev-btn" aria-label="Depoimento anterior">
+              <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+              </svg>
+            </button>
+
+            <div class="testimonials-carousel-track-wrapper">
+              <div class="testimonials-carousel-track" id="dep-track">
+                
+                <!-- Card 1: Carlos Eduardo -->
+                <div class="dep-video-card">
+                  <div class="dep-video-inner">
+                    <video src="./assets/Videos/Depoimentos/depoimento-2-empresarios.mp4" poster="./assets/Paginas Imgs/HOME/S4 DEPOIMENTOS/depo1.webp" class="dep-video" style="object-fit:cover;width:100%;height:100%;" playsinline data-end="6"></video>
+                    <button class="dep-play-btn" aria-label="Reproduzir depoimento">
+                      <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="30" cy="30" r="29" fill="rgba(255,255,255,0.92)"/>
+                        <polygon points="24,18 44,30 24,42" fill="#00abe3"/>
+                      </svg>
+                    </button>
+                    <div class="dep-card-tag">
+                      <div class="dep-tag-left-stack">
+                        <span class="dep-tag-line-red"></span>
+                        <p class="dep-tag-name">Carlos Eduardo</p>
+                        <p class="dep-tag-role">Parceiro Comercial</p>
+                      </div>
+                      <span class="dep-tag-duration">00:06</span>
+                    </div>
+                    <!-- Controles Customizados -->
+                    <div class="dep-custom-controls">
+                      <div class="dep-controls-timeline-wrapper">
+                        <div class="dep-controls-timeline-bar">
+                          <div class="dep-controls-timeline-progress"></div>
+                        </div>
+                      </div>
+                      <div class="dep-controls-buttons-row">
+                        <div class="dep-controls-left-buttons">
+                          <button class="dep-ctrl-btn dep-play-pause-btn" aria-label="Reproduzir/Pausar">
+                            <svg class="icon-play" viewBox="0 0 24 24" width="16" height="16"><polygon points="5 3 19 12 5 21 5 3" fill="#0062e3"/></svg>
+                            <svg class="icon-pause" viewBox="0 0 24 24" width="16" height="16" style="display:none;"><rect x="6" y="4" width="4" height="16" fill="#0062e3"/><rect x="14" y="4" width="4" height="16" fill="#0062e3"/></svg>
+                          </button>
+                          <button class="dep-ctrl-btn dep-rewind-btn" aria-label="Voltar 10 segundos">
+                            <svg viewBox="0 0 24 24" width="14" height="14"><path d="M12 5V1L7 6l5 5V7c3.3 0 6 2.7 6 6s-2.7 6-6 6-6-2.7-6-6H4c0 4.4 3.6 8 8 8s8-3.6 8-8-3.6-8-8-8zm-1 5.5h-1v5h1v-5zm3 0h-2v5h2v-5z" fill="#0062e3"/></svg>
+                          </button>
+                          <button class="dep-ctrl-btn dep-forward-btn" aria-label="Avançar 10 segundos">
+                            <svg viewBox="0 0 24 24" width="14" height="14"><path d="M12 5V1l5 5-5 5V7c-3.3 0-6 2.7-6 6s-2.7 6-6 6-6-2.7-6-6h2c0 4.4-3.6 8-8 8s-8-3.6-8-8 3.6-8 8-8zm-1 5.5h-1v5h1v-5zm3 0h-2v5h2v-5z" fill="#0062e3"/></svg>
+                          </button>
+                          <span class="dep-ctrl-time">00:00 / 00:00</span>
+                        </div>
+                        <div class="dep-controls-right-buttons">
+                          <div class="dep-volume-control-wrapper">
+                            <button class="dep-ctrl-btn dep-volume-btn" aria-label="Volume">
+                              <svg class="icon-volume-on" viewBox="0 0 24 24" width="16" height="16"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z" fill="#0062e3"/></svg>
+                              <svg class="icon-volume-off" viewBox="0 0 24 24" width="16" height="16" style="display:none;"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.21.05-.42.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71z" fill="#0062e3"/></svg>
+                            </button>
+                            <input type="range" class="dep-volume-slider" min="0" max="1" step="0.05" value="1" aria-label="Ajustar Volume">
+                          </div>
+                          <button class="dep-ctrl-btn dep-fullscreen-btn" aria-label="Tela Cheia">
+                            <svg viewBox="0 0 24 24" width="16" height="16"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z" fill="#0062e3"/></svg>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- Card 2: Renata Souza (Desativado temporariamente - 3 depoimentos ativos) -->
+                <!-- 
+                <div class="dep-video-card">
+                  <div class="dep-video-inner">
+                    <img src="./assets/Fotografias/editadas/ultrassom-raptor-scan-tecnicos-reunidos-campo-edit.webp" alt="Técnicos reunidos em campo" class="dep-video" style="object-fit:cover;width:100%;height:100%;" loading="lazy">
+                    <button class="dep-play-btn" aria-label="Reproduzir depoimento">
+                      <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="30" cy="30" r="29" fill="rgba(255,255,255,0.92)"/>
+                        <polygon points="24,18 44,30 24,42" fill="#00abe3"/>
+                      </svg>
+                    </button>
+                    <div class="dep-card-tag">
+                      <div class="dep-tag-left-stack">
+                        <span class="dep-tag-line-red"></span>
+                        <p class="dep-tag-name">Renata Souza</p>
+                        <p class="dep-tag-role">Fornecedora Parceira</p>
+                      </div>
+                      <span class="dep-tag-duration">01:42</span>
+                    </div>
+                    <div class="dep-custom-controls">
+                      <div class="dep-controls-timeline-wrapper">
+                        <div class="dep-controls-timeline-bar">
+                          <div class="dep-controls-timeline-progress"></div>
+                        </div>
+                      </div>
+                      <div class="dep-controls-buttons-row">
+                        <div class="dep-controls-left-buttons">
+                          <button class="dep-ctrl-btn dep-play-pause-btn" aria-label="Reproduzir/Pausar">
+                            <svg class="icon-play" viewBox="0 0 24 24" width="16" height="16"><polygon points="5 3 19 12 5 21 5 3" fill="#0062e3"/></svg>
+                            <svg class="icon-pause" viewBox="0 0 24 24" width="16" height="16" style="display:none;"><rect x="6" y="4" width="4" height="16" fill="#0062e3"/><rect x="14" y="4" width="4" height="16" fill="#0062e3"/></svg>
+                          </button>
+                          <button class="dep-ctrl-btn dep-rewind-btn" aria-label="Voltar 10 segundos">
+                            <svg viewBox="0 0 24 24" width="14" height="14"><path d="M12 5V1L7 6l5 5V7c3.3 0 6 2.7 6 6s-2.7 6-6 6-6-2.7-6-6H4c0 4.4 3.6 8 8 8s8-3.6 8-8-3.6-8-8-8zm-1 5.5h-1v5h1v-5zm3 0h-2v5h2v-5z" fill="#0062e3"/></svg>
+                          </button>
+                          <button class="dep-ctrl-btn dep-forward-btn" aria-label="Avançar 10 segundos">
+                            <svg viewBox="0 0 24 24" width="14" height="14"><path d="M12 5V1l5 5-5 5V7c-3.3 0-6 2.7-6 6s2.7 6 6 6 6-2.7 6-6h2c0 4.4-3.6 8-8 8s-8-3.6-8-8 3.6-8 8-8zm-1 5.5h-1v5h1v-5zm3 0h-2v5h2v-5z" fill="#0062e3"/></svg>
+                          </button>
+                          <span class="dep-ctrl-time">00:00 / 00:00</span>
+                        </div>
+                        <div class="dep-controls-right-buttons">
+                          <div class="dep-volume-control-wrapper">
+                            <button class="dep-ctrl-btn dep-volume-btn" aria-label="Volume">
+                              <svg class="icon-volume-on" viewBox="0 0 24 24" width="16" height="16"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z" fill="#0062e3"/></svg>
+                              <svg class="icon-volume-off" viewBox="0 0 24 24" width="16" height="16" style="display:none;"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.21.05-.42.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71z" fill="#0062e3"/></svg>
+                            </button>
+                            <input type="range" class="dep-volume-slider" min="0" max="1" step="0.05" value="1" aria-label="Ajustar Volume">
+                          </div>
+                          <button class="dep-ctrl-btn dep-fullscreen-btn" aria-label="Tela Cheia">
+                            <svg viewBox="0 0 24 24" width="16" height="16"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z" fill="#0062e3"/></svg>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                -->
+ 
+                <!-- Card 3: Juliana Martins -->
+                <div class="dep-video-card">
+                  <div class="dep-video-inner">
+                    <video src="./assets/Videos/Depoimentos/depoimento-1-empresaria.mp4" poster="./assets/Paginas Imgs/HOME/S4 DEPOIMENTOS/depo3.webp" class="dep-video" style="object-fit:cover;width:100%;height:100%;" playsinline></video>
+                    <button class="dep-play-btn" aria-label="Reproduzir depoimento">
+                      <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="30" cy="30" r="29" fill="rgba(255,255,255,0.92)"/>
+                        <polygon points="24,18 44,30 24,42" fill="#00abe3"/>
+                      </svg>
+                    </button>
+                    <div class="dep-card-tag">
+                      <div class="dep-tag-left-stack">
+                        <span class="dep-tag-line-red"></span>
+                        <p class="dep-tag-name">Juliana Martins</p>
+                        <p class="dep-tag-role">Cliente – Rede SuperMais</p>
+                      </div>
+                      <span class="dep-tag-duration">00:15</span>
+                    </div>
+                    <!-- Controles Customizados -->
+                    <div class="dep-custom-controls">
+                      <div class="dep-controls-timeline-wrapper">
+                        <div class="dep-controls-timeline-bar">
+                          <div class="dep-controls-timeline-progress"></div>
+                        </div>
+                      </div>
+                      <div class="dep-controls-buttons-row">
+                        <div class="dep-controls-left-buttons">
+                          <button class="dep-ctrl-btn dep-play-pause-btn" aria-label="Reproduzir/Pausar">
+                            <svg class="icon-play" viewBox="0 0 24 24" width="16" height="16"><polygon points="5 3 19 12 5 21 5 3" fill="#0062e3"/></svg>
+                            <svg class="icon-pause" viewBox="0 0 24 24" width="16" height="16" style="display:none;"><rect x="6" y="4" width="4" height="16" fill="#0062e3"/><rect x="14" y="4" width="4" height="16" fill="#0062e3"/></svg>
+                          </button>
+                          <button class="dep-ctrl-btn dep-rewind-btn" aria-label="Voltar 10 segundos">
+                            <svg viewBox="0 0 24 24" width="14" height="14"><path d="M12 5V1L7 6l5 5V7c3.3 0 6 2.7 6 6s-2.7 6-6 6-6-2.7-6-6H4c0 4.4 3.6 8 8 8s8-3.6 8-8-3.6-8-8-8zm-1 5.5h-1v5h1v-5zm3 0h-2v5h2v-5z" fill="#0062e3"/></svg>
+                          </button>
+                          <button class="dep-ctrl-btn dep-forward-btn" aria-label="Avançar 10 segundos">
+                            <svg viewBox="0 0 24 24" width="14" height="14"><path d="M12 5V1l5 5-5 5V7c-3.3 0-6 2.7-6 6s2.7 6 6 6 6-2.7 6-6h2c0 4.4-3.6 8-8 8s-8-3.6-8-8 3.6-8 8-8zm-1 5.5h-1v5h1v-5zm3 0h-2v5h2v-5z" fill="#0062e3"/></svg>
+                          </button>
+                          <span class="dep-ctrl-time">00:00 / 00:00</span>
+                        </div>
+                        <div class="dep-controls-right-buttons">
+                          <div class="dep-volume-control-wrapper">
+                            <button class="dep-ctrl-btn dep-volume-btn" aria-label="Volume">
+                              <svg class="icon-volume-on" viewBox="0 0 24 24" width="16" height="16"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z" fill="#0062e3"/></svg>
+                              <svg class="icon-volume-off" viewBox="0 0 24 24" width="16" height="16" style="display:none;"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.21.05-.42.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71z" fill="#0062e3"/></svg>
+                            </button>
+                            <input type="range" class="dep-volume-slider" min="0" max="1" step="0.05" value="1" aria-label="Ajustar Volume">
+                          </div>
+                          <button class="dep-ctrl-btn dep-fullscreen-btn" aria-label="Tela Cheia">
+                            <svg viewBox="0 0 24 24" width="16" height="16"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z" fill="#0062e3"/></svg>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+ 
+                <!-- Card 4: Marcus Oliveira -->
+                <div class="dep-video-card">
+                  <div class="dep-video-inner">
+                    <video src="./assets/Videos/Depoimentos/depoimento-2-empresarios.mp4" poster="./assets/Paginas Imgs/HOME/S4 DEPOIMENTOS/depo2.webp" class="dep-video" style="object-fit:cover;width:100%;height:100%;" playsinline data-start="5"></video>
+                    <button class="dep-play-btn" aria-label="Reproduzir depoimento">
+                      <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="30" cy="30" r="29" fill="rgba(255,255,255,0.92)"/>
+                        <polygon points="24,18 44,30 24,42" fill="#00abe3"/>
+                      </svg>
+                    </button>
+                    <div class="dep-card-tag">
+                      <div class="dep-tag-left-stack">
+                        <span class="dep-tag-line-red"></span>
+                        <p class="dep-tag-name">Marcus Oliveira</p>
+                        <p class="dep-tag-role">Gerente Comercial</p>
+                      </div>
+                      <span class="dep-tag-duration">00:10</span>
+                    </div>
+                    <!-- Controles Customizados -->
+                    <div class="dep-custom-controls">
+                      <div class="dep-controls-timeline-wrapper">
+                        <div class="dep-controls-timeline-bar">
+                          <div class="dep-controls-timeline-progress"></div>
+                        </div>
+                      </div>
+                      <div class="dep-controls-buttons-row">
+                        <div class="dep-controls-left-buttons">
+                          <button class="dep-ctrl-btn dep-play-pause-btn" aria-label="Reproduzir/Pausar">
+                            <svg class="icon-play" viewBox="0 0 24 24" width="16" height="16"><polygon points="5 3 19 12 5 21 5 3" fill="#0062e3"/></svg>
+                            <svg class="icon-pause" viewBox="0 0 24 24" width="16" height="16" style="display:none;"><rect x="6" y="4" width="4" height="16" fill="#0062e3"/><rect x="14" y="4" width="4" height="16" fill="#0062e3"/></svg>
+                          </button>
+                          <button class="dep-ctrl-btn dep-rewind-btn" aria-label="Voltar 10 segundos">
+                            <svg viewBox="0 0 24 24" width="14" height="14"><path d="M12 5V1L7 6l5 5V7c3.3 0 6 2.7 6 6s-2.7 6-6 6-6-2.7-6-6H4c0 4.4 3.6 8 8 8s8-3.6 8-8-3.6-8-8-8zm-1 5.5h-1v5h1v-5zm3 0h-2v5h2v-5z" fill="#0062e3"/></svg>
+                          </button>
+                          <button class="dep-ctrl-btn dep-forward-btn" aria-label="Avançar 10 segundos">
+                            <svg viewBox="0 0 24 24" width="14" height="14"><path d="M12 5V1l5 5-5 5V7c-3.3 0-6 2.7-6 6s-2.7 6-6 6-6-2.7-6-6h2c0 4.4-3.6 8-8 8s-8-3.6-8-8 3.6-8 8-8zm-1 5.5h-1v5h1v-5zm3 0h-2v5h2v-5z" fill="#0062e3"/></svg>
+                          </button>
+                          <span class="dep-ctrl-time">00:00 / 00:00</span>
+                        </div>
+                        <div class="dep-controls-right-buttons">
+                          <div class="dep-volume-control-wrapper">
+                            <button class="dep-ctrl-btn dep-volume-btn" aria-label="Volume">
+                              <svg class="icon-volume-on" viewBox="0 0 24 24" width="16" height="16"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z" fill="#0062e3"/></svg>
+                              <svg class="icon-volume-off" viewBox="0 0 24 24" width="16" height="16" style="display:none;"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.21.05-.42.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71z" fill="#0062e3"/></svg>
+                            </button>
+                            <input type="range" class="dep-volume-slider" min="0" max="1" step="0.05" value="1" aria-label="Ajustar Volume">
+                          </div>
+                          <button class="dep-ctrl-btn dep-fullscreen-btn" aria-label="Tela Cheia">
+                            <svg viewBox="0 0 24 24" width="16" height="16"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z" fill="#0062e3"/></svg>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Seta Próxima -->
+            <button class="testimonials-next-btn" id="dep-next-btn" aria-label="Próximo depoimento">
+              <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </button>
+
+            <!-- Dots abaixo dos cards -->
+            <div class="testimonials-dots" id="dep-dots"></div>
+
+          </div>
+          
+          
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+     SEÇÃO SEGMENTOS DE ATUAÇÃO
+     ========================================================================== -->
+    <section class="section segmentos-secao wf-section section-full-width" id="segmentos-secao" data-wf-label="SEÇÃO SEGMENTOS DE ATUAÇÃO">
+      <div class="container">
+        <div class="segmentos-head reveal">
+          <span class="segmentos-eyebrow">NOSSOS CASES E ATUAÇÃO</span>
+          <h2 class="segmentos-title">Cases e <span class="segmentos-highlight">Segmentos de Atuação</span></h2>
+          <p class="segmentos-subtitle">
+            Soluções de engenharia sob medida para diferentes segmentos, com conhecimento técnico especializado e atendimento personalizado.
+          </p>
+        </div>
+      </div>
+      
+      <div class="segmentos-panel reveal">
+        <!-- Card 1: Aeroespacial -->
+        <a href="https://wa.me/5591984040710?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20as%20solu%C3%A7%C3%B5es%20da%20Endcontrol%20para%20o%20setor%20Aeroespacial" target="_blank" rel="noopener" class="segmentos-card">
+          <div class="segmentos-card-bg" style="background-image: url('./assets/Paginas Imgs/HOME/S_SEGMENTOS/aeroespacial.webp');"></div>
+          <div class="segmentos-card-content">
+            <div class="segmentos-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17.8 19.2L16 11l3.5-3.5C21 6 21.5 4 21 3.5c-.5-.5-2.5 0-4 1.5L13.5 8.5 5.3 6.7c-.9-.2-1.8.3-2 1.2-.2.9.3 1.8 1.2 2l8 3.5-3.5 3.5-3.5-.5c-.5-.1-1 .1-1.4.5L3 18l3 1.5L7.5 22.5l1.2-1.1c.4-.4.6-.9.5-1.4l-.5-3.5 3.5-3.5 3.5 8c.2.9 1.1 1.4 2 1.2.9-.2 1.4-1.1 1.2-2z"/>
+              </svg>
+            </div>
+            <span class="segmentos-card-label">Aeroespacial</span>
+          </div>
+        </a>
+
+        <!-- Card 2: Mineração -->
+        <a href="https://wa.me/5591984040710?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20as%20solu%C3%A7%C3%B5es%20da%20Endcontrol%20para%20o%20setor%20de%20Minera%C3%A7%C3%A3o" target="_blank" rel="noopener" class="segmentos-card">
+          <div class="segmentos-card-bg" style="background-image: url('./assets/Paginas Imgs/HOME/S_SEGMENTOS/mineracao.webp');"></div>
+          <div class="segmentos-card-content">
+            <div class="segmentos-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 6h16l-2 9H6L4 6z"/>
+                <circle cx="8" cy="18" r="2"/>
+                <circle cx="16" cy="18" r="2"/>
+                <path d="M2 6h20M12 6v9M6 10h12"/>
+              </svg>
+            </div>
+            <span class="segmentos-card-label">Mineração</span>
+          </div>
+        </a>
+
+        <!-- Card 3: Naval -->
+        <a href="https://wa.me/5591984040710?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20as%20solu%C3%A7%C3%B5es%20da%20Endcontrol%20para%20o%20setor%20Naval" target="_blank" rel="noopener" class="segmentos-card">
+          <div class="segmentos-card-bg" style="background-image: url('./assets/Paginas Imgs/HOME/S_SEGMENTOS/naval.webp');"></div>
+          <div class="segmentos-card-content">
+            <div class="segmentos-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2 17l2 2h16l2-2v-4H2v4z"/>
+                <path d="M5 13V8h3v5M11 13V5h4v8M18 13V9h2v4"/>
+                <path d="M1 20h22"/>
+              </svg>
+            </div>
+            <span class="segmentos-card-label">Naval</span>
+          </div>
+        </a>
+
+        <!-- Card 4: Alimentício -->
+        <a href="https://wa.me/5591984040710?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20as%20solu%C3%A7%C3%B5es%20da%20Endcontrol%20para%20o%20setor%20Aliment%C3%ADcio" target="_blank" rel="noopener" class="segmentos-card">
+          <div class="segmentos-card-bg" style="background-image: url('./assets/Paginas Imgs/HOME/S_SEGMENTOS/alimenticio.webp');"></div>
+          <div class="segmentos-card-content">
+            <div class="segmentos-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 3h6M10 3v3a3 3 0 0 1-1 2.24L8 11v8a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-8l-1-2.76A3 3 0 0 1 14 6V3"/>
+                <path d="M8 14h8"/>
+              </svg>
+            </div>
+            <span class="segmentos-card-label">Alimentício</span>
+          </div>
+        </a>
+
+        <!-- Card 5: Ambiental -->
+        <a href="https://wa.me/5591984040710?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20as%20solu%C3%A7%C3%B5es%20da%20Endcontrol%20para%20o%20setor%20Ambiental" target="_blank" rel="noopener" class="segmentos-card">
+          <div class="segmentos-card-bg" style="background-image: url('./assets/Paginas Imgs/HOME/S_SEGMENTOS/ambiental.webp');"></div>
+          <div class="segmentos-card-content">
+            <div class="segmentos-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 3.5 1 9.8a7 7 0 0 1-9 8.2z"/>
+                <path d="M9 22v-4h4"/>
+              </svg>
+            </div>
+            <span class="segmentos-card-label">Ambiental</span>
+          </div>
+        </a>
+
+        <!-- Card 6: Óleo e Gás -->
+        <a href="https://wa.me/5591984040710?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20as%20solu%C3%A7%C3%B5es%20da%20Endcontrol%20para%20o%20setor%20de%20%C3%93leo%20e%20G%C3%A1s" target="_blank" rel="noopener" class="segmentos-card">
+          <div class="segmentos-card-bg" style="background-image: url('./assets/Paginas Imgs/HOME/S_SEGMENTOS/oleo_gas.webp');"></div>
+          <div class="segmentos-card-content">
+            <div class="segmentos-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2 22h20"/>
+                <path d="M6 22L12 8l6 14"/>
+                <path d="M4 10l12-3 6 4"/>
+                <path d="M4 10v9"/>
+                <circle cx="18" cy="11" r="1.5"/>
+              </svg>
+            </div>
+            <span class="segmentos-card-label">Óleo e Gás</span>
+          </div>
+        </a>
+
+        <!-- Card 7: Energia -->
+        <a href="https://wa.me/5591984040710?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20as%20solu%C3%A7%C3%B5es%20da%20Endcontrol%20para%20o%20setor%20de%20Energia" target="_blank" rel="noopener" class="segmentos-card">
+          <div class="segmentos-card-bg" style="background-image: url('./assets/Paginas Imgs/HOME/S_SEGMENTOS/energia.webp');"></div>
+          <div class="segmentos-card-content">
+            <div class="segmentos-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <polygon points="13 6 7 13 12 13 11 18 17 11 12 11 13 6"/>
+              </svg>
+            </div>
+            <span class="segmentos-card-label">Energia</span>
+          </div>
+        </a>
+
+        <!-- Card 8: Papel e Celulose -->
+        <a href="https://wa.me/5591984040710?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20as%20solu%C3%A7%C3%B5es%20da%20Endcontrol%20para%20o%20setor%20de%20Papel%20e%20Celulose" target="_blank" rel="noopener" class="segmentos-card">
+          <div class="segmentos-card-bg" style="background-image: url('./assets/Paginas Imgs/HOME/S_SEGMENTOS/papel_celulose.webp');"></div>
+          <div class="segmentos-card-content">
+            <div class="segmentos-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+                <ellipse cx="6" cy="12" rx="3" ry="5"/>
+                <path d="M6 7h12c1.66 0 3 2.24 3 5s-1.34 5-3 5H6"/>
+                <path d="M18 7v10"/>
+                <path d="M6 17c-1.66 0-3-2.24-3-5s1.34-5 3-5"/>
+              </svg>
+            </div>
+            <span class="segmentos-card-label">Papel e Celulose</span>
+          </div>
+        </a>
+
+        <!-- Card 9: Químico e Petroquímico -->
+        <a href="https://wa.me/5591984040710?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20as%20solu%C3%A7%C3%B5es%20da%20Endcontrol%20para%20o%20setor%20Qu%C3%ADmico%20e%20Petroqu%C3%ADmico" target="_blank" rel="noopener" class="segmentos-card">
+          <div class="segmentos-card-bg" style="background-image: url('./assets/Paginas Imgs/HOME/S_SEGMENTOS/quimico_petroquimico.webp');"></div>
+          <div class="segmentos-card-content">
+            <div class="segmentos-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 3h12M9 3v4.3a2 2 0 0 1-.22.9L5.3 19.3A2 2 0 0 0 7.1 22h9.8a2 2 0 0 0 1.8-2.7l-3.48-11.1A2 2 0 0 1 15 7.3V3"/>
+                <path d="M6.5 16h11"/>
+              </svg>
+            </div>
+            <span class="segmentos-card-label">Químico e Petroquímico</span>
+          </div>
+        </a>
+
+        <!-- Card 10: Ferroviário -->
+        <a href="https://wa.me/5591984040710?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20as%20solu%C3%A7%C3%B5es%20da%20Endcontrol%20para%20o%20setor%20Ferrovi%C3%A1rio" target="_blank" rel="noopener" class="segmentos-card">
+          <div class="segmentos-card-bg" style="background-image: url('./assets/Paginas Imgs/HOME/S_SEGMENTOS/ferroviario.webp');"></div>
+          <div class="segmentos-card-content">
+            <div class="segmentos-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="4" y="3" width="16" height="14" rx="2"/>
+                <path d="M4 11h16M8 3v8M16 3v8M6 17l-3 4M18 17l3 4M12 14h.01"/>
+                <circle cx="8" cy="14" r="1"/>
+                <circle cx="16" cy="14" r="1"/>
+              </svg>
+            </div>
+            <span class="segmentos-card-label">Ferroviário</span>
+          </div>
+        </a>
+
+        <!-- Card 11: Infraestrutura e Logística -->
+        <a href="https://wa.me/5591984040710?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20as%20solu%C3%A7%C3%B5es%20da%20Endcontrol%20para%20o%20setor%20de%20Infraestrutura%20e%20Log%C3%ADstica" target="_blank" rel="noopener" class="segmentos-card">
+          <div class="segmentos-card-bg" style="background-image: url('./assets/Paginas Imgs/HOME/S_SEGMENTOS/infraestrutura_logistica.webp');"></div>
+          <div class="segmentos-card-content">
+            <div class="segmentos-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 20h18"/>
+                <path d="M6 20V8l-3 3M18 20V8l3 3"/>
+                <path d="M6 10c4 4 8 4 12 0"/>
+                <path d="M9 11v5M12 12v4M15 11v5"/>
+              </svg>
+            </div>
+            <span class="segmentos-card-label">Infraestrutura e Logística</span>
+          </div>
+        </a>
+
+        <!-- Card 12: Siderúrgico -->
+        <a href="https://wa.me/5591984040710?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20as%20solu%C3%A7%C3%B5es%20da%20Endcontrol%20para%20o%20setor%20Sider%C3%Bargico" target="_blank" rel="noopener" class="segmentos-card">
+          <div class="segmentos-card-bg" style="background-image: url('./assets/Paginas Imgs/HOME/S_SEGMENTOS/siderurgico.webp');"></div>
+          <div class="segmentos-card-content">
+            <div class="segmentos-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 5h5v2H4zM15 5h5v2h-5zM9 6h6v1H9z"/>
+                <path d="M4 7v10M9 7v10M15 7v10M20 7v10M9 6v11M15 6v11"/>
+                <path d="M4 17h5v2H4zM15 17h5v2h-5zM9 18h6v1H9z"/>
+              </svg>
+            </div>
+            <span class="segmentos-card-label">Siderúrgico</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- SEÇÃO OPORTUNIDADES E CARREIRAS ENDCONTROL -->
+    <section class="oportunidades-section section-full-width" id="oportunidades" data-wf-label="SEÇÃO OPORTUNIDADES E CARREIRAS ENDCONTROL">
+      <div class="container oportunidades-container">
+
+        <!-- Cards Grid -->
+        <div class="oportunidades-grid">
+
+          <!-- Card 1: Solicite uma proposta -->
+          <div class="oportunidades-card reveal delay-1">
+            <img src="./assets/Fotografias/editadas/operacional-discussao-engenheiros-tela-edit.webp" alt="Discussão técnica de engenheiros na EndControl" class="oportunidades-card-img" loading="lazy" />
+            <div class="oportunidades-card-overlay"></div>
+            <div class="oportunidades-card-content">
+              <div class="oportunidades-card-header">
+                <div class="oportunidades-card-icon-wrapper">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                    <polyline points="10 9 9 9 8 9"></polyline>
+                  </svg>
+                </div>
+                <h3 class="oportunidades-card-title">Solicite uma proposta</h3>
+              </div>
+              <p class="oportunidades-card-text">Fale com nossos especialistas e descubra a melhor solução para o seu desafio industrial.</p>
+              <ul class="oportunidades-card-checklist">
+                <li>
+                  <svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="8 12 11 15 16 9"></polyline>
+                  </svg>
+                  Atendimento rápido e consultivo
+                </li>
+                <li>
+                  <svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="8 12 11 15 16 9"></polyline>
+                  </svg>
+                  Soluções personalizadas
+                </li>
+                <li>
+                  <svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="8 12 11 15 16 9"></polyline>
+                  </svg>
+                  Foco em segurança e resultados
+                </li>
+              </ul>
+              <a href="mailto:contato@endcontrol.com.br" class="oportunidades-card-btn">
+                Solicitar proposta
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 2: Trabalhe na EndControl -->
+          <div class="oportunidades-card reveal delay-2">
+            <img src="./assets/Fotografias/editadas/operacional-engenheiros-inspecao-bomba-edit.webp" alt="Engenheiros EndControl em campo" class="oportunidades-card-img" loading="lazy" />
+            <div class="oportunidades-card-overlay"></div>
+            <div class="oportunidades-card-content">
+              <div class="oportunidades-card-header">
+                <div class="oportunidades-card-icon-wrapper">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                  </svg>
+                </div>
+                <h3 class="oportunidades-card-title">Trabalhe na EndControl</h3>
+              </div>
+              <p class="oportunidades-card-text">Faça parte de um time que transforma desafios em soluções e cresce junto.</p>
+              <ul class="oportunidades-card-checklist">
+                <li>
+                  <svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="8 12 11 15 16 9"></polyline>
+                  </svg>
+                  Ambiente colaborativo
+                </li>
+                <li>
+                  <svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="8 12 11 15 16 9"></polyline>
+                  </svg>
+                  Desenvolvimento contínuo
+                </li>
+                <li>
+                  <svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="8 12 11 15 16 9"></polyline>
+                  </svg>
+                          Propósito que gera impacto
+                </li>
+              </ul>
+              <a href="https://wa.me/5591984040710" target="_blank" rel="noopener" class="oportunidades-card-btn">
+                Entrar em contato
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section faq-v2 wf-section section-full-width" id="faq-secao" data-wf-label="SEÇÃO FAQ - GRID 2 COLUNAS - FUNDO CLARO">
+      <div class="container">
+        <div class="faq-v2-head reveal">
+          <span class="faq-v2-eyebrow">DÚVIDAS FREQUENTES</span>
+          <h2 class="faq-v2-title">Respostas para as <span class="faq-v2-highlight">principais dúvidas.</span></h2>
+        </div>
+        <div class="faq-v2-grid reveal">
+
+          <div class="faq-v2-item">
+            <button class="faq-v2-question">Quais serviços a Endcontrol oferece?</button>
+            <div class="faq-v2-answer">
+              <div class="faq-v2-answer-inner">
+                A Endcontrol oferece serviços completos de engenharia elétrica industrial, incluindo projetos elétricos, automação industrial, manutenção preventiva e corretiva, instalações de média e baixa tensão, SPDA e laudos técnicos.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-v2-item">
+            <button class="faq-v2-question">Como funciona o processo de contratação?</button>
+            <div class="faq-v2-answer">
+              <div class="faq-v2-answer-inner">
+                O processo começa com uma reunião de diagnóstico para entender as suas necessidades, seguida da elaboração de uma proposta técnica detalhada. Após aprovação, iniciamos o planejamento e execução do projeto com total acompanhamento.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-v2-item">
+            <button class="faq-v2-question">A Endcontrol atende em todo o Brasil?</button>
+            <div class="faq-v2-answer">
+              <div class="faq-v2-answer-inner">
+                Sim! Atuamos em todas as regiões do Brasil, com equipes próprias e parceiros estratégicos que garantem agilidade e qualidade na entrega dos serviços, independentemente da localidade.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-v2-item">
+            <button class="faq-v2-question">A Endcontrol realiza projetos personalizados?</button>
+            <div class="faq-v2-answer">
+              <div class="faq-v2-answer-inner">
+                Absolutamente. Cada projeto é desenvolvido sob medida para as necessidades específicas do cliente, respeitando normas técnicas, prazos e orçamento acordado. Não trabalhamos com soluções padronizadas.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-v2-item">
+            <button class="faq-v2-question">Quais certificações a Endcontrol possui?</button>
+            <div class="faq-v2-answer">
+              <div class="faq-v2-answer-inner">
+                Nossa equipe é formada por engenheiros e técnicos com registro ativo no CREA, além de certificações em normas como NR-10, NR-12 e NR-35. Todos os laudos são emitidos com responsabilidade técnica devidamente registrada.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-v2-item">
+            <button class="faq-v2-question">Como solicito uma proposta ou orçamento?</button>
+            <div class="faq-v2-answer">
+              <div class="faq-v2-answer-inner">
+                Você pode solicitar um orçamento diretamente pelo nosso formulário de contato, por e-mail ou pelo WhatsApp. Nossa equipe retornará em até 24 horas úteis com as informações necessárias.
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <section class="presenca-nacional-light" id="presenca-nacional-rodapé">
+    <div class="container-presenca">
+      <!-- Grid de Conteúdo -->
+      <div class="presenca-light-grid">
+        <!-- Overlay para Linhas de Conexão Dinâmicas -->
+        <svg class="connection-lines-svg" aria-hidden="true">
+          <path id="line-norte" class="connection-line" fill="none" />
+          <path id="line-nordeste" class="connection-line" fill="none" />
+          <path id="line-centro-oeste" class="connection-line" fill="none" />
+          <path id="line-sudeste" class="connection-line" fill="none" />
+          <path id="line-sul" class="connection-line" fill="none" />
+        </svg>
+        
+        <!-- Lado Esquerdo: Info & Stats -->
+        <div class="presenca-info-column">
+          <span class="presenca-eyebrow">PRESENÇA NACIONAL</span>
+          <h2 class="presenca-heading">Atuamos onde a <span class="highlight">indústria brasileira</span> mais precisa.</h2>
+          <p class="presenca-paragraph">
+            Presença em todas as regiões do país, com equipes próprias e parceiros estratégicos para atender com agilidade e qualidade.
+          </p>
+          
+          <!-- Cards de Stats -->
+          <div class="presenca-stats-container">
+            <div class="stat-mini-card">
+              <span class="stat-value">+ 120</span>
+              <span class="stat-label">Clientes atendidos</span>
+            </div>
+            <div class="stat-mini-card">
+              <span class="stat-value">Nacional</span>
+              <span class="stat-label">Cobertura de serviços</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Centro: Mapa do Brasil (Imagem Estática com Âncoras e Destaque Spotlight) -->
+        <div class="presenca-map-column">
+          <div class="map-wrapper-light">
+            <img src="./assets/Paginas Imgs/RODAPE/ft-mapa.webp" alt="Mapa de atuação nacional da ENDCONTROL" class="static-map-image" width="4096" height="4096" loading="lazy" />
+
+            
+            <!-- Efeito Glow / Brilho adicional da regiao ativa -->
+            <div class="map-glow-overlay"></div>
+            
+            <!-- Âncoras interativas para as linhas de conexão e mapa (Com área de toque ampliada) -->
+            <div id="anchor-norte" data-region="norte" class="map-anchor" style="top: 25%; left: 45%;"></div>
+            <div id="anchor-nordeste" data-region="nordeste" class="map-anchor" style="top: 36%; left: 74%;"></div>
+            <div id="anchor-centro-oeste" data-region="centro-oeste" class="map-anchor" style="top: 50%; left: 52%;"></div>
+            <div id="anchor-sudeste" data-region="sudeste" class="map-anchor" style="top: 70%; left: 66%;"></div>
+            <div id="anchor-sul" data-region="sul" class="map-anchor" style="top: 86%; left: 54%;"></div>
+          </div>
+        </div>
+
+        <!-- Lado Direito: Cards Informativos -->
+        <div class="presenca-cards-column">
+          <!-- Card 1: Onde Atuamos -->
+          <div class="info-card-panel">
+            <h3 class="panel-card-title">ONDE ATUAMOS</h3>
+            <ul class="panel-card-list">
+              <li data-region="norte">
+                <span class="region-marker"></span>
+                <div>
+                  <strong>Norte</strong>
+                  <span>PA, AM, RO</span>
+                </div>
+              </li>
+              <li data-region="nordeste">
+                <span class="region-marker"></span>
+                <div>
+                  <strong>Nordeste</strong>
+                  <span>BA, CE, PE, RN, SE</span>
+                </div>
+              </li>
+              <li data-region="centro-oeste">
+                <span class="region-marker"></span>
+                <div>
+                  <strong>Centro-Oeste</strong>
+                  <span>CO, MT, MS, DF</span>
+                </div>
+              </li>
+              <li data-region="sudeste">
+                <span class="region-marker"></span>
+                <div>
+                  <strong>Sudeste</strong>
+                  <span>SP, RJ, MG, ES</span>
+                </div>
+              </li>
+              <li data-region="sul">
+                <span class="region-marker"></span>
+                <div>
+                  <strong>Sul</strong>
+                  <span>PR, SC, RS</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Card 2: Setores que Atendemos -->
+          <div class="info-card-panel">
+            <h3 class="panel-card-title">SETORES QUE ATENDEMOS</h3>
+            <ul class="panel-card-list sectors-list">
+              <li>
+                <svg class="sector-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="2" y1="22" x2="22" y2="22" />
+                  <rect x="5" y="6" width="6" height="16" rx="1" />
+                  <rect x="14" y="11" width="5" height="11" rx="1" />
+                  <path d="M5 6c0-2 6-2 6 0" />
+                  <path d="M14 11c0-1.5 5-1.5 5 0" />
+                  <path d="M11 10h3" />
+                  <path d="M11 15h3" />
+                  <path d="M8 2v4" />
+                  <path d="M16.5 7v4" />
+                  <circle cx="8" cy="12" r="1" fill="currentColor" />
+                </svg>
+                <span>Petróleo e Gás</span>
+              </li>
+              <li>
+                <svg class="sector-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M10 2h4M12 2v6M12 8L6 20a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2L12 8z" />
+                  <path d="M8.5 15h7" />
+                  <circle cx="12" cy="18" r="1.5" />
+                  <circle cx="15" cy="12" r="1" />
+                  <circle cx="9" cy="11" r="1" />
+                </svg>
+                <span>Química e Petroquímica</span>
+              </li>
+              <li>
+                <svg class="sector-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M17 18h4v-7l-4-3v10z" />
+                  <path d="M3 18h14v-4l-4-3-3 2-4-2-3 7z" />
+                  <line x1="6" y1="11" x2="6" y2="7" />
+                  <line x1="14" y1="11" x2="14" y2="5" />
+                  <path d="M2 20h20" />
+                  <circle cx="7" cy="20" r="1" />
+                  <circle cx="12" cy="20" r="1" />
+                  <circle cx="17" cy="20" r="1" />
+                </svg>
+                <span>Mineração e Siderurgia</span>
+              </li>
+              <li>
+                <svg class="sector-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2L4 22M12 2l8 20M4 22h16" />
+                  <path d="M6 10h12M4 14h16M8 6h8" />
+                  <path d="M8 6l8 8M16 6l-8 8M12 2v12M4 22l8-8 8 8" />
+                </svg>
+                <span>Energia</span>
+              </li>
+              <li>
+                <svg class="sector-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2C12 2 6 8.5 6 13a6 6 0 0 0 12 0c0-4.5-6-11-6-11z" />
+                  <path d="M9 13.5c1.5-1 4.5-1 6 0" />
+                  <path d="M8 16.5c2-1 6-1 8 0" />
+                </svg>
+                <span>Saneamento</span>
+              </li>
+              <li>
+                <svg class="sector-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="5" y="14" width="2" height="8" rx="0.5" />
+                  <rect x="17" y="14" width="2" height="8" rx="0.5" />
+                  <rect x="2" y="11" width="20" height="3" rx="0.5" />
+                  <path d="M2 11c5-6 15-6 20 0" />
+                  <line x1="8" y1="7" x2="8" y2="11" />
+                  <line x1="12" y1="6" x2="12" y2="11" />
+                  <line x1="16" y1="7" x2="16" y2="11" />
+                </svg>
+                <span>Infraestrutura e OAE</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer-dark-section">
+    <div class="container">
+      <div class="footer-links-grid">
+        <!-- Bloco 1: Logo e Descrição -->
+        <div class="footer-info-block">
+          <img src="./assets/Logos/logo-principal-endcontrol-horizontal.webp" alt="ENDCONTROL Engenharia" class="footer-info-logo" width="2765" height="366" loading="lazy">
+          <p class="footer-info-text">
+            Excelência em engenharia de integridade, inspeções, ensaios não destrutivos e consultoria técnica para operações industriais seguras e eficientes.
+          </p>
+          <div class="footer-social-icons">
+            <a href="#" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a>
+            <a href="#" aria-label="Instagram"><i data-lucide="instagram"></i></a>
+            <a href="#" aria-label="Play"><i data-lucide="play-circle"></i></a>
+            <a href="#" aria-label="YouTube"><i data-lucide="youtube"></i></a>
+          </div>
+        </div>
+
+        <!-- Bloco 2: A EndControl -->
+        <div class="footer-nav-block">
+          <h4 class="footer-nav-title">A ENDCONTROL</h4>
+          <ul class="footer-nav-list">
+            <li><a href="#sobre">Sobre nós</a></li>
+            <li><a href="#">Nossa história</a></li>
+            <li><a href="#">Certificações</a></li>
+            <li><a href="#">Política de Qualidade</a></li>
+            <li><a href="#">Carreiras</a></li>
+            <li><a href="#">Notícias</a></li>
+          </ul>
+        </div>
+
+        <!-- Bloco 3: Serviços -->
+        <div class="footer-nav-block">
+          <h4 class="footer-nav-title">SERVIÇOS</h4>
+          <ul class="footer-nav-list">
+            <li><a href="#">Integridade Estrutural</a></li>
+            <li><a href="#">Inspeções em OAE</a></li>
+            <li><a href="#">Ensaios Não Destrutivos</a></li>
+            <li><a href="#">Soldagem e Qualificação</a></li>
+            <li><a href="#">Projetos de Engenharia</a></li>
+            <li><a href="#">Consultoria Técnica</a></li>
+          </ul>
+        </div>
+
+        <!-- Bloco 4: Presença -->
+        <div class="footer-nav-block">
+          <h4 class="footer-nav-title">PRESENÇA</h4>
+          <ul class="footer-nav-list">
+            <li><a href="#">Atuação nacional</a></li>
+            <li><a href="#">Unidades de apoio</a></li>
+            <li><a href="#">Clientes</a></li>
+            <li><a href="#">Parceiros</a></li>
+          </ul>
+        </div>
+
+        <!-- Bloco 5: Contato -->
+        <div class="footer-nav-block contact-nav-block">
+          <h4 class="footer-nav-title">CONTATO</h4>
+          <ul class="footer-nav-list">
+            <li>
+              <i data-lucide="phone"></i>
+              <span>+55 21 3042-2400</span>
+            </li>
+            <li>
+              <i data-lucide="mail"></i>
+              <a href="mailto:contato@endcontrol.com.br">contato@endcontrol.com.br</a>
+            </li>
+            <li class="address-li">
+              <i data-lucide="map-pin"></i>
+              <span>Av. das Américas, 3900<br>Sala 210 - Barra da Tijuca<br>Rio de Janeiro - RJ - 22640-102</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Rodapé Barra Final -->
+      <div class="presenca-bottom-bar">
+        <span>© 2024 Endcontrol Engenharia. Todos os direitos reservados.</span>
+        <img src="./assets/Logos/icon-endcontrol-mono-negativo.webp" alt="ENDCONTROL Engenharia" class="presenca-watermark-icon" loading="lazy">
+        <p class="presenca-phrase-dev">Desenvolvido com propósito, tecnologia e segurança.</p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="album-lightbox" id="album-lightbox">
+    <button class="lightbox-close" id="lightbox-close" aria-label="Fechar galeria">&times;</button>
+    <button class="lightbox-nav prev" id="lightbox-prev" aria-label="Foto anterior">&#10094;</button>
+    <button class="lightbox-nav next" id="lightbox-next" aria-label="Próxima foto">&#10095;</button>
+    <div class="lightbox-content">
+      <img id="lightbox-img" src="" alt="Imagem ampliada">
+      <div id="lightbox-caption" class="lightbox-caption"></div>
+    </div>
+  </div>
+
+  <!-- Modal Overlay -->
+  <div class="wf-modal-overlay" id="wf-modal-overlay"></div>
+
+  <!-- Modal Links e Redes Sociais -->
+  <div class="wf-modal links-fullscreen-modal" id="modal-redes-sociais" style="padding: 0 !important; overflow: hidden !important;">
+    <button class="wf-modal-close" aria-label="Fechar modal">&times;</button>
+    <iframe src="./links.html" style="width: 100%; height: 100%; border: none; overflow: auto; display: block; background-color: var(--yellow);"></iframe>
+  </div>
+
+  <!-- Modal Fullscreen Celular Premium para Vídeo Depoimento 9:16 -->
+  <div id="dep-fullscreen-modal" class="dep-fs-modal">
+    <div class="dep-fs-backdrop"></div>
+    <div class="dep-fs-phone-container">
+      <div class="dep-fs-phone-frame">
+        <video id="dep-fs-video" playsinline></video>
+        <!-- Tag de Informações (Preenchida dinamicamente via JS) -->
+        <div class="dep-card-tag" id="dep-fs-tag"></div>
+        <!-- Controles Customizados dentro do Modal Celular -->
+        <div class="dep-custom-controls">
+          <div class="dep-controls-timeline-wrapper">
+            <div class="dep-controls-timeline-bar">
+              <div class="dep-controls-timeline-progress"></div>
+            </div>
+          </div>
+          <div class="dep-controls-buttons-row">
+            <div class="dep-controls-left-buttons">
+              <button class="dep-ctrl-btn dep-play-pause-btn" aria-label="Reproduzir/Pausar">
+                <svg class="icon-play" viewBox="0 0 24 24" width="16" height="16"><polygon points="5 3 19 12 5 21 5 3" fill="#0062e3"/></svg>
+                <svg class="icon-pause" viewBox="0 0 24 24" width="16" height="16" style="display:none;"><rect x="6" y="4" width="4" height="16" fill="#0062e3"/><rect x="14" y="4" width="4" height="16" fill="#0062e3"/></svg>
+              </button>
+              <button class="dep-ctrl-btn dep-rewind-btn" aria-label="Voltar 10 segundos">
+                <svg viewBox="0 0 24 24" width="14" height="14"><path d="M12 5V1L7 6l5 5V7c3.3 0 6 2.7 6 6s-2.7 6-6 6-6-2.7-6-6H4c0 4.4 3.6 8 8 8s8-3.6 8-8-3.6-8-8-8zm-1 5.5h-1v5h1v-5zm3 0h-2v5h2v-5z" fill="#0062e3"/></svg>
+              </button>
+              <button class="dep-ctrl-btn dep-forward-btn" aria-label="Avançar 10 segundos">
+                <svg viewBox="0 0 24 24" width="14" height="14"><path d="M12 5V1l5 5-5 5V7c-3.3 0-6 2.7-6 6s2.7 6 6 6 6-2.7 6-6h2c0 4.4-3.6 8-8 8s-8-3.6-8-8 3.6-8 8-8zm-1 5.5h-1v5h1v-5zm3 0h-2v5h2v-5z" fill="#0062e3"/></svg>
+              </button>
+              <span class="dep-ctrl-time">00:00 / 00:00</span>
+            </div>
+            <div class="dep-controls-right-buttons">
+              <div class="dep-volume-control-wrapper">
+                <button class="dep-ctrl-btn dep-volume-btn" aria-label="Volume">
+                  <svg class="icon-volume-on" viewBox="0 0 24 24" width="16" height="16"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z" fill="#0062e3"/></svg>
+                  <svg class="icon-volume-off" viewBox="0 0 24 24" width="16" height="16" style="display:none;"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.21.05-.42.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71z" fill="#0062e3"/></svg>
+                </button>
+                <input type="range" class="dep-volume-slider" min="0" max="1" step="0.05" value="1" aria-label="Ajustar Volume">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="dep-fs-close-btn" aria-label="Fechar modal">&times;</button>
+    </div>
+  </div>
+
+  <!-- Modal Video Depoimentos -->
+  <div class="wf-modal" id="modal-video-depoimento" style="padding: 0 !important; overflow: hidden !important; background: #000 !important; border: none !important; max-width: 800px;">
+    <button class="wf-modal-close" aria-label="Fechar modal" style="color: #fff !important; font-size: 2.5rem;">&times;</button>
+    <div class="wf-modal-body" style="padding: 0 !important; background: #000 !important;">
+      <video id="modal-testimonial-video" src="" controls playsinline style="width: 100%; max-height: 80vh; border-radius: 16px; display: block; margin: 0 auto;"></video>
+    </div>
+  </div>
+
+  <!-- Floating Version Tag & Changelog Widget -->
+  <style>
+    .changelog-badge {
+      position: fixed;
+      bottom: 20px;
+      left: -88px;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(26, 26, 26, 0.9);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 0 20px 20px 0;
+      padding: 10px 16px 10px 20px;
+      color: #0062e3;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      opacity: 0.4;
+    }
+    .changelog-badge:hover {
+      left: 0px;
+      opacity: 1;
+      background: rgba(36, 36, 36, 0.95);
+      border-color: rgba(0, 98, 227, 0.4);
+      box-shadow: 0 6px 25px rgba(0, 98, 227, 0.15);
+    }
+    .changelog-badge svg {
+      transition: transform 0.3s ease;
+    }
+    .changelog-badge:hover svg {
+      transform: rotate(15deg);
+    }
+    .changelog-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 10000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .changelog-modal.active {
+      display: flex;
+      opacity: 1;
+    }
+    .changelog-modal-content {
+      background: #121212;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      width: 90%;
+      max-width: 500px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      transform: scale(0.9);
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      font-family: 'DM Sans', sans-serif;
+      color: #e0e0e0;
+    }
+    .changelog-modal.active .changelog-modal-content {
+      transform: scale(1);
+    }
+    .changelog-modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 15px;
+      margin-bottom: 20px;
+    }
+    .changelog-modal-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0;
+    }
+    .changelog-modal-title span {
+      font-size: 0.8rem;
+      background: rgba(0, 98, 227, 0.15);
+      color: #0062e3;
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-weight: 600;
+    }
+    .changelog-modal-close {
+      background: none;
+      border: none;
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 1.75rem;
+      cursor: pointer;
+      line-height: 1;
+      padding: 0;
+      transition: color 0.2s ease;
+    }
+    .changelog-modal-close:hover {
+      color: #ffffff;
+    }
+    .changelog-section {
+      margin-bottom: 20px;
+    }
+    .changelog-section-title {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #0062e3;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+    .changelog-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .changelog-item {
+      font-size: 0.9rem;
+      line-height: 1.5;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .changelog-item.resolved::before {
+      content: "✓";
+      color: #4caf50;
+      font-weight: bold;
+    }
+    .changelog-item.pending::before {
+      content: "⚡";
+      color: #ff9800;
+      font-weight: bold;
+    }
+    .changelog-footer {
+      font-size: 0.75rem;
+      color: rgba(255, 255, 255, 0.35);
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      padding-top: 15px;
+      margin-top: 25px;
+    }
+  </style>
+
+  <div id="changelog-trigger" class="changelog-badge">
+    <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+      <path d="M11 18h2v-2h-2v2zm1-16C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-6h2v-6h-2v6z"/>
+    </svg>
+    <span>v1.jul.17h43</span>
+  </div>
+
+  <div id="changelog-modal" class="changelog-modal">
+    <div class="changelog-modal-content">
+      <div class="changelog-modal-header">
+        <h3 class="changelog-modal-title">Atualizações <span>v1.jul.17h43</span></h3>
+        <button id="changelog-close" class="changelog-modal-close">&times;</button>
+      </div>
+      
+      <div class="changelog-section">
+        <div class="changelog-section-title">Resolvido</div>
+        <ul class="changelog-list">
+          <li class="changelog-item resolved">Conexão direta com o GitHub configurada e autorizada.</li>
+          <li class="changelog-item resolved">Clonagem do repositório local na pasta de projetos do usuário.</li>
+          <li class="changelog-item resolved">Reversão da tag estática da headline e criação do painel de changelog interativo.</li>
+        </ul>
+      </div>
+
+      <div class="changelog-section">
+        <div class="changelog-section-title">Pendências</div>
+        <ul class="changelog-list">
+          <li class="changelog-item pending">Revisar SEO e meta tags do site.</li>
+          <li class="changelog-item pending">Otimização de carregamento de imagens.</li>
+        </ul>
+      </div>
+
+      <div class="changelog-footer">
+        Última modificação em: 01/07/2026 às 17h43 (GMT-3)
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const trigger = document.getElementById('changelog-trigger');
+      const modal = document.getElementById('changelog-modal');
+      const closeBtn = document.getElementById('changelog-close');
+
+      if (trigger && modal && closeBtn) {
+        trigger.addEventListener('click', () => {
+          modal.style.display = 'flex';
+          setTimeout(() => {
+            modal.classList.add('active');
+          }, 10);
+        });
+
+        const closeModal = () => {
+          modal.classList.remove('active');
+          setTimeout(() => {
+            modal.style.display = 'none';
+          }, 300);
+        };
+
+        closeBtn.addEventListener('click', closeModal);
+        
+        modal.addEventListener('click', (e) => {
+          if (e.target === modal) {
+            closeModal();
+          }
+        });
+
+        // Esc para fechar
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape' && modal.classList.contains('active')) {
+            closeModal();
+          }
+        });
+      }
+    });
+  </script>
+
+  <script src="./src/js/main.js?v=5.6" defer></script>
+  <script src="./src/js/solucoes.js" defer></script>
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@0.321.0" defer></script>
+  <script src="./src/js/presenca-nacional.js" defer></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      }
+    });
+  </script>
+</body>
+</html>
+
