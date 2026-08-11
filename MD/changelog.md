@@ -1,12 +1,12 @@
 # Changelog — ENDCONTROL Engenharia
 
-## [2026-08-11] - Submenus Expansíveis: "Análise" e "Gestão" em Nossas Soluções
+## [2026-08-11] - Submenuzinho em "1. Gerenciamento de Projetos": Análise e Gestão
 
-### Added & Changed
-- **Menu Principal (`index.html`, `header.css`, `main.js`):** Reestruturado o dropdown suspenso **Nossas Soluções** em dois submenus expansíveis organizados:
-  - **Análise:** Inspeção em OAE, ENDs, Engenharia de Soldagem, Integridade Estrutural, Inspeção & Adequação Normativa, Calibração, Trepanação e Certificação de Matéria-Prima.
-  - **Gestão:** Gerenciamento de Projetos, Soluções Tecnológicas Integradas, Consultoria & Assessoria Técnica, Elaboração de Projetos Mecânicos.
-- **Interatividade & Animação (`header.css`, `main.js`):** Animação sanfona suave (`max-height`, `opacity`), rotação do chevron de abertura e suporte para expansão ao clicar/passar o mouse.
+### Changed & Fixed
+- **Menu Principal (`index.html`, `header.css`, `main.js`):** Restaurada a lista completa das 12 soluções de engenharia da EndControl na ordem original.
+- **Submenuzinho no Botão 1 (`index.html`, `header.css`, `main.js`):** Adicionado submenuzinho expansível para baixo diretamente sob o item `1. Gerenciamento de Projetos`, contendo as duas opções:
+  - • Análise
+  - • Gestão
 
 ## [2026-08-11] - Ajuste do Menu de Navegação: "Nossas Soluções" (12 Soluções)
 
