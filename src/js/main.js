@@ -69,6 +69,20 @@
         }, 200);
       });
     });
+
+    // Toggle para Submenus Análise / Gestão
+    const nestedSubmenuHeaders = document.querySelectorAll('.nested-submenu-header');
+    nestedSubmenuHeaders.forEach(function (header) {
+      header.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        const group = header.closest('.nested-submenu-group');
+        if (group) {
+          const isActive = group.classList.toggle('is-active');
+          header.setAttribute('aria-expanded', String(isActive));
+        }
+      });
+    });
   }
 
   /* ===================================================================
