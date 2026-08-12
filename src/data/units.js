@@ -33,8 +33,8 @@ window.units = [
       cover: "./assets/Paginas Imgs/HOME/S1 TOPO/topo-f (1).webp",
       album: [
         { title: "Centro Tecnológico e Operacional", url: "./assets/Paginas Imgs/HOME/S1 TOPO/topo-f (1).webp" },
-        { title: "Equipe Técnica e Engenharia de Integridade", url: "./assets/Paginas Imgs/SOBRE NOS/CARROSEL S2/sobre-c (1).webp" },
-        { title: "Inspeção de Tubulações Críticas", url: "./assets/Paginas Imgs/SOBRE NOS/CARROSEL S2/sobre-c (2).webp" }
+        { title: "Equipe Técnica e Engenharia de Integridade", url: "./assets/Fotografias/editadas/operacional-engenheiros-inspecao-bomba-edit.webp" },
+        { title: "Inspeção de Tubulações Críticas", url: "./assets/Fotografias/editadas/operacional-inspecao-ultrassom-casco-estrutura-edit.webp" }
       ]
     },
     googleReviews: [
@@ -69,10 +69,10 @@ window.units = [
     ],
     aboutText: "Base móvel e fixa especializada no atendimento direto aos grandes complexos minerários e de alumina no Pará (Hydro, Vale). Equipes especializadas prontas para atendimento imediato em paradas de fábrica e auditorias de segurança.",
     images: {
-      cover: "./assets/Paginas Imgs/SOBRE NOS/CARROSEL S2/sobre-c (3).webp",
+      cover: "./assets/Fotografias/editadas/operacional-phased-array-chapas-soldadas-edit.webp",
       album: [
-        { title: "Inspeção em Plantas de Mineração", url: "./assets/Paginas Imgs/SOBRE NOS/CARROSEL S2/sobre-c (3).webp" },
-        { title: "Ensaios em Minerodutos", url: "./assets/Paginas Imgs/SOBRE NOS/CARROSEL S2/sobre-c (4).webp" }
+        { title: "Inspeção em Plantas de Mineração", url: "./assets/Fotografias/editadas/operacional-phased-array-chapas-soldadas-edit.webp" },
+        { title: "Ensaios em Minerodutos", url: "./assets/Fotografias/editadas/operacional-ultrassom-solda-tubulacao-edit-final.webp" }
       ]
     },
     googleReviews: [
@@ -105,9 +105,9 @@ window.units = [
     ],
     aboutText: "Representação estratégica e polo de inovação em São Paulo. Desenvolve algoritmos de IA e modelos de simulação computacional aplicados à previsão de vida útil de equipamentos e gestão de ativos de grandes indústrias químicas, alimentícias e energéticas.",
     images: {
-      cover: "./assets/Paginas Imgs/SOBRE NOS/CARROSEL S2/sobre-c (5).webp",
+      cover: "./assets/Fotografias/editadas/laboratorio-analise-placa-eletronica-edit.webp",
       album: [
-        { title: "Hub Tecnológico e Simulação Computacional", url: "./assets/Paginas Imgs/SOBRE NOS/CARROSEL S2/sobre-c (5).webp" }
+        { title: "Hub Tecnológico e Simulação Computacional", url: "./assets/Fotografias/editadas/laboratorio-analise-placa-eletronica-edit.webp" }
       ]
     },
     googleReviews: [
@@ -140,9 +140,9 @@ window.units = [
     ],
     aboutText: "Especializada no setor de Óleo & Gás e Naval. Presta serviços de engenharia de confiabilidade e inspeção técnica para operadoras de E&P na Bacia de Campos e Santos.",
     images: {
-      cover: "./assets/Paginas Imgs/SOBRE NOS/CARROSEL S2/sobre-c (6).webp",
+      cover: "./assets/Fotografias/editadas/operacional-tecnico-refinaria-noite-edit.webp",
       album: [
-        { title: "Inspeções em Plataformas e Navios", url: "./assets/Paginas Imgs/SOBRE NOS/CARROSEL S2/sobre-c (6).webp" }
+        { title: "Inspeções em Plataformas e Navios", url: "./assets/Fotografias/editadas/operacional-tecnico-refinaria-noite-edit.webp" }
       ]
     },
     googleReviews: [
@@ -175,9 +175,9 @@ window.units = [
     ],
     aboutText: "Suporte especializado para indústrias petroquímicas, químicas e siderúrgicas no Polo de Camaçari e região metropolitana de Salvador.",
     images: {
-      cover: "./assets/Paginas Imgs/SOBRE NOS/CARROSEL S2/sobre-c (7).webp",
+      cover: "./assets/Fotografias/editadas/operacional-alpinismo-inspecao-vaso-pressao-edit.webp",
       album: [
-        { title: "Inspeções no Polo Petroquímico", url: "./assets/Paginas Imgs/SOBRE NOS/CARROSEL S2/sobre-c (7).webp" }
+        { title: "Inspeções no Polo Petroquímico", url: "./assets/Fotografias/editadas/operacional-alpinismo-inspecao-vaso-pressao-edit.webp" }
       ]
     },
     googleReviews: [
@@ -209,9 +209,9 @@ window.units = [
     ],
     aboutText: "Atendimento focado em energia renovável (eólica/solar), infraestrutura portuária no Pecém e indústrias farmacêuticas e alimentícias no Ceará.",
     images: {
-      cover: "./assets/Paginas Imgs/SOBRE NOS/CARROSEL S2/sobre-c (8).webp",
+      cover: "./assets/Fotografias/editadas/ultrassom-raptor-scan-crawler-operacao-edit.webp",
       album: [
-        { title: "Inspeção em Parques Eólicos e Estruturas", url: "./assets/Paginas Imgs/SOBRE NOS/CARROSEL S2/sobre-c (8).webp" }
+        { title: "Inspeção em Parques Eólicos e Estruturas", url: "./assets/Fotografias/editadas/ultrassom-raptor-scan-crawler-operacao-edit.webp" }
       ]
     },
     googleReviews: [
@@ -243,9 +243,9 @@ window.units = [
     ],
     aboutText: "Base estratégica cobrindo o sudoeste da Amazônia, atendendo usinas hidrelétricas (Santo Antônio, Jirau), distribuidores de combustíveis e agroindústrias.",
     images: {
-      cover: "./assets/Paginas Imgs/SOBRE NOS/CARROSEL S2/sobre-c (1).webp",
+      cover: "./assets/Fotografias/editadas/operacional-engenheiros-inspecao-bomba-edit.webp",
       album: [
-        { title: "Inspeção em Tanques e Hidrelétricas", url: "./assets/Paginas Imgs/SOBRE NOS/CARROSEL S2/sobre-c (1).webp" }
+        { title: "Inspeção em Tanques e Hidrelétricas", url: "./assets/Fotografias/editadas/operacional-engenheiros-inspecao-bomba-edit.webp" }
       ]
     },
     googleReviews: [

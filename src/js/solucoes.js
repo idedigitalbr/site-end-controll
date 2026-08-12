@@ -206,6 +206,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   ];
 
+  const RING_SIZE = 6;
+  servicesData.forEach((service, stepIndex) => {
+    service.stepIndex = stepIndex;
+    service.ringIndex = stepIndex < RING_SIZE ? 0 : 1;
+    service.positionInRing = stepIndex % RING_SIZE;
+  });
+
   const cardImage = document.getElementById('cardImage');
   const cardTitle = document.getElementById('cardTitle');
   const cardDesc = document.getElementById('cardDesc');
@@ -214,9 +221,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const highlightCard = document.getElementById('highlightCard');
   const cardProgress = document.getElementById('cardProgress');
   const radarNodesLayer = document.getElementById('radarNodesLayer');
+  const radarConnectionsLayer = document.getElementById('radarConnectionsLayer');
   const orbitalDiagram = document.getElementById('orbitalDiagram');
+  const RadarProgress = window.RadarProgress;
 
-  if (!cardImage || !cardTitle || !cardDesc || !cardList || !cardCta || !highlightCard || !cardProgress || !orbitalDiagram) {
+  if (!cardImage || !cardTitle || !cardDesc || !cardList || !cardCta || !highlightCard || !cardProgress || !radarConnectionsLayer || !orbitalDiagram || !RadarProgress) {
     return;
   }
 
@@ -227,7 +236,7 @@ document.addEventListener('DOMContentLoaded', () => {
   servicesData.forEach((s, index) => {
     const nodeEl = document.createElement('div');
     // Outer radius 49.5%, Inner radius 30.5% (Wide icon separation & 19% ring-to-ring gap)
-    const ringRadiusPercent = s.ring === 'outer' ? 49.5 : 30.5;
+    const ringRadiusPercent = s.ringIndex === 0 ? 49.5 : 30.5;
     const angleRad = (s.angle * Math.PI) / 180;
     const leftPercent = 50 + ringRadiusPercent * Math.cos(angleRad);
     const topPercent = 50 + ringRadiusPercent * Math.sin(angleRad);
@@ -252,6 +261,44 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const serviceNodes = document.querySelectorAll('.service-node');
 
+  function polarPoint(service) {
+    const radiusPercent = service.ringIndex === 0 ? 49.5 : 30.5;
+    const radius = radiusPercent * 5;
+    const angleRad = (service.angle * Math.PI) / 180;
+
+    return {
+      x: 250 + radius * Math.cos(angleRad),
+      y: 250 + radius * Math.sin(angleRad),
+      radius
+    };
+  }
+
+  function describeRadarArc(from, to) {
+    const start = polarPoint(from);
+    const end = polarPoint(to);
+    const radius = start.radius.toFixed(2);
+
+    return `M ${start.x.toFixed(2)} ${start.y.toFixed(2)} A ${radius} ${radius} 0 0 1 ${end.x.toFixed(2)} ${end.y.toFixed(2)}`;
+  }
+
+  const connectionDefinitions = RadarProgress.buildConnections(servicesData);
+  const connectionElements = connectionDefinitions.map(connection => {
+    const from = servicesData[connection.fromStepIndex];
+    const to = servicesData[connection.toStepIndex];
+    const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+
+    path.setAttribute('class', 'radar-connection is-inactive');
+    path.setAttribute('d', describeRadarArc(from, to));
+    path.setAttribute('pathLength', '1');
+    path.dataset.from = String(connection.fromStepIndex);
+    path.dataset.to = String(connection.toStepIndex);
+    path.dataset.ring = String(connection.ringIndex);
+    path.dataset.closing = String(connection.isClosing);
+    radarConnectionsLayer.appendChild(path);
+
+    return { ...connection, path };
+  });
+
   // Build card progress dots
   cardProgress.innerHTML = '';
   servicesData.forEach((_, i) => {
@@ -268,7 +315,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Default active index = 0 ("1. Gerenciamento de Projetos")
   let activeIndex = 0;
-  const visitedIndices = new Set(); // Cumulative trail of items visited in current cycle
 
   let autoPlayInterval = null;
   let pauseTimeout = null;
@@ -277,26 +323,27 @@ document.addEventListener('DOMContentLoaded', () => {
   let isTransitioning = false;
 
   function updateRadarStates() {
+    const progressState = RadarProgress.getProgressState(servicesData, activeIndex);
+
     serviceNodes.forEach((node, index) => {
-      const isActive = index === activeIndex;
-      const isVisited = visitedIndices.has(index) && !isActive;
-      const isInactive = !isActive && !isVisited;
+      const state = progressState.nodes[index].state;
 
-      node.classList.toggle('is-active', isActive);
-      node.classList.toggle('service-node--active', isActive);
+      node.classList.toggle('is-completed', state === 'completed');
+      node.classList.toggle('is-active', state === 'active');
+      node.classList.toggle('is-next', state === 'next');
+      node.classList.toggle('is-inactive', state === 'inactive');
 
-      node.classList.toggle('is-previous', isVisited);
-      node.classList.toggle('is-visited', isVisited);
-      node.classList.toggle('service-node--previous', isVisited);
-
-      node.classList.toggle('is-inactive', isInactive);
-      node.classList.toggle('service-node--inactive', isInactive);
-
-      if (isActive) {
+      if (state === 'active') {
         node.setAttribute('aria-current', 'true');
       } else {
         node.removeAttribute('aria-current');
       }
+    });
+
+    connectionElements.forEach((connection, index) => {
+      const state = progressState.connections[index].state;
+      connection.path.classList.toggle('is-active', state === 'active');
+      connection.path.classList.toggle('is-inactive', state === 'inactive');
     });
   }
 
@@ -342,66 +389,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  const visitedSequence = [0];
-
-  function updateRadarTrail() {
-    const trailPath = document.getElementById('radarTrailPath');
-    if (!trailPath) return;
-
-    if (visitedSequence.length <= 1) {
-      trailPath.setAttribute('d', '');
-      return;
-    }
-
-    let d = '';
-    for (let k = 0; k < visitedSequence.length; k++) {
-      const idx = visitedSequence[k];
-      const s = servicesData[idx];
-      const r = s.ring === 'outer' ? 49.5 : 30.5;
-      const rad = (s.angle * Math.PI) / 180;
-      const x = 250 + 5 * r * Math.cos(rad);
-      const y = 250 + 5 * r * Math.sin(rad);
-
-      if (k === 0) {
-        d += `M ${x.toFixed(2)} ${y.toFixed(2)}`;
-      } else {
-        const prevIdx = visitedSequence[k - 1];
-        const prevS = servicesData[prevIdx];
-        const R_px = 5 * r;
-
-        if (s.ring === prevS.ring) {
-          const angleDiff = ((s.angle - prevS.angle + 540) % 360) - 180;
-          const sweepFlag = angleDiff > 0 ? 1 : 0;
-          d += ` A ${R_px.toFixed(2)} ${R_px.toFixed(2)} 0 0 ${sweepFlag} ${x.toFixed(2)} ${y.toFixed(2)}`;
-        } else {
-          d += ` L ${x.toFixed(2)} ${y.toFixed(2)}`;
-        }
-      }
-    }
-    trailPath.setAttribute('d', d);
-  }
-
   function goToService(index) {
+    if (!Number.isInteger(index) || index < 0 || index >= servicesData.length) return;
     if (index === activeIndex) return;
-
-    if (index === 0) {
-      // Reached Item 1: Reset cycle completely!
-      visitedIndices.clear();
-      visitedSequence.length = 0;
-      visitedSequence.push(0);
-    } else {
-      visitedIndices.add(activeIndex);
-      if (!visitedSequence.includes(index)) {
-        visitedSequence.push(index);
-      }
-    }
 
     activeIndex = index;
 
     updateRadarStates();
     updatePagination(activeIndex);
     updateCard(activeIndex, true);
-    updateRadarTrail();
   }
 
   const prevService = () => {
@@ -464,7 +460,6 @@ document.addEventListener('DOMContentLoaded', () => {
   updateRadarStates();
   updatePagination(activeIndex);
   updateCard(activeIndex, false);
-  updateRadarTrail();
   startAutoPlay();
 
   // CountUp animation for stats

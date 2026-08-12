@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
         `Poderiam me encaminhar um especialista?`
       );
       if (btnSendSimWhatsapp) {
-        btnSendSimWhatsapp.href = `https://wa.me/5591991817593?text=${whatsappText}`;
+        btnSendSimWhatsapp.href = `https://wa.me/5591984040710?text=${whatsappText}`;
       }
     } else {
       if (simResultBox) simResultBox.style.display = 'none';

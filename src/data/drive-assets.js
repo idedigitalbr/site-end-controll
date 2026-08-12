@@ -9,6 +9,6 @@ window.driveAssets = {
   },
   photos: {
     heroStaticBg: './assets/Paginas Imgs/HOME/S1 TOPO/topo-f (1).webp',
-    sobreNosCover: './assets/Paginas Imgs/SOBRE NOS/CARROSEL S2/sobre-c (1).webp'
+    sobreNosCover: './assets/Fotografias/editadas/operacional-engenheiros-inspecao-bomba-edit.webp'
   }
 };
