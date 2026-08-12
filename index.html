@@ -61,21 +61,21 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   <link rel="preload" href="./assets/Logos/logo-principal-endcontrol-horizontal.webp" as="image" />
-  <link rel="stylesheet" href="./src/css/tokens.css" />
-  <link rel="stylesheet" href="./src/css/base.css" />
-  <link rel="stylesheet" href="./src/css/header.css" />
-  <link rel="stylesheet" href="./src/css/hero.css?v=10.0" />
-  <link rel="stylesheet" href="./src/css/solucoes.css" />
-  <link rel="stylesheet" href="./src/css/sections.css?v=5.8" />
-  <link rel="stylesheet" href="./src/css/work-units-footer.css" />
-  <link rel="stylesheet" href="./src/css/presenca-nacional.css" />
-  <link rel="stylesheet" href="./src/css/components.css" />
-  <link rel="stylesheet" href="./src/css/brand-pages.css?v=5.8" />
-  <link rel="stylesheet" href="./src/css/links.css" />
-  <link rel="stylesheet" href="./src/css/timeline.css?v=5.8" />
-  <link rel="stylesheet" href="./src/css/album.css?v=5.8" />
-  <link rel="stylesheet" href="./src/css/segmentos.css" />
-  <link rel="stylesheet" href="./src/css/responsive.css?v=5.8" />
+  <link rel="stylesheet" href="./src/css/tokens.css?v=11.0" />
+  <link rel="stylesheet" href="./src/css/base.css?v=11.0" />
+  <link rel="stylesheet" href="./src/css/header.css?v=11.0" />
+  <link rel="stylesheet" href="./src/css/hero.css?v=11.0" />
+  <link rel="stylesheet" href="./src/css/solucoes.css?v=11.0" />
+  <link rel="stylesheet" href="./src/css/sections.css?v=11.0" />
+  <link rel="stylesheet" href="./src/css/work-units-footer.css?v=11.0" />
+  <link rel="stylesheet" href="./src/css/presenca-nacional.css?v=11.0" />
+  <link rel="stylesheet" href="./src/css/components.css?v=11.0" />
+  <link rel="stylesheet" href="./src/css/brand-pages.css?v=11.0" />
+  <link rel="stylesheet" href="./src/css/links.css?v=11.0" />
+  <link rel="stylesheet" href="./src/css/timeline.css?v=11.0" />
+  <link rel="stylesheet" href="./src/css/album.css?v=11.0" />
+  <link rel="stylesheet" href="./src/css/segmentos.css?v=11.0" />
+  <link rel="stylesheet" href="./src/css/responsive.css?v=11.0" />
 
   <!-- Script de Fallback Automático de Imagens e Vídeos -->
   <script>
@@ -664,97 +664,26 @@
           </div>
         </div>
 
-        <!-- COL CENTRAL — ORBITAL + RADAR -->
+        <!-- COL CENTRAL — ORBITAL RADAR -->
         <div class="solucoes-center-area" id="orbitalDiagram">
-          <div class="orbital-ring orbital-ring-1"><div class="orbital-dot od-1"></div><div class="orbital-dot od-3"></div></div>
-          <div class="orbital-ring orbital-ring-2"><div class="orbital-dot od-5"></div></div>
-          <div class="orbital-ring orbital-ring-3"><div class="orbital-dot od-2"></div><div class="orbital-dot od-4"></div></div>
-          <div class="orbital-ring orbital-ring-4"><div class="orbital-dot od-6"></div></div>
-          <div class="orbital-ring orbital-ring-5"></div>
-
-          <!-- RADAR -->
-          <div class="radar-sweep-container" id="radarSweep">
-            <div class="radar-sweep-sector"></div>
-            <div class="radar-sweep-line"></div>
-            <div class="radar-center-pulse"></div>
+          <div class="radar-geometry">
+            <div class="radar-circle radar-circle-outer"></div>
+            <div class="radar-circle radar-circle-inner"></div>
+            <div class="radar-axis-horizontal"></div>
+            <div class="radar-axis-vertical"></div>
+            <div class="radar-dot dot-h-left"></div>
+            <div class="radar-dot dot-h-right"></div>
+            <div class="radar-dot dot-v-top"></div>
+            <div class="radar-dot dot-v-bottom"></div>
           </div>
 
           <div class="orbital-center-glow"></div>
-          <div class="orbital-center-logo"><img src="./assets/Logos/logo-endcontrol-vertical-mono-negativo.webp" alt="ENDCONTROL Engenharia" /></div>
-
-          <div class="orbital-tech-label">
-            <div class="tech-label-line"></div>
-            <span class="tech-label-text">SYS.INTEGRATION // V4.2.1</span>
-            <div class="tech-label-line tech-label-line--right"></div>
+          <div class="orbital-center-logo">
+            <img src="./assets/Logos/logo-endcontrol-vertical-mono-negativo.webp" alt="ENDCONTROL Engenharia" />
           </div>
 
-          <!-- ÍCONES DE SERVIÇO -->
-          <div class="service-node node-pos-0" data-index="0" id="node-0">
-            <div class="service-node-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M2 20h20"/><path d="M4 20v-4"/><path d="M8 20v-8"/><path d="M12 20V8"/><path d="M16 20v-8"/><path d="M20 20v-4"/>
-                <path d="M4 16l4-4 4 0 4 0 4 4"/>
-                <path d="M8 12l4-4 4 4"/>
-              </svg>
-            </div>
-            <span class="service-node-label">Integridade<br>Estrutural</span>
-          </div>
-
-          <div class="service-node node-pos-1" data-index="1" id="node-1">
-            <div class="service-node-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="10.5" cy="10.5" r="7.5"/>
-                <line x1="16" y1="16" x2="22" y2="22"/>
-                <path d="M7 13h7"/><path d="M7 10l3.5-3.5L14 10"/>
-              </svg>
-            </div>
-            <span class="service-node-label">Inspeção<br>em OAE</span>
-          </div>
-
-          <div class="service-node node-pos-2" data-index="2" id="node-2">
-            <div class="service-node-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="6" y="3" width="12" height="18" rx="2"/>
-                <circle cx="12" cy="15" r="2"/>
-                <path d="M9 8h6"/><path d="M9 5.5h6"/>
-                <path d="M3 8c1.5-1 2-3 2-5"/><path d="M21 8c-1.5-1-2-3-2-5"/>
-              </svg>
-            </div>
-            <span class="service-node-label">ENDs</span>
-            <span class="service-node-sublabel">(Ensaios Não<br>Destrutivos)</span>
-          </div>
-
-          <div class="service-node node-pos-3" data-index="3" id="node-3">
-            <div class="service-node-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
-              </svg>
-            </div>
-            <span class="service-node-label">Soldagem e<br>Qualificação</span>
-          </div>
-
-          <div class="service-node node-pos-4" data-index="4" id="node-4">
-            <div class="service-node-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="2" y="4" width="20" height="16" rx="1.5"/>
-                <path d="M2 8h20"/><path d="M6 4v16"/>
-                <path d="M10 12h6"/><path d="M10 15h4"/>
-                <circle cx="13" cy="12" r="0" fill="currentColor"/>
-              </svg>
-            </div>
-            <span class="service-node-label">Projetos de<br>Engenharia</span>
-          </div>
-
-          <div class="service-node node-pos-5" data-index="5" id="node-5">
-            <div class="service-node-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="5" y="5" width="14" height="14" rx="2"/>
-                <rect x="9" y="9" width="6" height="6" rx="1"/>
-                <path d="M9 2v3"/><path d="M15 2v3"/><path d="M9 19v3"/><path d="M15 19v3"/>
-                <path d="M2 9h3"/><path d="M2 15h3"/><path d="M19 9h3"/><path d="M19 15h3"/>
-              </svg>
-            </div>
-            <span class="service-node-label">Soluções<br>Tecnológicas</span>
+          <div class="radar-nodes-layer" id="radarNodesLayer">
+            <!-- Rendered dynamically by src/js/solucoes.js -->
           </div>
         </div>
 
@@ -1626,7 +1555,7 @@
       <!-- Bloco Central: Logo EndControl Mono + Glow Azul + Slogan + Redes Sociais -->
       <div class="footer-minimal-centered-content">
         <div class="footer-logo-glow-wrapper">
-          <img src="./assets/Logos/logo-endcontrol-vertical-mono-negativo.webp" alt="ENDCONTROL Engenharia" class="footer-minimal-logo">
+          <img src="./assets/Logos/logo-endcontrol-vertical-mono-negativo.webp" alt="ENDCONTROL Engenharia" class="footer-minimal-logo" width="135" height="135" style="max-width: 135px; width: 135px; height: auto;">
         </div>
 
         <p class="footer-minimal-slogan">Excelência em Engenharia de Integridade e Soluções Industriais.</p>

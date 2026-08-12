@@ -3098,8 +3098,9 @@
 }
 
 .footer-minimal-logo {
-  max-width: 135px;
-  height: auto;
+  width: 135px !important;
+  max-width: 135px !important;
+  height: auto !important;
   position: relative;
   z-index: 2;
   display: block;
