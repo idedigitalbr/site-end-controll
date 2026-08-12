@@ -2,8 +2,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const servicesData = [
     {
       id: 0,
-      title: 'Gerenciamento de Projetos',
-      shortTitle: 'Gerenciamento<br>de Projetos',
+      title: '1. Gerenciamento de Projetos',
+      shortTitle: '1. Gerenciamento<br>de Projetos',
       ring: 'outer',
       angle: 270, // Top
       desc: 'Gestão end-to-end de projetos complexos de engenharia, garantindo prazo, orçamento, qualidade e conformidade com normas.',
@@ -19,8 +19,8 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       id: 1,
-      title: 'Ensaios Não Destrutivos (ENDs)',
-      shortTitle: 'Ensaios Não<br>Destrutivos (ENDs)',
+      title: '3. Ensaios Não Destrutivos (ENDs)',
+      shortTitle: '3. Ensaios Não<br>Destrutivos (ENDs)',
       ring: 'outer',
       angle: 330, // Top-Right
       desc: 'Técnicas avançadas para detecção de descontinuidades em materiais e soldas, garantindo segurança operacional sem comprometer os componentes.',
@@ -36,8 +36,8 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       id: 2,
-      title: 'Engenharia de Integridade Estrutural',
-      shortTitle: 'Engenharia de<br>Integridade Estrutural',
+      title: '5. Engenharia de Integridade Estrutural',
+      shortTitle: '5. Engenharia de<br>Integridade Estrutural',
       ring: 'outer',
       angle: 30, // Bottom-Right
       desc: 'Análise técnica de estruturas metálicas, civis e de concreto armado, com laudos e recomendações para manutenção preventiva e preditiva.',
@@ -53,8 +53,8 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       id: 3,
-      title: 'Inspeção e Adequação Normativa',
-      shortTitle: 'Inspeção e Adequação<br>Normativa',
+      title: '7. Inspeção e Adequação Normativa',
+      shortTitle: '7. Inspeção e Adequação<br>Normativa',
       ring: 'outer',
       angle: 90, // Bottom (ACTIVE DEFAULT)
       desc: 'Inspeção de segurança em vasos de pressão, caldeiras, tubulações e tanques conforme a NR-13 e normas internacionais aplicáveis.',
@@ -70,8 +70,8 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       id: 4,
-      title: 'Trepanação (Hot Tapping)',
-      shortTitle: 'Trepanação<br>(Hot Tapping)',
+      title: '9. Trepanação (Hot Tapping)',
+      shortTitle: '9. Trepanação<br>(Hot Tapping)',
       ring: 'outer',
       angle: 150, // Bottom-Left
       desc: 'Perfuração sob pressão em tubulações e dutos em operação, permitindo derivações e intervenções sem parada de produção.',
@@ -87,8 +87,8 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       id: 5,
-      title: 'Elaboração de Projetos Mecânicos',
-      shortTitle: 'Elaboração de<br>Projetos Mecânicos',
+      title: '12. Elaboração de Projetos Mecânicos',
+      shortTitle: '12. Elaboração de<br>Projetos Mecânicos',
       ring: 'outer',
       angle: 210, // Top-Left
       desc: 'Desenvolvimento de projetos mecânicos, estruturais e de tubulação, com análises de elementos finitos e soluções customizadas.',
@@ -104,8 +104,8 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       id: 6,
-      title: 'Inspeção em Obras de Artes Especiais',
-      shortTitle: 'Inspeção em Obras<br>de Artes Especiais',
+      title: '2. Inspeção em Obras de Artes Especiais',
+      shortTitle: '2. Inspeção em Obras<br>de Artes Especiais',
       ring: 'inner',
       angle: 270, // Top
       desc: 'Avaliações técnicas especializadas em Obras de Arte Especiais (pontes, viadutos, passarelas), com foco em segurança e durabilidade.',
@@ -121,8 +121,8 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       id: 7,
-      title: 'Engenharia de Soldagem',
-      shortTitle: 'Engenharia<br>de Soldagem',
+      title: '4. Engenharia de Soldagem',
+      shortTitle: '4. Engenharia<br>de Soldagem',
       ring: 'inner',
       angle: 330, // Top-Right
       desc: 'Qualificação de procedimentos de soldagem (EPS/RQPS) e soldadores conforme normas ASME, AWS e ISO, com suporte de engenheiros especialistas.',
@@ -138,8 +138,8 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       id: 8,
-      title: 'Soluções Tecnológicas Integradas',
-      shortTitle: 'Soluções Tecnológicas<br>Integradas',
+      title: '6. Soluções Tecnológicas Integradas',
+      shortTitle: '6. Soluções Tecnológicas<br>Integradas',
       ring: 'inner',
       angle: 30, // Bottom-Right
       desc: 'Inovação aplicada em campo com tecnologias proprietárias como o RaptorScan, drones e softwares para gestão de integridade.',
@@ -155,8 +155,8 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       id: 9,
-      title: 'Calibração de Instrumentos',
-      shortTitle: 'Calibração de<br>Instrumentos',
+      title: '8. Calibração de Instrumentos',
+      shortTitle: '8. Calibração de<br>Instrumentos',
       ring: 'inner',
       angle: 90, // Bottom
       desc: 'Serviços de calibração de manômetros, termômetros, blocos padrão e instrumentação industrial com rastreabilidade RBC/INMETRO.',
@@ -172,8 +172,8 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       id: 10,
-      title: 'Certificação de Matéria-Prima',
-      shortTitle: 'Certificação de<br>Matéria-Prima',
+      title: '10. Certificação de Matéria-Prima',
+      shortTitle: '10. Certificação de<br>Matéria-Prima',
       ring: 'inner',
       angle: 150, // Bottom-Left
       desc: 'Verificação e validação da conformidade de materiais metálicos e poliméricos por ensaios químicos, mecânicos e metalográficos.',
@@ -189,8 +189,8 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       id: 11,
-      title: 'Consultoria e Assessoria Técnica',
-      shortTitle: 'Consultoria e<br>Assessoria Técnica',
+      title: '11. Consultoria e Assessoria Técnica',
+      shortTitle: '11. Consultoria e<br>Assessoria Técnica',
       ring: 'inner',
       angle: 210, // Top-Left
       desc: 'Assessoria especializada para solução de problemas complexos de engenharia, falhas de componentes e otimização de processos.',
@@ -315,6 +315,19 @@ document.addEventListener('DOMContentLoaded', () => {
     setActiveNode(index);
     updateCard(index, true);
   }
+
+  window.goToService = goToService;
+
+  document.addEventListener('click', (e) => {
+    const serviceLink = e.target.closest('[data-service-id]');
+    if (serviceLink) {
+      const serviceId = parseInt(serviceLink.dataset.serviceId, 10);
+      if (!isNaN(serviceId)) {
+        goToService(serviceId);
+        pauseAutoPlay();
+      }
+    }
+  });
 
   function startAutoPlay() {
     stopAutoPlay();
