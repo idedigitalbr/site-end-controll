@@ -474,30 +474,30 @@
   opacity: 1;
 }
 
-/* --- ESTADO 2: PREVIOUS / VISITED (90% Intensidade) --- */
+/* --- ESTADO 2: PREVIOUS / VISITED (80% Intensidade) --- */
 .service-node.is-previous,
 .service-node.is-visited,
 .service-node.service-node--previous {
-  opacity: 0.90;
+  opacity: 0.80;
   z-index: 8;
 }
 
 .service-node.is-previous .service-node-icon,
 .service-node.is-visited .service-node-icon,
 .service-node.service-node--previous .service-node-icon {
-  opacity: 0.92;
-  border-color: rgba(0, 194, 255, 0.75);
-  box-shadow: 0 0 18px rgba(0, 194, 255, 0.35), 0 4px 14px rgba(0, 0, 0, 0.45);
+  opacity: 0.85;
+  border-color: rgba(0, 194, 255, 0.65);
+  box-shadow: 0 0 16px rgba(0, 194, 255, 0.3), 0 4px 14px rgba(0, 0, 0, 0.45);
   background: rgba(6, 18, 38, 0.92);
-  transform: scale(1.04);
+  transform: scale(1.03);
 }
 
 .service-node.is-previous .service-node-icon svg,
 .service-node.is-visited .service-node-icon svg,
 .service-node.service-node--previous .service-node-icon svg {
-  color: rgba(0, 194, 255, 0.95);
-  filter: drop-shadow(0 0 6px rgba(0, 194, 255, 0.55));
-  opacity: 0.92;
+  color: rgba(0, 194, 255, 0.9);
+  filter: drop-shadow(0 0 5px rgba(0, 194, 255, 0.5));
+  opacity: 0.85;
 }
 
 .service-node.is-previous .service-node-label,
@@ -506,10 +506,10 @@
   color: #e2f4ff;
   font-weight: 600;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.85);
-  opacity: 0.92;
+  opacity: 0.85;
 }
 
-/* --- ESTADO 3: INACTIVE (66% Ícone / 18% Texto) --- */
+/* --- ESTADO 3: INACTIVE (55% Ícone / 13% Texto) --- */
 .service-node.is-inactive,
 .service-node.service-node--inactive {
   opacity: 1;
@@ -518,8 +518,8 @@
 
 .service-node.is-inactive .service-node-icon,
 .service-node.service-node--inactive .service-node-icon {
-  opacity: 0.66;
-  border-color: rgba(0, 194, 255, 0.28);
+  opacity: 0.55;
+  border-color: rgba(0, 194, 255, 0.25);
   box-shadow: none;
   background: rgba(4, 12, 26, 0.75);
   transform: scale(0.96);
@@ -527,15 +527,15 @@
 
 .service-node.is-inactive .service-node-icon svg,
 .service-node.service-node--inactive .service-node-icon svg {
-  color: rgba(0, 194, 255, 0.55);
+  color: rgba(0, 194, 255, 0.5);
   filter: none;
-  opacity: 0.66;
+  opacity: 0.55;
 }
 
 .service-node.is-inactive .service-node-label,
 .service-node.service-node--inactive .service-node-label {
-  opacity: 0.18;
-  color: rgba(255, 255, 255, 0.65);
+  opacity: 0.13;
+  color: rgba(255, 255, 255, 0.6);
   text-shadow: none;
 }
 

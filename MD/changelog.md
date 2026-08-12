@@ -1,5 +1,15 @@
 # Changelog — ENDCONTROL Engenharia
 
+## [2026-08-12] - Ajuste Fino Perfeito das Opacidades (100%, 80%, 55%/13%, 95%)
+
+### Changed & Improved
+- **Refinamento Fino (`src/css/solucoes.css`):**
+  - **1. ACTIVE:** **100% (`opacity: 1.0`)**
+  - **2. VISITED / PREVIOUS:** Ajustado para **80% (`opacity: 0.80`)**
+  - **3. INACTIVE:** Ícones ajustados para **55% (`opacity: 0.55`)** e rótulos/textos para **13% (`opacity: 0.13`)**
+  - **4. INACTIVE HOVER:** Mantido em **95% (`opacity: 0.95`)**
+  - Cache busters atualizados para `solucoes.css?v=50.0` e `solucoes.js?v=50.0`.
+
 ## [2026-08-12] - Nova Calibração de Opacidades do Radar (100%, 90%, 66%/18%, 95%)
 
 ### Changed & Improved
