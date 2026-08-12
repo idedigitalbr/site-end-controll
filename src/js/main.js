@@ -40,6 +40,9 @@
               return;
             }
           }
+          if (link.classList.contains('item-has-children')) {
+            return;
+          }
           menu.classList.remove('open');
           menuToggle.setAttribute('aria-expanded', 'false');
         });
@@ -63,7 +66,8 @@
         closeAllDropdowns(dropdown);
         dropdown.classList.add('is-open');
       });
-      dropdown.addEventListener('focusout', function () {
+      dropdown.addEventListener('focusout', function (e) {
+        if (dropdown.contains(e.relatedTarget)) return;
         dropdownTimer = setTimeout(function () {
           dropdown.classList.remove('is-open');
         }, 200);
@@ -71,8 +75,8 @@
     });
 
     // Toggle para Submenuzinho do Item 1 (Gerenciamento de Projetos -> Análise / Gestão)
-    const itemWithSubmenu = document.querySelector('.item-with-submenu');
-    if (itemWithSubmenu) {
+    const itemsWithSubmenu = document.querySelectorAll('.item-with-submenu');
+    itemsWithSubmenu.forEach(function (itemWithSubmenu) {
       const trigger = itemWithSubmenu.querySelector('.item-has-children');
       if (trigger) {
         trigger.addEventListener('click', function (e) {
@@ -82,7 +86,7 @@
           trigger.setAttribute('aria-expanded', String(isOpen));
         });
       }
-    }
+    });
   }
 
   /* ===================================================================

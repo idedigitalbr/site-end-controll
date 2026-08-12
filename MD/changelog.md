@@ -1,5 +1,14 @@
 # Changelog — ENDCONTROL Engenharia
 
+## [2026-08-11] - Correção do Submenuzinho no Item 1 do Menu ("1. Gerenciamento de Projetos")
+
+### Fixed
+- **Submenuzinho Dropdown (`src/js/main.js`, `src/js/solucoes.js`, `index.html`):**
+  - Corrigido o evento de clique em `a.item-has-children` para não fechar o menu mobile ou colapsar o dropdown desktop.
+  - Ajustado o manipulador de eventos em `initMenu()` para garantir que o clique em `1. Gerenciamento de Projetos` alterne corretamente a classe `.is-open` do `.item-with-submenu`, expandindo/recolhendo suavemente as opções `Análise` e `Gestão`.
+  - Integrada a seleção interativa `data-service-id` para sincronizar os itens do menu suspenso diretamente com o carrossel de soluções da seção `#solucoes`.
+  - Atualizados os cache busters no `index.html` (`?v=12.0`).
+
 ## [2026-08-11] - Correção do Rodapé Online & Adição de Cache Busters
 
 ### Fixed
