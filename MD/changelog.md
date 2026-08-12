@@ -1,5 +1,13 @@
 # Changelog — ENDCONTROL Engenharia
 
+## [2026-08-12] - Rastro de Luz Acumulativo (Histórico de Serviços Visitados com Reset no Item 1)
+
+### Changed & Improved
+- **Lógica de Rastro de Progresso (`src/js/solucoes.js` & `src/css/solucoes.css`):**
+  - **Histórico Acumulativo (`visitedIndices`):** Todos os serviços já percorridos no ciclo atual permanecem acesos no estado **VISITED (~68% de intensidade)** conforme o radar avança.
+  - **Reset no Item 1:** Ao completar a volta ou selecionar o **Serviço 1 ("1. Gerenciamento de Projetos")**, todo o histórico de visitados é limpo (`visitedIndices.clear()`), voltando os demais nós para o estado **INACTIVE (16%)** e reiniciando a trilha de luz.
+  - Cache busters atualizados para `solucoes.css?v=47.0` e `solucoes.js?v=47.0`.
+
 ## [2026-08-12] - Hierarquia Visual Dinâmica de 3 Níveis nos Nós do Radar (Active, Previous, Inactive)
 
 ### Changed & Improved
