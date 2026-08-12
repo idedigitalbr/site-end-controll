@@ -12,6 +12,10 @@ node_modules/
 dist/
 build/
 
+# Segredos e configurações locais
+.env*
+!.env.example
+
 # Pastas locais pesadas ignoradas
 assets-nao-usados/
 backup.ps1

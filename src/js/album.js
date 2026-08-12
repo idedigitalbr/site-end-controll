@@ -11,14 +11,14 @@ document.addEventListener('DOMContentLoaded', () => {
             "role": "Análise visual e dimensional de componentes mecânicos e suporte de carga.",
             "category": "integridade",
             "subcategory": "Estruturas",
-            "photo": "./assets/Paginas Imgs/SOBRE NOS/CARROSEL S2/sobre-c (1).webp"
+            "photo": "./assets/Fotografias/editadas/operacional-engenheiros-inspecao-bomba-edit.webp"
         },
         {
             "name": "Engenharia de Integridade em Plantas Industriais",
             "role": "Avaliação técnica de integridade mecânica em tubulações e dutos.",
             "category": "integridade",
             "subcategory": "Tubulações",
-            "photo": "./assets/Paginas Imgs/SOBRE NOS/CARROSEL S2/sobre-c (2).webp"
+            "photo": "./assets/Fotografias/editadas/operacional-inspecao-ultrassom-casco-estrutura-edit.webp"
         },
 
         // Inspeção de Ativos Críticos
@@ -27,14 +27,14 @@ document.addEventListener('DOMContentLoaded', () => {
             "role": "Medição de espessura por ultrassom e verificação de taxas de corrosão em campo.",
             "category": "ativos",
             "subcategory": "Vasos de Pressão",
-            "photo": "./assets/Paginas Imgs/SOBRE NOS/CARROSEL S2/sobre-c (3).webp"
+            "photo": "./assets/Fotografias/editadas/operacional-phased-array-chapas-soldadas-edit.webp"
         },
         {
             "name": "Inspeção Interna de Tanques de Armazenamento",
             "role": "Vistoria técnica detalhada para identificação de deformações e desgaste.",
             "category": "ativos",
             "subcategory": "Tanques",
-            "photo": "./assets/Paginas Imgs/SOBRE NOS/CARROSEL S2/sobre-c (4).webp"
+            "photo": "./assets/Fotografias/editadas/operacional-ultrassom-solda-tubulacao-edit-final.webp"
         },
 
         // Ensaios Não Destrutivos (ENDs)
@@ -43,14 +43,14 @@ document.addEventListener('DOMContentLoaded', () => {
             "role": "Mapeamento volumétrico de soldas de alta responsabilidade.",
             "category": "ensaios",
             "subcategory": "Ultrassom Avançado",
-            "photo": "./assets/Paginas Imgs/SOBRE NOS/CARROSEL S2/sobre-c (5).webp"
+            "photo": "./assets/Fotografias/editadas/laboratorio-analise-placa-eletronica-edit.webp"
         },
         {
             "name": "Partículas Magnéticas & Líquido Penetrante",
             "role": "Detecção de trincas e descontinuidades superficiais em juntas soldadas.",
             "category": "ensaios",
             "subcategory": "Superficiais",
-            "photo": "./assets/Paginas Imgs/SOBRE NOS/CARROSEL S2/sobre-c (6).webp"
+            "photo": "./assets/Fotografias/editadas/operacional-tecnico-refinaria-noite-edit.webp"
         },
 
         // Adequação Normativa (NRs)
@@ -59,14 +59,14 @@ document.addEventListener('DOMContentLoaded', () => {
             "role": "Laudo técnico de conformidade e implementação de proteções físicas e lógicas.",
             "category": "normativa",
             "subcategory": "NR-12",
-            "photo": "./assets/Paginas Imgs/SOBRE NOS/CARROSEL S2/sobre-c (7).webp"
+            "photo": "./assets/Fotografias/editadas/operacional-alpinismo-inspecao-vaso-pressao-edit.webp"
         },
         {
             "name": "Inspeção de Válvulas de Segurança (PSVs)",
             "role": "Teste de abertura, calibração e estanqueidade de válvulas de alívio.",
             "category": "normativa",
             "subcategory": "NR-13",
-            "photo": "./assets/Paginas Imgs/SOBRE NOS/CARROSEL S2/sobre-c (8).webp"
+            "photo": "./assets/Fotografias/editadas/ultrassom-raptor-scan-crawler-operacao-edit.webp"
         },
 
         // Tecnologia & Consultoria

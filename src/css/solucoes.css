@@ -270,14 +270,27 @@
   overflow: visible;
 }
 
-#radarTrailPath {
+.radar-connection {
   fill: none;
-  stroke: var(--color-cyan, #00c2ff);
-  stroke-width: 2.5;
+  stroke: rgba(0, 194, 255, 0.26);
+  stroke-width: 1.5;
   stroke-linecap: round;
   stroke-linejoin: round;
+  opacity: 0.34;
+  pointer-events: none;
+  transition: opacity 420ms ease, stroke 420ms ease, stroke-width 420ms ease, filter 420ms ease;
+}
+
+.radar-connection.is-inactive {
+  opacity: 0.22;
+  filter: none;
+}
+
+.radar-connection.is-active {
+  stroke: var(--color-cyan, #00c2ff);
+  stroke-width: 2.5;
+  opacity: 0.96;
   filter: drop-shadow(0 0 6px rgba(0, 194, 255, 0.95)) drop-shadow(0 0 14px rgba(0, 194, 255, 0.7));
-  transition: d 400ms ease;
 }
 
 .radar-circle {
@@ -331,6 +344,12 @@
     transparent 100%
   );
   transform: translateX(-50%);
+}
+
+/* Decorative crosshair stays subtle; progress connections never use it. */
+.radar-axis-horizontal,
+.radar-axis-vertical {
+  opacity: 0.18;
 }
 
 /* Intersection Micro Dots */
@@ -463,48 +482,18 @@
    3-STATE RADAR HIERARCHY (ACTIVE - PREVIOUS/VISITED - INACTIVE)
    ========================================================= */
 
-/* --- ESTADO 1: ACTIVE (100% Intensidade) --- */
-.service-node.is-active,
-.service-node.service-node--active {
-  opacity: 1;
-  z-index: 10;
-}
+/* --- ESTADO 3: INACTIVE (55% Ícone / 13% Texto) --- */
+/* ======== COL DIREITA — Card ======== */
+/* =========================================================
+   RING-AWARE RADAR STATES
+   ========================================================= */
 
-.service-node.is-active .service-node-icon,
-.service-node.service-node--active .service-node-icon {
-  opacity: 1;
-  border-color: var(--color-cyan, #00c2ff) !important;
-  box-shadow: 0 0 34px rgba(0, 194, 255, 0.85), 0 0 14px rgba(0, 194, 255, 0.55), 0 6px 22px rgba(0, 0, 0, 0.6) !important;
-  background: rgba(0, 156, 255, 0.28) !important;
-  transform: scale(1.12);
-}
-
-.service-node.is-active .service-node-icon svg,
-.service-node.service-node--active .service-node-icon svg {
-  color: var(--color-cyan, #00c2ff) !important;
-  filter: drop-shadow(0 0 10px rgba(0, 194, 255, 0.9)) !important;
-  opacity: 1;
-}
-
-.service-node.is-active .service-node-label,
-.service-node.service-node--active .service-node-label {
-  color: var(--color-cyan, #00c2ff) !important;
-  font-weight: 700;
-  text-shadow: 0 0 14px rgba(0, 194, 255, 0.6), 0 2px 8px rgba(0, 0, 0, 0.95);
-  opacity: 1;
-}
-
-/* --- ESTADO 2: PREVIOUS / VISITED (80% Intensidade) --- */
-.service-node.is-previous,
-.service-node.is-visited,
-.service-node.service-node--previous {
-  opacity: 0.80;
+.service-node.is-completed {
+  opacity: 0.82;
   z-index: 8;
 }
 
-.service-node.is-previous .service-node-icon,
-.service-node.is-visited .service-node-icon,
-.service-node.service-node--previous .service-node-icon {
+.service-node.is-completed .service-node-icon {
   opacity: 0.85;
   border-color: rgba(0, 194, 255, 0.65);
   box-shadow: 0 0 16px rgba(0, 194, 255, 0.3), 0 4px 14px rgba(0, 0, 0, 0.45);
@@ -512,32 +501,76 @@
   transform: scale(1.03);
 }
 
-.service-node.is-previous .service-node-icon svg,
-.service-node.is-visited .service-node-icon svg,
-.service-node.service-node--previous .service-node-icon svg {
+.service-node.is-completed .service-node-icon svg {
   color: rgba(0, 194, 255, 0.9);
   filter: drop-shadow(0 0 5px rgba(0, 194, 255, 0.5));
   opacity: 0.85;
 }
 
-.service-node.is-previous .service-node-label,
-.service-node.is-visited .service-node-label,
-.service-node.service-node--previous .service-node-label {
+.service-node.is-completed .service-node-label {
   color: #e2f4ff;
   font-weight: 600;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.85);
   opacity: 0.85;
 }
 
-/* --- ESTADO 3: INACTIVE (55% Ícone / 13% Texto) --- */
-.service-node.is-inactive,
-.service-node.service-node--inactive {
+.service-node.is-active {
+  opacity: 1;
+  z-index: 10;
+}
+
+.service-node.is-active .service-node-icon {
+  opacity: 1;
+  border-color: var(--color-cyan, #00c2ff) !important;
+  box-shadow: 0 0 34px rgba(0, 194, 255, 0.85), 0 0 14px rgba(0, 194, 255, 0.55), 0 6px 22px rgba(0, 0, 0, 0.6) !important;
+  background: rgba(0, 156, 255, 0.28) !important;
+  transform: scale(1.12);
+}
+
+.service-node.is-active .service-node-icon svg {
+  color: var(--color-cyan, #00c2ff) !important;
+  filter: drop-shadow(0 0 10px rgba(0, 194, 255, 0.9)) !important;
+  opacity: 1;
+}
+
+.service-node.is-active .service-node-label {
+  color: var(--color-cyan, #00c2ff) !important;
+  font-weight: 700;
+  text-shadow: 0 0 14px rgba(0, 194, 255, 0.6), 0 2px 8px rgba(0, 0, 0, 0.95);
+  opacity: 1;
+}
+
+.service-node.is-next {
+  opacity: 1;
+  z-index: 9;
+}
+
+.service-node.is-next .service-node-icon {
+  opacity: 0.82;
+  border-color: rgba(0, 194, 255, 0.56);
+  background: rgba(6, 24, 48, 0.9);
+  box-shadow: 0 0 14px rgba(0, 194, 255, 0.28), 0 4px 16px rgba(0, 0, 0, 0.45);
+  animation: radar-next-pulse 2.8s ease-in-out infinite;
+}
+
+.service-node.is-next .service-node-icon svg {
+  color: rgba(0, 194, 255, 0.88);
+  filter: drop-shadow(0 0 5px rgba(0, 194, 255, 0.45));
+  opacity: 0.9;
+}
+
+.service-node.is-next .service-node-label {
+  color: rgba(226, 247, 255, 0.86);
+  text-shadow: 0 0 8px rgba(0, 194, 255, 0.25), 0 2px 8px rgba(0, 0, 0, 0.85);
+  opacity: 0.8;
+}
+
+.service-node.is-inactive {
   opacity: 1;
   z-index: 7;
 }
 
-.service-node.is-inactive .service-node-icon,
-.service-node.service-node--inactive .service-node-icon {
+.service-node.is-inactive .service-node-icon {
   opacity: 0.55;
   border-color: rgba(0, 194, 255, 0.25);
   box-shadow: none;
@@ -545,60 +578,58 @@
   transform: scale(0.96);
 }
 
-.service-node.is-inactive .service-node-icon svg,
-.service-node.service-node--inactive .service-node-icon svg {
+.service-node.is-inactive .service-node-icon svg {
   color: rgba(0, 194, 255, 0.5);
   filter: none;
   opacity: 0.55;
 }
 
-.service-node.is-inactive .service-node-label,
-.service-node.service-node--inactive .service-node-label {
+.service-node.is-inactive .service-node-label {
   opacity: 0.13;
   color: rgba(255, 255, 255, 0.6);
   text-shadow: none;
 }
 
-/* --- ESTADO 4: HOVER ON INACTIVE (95% Intensidade) --- */
 .service-node.is-inactive:hover {
   opacity: 0.95;
 }
 
 .service-node.is-inactive:hover .service-node-icon {
-  opacity: 0.95;
-  border-color: rgba(0, 194, 255, 0.7);
-  box-shadow: 0 0 18px rgba(0, 194, 255, 0.35);
-  background: rgba(6, 18, 38, 0.92);
-  transform: scale(1.06);
-}
-
-.service-node.is-inactive:hover .service-node-icon svg {
-  opacity: 0.95;
-}
-
-.service-node.is-inactive:hover .service-node-label {
-  opacity: 0.95;
-  color: #ffffff;
-}
-
-.service-node.is-inactive:hover .service-node-icon {
-  opacity: 0.80;
-  border-color: rgba(0, 194, 255, 0.5);
-  box-shadow: 0 0 14px rgba(0, 194, 255, 0.25);
-  background: rgba(6, 18, 38, 0.88);
+  opacity: 0.84;
+  border-color: rgba(0, 194, 255, 0.52);
+  box-shadow: 0 0 15px rgba(0, 194, 255, 0.28);
+  background: rgba(6, 18, 38, 0.9);
   transform: scale(1.04);
 }
 
-.service-node.is-inactive:hover .service-node-icon svg {
-  opacity: 0.80;
-}
-
+.service-node.is-inactive:hover .service-node-icon svg,
 .service-node.is-inactive:hover .service-node-label {
-  opacity: 0.80;
-  color: #ffffff;
+  opacity: 0.84;
 }
 
-/* ======== COL DIREITA — Card ======== */
+@keyframes radar-next-pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 10px rgba(0, 194, 255, 0.18), 0 4px 16px rgba(0, 0, 0, 0.45);
+  }
+  50% {
+    transform: scale(1.045);
+    box-shadow: 0 0 18px rgba(0, 194, 255, 0.42), 0 4px 16px rgba(0, 0, 0, 0.45);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .service-node.is-next .service-node-icon {
+    animation: none;
+  }
+
+  .radar-connection,
+  .service-node,
+  .service-node-icon {
+    transition-duration: 120ms;
+  }
+}
+
 .solucoes-right-col {
   grid-area: right;
   display: flex;
