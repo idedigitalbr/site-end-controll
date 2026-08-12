@@ -440,7 +440,7 @@
 }
 
 /* =========================================================
-   3-STATE RADAR HIERARCHY (ACTIVE - PREVIOUS - INACTIVE)
+   3-STATE RADAR HIERARCHY (ACTIVE - PREVIOUS/VISITED - INACTIVE)
    ========================================================= */
 
 /* --- ESTADO 1: ACTIVE (100% Intensidade) --- */
@@ -452,8 +452,9 @@
 
 .service-node.is-active .service-node-icon,
 .service-node.service-node--active .service-node-icon {
+  opacity: 1;
   border-color: var(--color-cyan, #00c2ff) !important;
-  box-shadow: 0 0 34px rgba(0, 194, 255, 0.8), 0 0 14px rgba(0, 194, 255, 0.5), 0 6px 22px rgba(0, 0, 0, 0.6) !important;
+  box-shadow: 0 0 34px rgba(0, 194, 255, 0.85), 0 0 14px rgba(0, 194, 255, 0.55), 0 6px 22px rgba(0, 0, 0, 0.6) !important;
   background: rgba(0, 156, 255, 0.28) !important;
   transform: scale(1.12);
 }
@@ -462,6 +463,7 @@
 .service-node.service-node--active .service-node-icon svg {
   color: var(--color-cyan, #00c2ff) !important;
   filter: drop-shadow(0 0 10px rgba(0, 194, 255, 0.9)) !important;
+  opacity: 1;
 }
 
 .service-node.is-active .service-node-label,
@@ -472,45 +474,52 @@
   opacity: 1;
 }
 
-/* --- ESTADO 2: PREVIOUS (65% - 70% Intensidade) --- */
+/* --- ESTADO 2: PREVIOUS / VISITED (80% Intensidade) --- */
 .service-node.is-previous,
+.service-node.is-visited,
 .service-node.service-node--previous {
-  opacity: 0.68;
+  opacity: 0.80;
   z-index: 8;
 }
 
 .service-node.is-previous .service-node-icon,
+.service-node.is-visited .service-node-icon,
 .service-node.service-node--previous .service-node-icon {
-  border-color: rgba(0, 194, 255, 0.55);
-  box-shadow: 0 0 14px rgba(0, 194, 255, 0.22), 0 4px 14px rgba(0, 0, 0, 0.45);
-  background: rgba(6, 18, 38, 0.90);
-  transform: scale(1.02);
+  opacity: 0.85;
+  border-color: rgba(0, 194, 255, 0.65);
+  box-shadow: 0 0 16px rgba(0, 194, 255, 0.3), 0 4px 14px rgba(0, 0, 0, 0.45);
+  background: rgba(6, 18, 38, 0.92);
+  transform: scale(1.03);
 }
 
 .service-node.is-previous .service-node-icon svg,
+.service-node.is-visited .service-node-icon svg,
 .service-node.service-node--previous .service-node-icon svg {
-  color: rgba(0, 194, 255, 0.85);
-  filter: drop-shadow(0 0 4px rgba(0, 194, 255, 0.4));
+  color: rgba(0, 194, 255, 0.9);
+  filter: drop-shadow(0 0 5px rgba(0, 194, 255, 0.5));
+  opacity: 0.85;
 }
 
 .service-node.is-previous .service-node-label,
+.service-node.is-visited .service-node-label,
 .service-node.service-node--previous .service-node-label {
   color: #e2f4ff;
   font-weight: 600;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.85);
-  opacity: 0.95;
+  opacity: 0.85;
 }
 
-/* --- ESTADO 3: INACTIVE (15% - 20% Intensidade) --- */
+/* --- ESTADO 3: INACTIVE (40% Ícone / 20% Texto) --- */
 .service-node.is-inactive,
 .service-node.service-node--inactive {
-  opacity: 0.16;
+  opacity: 1;
   z-index: 7;
 }
 
 .service-node.is-inactive .service-node-icon,
 .service-node.service-node--inactive .service-node-icon {
-  border-color: rgba(0, 194, 255, 0.12);
+  opacity: 0.40;
+  border-color: rgba(0, 194, 255, 0.22);
   box-shadow: none;
   background: rgba(4, 12, 26, 0.75);
   transform: scale(0.96);
@@ -518,30 +527,38 @@
 
 .service-node.is-inactive .service-node-icon svg,
 .service-node.service-node--inactive .service-node-icon svg {
-  color: rgba(0, 194, 255, 0.35);
+  color: rgba(0, 194, 255, 0.45);
   filter: none;
+  opacity: 0.40;
 }
 
 .service-node.is-inactive .service-node-label,
 .service-node.service-node--inactive .service-node-label {
-  color: rgba(255, 255, 255, 0.45);
+  opacity: 0.20;
+  color: rgba(255, 255, 255, 0.65);
   text-shadow: none;
 }
 
-/* --- HOVER ON INACTIVE (Discrete rise to ~35% opacity) --- */
+/* --- ESTADO 4: HOVER ON INACTIVE (70% Intensidade) --- */
 .service-node.is-inactive:hover {
-  opacity: 0.35;
+  opacity: 0.70;
 }
 
 .service-node.is-inactive:hover .service-node-icon {
-  border-color: rgba(0, 194, 255, 0.35);
-  box-shadow: 0 0 12px rgba(0, 194, 255, 0.18);
-  background: rgba(6, 18, 38, 0.85);
-  transform: scale(1.02);
+  opacity: 0.80;
+  border-color: rgba(0, 194, 255, 0.5);
+  box-shadow: 0 0 14px rgba(0, 194, 255, 0.25);
+  background: rgba(6, 18, 38, 0.88);
+  transform: scale(1.04);
+}
+
+.service-node.is-inactive:hover .service-node-icon svg {
+  opacity: 0.80;
 }
 
 .service-node.is-inactive:hover .service-node-label {
-  color: rgba(255, 255, 255, 0.8);
+  opacity: 0.80;
+  color: #ffffff;
 }
 
 /* ======== COL DIREITA — Card ======== */
