@@ -1421,6 +1421,56 @@
   }
 
   /* ===================================================================
+     Navegação Manual por Setas (Setores que Atendemos)
+     =================================================================== */
+  function initSectorsMarquee() {
+    const track = document.querySelector('.sectors-marquee-track');
+    const btnUp = document.getElementById('sectorsNavUp');
+    const btnDown = document.getElementById('sectorsNavDown');
+    const cardPanel = document.querySelector('.info-card-panel--marquee');
+
+    if (!track) return;
+
+    function getCurrentY() {
+      const style = window.getComputedStyle(track);
+      const matrix = new WebKitCSSMatrix(style.transform);
+      return matrix.m42 || 0;
+    }
+
+    if (btnUp) {
+      btnUp.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        const currentY = getCurrentY();
+        track.style.animation = 'none';
+        let newY = currentY + 34;
+        if (newY > 0) newY = -(track.scrollHeight / 2);
+        track.style.transform = `translateY(${newY}px)`;
+      });
+    }
+
+    if (btnDown) {
+      btnDown.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        const currentY = getCurrentY();
+        track.style.animation = 'none';
+        let newY = currentY - 34;
+        if (Math.abs(newY) >= track.scrollHeight / 2) newY = 0;
+        track.style.transform = `translateY(${newY}px)`;
+      });
+    }
+
+    if (cardPanel) {
+      cardPanel.addEventListener('mouseleave', function () {
+        if (track.style.animation === 'none') {
+          track.style.animation = 'sectorsScrollUp 24s linear infinite';
+        }
+      });
+    }
+  }
+
+  /* ===================================================================
      Bootstrap
      =================================================================== */
   document.addEventListener('DOMContentLoaded', function () {
@@ -1436,5 +1486,6 @@
     initTrajetoriaTimeline();
     initMobileScrollHighlights();
     initHeroSlider();
+    initSectorsMarquee();
   });
 })();
