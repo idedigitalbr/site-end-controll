@@ -387,8 +387,8 @@
   gap: 4px;
   cursor: pointer;
   z-index: 7;
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   pointer-events: auto;
+  transition: opacity 400ms ease, transform 400ms ease, filter 400ms ease;
 }
 
 .service-node-icon {
@@ -403,7 +403,7 @@
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.5), inset 0 0 12px rgba(0, 194, 255, 0.05);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 400ms ease, color 400ms ease, border-color 400ms ease, box-shadow 400ms ease, background-color 400ms ease, transform 400ms ease, filter 400ms ease;
   flex-shrink: 0;
 }
 
@@ -411,7 +411,7 @@
   width: clamp(18px, 1.6vw, 24px);
   height: clamp(18px, 1.6vw, 24px);
   color: var(--color-cyan, #00c2ff);
-  transition: all 0.3s ease;
+  transition: color 400ms ease, filter 400ms ease, opacity 400ms ease;
   filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.5));
 }
 
@@ -425,7 +425,7 @@
   line-height: 1.18;
   text-align: center;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.95);
-  transition: color 0.3s ease, text-shadow 0.3s ease;
+  transition: opacity 400ms ease, color 400ms ease, text-shadow 400ms ease, filter 400ms ease;
   pointer-events: none;
 }
 
@@ -439,33 +439,109 @@
   flex-direction: column-reverse;
 }
 
-/* Hover & Active States */
-.service-node:hover .service-node-icon {
-  border-color: rgba(0, 194, 255, 0.85);
-  box-shadow: 0 0 26px rgba(0, 194, 255, 0.5), 0 6px 20px rgba(0, 0, 0, 0.6);
-  background: rgba(0, 156, 255, 0.16);
-  transform: scale(1.08);
-}
-.service-node:hover .service-node-label {
-  color: #ffffff;
+/* =========================================================
+   3-STATE RADAR HIERARCHY (ACTIVE - PREVIOUS - INACTIVE)
+   ========================================================= */
+
+/* --- ESTADO 1: ACTIVE (100% Intensidade) --- */
+.service-node.is-active,
+.service-node.service-node--active {
+  opacity: 1;
+  z-index: 10;
 }
 
-.service-node--active .service-node-icon {
+.service-node.is-active .service-node-icon,
+.service-node.service-node--active .service-node-icon {
   border-color: var(--color-cyan, #00c2ff) !important;
   box-shadow: 0 0 34px rgba(0, 194, 255, 0.8), 0 0 14px rgba(0, 194, 255, 0.5), 0 6px 22px rgba(0, 0, 0, 0.6) !important;
-  background: rgba(0, 156, 255, 0.25) !important;
+  background: rgba(0, 156, 255, 0.28) !important;
   transform: scale(1.12);
 }
 
-.service-node--active .service-node-icon svg {
-  color: var(--color-cyan, #00c2ff);
-  filter: drop-shadow(0 0 10px rgba(0, 194, 255, 0.9));
+.service-node.is-active .service-node-icon svg,
+.service-node.service-node--active .service-node-icon svg {
+  color: var(--color-cyan, #00c2ff) !important;
+  filter: drop-shadow(0 0 10px rgba(0, 194, 255, 0.9)) !important;
 }
 
-.service-node--active .service-node-label {
+.service-node.is-active .service-node-label,
+.service-node.service-node--active .service-node-label {
   color: var(--color-cyan, #00c2ff) !important;
   font-weight: 700;
   text-shadow: 0 0 14px rgba(0, 194, 255, 0.6), 0 2px 8px rgba(0, 0, 0, 0.95);
+  opacity: 1;
+}
+
+/* --- ESTADO 2: PREVIOUS (65% - 70% Intensidade) --- */
+.service-node.is-previous,
+.service-node.service-node--previous {
+  opacity: 0.68;
+  z-index: 8;
+}
+
+.service-node.is-previous .service-node-icon,
+.service-node.service-node--previous .service-node-icon {
+  border-color: rgba(0, 194, 255, 0.55);
+  box-shadow: 0 0 14px rgba(0, 194, 255, 0.22), 0 4px 14px rgba(0, 0, 0, 0.45);
+  background: rgba(6, 18, 38, 0.90);
+  transform: scale(1.02);
+}
+
+.service-node.is-previous .service-node-icon svg,
+.service-node.service-node--previous .service-node-icon svg {
+  color: rgba(0, 194, 255, 0.85);
+  filter: drop-shadow(0 0 4px rgba(0, 194, 255, 0.4));
+}
+
+.service-node.is-previous .service-node-label,
+.service-node.service-node--previous .service-node-label {
+  color: #e2f4ff;
+  font-weight: 600;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.85);
+  opacity: 0.95;
+}
+
+/* --- ESTADO 3: INACTIVE (15% - 20% Intensidade) --- */
+.service-node.is-inactive,
+.service-node.service-node--inactive {
+  opacity: 0.16;
+  z-index: 7;
+}
+
+.service-node.is-inactive .service-node-icon,
+.service-node.service-node--inactive .service-node-icon {
+  border-color: rgba(0, 194, 255, 0.12);
+  box-shadow: none;
+  background: rgba(4, 12, 26, 0.75);
+  transform: scale(0.96);
+}
+
+.service-node.is-inactive .service-node-icon svg,
+.service-node.service-node--inactive .service-node-icon svg {
+  color: rgba(0, 194, 255, 0.35);
+  filter: none;
+}
+
+.service-node.is-inactive .service-node-label,
+.service-node.service-node--inactive .service-node-label {
+  color: rgba(255, 255, 255, 0.45);
+  text-shadow: none;
+}
+
+/* --- HOVER ON INACTIVE (Discrete rise to ~35% opacity) --- */
+.service-node.is-inactive:hover {
+  opacity: 0.35;
+}
+
+.service-node.is-inactive:hover .service-node-icon {
+  border-color: rgba(0, 194, 255, 0.35);
+  box-shadow: 0 0 12px rgba(0, 194, 255, 0.18);
+  background: rgba(6, 18, 38, 0.85);
+  transform: scale(1.02);
+}
+
+.service-node.is-inactive:hover .service-node-label {
+  color: rgba(255, 255, 255, 0.8);
 }
 
 /* ======== COL DIREITA — Card ======== */
