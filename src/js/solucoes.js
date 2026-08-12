@@ -226,8 +226,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   servicesData.forEach((s, index) => {
     const nodeEl = document.createElement('div');
-    // Outer radius 49.5%, Inner radius 23.5% (26% ring-to-ring gap)
-    const ringRadiusPercent = s.ring === 'outer' ? 49.5 : 23.5;
+    // Outer radius 49.5%, Inner radius 30.5% (Wide icon separation & 19% ring-to-ring gap)
+    const ringRadiusPercent = s.ring === 'outer' ? 49.5 : 30.5;
     const angleRad = (s.angle * Math.PI) / 180;
     const leftPercent = 50 + ringRadiusPercent * Math.cos(angleRad);
     const topPercent = 50 + ringRadiusPercent * Math.sin(angleRad);
