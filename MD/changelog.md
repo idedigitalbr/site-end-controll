@@ -1,5 +1,14 @@
 # Changelog — ENDCONTROL Engenharia
 
+## [2026-08-12] - Linha de Progresso Neon Ciano Conectando os Serviços Visitados (`<path id="radarTrailPath">`)
+
+### Changed & Improved
+- **Traçado Orbital Neon Dinâmico (`index.html`, `src/js/solucoes.js` & `src/css/solucoes.css`):**
+  - **Camada SVG de Progresso (`<svg class="radar-trail-svg">`):** Adicionada camada SVG com traço ciano neon brilhante (`stroke-width: 2.5`, `filter: drop-shadow(0 0 14px rgba(0, 194, 255, 0.7))`) que se estende conectando os serviços visitados.
+  - **Lógica de Conexão Radial (`updateRadarTrail()`):** Calcula automaticamente as coordenadas exatas dos nós visitados e desenha arcos circulares perfeitos ao longo dos anéis (e vetores de transição entre anéis), conectando dinamicamente do nó 1 até o nó ativo em tempo real.
+  - **Reset com Animação:** Ao completar a volta ou selecionar o Serviço 1, a linha de progresso é zerada instantaneamente.
+  - Cache busters atualizados para `solucoes.css?v=51.0` e `solucoes.js?v=51.0`.
+
 ## [2026-08-12] - Ajuste Fino Perfeito das Opacidades (100%, 80%, 55%/13%, 95%)
 
 ### Changed & Improved

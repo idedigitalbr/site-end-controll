@@ -342,15 +342,58 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  const visitedSequence = [0];
+
+  function updateRadarTrail() {
+    const trailPath = document.getElementById('radarTrailPath');
+    if (!trailPath) return;
+
+    if (visitedSequence.length <= 1) {
+      trailPath.setAttribute('d', '');
+      return;
+    }
+
+    let d = '';
+    for (let k = 0; k < visitedSequence.length; k++) {
+      const idx = visitedSequence[k];
+      const s = servicesData[idx];
+      const r = s.ring === 'outer' ? 49.5 : 30.5;
+      const rad = (s.angle * Math.PI) / 180;
+      const x = 250 + 5 * r * Math.cos(rad);
+      const y = 250 + 5 * r * Math.sin(rad);
+
+      if (k === 0) {
+        d += `M ${x.toFixed(2)} ${y.toFixed(2)}`;
+      } else {
+        const prevIdx = visitedSequence[k - 1];
+        const prevS = servicesData[prevIdx];
+        const R_px = 5 * r;
+
+        if (s.ring === prevS.ring) {
+          const angleDiff = ((s.angle - prevS.angle + 540) % 360) - 180;
+          const sweepFlag = angleDiff > 0 ? 1 : 0;
+          d += ` A ${R_px.toFixed(2)} ${R_px.toFixed(2)} 0 0 ${sweepFlag} ${x.toFixed(2)} ${y.toFixed(2)}`;
+        } else {
+          d += ` L ${x.toFixed(2)} ${y.toFixed(2)}`;
+        }
+      }
+    }
+    trailPath.setAttribute('d', d);
+  }
+
   function goToService(index) {
     if (index === activeIndex) return;
 
     if (index === 0) {
       // Reached Item 1: Reset cycle completely!
       visitedIndices.clear();
+      visitedSequence.length = 0;
+      visitedSequence.push(0);
     } else {
-      // Add current active item to visited set
       visitedIndices.add(activeIndex);
+      if (!visitedSequence.includes(index)) {
+        visitedSequence.push(index);
+      }
     }
 
     activeIndex = index;
@@ -358,6 +401,7 @@ document.addEventListener('DOMContentLoaded', () => {
     updateRadarStates();
     updatePagination(activeIndex);
     updateCard(activeIndex, true);
+    updateRadarTrail();
   }
 
   const prevService = () => {
@@ -420,6 +464,7 @@ document.addEventListener('DOMContentLoaded', () => {
   updateRadarStates();
   updatePagination(activeIndex);
   updateCard(activeIndex, false);
+  updateRadarTrail();
   startAutoPlay();
 
   // CountUp animation for stats
