@@ -476,6 +476,55 @@
   align-items: center;
   z-index: 4;
 }
+.highlight-card-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 360px;
+  margin: 0 auto;
+}
+
+.card-side-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(6, 18, 38, 0.92);
+  border: 1.5px solid rgba(0, 194, 255, 0.35);
+  color: var(--color-cyan, #00c2ff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5), 0 0 10px rgba(0, 194, 255, 0.15);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-side-arrow.prev {
+  left: -18px;
+}
+
+.card-side-arrow.next {
+  right: -18px;
+}
+
+.card-side-arrow:hover {
+  background: rgba(0, 194, 255, 0.24);
+  border-color: var(--color-cyan, #00c2ff);
+  box-shadow: 0 0 20px rgba(0, 194, 255, 0.55), 0 4px 18px rgba(0, 0, 0, 0.6);
+  transform: translateY(-50%) scale(1.12);
+}
+
+.card-side-arrow svg {
+  width: 18px;
+  height: 18px;
+  color: var(--color-cyan, #00c2ff);
+}
+
 .highlight-card {
   width: 100%;
   max-width: 360px;
@@ -543,6 +592,10 @@
 }
 .highlight-card-body {
   padding: 16px 18px 18px 18px;
+  min-height: 275px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   transition: opacity 0.25s ease, transform 0.25s ease;
 }
 .highlight-card-title {

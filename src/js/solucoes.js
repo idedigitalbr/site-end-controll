@@ -336,6 +336,8 @@ document.addEventListener('DOMContentLoaded', () => {
     pauseAutoPlay();
   };
 
+  document.getElementById('cardSidePrev')?.addEventListener('click', prevService);
+  document.getElementById('cardSideNext')?.addEventListener('click', nextService);
   document.getElementById('cardFooterPrev')?.addEventListener('click', prevService);
   document.getElementById('cardFooterNext')?.addEventListener('click', nextService);
 
