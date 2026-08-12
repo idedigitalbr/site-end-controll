@@ -1,5 +1,13 @@
 # Changelog — ENDCONTROL Engenharia
 
+## [2026-08-11] - Correção do Rodapé Online & Adição de Cache Busters
+
+### Fixed
+- **Cache & Estilização do Rodapé (`index.html` & `work-units-footer.css`):**
+  - Adicionado o parâmetro de versão `?v=11.0` em todos os links CSS do `index.html` para forçar a invalidação de cache no Cloudflare e navegadores.
+  - Adicionados atributos inline de tamanho (`width="135" height="135" style="max-width: 135px; width: 135px; height: auto;"`) na imagem do logo `.footer-minimal-logo` e regras estritas `!important` no CSS para impedir estouro de layout em conexões com cache antigo.
+  - Publicadas alterações no GitHub e deploy efetuado com sucesso na VPS.
+
 ## [2026-08-11] - Correção dos Cantos Arredondados e Eliminação de Bordas Pretas na Seção Oportunidades
 
 ### Fixed
