@@ -1,5 +1,14 @@
 # Changelog — ENDCONTROL Engenharia
 
+## [2026-08-12] - Adição de Setas Navegacionais Minimalistas no Card de Destaque (Anterior / Próximo)
+
+### Changed & Improved
+- **Navegação Minimalista por Setas (`index.html`, `src/js/solucoes.js` & `src/css/solucoes.css`):**
+  - **Setas de Navegação:** Adicionadas setas direcionais minimalistas (`<` e `>`) tanto sobre a imagem do card de destaque quanto na barra inferior ao lado dos pontos de progresso.
+  - **Interatividade:** Clique na seta esquerda retrocede para o serviço anterior (com wrap-around do 0 ao 11); clique na seta direita avança para o próximo serviço (wrap-around do 11 ao 0), pausando automaticamente o autoplay para permitir leitura do usuário.
+  - **Estilo Visual:** Botões circulares minimalistas com acento ciano neon, efeito de transparência glassmorphism e animações suaves ao passar o mouse.
+  - Cache busters atualizados para `solucoes.css?v=43.0` e `solucoes.js?v=43.0`.
+
 ## [2026-08-12] - Ampliação da Circunferência Interna (Raio 30.5% & Separação de ~255px entre Ícones Internos)
 
 ### Changed & Improved
