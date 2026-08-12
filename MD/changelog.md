@@ -1,5 +1,16 @@
 # Changelog — ENDCONTROL Engenharia
 
+## [2026-08-12] - Hierarquia Visual Dinâmica de 3 Níveis nos Nós do Radar (Active, Previous, Inactive)
+
+### Changed & Improved
+- **Sistema de Estados de 3 Níveis (`index.html`, `src/js/solucoes.js` & `src/css/solucoes.css`):**
+  - **Single Source of Truth:** Centralizadas todas as formas de navegação (setas, cliques diretos nos nós, dots de paginação, autoplay e links de serviço) na função `goToService(newIndex)`, gerenciando `activeIndex` e `previousActiveIndex`.
+  - **Estado 1 — ACTIVE (100% Intensidade):** Opacidade 1, brilho ciano neon forte (`box-shadow: 0 0 34px rgba(0,194,255,0.8)`), escala `1.12`, rótulo ciano destacado e `aria-current="true"`. Inicializado no Item 1 ("1. Gerenciamento de Projetos").
+  - **Estado 2 — PREVIOUS (65%–70% Intensidade):** Opacidade 0.68, brilho discreto (~22% do active), escala `1.02`, preservando a memória visual do serviço anteriormente visitado (não atribuído no carregamento inicial).
+  - **Estado 3 — INACTIVE (15%–20% Intensidade):** Opacidade 0.16 no repouso, tom ciano escuro desaturado e sem glow, reduzindo o ruído visual e atuando como background tecnológico. Hover sutil eleva opacidade para ~35% indicando interatividade.
+  - **Sincronização com Card:** O card direito inicializa exibindo o serviço 1 e mantém sincronia absoluta de 100% com o radar em todas as formas de navegação.
+  - Cache busters atualizados para `solucoes.css?v=46.0` e `solucoes.js?v=46.0`.
+
 ## [2026-08-12] - Fixação das Setas no Centro Vertical do Card (`top: 50%`) & Estabilização de Altura
 
 ### Changed & Improved

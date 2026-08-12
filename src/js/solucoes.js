@@ -266,13 +266,44 @@ document.addEventListener('DOMContentLoaded', () => {
   const checkSvg = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>`;
   const arrowSvg = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>`;
 
-  // Default active index = 3 ("4. Engenharia de Soldagem" - matching Anexo 2 reference)
-  let currentIndex = 3;
+  // Default active index = 0 ("1. Gerenciamento de Projetos" - Requirement 2 & 13)
+  let activeIndex = 0;
+  let previousActiveIndex = null;
+
   let autoPlayInterval = null;
   let pauseTimeout = null;
   const AUTO_PLAY_MS = 5000;
   const PAUSE_RESUME_MS = 12000;
   let isTransitioning = false;
+
+  function updateRadarStates() {
+    serviceNodes.forEach((node, index) => {
+      const isActive = index === activeIndex;
+      const isPrevious = previousActiveIndex !== null && index === previousActiveIndex;
+      const isInactive = !isActive && !isPrevious;
+
+      node.classList.toggle('is-active', isActive);
+      node.classList.toggle('service-node--active', isActive);
+
+      node.classList.toggle('is-previous', isPrevious);
+      node.classList.toggle('service-node--previous', isPrevious);
+
+      node.classList.toggle('is-inactive', isInactive);
+      node.classList.toggle('service-node--inactive', isInactive);
+
+      if (isActive) {
+        node.setAttribute('aria-current', 'true');
+      } else {
+        node.removeAttribute('aria-current');
+      }
+    });
+  }
+
+  function updatePagination(index) {
+    progressDots.forEach((d, i) => {
+      d.classList.toggle('active', i === index);
+    });
+  }
 
   function updateCard(index, animate = true) {
     const data = servicesData[index];
@@ -310,28 +341,25 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  function setActiveNode(index) {
-    serviceNodes.forEach(n => n.classList.remove('service-node--active'));
-    document.getElementById(`node-${index}`)?.classList.add('service-node--active');
-    progressDots.forEach(d => d.classList.remove('active'));
-    progressDots[index]?.classList.add('active');
-  }
-
   function goToService(index) {
-    if (index === currentIndex && !isTransitioning) return;
-    currentIndex = index;
-    setActiveNode(index);
-    updateCard(index, true);
+    if (index === activeIndex) return;
+
+    previousActiveIndex = activeIndex;
+    activeIndex = index;
+
+    updateRadarStates();
+    updatePagination(activeIndex);
+    updateCard(activeIndex, true);
   }
 
   const prevService = () => {
-    const nextIdx = (currentIndex - 1 + servicesData.length) % servicesData.length;
+    const nextIdx = (activeIndex - 1 + servicesData.length) % servicesData.length;
     goToService(nextIdx);
     pauseAutoPlay();
   };
 
   const nextService = () => {
-    const nextIdx = (currentIndex + 1) % servicesData.length;
+    const nextIdx = (activeIndex + 1) % servicesData.length;
     goToService(nextIdx);
     pauseAutoPlay();
   };
@@ -356,7 +384,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function startAutoPlay() {
     stopAutoPlay();
-    autoPlayInterval = setInterval(() => goToService((currentIndex + 1) % servicesData.length), AUTO_PLAY_MS);
+    autoPlayInterval = setInterval(() => goToService((activeIndex + 1) % servicesData.length), AUTO_PLAY_MS);
   }
   function stopAutoPlay() {
     if (autoPlayInterval) {
@@ -381,8 +409,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  setActiveNode(currentIndex);
-  updateCard(currentIndex, false);
+  updateRadarStates();
+  updatePagination(activeIndex);
+  updateCard(activeIndex, false);
   startAutoPlay();
 
   // CountUp animation for stats
