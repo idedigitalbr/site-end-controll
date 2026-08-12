@@ -1,5 +1,14 @@
 # Changelog — ENDCONTROL Engenharia
 
+## [2026-08-12] - Ampliação da Circunferência Interna (Raio 30.5% & Separação de ~255px entre Ícones Internos)
+
+### Changed & Improved
+- **Espaçamento entre Ícones Internos (`src/js/solucoes.js` & `src/css/solucoes.css`):**
+  - **Raio do Anel Interno (`--r-inner: 30.5%`):** Elevado para 30.5% (diâmetro de 61%), expandindo o perímetro da circunferência interna.
+  - **Afastamento dos Ícones Internos:** A distância em arco entre os 6 nós internos passou a ser de **~255px** (244px de separação horizontal direta no topo entre o item 12 e 7), acabando com qualquer aproximação visual entre os ícones.
+  - **Raio do Anel Externo (`--r-outer: 49.5%`):** Mantido em 49.5% (diâmetro de 99%), preservando 19% de vão livre entre anéis (~152px) e 22.25% de respiro para a logo central.
+  - Cache busters atualizados para `solucoes.css?v=42.0` e `solucoes.js?v=42.0`.
+
 ## [2026-08-12] - Expansão Adicional da Separação entre Anéis (Vão Livre Elevado para 26%)
 
 ### Changed & Improved
