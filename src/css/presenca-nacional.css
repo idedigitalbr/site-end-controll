@@ -666,4 +666,126 @@
   .connection-line {
     transition: none !important;
   }
+  .sectors-marquee-track {
+    animation: none !important;
+  }
 }
+
+/* Infinte Vertical Marquee & Arrow Navigation for Setores que Atendemos */
+.info-card-panel--marquee {
+  overflow: hidden;
+  position: relative;
+}
+
+.sectors-marquee-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  position: relative;
+  gap: 4px;
+  margin-top: 4px;
+}
+
+/* Setas Minimalistas Acima e Abaixo da Lista (Fora do Viewport, Sem Sobreposição) */
+.sectors-arrow-btn {
+  background: #edf4ff;
+  border: 1px solid rgba(0, 86, 179, 0.18);
+  border-radius: 6px;
+  width: 32px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0056b3;
+  cursor: pointer;
+  padding: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease, background 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0, 86, 179, 0.08);
+  flex-shrink: 0;
+}
+
+/* Revela as setas minimalistas APENAS quando passar o mouse sobre o card */
+.info-card-panel--marquee:hover .sectors-arrow-btn {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.sectors-arrow-btn:hover {
+  background: #0056b3;
+  color: #ffffff;
+  border-color: #0056b3;
+}
+
+.sectors-arrow-btn--top:hover {
+  transform: translateY(-2px);
+}
+
+.sectors-arrow-btn--bottom:hover {
+  transform: translateY(2px);
+}
+
+.sectors-marquee-viewport {
+  height: 285px;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding: 2px 0;
+  mask-image: linear-gradient(to bottom, transparent 0%, #000 5%, #000 95%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 5%, #000 95%, transparent 100%);
+}
+
+.sectors-marquee-track {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  animation: sectorsScrollUp 24s linear infinite;
+  will-change: transform;
+}
+
+.info-card-panel--marquee:hover .sectors-marquee-track {
+  animation-play-state: paused;
+}
+
+.sectors-marquee-track li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 8px;
+  border-radius: 8px;
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: #0b1a30;
+  transition: all 0.25s ease;
+  white-space: normal;
+  line-height: 1.35;
+}
+
+.sectors-marquee-track li:hover {
+  background: rgba(0, 86, 179, 0.06);
+  color: #0056b3;
+  transform: translateX(4px);
+}
+
+.sector-bullet-dash {
+  color: #0056b3;
+  font-weight: 800;
+  font-size: 0.95rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+@keyframes sectorsScrollUp {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
