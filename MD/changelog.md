@@ -1,5 +1,12 @@
 # Changelog — ENDCONTROL Engenharia
 
+## [2026-08-11] - Remoção dos Cards da Seção Segmentos de Atuação
+
+### Removed
+- **Seção Segmentos de Atuação (`index.html`):**
+  - Removido o painel `.segmentos-panel` com os 12 cards de imagens e ícones dos setores.
+  - Mantido apenas o cabeçalho/título da seção (`.segmentos-head`) para reformulação futura.
+
 ## [2026-08-11] - Correção do Submenuzinho no Item 1 do Menu ("1. Gerenciamento de Projetos")
 
 ### Fixed
