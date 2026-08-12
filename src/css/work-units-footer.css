@@ -3028,16 +3028,17 @@
 }
 
 /* ==========================================================================
-   ESTILOS DO RODAPÉ MINIMALISTA ENDCONTROL
+   ESTILOS DO RODAPÉ MINIMALISTA ENDCONTROL (3 COLUNAS COMPACTAS COM DIVISORES GLOW)
    ========================================================================== */
 
 .footer-minimal-glow-section {
-  background: #0a1128;
-  padding: 60px 20px 24px 20px;
+  background: #040918;
+  padding: 34px 20px 18px 20px;
   position: relative;
   overflow: hidden;
   border-top: 1px solid rgba(0, 156, 255, 0.15);
   width: 100%;
+  font-family: 'DM Sans', sans-serif;
 }
 
 /* Efeito de Ponto de Luz Ambiental Azul Suave EndControl */
@@ -3047,40 +3048,108 @@
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 780px;
-  height: 320px;
+  width: 850px;
+  height: 250px;
   background: radial-gradient(
-    ellipse 65% 55% at 50% 75%,
-    rgba(0, 156, 255, 0.16) 0%,
-    rgba(0, 194, 255, 0.08) 40%,
-    rgba(0, 102, 255, 0.02) 70%,
-    transparent 88%
+    ellipse 65% 55% at 50% 85%,
+    rgba(0, 156, 255, 0.14) 0%,
+    rgba(0, 194, 255, 0.06) 45%,
+    rgba(0, 102, 255, 0.01) 75%,
+    transparent 90%
   );
-  filter: blur(50px);
+  filter: blur(55px);
   pointer-events: none;
   z-index: 1;
 }
 
 .footer-minimal-container {
-  max-width: 1200px;
+  max-width: 1140px;
   margin: 0 auto;
   position: relative;
   z-index: 2;
 }
 
-.footer-minimal-centered-content {
+/* Layout de 3 Colunas Bipartido por Divisores Verticais */
+.footer-minimal-top-grid {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 26px;
+}
+
+/* Divisor Vertical Com Glow Cyan */
+.footer-v-divider {
+  width: 1px;
+  height: 115px;
+  background: linear-gradient(180deg, rgba(0, 156, 255, 0.05) 0%, rgba(0, 194, 255, 0.65) 50%, rgba(0, 156, 255, 0.05) 100%);
+  box-shadow: 0 0 10px rgba(0, 194, 255, 0.35);
+  flex-shrink: 0;
+  align-self: center;
+}
+
+/* Coluna 1: Localização */
+.footer-col-location {
+  flex: 1;
+  max-width: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.footer-header-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #00c2ff;
+  text-transform: uppercase;
+}
+
+.footer-col-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.footer-header-icon {
+  flex-shrink: 0;
+}
+
+.footer-location-details {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.footer-location-details p {
+  font-size: 0.88rem;
+  color: rgba(220, 235, 255, 0.85);
+  margin: 0;
+  line-height: 1.45;
+  font-weight: 400;
+}
+
+.footer-location-details p.footer-sub-text {
+  color: rgba(200, 220, 245, 0.6);
+  font-size: 0.82rem;
+  margin-top: 2px;
+}
+
+/* Coluna 2: Central (Logo, Slogan, Redes) */
+.footer-col-center {
+  flex: 1.2;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  position: relative;
-  z-index: 2;
-  margin-bottom: 45px;
+  max-width: 440px;
 }
 
 .footer-logo-glow-wrapper {
   position: relative;
-  margin-bottom: 22px;
+  margin-bottom: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -3089,72 +3158,187 @@
 .footer-logo-glow-wrapper::after {
   content: '';
   position: absolute;
-  width: 130px;
-  height: 130px;
-  background: radial-gradient(circle, rgba(0, 194, 255, 0.10) 0%, rgba(0, 156, 255, 0.03) 50%, transparent 75%);
-  filter: blur(20px);
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle, rgba(0, 194, 255, 0.12) 0%, rgba(0, 156, 255, 0.02) 60%, transparent 80%);
+  filter: blur(16px);
   pointer-events: none;
   z-index: 1;
 }
 
 .footer-minimal-logo {
-  width: 135px !important;
-  max-width: 135px !important;
+  width: 115px !important;
+  max-width: 115px !important;
   height: auto !important;
   position: relative;
   z-index: 2;
   display: block;
-  filter: drop-shadow(0 4px 10px rgba(0, 156, 255, 0.15));
+  filter: drop-shadow(0 3px 8px rgba(0, 156, 255, 0.15));
 }
 
 .footer-minimal-slogan {
-  font-size: 0.95rem;
-  color: rgba(220, 235, 255, 0.82);
-  margin-bottom: 26px;
-  letter-spacing: 0.02em;
+  font-size: 0.84rem;
+  color: rgba(220, 235, 255, 0.78);
+  margin-bottom: 14px;
+  letter-spacing: 0.01em;
   font-weight: 400;
-  max-width: 480px;
-  line-height: 1.5;
+  max-width: 380px;
+  line-height: 1.4;
 }
 
 .footer-minimal-social-row {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 16px;
+  gap: 12px;
   position: relative;
   z-index: 2;
 }
 
 .social-circle-minimal {
-  width: 44px;
-  height: 44px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
-  border: 1px solid rgba(0, 156, 255, 0.2);
+  border: 1px solid rgba(0, 156, 255, 0.25);
   display: flex;
   align-items: center;
   justify-content: center;
   color: rgba(240, 246, 255, 0.88);
   transition: all 0.3s ease;
-  background: rgba(0, 156, 255, 0.02);
+  background: rgba(0, 156, 255, 0.03);
   text-decoration: none;
 }
 
 .social-circle-minimal:hover {
-  border-color: rgba(0, 156, 255, 0.6);
+  border-color: rgba(0, 156, 255, 0.7);
   color: #00c2ff;
   transform: translateY(-2px);
-  box-shadow: 0 0 12px rgba(0, 156, 255, 0.25);
-  background: rgba(0, 156, 255, 0.06);
+  box-shadow: 0 0 12px rgba(0, 156, 255, 0.3);
+  background: rgba(0, 156, 255, 0.08);
 }
 
+/* Coluna 3: Fale Conosco + WhatsApp */
+.footer-col-contact {
+  flex: 1;
+  max-width: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.footer-col-contact .text-center {
+  text-align: center;
+}
+
+/* Linha Divisória Elegante com Ponto Central */
+.footer-title-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 80px;
+  margin: 6px auto 12px auto;
+}
+
+.footer-title-divider .divider-line {
+  flex: 1;
+  height: 1px;
+  background: rgba(0, 156, 255, 0.35);
+}
+
+.footer-title-divider .divider-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #00c2ff;
+  box-shadow: 0 0 6px #00c2ff;
+}
+
+.footer-whatsapp-row {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-decoration: none;
+  margin-bottom: 6px;
+  transition: transform 0.2s ease;
+}
+
+.footer-whatsapp-row:hover {
+  transform: scale(1.02);
+}
+
+.footer-whatsapp-icon {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  filter: drop-shadow(0 0 8px rgba(0, 194, 255, 0.5));
+}
+
+.footer-phone-number {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #00c2ff;
+  letter-spacing: 0.02em;
+}
+
+.footer-email-row {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  text-decoration: none;
+  font-size: 0.82rem;
+  color: rgba(220, 235, 255, 0.85);
+  margin-bottom: 12px;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.footer-email-row:hover {
+  color: #00c2ff;
+  transform: translateY(-1px);
+}
+
+.footer-email-icon {
+  flex-shrink: 0;
+  filter: drop-shadow(0 0 4px rgba(0, 194, 255, 0.3));
+}
+
+.footer-wsp-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 18px;
+  border: 1px solid rgba(0, 156, 255, 0.6);
+  border-radius: 6px;
+  background: rgba(0, 30, 70, 0.3);
+  color: #00c2ff;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.footer-wsp-button:hover {
+  background: rgba(0, 156, 255, 0.15);
+  border-color: #00c2ff;
+  color: #ffffff;
+  box-shadow: 0 0 14px rgba(0, 194, 255, 0.35);
+  transform: translateY(-1px);
+}
+
+/* Barra Inferior (Copyright / Legal / Dev) */
 .footer-minimal-bottom-bar {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  padding-top: 24px;
-  border-top: 1px solid rgba(0, 156, 255, 0.15);
-  font-size: 0.8rem;
+  padding-top: 18px;
+  border-top: 1px solid rgba(0, 156, 255, 0.12);
+  font-size: 0.78rem;
   color: rgba(200, 220, 245, 0.55);
   position: relative;
   z-index: 2;
@@ -3211,11 +3395,35 @@
   transform: scale(1.05);
 }
 
-@media (max-width: 850px) {
+/* Responsividade Mobile */
+@media (max-width: 900px) {
+  .footer-minimal-top-grid {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .footer-v-divider {
+    width: 60%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, rgba(0, 194, 255, 0.5) 50%, transparent 100%);
+  }
+
+  .footer-col-location,
+  .footer-col-center,
+  .footer-col-contact {
+    max-width: 100%;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-col-header {
+    justify-content: center;
+  }
+
   .footer-minimal-bottom-bar {
     grid-template-columns: 1fr;
     justify-items: center;
-    gap: 14px;
+    gap: 12px;
     text-align: center;
   }
   
@@ -3227,7 +3435,7 @@
 
   .footer-minimal-glow-section::before {
     width: 100%;
-    height: 220px;
+    height: 200px;
   }
 }
 

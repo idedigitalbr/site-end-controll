@@ -1,6 +1,92 @@
 # Changelog — ENDCONTROL Engenharia
 
-## [2026-08-12] - Redesign & Diagramação Premium da Seção "Palavra da Nossa Presidência" + Fix Modal Scroll
+## [2026-08-12] - Padronização do Texto do Botão CTA do Card ("Saiba Mais")
+
+### Changed & Improved
+- **Simplificação do Texto do Botão CTA (`src/js/solucoes.js`):**
+  - Atualizada a propriedade `ctaText` de todos os 12 serviços no array `servicesData` para o padrão conciso **`Saiba Mais`** (exibindo `SAIBA MAIS ->` no card de destaque).
+  - Cache busters atualizados para `solucoes.js?v=40.0`.
+
+## [2026-08-12] - Proteção Rígida contra Quebra de Palavras em Rótulos (<span class="label-line">)
+
+### Changed & Improved
+- **Blindagem do Texto dos Rótulos (`src/js/solucoes.js` & `src/css/solucoes.css`):**
+  - **Encapsulamento por Linha:** Cada fração de texto dividida por `<br>` no JS passou a ser renderizada dentro de um `<span class="label-line">`.
+  - **CSS `white-space: nowrap !important`:** Aplicada regra rígida na `.label-line` que proíbe o navegador de quebrar o texto em espaços em branco (` `).
+  - **Resultado:** O **Item 2** (`2. Inspeção em Obras / de Artes Especiais`) e o **Item 3** (`3. Ensaios Não Destrutivos / (ENDs)`) ficam **100% garantidos em exatamente 2 linhas (1 única quebra de linha)** sem sofrer colapso de texto independente de tamanho de tela ou cache antigo.
+  - Cache busters atualizados para `solucoes.css?v=39.0` e `solucoes.js?v=39.0`.
+
+## [2026-08-12] - Otimização de Quebra de Linha dos Rótulos (Itens 2 e 3)
+
+### Changed & Improved
+- **Correção da Quebra de Linha dos Rótulos (`src/js/solucoes.js` & `src/css/solucoes.css`):**
+  - **Item 2 (`2. Inspeção em Obras de Artes Especiais`):** Ajustado a `shortTitle` para `2. Inspeção em Obras<br>de Artes Especiais` e expandida a `max-width` da `.service-node-label` de `115px` para `165px` (`155px` em laptops e `185px` em 4K), reduzindo o texto de 5 linhas para **exatamente 2 linhas (1 única quebra de linha)**.
+  - **Item 3 (`3. Ensaios Não Destrutivos (ENDs)`):** Ajustado a `shortTitle` para `3. Ensaios Não Destrutivos<br>(ENDs)`, garantindo **exatamente 2 linhas (1 única quebra de linha)**.
+  - Cache busters atualizados para `solucoes.css?v=38.0` e `solucoes.js?v=38.0`.
+
+## [2026-08-12] - Alinhamento Total com a Referência Visual Anexo 2 (Raio Externo 48.5%, Raio Interno 28.5% & Vão Livre de 20%)
+
+### Changed & Improved
+- **Geometria Aberta e Respiro Expandido (`src/js/solucoes.js` & `src/css/solucoes.css`):**
+  - **Expandida a Circunferência Externa (`--r-outer: 48.5%`):** O anel externo aproveita 97% da largura útil da caixa do radar.
+  - **Ajustada a Circunferência Interna (`--r-inner: 28.5%`):** O anel interno foi posicionado com precisão para criar **uma distância exatamente equivalente de 20.0% de amplitude entre o anel interno e externo** e de **20.25% de amplitude entre a logo central e o anel interno**.
+  - **Central Logo Compacta (`width: 16.5%`):** Reduzido o diâmetro da logo central para 16.5% (~110px-135px), criando respiro visual leve e moderno idêntico ao modelo ideal (Anexo 2).
+- **Proporção dos Ícones e Rótulos (`.service-node-icon` & `.service-node-label`):**
+  - Ajustados os ícones circulares para `clamp(42px, 3.4vw, 54px)` e tipografia para `clamp(0.64rem, 0.68vw, 0.76rem)`, ampliando em mais de 45% a sensação visual de espaço livre ao redor de cada um dos 12 serviços.
+- **Ampliação da Coluna Central (`solucoes-main-content`):**
+  - Grid otimizada (`minmax(190px, 220px) 1fr minmax(260px, 320px)`) expandindo o radar central para até `min(900px, 84vh)`.
+  - Item inicial ativo configurado para o **Item 4: Engenharia de Soldagem** (index `3`), combinando 100% com o screenshot da referência do Anexo 2.
+  - Cache busters atualizados para `solucoes.css?v=37.0` e `solucoes.js?v=37.0`.
+
+## [2026-08-12] - Refatoração Geométrica Polar do Radar Orbital (Anel Interno Expandido, 60° Uniforme & Offset de 30°)
+
+### Changed & Improved
+- **Geometria Polar com Raio Interno Ampliado (`src/js/solucoes.js` & `src/css/solucoes.css`):**
+  - **Raio do Anel Interno Expandido:** `--r-inner` elevado de `25.5%` para **`32.5%`** (diâmetro 65%), proporcionando um arco livre de **247px** entre cada um dos 6 nós internos e acabando com qualquer concentração ou aproximação de ícones nas partes superior/inferior (itens 7/12 e 9/10).
+  - **Raio do Anel Externo:** Ajustado para **`46.5%`** (`--r-outer`, diâmetro 93%), mantendo uma faixa livre visível de **14% de amplitude** entre os dois círculos e respiro elegante para o logo central (diâmetro 21%).
+- **Cálculo Polar Puro e Distribuição Angular Uniforme (60° de Separação Exata):**
+  - **Anel Externo (6 nós em $360^\circ$):** Item 1 ($-90^\circ$ / 12h), Item 2 ($-30^\circ$ / 2h), Item 3 ($30^\circ$ / 4h), Item 4 ($90^\circ$ / 6h), Item 5 ($150^\circ$ / 8h), Item 6 ($210^\circ$ / 10h).
+  - **Anel Interno (6 nós em $360^\circ$ com Offset de $30^\circ$):** Item 7 ($-60^\circ$ / 1h), Item 8 ($0^\circ$ / 3h), Item 9 ($60^\circ$ / 5h), Item 10 ($120^\circ$ / 7h), Item 11 ($180^\circ$ / 9h), Item 12 ($240^\circ$ / 11h).
+  - Posições $x, y$ derivadas estritamente por $x = 50\% + r \cdot \cos(\theta)$ e $y = 50\% + r \cdot \sin(\theta)$, garantindo simetria perfeita em qualquer resolução.
+- **Prioridade para o Radar na Grid Três Colunas:**
+  - Reduzidas as colunas laterais (`minmax(200px, 230px)` à esquerda e `minmax(270px, 330px)` à direita) para priorizar a coluna central (`1fr`, com max-width do radar de `min(840px, 80vh)`), garantindo radar de até **780px** em notebooks 1366px e **920px** em telas 4K.
+- **Formatação de Rótulos & Sem Colisões:**
+  - Rótulos com alinhamento centralizado e respiro vertical sob/sobre os ícones (`flex-direction: column` / `column-reverse`), reproduzindo exatamente o padrão visual do anexo de referência.
+  - Cache busters atualizados para `solucoes.css?v=36.0` e `solucoes.js?v=36.0`.
+
+## [2026-08-12] - Refinamento Completo do Radar Orbital de Serviços (Espaçamento entre Anéis, Staggering 12 Serviços & Responsividade)
+
+### Changed & Improved
+- **Organização Estrita dos Anéis (`src/js/solucoes.js` & `src/css/solucoes.css`):**
+  - **Anel Externo (Itens 1 a 6):** `1. Gerenciamento de Projetos`, `2. Inspeção em Obras de Artes Especiais`, `3. Ensaios Não Destrutivos (ENDs)`, `4. Engenharia de Soldagem`, `5. Engenharia de Integridade Estrutural`, `6. Soluções Tecnológicas Integradas`.
+  - **Anel Interno (Itens 7 a 12):** `7. Inspeção e Adequação Normativa`, `8. Calibração de Instrumentos`, `9. Trepanação (Hot Tapping)`, `10. Certificação de Matéria-Prima`, `11. Consultoria e Assessoria Técnica`, `12. Elaboração de Projetos Mecânicos`.
+- **Aumento Significativo do Espaçamento dos Anéis:**
+  - Definido raio interno (`--r-inner: 25.5%`) e raio externo (`--r-outer: 44.5%`), criando uma zona livre perceptível de 19% de amplitude entre os dois círculos.
+- **Deslocamento Angular (Staggering de 30°):**
+  - Anel externo posicionado em $270^\circ, 330^\circ, 30^\circ, 90^\circ, 150^\circ, 210^\circ$.
+  - Anel interno posicionado com offset angular em $300^\circ, 0^\circ, 60^\circ, 120^\circ, 180^\circ, 240^\circ$.
+  - Alternância perfeita no sentido horário (Item 1 Ext -> Item 7 Int -> Item 2 Ext -> Item 8 Int...).
+- **Posicionamento Direcional Inteligente dos Rótulos (`.pos-top`, `.pos-bottom`, `.pos-right`, `.pos-left`, `.pos-*-inner`, `.pos-*-outer`):**
+  - Rótulos dos itens internos projetam-se para o espaço livre entre anéis.
+  - Rótulo superior do anel externo expande para baixo; rótulo inferior expande para cima (`flex-direction: column-reverse`).
+  - Eliminação total de colisões ou encavalo entre ícones, números e textos.
+- **Responsividade Aprimorada (1366px Laptop, 1920px Full HD & 4K):**
+  - Adaptação dinâmica para notebooks 1366px (`grid 240px 1fr 330px`, radar `720px`).
+  - Suporte a monitores grandes e 4K (min-width `1800px` com radar `920px`).
+  - Cache busters atualizados para `solucoes.css?v=35.0` e `solucoes.js?v=35.0`.
+
+## [2026-08-12] - Reestruturação do Rodapé para Layout em 3 Colunas com Divisores Glow & Altura Reduzida
+
+### Changed & Improved
+- **Layout em 3 Colunas (`index.html` & `src/css/work-units-footer.css`):**
+  - **Coluna 1 (Esquerda):** Adicionado bloco de `LOCALIZAÇÃO` com endereço (`Av. Lorem Ipsumm, 9119`, `Ipsum, Lorem-PA`, `(Escritório Sede)`).
+  - **Coluna 2 (Centro):** Mantidos logo vertical monocromática EndControl, slogan institucional e os 3 botões circulares de redes sociais (Instagram, LinkedIn, YouTube).
+  - **Coluna 3 (Direita):** Criado bloco `FALE CONOSCO` com linha decorativa com dot central cyan, número do WhatsApp (`(11) 9.2019-4396`), e-mail (`contato@endcontrol.com.br`), ícone SVG vetorial oficial do WhatsApp em versão outline vazada destacada (32px) e botão de ação `CHAMAR NO WHATSAPP`.
+  - **Divisores Verticais com Glow:** Inseridas linhas finas verticais com gradiente cyan/azul e efeito de brilho suave separando visualmente as 3 colunas.
+  - **Redução da Altura:** Ajustados padding vertical (`34px 20px 18px 20px`) e espaçamentos internos para tornar o rodapé mais compacto e moderno.
+  - **Versão de Cache:** Invalidação de cache atualizada para `work-units-footer.css?v=34.0`.
+
+
 
 ### Fixed & Improved
 - **Correção de Salto de Scroll no Fullscreen (`src/css/base.css` & `src/js/main.js`):**
