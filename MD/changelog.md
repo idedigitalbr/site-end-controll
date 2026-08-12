@@ -1,5 +1,13 @@
 # Changelog — ENDCONTROL Engenharia
 
+## [2026-08-12] - Remoção das Setas Superiores da Imagem (Mantidas apenas as Setas Inferiores)
+
+### Changed & Improved
+- **Limpeza do Layout do Card (`index.html`, `src/js/solucoes.js` & `src/css/solucoes.css`):**
+  - **Setas Superiores Removidas:** Removidas as setas flutuantes sobre a imagem do card de destaque.
+  - **Exclusividade da Base:** Mantidas apenas as setas minimalistas inferiores que ladeiam os pontos de progresso na barra de rodapé do card (`.card-footer-nav`).
+  - Cache busters atualizados para `solucoes.css?v=44.0` e `solucoes.js?v=44.0`.
+
 ## [2026-08-12] - Adição de Setas Navegacionais Minimalistas no Card de Destaque (Anterior / Próximo)
 
 ### Changed & Improved
