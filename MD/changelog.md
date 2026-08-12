@@ -1,5 +1,12 @@
 # Changelog — ENDCONTROL Engenharia
 
+## [2026-08-11] - Correção dos Cantos Arredondados e Eliminação de Bordas Pretas na Seção Oportunidades
+
+### Fixed
+- **Seção Oportunidades (`src/css/sections.css`):**
+  - Removido o `border-radius: 0 0 28px 28px !important` da classe `.oportunidades-section` (definindo `border-radius: 0 !important`).
+  - Eliminado o vazamento do fundo escuro `#071429` (Dark Navy) do container principal `#wf-main-content` que aparecia em formato de pontas/bordas pretas nas extremidades inferiores da seção.
+
 ## [2026-08-11] - Substituição do Rodapé em index.html pelo Rodapé Minimalista EndControl
 
 ### Changed
