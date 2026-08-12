@@ -1,5 +1,13 @@
 # Changelog — ENDCONTROL Engenharia
 
+## [2026-08-12] - Expansão Adicional da Separação entre Anéis (Vão Livre Elevado para 26%)
+
+### Changed & Improved
+- **Ampliação do Vão Livre Radial (`src/js/solucoes.js` & `src/css/solucoes.css`):**
+  - **Raio do Anel Externo (`--r-outer: 49.5%`):** Expandido para ocupar 99% da área útil da coluna do radar.
+  - **Raio do Anel Interno (`--r-inner: 23.5%`):** Ajustado para 23.5% (diâmetro de 47%), ampliando a distância radial entre os dois anéis para **26.0% de amplitude** (~208px de vão totalmente desimpedido).
+  - Cache busters atualizados para `solucoes.css?v=41.0` e `solucoes.js?v=41.0`.
+
 ## [2026-08-12] - Padronização do Texto do Botão CTA do Card ("Saiba Mais")
 
 ### Changed & Improved

@@ -248,8 +248,8 @@
   aspect-ratio: 1;
   margin: 0 auto;
   z-index: 2;
-  --r-outer: 48.5%;
-  --r-inner: 28.5%;
+  --r-outer: 49.5%;
+  --r-inner: 23.5%;
 }
 
 /* Radar Geometry Lines & Rings */
@@ -860,8 +860,8 @@
   }
   .solucoes-center-area {
     max-width: min(460px, 94vw);
-    --r-outer: 45%;
-    --r-inner: 30.5%;
+    --r-outer: 48%;
+    --r-inner: 23%;
   }
   .orbital-center-logo {
     min-width: 80px;
@@ -904,8 +904,8 @@
 @media (max-width: 480px) {
   .solucoes-center-area {
     max-width: min(350px, 98vw);
-    --r-outer: 44%;
-    --r-inner: 29.5%;
+    --r-outer: 47%;
+    --r-inner: 22.5%;
   }
   .orbital-center-logo {
     min-width: 64px;
