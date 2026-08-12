@@ -1,5 +1,14 @@
 # Changelog — ENDCONTROL Engenharia
 
+## [2026-08-12] - Fixação das Setas no Centro Vertical do Card (`top: 50%`) & Estabilização de Altura
+
+### Changed & Improved
+- **Ancoragem Fixa no Meio do Card (`index.html`, `src/js/solucoes.js` & `src/css/solucoes.css`):**
+  - **Setas Laterais Fixas (`top: 50%`):** As setas minimalistas de navegação foram posicionadas nas bordas laterais do card (`.card-side-arrow`) com ancoragem absoluta no centro vertical exacto (`top: 50%; transform: translateY(-50%)`).
+  - **Posição Imóvel sob o Cursor:** O botão de avançar/voltar fica 100% estático na tela durante a navegação, permitindo que o usuário clique repetidamente sem que a seta mude de posição.
+  - **Estabilização de Altura do Corpo (`.highlight-card-body`):** Definida `min-height: 275px` e layout `flex-direction: column; justify-content: space-between`, impedindo qualquer salto na altura do card entre serviços.
+  - Cache busters atualizados para `solucoes.css?v=45.0` e `solucoes.js?v=45.0`.
+
 ## [2026-08-12] - Remoção das Setas Superiores da Imagem (Mantidas apenas as Setas Inferiores)
 
 ### Changed & Improved
