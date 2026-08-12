@@ -1,5 +1,12 @@
 # Changelog — ENDCONTROL Engenharia
 
+## [2026-08-12] - Correção de Cache CSS na VPS e Padronização de Imagens do Accordion
+
+### Fixed
+- **Cache Busters CSS (`index.html`):** Atualizados todos os links de folha de estilo para `?v=30.0` para forçar a invalidação de cache no Cloudflare e navegadores, garantindo o carregamento completo do CSS do Accordion (`segmentos.css`).
+- **Sintaxe & Nomes de Arquivos WebP:** Renomeados os arquivos `Alimentício.webp` -> `Alimenticio.webp` e `Papel e Celulose.webp` -> `Papel-Celulose.webp` para evitar falhas de codificação UTF-8 / URL decoding em servidores Linux/Nginx.
+- **Ícones SVGs Inline:** Inseridos SVGs inline diretos em cada um dos 10 painéis do Accordion para eliminação total da dependência de scripts externos.
+
 ## [2026-08-12] - Novo Componente Accordion Interativo para Áreas de Atuação
 
 ### Added & Changed
