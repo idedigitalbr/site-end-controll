@@ -8,9 +8,9 @@ html {
   scroll-behavior: smooth;
   overflow-x: hidden;
 }
-html.modal-open {
+html.modal-open,
+body.modal-open {
   overflow: hidden !important;
-  height: 100% !important;
 }
 body {
   margin: 0;
@@ -19,11 +19,6 @@ body {
   color: var(--ink);
   font-family: var(--font-primary);
   overflow-x: hidden;
-}
-body.modal-open {
-  overflow: hidden !important;
-  height: 100% !important;
-  position: relative !important;
 }
 img {
   max-width: 100%;

@@ -234,7 +234,7 @@ p {
 .testimonials-section-premium {
   position: relative;
   background: var(--color-cinza-forte, #9ac3cd) !important;
-  padding: 90px 0;
+  padding: 0 !important;
   overflow: hidden;
   color: #071429 !important;
   border-radius: 28px !important;
@@ -242,243 +242,157 @@ p {
   width: 100% !important;
   max-width: 100% !important;
   z-index: 3;
-}
-@media (min-width: 768px) {
-  .testimonials-section-premium {
-    margin: 0 0 -28px !important;
-  }
+  /* Seção = 100vh */
+  min-height: 100vh !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
 }
 
-/* Seção depoimentos: container full-width com padding interno */
+/* Container: OVERRIDE global .container { width: min(1180px,...) } */
 .testimonials-section-premium > .container {
   width: 100% !important;
-  max-width: 100% !important;
-  padding-left: 0 !important; /* Permite encostar totalmente na lateral esquerda */
-  padding-right: clamp(32px, 5vw, 80px) !important;
+  max-width: 1400px !important;
+  margin: 0 auto !important;
+  padding: 0 clamp(24px, 4vw, 80px) !important;
+  box-sizing: border-box !important;
 }
 
-/* Pontos de luz/glow degradê desativados porque já estão na imagem de fundo */
-.testimonials-section-premium::before {
-  display: none !important;
-}
-
-.testimonials-section-premium::after {
-  display: none !important;
-}
-
+/* Layout flex: [VÍDEOS esquerda] — gap — [TEXTO direita] */
 .testimonials-premium-grid {
-  display: grid;
-  grid-template-columns: 1fr 400px;
-  gap: 48px;
-  align-items: center;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: clamp(56px, 6vw, 120px) !important;
   position: relative;
   z-index: 2;
 }
 
-.testimonials-carousel-wrapper {
-  position: relative;
-  width: 100%;
-  max-width: 760px !important; /* Ajustado de 920px para 760px para que as setas fiquem exatamente ao lado dos cards 1 e 2 */
-  margin-left: 0 !important;
-  margin-right: auto !important;
-  overflow: visible; /* to avoid clipping of card shadows during slide animation */
-  padding: 0 48px; /* 48px padding on both sides to house the arrows precisely */
-  box-sizing: border-box;
+/* Coluna de texto: DIREITA, compacta */
+.testimonials-copy-col {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  grid-column: 1;
-  grid-row: 1;
+  justify-content: center;
+  max-width: 400px !important;
+  flex-shrink: 1 !important;
+  order: 2 !important;
 }
 
-.testimonials-copy-col {
-  grid-column: 2;
+/* Wrapper dos vídeos: ESQUERDA, não encolhe */
+.testimonials-carousel-wrapper {
+  position: relative;
+  width: auto !important;
+  max-width: none !important;
+  margin: 0 !important;
+  overflow: visible;
+  padding: 0 !important;
+  box-sizing: border-box;
+  flex-shrink: 0 !important;
+  order: 1 !important;
 }
 
 .testimonials-carousel-track-wrapper {
-  overflow: hidden;
-  width: 100%;
-  padding: 60px 80px; /* 80px bleed room for shadows, hides adjacent cards using opacity */
-  margin: -60px -80px;
+  overflow: visible;
+  width: auto;
+  padding: clamp(40px, 5vh, 60px) 0 !important;
+  margin: 0 !important;
 }
 
+/* Track: flex com 2 cards lado a lado */
 .testimonials-carousel-track {
-  display: flex;
-  gap: 24px;
-  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
-  will-change: transform;
+  display: flex !important;
+  gap: clamp(14px, 1.5vw, 24px) !important;
+  transform: none !important;
+  width: auto !important;
 }
 
-/* Navigation Buttons Positioned Absolutely */
+/* CARD: altura = quase 100vh, largura segue do aspect-ratio 9:16 */
+.testimonials-carousel-track .dep-video-card {
+  height: calc(100vh - 100px) !important;
+  max-height: 750px !important;
+  width: auto !important;
+  aspect-ratio: 9 / 16 !important;
+  flex-shrink: 0 !important;
+}
+
+/* Oculta os botões e dots de navegação do carrossel antigo */
 .testimonials-prev-btn,
-.testimonials-next-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 10;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  border: 1.5px solid #071429 !important;
-  background: #ffffff !important;
-  color: #071429 !important;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  padding: 0;
-  box-shadow: 0 4px 16px rgba(7, 20, 41, 0.18);
-}
-
-.testimonials-prev-btn {
-  left: 0; /* Alinhado exatamente na borda do padding, 48px longe da coluna de texto */
-}
-
-.testimonials-next-btn {
-  right: 0; /* Alinhado exatamente na borda do padding direito */
-}
-
-.testimonials-prev-btn:hover,
-.testimonials-next-btn:hover {
-  background: #071429 !important;
-  color: #ffffff !important;
-  border-color: #071429 !important;
-  box-shadow: 0 0 18px rgba(7, 20, 41, 0.4);
-  transform: translateY(-50%) scale(1.05);
-}
-
-.testimonials-prev-btn:disabled,
-.testimonials-next-btn:disabled {
-  opacity: 0.35;
-  cursor: not-allowed;
-  pointer-events: none;
-}
-
-.testimonials-prev-btn svg,
-.testimonials-next-btn svg {
-  width: 20px;
-  height: 20px;
-}
-
+.testimonials-next-btn,
 .testimonials-dots {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 24px;
-  width: 100%;
+  display: none !important;
 }
 
-.testimonial-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background-color: transparent !important;
-  border: 1.5px solid rgba(255, 255, 255, 0.5) !important;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
+/* ===== RESPONSIVIDADE ===== */
 
-.testimonial-dot.active {
-  background-color: #00d2ff !important;
-  border-color: #00d2ff !important;
-  opacity: 1 !important;
-  transform: scale(1.2);
-}
-
-@media (max-width: 1320px) {
+/* Telas menores que 1024px: empilha texto em cima, vídeos embaixo */
+@media (max-width: 1024px) {
+  .testimonials-section-premium {
+    min-height: auto !important;
+    padding: 48px 0 !important;
+  }
   .testimonials-section-premium > .container {
-    padding-left: clamp(24px, 5vw, 48px) !important;
-    padding-right: clamp(24px, 5vw, 48px) !important;
+    padding: 0 clamp(16px, 4vw, 48px) !important;
   }
   .testimonials-premium-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
+    flex-direction: column !important;
+    gap: 32px !important;
   }
-  .testimonials-copy-col {
-    grid-column: auto;
-  }
-  .testimonials-carousel-wrapper {
-    grid-column: auto;
-    grid-row: auto;
-    margin-left: auto !important;
-    margin-right: auto !important;
-  }
-}
-
-@media (max-width: 768px) {
-  .testimonials-carousel-wrapper {
-    padding: 0 44px; /* Espaço nas laterais para as setas no mobile */
-    position: relative;
-    width: 100%;
-    box-sizing: border-box;
-  }
-  .testimonials-carousel-track-wrapper {
-    padding: 16px 0 40px 0;
-    margin: 0;
-    overflow: hidden;
-  }
-  .testimonials-prev-btn,
-  .testimonials-next-btn {
-    display: flex !important; /* Mostrar as setas no mobile */
-    top: 50% !important;
-    transform: translateY(-50%) !important;
-    width: 40px !important;
-    height: 40px !important;
-    border-radius: 50% !important;
-  }
-  .testimonials-prev-btn {
-    left: 2px !important;
-  }
-  .testimonials-next-btn {
-    right: 2px !important;
-  }
-  .testimonials-dots {
-    margin-top: 24px;
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-  }
-  .dep-video-card {
-    opacity: 1 !important;
-    pointer-events: auto !important;
-    flex: 0 0 100% !important; /* Força largura de coluna cheia flexível */
-    width: 100% !important;
-  }
-  /* Centralização e controle de largura dos textos da seção de depoimentos no mobile */
   .testimonials-copy-col {
     align-items: center !important;
     text-align: center !important;
-    margin-bottom: 8px !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    box-sizing: border-box !important;
-    padding: 0 16px !important;
+    max-width: 600px !important;
+    margin: 0 auto !important;
+    order: -1 !important;
   }
   .testimonial-badge-kicker {
     align-self: center !important;
+  }
+  .testimonials-heading {
+    text-align: center !important;
+  }
+  .testimonials-heading br {
+    display: none !important;
   }
   .testimonials-divider {
     margin-left: auto !important;
     margin-right: auto !important;
   }
-  .testimonials-heading {
-    text-align: center !important;
-    font-size: 1.7rem !important; /* Tamanho confortável para mobile */
-    line-height: 1.25 !important;
-    max-width: 100% !important;
-    word-break: break-word !important;
-  }
-  .testimonials-heading br {
-    display: none !important; /* Oculta quebras manuais de linha no mobile */
-  }
   .testimonials-subheading {
     text-align: center !important;
-    max-width: 100%;
-    margin: 0 auto;
-    font-size: 0.95rem !important; /* Leitura confortável */
+    font-size: 0.95rem !important;
+  }
+  .testimonials-carousel-wrapper {
+    max-width: 520px !important;
+    margin: 0 auto !important;
+    width: auto !important;
+  }
+  .testimonials-carousel-track .dep-video-card {
+    height: 60vh !important;
+    max-height: 500px !important;
+  }
+  .testimonials-carousel-track-wrapper {
+    padding: 0 0 48px 0 !important;
+  }
+}
+
+/* Mobile pequeno */
+@media (max-width: 600px) {
+  .testimonials-section-premium > .container {
+    padding: 0 12px !important;
+  }
+  .testimonials-carousel-track {
+    gap: 10px !important;
+  }
+  .testimonials-copy-col {
+    padding: 36px 8px 0 8px !important;
+  }
+  .testimonials-heading {
+    font-size: 1.6rem !important;
+    line-height: 1.2 !important;
+  }
+  .testimonials-carousel-track .dep-video-card {
+    height: 50vh !important;
+    max-height: 400px !important;
   }
 }
 
@@ -719,9 +633,9 @@ p {
    Cards de Depoimento com Vídeo Nativo (9:16) - Bordas Brilhantes + Tag Glass
    ========================================================================== */
 
-/* Container do card: tamanho adequado para carrossel */
+/* Container do card: layout 2 colunas */
 .dep-video-card {
-  flex: 0 0 calc(50% - 12px);
+  width: 100% !important;
   min-width: 0;
   aspect-ratio: 9 / 16;
   position: relative;
@@ -737,13 +651,6 @@ p {
     inset 0 0 15px rgba(0, 98, 227, 0.2) !important;
   overflow: hidden;
   transition: opacity 0.4s ease, box-shadow 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  opacity: 0; /* Inactive cards are hidden to avoid partial rendering in the bleed padding */
-  pointer-events: none;
-}
-
-/* Exibe apenas os cards correspondentes aos dois ativos (sincronizados com o index) */
-.dep-video-card.active-slide,
-.dep-video-card.active-slide + .dep-video-card {
   opacity: 1 !important;
   pointer-events: auto !important;
 }
@@ -902,8 +809,8 @@ p {
   right: auto !important;
   width: auto !important;
   max-width: calc(100% - 24px);
-  transform: scale(0.85);
-  padding: 10px 14px !important;
+  transform: none !important;
+  padding: 8px 12px !important;
 }
 
 /* Garante visibilidade no hover/touch do vídeo rodando */
@@ -913,7 +820,6 @@ p {
   visibility: visible;
   pointer-events: auto;
 }
-
 
 /* Oculta a duração quando o vídeo estiver tocando */
 .dep-video-card.playing .dep-tag-duration,
@@ -926,6 +832,8 @@ p {
   flex-direction: column;
   align-items: flex-start;
   gap: 1px;
+  flex: 1;
+  min-width: 0;
   overflow: hidden;
 }
 
@@ -936,41 +844,43 @@ p {
   height: 3px;
   background: linear-gradient(90deg, #00d2ff 0%, #0062e3 100%) !important;
   border-radius: 1.5px;
-  margin-bottom: 4px;
+  margin-bottom: 3px;
 }
 
 .dep-tag-name {
   font-family: 'DM Sans', sans-serif;
-  font-size: 0.9rem;
-  font-weight: 800;
-  color: #ffffff;
+  font-size: 0.92rem !important;
+  font-weight: 800 !important;
+  color: #ffffff !important;
   margin: 0;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  line-height: 1.2;
 }
 
 .dep-tag-role {
   font-family: 'DM Sans', sans-serif;
-  font-size: 0.7rem;
-  font-weight: 700;
-  color: #00abe3 !important; /* Cargo alterado para ciano */
+  font-size: 0.76rem !important;
+  font-weight: 700 !important;
+  color: #00abe3 !important;
   margin: 0;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  line-height: 1.2;
 }
 
 .dep-tag-duration {
   flex-shrink: 0;
   font-family: 'DM Sans', sans-serif;
-  font-size: 0.65rem;
-  font-weight: 800;
+  font-size: 0.7rem !important;
+  font-weight: 800 !important;
   color: #00d2ff !important;
-  background: rgba(0, 210, 255, 0.1) !important;
-  border: 1px solid rgba(0, 210, 255, 0.3) !important;
-  border-radius: 6px;
-  padding: 2px 6px;
+  background: rgba(0, 210, 255, 0.12) !important;
+  border: 1px solid rgba(0, 210, 255, 0.35) !important;
+  border-radius: 8px;
+  padding: 3px 7px !important;
   letter-spacing: 0.03em;
 }
 

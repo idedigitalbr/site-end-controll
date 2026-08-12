@@ -320,8 +320,6 @@
       
       if (overlay) overlay.classList.add('open');
       modal.classList.add('open');
-      document.body.style.overflow = 'hidden';
-      document.documentElement.style.overflow = 'hidden';
       document.body.classList.add('modal-open');
       document.documentElement.classList.add('modal-open');
 
@@ -350,8 +348,6 @@
         }
       });
       if (overlay) overlay.classList.remove('open');
-      document.body.style.overflow = '';
-      document.documentElement.style.overflow = '';
       document.body.classList.remove('modal-open');
       document.documentElement.classList.remove('modal-open');
       
@@ -444,77 +440,13 @@
   }
 
   /* ===================================================================
-     Carrossel de Depoimentos (novo: .dep-video-card + play inline)
+     Seção Palavra da Nossa Presidência (vídeos lado a lado + play inline)
      =================================================================== */
   function initTestimonialsCarousel() {
-    const track      = document.getElementById('dep-track') || document.querySelector('.testimonials-carousel-track');
-    const cards      = track ? track.querySelectorAll('.dep-video-card') : [];
-    const prevBtn    = document.getElementById('dep-prev-btn') || document.querySelector('.testimonials-prev-btn');
-    const nextBtn    = document.getElementById('dep-next-btn') || document.querySelector('.testimonials-next-btn');
-    const dotsWrap   = document.getElementById('dep-dots')    || document.querySelector('.testimonials-dots');
-    const wrapper    = document.querySelector('.testimonials-carousel-wrapper');
+    const track = document.getElementById('dep-track') || document.querySelector('.testimonials-carousel-track');
+    const cards = track ? track.querySelectorAll('.dep-video-card') : document.querySelectorAll('.dep-video-card');
 
-    if (!track || cards.length === 0) return;
-
-    let currentIndex = 0;
-    const GAP = 24;
-
-    /* ---- helpers ---- */
-    function getVisible() {
-      if (window.innerWidth > 768)  return 2;
-      return 1;
-    }
-
-    function maxIdx() {
-      return Math.max(0, cards.length - getVisible());
-    }
-
-    let cardW = cards[0] ? cards[0].offsetWidth : 0;
-
-    function updateCardWidth() {
-      if (cards[0]) {
-        cardW = cards[0].offsetWidth;
-      }
-    }
-
-    function goTo(idx) {
-      currentIndex = Math.max(0, Math.min(idx, maxIdx()));
-      if (cardW === 0) updateCardWidth();
-      track.style.transform = `translateX(-${currentIndex * (cardW + GAP)}px)`;
-
-      /* active slide classes for layout visibility */
-      cards.forEach((card, i) => {
-        card.classList.toggle('active-slide', i === currentIndex);
-      });
-
-      /* buttons */
-      if (prevBtn) prevBtn.disabled = (currentIndex === 0);
-      if (nextBtn) nextBtn.disabled = (currentIndex === maxIdx());
-
-      /* dots active state */
-      if (dotsWrap) {
-        dotsWrap.querySelectorAll('.testimonial-dot').forEach((d, i) => {
-          d.classList.toggle('active', i === currentIndex);
-        });
-      }
-    }
-
-    /* ---- dots geração dinâmica ---- */
-    function updateDots() {
-      if (!dotsWrap) return;
-      dotsWrap.innerHTML = '';
-      const count = maxIdx() + 1;
-      for (let i = 0; i < count; i++) {
-        const dot = document.createElement('span');
-        dot.className = `testimonial-dot ${i === currentIndex ? 'active' : ''}`;
-        dot.addEventListener('click', () => goTo(i));
-        dotsWrap.appendChild(dot);
-      }
-    }
-
-    /* ---- nav buttons ---- */
-    if (prevBtn) prevBtn.addEventListener('click', () => goTo(currentIndex - 1));
-    if (nextBtn) nextBtn.addEventListener('click', () => goTo(currentIndex + 1));
+    if (!cards || cards.length === 0) return;
 
     /* ---- inline video play on card click ---- */
     const fsModal = document.getElementById('dep-fullscreen-modal');
@@ -588,8 +520,6 @@
       }
 
       fsModal.classList.add('active');
-      document.body.style.overflow = 'hidden';
-      document.documentElement.style.overflow = 'hidden';
       document.body.classList.add('modal-open');
       document.documentElement.classList.add('modal-open');
       fsVideo.play().catch(() => {});
@@ -600,8 +530,6 @@
       if (!fsModal || !fsVideo) return;
       fsVideo.pause();
       fsModal.classList.remove('active');
-      document.body.style.overflow = '';
-      document.documentElement.style.overflow = '';
       document.body.classList.remove('modal-open');
       document.documentElement.classList.remove('modal-open');
       

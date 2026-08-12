@@ -1,6 +1,15 @@
 # Changelog — ENDCONTROL Engenharia
 
-## [2026-08-12] - Correção de Cache CSS na VPS e Padronização de Imagens do Accordion
+## [2026-08-12] - Redesign & Diagramação Premium da Seção "Palavra da Nossa Presidência" + Fix Modal Scroll
+
+### Fixed & Improved
+- **Correção de Salto de Scroll no Fullscreen (`src/css/base.css` & `src/js/main.js`):**
+  - Removidos `height: 100% !important` e `position: fixed !important` da classe `.modal-open` no `base.css`.
+  - Mantida apenas a propriedade `overflow: hidden !important` em `html.modal-open` e `body.modal-open`, preservando integralmente a posição exata de scroll (`window.scrollY`) do usuário ao abrir e fechar o player fullscreen dos vídeos de depoimento.
+- **Diagramação & Alinhamento Centrado (`src/css/sections.css` & `index.html`):**
+  - Reestruturada a grid com **Vídeos na Esquerda** (`order: 1`) e **Texto na Direita** (`order: 2`), com cards dimensionados pela altura do viewport (`calc(100vh - 100px)` com `aspect-ratio: 9/16`).
+  - Container centralizado com margens simétricas e separação ampla entre as colunas (`gap: clamp(56px, 6vw, 120px)`).
+- **Versão de Cache (`index.html`):** Invalidação de cache atualizada para `base.css?v=32.0`, `sections.css?v=35.0` e `main.js?v=22.0`.
 
 ### Fixed
 - **Cache Busters CSS (`index.html`):** Atualizados todos os links de folha de estilo para `?v=30.0` para forçar a invalidação de cache no Cloudflare e navegadores, garantindo o carregamento completo do CSS do Accordion (`segmentos.css`).

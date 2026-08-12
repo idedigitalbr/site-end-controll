@@ -62,11 +62,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   <link rel="preload" href="./assets/Logos/logo-principal-endcontrol-horizontal.webp" as="image" />
   <link rel="stylesheet" href="./src/css/tokens.css?v=30.0" />
-  <link rel="stylesheet" href="./src/css/base.css?v=30.0" />
+  <link rel="stylesheet" href="./src/css/base.css?v=32.0" />
   <link rel="stylesheet" href="./src/css/header.css?v=30.0" />
   <link rel="stylesheet" href="./src/css/hero.css?v=30.0" />
   <link rel="stylesheet" href="./src/css/solucoes.css?v=30.0" />
-  <link rel="stylesheet" href="./src/css/sections.css?v=30.0" />
+  <link rel="stylesheet" href="./src/css/sections.css?v=35.0" />
   <link rel="stylesheet" href="./src/css/work-units-footer.css?v=30.0" />
   <link rel="stylesheet" href="./src/css/presenca-nacional.css?v=30.0" />
   <link rel="stylesheet" href="./src/css/components.css?v=30.0" />
@@ -744,17 +744,8 @@
             <p class="testimonials-subheading">Conheça as perspectivas, os valores e os compromissos da nossa Presidência que orientam a trajetória e o futuro da Endcontrol.</p>
           </div>
           
-          <!-- Coluna 2: Carrossel de Cards Vídeo -->
+          <!-- Coluna 2: Cards de Vídeo da Presidência -->
           <div class="testimonials-carousel-wrapper reveal delay-1">
-            
-            <!-- Seta Anterior -->
-            <button class="testimonials-prev-btn" id="dep-prev-btn" aria-label="Depoimento anterior">
-              <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="19" y1="12" x2="5" y2="12"></line>
-                <polyline points="12 19 5 12 12 5"></polyline>
-              </svg>
-            </button>
-
             <div class="testimonials-carousel-track-wrapper">
               <div class="testimonials-carousel-track" id="dep-track">
                 
@@ -793,7 +784,7 @@
                             <svg viewBox="0 0 24 24" width="14" height="14"><path d="M12 5V1L7 6l5 5V7c3.3 0 6 2.7 6 6s-2.7 6-6 6-6-2.7-6-6H4c0 4.4 3.6 8 8 8s8-3.6 8-8-3.6-8-8-8zm-1 5.5h-1v5h1v-5zm3 0h-2v5h2v-5z" fill="#0062e3"/></svg>
                           </button>
                           <button class="dep-ctrl-btn dep-forward-btn" aria-label="Avançar 10 segundos">
-                            <svg viewBox="0 0 24 24" width="14" height="14"><path d="M12 5V1l5 5-5 5V7c-3.3 0-6 2.7-6 6s-2.7 6-6 6-6-2.7-6-6h2c0 4.4-3.6 8-8 8s-8-3.6-8-8 3.6-8 8-8zm-1 5.5h-1v5h1v-5zm3 0h-2v5h2v-5z" fill="#0062e3"/></svg>
+                            <svg viewBox="0 0 24 24" width="14" height="14"><path d="M12 5V1l5 5-5 5V7c-3.3 0-6 2.7-6 6s-2.7 6 6 6 6-2.7 6-6h2c0 4.4-3.6 8-8 8s-8-3.6-8-8 3.6-8 8-8zm-1 5.5h-1v5h1v-5zm3 0h-2v5h2v-5z" fill="#0062e3"/></svg>
                           </button>
                           <span class="dep-ctrl-time">00:00 / 00:00</span>
                         </div>
@@ -813,121 +804,8 @@
                     </div>
                   </div>
                 </div>
-                
-                <!-- Card 2: Renata Souza (Desativado temporariamente - 3 depoimentos ativos) -->
-                <!-- 
-                <div class="dep-video-card">
-                  <div class="dep-video-inner">
-                    <img src="./assets/Fotografias/editadas/ultrassom-raptor-scan-tecnicos-reunidos-campo-edit.webp" alt="Técnicos reunidos em campo" class="dep-video" style="object-fit:cover;width:100%;height:100%;" loading="lazy">
-                    <button class="dep-play-btn" aria-label="Reproduzir depoimento">
-                      <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="30" cy="30" r="29" fill="rgba(255,255,255,0.92)"/>
-                        <polygon points="24,18 44,30 24,42" fill="#00abe3"/>
-                      </svg>
-                    </button>
-                    <div class="dep-card-tag">
-                      <div class="dep-tag-left-stack">
-                        <span class="dep-tag-line-red"></span>
-                        <p class="dep-tag-name">Renata Souza</p>
-                        <p class="dep-tag-role">Fornecedora Parceira</p>
-                      </div>
-                      <span class="dep-tag-duration">01:42</span>
-                    </div>
-                    <div class="dep-custom-controls">
-                      <div class="dep-controls-timeline-wrapper">
-                        <div class="dep-controls-timeline-bar">
-                          <div class="dep-controls-timeline-progress"></div>
-                        </div>
-                      </div>
-                      <div class="dep-controls-buttons-row">
-                        <div class="dep-controls-left-buttons">
-                          <button class="dep-ctrl-btn dep-play-pause-btn" aria-label="Reproduzir/Pausar">
-                            <svg class="icon-play" viewBox="0 0 24 24" width="16" height="16"><polygon points="5 3 19 12 5 21 5 3" fill="#0062e3"/></svg>
-                            <svg class="icon-pause" viewBox="0 0 24 24" width="16" height="16" style="display:none;"><rect x="6" y="4" width="4" height="16" fill="#0062e3"/><rect x="14" y="4" width="4" height="16" fill="#0062e3"/></svg>
-                          </button>
-                          <button class="dep-ctrl-btn dep-rewind-btn" aria-label="Voltar 10 segundos">
-                            <svg viewBox="0 0 24 24" width="14" height="14"><path d="M12 5V1L7 6l5 5V7c3.3 0 6 2.7 6 6s-2.7 6-6 6-6-2.7-6-6H4c0 4.4 3.6 8 8 8s8-3.6 8-8-3.6-8-8-8zm-1 5.5h-1v5h1v-5zm3 0h-2v5h2v-5z" fill="#0062e3"/></svg>
-                          </button>
-                          <button class="dep-ctrl-btn dep-forward-btn" aria-label="Avançar 10 segundos">
-                            <svg viewBox="0 0 24 24" width="14" height="14"><path d="M12 5V1l5 5-5 5V7c-3.3 0-6 2.7-6 6s2.7 6 6 6 6-2.7 6-6h2c0 4.4-3.6 8-8 8s-8-3.6-8-8 3.6-8 8-8zm-1 5.5h-1v5h1v-5zm3 0h-2v5h2v-5z" fill="#0062e3"/></svg>
-                          </button>
-                          <span class="dep-ctrl-time">00:00 / 00:00</span>
-                        </div>
-                        <div class="dep-controls-right-buttons">
-                          <div class="dep-volume-control-wrapper">
-                            <button class="dep-ctrl-btn dep-volume-btn" aria-label="Volume">
-                              <svg class="icon-volume-on" viewBox="0 0 24 24" width="16" height="16"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z" fill="#0062e3"/></svg>
-                              <svg class="icon-volume-off" viewBox="0 0 24 24" width="16" height="16" style="display:none;"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.21.05-.42.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71z" fill="#0062e3"/></svg>
-                            </button>
-                            <input type="range" class="dep-volume-slider" min="0" max="1" step="0.05" value="1" aria-label="Ajustar Volume">
-                          </div>
-                          <button class="dep-ctrl-btn dep-fullscreen-btn" aria-label="Tela Cheia">
-                            <svg viewBox="0 0 24 24" width="16" height="16"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z" fill="#0062e3"/></svg>
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                -->
- 
-                <!-- Card 3: Juliana Martins -->
-                <div class="dep-video-card">
-                  <div class="dep-video-inner">
-                    <video src="./assets/Videos/Depoimentos/depoimento-1-empresaria.mp4" poster="./assets/Paginas Imgs/HOME/S4 DEPOIMENTOS/depo3.webp" class="dep-video" style="object-fit:cover;width:100%;height:100%;" playsinline></video>
-                    <button class="dep-play-btn" aria-label="Reproduzir depoimento">
-                      <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="30" cy="30" r="29" fill="rgba(255,255,255,0.92)"/>
-                        <polygon points="24,18 44,30 24,42" fill="#00abe3"/>
-                      </svg>
-                    </button>
-                    <div class="dep-card-tag">
-                      <div class="dep-tag-left-stack">
-                        <span class="dep-tag-line-red"></span>
-                        <p class="dep-tag-name">Juliana Martins</p>
-                        <p class="dep-tag-role">Cliente – Rede SuperMais</p>
-                      </div>
-                      <span class="dep-tag-duration">00:15</span>
-                    </div>
-                    <!-- Controles Customizados -->
-                    <div class="dep-custom-controls">
-                      <div class="dep-controls-timeline-wrapper">
-                        <div class="dep-controls-timeline-bar">
-                          <div class="dep-controls-timeline-progress"></div>
-                        </div>
-                      </div>
-                      <div class="dep-controls-buttons-row">
-                        <div class="dep-controls-left-buttons">
-                          <button class="dep-ctrl-btn dep-play-pause-btn" aria-label="Reproduzir/Pausar">
-                            <svg class="icon-play" viewBox="0 0 24 24" width="16" height="16"><polygon points="5 3 19 12 5 21 5 3" fill="#0062e3"/></svg>
-                            <svg class="icon-pause" viewBox="0 0 24 24" width="16" height="16" style="display:none;"><rect x="6" y="4" width="4" height="16" fill="#0062e3"/><rect x="14" y="4" width="4" height="16" fill="#0062e3"/></svg>
-                          </button>
-                          <button class="dep-ctrl-btn dep-rewind-btn" aria-label="Voltar 10 segundos">
-                            <svg viewBox="0 0 24 24" width="14" height="14"><path d="M12 5V1L7 6l5 5V7c3.3 0 6 2.7 6 6s-2.7 6-6 6-6-2.7-6-6H4c0 4.4 3.6 8 8 8s8-3.6 8-8-3.6-8-8-8zm-1 5.5h-1v5h1v-5zm3 0h-2v5h2v-5z" fill="#0062e3"/></svg>
-                          </button>
-                          <button class="dep-ctrl-btn dep-forward-btn" aria-label="Avançar 10 segundos">
-                            <svg viewBox="0 0 24 24" width="14" height="14"><path d="M12 5V1l5 5-5 5V7c-3.3 0-6 2.7-6 6s2.7 6 6 6 6-2.7 6-6h2c0 4.4-3.6 8-8 8s-8-3.6-8-8 3.6-8 8-8zm-1 5.5h-1v5h1v-5zm3 0h-2v5h2v-5z" fill="#0062e3"/></svg>
-                          </button>
-                          <span class="dep-ctrl-time">00:00 / 00:00</span>
-                        </div>
-                        <div class="dep-controls-right-buttons">
-                          <div class="dep-volume-control-wrapper">
-                            <button class="dep-ctrl-btn dep-volume-btn" aria-label="Volume">
-                              <svg class="icon-volume-on" viewBox="0 0 24 24" width="16" height="16"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z" fill="#0062e3"/></svg>
-                              <svg class="icon-volume-off" viewBox="0 0 24 24" width="16" height="16" style="display:none;"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.21.05-.42.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71z" fill="#0062e3"/></svg>
-                            </button>
-                            <input type="range" class="dep-volume-slider" min="0" max="1" step="0.05" value="1" aria-label="Ajustar Volume">
-                          </div>
-                          <button class="dep-ctrl-btn dep-fullscreen-btn" aria-label="Tela Cheia">
-                            <svg viewBox="0 0 24 24" width="16" height="16"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z" fill="#0062e3"/></svg>
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
- 
-                <!-- Card 4: Marcus Oliveira -->
+
+                <!-- Card 2: Marcus Oliveira -->
                 <div class="dep-video-card">
                   <div class="dep-video-inner">
                     <video src="./assets/Videos/Depoimentos/depoimento-2-empresarios.mp4" poster="./assets/Paginas Imgs/HOME/S4 DEPOIMENTOS/depo2.webp" class="dep-video" style="object-fit:cover;width:100%;height:100%;" playsinline data-start="5"></video>
@@ -962,7 +840,7 @@
                             <svg viewBox="0 0 24 24" width="14" height="14"><path d="M12 5V1L7 6l5 5V7c3.3 0 6 2.7 6 6s-2.7 6-6 6-6-2.7-6-6H4c0 4.4 3.6 8 8 8s8-3.6 8-8-3.6-8-8-8zm-1 5.5h-1v5h1v-5zm3 0h-2v5h2v-5z" fill="#0062e3"/></svg>
                           </button>
                           <button class="dep-ctrl-btn dep-forward-btn" aria-label="Avançar 10 segundos">
-                            <svg viewBox="0 0 24 24" width="14" height="14"><path d="M12 5V1l5 5-5 5V7c-3.3 0-6 2.7-6 6s-2.7 6-6 6-6-2.7-6-6h2c0 4.4-3.6 8-8 8s-8-3.6-8-8 3.6-8 8-8zm-1 5.5h-1v5h1v-5zm3 0h-2v5h2v-5z" fill="#0062e3"/></svg>
+                            <svg viewBox="0 0 24 24" width="14" height="14"><path d="M12 5V1l5 5-5 5V7c-3.3 0-6 2.7-6 6s2.7 6 6 6 6-2.7 6-6h2c0 4.4-3.6 8-8 8s-8-3.6-8-8 3.6-8 8-8zm-1 5.5h-1v5h1v-5zm3 0h-2v5h2v-5z" fill="#0062e3"/></svg>
                           </button>
                           <span class="dep-ctrl-time">00:00 / 00:00</span>
                         </div>
@@ -985,18 +863,6 @@
 
               </div>
             </div>
-
-            <!-- Seta Próxima -->
-            <button class="testimonials-next-btn" id="dep-next-btn" aria-label="Próximo depoimento">
-              <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </button>
-
-            <!-- Dots abaixo dos cards -->
-            <div class="testimonials-dots" id="dep-dots"></div>
-
           </div>
           
           
@@ -1664,7 +1530,7 @@
 
 
 
-  <script src="./src/js/main.js?v=20.0" defer></script>
+  <script src="./src/js/main.js?v=22.0" defer></script>
   <script src="./src/js/solucoes.js?v=12.0" defer></script>
   <!-- Lucide Icons CDN -->
   <script src="https://unpkg.com/lucide@0.321.0" defer></script>
