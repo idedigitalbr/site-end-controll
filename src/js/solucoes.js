@@ -324,6 +324,23 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCard(index, true);
   }
 
+  const prevService = () => {
+    const nextIdx = (currentIndex - 1 + servicesData.length) % servicesData.length;
+    goToService(nextIdx);
+    pauseAutoPlay();
+  };
+
+  const nextService = () => {
+    const nextIdx = (currentIndex + 1) % servicesData.length;
+    goToService(nextIdx);
+    pauseAutoPlay();
+  };
+
+  document.getElementById('cardImgPrev')?.addEventListener('click', prevService);
+  document.getElementById('cardImgNext')?.addEventListener('click', nextService);
+  document.getElementById('cardFooterPrev')?.addEventListener('click', prevService);
+  document.getElementById('cardFooterNext')?.addEventListener('click', nextService);
+
   window.goToService = goToService;
 
   document.addEventListener('click', (e) => {

@@ -642,6 +642,80 @@
   background: rgba(0, 194, 255, 0.45);
 }
 
+/* Minimalist Floating Image Overlay Nav Arrows */
+.card-img-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(6, 18, 38, 0.65);
+  border: 1px solid rgba(0, 194, 255, 0.25);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 3;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  transition: all 0.3s ease;
+  opacity: 0.85;
+}
+.card-nav-prev { left: 10px; }
+.card-nav-next { right: 10px; }
+.card-img-nav-btn:hover {
+  opacity: 1;
+  background: rgba(0, 194, 255, 0.2);
+  border-color: var(--color-cyan, #00c2ff);
+  box-shadow: 0 0 14px rgba(0, 194, 255, 0.4);
+  transform: translateY(-50%) scale(1.08);
+}
+.card-img-nav-btn svg {
+  width: 16px;
+  height: 16px;
+  color: var(--color-cyan, #00c2ff);
+}
+
+/* Bottom Footer Bar with Minimalist Arrow Controls */
+.card-footer-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 14px 14px 14px;
+  gap: 8px;
+}
+.card-footer-nav .card-progress {
+  padding: 0;
+  flex: 1;
+  justify-content: center;
+}
+.card-footer-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(0, 194, 255, 0.05);
+  border: 1px solid rgba(0, 194, 255, 0.18);
+  color: var(--color-cyan, #00c2ff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+.card-footer-btn:hover {
+  background: rgba(0, 194, 255, 0.2);
+  border-color: var(--color-cyan, #00c2ff);
+  box-shadow: 0 0 10px rgba(0, 194, 255, 0.35);
+  transform: scale(1.08);
+}
+.card-footer-btn svg {
+  width: 14px;
+  height: 14px;
+}
+
 /* ======== BARRA INFERIOR ======== */
 .solucoes-bottom-bar {
   position: relative;
