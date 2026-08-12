@@ -1,5 +1,23 @@
 # Changelog — ENDCONTROL Engenharia
 
+## [2026-08-11] - Substituição do Rodapé em index.html pelo Rodapé Minimalista EndControl
+
+### Changed
+- **Integração no Site Principal (`index.html` & `work-units-footer.css`):**
+  - **CSS Centralizado:** Inseridos todos os estilos do `.footer-minimal-glow-section` no arquivo `src/css/work-units-footer.css`.
+  - **Substituição da Estrutura HTML:** Removido o rodapé antigo (`.footer-dark-section`) em `index.html` e aplicado o novo rodapé minimalista com ponto de luz suave azul EndControl, logo vertical monocromática negativa, slogan institucional, links sociais e créditos `ide digital`.
+
+
+
+
+## [2026-08-11] - Atualização dos Textos da Seção "Palavra da Nossa Presidência" (Depoimentos)
+
+### Changed
+- **Seção de Depoimentos (`index.html` & `sections.css`):**
+  - **Badge:** Atualizada para `• PALAVRA DA NOSSA PRESIDÊNCIA`.
+  - **Título (H2):** Atualizado para `Visões que <br> conduzem a <br> <span class="highlight-blue">Endcontrol</span>` com destaque em Azul Vibrante (#1652f0).
+  - **Subtítulo:** Atualizado para `Conheça as perspectivas, os valores e os compromissos da nossa Presidência que orientam a trajetória e o futuro da Endcontrol.`
+
 ## [2026-08-11] - Ajuste Fino dos Chevrons: Exclusividade no Botão 1
 
 ### Fixed & Refined

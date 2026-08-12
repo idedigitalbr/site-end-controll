@@ -527,8 +527,9 @@ p {
   margin-bottom: 16px;
 }
 
-.testimonials-heading .highlight-red {
-  color: #00399f !important;
+.testimonials-heading .highlight-red,
+.testimonials-heading .highlight-blue {
+  color: #1652f0 !important;
 }
 
 .testimonials-divider {
@@ -3619,7 +3620,7 @@ textarea.form-control {
   width: 100% !important;
   max-width: 100% !important;
   margin: 0 !important;
-  border-radius: 0 0 28px 28px !important;
+  border-radius: 0 !important;
   box-shadow: none !important;
   background: var(--color-cinza-fraco, #cce6ed) !important;
   color: #071429;
