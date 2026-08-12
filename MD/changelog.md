@@ -1,5 +1,15 @@
 # Changelog — ENDCONTROL Engenharia
 
+## [2026-08-12] - Ajuste Fino dos Percentuais de Opacidade dos Nós do Radar (100%, 80%, 40%/20%, 70%)
+
+### Changed & Improved
+- **Calibração de Opacidades (`src/css/solucoes.css`):**
+  - **1. ACTIVE:** Opacidade mantida em **100% (`opacity: 1.0`)** com ciano neon vibrante e glow expansivo.
+  - **2. VISITED / PREVIOUS:** Opacidade elevada para **80% (`opacity: 0.80`)** para destacar a trilha de serviços percorrida.
+  - **3. INACTIVE:** Opacidade dos **ícones em 40% (`opacity: 0.40`)** e opacidade dos **rótulos/textos em 20% (`opacity: 0.20`)**, garantindo um contraste legível porém discreto.
+  - **4. INACTIVE HOVER:** Opacidade ao passar o mouse configurada em **70% (`opacity: 0.70`)**.
+  - Cache busters atualizados para `solucoes.css?v=48.0` e `solucoes.js?v=48.0`.
+
 ## [2026-08-12] - Rastro de Luz Acumulativo (Histórico de Serviços Visitados com Reset no Item 1)
 
 ### Changed & Improved
