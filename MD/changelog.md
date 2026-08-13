@@ -9,6 +9,11 @@
 - Labels agora recebem posicionamento por quadrante e anel, com fallback automático para evitar invasão da coluna do card e empilhamento vertical seguro em tablet/mobile.
 - Mantidas a geometria polar, a separação entre anéis, a navegação do card, o autoplay e a regra de não conectar anéis diferentes.
 
+### Fixed
+- Removida a inversão automática que colocava labels do lado direito para dentro do radar e labels do lado esquerdo para dentro do radar.
+- Labels laterais agora permanecem fora do respectivo ícone: direita no lado direito, esquerda no lado esquerdo.
+- Cache buster do renderizador atualizado para solucoes.js?v=54.0.
+
 ## [2026-08-13] - Ampliação do respiro vertical no radar de soluções
 
 ### Fixed

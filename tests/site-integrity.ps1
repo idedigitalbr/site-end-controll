@@ -44,6 +44,8 @@ Assert-Condition ($solucoes -match 'radar-connection-gradient') 'solucoes.js pre
 Assert-Condition ($solucoes -match 'is-current') 'solucoes.js precisa aplicar o estado visual current nas conexoes.'
 Assert-Condition ($solucoes -match 'getSafeArcAngles') 'solucoes.js precisa usar o recuo angular seguro das conexoes.'
 Assert-Condition ($solucoes -match 'label-pos-') 'solucoes.js precisa aplicar classes contextuais aos labels.'
+Assert-Condition ($solucoes -notmatch "(?s)preferredPlacement\s*===\s*'right'.*?setLabelPlacement\(node,\s*'left'\)") 'solucoes.js ainda inverte labels da direita para dentro do radar.'
+Assert-Condition ($solucoes -notmatch "(?s)preferredPlacement\s*===\s*'left'.*?setLabelPlacement\(node,\s*'right'\)") 'solucoes.js ainda inverte labels da esquerda para dentro do radar.'
 Assert-Condition ($solucoesCss -match '--radar-line-current-opacity') 'solucoes.css precisa centralizar a intensidade da linha atual.'
 Assert-Condition ($solucoesCss -match '--radar-line-completed-opacity') 'solucoes.css precisa centralizar a intensidade da linha concluida.'
 Assert-Condition ($solucoesCss -match '\.radar-connection\.is-current') 'solucoes.css precisa estilizar a conexao atual.'

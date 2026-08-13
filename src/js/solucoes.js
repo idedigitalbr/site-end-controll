@@ -276,22 +276,10 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function adjustLabelPlacements() {
-    const centerRect = orbitalDiagram.getBoundingClientRect();
-    const safeMargin = 12;
-
     serviceNodes.forEach((node, index) => {
       const service = servicesData[index];
       const preferredPlacement = RadarProgress.getLabelPlacement(service.angle);
       setLabelPlacement(node, preferredPlacement);
-
-      const label = node.querySelector('.service-node-label');
-      const labelRect = label.getBoundingClientRect();
-
-      if (preferredPlacement === 'right' && labelRect.right > centerRect.right - safeMargin) {
-        setLabelPlacement(node, 'left');
-      } else if (preferredPlacement === 'left' && labelRect.left < centerRect.left + safeMargin) {
-        setLabelPlacement(node, 'right');
-      }
     });
   }
 
