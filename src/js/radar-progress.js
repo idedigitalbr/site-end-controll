@@ -118,6 +118,17 @@
     ];
   }
 
+  function getConnectionInsetDegrees(options) {
+    const iconDiameter = Math.max(0, Number(options && options.iconDiameter) || 0);
+    const viewBoxScale = Math.max(Number(options && options.viewBoxScale) || 1, 0.0001);
+    const ringRadius = Math.max(Number(options && options.ringRadius) || 1, 1);
+    const halfIconUnits = iconDiameter / viewBoxScale / 2;
+    const ratio = Math.min(0.92, halfIconUnits / ringRadius);
+    const iconAngle = Math.asin(ratio) * 180 / Math.PI;
+
+    return Math.min(18, Math.max(14, iconAngle + 8));
+  }
+
   function getLabelPlacement(angle) {
     const normalizedAngle = ((Number(angle) % 360) + 360) % 360;
 
@@ -156,6 +167,7 @@
     getConnectionState,
     getConnectionVisualState,
     getConnectionGradientStops,
+    getConnectionInsetDegrees,
     getLabelPlacement,
     getSafeArcAngles,
     getNodeState,
