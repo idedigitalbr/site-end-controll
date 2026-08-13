@@ -241,7 +241,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const leftPercent = 50 + ringRadiusPercent * Math.cos(angleRad);
     const topPercent = 50 + ringRadiusPercent * Math.sin(angleRad);
 
-    nodeEl.className = `service-node node-ring-${s.ring}`;
+    const labelPlacement = RadarProgress.getLabelPlacement(s.angle);
+    nodeEl.className = 'service-node node-ring-' + s.ring +
+      ' label-pos-' + labelPlacement + ' label-ring-' + s.ring;
     nodeEl.id = `node-${index}`;
     nodeEl.dataset.index = index;
     nodeEl.style.left = `${leftPercent}%`;
@@ -260,6 +262,41 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   const serviceNodes = document.querySelectorAll('.service-node');
+
+  const labelPlacementClasses = [
+    'label-pos-left',
+    'label-pos-right',
+    'label-pos-top',
+    'label-pos-bottom'
+  ];
+
+  function setLabelPlacement(node, placement) {
+    labelPlacementClasses.forEach(className => node.classList.remove(className));
+    node.classList.add('label-pos-' + placement);
+  }
+
+  function adjustLabelPlacements() {
+    const centerRect = orbitalDiagram.getBoundingClientRect();
+    const safeMargin = 12;
+
+    serviceNodes.forEach((node, index) => {
+      const service = servicesData[index];
+      const preferredPlacement = RadarProgress.getLabelPlacement(service.angle);
+      setLabelPlacement(node, preferredPlacement);
+
+      const label = node.querySelector('.service-node-label');
+      const labelRect = label.getBoundingClientRect();
+
+      if (preferredPlacement === 'right' && labelRect.right > centerRect.right - safeMargin) {
+        setLabelPlacement(node, 'left');
+      } else if (preferredPlacement === 'left' && labelRect.left < centerRect.left + safeMargin) {
+        setLabelPlacement(node, 'right');
+      }
+    });
+  }
+
+  window.addEventListener('resize', adjustLabelPlacements, { passive: true });
+  window.requestAnimationFrame(adjustLabelPlacements);
 
   function polarPoint(service) {
     const radiusPercent = service.ringIndex === 0 ? 49.5 : 30.5;

@@ -4,6 +4,7 @@ const {
   buildConnections,
   canConnect,
   getConnectionVisualState,
+  getLabelPlacement,
   getSafeArcAngles,
   getProgressState
 } = require('../src/js/radar-progress.js');
@@ -130,4 +131,11 @@ test('recedes both ends of a sixty degree arc by the requested safe angle', () =
     endAngle: -37,
     sweep: 1
   });
+});
+
+test('places labels by polar quadrant', () => {
+  assert.equal(getLabelPlacement(-90), 'top');
+  assert.equal(getLabelPlacement(0), 'right');
+  assert.equal(getLabelPlacement(90), 'bottom');
+  assert.equal(getLabelPlacement(180), 'left');
 });
