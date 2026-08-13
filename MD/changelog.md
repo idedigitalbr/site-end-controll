@@ -19,7 +19,6 @@
 - Cache buster atualizado para radar-progress.js?v=5.1.
 - Mapa final de alinhamento aplicado: itens 2, 3, 7, 8 e 11 à direita; 4, 9, 10 e 12 abaixo; 5 e 6 à esquerda.
 - Quebras de linha das legendas ajustadas; cache busters atualizados para radar-progress.js?v=5.2 e solucoes.js?v=55.0.
-- Trilhas interrompidas antes dos ícones com recuo seguro ampliado; máscaras opacas permanentes adicionadas a ícones e legendas. Cache de solucoes.css atualizado para v54.0.
 - Cache buster atualizado para radar-progress.js?v=5.0.
 
 ## [2026-08-13] - Ampliação do respiro vertical no radar de soluções
