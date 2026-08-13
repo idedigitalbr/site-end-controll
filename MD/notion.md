@@ -10,4 +10,5 @@
 - Ajuste posterior: itens 2, 3, 9 e 10 passaram a usar posicionamento inferior ao ícone.
 - Ajuste posterior: mapa final de alinhamento aplicado — itens 2, 3, 7, 8 e 11 à direita; 4, 9, 10 e 12 abaixo; 5 e 6 à esquerda.
 - Ajuste posterior: quebras de linha das legendas alinhadas ao padrão visual solicitado.
+- Ajuste posterior: gradientes das conexões passam a desaparecer totalmente nas duas extremidades, sem alterar o visual dos ícones ou títulos.
 - Observação: este arquivo registra a memória local; nenhuma atualização externa foi executada nesta etapa.

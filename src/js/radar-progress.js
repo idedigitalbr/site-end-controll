@@ -105,6 +105,19 @@
     };
   }
 
+  function getConnectionGradientStops(peakOpacity) {
+    const peak = Math.max(0, Math.min(1, Number(peakOpacity) || 0));
+
+    return [
+      ['0%', '0'],
+      ['18%', '0'],
+      ['42%', String(peak)],
+      ['58%', String(peak)],
+      ['82%', '0'],
+      ['100%', '0']
+    ];
+  }
+
   function getLabelPlacement(angle) {
     const normalizedAngle = ((Number(angle) % 360) + 360) % 360;
 
@@ -142,6 +155,7 @@
     canConnect,
     getConnectionState,
     getConnectionVisualState,
+    getConnectionGradientStops,
     getLabelPlacement,
     getSafeArcAngles,
     getNodeState,
