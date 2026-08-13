@@ -250,6 +250,11 @@
   z-index: 2;
   --r-outer: 49.5%;
   --r-inner: 30.5%;
+  --radar-line-future-opacity: 0.12;
+  --radar-line-completed-opacity: 0.42;
+  --radar-line-current-opacity: 0.68;
+  --radar-line-completed-glow: 0 0 3px rgba(0, 194, 255, 0.24);
+  --radar-line-current-glow: 0 0 5px rgba(0, 194, 255, 0.38);
 }
 
 /* Radar Geometry Lines & Rings */
@@ -272,25 +277,29 @@
 
 .radar-connection {
   fill: none;
-  stroke: rgba(0, 194, 255, 0.26);
-  stroke-width: 1.5;
+  stroke-width: 1.6;
   stroke-linecap: round;
   stroke-linejoin: round;
-  opacity: 0.34;
   pointer-events: none;
-  transition: opacity 420ms ease, stroke 420ms ease, stroke-width 420ms ease, filter 420ms ease;
+  transition: opacity 420ms ease, stroke-width 420ms ease, filter 420ms ease;
 }
 
-.radar-connection.is-inactive {
-  opacity: 0.22;
+.radar-connection.is-future {
+  opacity: var(--radar-line-future-opacity);
+  stroke-width: 1.4;
   filter: none;
 }
 
-.radar-connection.is-active {
-  stroke: var(--color-cyan, #00c2ff);
-  stroke-width: 2.5;
-  opacity: 0.96;
-  filter: drop-shadow(0 0 6px rgba(0, 194, 255, 0.95)) drop-shadow(0 0 14px rgba(0, 194, 255, 0.7));
+.radar-connection.is-completed {
+  opacity: var(--radar-line-completed-opacity);
+  stroke-width: 1.7;
+  filter: drop-shadow(var(--radar-line-completed-glow));
+}
+
+.radar-connection.is-current {
+  opacity: var(--radar-line-current-opacity);
+  stroke-width: 2;
+  filter: drop-shadow(var(--radar-line-current-glow));
 }
 
 .radar-circle {
