@@ -3,11 +3,16 @@ const test = require('node:test');
 const {
   buildConnections,
   canConnect,
+  getBackwardAngle,
   getConnectionVisualState,
+  getDomAngle,
+  getForwardAngle,
+  getNearestAngle,
   getConnectionInsetDegrees,
   getConnectionGradientStops,
   getConnectionGradientVector,
   getLabelPlacement,
+  normalizeAngle,
   getSafeArcAngles,
   getProgressState
 } = require('../src/js/radar-progress.js');
@@ -188,4 +193,26 @@ test('places labels according to the approved radar alignment map', () => {
   assert.equal(getLabelPlacement(0), 'left');
   assert.equal(getLabelPlacement(180), 'right');
   assert.equal(getLabelPlacement(240), 'bottom');
+});
+
+test('normalizes angles without reversing the 350 to 10 degree transition', () => {
+  assert.equal(normalizeAngle(-10), 350);
+  assert.equal(getForwardAngle(350, 10), 370);
+  assert.equal(getForwardAngle(330, 0), 360);
+});
+
+test('keeps manual previous and direct selection movements natural', () => {
+  assert.equal(getBackwardAngle(300, 240), 240);
+  assert.equal(getBackwardAngle(30, 330), -30);
+  assert.equal(getNearestAngle(300, 30), 390);
+  assert.equal(getNearestAngle(120, 60), 60);
+});
+
+test('calculates sweep angles from real DOM-style center points', () => {
+  const center = { x: 100, y: 100 };
+
+  assert.equal(getDomAngle(center, { x: 100, y: 20 }), 0);
+  assert.equal(getDomAngle(center, { x: 180, y: 100 }), 90);
+  assert.equal(getDomAngle(center, { x: 100, y: 180 }), 180);
+  assert.equal(getDomAngle(center, { x: 20, y: 100 }), 270);
 });

@@ -1,5 +1,16 @@
 # Features — ENDCONTROL Engenharia
 
+## Radar Sweep sincronizado
+
+- Status: Concluida
+- Data: 2026-08-13
+- Feixe de varredura real com linha frontal, setor gradual e glow controlado.
+- Sequencia temporizada 1 a 12 vinculada aos angulos reais dos icones medidos no DOM.
+- Estados futuro, percorrido, atual, saindo e aproximando sincronizados com o card de destaque.
+- Responsividade recalculada em resize e suporte a `prefers-reduced-motion`.
+- Arquivos principais: index.html, src/css/solucoes.css, src/js/solucoes.js e src/js/radar-progress.js.
+- Validacao: ciclo completo, quatro viewports, console do radar e testes automatizados aprovados.
+
 ## Refinamento visual do accordion de areas
 
 - Status: Concluida

@@ -7,6 +7,46 @@
     root.RadarProgress = api;
   }
 })(typeof window !== 'undefined' ? window : globalThis, function createRadarProgress() {
+  function normalizeAngle(angle) {
+    const numericAngle = Number(angle) || 0;
+    return ((numericAngle % 360) + 360) % 360;
+  }
+
+  function getForwardAngle(fromAngle, targetAngle) {
+    const start = Number(fromAngle) || 0;
+    let target = normalizeAngle(targetAngle);
+
+    while (target <= start + 0.001) {
+      target += 360;
+    }
+
+    return target;
+  }
+
+  function getBackwardAngle(fromAngle, targetAngle) {
+    const start = Number(fromAngle) || 0;
+    let target = normalizeAngle(targetAngle);
+
+    while (target >= start - 0.001) {
+      target -= 360;
+    }
+
+    return target;
+  }
+
+  function getNearestAngle(fromAngle, targetAngle) {
+    const start = Number(fromAngle) || 0;
+    const target = normalizeAngle(targetAngle);
+    return target + Math.round((start - target) / 360) * 360;
+  }
+
+  function getDomAngle(center, target) {
+    const deltaX = (Number(target && target.x) || 0) - (Number(center && center.x) || 0);
+    const deltaY = (Number(target && target.y) || 0) - (Number(center && center.y) || 0);
+
+    return normalizeAngle(Math.atan2(deltaX, -deltaY) * 180 / Math.PI);
+  }
+
   function canConnect(from, to) {
     return Boolean(from && to) &&
       from.ringIndex === to.ringIndex &&
@@ -176,6 +216,10 @@
   return {
     buildConnections,
     canConnect,
+    getBackwardAngle,
+    getDomAngle,
+    getForwardAngle,
+    getNearestAngle,
     getConnectionState,
     getConnectionVisualState,
     getConnectionGradientStops,
@@ -184,6 +228,7 @@
     getLabelPlacement,
     getSafeArcAngles,
     getNodeState,
+    normalizeAngle,
     getProgressState
   };
 });
