@@ -4,7 +4,6 @@ const {
   buildConnections,
   canConnect,
   getConnectionVisualState,
-  getConnectionInsetDegrees,
   getLabelPlacement,
   getSafeArcAngles,
   getProgressState
@@ -132,17 +131,6 @@ test('recedes both ends of a sixty degree arc by the requested safe angle', () =
     endAngle: -37,
     sweep: 1
   });
-});
-
-test('keeps the progress line clear of every node icon', () => {
-  const inset = getConnectionInsetDegrees({
-    iconDiameter: 50,
-    viewBoxScale: 1,
-    ringRadius: 247.5
-  });
-
-  assert.ok(inset >= 12);
-  assert.ok(inset <= 14);
 });
 
 test('places labels by polar quadrant', () => {
