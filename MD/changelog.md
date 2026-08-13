@@ -1,5 +1,14 @@
 # Changelog — ENDCONTROL Engenharia
 
+## [2026-08-13] - Refinamento da linha de progresso e labels do radar
+
+### Changed & Improved
+- Substituídos os arcos uniformes por paths SVG com recuo angular seguro, gradiente de intensidade fraca nas extremidades e pico moderado no centro.
+- Criados estados visuais semânticos para conexões: is-completed, is-current e is-future, com glow controlado por variáveis CSS.
+- Atualizados os cache busters do radar para radar-progress.js?v=3.0, solucoes.js?v=53.0 e solucoes.css?v=53.0.
+- Labels agora recebem posicionamento por quadrante e anel, com fallback automático para evitar invasão da coluna do card e empilhamento vertical seguro em tablet/mobile.
+- Mantidas a geometria polar, a separação entre anéis, a navegação do card, o autoplay e a regra de não conectar anéis diferentes.
+
 ## [2026-08-13] - Ampliação do respiro vertical no radar de soluções
 
 ### Fixed
