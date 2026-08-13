@@ -15,6 +15,8 @@
 - Cache buster do renderizador atualizado para solucoes.js?v=54.0.
 - Labels dos itens 2, 3, 9 e 10 ajustados para aparecerem abaixo dos respectivos ícones.
 - Cache buster do módulo de posicionamento atualizado para radar-progress.js?v=4.0.
+- Label do item 5 ajustado para ficar abaixo do ícone, preservando o item 6 no lado esquerdo.
+- Cache buster atualizado para radar-progress.js?v=5.0.
 
 ## [2026-08-13] - Ampliação do respiro vertical no radar de soluções
 

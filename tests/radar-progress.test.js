@@ -144,5 +144,6 @@ test('places lower-right service labels below the icon while preserving outer si
   assert.equal(getLabelPlacement(-30), 'bottom');
   assert.equal(getLabelPlacement(30), 'bottom');
   assert.equal(getLabelPlacement(60), 'bottom');
+  assert.equal(getLabelPlacement(150), 'bottom');
   assert.equal(getLabelPlacement(210), 'left');
 });
