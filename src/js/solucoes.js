@@ -316,11 +316,11 @@ document.addEventListener('DOMContentLoaded', () => {
       ? Math.max(icon.getBoundingClientRect().width, icon.getBoundingClientRect().height)
       : 46;
     const viewBoxScale = Math.max(centerRect.width, centerRect.height, 1) / 500;
-    const halfIconUnits = iconDiameter / viewBoxScale / 2;
-    const ratio = Math.min(0.92, halfIconUnits / Math.max(point.radius, 1));
-    const iconAngle = Math.asin(ratio) * 180 / Math.PI;
-
-    return Math.min(10, Math.max(4, iconAngle + 2.5));
+    return RadarProgress.getConnectionInsetDegrees({
+      iconDiameter,
+      viewBoxScale,
+      ringRadius: point.radius
+    });
   }
 
   function describeRadarArc(from, to) {
