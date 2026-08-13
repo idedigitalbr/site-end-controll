@@ -508,7 +508,7 @@
 }
 
 .service-node.label-pos-bottom .service-node-label {
-  bottom: calc(100% + 9px);
+  top: calc(100% + 9px);
   left: 50%;
   transform: translateX(-50%);
   text-align: center;

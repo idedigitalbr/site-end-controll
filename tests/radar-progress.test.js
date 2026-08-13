@@ -139,3 +139,10 @@ test('places labels by polar quadrant', () => {
   assert.equal(getLabelPlacement(90), 'bottom');
   assert.equal(getLabelPlacement(180), 'left');
 });
+
+test('places lower-right service labels below the icon while preserving outer side labels', () => {
+  assert.equal(getLabelPlacement(-30), 'bottom');
+  assert.equal(getLabelPlacement(30), 'bottom');
+  assert.equal(getLabelPlacement(60), 'bottom');
+  assert.equal(getLabelPlacement(210), 'left');
+});
