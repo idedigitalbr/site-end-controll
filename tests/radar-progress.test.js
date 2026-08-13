@@ -3,6 +3,8 @@ const test = require('node:test');
 const {
   buildConnections,
   canConnect,
+  getConnectionVisualState,
+  getSafeArcAngles,
   getProgressState
 } = require('../src/js/radar-progress.js');
 
@@ -93,4 +95,39 @@ test('canConnect accepts only consecutive positions within one ring', () => {
   assert.equal(canConnect(services[0], services[1]), true);
   assert.equal(canConnect(services[0], services[2]), false);
   assert.equal(canConnect(services[5], services[6]), false);
+});
+
+test('classifies the segment arriving at the active item as current', () => {
+  const state = getProgressState(services, 8);
+  const current = state.connections
+    .filter(connection => getConnectionVisualState(connection, 8) === 'current')
+    .map(connection => [connection.fromStepIndex, connection.toStepIndex]);
+
+  assert.deepEqual(current, [[7, 8]]);
+});
+
+test('keeps completed and future segments distinct from the current segment', () => {
+  assert.equal(getConnectionVisualState({
+    fromStepIndex: 0,
+    toStepIndex: 1,
+    isClosing: false,
+    ringLastStepIndex: 5
+  }, 8), 'completed');
+
+  assert.equal(getConnectionVisualState({
+    fromStepIndex: 8,
+    toStepIndex: 9,
+    isClosing: false,
+    ringLastStepIndex: 11
+  }, 8), 'future');
+});
+
+test('recedes both ends of a sixty degree arc by the requested safe angle', () => {
+  const result = getSafeArcAngles(-90, -30, { insetDegrees: 7 });
+
+  assert.deepEqual(result, {
+    startAngle: -83,
+    endAngle: -37,
+    sweep: 1
+  });
 });
