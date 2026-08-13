@@ -13,6 +13,8 @@
 - Removida a inversão automática que colocava labels do lado direito para dentro do radar e labels do lado esquerdo para dentro do radar.
 - Labels laterais agora permanecem fora do respectivo ícone: direita no lado direito, esquerda no lado esquerdo.
 - Cache buster do renderizador atualizado para solucoes.js?v=54.0.
+- Labels dos itens 2, 3, 9 e 10 ajustados para aparecerem abaixo dos respectivos ícones.
+- Cache buster do módulo de posicionamento atualizado para radar-progress.js?v=4.0.
 
 ## [2026-08-13] - Ampliação do respiro vertical no radar de soluções
 

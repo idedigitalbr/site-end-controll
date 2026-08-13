@@ -51,6 +51,8 @@ Assert-Condition ($solucoesCss -match '--radar-line-completed-opacity') 'solucoe
 Assert-Condition ($solucoesCss -match '\.radar-connection\.is-current') 'solucoes.css precisa estilizar a conexao atual.'
 Assert-Condition ($solucoesCss -notmatch '\.radar-connection\.is-active') 'solucoes.css ainda contem o estado antigo de glow intenso.'
 Assert-Condition ($solucoesCss -match '\.label-pos-left' -and $solucoesCss -match '\.label-pos-right') 'solucoes.css precisa ter regras para labels laterais.'
+Assert-Condition ($solucoesCss -match '(?s)\.service-node\.label-pos-bottom .*?top:\s*calc\(100% \+ 9px\)') 'labels inferiores precisam ficar abaixo dos icones.'
+Assert-Condition ($solucoesCss -notmatch '(?s)\.service-node\.label-pos-bottom .*?bottom:\s*calc\(100% \+ 9px\)') 'labels inferiores ainda estao acima dos icones.'
 Assert-Condition ($solucoesCss -match '(?s)\.solucoes-section\s*\{.*?padding:\s*(?:[7-9][0-9]|[1-9][0-9]{2})px\s+0\s+(?:[1-9]|[1-9][0-9])px\s*;') 'solucoes-section precisa manter respiro superior e padding inferior compacto após a barra de status.'
 Assert-Condition ($solucoesCss -match '(?s)@media \(max-width: 1440px\) and \(min-width: 1201px\).*?\.solucoes-main-content\s*\{.*?padding:\s*40px\s+0\s+80px\s+0\s*;') 'grid desktop precisa de espaço inferior adicional entre o radar e a barra inferior.'
 
