@@ -4,6 +4,7 @@ const {
   buildConnections,
   canConnect,
   getConnectionVisualState,
+  getConnectionInsetDegrees,
   getConnectionGradientStops,
   getLabelPlacement,
   getSafeArcAngles,
@@ -141,6 +142,17 @@ test('fades connection endpoints to zero before reaching icons', () => {
   assert.deepEqual(stops[1], ['18%', '0']);
   assert.deepEqual(stops.at(-2), ['82%', '0']);
   assert.deepEqual(stops.at(-1), ['100%', '0']);
+});
+
+test('leaves a clear angular gap around each icon', () => {
+  const inset = getConnectionInsetDegrees({
+    iconDiameter: 50,
+    viewBoxScale: 1,
+    ringRadius: 247.5
+  });
+
+  assert.ok(inset >= 14);
+  assert.ok(inset <= 18);
 });
 
 test('places labels by polar quadrant', () => {
