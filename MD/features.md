@@ -1,5 +1,21 @@
 # Features — ENDCONTROL Engenharia
 
+## Refinamento visual do accordion de areas
+
+- Status: Concluida
+- Data: 2026-08-13
+- Altura desktop reduzida para 360px e tablet para 340px, deixando os paineis mais quadrados.
+- Mobile mantido em 360px para preservar leitura e navegacao por swipe.
+
+## Accordion de Áreas de Atuação
+
+- Status: Concluída
+- Data: 2026-08-13
+- Escopo: redução proporcional da altura dos painéis para 3/4 do tamanho anterior.
+- Resultado: 435px no desktop, 390px em tablet e 360px em telas menores, preservando recorte, expansão e responsividade.
+- Navegação mobile: swipe, setas, dots e toque sincronizam o card ativo; o painel centralizado abre automaticamente.
+- Arquivos principais: index.html e src/css/segmentos.css.
+
 ## Radar orbital de soluções
 
 - Status: Concluída
@@ -11,5 +27,8 @@
 - Quebras de linha das legendas ajustadas conforme o mapa visual aprovado.
 - Revisão visual: as pontas das conexões agora desaparecem em 0% de opacidade antes dos ícones, sem máscaras sobre os nós.
 - Ajuste final: ícones ganharam fundo opaco e as conexões passaram a manter uma lacuna angular maior ao redor deles, sem fundo adicional nos títulos.
+- Estado inativo refinado: círculo e preenchimento permanecem com opacidade total; apenas o símbolo SVG interno usa opacidade reduzida.
+- Posicionamento complementar: texto do item 7 abaixo do ícone e texto do item 8 à esquerda do ícone.
+- Gradientes dos arcos agora acompanham o vetor real de cada trecho, mantendo o centro iluminado inclusive entre 2→3 e 5→6.
 - Arquivos principais: index.html, src/js/radar-progress.js, src/js/solucoes.js, src/css/solucoes.css.
 - Validação: testes unitários do radar e integridade estrutural do site aprovados.

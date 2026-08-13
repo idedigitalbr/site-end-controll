@@ -1,5 +1,20 @@
 # Changelog — ENDCONTROL Engenharia
 
+## [2026-08-13] - Compactacao adicional do accordion
+
+### Changed
+- Altura refinada para 360px no desktop e 340px em tablet, aproximando os paineis de um formato mais quadrado.
+- Cache buster de `segmentos.css` atualizado para `v32.0`.
+
+## [2026-08-13] - Redução da altura das Áreas de Atuação
+
+### Changed
+- Reduzida a altura do accordion para 3/4 das medidas anteriores: 435px no desktop, 390px em tablet e 360px em telas menores.
+- Mantidos o recorte `object-fit: cover`, a expansão dos painéis e o comportamento responsivo.
+- Corrigido o índice usado pelas setas no mobile para abrir e centralizar exatamente o card anterior ou seguinte.
+- Adicionada sincronização por swipe: ao terminar a rolagem, o card mais próximo do centro é ativado e expandido automaticamente.
+- Cache buster de `segmentos.css` atualizado para `v31.0`.
+
 ## [2026-08-13] - Refinamento da linha de progresso e labels do radar
 
 ### Changed & Improved
@@ -20,6 +35,9 @@
 - Mapa final de alinhamento aplicado: itens 2, 3, 7, 8 e 11 à direita; 4, 9, 10 e 12 abaixo; 5 e 6 à esquerda.
 - Quebras de linha das legendas ajustadas; cache busters atualizados para radar-progress.js?v=5.2 e solucoes.js?v=55.0.
 - Revisão visual: endpoints dos gradientes ajustados para 0% de opacidade; cache busters atualizados para radar-progress.js?v=5.3 e solucoes.js?v=56.0.
+- Nós inativos agora preservam círculo e preenchimento em 100% de opacidade; somente o SVG interno permanece em 55%. Cache de solucoes.css atualizado para v55.0.
+- Labels reposicionados: item 7 abaixo do ícone e item 8 à esquerda; cache de radar-progress.js atualizado para v5.4.
+- Gradientes SVG convertidos para `userSpaceOnUse` e orientados pelo início/fim de cada arco, corrigindo centros apagados entre os itens 2→3 e 5→6. Cache busters: radar-progress.js?v=5.5 e solucoes.js?v=57.0.
 - Ícones com fundo opaco e lacuna angular ampliada nas conexões; cache de solucoes.css atualizado para v54.0.
 - Cache buster atualizado para radar-progress.js?v=5.0.
 
