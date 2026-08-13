@@ -1,5 +1,14 @@
 # Histórico de sincronização — DB_IDE
 
+## 2026-08-13 - Radar Sweep das solucoes
+
+- Projeto: site-end-controll
+- Tarefa: transformar o diagrama orbital em um radar ativo sincronizado com as 12 solucoes.
+- Status local: Concluida.
+- Registro: sweep com linha e setor gradual, angulos medidos no DOM, sequencia 1 a 12, estados de aproximacao/chegada, resize e movimento reduzido.
+- Validacao: ciclo completo e viewports desktop, notebook, tablet e mobile aprovados; testes automatizados aprovados.
+- Observacao: memoria local atualizada; nenhuma sincronizacao externa foi executada nesta etapa.
+
 ## 2026-08-13 - Compactacao do accordion
 
 - Projeto: site-end-controll

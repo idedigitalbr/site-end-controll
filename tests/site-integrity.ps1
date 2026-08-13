@@ -34,6 +34,7 @@ Assert-Condition ($identity -notmatch 'https://endcontrol\.com\.br') 'identidade
 Assert-Condition ($gitignore -match '(?m)^\.env\*\s*$') '.gitignore precisa ignorar .env*.'
 
 Assert-Condition ($index -match 'id="radarConnectionsLayer"') 'index.html precisa conter radarConnectionsLayer.'
+Assert-Condition ($index -match 'id="radarSweep"') 'index.html precisa conter a camada visual do radar sweep.'
 Assert-Condition ($index -notmatch 'radarTrailPath') 'index.html ainda contem o path antigo do radar.'
 $radarScriptIndex = $index.IndexOf('<script src="./src/js/radar-progress.js')
 $solucoesScriptIndex = $index.IndexOf('<script src="./src/js/solucoes.js')
@@ -44,11 +45,14 @@ Assert-Condition ($solucoes -match 'radar-connection-gradient') 'solucoes.js pre
 Assert-Condition ($solucoes -match 'is-current') 'solucoes.js precisa aplicar o estado visual current nas conexoes.'
 Assert-Condition ($solucoes -match 'getSafeArcAngles') 'solucoes.js precisa usar o recuo angular seguro das conexoes.'
 Assert-Condition ($solucoes -match 'label-pos-') 'solucoes.js precisa aplicar classes contextuais aos labels.'
+Assert-Condition ($solucoes -match 'RADAR_CONFIG' -and $solucoes -match 'getDomAngle') 'solucoes.js precisa controlar o sweep com configuracao centralizada e angulos medidos no DOM.'
+Assert-Condition ($solucoes -match 'dataset\.step' -and $solucoes -match 'dataset\.angle') 'cada no do radar precisa expor data-step e data-angle.'
 Assert-Condition ($solucoes -notmatch "(?s)preferredPlacement\s*===\s*'right'.*?setLabelPlacement\(node,\s*'left'\)") 'solucoes.js ainda inverte labels da direita para dentro do radar.'
 Assert-Condition ($solucoes -notmatch "(?s)preferredPlacement\s*===\s*'left'.*?setLabelPlacement\(node,\s*'right'\)") 'solucoes.js ainda inverte labels da esquerda para dentro do radar.'
 Assert-Condition ($solucoesCss -match '--radar-line-current-opacity') 'solucoes.css precisa centralizar a intensidade da linha atual.'
 Assert-Condition ($solucoesCss -match '--radar-line-completed-opacity') 'solucoes.css precisa centralizar a intensidade da linha concluida.'
 Assert-Condition ($solucoesCss -match '\.radar-connection\.is-current') 'solucoes.css precisa estilizar a conexao atual.'
+Assert-Condition ($solucoesCss -match '\.radar-sweep' -and $solucoesCss -match 'conic-gradient') 'solucoes.css precisa estilizar o feixe e o setor gradual do sweep.'
 Assert-Condition ($solucoesCss -notmatch '\.radar-connection\.is-active') 'solucoes.css ainda contem o estado antigo de glow intenso.'
 Assert-Condition ($solucoesCss -match '\.label-pos-left' -and $solucoesCss -match '\.label-pos-right') 'solucoes.css precisa ter regras para labels laterais.'
 Assert-Condition ($solucoesCss -match '(?s)\.service-node\.label-pos-bottom .*?top:\s*calc\(100% \+ 9px\)') 'labels inferiores precisam ficar abaixo dos icones.'

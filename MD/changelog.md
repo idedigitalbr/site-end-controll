@@ -1,5 +1,21 @@
 # Changelog — ENDCONTROL Engenharia
 
+## [2026-08-13] - Radar Sweep sincronizado com as 12 solucoes
+
+### Added & Changed
+- Adicionada camada real de varredura com linha frontal ciano, setor luminoso em `conic-gradient` e rastro de baixa opacidade.
+- O controlador agora mede no DOM o angulo de cada icone a partir do centro visual da logo e percorre a sequencia 1 a 12, incluindo a normalizacao de 12 para 1 sem rotacao inversa.
+- Centralizada a temporizacao em `RADAR_CONFIG`: 1600ms de movimento, 1200ms de pausa e easing suave.
+- Adicionados estados transitorios de saida e aproximacao antes da promocao do proximo item a atual.
+- Incluidos `data-step`, `data-angle`, suporte a resize/`ResizeObserver` e comportamento estatico para `prefers-reduced-motion`.
+- Corrigida a referencia inexistente `wrapper` no modulo legado de navegacao dos depoimentos, eliminando o erro originado pelo codigo do site.
+- Cache busters atualizados para `solucoes.css?v=56.0`, `radar-progress.js?v=6.0`, `solucoes.js?v=58.0` e `main.js?v=23.0`.
+
+### Validation
+- 18 testes unitarios aprovados e teste de integridade estrutural aprovado.
+- Ciclo completo observado no navegador sem saltos: 1, 2, 3, ..., 12, 1.
+- Validacao visual realizada em 1920x1080, 1366x900, 768x1024 e 390x844, com centro subpixel e sem overflow horizontal dos nos.
+
 ## [2026-08-13] - Compactacao adicional do accordion
 
 ### Changed

@@ -207,6 +207,14 @@ document.addEventListener('DOMContentLoaded', () => {
   ];
 
   const RING_SIZE = 6;
+  const RADAR_CONFIG = Object.freeze({
+    transitionDuration: 1600,
+    activePause: 1200,
+    manualResumeDelay: 12000,
+    approachStartRatio: 0.56,
+    easing: 'cubic-bezier(0.45, 0, 0.2, 1)'
+  });
+
   servicesData.forEach((service, stepIndex) => {
     service.stepIndex = stepIndex;
     service.ringIndex = stepIndex < RING_SIZE ? 0 : 1;
@@ -223,9 +231,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const radarNodesLayer = document.getElementById('radarNodesLayer');
   const radarConnectionsLayer = document.getElementById('radarConnectionsLayer');
   const orbitalDiagram = document.getElementById('orbitalDiagram');
+  const orbitalCenterLogo = document.querySelector('.orbital-center-logo');
+  const radarSweep = document.getElementById('radarSweep');
   const RadarProgress = window.RadarProgress;
 
-  if (!cardImage || !cardTitle || !cardDesc || !cardList || !cardCta || !highlightCard || !cardProgress || !radarConnectionsLayer || !orbitalDiagram || !RadarProgress) {
+  if (!cardImage || !cardTitle || !cardDesc || !cardList || !cardCta || !highlightCard || !cardProgress || !radarConnectionsLayer || !orbitalDiagram || !orbitalCenterLogo || !radarSweep || !RadarProgress) {
     return;
   }
 
@@ -246,6 +256,9 @@ document.addEventListener('DOMContentLoaded', () => {
       ' label-pos-' + labelPlacement + ' label-ring-' + s.ring;
     nodeEl.id = `node-${index}`;
     nodeEl.dataset.index = index;
+    nodeEl.dataset.step = String(index + 1);
+    nodeEl.dataset.angle = String(s.angle);
+    nodeEl.dataset.ring = s.ring;
     nodeEl.style.left = `${leftPercent}%`;
     nodeEl.style.top = `${topPercent}%`;
 
@@ -283,8 +296,32 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  window.addEventListener('resize', adjustLabelPlacements, { passive: true });
   window.requestAnimationFrame(adjustLabelPlacements);
+
+  let measuredAngles = servicesData.map(service => RadarProgress.normalizeAngle(service.angle + 90));
+
+  function measureRadarAngles() {
+    const centerRect = orbitalCenterLogo.getBoundingClientRect();
+    const center = {
+      x: centerRect.left + centerRect.width / 2,
+      y: centerRect.top + centerRect.height / 2
+    };
+
+    measuredAngles = Array.from(serviceNodes, (node, index) => {
+      const icon = node.querySelector('.service-node-icon');
+      const iconRect = icon?.getBoundingClientRect() || node.getBoundingClientRect();
+      const angle = RadarProgress.getDomAngle(center, {
+        x: iconRect.left + iconRect.width / 2,
+        y: iconRect.top + iconRect.height / 2
+      });
+
+      node.dataset.angle = angle.toFixed(2);
+      servicesData[index].measuredAngle = angle;
+      return angle;
+    });
+
+    return measuredAngles;
+  }
 
   function polarPoint(service) {
     const radiusPercent = service.ringIndex === 0 ? 49.5 : 30.5;
@@ -417,15 +454,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Default active index = 0 ("1. Gerenciamento de Projetos")
   let activeIndex = 0;
-
-  let autoPlayInterval = null;
-  let pauseTimeout = null;
-  const AUTO_PLAY_MS = 5000;
-  const PAUSE_RESUME_MS = 12000;
+  let cycleTimer = null;
+  let resumeTimer = null;
+  let approachTimer = null;
+  let sweepAnimation = null;
+  let sweepTargetIndex = null;
+  let currentSweepAngle = measuredAngles[activeIndex];
+  let autoPlayEnabled = true;
+  let resizeFrame = null;
+  const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
   let isTransitioning = false;
 
   function updateRadarStates() {
     const progressState = RadarProgress.getProgressState(servicesData, activeIndex);
+    orbitalDiagram.dataset.currentStep = String(activeIndex + 1);
 
     serviceNodes.forEach((node, index) => {
       const state = progressState.nodes[index].state;
@@ -496,26 +538,119 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  function goToService(index) {
-    if (!Number.isInteger(index) || index < 0 || index >= servicesData.length) return;
-    if (index === activeIndex) return;
+  function clearTransientNodeStates() {
+    serviceNodes.forEach(node => {
+      node.classList.remove('is-departing', 'is-approaching');
+    });
+    delete orbitalDiagram.dataset.targetStep;
+  }
 
+  function setSweepAngle(angle) {
+    currentSweepAngle = Number(angle) || 0;
+    radarSweep.style.transform = `rotate(${currentSweepAngle}deg)`;
+  }
+
+  function readRenderedSweepAngle() {
+    const transform = window.getComputedStyle(radarSweep).transform;
+    if (!transform || transform === 'none') return currentSweepAngle;
+
+    const matrix = new DOMMatrixReadOnly(transform);
+    let renderedAngle = RadarProgress.normalizeAngle(Math.atan2(matrix.b, matrix.a) * 180 / Math.PI);
+
+    while (renderedAngle - currentSweepAngle > 180) renderedAngle -= 360;
+    while (renderedAngle - currentSweepAngle < -180) renderedAngle += 360;
+    return renderedAngle;
+  }
+
+  function stopSweepAtCurrentPosition() {
+    if (!sweepAnimation) return;
+
+    const renderedAngle = readRenderedSweepAngle();
+    const animationToCancel = sweepAnimation;
+    sweepAnimation = null;
+    animationToCancel.cancel();
+    setSweepAngle(renderedAngle);
+  }
+
+  function commitService(index) {
     activeIndex = index;
-
+    sweepTargetIndex = null;
+    clearTimeout(approachTimer);
+    clearTransientNodeStates();
     updateRadarStates();
     updatePagination(activeIndex);
     updateCard(activeIndex, true);
+
+    if (autoPlayEnabled && !reducedMotionQuery.matches) {
+      scheduleNextSweep();
+    }
+  }
+
+  function moveSweepTo(index, direction = 'nearest') {
+    if (!Number.isInteger(index) || index < 0 || index >= servicesData.length) return;
+    if (index === activeIndex && sweepTargetIndex === null) return;
+    if (index === sweepTargetIndex) return;
+
+    clearTimeout(cycleTimer);
+    clearTimeout(approachTimer);
+    stopSweepAtCurrentPosition();
+    clearTransientNodeStates();
+
+    if (reducedMotionQuery.matches) {
+      setSweepAngle(measuredAngles[index]);
+      commitService(index);
+      return;
+    }
+
+    sweepTargetIndex = index;
+    orbitalDiagram.dataset.targetStep = String(index + 1);
+    serviceNodes[activeIndex]?.classList.add('is-departing');
+
+    const fromAngle = currentSweepAngle;
+    const toAngle = direction === 'forward'
+      ? RadarProgress.getForwardAngle(fromAngle, measuredAngles[index])
+      : direction === 'backward'
+        ? RadarProgress.getBackwardAngle(fromAngle, measuredAngles[index])
+        : RadarProgress.getNearestAngle(fromAngle, measuredAngles[index]);
+
+    approachTimer = window.setTimeout(() => {
+      serviceNodes[index]?.classList.add('is-approaching');
+    }, RADAR_CONFIG.transitionDuration * RADAR_CONFIG.approachStartRatio);
+
+    sweepAnimation = radarSweep.animate(
+      [
+        { transform: `rotate(${fromAngle}deg)` },
+        { transform: `rotate(${toAngle}deg)` }
+      ],
+      {
+        duration: RADAR_CONFIG.transitionDuration,
+        easing: RADAR_CONFIG.easing,
+        fill: 'forwards'
+      }
+    );
+
+    sweepAnimation.onfinish = () => {
+      const finishedAnimation = sweepAnimation;
+      sweepAnimation = null;
+      setSweepAngle(toAngle);
+      finishedAnimation?.cancel();
+      commitService(index);
+    };
+  }
+
+  function goToService(index) {
+    moveSweepTo(index);
   }
 
   const prevService = () => {
     const nextIdx = (activeIndex - 1 + servicesData.length) % servicesData.length;
-    goToService(nextIdx);
+    moveSweepTo(nextIdx, 'backward');
     pauseAutoPlay();
   };
 
   const nextService = () => {
     const nextIdx = (activeIndex + 1) % servicesData.length;
-    goToService(nextIdx);
+    moveSweepTo(nextIdx, 'forward');
     pauseAutoPlay();
   };
 
@@ -539,18 +674,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function startAutoPlay() {
     stopAutoPlay();
-    autoPlayInterval = setInterval(() => goToService((activeIndex + 1) % servicesData.length), AUTO_PLAY_MS);
+    if (reducedMotionQuery.matches) return;
+
+    autoPlayEnabled = true;
+    scheduleNextSweep();
   }
+
+  function scheduleNextSweep(delay = RADAR_CONFIG.activePause) {
+    clearTimeout(cycleTimer);
+    if (!autoPlayEnabled || reducedMotionQuery.matches || sweepAnimation) return;
+
+    cycleTimer = window.setTimeout(() => {
+      moveSweepTo((activeIndex + 1) % servicesData.length, 'forward');
+    }, delay);
+  }
+
   function stopAutoPlay() {
-    if (autoPlayInterval) {
-      clearInterval(autoPlayInterval);
-      autoPlayInterval = null;
-    }
+    autoPlayEnabled = false;
+    clearTimeout(cycleTimer);
+    cycleTimer = null;
   }
+
   function pauseAutoPlay() {
     stopAutoPlay();
-    if (pauseTimeout) clearTimeout(pauseTimeout);
-    pauseTimeout = setTimeout(() => startAutoPlay(), PAUSE_RESUME_MS);
+    clearTimeout(resumeTimer);
+    resumeTimer = window.setTimeout(startAutoPlay, RADAR_CONFIG.manualResumeDelay);
   }
 
   serviceNodes.forEach(node => {
@@ -560,14 +708,63 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     node.addEventListener('mouseenter', () => stopAutoPlay());
     node.addEventListener('mouseleave', () => {
-      if (!autoPlayInterval) startAutoPlay();
+      startAutoPlay();
     });
   });
 
+  function refreshRadarMeasurements() {
+    const wasAutoPlaying = autoPlayEnabled;
+    clearTimeout(cycleTimer);
+    clearTimeout(approachTimer);
+    stopSweepAtCurrentPosition();
+    sweepTargetIndex = null;
+    clearTransientNodeStates();
+    adjustLabelPlacements();
+    measureRadarAngles();
+    setSweepAngle(measuredAngles[activeIndex]);
+
+    if (wasAutoPlaying && !reducedMotionQuery.matches) {
+      autoPlayEnabled = true;
+      scheduleNextSweep();
+    }
+  }
+
+  function scheduleRadarMeasurement() {
+    if (resizeFrame) cancelAnimationFrame(resizeFrame);
+    resizeFrame = requestAnimationFrame(() => {
+      resizeFrame = null;
+      refreshRadarMeasurements();
+    });
+  }
+
+  const radarResizeObserver = new ResizeObserver(scheduleRadarMeasurement);
+  radarResizeObserver.observe(orbitalDiagram);
+  window.addEventListener('resize', scheduleRadarMeasurement, { passive: true });
+
+  reducedMotionQuery.addEventListener('change', event => {
+    if (event.matches) {
+      stopAutoPlay();
+      stopSweepAtCurrentPosition();
+      clearTransientNodeStates();
+      setSweepAngle(measuredAngles[activeIndex]);
+      return;
+    }
+    startAutoPlay();
+  });
+
+  measureRadarAngles();
+  setSweepAngle(measuredAngles[activeIndex]);
   updateRadarStates();
   updatePagination(activeIndex);
   updateCard(activeIndex, false);
   startAutoPlay();
+
+  window.RadarSweepController = Object.freeze({
+    config: RADAR_CONFIG,
+    get currentStep() { return activeIndex + 1; },
+    get targetStep() { return sweepTargetIndex === null ? null : sweepTargetIndex + 1; },
+    get angles() { return [...measuredAngles]; }
+  });
 
   // CountUp animation for stats
   function animateCountUp(el) {
