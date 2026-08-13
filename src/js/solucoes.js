@@ -273,12 +273,79 @@ document.addEventListener('DOMContentLoaded', () => {
     };
   }
 
+  function polarPointAt(service, angle) {
+    const point = polarPoint(service);
+    const angleRad = (angle * Math.PI) / 180;
+
+    return {
+      x: 250 + point.radius * Math.cos(angleRad),
+      y: 250 + point.radius * Math.sin(angleRad)
+    };
+  }
+
+  function getConnectionInsetDegrees(service) {
+    const point = polarPoint(service);
+    const icon = serviceNodes[service.stepIndex]?.querySelector('.service-node-icon');
+    const centerRect = orbitalDiagram.getBoundingClientRect();
+    const iconDiameter = icon
+      ? Math.max(icon.getBoundingClientRect().width, icon.getBoundingClientRect().height)
+      : 46;
+    const viewBoxScale = Math.max(centerRect.width, centerRect.height, 1) / 500;
+    const halfIconUnits = iconDiameter / viewBoxScale / 2;
+    const ratio = Math.min(0.92, halfIconUnits / Math.max(point.radius, 1));
+    const iconAngle = Math.asin(ratio) * 180 / Math.PI;
+
+    return Math.min(10, Math.max(4, iconAngle + 2.5));
+  }
+
   function describeRadarArc(from, to) {
-    const start = polarPoint(from);
-    const end = polarPoint(to);
-    const radius = start.radius.toFixed(2);
+    const insetDegrees = getConnectionInsetDegrees(from);
+    const angles = RadarProgress.getSafeArcAngles(from.angle, to.angle, {
+      insetDegrees
+    });
+    const start = polarPointAt(from, angles.startAngle);
+    const end = polarPointAt(to, angles.endAngle);
+    const radius = polarPoint(from).radius.toFixed(2);
 
     return `M ${start.x.toFixed(2)} ${start.y.toFixed(2)} A ${radius} ${radius} 0 0 1 ${end.x.toFixed(2)} ${end.y.toFixed(2)}`;
+  }
+
+  const radarSvg = document.querySelector('.radar-trail-svg');
+  const radarGradientDefs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
+  radarSvg?.prepend(radarGradientDefs);
+
+  function createConnectionGradient(connection, state) {
+    const gradient = document.createElementNS('http://www.w3.org/2000/svg', 'linearGradient');
+    const gradientId = 'radar-connection-gradient-' +
+      connection.fromStepIndex + '-' + connection.toStepIndex;
+    const existingGradient = document.getElementById(gradientId);
+    if (existingGradient) return 'url(#' + gradientId + ')';
+
+    const peakOpacity = 0.82;
+    const stops = [
+      ['0%', '0.08'],
+      ['42%', String(peakOpacity)],
+      ['58%', String(peakOpacity)],
+      ['100%', '0.08']
+    ];
+
+    gradient.setAttribute('id', gradientId);
+    gradient.setAttribute('x1', '0%');
+    gradient.setAttribute('y1', '0%');
+    gradient.setAttribute('x2', '100%');
+    gradient.setAttribute('y2', '0%');
+    gradient.setAttribute('gradientUnits', 'objectBoundingBox');
+
+    stops.forEach(([offset, opacity]) => {
+      const stop = document.createElementNS('http://www.w3.org/2000/svg', 'stop');
+      stop.setAttribute('offset', offset);
+      stop.setAttribute('stop-color', '#00c2ff');
+      stop.setAttribute('stop-opacity', opacity);
+      gradient.appendChild(stop);
+    });
+
+    radarGradientDefs?.appendChild(gradient);
+    return 'url(#' + gradientId + ')';
   }
 
   const connectionDefinitions = RadarProgress.buildConnections(servicesData);
@@ -287,13 +354,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const to = servicesData[connection.toStepIndex];
     const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
 
-    path.setAttribute('class', 'radar-connection is-inactive');
+    path.setAttribute('class', 'radar-connection is-future');
     path.setAttribute('d', describeRadarArc(from, to));
     path.setAttribute('pathLength', '1');
     path.dataset.from = String(connection.fromStepIndex);
     path.dataset.to = String(connection.toStepIndex);
     path.dataset.ring = String(connection.ringIndex);
     path.dataset.closing = String(connection.isClosing);
+    path.dataset.gradientId = 'radar-connection-gradient-' +
+      connection.fromStepIndex + '-' + connection.toStepIndex;
     radarConnectionsLayer.appendChild(path);
 
     return { ...connection, path };
@@ -341,9 +410,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     connectionElements.forEach((connection, index) => {
-      const state = progressState.connections[index].state;
-      connection.path.classList.toggle('is-active', state === 'active');
-      connection.path.classList.toggle('is-inactive', state === 'inactive');
+      const state = RadarProgress.getConnectionVisualState(
+        progressState.connections[index],
+        activeIndex
+      );
+      connection.path.classList.toggle('is-completed', state === 'completed');
+      connection.path.classList.toggle('is-current', state === 'current');
+      connection.path.classList.toggle('is-future', state === 'future');
+      connection.path.setAttribute('stroke', createConnectionGradient(connection, state));
     });
   }
 
