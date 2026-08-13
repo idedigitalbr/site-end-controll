@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       id: 1,
       title: '2. Inspeção em Obras de Artes Especiais',
-      shortTitle: '2. Inspeção em Obras<br>de Artes Especiais',
+      shortTitle: '2. Inspeção em<br>Obras de Artes<br>Especiais',
       ring: 'outer',
       angle: -30, // Upper Right Outer (2:00)
       desc: 'Avaliações técnicas especializadas em Obras de Arte Especiais (pontes, viadutos, passarelas), com foco em segurança e durabilidade.',
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       id: 2,
       title: '3. Ensaios Não Destrutivos (ENDs)',
-      shortTitle: '3. Ensaios Não Destrutivos<br>(ENDs)',
+      shortTitle: '3. Ensaios Não<br>Destrutivos (ENDs)',
       ring: 'outer',
       angle: 30, // Lower Right Outer (4:00)
       desc: 'Técnicas avançadas para detecção de descontinuidades em materiais e soldas, garantindo segurança operacional sem comprometer os componentes.',
@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       id: 4,
       title: '5. Engenharia de Integridade Estrutural',
-      shortTitle: '5. Engenharia de<br>Integridade Estrutural',
+      shortTitle: '5. Engenharia de<br>Integridade<br>Estrutural',
       ring: 'outer',
       angle: 150, // Lower Left Outer (8:00)
       desc: 'Análise técnica de estruturas metálicas, civis e de concreto armado, com laudos e recomendações para manutenção preventiva e preditiva.',
@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       id: 5,
       title: '6. Soluções Tecnológicas Integradas',
-      shortTitle: '6. Soluções Tecnológicas<br>Integradas',
+      shortTitle: '6. Soluções<br>Tecnologias<br>Integradas',
       ring: 'outer',
       angle: 210, // Upper Left Outer (10:00)
       desc: 'Inovação aplicada em campo com tecnologias proprietárias como o RaptorScan, drones e softwares para gestão de integridade.',
@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       id: 6,
       title: '7. Inspeção e Adequação Normativa',
-      shortTitle: '7. Inspeção e Adequação<br>Normativa',
+      shortTitle: '7. Inspeção e<br>Adequação<br>Normativa',
       ring: 'inner',
       angle: -60, // Upper Right Inner (1:00)
       desc: 'Inspeção de segurança em vasos de pressão, caldeiras, tubulações e tanques conforme a NR-13 e normas internacionais aplicáveis.',
@@ -122,7 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       id: 7,
       title: '8. Calibração de Instrumentos',
-      shortTitle: '8. Calibração de<br>Instrumentos',
+      shortTitle: '8. Calibração<br>de Instrumentos',
       ring: 'inner',
       angle: 0, // Right Inner (3:00)
       desc: 'Serviços de calibração de manômetros, termômetros, blocos padrão e instrumentação industrial com rastreabilidade RBC/INMETRO.',
@@ -173,7 +173,7 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       id: 10,
       title: '11. Consultoria e Assessoria Técnica',
-      shortTitle: '11. Consultoria e<br>Assessoria Técnica',
+      shortTitle: '11. Consultoria<br>e Assessoria<br>Técnica',
       ring: 'inner',
       angle: 180, // Left Inner (9:00)
       desc: 'Assessoria especializada para solução de problemas complexos de engenharia, falhas de componentes e otimização de processos.',
@@ -190,7 +190,7 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       id: 11,
       title: '12. Elaboração de Projetos Mecânicos',
-      shortTitle: '12. Elaboração de<br>Projetos Mecânicos',
+      shortTitle: '12. Elaboração<br>de Projetos<br>Mecânicos',
       ring: 'inner',
       angle: 240, // Upper Left Inner (11:00)
       desc: 'Desenvolvimento de projetos mecânicos, estruturais e de tubulação, com análises de elementos finitos e soluções customizadas.',

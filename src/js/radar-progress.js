@@ -108,7 +108,11 @@
   function getLabelPlacement(angle) {
     const normalizedAngle = ((Number(angle) % 360) + 360) % 360;
 
-    if (normalizedAngle === 330 || normalizedAngle === 150 || normalizedAngle === 210) return 'bottom';
+    if (normalizedAngle === 30 || normalizedAngle === 180 || normalizedAngle === 300) return 'right';
+    if (normalizedAngle === 240) return 'bottom';
+    if (normalizedAngle === 330 || normalizedAngle === 150 || normalizedAngle === 210) {
+      return normalizedAngle === 330 ? 'right' : 'left';
+    }
     if (normalizedAngle >= 330 || normalizedAngle < 30) return 'right';
     if (normalizedAngle < 150) return 'bottom';
     if (normalizedAngle < 270) return 'left';
