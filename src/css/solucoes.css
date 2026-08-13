@@ -429,10 +429,9 @@
 .service-node {
   position: absolute;
   transform: translate(-50%, -50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
+  display: block;
+  width: max-content;
+  height: max-content;
   cursor: pointer;
   z-index: 7;
   pointer-events: auto;
@@ -467,6 +466,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: absolute;
+  z-index: 1;
   font-size: clamp(0.64rem, 0.68vw, 0.76rem);
   font-weight: 600;
   color: #ffffff;
@@ -482,9 +483,35 @@
   white-space: nowrap !important;
 }
 
-/* Bottom node label option */
-.service-node.node-pos-bottom {
-  flex-direction: column-reverse;
+/* Contextual label placement keeps text outside the ring stroke. */
+.service-node.label-pos-right .service-node-label {
+  top: 50%;
+  left: calc(100% + 14px);
+  transform: translateY(-50%);
+  align-items: flex-start;
+  text-align: left;
+}
+
+.service-node.label-pos-left .service-node-label {
+  top: 50%;
+  right: calc(100% + 14px);
+  transform: translateY(-50%);
+  align-items: flex-end;
+  text-align: right;
+}
+
+.service-node.label-pos-top .service-node-label {
+  top: calc(100% + 9px);
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.service-node.label-pos-bottom .service-node-label {
+  bottom: calc(100% + 9px);
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
 }
 
 /* =========================================================
@@ -1146,9 +1173,22 @@
     height: 16px;
   }
   .service-node-label {
+    position: static;
+    transform: none !important;
     font-size: 0.56rem;
     max-width: 76px;
     line-height: 1.15;
+  }
+  .service-node {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    width: max-content;
+    height: auto;
+  }
+  .service-node.label-pos-bottom {
+    flex-direction: column-reverse;
   }
 
   .highlight-card {

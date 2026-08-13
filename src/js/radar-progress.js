@@ -105,6 +105,15 @@
     };
   }
 
+  function getLabelPlacement(angle) {
+    const normalizedAngle = ((Number(angle) % 360) + 360) % 360;
+
+    if (normalizedAngle >= 315 || normalizedAngle < 45) return 'right';
+    if (normalizedAngle < 135) return 'bottom';
+    if (normalizedAngle < 225) return 'left';
+    return 'top';
+  }
+
   function getProgressState(services, activeStep) {
     const normalizedActiveStep = Math.max(0, Math.min(activeStep, services.length - 1));
     const connections = buildConnections(services).map(connection => ({
@@ -128,6 +137,7 @@
     canConnect,
     getConnectionState,
     getConnectionVisualState,
+    getLabelPlacement,
     getSafeArcAngles,
     getNodeState,
     getProgressState
