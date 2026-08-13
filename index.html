@@ -65,7 +65,7 @@
   <link rel="stylesheet" href="./src/css/base.css?v=32.0" />
   <link rel="stylesheet" href="./src/css/header.css?v=30.0" />
   <link rel="stylesheet" href="./src/css/hero.css?v=30.0" />
-  <link rel="stylesheet" href="./src/css/solucoes.css?v=54.0" />
+  <link rel="stylesheet" href="./src/css/solucoes.css?v=55.0" />
   <link rel="stylesheet" href="./src/css/sections.css?v=35.0" />
   <link rel="stylesheet" href="./src/css/work-units-footer.css?v=34.0" />
   <link rel="stylesheet" href="./src/css/presenca-nacional.css?v=30.0" />
@@ -74,7 +74,7 @@
   <link rel="stylesheet" href="./src/css/links.css?v=30.0" />
   <link rel="stylesheet" href="./src/css/timeline.css?v=30.0" />
   <link rel="stylesheet" href="./src/css/album.css?v=30.0" />
-  <link rel="stylesheet" href="./src/css/segmentos.css?v=30.0" />
+  <link rel="stylesheet" href="./src/css/segmentos.css?v=32.0" />
   <link rel="stylesheet" href="./src/css/responsive.css?v=30.0" />
 
   <!-- Script de Fallback Automático de Imagens e Vídeos -->
@@ -1594,8 +1594,8 @@
 
 
   <script src="./src/js/main.js?v=22.0" defer></script>
-  <script src="./src/js/radar-progress.js?v=5.3" defer></script>
-  <script src="./src/js/solucoes.js?v=56.0" defer></script>
+  <script src="./src/js/radar-progress.js?v=5.5" defer></script>
+  <script src="./src/js/solucoes.js?v=57.0" defer></script>
   <!-- Lucide Icons CDN -->
   <script src="https://unpkg.com/lucide@0.321.0" defer></script>
   <script src="./src/js/presenca-nacional.js" defer></script>
@@ -1614,6 +1614,11 @@
 
       if (trackIndex && panelsIndex.length > 0) {
         let currentIndex = 0;
+        let scrollSyncTimer = null;
+        let programmaticScrollTimer = null;
+        let isProgrammaticScroll = false;
+
+        const isMobileAccordion = () => window.matchMedia('(max-width: 860px)').matches;
 
         if (dotsContainerIndex) {
           panelsIndex.forEach((panel, index) => {
@@ -1623,8 +1628,7 @@
             if (index === 0) dot.classList.add('is-active');
             
             dot.addEventListener('click', () => {
-              activatePanelIndex(index);
-              scrollToPanelIndex(index);
+              openPanelIndex(index);
             });
             
             dotsContainerIndex.appendChild(dot);
@@ -1634,59 +1638,107 @@
         const dotsIndex = dotsContainerIndex ? dotsContainerIndex.querySelectorAll('.endo-acc-dot') : [];
 
         function activatePanelIndex(index) {
+          const safeIndex = Math.max(0, Math.min(index, panelsIndex.length - 1));
+
           panelsIndex.forEach((p, idx) => {
-            if (idx === index) {
+            if (idx === safeIndex) {
               p.classList.add('is-active');
+              p.setAttribute('aria-expanded', 'true');
             } else {
               p.classList.remove('is-active');
+              p.setAttribute('aria-expanded', 'false');
             }
           });
 
           dotsIndex.forEach((d, idx) => {
-            if (idx === index) {
+            if (idx === safeIndex) {
               d.classList.add('is-active');
             } else {
               d.classList.remove('is-active');
             }
           });
 
-          currentIndex = index;
+          currentIndex = safeIndex;
         }
 
         function scrollToPanelIndex(index) {
           const targetPanel = panelsIndex[index];
           if (!targetPanel) return;
+
+          isProgrammaticScroll = true;
+          window.clearTimeout(programmaticScrollTimer);
+
           const scrollOffset = targetPanel.offsetLeft - (trackIndex.clientWidth / 2) + (targetPanel.clientWidth / 2);
           trackIndex.scrollTo({ left: scrollOffset, behavior: 'smooth' });
+
+          programmaticScrollTimer = window.setTimeout(() => {
+            isProgrammaticScroll = false;
+          }, 700);
+        }
+
+        function openPanelIndex(index) {
+          const targetIndex = Math.max(0, Math.min(index, panelsIndex.length - 1));
+          activatePanelIndex(targetIndex);
+
+          window.requestAnimationFrame(() => {
+            scrollToPanelIndex(targetIndex);
+          });
+        }
+
+        function activateClosestPanelAfterSwipe() {
+          if (!isMobileAccordion() || isProgrammaticScroll) return;
+
+          const trackCenter = trackIndex.scrollLeft + (trackIndex.clientWidth / 2);
+          let closestIndex = currentIndex;
+          let closestDistance = Number.POSITIVE_INFINITY;
+
+          panelsIndex.forEach((panel, index) => {
+            const panelCenter = panel.offsetLeft + (panel.offsetWidth / 2);
+            const distance = Math.abs(panelCenter - trackCenter);
+
+            if (distance < closestDistance) {
+              closestDistance = distance;
+              closestIndex = index;
+            }
+          });
+
+          if (closestIndex !== currentIndex) {
+            openPanelIndex(closestIndex);
+          }
         }
 
         panelsIndex.forEach((panel, index) => {
           panel.addEventListener('mouseenter', () => activatePanelIndex(index));
           panel.addEventListener('click', () => {
-            activatePanelIndex(index);
-            scrollToPanelIndex(index);
+            openPanelIndex(index);
           });
         });
 
+        trackIndex.addEventListener('pointerdown', () => {
+          window.clearTimeout(programmaticScrollTimer);
+          isProgrammaticScroll = false;
+        }, { passive: true });
+
+        trackIndex.addEventListener('scroll', () => {
+          if (!isMobileAccordion() || isProgrammaticScroll) return;
+
+          window.clearTimeout(scrollSyncTimer);
+          scrollSyncTimer = window.setTimeout(activateClosestPanelAfterSwipe, 120);
+        }, { passive: true });
+
         if (btnPrevAcc && btnNextAcc) {
           btnPrevAcc.addEventListener('click', () => {
-            if (currentIndex > 0) {
-              activatePanelIndex(currentIndex - 1);
-              scrollToPanelIndex(currentIndex - 1);
-            } else {
-              trackIndex.scrollBy({ left: -300, behavior: 'smooth' });
-            }
+            const previousIndex = Math.max(0, currentIndex - 1);
+            openPanelIndex(previousIndex);
           });
 
           btnNextAcc.addEventListener('click', () => {
-            if (currentIndex < panelsIndex.length - 1) {
-              activatePanelIndex(currentIndex + 1);
-              scrollToPanelIndex(currentIndex + 1);
-            } else {
-              trackIndex.scrollBy({ left: 300, behavior: 'smooth' });
-            }
+            const nextIndex = Math.min(panelsIndex.length - 1, currentIndex + 1);
+            openPanelIndex(nextIndex);
           });
         }
+
+        activatePanelIndex(currentIndex);
       }
     });
   </script>

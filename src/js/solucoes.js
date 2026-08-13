@@ -323,7 +323,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  function describeRadarArc(from, to) {
+  function getRadarArcGeometry(from, to) {
     const insetDegrees = getConnectionInsetDegrees(from);
     const angles = RadarProgress.getSafeArcAngles(from.angle, to.angle, {
       insetDegrees
@@ -332,7 +332,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const end = polarPointAt(to, angles.endAngle);
     const radius = polarPoint(from).radius.toFixed(2);
 
-    return `M ${start.x.toFixed(2)} ${start.y.toFixed(2)} A ${radius} ${radius} 0 0 1 ${end.x.toFixed(2)} ${end.y.toFixed(2)}`;
+    return {
+      d: `M ${start.x.toFixed(2)} ${start.y.toFixed(2)} A ${radius} ${radius} 0 0 1 ${end.x.toFixed(2)} ${end.y.toFixed(2)}`,
+      start,
+      end
+    };
   }
 
   const radarSvg = document.querySelector('.radar-trail-svg');
@@ -347,13 +351,17 @@ document.addEventListener('DOMContentLoaded', () => {
     if (existingGradient) return 'url(#' + gradientId + ')';
 
     const stops = RadarProgress.getConnectionGradientStops(0.82);
+    const vector = RadarProgress.getConnectionGradientVector(
+      connection.gradientStart,
+      connection.gradientEnd
+    );
 
     gradient.setAttribute('id', gradientId);
-    gradient.setAttribute('x1', '0%');
-    gradient.setAttribute('y1', '0%');
-    gradient.setAttribute('x2', '100%');
-    gradient.setAttribute('y2', '0%');
-    gradient.setAttribute('gradientUnits', 'objectBoundingBox');
+    gradient.setAttribute('x1', String(vector.x1));
+    gradient.setAttribute('y1', String(vector.y1));
+    gradient.setAttribute('x2', String(vector.x2));
+    gradient.setAttribute('y2', String(vector.y2));
+    gradient.setAttribute('gradientUnits', vector.gradientUnits);
 
     stops.forEach(([offset, opacity]) => {
       const stop = document.createElementNS('http://www.w3.org/2000/svg', 'stop');
@@ -371,10 +379,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const connectionElements = connectionDefinitions.map(connection => {
     const from = servicesData[connection.fromStepIndex];
     const to = servicesData[connection.toStepIndex];
+    const geometry = getRadarArcGeometry(from, to);
     const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
 
     path.setAttribute('class', 'radar-connection is-future');
-    path.setAttribute('d', describeRadarArc(from, to));
+    path.setAttribute('d', geometry.d);
     path.setAttribute('pathLength', '1');
     path.dataset.from = String(connection.fromStepIndex);
     path.dataset.to = String(connection.toStepIndex);
@@ -384,7 +393,12 @@ document.addEventListener('DOMContentLoaded', () => {
       connection.fromStepIndex + '-' + connection.toStepIndex;
     radarConnectionsLayer.appendChild(path);
 
-    return { ...connection, path };
+    return {
+      ...connection,
+      path,
+      gradientStart: geometry.start,
+      gradientEnd: geometry.end
+    };
   });
 
   // Build card progress dots

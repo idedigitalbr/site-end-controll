@@ -55,6 +55,8 @@ Assert-Condition ($solucoesCss -match '(?s)\.service-node\.label-pos-bottom .*?t
 Assert-Condition ($solucoesCss -notmatch '(?s)\.service-node\.label-pos-bottom .*?bottom:\s*calc\(100% \+ 9px\)') 'labels inferiores ainda estao acima dos icones.'
 Assert-Condition ($solucoesCss -match '(?s)\.service-node-icon::before\s*\{.*?background:\s*#061226') 'icones precisam de uma camada opaca para bloquear as linhas do radar.'
 Assert-Condition ($solucoesCss -match '(?s)\.service-node\.is-active \.service-node-icon\s*\{.*?background:\s*rgba\(0, 156, 255, 0\.28\)') 'o icone ativo precisa preservar o azul translúcido original.'
+Assert-Condition ($solucoesCss -match '(?s)\.service-node\.is-inactive \.service-node-icon\s*\{[^}]*opacity:\s*1;') 'o circulo e o preenchimento do no inativo precisam permanecer opacos.'
+Assert-Condition ($solucoesCss -match '(?s)\.service-node\.is-inactive \.service-node-icon svg\s*\{[^}]*opacity:\s*0\.55;') 'somente o simbolo interno do no inativo deve usar opacidade reduzida.'
 Assert-Condition ($solucoesCss -match '(?s)\.solucoes-section\s*\{.*?padding:\s*(?:[7-9][0-9]|[1-9][0-9]{2})px\s+0\s+(?:[1-9]|[1-9][0-9])px\s*;') 'solucoes-section precisa manter respiro superior e padding inferior compacto após a barra de status.'
 Assert-Condition ($solucoesCss -match '(?s)@media \(max-width: 1440px\) and \(min-width: 1201px\).*?\.solucoes-main-content\s*\{.*?padding:\s*40px\s+0\s+80px\s+0\s*;') 'grid desktop precisa de espaço inferior adicional entre o radar e a barra inferior.'
 

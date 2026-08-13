@@ -6,6 +6,7 @@ const {
   getConnectionVisualState,
   getConnectionInsetDegrees,
   getConnectionGradientStops,
+  getConnectionGradientVector,
   getLabelPlacement,
   getSafeArcAngles,
   getProgressState
@@ -144,6 +145,19 @@ test('fades connection endpoints to zero before reaching icons', () => {
   assert.deepEqual(stops.at(-1), ['100%', '0']);
 });
 
+test('orients side-arc gradients from the real start point to the end point', () => {
+  assert.deepEqual(
+    getConnectionGradientVector({ x: 480, y: 180 }, { x: 480, y: 320 }),
+    {
+      gradientUnits: 'userSpaceOnUse',
+      x1: 480,
+      y1: 180,
+      x2: 480,
+      y2: 320
+    }
+  );
+});
+
 test('leaves a clear angular gap around each icon', () => {
   const inset = getConnectionInsetDegrees({
     iconDiameter: 50,
@@ -157,7 +171,7 @@ test('leaves a clear angular gap around each icon', () => {
 
 test('places labels by polar quadrant', () => {
   assert.equal(getLabelPlacement(-90), 'top');
-  assert.equal(getLabelPlacement(0), 'right');
+  assert.equal(getLabelPlacement(30), 'right');
   assert.equal(getLabelPlacement(90), 'bottom');
   assert.equal(getLabelPlacement(180), 'right');
 });
@@ -170,7 +184,8 @@ test('places labels according to the approved radar alignment map', () => {
   assert.equal(getLabelPlacement(120), 'bottom');
   assert.equal(getLabelPlacement(150), 'left');
   assert.equal(getLabelPlacement(210), 'left');
-  assert.equal(getLabelPlacement(-60), 'right');
+  assert.equal(getLabelPlacement(-60), 'bottom');
+  assert.equal(getLabelPlacement(0), 'left');
   assert.equal(getLabelPlacement(180), 'right');
   assert.equal(getLabelPlacement(240), 'bottom');
 });

@@ -118,6 +118,16 @@
     ];
   }
 
+  function getConnectionGradientVector(start, end) {
+    return {
+      gradientUnits: 'userSpaceOnUse',
+      x1: Number(start && start.x) || 0,
+      y1: Number(start && start.y) || 0,
+      x2: Number(end && end.x) || 0,
+      y2: Number(end && end.y) || 0
+    };
+  }
+
   function getConnectionInsetDegrees(options) {
     const iconDiameter = Math.max(0, Number(options && options.iconDiameter) || 0);
     const viewBoxScale = Math.max(Number(options && options.viewBoxScale) || 1, 0.0001);
@@ -132,7 +142,9 @@
   function getLabelPlacement(angle) {
     const normalizedAngle = ((Number(angle) % 360) + 360) % 360;
 
-    if (normalizedAngle === 30 || normalizedAngle === 180 || normalizedAngle === 300) return 'right';
+    if (normalizedAngle === 300) return 'bottom';
+    if (normalizedAngle === 0) return 'left';
+    if (normalizedAngle === 30 || normalizedAngle === 180) return 'right';
     if (normalizedAngle === 240) return 'bottom';
     if (normalizedAngle === 330 || normalizedAngle === 150 || normalizedAngle === 210) {
       return normalizedAngle === 330 ? 'right' : 'left';
@@ -167,6 +179,7 @@
     getConnectionState,
     getConnectionVisualState,
     getConnectionGradientStops,
+    getConnectionGradientVector,
     getConnectionInsetDegrees,
     getLabelPlacement,
     getSafeArcAngles,
