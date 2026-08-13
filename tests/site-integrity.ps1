@@ -18,6 +18,7 @@ $officialDomain = 'https://endcontrol.suporteide.digital'
 $index = Get-Content -Raw (Join-Path $root 'index.html')
 $identity = Get-Content -Raw (Join-Path $root 'identidade-visual.html')
 $solucoes = Get-Content -Raw (Join-Path $root 'src\js\solucoes.js')
+$solucoesCss = Get-Content -Raw (Join-Path $root 'src\css\solucoes.css')
 $gitignore = Get-Content -Raw (Join-Path $root '.gitignore')
 $activeDataFiles = @(
   (Join-Path $root 'src\data\drive-assets.js'),
@@ -39,6 +40,8 @@ $solucoesScriptIndex = $index.IndexOf('<script src="./src/js/solucoes.js')
 Assert-Condition ($radarScriptIndex -ge 0 -and $radarScriptIndex -lt $solucoesScriptIndex) 'radar-progress.js precisa ser carregado antes de solucoes.js.'
 Assert-Condition ($solucoes -notmatch 'visitedSequence|visitedIndices|updateRadarTrail') 'solucoes.js ainda contem a logica global de trilha visitada.'
 Assert-Condition ($solucoes -match 'ringIndex' -and $solucoes -match 'positionInRing') 'solucoes.js precisa usar metadados de anel e posicao.'
+Assert-Condition ($solucoesCss -match '(?s)\.solucoes-section\s*\{.*?padding:\s*(?:[7-9][0-9]|[1-9][0-9]{2})px\s+0\s+(?:[1-9]|[1-9][0-9])px\s*;') 'solucoes-section precisa manter respiro superior e padding inferior compacto após a barra de status.'
+Assert-Condition ($solucoesCss -match '(?s)@media \(max-width: 1440px\) and \(min-width: 1201px\).*?\.solucoes-main-content\s*\{.*?padding:\s*40px\s+0\s+80px\s+0\s*;') 'grid desktop precisa de espaço inferior adicional entre o radar e a barra inferior.'
 
 foreach ($file in $activeDataFiles) {
   $content = Get-Content -Raw $file
