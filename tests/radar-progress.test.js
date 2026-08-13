@@ -4,6 +4,7 @@ const {
   buildConnections,
   canConnect,
   getConnectionVisualState,
+  getConnectionGradientStops,
   getLabelPlacement,
   getSafeArcAngles,
   getProgressState
@@ -131,6 +132,15 @@ test('recedes both ends of a sixty degree arc by the requested safe angle', () =
     endAngle: -37,
     sweep: 1
   });
+});
+
+test('fades connection endpoints to zero before reaching icons', () => {
+  const stops = getConnectionGradientStops(0.82);
+
+  assert.deepEqual(stops[0], ['0%', '0']);
+  assert.deepEqual(stops[1], ['18%', '0']);
+  assert.deepEqual(stops.at(-2), ['82%', '0']);
+  assert.deepEqual(stops.at(-1), ['100%', '0']);
 });
 
 test('places labels by polar quadrant', () => {

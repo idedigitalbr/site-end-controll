@@ -346,13 +346,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const existingGradient = document.getElementById(gradientId);
     if (existingGradient) return 'url(#' + gradientId + ')';
 
-    const peakOpacity = 0.82;
-    const stops = [
-      ['0%', '0.08'],
-      ['42%', String(peakOpacity)],
-      ['58%', String(peakOpacity)],
-      ['100%', '0.08']
-    ];
+    const stops = RadarProgress.getConnectionGradientStops(0.82);
 
     gradient.setAttribute('id', gradientId);
     gradient.setAttribute('x1', '0%');
