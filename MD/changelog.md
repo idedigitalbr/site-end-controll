@@ -1,5 +1,11 @@
 # Changelog — ENDCONTROL Engenharia
 
+## [2026-08-13] - Ampliação do respiro vertical no radar de soluções
+
+### Fixed
+- Mantido o espaço da `.solucoes-section` em 80px no topo e padding inferior compacto de 24px, preservando a proximidade correta após a barra de status.
+- Adicionados 80px de espaço inferior no grid desktop entre o radar e a barra de status, sem mudanças na geometria dos anéis ou no layout mobile/tablet.
+
 ## [2026-08-12] - Linha de Progresso Neon Ciano Conectando os Serviços Visitados (`<path id="radarTrailPath">`)
 
 ### Changed & Improved
