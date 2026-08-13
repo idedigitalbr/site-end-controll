@@ -85,6 +85,26 @@
     return connection.toStepIndex <= activeStep ? 'active' : 'inactive';
   }
 
+  function getConnectionVisualState(connection, activeStep) {
+    if (!connection.isClosing && connection.toStepIndex === activeStep) {
+      return 'current';
+    }
+
+    return getConnectionState(connection, activeStep) === 'active'
+      ? 'completed'
+      : 'future';
+  }
+
+  function getSafeArcAngles(fromAngle, toAngle, options) {
+    const insetDegrees = Math.max(0, Number(options && options.insetDegrees) || 0);
+
+    return {
+      startAngle: fromAngle + insetDegrees,
+      endAngle: toAngle - insetDegrees,
+      sweep: 1
+    };
+  }
+
   function getProgressState(services, activeStep) {
     const normalizedActiveStep = Math.max(0, Math.min(activeStep, services.length - 1));
     const connections = buildConnections(services).map(connection => ({
@@ -107,6 +127,8 @@
     buildConnections,
     canConnect,
     getConnectionState,
+    getConnectionVisualState,
+    getSafeArcAngles,
     getNodeState,
     getProgressState
   };
