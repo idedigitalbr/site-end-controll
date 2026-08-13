@@ -137,13 +137,18 @@ test('places labels by polar quadrant', () => {
   assert.equal(getLabelPlacement(-90), 'top');
   assert.equal(getLabelPlacement(0), 'right');
   assert.equal(getLabelPlacement(90), 'bottom');
-  assert.equal(getLabelPlacement(180), 'left');
+  assert.equal(getLabelPlacement(180), 'right');
 });
 
-test('places requested service labels below the icon', () => {
-  assert.equal(getLabelPlacement(-30), 'bottom');
-  assert.equal(getLabelPlacement(30), 'bottom');
+test('places labels according to the approved radar alignment map', () => {
+  assert.equal(getLabelPlacement(-30), 'right');
+  assert.equal(getLabelPlacement(30), 'right');
   assert.equal(getLabelPlacement(60), 'bottom');
-  assert.equal(getLabelPlacement(150), 'bottom');
-  assert.equal(getLabelPlacement(210), 'bottom');
+  assert.equal(getLabelPlacement(90), 'bottom');
+  assert.equal(getLabelPlacement(120), 'bottom');
+  assert.equal(getLabelPlacement(150), 'left');
+  assert.equal(getLabelPlacement(210), 'left');
+  assert.equal(getLabelPlacement(-60), 'right');
+  assert.equal(getLabelPlacement(180), 'right');
+  assert.equal(getLabelPlacement(240), 'bottom');
 });
