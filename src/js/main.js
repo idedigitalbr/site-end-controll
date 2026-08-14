@@ -74,7 +74,7 @@
       });
     });
 
-    // Toggle para Submenuzinho do Item 1 (Gerenciamento de Projetos -> Análise / Gestão)
+    // Toggle para o agrupador Projetos (Gerenciamento e Elaboração de Projetos Mecânicos)
     const itemsWithSubmenu = document.querySelectorAll('.item-with-submenu');
     itemsWithSubmenu.forEach(function (itemWithSubmenu) {
       const trigger = itemWithSubmenu.querySelector('.item-has-children');

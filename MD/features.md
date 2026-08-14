@@ -1,5 +1,14 @@
 # Features — ENDCONTROL Engenharia
 
+## Ordem compartilhada de serviços e agrupador Projetos
+
+- Status: Concluída
+- Data: 2026-08-14
+- Menu, radar e cards seguem a mesma sequência de 12 serviços.
+- `Projetos` funciona como agrupador sem numeração para Gerenciamento de Projetos e Elaboração de Projetos Mecânicos.
+- Navegação por menu, radar, autoplay, setas e dots permanece sincronizada.
+- Validação: testes da ordem, testes do radar e integridade estrutural aprovados.
+
 ## Radar Sweep sincronizado
 
 - Status: Concluida

@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const servicesData = [
+  const sourceServicesData = [
     {
       id: 0,
       title: '1. Gerenciamento de Projetos',
@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       id: 5,
       title: '6. Soluções Tecnológicas Integradas',
-      shortTitle: '6. Soluções<br>Tecnologias<br>Integradas',
+      shortTitle: '6. Soluções<br>Tecnológicas<br>Integradas',
       ring: 'outer',
       angle: 210, // Upper Left Outer (10:00)
       desc: 'Inovação aplicada em campo com tecnologias proprietárias como o RaptorScan, drones e softwares para gestão de integridade.',
@@ -206,7 +206,26 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   ];
 
+  const serviceOrder = [4, 1, 2, 3, 0, 11, 5, 6, 7, 8, 9, 10];
   const RING_SIZE = 6;
+  const servicesData = serviceOrder.map((sourceIndex, stepIndex) => {
+    const sourceService = sourceServicesData[sourceIndex];
+    const ringIndex = stepIndex < RING_SIZE ? 0 : 1;
+    const title = sourceService.title.replace(/^\d+\.\s*/, '');
+    const shortTitle = sourceService.shortTitle.replace(/^\d+\.\s*/, '');
+
+    return {
+      ...sourceService,
+      id: stepIndex,
+      title: `${stepIndex + 1}. ${title}`,
+      shortTitle: `${stepIndex + 1}. ${shortTitle}`,
+      ring: ringIndex === 0 ? 'outer' : 'inner',
+      angle: ringIndex === 0
+        ? -90 + stepIndex * 60
+        : -60 + (stepIndex - RING_SIZE) * 60
+    };
+  });
+
   const RADAR_CONFIG = Object.freeze({
     transitionDuration: 1600,
     activePause: 1200,
@@ -452,7 +471,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const checkSvg = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>`;
   const arrowSvg = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>`;
 
-  // Default active index = 0 ("1. Gerenciamento de Projetos")
+  // Default active index = 0 ("1. Engenharia de Integridade Estrutural")
   let activeIndex = 0;
   let cycleTimer = null;
   let resumeTimer = null;
