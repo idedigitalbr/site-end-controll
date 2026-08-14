@@ -1,5 +1,13 @@
 # Histórico de sincronização — DB_IDE
 
+## 2026-08-14 - Curadoria das fotos do HERO
+
+- Projeto: site-end-controll
+- Tarefa: remover duas fotos não aprovadas do carrossel do HERO.
+- Status local: Concluída.
+- Registro: removidas apenas as entradas do slideshow; arquivos preservados para as demais referências do site; primeira foto restante marcada como ativa.
+- Observação: memória local atualizada; nenhuma sincronização externa foi executada nesta etapa.
+
 ## 2026-08-13 - Radar Sweep das solucoes
 
 - Projeto: site-end-controll

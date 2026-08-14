@@ -3,12 +3,69 @@
    ========================================================================== */
 
 /* Container principal — sem gap lateral e fundo neutro */
+body {
+  background: #f0f5f7;
+}
+
 #wf-main-content {
-  background: var(--paper);
+  background: #f0f5f7;
   overflow-x: hidden;
   display: flex;
   flex-direction: column;
   gap: 0;
+}
+
+/* Todas as seções da página usam o mesmo raio da seção de depoimentos. */
+#wf-main-content > section,
+.presenca-nacional-light {
+  border-radius: 28px !important;
+  overflow: hidden !important;
+}
+
+/* A seção seguinte encaixa sobre a anterior, escondendo os cantos expostos. */
+#wf-main-content > section + section,
+#wf-main-content + .presenca-nacional-light {
+  margin-top: -28px !important;
+  position: relative;
+  z-index: 1;
+}
+
+/* O bloco de oportunidades começa após o carrossel de áreas, sem cobri-lo. */
+#segmentos-secao + #oportunidades {
+  margin-top: 0 !important;
+  padding-top: 100px !important;
+}
+
+/* Hero e Sobre: topo reto e sem sobreposição entre os dois blocos. */
+#home.hero-static-container,
+#sobre.about-premium-section {
+  border-radius: 0 0 28px 28px !important;
+}
+
+#home.hero-static-container + #sobre.about-premium-section {
+  margin-top: 0 !important;
+  padding-top: 100px !important;
+}
+
+/* Palavra da Presidência: avanço adicional sobre a seção do radar. */
+#solucoes + #depoimentos.testimonials-section-premium {
+  margin-top: -40px !important;
+}
+
+@media (max-width: 1024px) {
+  #segmentos-secao + #oportunidades {
+    padding-top: 80px !important;
+  }
+
+  #home.hero-static-container + #sobre.about-premium-section {
+    padding-top: 80px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  #home.hero-static-container + #sobre.about-premium-section {
+    padding-top: 60px !important;
+  }
 }
 
 /* Seções padrão com cantos arredondados e margens contidas */
@@ -32,7 +89,7 @@
   width: 100% !important;
   max-width: 100% !important;
   margin: 0 !important;
-  border-radius: 0 !important;
+  border-radius: 28px !important;
   box-shadow: none !important;
 }
 
@@ -49,14 +106,15 @@
 .testimonials-section-premium {
   border-radius: 28px !important;
   overflow: hidden !important;
-  margin: 0 0 -28px !important;
+  margin: -28px 0 -28px !important;
   box-shadow: none !important;
   width: 100% !important;
   max-width: 100% !important;
+  z-index: 3 !important;
 }
 @media (min-width: 768px) {
   .testimonials-section-premium {
-    margin: 0 0 -28px !important;
+    margin: -28px 0 -28px !important;
   }
 }
 
@@ -234,11 +292,11 @@ p {
 .testimonials-section-premium {
   position: relative;
   background: var(--color-cinza-forte, #9ac3cd) !important;
-  padding: 0 !important;
+  padding: 28px 0 0 !important;
   overflow: hidden;
   color: #071429 !important;
   border-radius: 28px !important;
-  margin: 0 0 -28px !important;
+  margin: -28px 0 -28px !important;
   width: 100% !important;
   max-width: 100% !important;
   z-index: 3;
@@ -328,7 +386,7 @@ p {
 @media (max-width: 1024px) {
   .testimonials-section-premium {
     min-height: auto !important;
-    padding: 48px 0 !important;
+    padding: 76px 0 48px !important;
   }
   .testimonials-section-premium > .container {
     padding: 0 clamp(16px, 4vw, 48px) !important;
@@ -1198,7 +1256,7 @@ p {
 
 .faq-v2 {
   background: #effaff;
-  padding: 80px 0;
+  padding: 108px 0 80px;
 }
 
 .faq-v2-head {
@@ -1319,7 +1377,7 @@ p {
   }
 
   .faq-v2 {
-    padding: 56px 0;
+    padding: 84px 0 56px;
   }
 }
 
@@ -1951,7 +2009,7 @@ textarea.form-control {
 
   position: relative;
   background-color: var(--bg-light);
-  padding: 100px 0;
+  padding: 128px 0 100px;
   overflow: hidden;
   font-family: 'Inter', sans-serif;
   color: var(--text-muted);
@@ -2615,7 +2673,7 @@ textarea.form-control {
 /* Media Queries para Responsividade */
 @media (max-width: 1024px) {
   .about-premium-section {
-    padding: 80px 0;
+    padding: 108px 0 80px;
   }
   
   .about-main-grid {
@@ -2672,7 +2730,7 @@ textarea.form-control {
 
 @media (max-width: 576px) {
   .about-premium-section {
-    padding: 60px 0;
+    padding: 88px 0 60px;
   }
   
   .about-headline {
@@ -3530,11 +3588,11 @@ textarea.form-control {
   width: 100% !important;
   max-width: 100% !important;
   margin: 0 !important;
-  border-radius: 0 !important;
+  border-radius: 28px !important;
   box-shadow: none !important;
   background: var(--color-cinza-fraco, #cce6ed) !important;
   color: #071429;
-  padding: 100px 0;
+  padding: 128px 0 100px;
   overflow: hidden;
 }
 
@@ -3780,7 +3838,7 @@ textarea.form-control {
   }
 
   .oportunidades-section {
-    padding: 80px 0;
+    padding: 108px 0 80px;
   }
 }
 

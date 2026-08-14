@@ -1,5 +1,18 @@
 # Changelog — ENDCONTROL Engenharia
 
+## [2026-08-14] - Encaixe visual entre seções arredondadas
+
+### Changed
+- A seção seguinte agora sobrepõe a anterior em `28px`, cobrindo os cantos expostos e eliminando as faixas escuras entre blocos.
+- Paddings superiores foram compensados nos breakpoints de desktop, tablet e mobile para preservar a posição do conteúdo.
+
+## [2026-08-14] - Curadoria das fotos do HERO
+
+### Changed
+- Removidas do carrossel de fundo do HERO as fotos `operacional-ultrassom-solda-tubulacao-edit-final.webp` e `operacional-tecnico-refinaria-noite-edit.webp`.
+- Mantidos os arquivos no projeto porque continuam referenciados em outras seções.
+- Ajustada a primeira foto restante para manter o estado inicial `active` e o carregamento prioritário do carrossel.
+
 ## [2026-08-14] - Reorganização dos serviços e agrupador Projetos
 
 ### Changed

@@ -1,5 +1,12 @@
 # Features — ENDCONTROL Engenharia
 
+## Curadoria das fotos do HERO
+
+- Status: Concluída
+- Data: 2026-08-14
+- Removidas do carrossel do topo as fotos de ultrassom em solda de tubulação e do técnico em refinaria noturna, conforme aprovação visual.
+- Os arquivos físicos foram preservados porque continuam sendo usados em outras seções do site.
+
 ## Ordem compartilhada de serviços e agrupador Projetos
 
 - Status: Concluída
