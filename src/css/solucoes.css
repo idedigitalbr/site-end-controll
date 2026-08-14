@@ -4,7 +4,7 @@
   width: 100%;
   background: var(--color-bg-primary);
   overflow: hidden;
-  padding: 80px 0 24px;
+  padding: 108px 0 24px;
   display: flex;
   flex-direction: column;
   min-height: 880px;
@@ -1209,7 +1209,7 @@
 
 @media (max-width: 1200px) {
   .solucoes-section {
-    padding: 0;
+    padding: 28px 0 0;
     min-height: 720px;
   }
 
