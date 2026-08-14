@@ -5,6 +5,7 @@
 ### Changed
 - Ajustada a configuração do radar para avançar automaticamente em intervalos constantes de 2 segundos.
 - Mantida a transição visual de 1.600 ms, usando automaticamente os 400 ms restantes para completar cada intervalo de 2 segundos.
+- Atualizada a versão do JavaScript para `v=59.0` para invalidar o cache do navegador/CDN.
 - Adicionado teste de regressão em `tests/solucoes-stats.test.js`.
 
 ## [2026-08-14] - Remoção de foto não utilizada

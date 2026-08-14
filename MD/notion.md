@@ -5,7 +5,7 @@
 - Projeto: site-end-controll
 - Tarefa: padronizar o avanço automático do radar para um item a cada 2 segundos.
 - Status local: Concluída.
-- Registro: configuração do autoplay atualizada com intervalo de 2.000 ms; a pausa é calculada como o restante após a transição de 1.600 ms; teste de regressão adicionado.
+- Registro: configuração do autoplay atualizada com intervalo de 2.000 ms; a pausa é calculada como o restante após a transição de 1.600 ms; versão do JavaScript atualizada para `v=59.0`; teste de regressão adicionado.
 - Observação: memória local atualizada; nenhuma sincronização externa foi executada nesta etapa.
 
 ## 2026-08-14 - Remoção de foto não utilizada
