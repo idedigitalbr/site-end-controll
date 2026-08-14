@@ -228,7 +228,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const RADAR_CONFIG = Object.freeze({
     transitionDuration: 1600,
-    activePause: 1200,
+    autoAdvanceInterval: 2000,
     manualResumeDelay: 12000,
     approachStartRatio: 0.56,
     easing: 'cubic-bezier(0.45, 0, 0.2, 1)'
@@ -699,7 +699,9 @@ document.addEventListener('DOMContentLoaded', () => {
     scheduleNextSweep();
   }
 
-  function scheduleNextSweep(delay = RADAR_CONFIG.activePause) {
+  function scheduleNextSweep(
+    delay = Math.max(0, RADAR_CONFIG.autoAdvanceInterval - RADAR_CONFIG.transitionDuration)
+  ) {
     clearTimeout(cycleTimer);
     if (!autoPlayEnabled || reducedMotionQuery.matches || sweepAnimation) return;
 

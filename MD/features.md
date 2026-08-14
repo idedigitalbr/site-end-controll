@@ -1,5 +1,13 @@
 # Features — ENDCONTROL Engenharia
 
+## Autoplay do radar com cadência fixa
+
+- Status: Concluída
+- Data: 2026-08-14
+- O radar avança automaticamente de um serviço para o próximo a cada 2 segundos.
+- A transição permanece em 1.600 ms e o código calcula os 400 ms restantes para completar cada intervalo de 2 segundos.
+- Validação: teste de cadência, testes automatizados completos, integridade estrutural e `git diff --check` aprovados.
+
 ## Remoção de foto não utilizada
 
 - Status: Concluída

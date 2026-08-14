@@ -1,5 +1,12 @@
 # Changelog — ENDCONTROL Engenharia
 
+## [2026-08-14] - Cadência fixa do autoplay do radar
+
+### Changed
+- Ajustada a configuração do radar para avançar automaticamente em intervalos constantes de 2 segundos.
+- Mantida a transição visual de 1.600 ms, usando automaticamente os 400 ms restantes para completar cada intervalo de 2 segundos.
+- Adicionado teste de regressão em `tests/solucoes-stats.test.js`.
+
 ## [2026-08-14] - Remoção de foto não utilizada
 
 ### Changed
