@@ -1,5 +1,13 @@
 # Histórico de sincronização — DB_IDE
 
+## 2026-08-14 - Mapeamento e Atualização Geral do Contexto do Projeto
+
+- Projeto: site-end-controll
+- Tarefa: Auditoria e atualização completa do contexto e memória (GitHub, VPS, Cloudflare, Obsidian e Notion DB_IDE).
+- Status local: Concluída.
+- Registro: Mapeados todos os ativos de infraestrutura (subdomínio `endcontrol.suporteide.digital`, Docker Traefik, GitHub `idedigitalbr/site-endcontrol`, pipeline CI/CD GitHub Actions `deploy-vps.yml`, registros local/remoto no Obsidian em `MD/` e `_infra_vps_github/.MD`).
+- Observação: Memória local totalmente atualizada e sintetizada para o projeto.
+
 ## 2026-08-14 - Cadência fixa do autoplay do radar
 
 - Projeto: site-end-controll

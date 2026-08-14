@@ -1,5 +1,11 @@
 # Features — ENDCONTROL Engenharia
 
+## Mapeamento e Atualização Geral do Contexto do Projeto
+
+- Status: Concluída
+- Data: 2026-08-14
+- Mapeada e consolidada toda a estrutura do projeto: repositório GitHub (`idedigitalbr/site-endcontrol`), pipeline de deploy VPS com GitHub Actions e Docker Compose, DNS Cloudflare (`endcontrol.suporteide.digital`), memória Obsidian local (`MD/`) e base do Notion (`DB_IDE`).
+
 ## Autoplay do radar com cadência fixa
 
 - Status: Concluída

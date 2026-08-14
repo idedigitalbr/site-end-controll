@@ -1,5 +1,10 @@
 # Changelog — ENDCONTROL Engenharia
 
+## [2026-08-14] - Mapeamento e Atualização Geral do Contexto do Projeto
+
+### Changed
+- Sincronizada e consolidada toda a memória do projeto abrangendo repositório GitHub (`idedigitalbr/site-endcontrol`), pipeline de CI/CD VPS GitHub Actions, Docker Compose via Traefik, registros de DNS Cloudflare (`endcontrol.suporteide.digital`) e documentação local Obsidian (`MD/`) e Notion (`DB_IDE`).
+
 ## [2026-08-14] - Cadência fixa do autoplay do radar
 
 ### Changed
