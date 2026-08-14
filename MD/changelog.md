@@ -1,6 +1,24 @@
 # Changelog — ENDCONTROL Engenharia
 
+## [2026-08-14] - Remoção de foto não utilizada
+
+### Changed
+- Removido o arquivo `assets/Fotografias/editadas/operacional-alpinismo-inspecao-vaso-pressao-edit.webp`.
+- Retiradas as referências do carrossel e substituídas as referências de conteúdo por operacional-inspecao-ultrassom-casco-estrutura-edit.webp.
+
+## [2026-08-14] - Reforco visual do Radar Sweep
+
+### Changed
+- **Sweep do radar (`src/css/solucoes.css`):** reforcado o feixe rotativo com cone ciano mais denso, nucleo branco-ciano, halo difuso e ponto de origem com brilho controlado.
+- Mantidos a animacao existente, os arcos SVG de progresso, os nos, labels, autoplay e o comportamento de movimento reduzido.
+- Validacao: `node --test tests/radar-progress.test.js`, `tests/site-integrity.ps1` e `git diff --check` aprovados.
+
 ## [2026-08-14] - Encaixe visual entre seções arredondadas
+
+## [2026-08-14] - Substituicao da logo do credito do rodape
+
+### Changed
+- **Credito ide digital (`index.html`):** substituido o SVG embutido por `assets/Logos/logo-dev-idedigital.png`, mantendo o link externo, texto alternativo e o estilo visual do rodape.
 
 ### Changed
 - A seção seguinte agora sobrepõe a anterior em `28px`, cobrindo os cantos expostos e eliminando as faixas escuras entre blocos.

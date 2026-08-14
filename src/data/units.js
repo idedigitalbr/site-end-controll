@@ -175,9 +175,9 @@ window.units = [
     ],
     aboutText: "Suporte especializado para indústrias petroquímicas, químicas e siderúrgicas no Polo de Camaçari e região metropolitana de Salvador.",
     images: {
-      cover: "./assets/Fotografias/editadas/operacional-alpinismo-inspecao-vaso-pressao-edit.webp",
+      cover: "./assets/Fotografias/editadas/operacional-inspecao-ultrassom-casco-estrutura-edit.webp",
       album: [
-        { title: "Inspeções no Polo Petroquímico", url: "./assets/Fotografias/editadas/operacional-alpinismo-inspecao-vaso-pressao-edit.webp" }
+        { title: "Inspeções no Polo Petroquímico", url: "./assets/Fotografias/editadas/operacional-inspecao-ultrassom-casco-estrutura-edit.webp" }
       ]
     },
     googleReviews: [
