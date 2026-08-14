@@ -1,5 +1,106 @@
 # Changelog — ENDCONTROL Engenharia
 
+## [2026-08-14] - Remoção de foto não utilizada
+
+### Changed
+- Removido o arquivo `assets/Fotografias/editadas/operacional-alpinismo-inspecao-vaso-pressao-edit.webp`.
+- Retiradas as referências do carrossel e substituídas as referências de conteúdo por operacional-inspecao-ultrassom-casco-estrutura-edit.webp.
+
+## [2026-08-14] - Reforco visual do Radar Sweep
+
+### Changed
+- **Sweep do radar (`src/css/solucoes.css`):** reforcado o feixe rotativo com cone ciano mais denso, nucleo branco-ciano, halo difuso e ponto de origem com brilho controlado.
+- Mantidos a animacao existente, os arcos SVG de progresso, os nos, labels, autoplay e o comportamento de movimento reduzido.
+- Validacao: `node --test tests/radar-progress.test.js`, `tests/site-integrity.ps1` e `git diff --check` aprovados.
+
+## [2026-08-14] - Encaixe visual entre seções arredondadas
+
+## [2026-08-14] - Substituicao da logo do credito do rodape
+
+### Changed
+- **Credito ide digital (`index.html`):** substituido o SVG embutido por `assets/Logos/logo-dev-idedigital.png`, mantendo o link externo, texto alternativo e o estilo visual do rodape.
+
+### Changed
+- A seção seguinte agora sobrepõe a anterior em `28px`, cobrindo os cantos expostos e eliminando as faixas escuras entre blocos.
+- Paddings superiores foram compensados nos breakpoints de desktop, tablet e mobile para preservar a posição do conteúdo.
+
+## [2026-08-14] - Curadoria das fotos do HERO
+
+### Changed
+- Removidas do carrossel de fundo do HERO as fotos `operacional-ultrassom-solda-tubulacao-edit-final.webp` e `operacional-tecnico-refinaria-noite-edit.webp`.
+- Mantidos os arquivos no projeto porque continuam referenciados em outras seções.
+- Ajustada a primeira foto restante para manter o estado inicial `active` e o carregamento prioritário do carrossel.
+
+## [2026-08-14] - Reorganização dos serviços e agrupador Projetos
+
+### Changed
+- Reordenados menu, radar e cards para a sequência aprovada: Integridade Estrutural, Obras de Artes Especiais, ENDs, Soldagem, Projetos, Soluções Tecnológicas Integradas, Adequação Normativa, Calibração, Trepanação, Certificação e Consultoria.
+- Criado o agrupador visual **Projetos**, sem numeração, com os serviços **5. Gerenciamento de Projetos** e **6. Elaboração de Projetos Mecânicos**.
+- Atualizada a navegação compartilhada para manter os 12 serviços sincronizados entre menu, radar, autoplay, setas, dots e card de destaque.
+
+## [2026-08-14] - Padronização dos cantos arredondados das seções
+
+### Changed
+- Aplicado o mesmo `border-radius: 28px` da seção de depoimentos às seções principais da página e à Presença Nacional.
+- Mantido `overflow: hidden` para impedir que fundos e imagens ultrapassem os cantos em desktop, tablet e mobile.
+
+## [2026-08-13] - Radar Sweep sincronizado com as 12 solucoes
+
+### Added & Changed
+- Adicionada camada real de varredura com linha frontal ciano, setor luminoso em `conic-gradient` e rastro de baixa opacidade.
+- O controlador agora mede no DOM o angulo de cada icone a partir do centro visual da logo e percorre a sequencia 1 a 12, incluindo a normalizacao de 12 para 1 sem rotacao inversa.
+- Centralizada a temporizacao em `RADAR_CONFIG`: 1600ms de movimento, 1200ms de pausa e easing suave.
+- Adicionados estados transitorios de saida e aproximacao antes da promocao do proximo item a atual.
+- Incluidos `data-step`, `data-angle`, suporte a resize/`ResizeObserver` e comportamento estatico para `prefers-reduced-motion`.
+- Corrigida a referencia inexistente `wrapper` no modulo legado de navegacao dos depoimentos, eliminando o erro originado pelo codigo do site.
+- Cache busters atualizados para `solucoes.css?v=56.0`, `radar-progress.js?v=6.0`, `solucoes.js?v=58.0` e `main.js?v=23.0`.
+
+### Validation
+- 18 testes unitarios aprovados e teste de integridade estrutural aprovado.
+- Ciclo completo observado no navegador sem saltos: 1, 2, 3, ..., 12, 1.
+- Validacao visual realizada em 1920x1080, 1366x900, 768x1024 e 390x844, com centro subpixel e sem overflow horizontal dos nos.
+
+## [2026-08-13] - Compactacao adicional do accordion
+
+### Changed
+- Altura refinada para 360px no desktop e 340px em tablet, aproximando os paineis de um formato mais quadrado.
+- Cache buster de `segmentos.css` atualizado para `v32.0`.
+
+## [2026-08-13] - Redução da altura das Áreas de Atuação
+
+### Changed
+- Reduzida a altura do accordion para 3/4 das medidas anteriores: 435px no desktop, 390px em tablet e 360px em telas menores.
+- Mantidos o recorte `object-fit: cover`, a expansão dos painéis e o comportamento responsivo.
+- Corrigido o índice usado pelas setas no mobile para abrir e centralizar exatamente o card anterior ou seguinte.
+- Adicionada sincronização por swipe: ao terminar a rolagem, o card mais próximo do centro é ativado e expandido automaticamente.
+- Cache buster de `segmentos.css` atualizado para `v31.0`.
+
+## [2026-08-13] - Refinamento da linha de progresso e labels do radar
+
+### Changed & Improved
+- Substituídos os arcos uniformes por paths SVG com recuo angular seguro, gradiente de intensidade fraca nas extremidades e pico moderado no centro.
+- Criados estados visuais semânticos para conexões: is-completed, is-current e is-future, com glow controlado por variáveis CSS.
+- Atualizados os cache busters do radar para radar-progress.js?v=3.0, solucoes.js?v=53.0 e solucoes.css?v=53.0.
+- Labels agora recebem posicionamento por quadrante e anel, com fallback automático para evitar invasão da coluna do card e empilhamento vertical seguro em tablet/mobile.
+- Mantidas a geometria polar, a separação entre anéis, a navegação do card, o autoplay e a regra de não conectar anéis diferentes.
+
+### Fixed
+- Removida a inversão automática que colocava labels do lado direito para dentro do radar e labels do lado esquerdo para dentro do radar.
+- Labels laterais agora permanecem fora do respectivo ícone: direita no lado direito, esquerda no lado esquerdo.
+- Cache buster do renderizador atualizado para solucoes.js?v=54.0.
+- Labels dos itens 2, 3, 9 e 10 ajustados para aparecerem abaixo dos respectivos ícones.
+- Cache buster do módulo de posicionamento atualizado para radar-progress.js?v=4.0.
+- Labels dos itens 5 e 6 ajustados para ficarem abaixo dos ícones.
+- Cache buster atualizado para radar-progress.js?v=5.1.
+- Mapa final de alinhamento aplicado: itens 2, 3, 7, 8 e 11 à direita; 4, 9, 10 e 12 abaixo; 5 e 6 à esquerda.
+- Quebras de linha das legendas ajustadas; cache busters atualizados para radar-progress.js?v=5.2 e solucoes.js?v=55.0.
+- Revisão visual: endpoints dos gradientes ajustados para 0% de opacidade; cache busters atualizados para radar-progress.js?v=5.3 e solucoes.js?v=56.0.
+- Nós inativos agora preservam círculo e preenchimento em 100% de opacidade; somente o SVG interno permanece em 55%. Cache de solucoes.css atualizado para v55.0.
+- Labels reposicionados: item 7 abaixo do ícone e item 8 à esquerda; cache de radar-progress.js atualizado para v5.4.
+- Gradientes SVG convertidos para `userSpaceOnUse` e orientados pelo início/fim de cada arco, corrigindo centros apagados entre os itens 2→3 e 5→6. Cache busters: radar-progress.js?v=5.5 e solucoes.js?v=57.0.
+- Ícones com fundo opaco e lacuna angular ampliada nas conexões; cache de solucoes.css atualizado para v54.0.
+- Cache buster atualizado para radar-progress.js?v=5.0.
+
 ## [2026-08-13] - Ampliação do respiro vertical no radar de soluções
 
 ### Fixed

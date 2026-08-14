@@ -3,6 +3,17 @@ const test = require('node:test');
 const {
   buildConnections,
   canConnect,
+  getBackwardAngle,
+  getConnectionVisualState,
+  getDomAngle,
+  getForwardAngle,
+  getNearestAngle,
+  getConnectionInsetDegrees,
+  getConnectionGradientStops,
+  getConnectionGradientVector,
+  getLabelPlacement,
+  normalizeAngle,
+  getSafeArcAngles,
   getProgressState
 } = require('../src/js/radar-progress.js');
 
@@ -93,4 +104,115 @@ test('canConnect accepts only consecutive positions within one ring', () => {
   assert.equal(canConnect(services[0], services[1]), true);
   assert.equal(canConnect(services[0], services[2]), false);
   assert.equal(canConnect(services[5], services[6]), false);
+});
+
+test('classifies the segment arriving at the active item as current', () => {
+  const state = getProgressState(services, 8);
+  const current = state.connections
+    .filter(connection => getConnectionVisualState(connection, 8) === 'current')
+    .map(connection => [connection.fromStepIndex, connection.toStepIndex]);
+
+  assert.deepEqual(current, [[7, 8]]);
+});
+
+test('keeps completed and future segments distinct from the current segment', () => {
+  assert.equal(getConnectionVisualState({
+    fromStepIndex: 0,
+    toStepIndex: 1,
+    isClosing: false,
+    ringLastStepIndex: 5
+  }, 8), 'completed');
+
+  assert.equal(getConnectionVisualState({
+    fromStepIndex: 8,
+    toStepIndex: 9,
+    isClosing: false,
+    ringLastStepIndex: 11
+  }, 8), 'future');
+});
+
+test('recedes both ends of a sixty degree arc by the requested safe angle', () => {
+  const result = getSafeArcAngles(-90, -30, { insetDegrees: 7 });
+
+  assert.deepEqual(result, {
+    startAngle: -83,
+    endAngle: -37,
+    sweep: 1
+  });
+});
+
+test('fades connection endpoints to zero before reaching icons', () => {
+  const stops = getConnectionGradientStops(0.82);
+
+  assert.deepEqual(stops[0], ['0%', '0']);
+  assert.deepEqual(stops[1], ['18%', '0']);
+  assert.deepEqual(stops.at(-2), ['82%', '0']);
+  assert.deepEqual(stops.at(-1), ['100%', '0']);
+});
+
+test('orients side-arc gradients from the real start point to the end point', () => {
+  assert.deepEqual(
+    getConnectionGradientVector({ x: 480, y: 180 }, { x: 480, y: 320 }),
+    {
+      gradientUnits: 'userSpaceOnUse',
+      x1: 480,
+      y1: 180,
+      x2: 480,
+      y2: 320
+    }
+  );
+});
+
+test('leaves a clear angular gap around each icon', () => {
+  const inset = getConnectionInsetDegrees({
+    iconDiameter: 50,
+    viewBoxScale: 1,
+    ringRadius: 247.5
+  });
+
+  assert.ok(inset >= 14);
+  assert.ok(inset <= 18);
+});
+
+test('places labels by polar quadrant', () => {
+  assert.equal(getLabelPlacement(-90), 'top');
+  assert.equal(getLabelPlacement(30), 'right');
+  assert.equal(getLabelPlacement(90), 'bottom');
+  assert.equal(getLabelPlacement(180), 'right');
+});
+
+test('places labels according to the approved radar alignment map', () => {
+  assert.equal(getLabelPlacement(-30), 'right');
+  assert.equal(getLabelPlacement(30), 'right');
+  assert.equal(getLabelPlacement(60), 'bottom');
+  assert.equal(getLabelPlacement(90), 'bottom');
+  assert.equal(getLabelPlacement(120), 'bottom');
+  assert.equal(getLabelPlacement(150), 'left');
+  assert.equal(getLabelPlacement(210), 'left');
+  assert.equal(getLabelPlacement(-60), 'bottom');
+  assert.equal(getLabelPlacement(0), 'left');
+  assert.equal(getLabelPlacement(180), 'right');
+  assert.equal(getLabelPlacement(240), 'bottom');
+});
+
+test('normalizes angles without reversing the 350 to 10 degree transition', () => {
+  assert.equal(normalizeAngle(-10), 350);
+  assert.equal(getForwardAngle(350, 10), 370);
+  assert.equal(getForwardAngle(330, 0), 360);
+});
+
+test('keeps manual previous and direct selection movements natural', () => {
+  assert.equal(getBackwardAngle(300, 240), 240);
+  assert.equal(getBackwardAngle(30, 330), -30);
+  assert.equal(getNearestAngle(300, 30), 390);
+  assert.equal(getNearestAngle(120, 60), 60);
+});
+
+test('calculates sweep angles from real DOM-style center points', () => {
+  const center = { x: 100, y: 100 };
+
+  assert.equal(getDomAngle(center, { x: 100, y: 20 }), 0);
+  assert.equal(getDomAngle(center, { x: 180, y: 100 }), 90);
+  assert.equal(getDomAngle(center, { x: 100, y: 180 }), 180);
+  assert.equal(getDomAngle(center, { x: 20, y: 100 }), 270);
 });

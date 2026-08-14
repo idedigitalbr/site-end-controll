@@ -74,7 +74,7 @@
       });
     });
 
-    // Toggle para Submenuzinho do Item 1 (Gerenciamento de Projetos -> Análise / Gestão)
+    // Toggle para o agrupador Projetos (Gerenciamento e Elaboração de Projetos Mecânicos)
     const itemsWithSubmenu = document.querySelectorAll('.item-with-submenu');
     itemsWithSubmenu.forEach(function (itemWithSubmenu) {
       const trigger = itemWithSubmenu.querySelector('.item-has-children');
@@ -875,8 +875,14 @@
       });
     });
 
-    /* ---- touch swipe ---- */
-    if (wrapper) {
+    /* ---- touch swipe (somente quando o módulo de navegação estiver disponível) ---- */
+    const wrapper = document.querySelector('.testimonials-carousel-track-wrapper');
+    const hasCarouselNavigation = typeof goTo === 'function' &&
+      typeof updateCardWidth === 'function' &&
+      typeof updateDots === 'function' &&
+      typeof currentIndex !== 'undefined';
+
+    if (wrapper && hasCarouselNavigation) {
       let startX = 0;
       wrapper.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
       wrapper.addEventListener('touchend', e => {
@@ -894,15 +900,17 @@
     }
 
     /* ---- resize recalc ---- */
-    window.addEventListener('resize', debounce(() => {
-      updateCardWidth();
-      updateDots();
-      goTo(currentIndex);
-    }, 150));
+    if (hasCarouselNavigation) {
+      window.addEventListener('resize', debounce(() => {
+        updateCardWidth();
+        updateDots();
+        goTo(currentIndex);
+      }, 150));
 
-    /* ---- init ---- */
-    updateDots();
-    setTimeout(() => goTo(0), 300);
+      /* ---- init ---- */
+      updateDots();
+      setTimeout(() => goTo(0), 300);
+    }
   }
 
 

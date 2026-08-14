@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "role": "Laudo técnico de conformidade e implementação de proteções físicas e lógicas.",
             "category": "normativa",
             "subcategory": "NR-12",
-            "photo": "./assets/Fotografias/editadas/operacional-alpinismo-inspecao-vaso-pressao-edit.webp"
+            "photo": "./assets/Fotografias/editadas/operacional-inspecao-ultrassom-casco-estrutura-edit.webp"
         },
         {
             "name": "Inspeção de Válvulas de Segurança (PSVs)",

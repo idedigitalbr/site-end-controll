@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const servicesData = [
+  const sourceServicesData = [
     {
       id: 0,
       title: '1. Gerenciamento de Projetos',
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       id: 1,
       title: '2. Inspeção em Obras de Artes Especiais',
-      shortTitle: '2. Inspeção em Obras<br>de Artes Especiais',
+      shortTitle: '2. Inspeção em<br>Obras de Artes<br>Especiais',
       ring: 'outer',
       angle: -30, // Upper Right Outer (2:00)
       desc: 'Avaliações técnicas especializadas em Obras de Arte Especiais (pontes, viadutos, passarelas), com foco em segurança e durabilidade.',
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       id: 2,
       title: '3. Ensaios Não Destrutivos (ENDs)',
-      shortTitle: '3. Ensaios Não Destrutivos<br>(ENDs)',
+      shortTitle: '3. Ensaios Não<br>Destrutivos (ENDs)',
       ring: 'outer',
       angle: 30, // Lower Right Outer (4:00)
       desc: 'Técnicas avançadas para detecção de descontinuidades em materiais e soldas, garantindo segurança operacional sem comprometer os componentes.',
@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       id: 4,
       title: '5. Engenharia de Integridade Estrutural',
-      shortTitle: '5. Engenharia de<br>Integridade Estrutural',
+      shortTitle: '5. Engenharia de<br>Integridade<br>Estrutural',
       ring: 'outer',
       angle: 150, // Lower Left Outer (8:00)
       desc: 'Análise técnica de estruturas metálicas, civis e de concreto armado, com laudos e recomendações para manutenção preventiva e preditiva.',
@@ -81,14 +81,14 @@ document.addEventListener('DOMContentLoaded', () => {
         'Laudos de integridade estrutural',
         'Monitoramento de deformações'
       ],
-      image: './assets/Fotografias/editadas/operacional-alpinismo-inspecao-vaso-pressao-edit.webp',
+      image: './assets/Fotografias/editadas/operacional-inspecao-ultrassom-casco-estrutura-edit.webp',
       ctaText: 'Saiba Mais',
       iconSvg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`
     },
     {
       id: 5,
       title: '6. Soluções Tecnológicas Integradas',
-      shortTitle: '6. Soluções Tecnológicas<br>Integradas',
+      shortTitle: '6. Soluções<br>Tecnológicas<br>Integradas',
       ring: 'outer',
       angle: 210, // Upper Left Outer (10:00)
       desc: 'Inovação aplicada em campo com tecnologias proprietárias como o RaptorScan, drones e softwares para gestão de integridade.',
@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       id: 6,
       title: '7. Inspeção e Adequação Normativa',
-      shortTitle: '7. Inspeção e Adequação<br>Normativa',
+      shortTitle: '7. Inspeção e<br>Adequação<br>Normativa',
       ring: 'inner',
       angle: -60, // Upper Right Inner (1:00)
       desc: 'Inspeção de segurança em vasos de pressão, caldeiras, tubulações e tanques conforme a NR-13 e normas internacionais aplicáveis.',
@@ -122,7 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       id: 7,
       title: '8. Calibração de Instrumentos',
-      shortTitle: '8. Calibração de<br>Instrumentos',
+      shortTitle: '8. Calibração<br>de Instrumentos',
       ring: 'inner',
       angle: 0, // Right Inner (3:00)
       desc: 'Serviços de calibração de manômetros, termômetros, blocos padrão e instrumentação industrial com rastreabilidade RBC/INMETRO.',
@@ -173,7 +173,7 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       id: 10,
       title: '11. Consultoria e Assessoria Técnica',
-      shortTitle: '11. Consultoria e<br>Assessoria Técnica',
+      shortTitle: '11. Consultoria<br>e Assessoria<br>Técnica',
       ring: 'inner',
       angle: 180, // Left Inner (9:00)
       desc: 'Assessoria especializada para solução de problemas complexos de engenharia, falhas de componentes e otimização de processos.',
@@ -190,7 +190,7 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       id: 11,
       title: '12. Elaboração de Projetos Mecânicos',
-      shortTitle: '12. Elaboração de<br>Projetos Mecânicos',
+      shortTitle: '12. Elaboração<br>de Projetos<br>Mecânicos',
       ring: 'inner',
       angle: 240, // Upper Left Inner (11:00)
       desc: 'Desenvolvimento de projetos mecânicos, estruturais e de tubulação, com análises de elementos finitos e soluções customizadas.',
@@ -206,7 +206,34 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   ];
 
+  const serviceOrder = [4, 1, 2, 3, 0, 11, 5, 6, 7, 8, 9, 10];
   const RING_SIZE = 6;
+  const servicesData = serviceOrder.map((sourceIndex, stepIndex) => {
+    const sourceService = sourceServicesData[sourceIndex];
+    const ringIndex = stepIndex < RING_SIZE ? 0 : 1;
+    const title = sourceService.title.replace(/^\d+\.\s*/, '');
+    const shortTitle = sourceService.shortTitle.replace(/^\d+\.\s*/, '');
+
+    return {
+      ...sourceService,
+      id: stepIndex,
+      title: `${stepIndex + 1}. ${title}`,
+      shortTitle: `${stepIndex + 1}. ${shortTitle}`,
+      ring: ringIndex === 0 ? 'outer' : 'inner',
+      angle: ringIndex === 0
+        ? -90 + stepIndex * 60
+        : -60 + (stepIndex - RING_SIZE) * 60
+    };
+  });
+
+  const RADAR_CONFIG = Object.freeze({
+    transitionDuration: 1600,
+    activePause: 1200,
+    manualResumeDelay: 12000,
+    approachStartRatio: 0.56,
+    easing: 'cubic-bezier(0.45, 0, 0.2, 1)'
+  });
+
   servicesData.forEach((service, stepIndex) => {
     service.stepIndex = stepIndex;
     service.ringIndex = stepIndex < RING_SIZE ? 0 : 1;
@@ -223,9 +250,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const radarNodesLayer = document.getElementById('radarNodesLayer');
   const radarConnectionsLayer = document.getElementById('radarConnectionsLayer');
   const orbitalDiagram = document.getElementById('orbitalDiagram');
+  const orbitalCenterLogo = document.querySelector('.orbital-center-logo');
+  const radarSweep = document.getElementById('radarSweep');
   const RadarProgress = window.RadarProgress;
 
-  if (!cardImage || !cardTitle || !cardDesc || !cardList || !cardCta || !highlightCard || !cardProgress || !radarConnectionsLayer || !orbitalDiagram || !RadarProgress) {
+  if (!cardImage || !cardTitle || !cardDesc || !cardList || !cardCta || !highlightCard || !cardProgress || !radarConnectionsLayer || !orbitalDiagram || !orbitalCenterLogo || !radarSweep || !RadarProgress) {
     return;
   }
 
@@ -241,9 +270,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const leftPercent = 50 + ringRadiusPercent * Math.cos(angleRad);
     const topPercent = 50 + ringRadiusPercent * Math.sin(angleRad);
 
-    nodeEl.className = `service-node node-ring-${s.ring}`;
+    const labelPlacement = RadarProgress.getLabelPlacement(s.angle);
+    nodeEl.className = 'service-node node-ring-' + s.ring +
+      ' label-pos-' + labelPlacement + ' label-ring-' + s.ring;
     nodeEl.id = `node-${index}`;
     nodeEl.dataset.index = index;
+    nodeEl.dataset.step = String(index + 1);
+    nodeEl.dataset.angle = String(s.angle);
+    nodeEl.dataset.ring = s.ring;
     nodeEl.style.left = `${leftPercent}%`;
     nodeEl.style.top = `${topPercent}%`;
 
@@ -261,6 +295,53 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const serviceNodes = document.querySelectorAll('.service-node');
 
+  const labelPlacementClasses = [
+    'label-pos-left',
+    'label-pos-right',
+    'label-pos-top',
+    'label-pos-bottom'
+  ];
+
+  function setLabelPlacement(node, placement) {
+    labelPlacementClasses.forEach(className => node.classList.remove(className));
+    node.classList.add('label-pos-' + placement);
+  }
+
+  function adjustLabelPlacements() {
+    serviceNodes.forEach((node, index) => {
+      const service = servicesData[index];
+      const preferredPlacement = RadarProgress.getLabelPlacement(service.angle);
+      setLabelPlacement(node, preferredPlacement);
+    });
+  }
+
+  window.requestAnimationFrame(adjustLabelPlacements);
+
+  let measuredAngles = servicesData.map(service => RadarProgress.normalizeAngle(service.angle + 90));
+
+  function measureRadarAngles() {
+    const centerRect = orbitalCenterLogo.getBoundingClientRect();
+    const center = {
+      x: centerRect.left + centerRect.width / 2,
+      y: centerRect.top + centerRect.height / 2
+    };
+
+    measuredAngles = Array.from(serviceNodes, (node, index) => {
+      const icon = node.querySelector('.service-node-icon');
+      const iconRect = icon?.getBoundingClientRect() || node.getBoundingClientRect();
+      const angle = RadarProgress.getDomAngle(center, {
+        x: iconRect.left + iconRect.width / 2,
+        y: iconRect.top + iconRect.height / 2
+      });
+
+      node.dataset.angle = angle.toFixed(2);
+      servicesData[index].measuredAngle = angle;
+      return angle;
+    });
+
+    return measuredAngles;
+  }
+
   function polarPoint(service) {
     const radiusPercent = service.ringIndex === 0 ? 49.5 : 30.5;
     const radius = radiusPercent * 5;
@@ -273,30 +354,107 @@ document.addEventListener('DOMContentLoaded', () => {
     };
   }
 
-  function describeRadarArc(from, to) {
-    const start = polarPoint(from);
-    const end = polarPoint(to);
-    const radius = start.radius.toFixed(2);
+  function polarPointAt(service, angle) {
+    const point = polarPoint(service);
+    const angleRad = (angle * Math.PI) / 180;
 
-    return `M ${start.x.toFixed(2)} ${start.y.toFixed(2)} A ${radius} ${radius} 0 0 1 ${end.x.toFixed(2)} ${end.y.toFixed(2)}`;
+    return {
+      x: 250 + point.radius * Math.cos(angleRad),
+      y: 250 + point.radius * Math.sin(angleRad)
+    };
+  }
+
+  function getConnectionInsetDegrees(service) {
+    const point = polarPoint(service);
+    const icon = serviceNodes[service.stepIndex]?.querySelector('.service-node-icon');
+    const centerRect = orbitalDiagram.getBoundingClientRect();
+    const iconDiameter = icon
+      ? Math.max(icon.getBoundingClientRect().width, icon.getBoundingClientRect().height)
+      : 46;
+    const viewBoxScale = Math.max(centerRect.width, centerRect.height, 1) / 500;
+    return RadarProgress.getConnectionInsetDegrees({
+      iconDiameter,
+      viewBoxScale,
+      ringRadius: point.radius
+    });
+  }
+
+  function getRadarArcGeometry(from, to) {
+    const insetDegrees = getConnectionInsetDegrees(from);
+    const angles = RadarProgress.getSafeArcAngles(from.angle, to.angle, {
+      insetDegrees
+    });
+    const start = polarPointAt(from, angles.startAngle);
+    const end = polarPointAt(to, angles.endAngle);
+    const radius = polarPoint(from).radius.toFixed(2);
+
+    return {
+      d: `M ${start.x.toFixed(2)} ${start.y.toFixed(2)} A ${radius} ${radius} 0 0 1 ${end.x.toFixed(2)} ${end.y.toFixed(2)}`,
+      start,
+      end
+    };
+  }
+
+  const radarSvg = document.querySelector('.radar-trail-svg');
+  const radarGradientDefs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
+  radarSvg?.prepend(radarGradientDefs);
+
+  function createConnectionGradient(connection, state) {
+    const gradient = document.createElementNS('http://www.w3.org/2000/svg', 'linearGradient');
+    const gradientId = 'radar-connection-gradient-' +
+      connection.fromStepIndex + '-' + connection.toStepIndex;
+    const existingGradient = document.getElementById(gradientId);
+    if (existingGradient) return 'url(#' + gradientId + ')';
+
+    const stops = RadarProgress.getConnectionGradientStops(0.82);
+    const vector = RadarProgress.getConnectionGradientVector(
+      connection.gradientStart,
+      connection.gradientEnd
+    );
+
+    gradient.setAttribute('id', gradientId);
+    gradient.setAttribute('x1', String(vector.x1));
+    gradient.setAttribute('y1', String(vector.y1));
+    gradient.setAttribute('x2', String(vector.x2));
+    gradient.setAttribute('y2', String(vector.y2));
+    gradient.setAttribute('gradientUnits', vector.gradientUnits);
+
+    stops.forEach(([offset, opacity]) => {
+      const stop = document.createElementNS('http://www.w3.org/2000/svg', 'stop');
+      stop.setAttribute('offset', offset);
+      stop.setAttribute('stop-color', '#00c2ff');
+      stop.setAttribute('stop-opacity', opacity);
+      gradient.appendChild(stop);
+    });
+
+    radarGradientDefs?.appendChild(gradient);
+    return 'url(#' + gradientId + ')';
   }
 
   const connectionDefinitions = RadarProgress.buildConnections(servicesData);
   const connectionElements = connectionDefinitions.map(connection => {
     const from = servicesData[connection.fromStepIndex];
     const to = servicesData[connection.toStepIndex];
+    const geometry = getRadarArcGeometry(from, to);
     const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
 
-    path.setAttribute('class', 'radar-connection is-inactive');
-    path.setAttribute('d', describeRadarArc(from, to));
+    path.setAttribute('class', 'radar-connection is-future');
+    path.setAttribute('d', geometry.d);
     path.setAttribute('pathLength', '1');
     path.dataset.from = String(connection.fromStepIndex);
     path.dataset.to = String(connection.toStepIndex);
     path.dataset.ring = String(connection.ringIndex);
     path.dataset.closing = String(connection.isClosing);
+    path.dataset.gradientId = 'radar-connection-gradient-' +
+      connection.fromStepIndex + '-' + connection.toStepIndex;
     radarConnectionsLayer.appendChild(path);
 
-    return { ...connection, path };
+    return {
+      ...connection,
+      path,
+      gradientStart: geometry.start,
+      gradientEnd: geometry.end
+    };
   });
 
   // Build card progress dots
@@ -313,17 +471,22 @@ document.addEventListener('DOMContentLoaded', () => {
   const checkSvg = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>`;
   const arrowSvg = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>`;
 
-  // Default active index = 0 ("1. Gerenciamento de Projetos")
+  // Default active index = 0 ("1. Engenharia de Integridade Estrutural")
   let activeIndex = 0;
-
-  let autoPlayInterval = null;
-  let pauseTimeout = null;
-  const AUTO_PLAY_MS = 5000;
-  const PAUSE_RESUME_MS = 12000;
+  let cycleTimer = null;
+  let resumeTimer = null;
+  let approachTimer = null;
+  let sweepAnimation = null;
+  let sweepTargetIndex = null;
+  let currentSweepAngle = measuredAngles[activeIndex];
+  let autoPlayEnabled = true;
+  let resizeFrame = null;
+  const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
   let isTransitioning = false;
 
   function updateRadarStates() {
     const progressState = RadarProgress.getProgressState(servicesData, activeIndex);
+    orbitalDiagram.dataset.currentStep = String(activeIndex + 1);
 
     serviceNodes.forEach((node, index) => {
       const state = progressState.nodes[index].state;
@@ -341,9 +504,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     connectionElements.forEach((connection, index) => {
-      const state = progressState.connections[index].state;
-      connection.path.classList.toggle('is-active', state === 'active');
-      connection.path.classList.toggle('is-inactive', state === 'inactive');
+      const state = RadarProgress.getConnectionVisualState(
+        progressState.connections[index],
+        activeIndex
+      );
+      connection.path.classList.toggle('is-completed', state === 'completed');
+      connection.path.classList.toggle('is-current', state === 'current');
+      connection.path.classList.toggle('is-future', state === 'future');
+      connection.path.setAttribute('stroke', createConnectionGradient(connection, state));
     });
   }
 
@@ -389,26 +557,119 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  function goToService(index) {
-    if (!Number.isInteger(index) || index < 0 || index >= servicesData.length) return;
-    if (index === activeIndex) return;
+  function clearTransientNodeStates() {
+    serviceNodes.forEach(node => {
+      node.classList.remove('is-departing', 'is-approaching');
+    });
+    delete orbitalDiagram.dataset.targetStep;
+  }
 
+  function setSweepAngle(angle) {
+    currentSweepAngle = Number(angle) || 0;
+    radarSweep.style.transform = `rotate(${currentSweepAngle}deg)`;
+  }
+
+  function readRenderedSweepAngle() {
+    const transform = window.getComputedStyle(radarSweep).transform;
+    if (!transform || transform === 'none') return currentSweepAngle;
+
+    const matrix = new DOMMatrixReadOnly(transform);
+    let renderedAngle = RadarProgress.normalizeAngle(Math.atan2(matrix.b, matrix.a) * 180 / Math.PI);
+
+    while (renderedAngle - currentSweepAngle > 180) renderedAngle -= 360;
+    while (renderedAngle - currentSweepAngle < -180) renderedAngle += 360;
+    return renderedAngle;
+  }
+
+  function stopSweepAtCurrentPosition() {
+    if (!sweepAnimation) return;
+
+    const renderedAngle = readRenderedSweepAngle();
+    const animationToCancel = sweepAnimation;
+    sweepAnimation = null;
+    animationToCancel.cancel();
+    setSweepAngle(renderedAngle);
+  }
+
+  function commitService(index) {
     activeIndex = index;
-
+    sweepTargetIndex = null;
+    clearTimeout(approachTimer);
+    clearTransientNodeStates();
     updateRadarStates();
     updatePagination(activeIndex);
     updateCard(activeIndex, true);
+
+    if (autoPlayEnabled && !reducedMotionQuery.matches) {
+      scheduleNextSweep();
+    }
+  }
+
+  function moveSweepTo(index, direction = 'nearest') {
+    if (!Number.isInteger(index) || index < 0 || index >= servicesData.length) return;
+    if (index === activeIndex && sweepTargetIndex === null) return;
+    if (index === sweepTargetIndex) return;
+
+    clearTimeout(cycleTimer);
+    clearTimeout(approachTimer);
+    stopSweepAtCurrentPosition();
+    clearTransientNodeStates();
+
+    if (reducedMotionQuery.matches) {
+      setSweepAngle(measuredAngles[index]);
+      commitService(index);
+      return;
+    }
+
+    sweepTargetIndex = index;
+    orbitalDiagram.dataset.targetStep = String(index + 1);
+    serviceNodes[activeIndex]?.classList.add('is-departing');
+
+    const fromAngle = currentSweepAngle;
+    const toAngle = direction === 'forward'
+      ? RadarProgress.getForwardAngle(fromAngle, measuredAngles[index])
+      : direction === 'backward'
+        ? RadarProgress.getBackwardAngle(fromAngle, measuredAngles[index])
+        : RadarProgress.getNearestAngle(fromAngle, measuredAngles[index]);
+
+    approachTimer = window.setTimeout(() => {
+      serviceNodes[index]?.classList.add('is-approaching');
+    }, RADAR_CONFIG.transitionDuration * RADAR_CONFIG.approachStartRatio);
+
+    sweepAnimation = radarSweep.animate(
+      [
+        { transform: `rotate(${fromAngle}deg)` },
+        { transform: `rotate(${toAngle}deg)` }
+      ],
+      {
+        duration: RADAR_CONFIG.transitionDuration,
+        easing: RADAR_CONFIG.easing,
+        fill: 'forwards'
+      }
+    );
+
+    sweepAnimation.onfinish = () => {
+      const finishedAnimation = sweepAnimation;
+      sweepAnimation = null;
+      setSweepAngle(toAngle);
+      finishedAnimation?.cancel();
+      commitService(index);
+    };
+  }
+
+  function goToService(index) {
+    moveSweepTo(index);
   }
 
   const prevService = () => {
     const nextIdx = (activeIndex - 1 + servicesData.length) % servicesData.length;
-    goToService(nextIdx);
+    moveSweepTo(nextIdx, 'backward');
     pauseAutoPlay();
   };
 
   const nextService = () => {
     const nextIdx = (activeIndex + 1) % servicesData.length;
-    goToService(nextIdx);
+    moveSweepTo(nextIdx, 'forward');
     pauseAutoPlay();
   };
 
@@ -432,18 +693,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function startAutoPlay() {
     stopAutoPlay();
-    autoPlayInterval = setInterval(() => goToService((activeIndex + 1) % servicesData.length), AUTO_PLAY_MS);
+    if (reducedMotionQuery.matches) return;
+
+    autoPlayEnabled = true;
+    scheduleNextSweep();
   }
+
+  function scheduleNextSweep(delay = RADAR_CONFIG.activePause) {
+    clearTimeout(cycleTimer);
+    if (!autoPlayEnabled || reducedMotionQuery.matches || sweepAnimation) return;
+
+    cycleTimer = window.setTimeout(() => {
+      moveSweepTo((activeIndex + 1) % servicesData.length, 'forward');
+    }, delay);
+  }
+
   function stopAutoPlay() {
-    if (autoPlayInterval) {
-      clearInterval(autoPlayInterval);
-      autoPlayInterval = null;
-    }
+    autoPlayEnabled = false;
+    clearTimeout(cycleTimer);
+    cycleTimer = null;
   }
+
   function pauseAutoPlay() {
     stopAutoPlay();
-    if (pauseTimeout) clearTimeout(pauseTimeout);
-    pauseTimeout = setTimeout(() => startAutoPlay(), PAUSE_RESUME_MS);
+    clearTimeout(resumeTimer);
+    resumeTimer = window.setTimeout(startAutoPlay, RADAR_CONFIG.manualResumeDelay);
   }
 
   serviceNodes.forEach(node => {
@@ -453,14 +727,63 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     node.addEventListener('mouseenter', () => stopAutoPlay());
     node.addEventListener('mouseleave', () => {
-      if (!autoPlayInterval) startAutoPlay();
+      startAutoPlay();
     });
   });
 
+  function refreshRadarMeasurements() {
+    const wasAutoPlaying = autoPlayEnabled;
+    clearTimeout(cycleTimer);
+    clearTimeout(approachTimer);
+    stopSweepAtCurrentPosition();
+    sweepTargetIndex = null;
+    clearTransientNodeStates();
+    adjustLabelPlacements();
+    measureRadarAngles();
+    setSweepAngle(measuredAngles[activeIndex]);
+
+    if (wasAutoPlaying && !reducedMotionQuery.matches) {
+      autoPlayEnabled = true;
+      scheduleNextSweep();
+    }
+  }
+
+  function scheduleRadarMeasurement() {
+    if (resizeFrame) cancelAnimationFrame(resizeFrame);
+    resizeFrame = requestAnimationFrame(() => {
+      resizeFrame = null;
+      refreshRadarMeasurements();
+    });
+  }
+
+  const radarResizeObserver = new ResizeObserver(scheduleRadarMeasurement);
+  radarResizeObserver.observe(orbitalDiagram);
+  window.addEventListener('resize', scheduleRadarMeasurement, { passive: true });
+
+  reducedMotionQuery.addEventListener('change', event => {
+    if (event.matches) {
+      stopAutoPlay();
+      stopSweepAtCurrentPosition();
+      clearTransientNodeStates();
+      setSweepAngle(measuredAngles[activeIndex]);
+      return;
+    }
+    startAutoPlay();
+  });
+
+  measureRadarAngles();
+  setSweepAngle(measuredAngles[activeIndex]);
   updateRadarStates();
   updatePagination(activeIndex);
   updateCard(activeIndex, false);
   startAutoPlay();
+
+  window.RadarSweepController = Object.freeze({
+    config: RADAR_CONFIG,
+    get currentStep() { return activeIndex + 1; },
+    get targetStep() { return sweepTargetIndex === null ? null : sweepTargetIndex + 1; },
+    get angles() { return [...measuredAngles]; }
+  });
 
   // CountUp animation for stats
   function animateCountUp(el) {

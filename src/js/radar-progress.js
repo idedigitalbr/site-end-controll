@@ -7,6 +7,46 @@
     root.RadarProgress = api;
   }
 })(typeof window !== 'undefined' ? window : globalThis, function createRadarProgress() {
+  function normalizeAngle(angle) {
+    const numericAngle = Number(angle) || 0;
+    return ((numericAngle % 360) + 360) % 360;
+  }
+
+  function getForwardAngle(fromAngle, targetAngle) {
+    const start = Number(fromAngle) || 0;
+    let target = normalizeAngle(targetAngle);
+
+    while (target <= start + 0.001) {
+      target += 360;
+    }
+
+    return target;
+  }
+
+  function getBackwardAngle(fromAngle, targetAngle) {
+    const start = Number(fromAngle) || 0;
+    let target = normalizeAngle(targetAngle);
+
+    while (target >= start - 0.001) {
+      target -= 360;
+    }
+
+    return target;
+  }
+
+  function getNearestAngle(fromAngle, targetAngle) {
+    const start = Number(fromAngle) || 0;
+    const target = normalizeAngle(targetAngle);
+    return target + Math.round((start - target) / 360) * 360;
+  }
+
+  function getDomAngle(center, target) {
+    const deltaX = (Number(target && target.x) || 0) - (Number(center && center.x) || 0);
+    const deltaY = (Number(target && target.y) || 0) - (Number(center && center.y) || 0);
+
+    return normalizeAngle(Math.atan2(deltaX, -deltaY) * 180 / Math.PI);
+  }
+
   function canConnect(from, to) {
     return Boolean(from && to) &&
       from.ringIndex === to.ringIndex &&
@@ -85,6 +125,76 @@
     return connection.toStepIndex <= activeStep ? 'active' : 'inactive';
   }
 
+  function getConnectionVisualState(connection, activeStep) {
+    if (!connection.isClosing && connection.toStepIndex === activeStep) {
+      return 'current';
+    }
+
+    return getConnectionState(connection, activeStep) === 'active'
+      ? 'completed'
+      : 'future';
+  }
+
+  function getSafeArcAngles(fromAngle, toAngle, options) {
+    const insetDegrees = Math.max(0, Number(options && options.insetDegrees) || 0);
+
+    return {
+      startAngle: fromAngle + insetDegrees,
+      endAngle: toAngle - insetDegrees,
+      sweep: 1
+    };
+  }
+
+  function getConnectionGradientStops(peakOpacity) {
+    const peak = Math.max(0, Math.min(1, Number(peakOpacity) || 0));
+
+    return [
+      ['0%', '0'],
+      ['18%', '0'],
+      ['42%', String(peak)],
+      ['58%', String(peak)],
+      ['82%', '0'],
+      ['100%', '0']
+    ];
+  }
+
+  function getConnectionGradientVector(start, end) {
+    return {
+      gradientUnits: 'userSpaceOnUse',
+      x1: Number(start && start.x) || 0,
+      y1: Number(start && start.y) || 0,
+      x2: Number(end && end.x) || 0,
+      y2: Number(end && end.y) || 0
+    };
+  }
+
+  function getConnectionInsetDegrees(options) {
+    const iconDiameter = Math.max(0, Number(options && options.iconDiameter) || 0);
+    const viewBoxScale = Math.max(Number(options && options.viewBoxScale) || 1, 0.0001);
+    const ringRadius = Math.max(Number(options && options.ringRadius) || 1, 1);
+    const halfIconUnits = iconDiameter / viewBoxScale / 2;
+    const ratio = Math.min(0.92, halfIconUnits / ringRadius);
+    const iconAngle = Math.asin(ratio) * 180 / Math.PI;
+
+    return Math.min(18, Math.max(14, iconAngle + 8));
+  }
+
+  function getLabelPlacement(angle) {
+    const normalizedAngle = ((Number(angle) % 360) + 360) % 360;
+
+    if (normalizedAngle === 300) return 'bottom';
+    if (normalizedAngle === 0) return 'left';
+    if (normalizedAngle === 30 || normalizedAngle === 180) return 'right';
+    if (normalizedAngle === 240) return 'bottom';
+    if (normalizedAngle === 330 || normalizedAngle === 150 || normalizedAngle === 210) {
+      return normalizedAngle === 330 ? 'right' : 'left';
+    }
+    if (normalizedAngle >= 330 || normalizedAngle < 30) return 'right';
+    if (normalizedAngle < 150) return 'bottom';
+    if (normalizedAngle < 270) return 'left';
+    return 'top';
+  }
+
   function getProgressState(services, activeStep) {
     const normalizedActiveStep = Math.max(0, Math.min(activeStep, services.length - 1));
     const connections = buildConnections(services).map(connection => ({
@@ -106,8 +216,19 @@
   return {
     buildConnections,
     canConnect,
+    getBackwardAngle,
+    getDomAngle,
+    getForwardAngle,
+    getNearestAngle,
     getConnectionState,
+    getConnectionVisualState,
+    getConnectionGradientStops,
+    getConnectionGradientVector,
+    getConnectionInsetDegrees,
+    getLabelPlacement,
+    getSafeArcAngles,
     getNodeState,
+    normalizeAngle,
     getProgressState
   };
 });

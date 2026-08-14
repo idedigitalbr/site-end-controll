@@ -65,7 +65,7 @@
   <link rel="stylesheet" href="./src/css/base.css?v=32.0" />
   <link rel="stylesheet" href="./src/css/header.css?v=30.0" />
   <link rel="stylesheet" href="./src/css/hero.css?v=30.0" />
-  <link rel="stylesheet" href="./src/css/solucoes.css?v=52.0" />
+  <link rel="stylesheet" href="./src/css/solucoes.css?v=56.0" />
   <link rel="stylesheet" href="./src/css/sections.css?v=35.0" />
   <link rel="stylesheet" href="./src/css/work-units-footer.css?v=34.0" />
   <link rel="stylesheet" href="./src/css/presenca-nacional.css?v=30.0" />
@@ -74,7 +74,7 @@
   <link rel="stylesheet" href="./src/css/links.css?v=30.0" />
   <link rel="stylesheet" href="./src/css/timeline.css?v=30.0" />
   <link rel="stylesheet" href="./src/css/album.css?v=30.0" />
-  <link rel="stylesheet" href="./src/css/segmentos.css?v=30.0" />
+  <link rel="stylesheet" href="./src/css/segmentos.css?v=32.0" />
   <link rel="stylesheet" href="./src/css/responsive.css?v=30.0" />
 
   <!-- Script de Fallback Automático de Imagens e Vídeos -->
@@ -180,26 +180,12 @@
       <div class="dropdown">
         <a class="drop-link" aria-haspopup="true">Nossas Soluções</a>
         <div class="drop-panel dropdown-rich-menu" aria-label="Submenu Nossas Soluções">
-          <!-- 1. Gerenciamento de Projetos (Fechado por padrão, abre ao clicar) -->
-          <div class="item-with-submenu">
-            <a class="dropdown-item-rich item-has-children" href="#solucoes" aria-expanded="false" data-service-id="0">
-              <span class="dropdown-item-logo">
-                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><path d="M9 12h6M9 16h4"/></svg>
-              </span>
-              <span class="dropdown-item-text">1. Gerenciamento de Projetos</span>
-              <svg class="sub-chevron" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-            </a>
-            <div class="submenuzinho">
-              <a href="#solucoes" class="submenuzinho-item" data-service-id="0">
-                <span class="submenuzinho-bullet">•</span>
-                <span>Análise</span>
-              </a>
-              <a href="#solucoes" class="submenuzinho-item" data-service-id="0">
-                <span class="submenuzinho-bullet">•</span>
-                <span>Gestão</span>
-              </a>
-            </div>
-          </div>
+          <a class="dropdown-item-rich" href="#solucoes" data-service-id="0">
+            <span class="dropdown-item-logo">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </span>
+            <span class="dropdown-item-text">1. Engenharia de Integridade Estrutural</span>
+          </a>
 
           <a class="dropdown-item-rich" href="#solucoes" data-service-id="1">
             <span class="dropdown-item-logo">
@@ -219,54 +205,67 @@
             </span>
             <span class="dropdown-item-text">4. Engenharia de Soldagem</span>
           </a>
-          <a class="dropdown-item-rich" href="#solucoes" data-service-id="4">
-            <span class="dropdown-item-logo">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            </span>
-            <span class="dropdown-item-text">5. Engenharia de Integridade Estrutural</span>
-          </a>
-          <a class="dropdown-item-rich" href="#solucoes" data-service-id="5">
+          <div class="item-with-submenu">
+            <a class="dropdown-item-rich item-has-children" href="#solucoes" aria-expanded="false">
+              <span class="dropdown-item-logo">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2M9 12h6M9 16h4"/></svg>
+              </span>
+              <span class="dropdown-item-text">Projetos</span>
+              <svg class="sub-chevron" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </a>
+            <div class="submenuzinho">
+              <a href="#solucoes" class="submenuzinho-item" data-service-id="4">
+                <span class="submenuzinho-bullet">•</span>
+                <span>5. Gerenciamento de Projetos</span>
+              </a>
+              <a href="#solucoes" class="submenuzinho-item" data-service-id="5">
+                <span class="submenuzinho-bullet">•</span>
+                <span>6. Elaboração de Projetos Mecânicos</span>
+              </a>
+            </div>
+          </div>
+          <a class="dropdown-item-rich" href="#solucoes" data-service-id="6">
             <span class="dropdown-item-logo">
               <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
             </span>
-            <span class="dropdown-item-text">6. Soluções Tecnológicas Integradas</span>
-          </a>
-          <a class="dropdown-item-rich" href="#solucoes" data-service-id="6">
-            <span class="dropdown-item-logo">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-            </span>
-            <span class="dropdown-item-text">7. Inspeção e Adequação Normativa</span>
+            <span class="dropdown-item-text">7. Soluções Tecnológicas Integradas</span>
           </a>
           <a class="dropdown-item-rich" href="#solucoes" data-service-id="7">
             <span class="dropdown-item-logo">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
             </span>
-            <span class="dropdown-item-text">8. Calibração de Instrumentos</span>
+            <span class="dropdown-item-text">8. Inspeção e Adequação Normativa</span>
           </a>
           <a class="dropdown-item-rich" href="#solucoes" data-service-id="8">
             <span class="dropdown-item-logo">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="3" x2="12" y2="9"/></svg>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
             </span>
-            <span class="dropdown-item-text">9. Trepanação (Hot Tapping)</span>
+            <span class="dropdown-item-text">9. Calibração de Instrumentos</span>
           </a>
           <a class="dropdown-item-rich" href="#solucoes" data-service-id="9">
             <span class="dropdown-item-logo">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="3" x2="12" y2="9"/></svg>
             </span>
-            <span class="dropdown-item-text">10. Certificação de Matéria-Prima</span>
+            <span class="dropdown-item-text">10. Trepanação (Hot Tapping)</span>
           </a>
           <a class="dropdown-item-rich" href="#solucoes" data-service-id="10">
             <span class="dropdown-item-logo">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
             </span>
-            <span class="dropdown-item-text">11. Consultoria e Assessoria Técnica</span>
+            <span class="dropdown-item-text">11. Certificação de Matéria-Prima</span>
           </a>
           <a class="dropdown-item-rich" href="#solucoes" data-service-id="11">
+            <span class="dropdown-item-logo">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </span>
+            <span class="dropdown-item-text">12. Consultoria e Assessoria Técnica</span>
+          </a>
+          <!-- Legacy direct item removed; Elaboração de Projetos Mecânicos lives under Projetos.
             <span class="dropdown-item-logo">
               <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
             </span>
             <span class="dropdown-item-text">12. Elaboração de Projetos Mecânicos</span>
-          </a>
+          </a> -->
         </div>
       </div>
       <div class="dropdown contacts-dropdown">
@@ -288,15 +287,9 @@
       
       <!-- Carrossel de Fundo Dinâmico do Hero com Fotos Editadas -->
       <div class="hero-bg-slider" id="heroBgSlider">
-        <img src="./assets/Fotografias/editadas/operacional-ultrassom-solda-tubulacao-edit-final.webp" 
-             alt="Inspeção por ultrassom em solda de tubulação industrial" 
-             class="hero-bg-photo active" fetchpriority="high" />
-        <img src="./assets/Fotografias/editadas/operacional-tecnico-refinaria-noite-edit.webp" 
-             alt="Técnico da End Controll em refinaria durante a noite" 
-             class="hero-bg-photo" loading="lazy" />
         <img src="./assets/Fotografias/editadas/ultrassom-raptor-scan-crawler-operacao-edit.webp" 
              alt="Ultrassom Raptor Scan Crawler em operação" 
-             class="hero-bg-photo" loading="lazy" />
+             class="hero-bg-photo active" fetchpriority="high" />
         <img src="./assets/Fotografias/editadas/operacional-alpinismo-industrial-escada-tanque-edit.webp" 
              alt="Alpinismo industrial em escada de tanque" 
              class="hero-bg-photo" loading="lazy" />
@@ -308,9 +301,6 @@
              class="hero-bg-photo" loading="lazy" />
         <img src="./assets/Fotografias/editadas/operacional-phased-array-chapas-soldadas-edit.webp" 
              alt="Inspeção com Phased Array em chapas soldadas" 
-             class="hero-bg-photo" loading="lazy" />
-        <img src="./assets/Fotografias/editadas/operacional-alpinismo-inspecao-vaso-pressao-edit.webp" 
-             alt="Inspeção por alpinismo industrial em vaso de pressão" 
              class="hero-bg-photo" loading="lazy" />
         <img src="./assets/Fotografias/editadas/laboratorio-analise-placa-eletronica-edit.webp" 
              alt="Laboratório de análise de placa eletrônica de inspeção" 
@@ -497,7 +487,6 @@
       <div class="about-tech-line line-sliding-middle"></div>
       <div class="about-tech-dots dots-top-right"></div>
       <div class="about-tech-dots dots-bottom-left"></div>
-      <div class="about-tech-coordinates">X: 42.793 | Y: 10.608</div>
 
       <div class="container about-container">
         <!-- Main Top Row (2 Columns: Content Left, Photo Right) -->
@@ -660,13 +649,15 @@
           <div class="solucoes-stats-left">
             <div class="stat-item"><div class="stat-icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div class="stat-text"><div class="stat-number">+18 <span>anos</span></div><div class="stat-label">de experiência</div></div></div>
             <div class="stat-item"><div class="stat-icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div class="stat-text"><div class="stat-number">+300</div><div class="stat-label">especialistas</div></div></div>
-            <div class="stat-item"><div class="stat-icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div><div class="stat-text"><div class="stat-label">Atuação em todo<br>o território nacional</div></div></div>
+            <div class="stat-item"><div class="stat-icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div><div class="stat-text"><div class="stat-number">100%</div><div class="stat-label">de atuação em todo<br>o território nacional</div></div></div>
+            <div class="stat-item"><div class="stat-icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4h6l1 2h3v14H5V6h3l1-2Z"/><path d="M9 11h6M9 15h6"/></svg></div><div class="stat-text"><div class="stat-number">+1.250</div><div class="stat-label">projetos entregues</div></div></div>
           </div>
         </div>
 
         <!-- COL CENTRAL — ORBITAL RADAR -->
         <div class="solucoes-center-area" id="orbitalDiagram">
           <div class="radar-geometry">
+            <div class="radar-sweep" id="radarSweep" aria-hidden="true"></div>
             <svg class="radar-trail-svg" viewBox="0 0 500 500" preserveAspectRatio="none">
               <g id="radarConnectionsLayer" aria-hidden="true"></g>
             </svg>
@@ -703,12 +694,12 @@
 
             <div class="highlight-card" id="highlightCard">
               <div class="highlight-card-image">
-                <img id="cardImage" src="./assets/Fotografias/editadas/operacional-discussao-engenheiros-tela-edit.webp" alt="1. Gerenciamento de Projetos" />
+                <img id="cardImage" src="./assets/Fotografias/editadas/operacional-inspecao-ultrassom-casco-estrutura-edit.webp" alt="1. Engenharia de Integridade Estrutural" />
                 <div class="highlight-card-image-overlay"></div>
                 <div class="highlight-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><span>Destaque</span></div>
               </div>
               <div class="highlight-card-body" id="cardBody">
-                <h3 class="highlight-card-title" id="cardTitle">1. Gerenciamento de Projetos</h3>
+                <h3 class="highlight-card-title" id="cardTitle">1. Engenharia de Integridade Estrutural</h3>
                 <p class="highlight-card-desc" id="cardDesc">Gestão completa de empreendimentos industriais com foco em prazos, custos e padrões de qualidade.</p>
                 <ul class="highlight-card-list" id="cardList">
                   <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Planejamento e controle de escopo</li>
@@ -726,16 +717,6 @@
 
       <div class="solucoes-bottom-bar">
         <div class="bottom-bar-inner">
-          <div class="bottom-bar-feed">
-            <div class="feed-item"><span class="feed-label">Data_Feed</span><span class="feed-value">24.05.2024 &nbsp; 14:37:22</span></div>
-            <div class="feed-separator"></div>
-            <div class="feed-item"><span class="feed-label">Status</span><span class="feed-value status-online">ONLINE</span></div>
-          </div>
-          <div class="bottom-bar-stats" id="statsBar">
-            <div class="bar-stat"><span class="bar-stat-label">Cobertura Nacional</span><span class="bar-stat-value" data-target="100" data-suffix="%">0%</span></div>
-            <div class="bar-stat"><span class="bar-stat-label">Projetos Entregues</span><span class="bar-stat-value" data-target="1250" data-prefix="+" data-separator=".">0</span></div>
-            <div class="bar-stat"><span class="bar-stat-label">Índice de Confiabilidade</span><span class="bar-stat-value" data-target="99.7" data-suffix="%" data-decimal="true">0%</span></div>
-          </div>
         </div>
       </div>
 
@@ -1504,14 +1485,7 @@
         <div class="dev-right">
           <span>Desenvolvido por:</span>
           <a href="https://idedigital.com.br" target="_blank" rel="noopener" aria-label="ide digital" style="display: inline-flex; align-items: center; text-decoration: none; color: inherit;">
-            <svg height="16" viewBox="0 0 115 22" fill="none" xmlns="http://www.w3.org/2000/svg" class="idedigital-logo-img">
-              <g transform="translate(0, 1)">
-                <path d="M7.5 2C4.46 2 2 4.46 2 7.5C2 9.38 2.94 11.04 4.38 12.04C4.78 12.32 5.04 12.76 5.04 13.26V14.5C5.04 15.5 5.49 15.5 6.04 15.5H8.96C9.51 15.5 9.96 15.05 9.96 14.5V13.26C9.96 12.76 10.22 12.32 10.62 12.04C12.06 11.04 13 9.38 13 7.5C13 4.46 10.54 2 7.5 2Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M5.5 18H9.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
-                <path d="M7.5 6V9M6 7.5H9" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
-              </g>
-              <text x="18" y="15" fill="#FFFFFF" font-family="'DM Sans', sans-serif" font-size="14" font-weight="800" letter-spacing="-0.02em">ide<tspan font-weight="400">digital</tspan></text>
-            </svg>
+            <img src="./assets/Logos/logo-dev-idedigital.png" alt="ide digital" class="idedigital-logo-img" width="64" height="16">
           </a>
         </div>
       </div>
@@ -1593,9 +1567,9 @@
 
 
 
-  <script src="./src/js/main.js?v=22.0" defer></script>
-  <script src="./src/js/radar-progress.js?v=2.0" defer></script>
-  <script src="./src/js/solucoes.js?v=52.0" defer></script>
+  <script src="./src/js/main.js?v=23.0" defer></script>
+  <script src="./src/js/radar-progress.js?v=6.0" defer></script>
+  <script src="./src/js/solucoes.js?v=58.0" defer></script>
   <!-- Lucide Icons CDN -->
   <script src="https://unpkg.com/lucide@0.321.0" defer></script>
   <script src="./src/js/presenca-nacional.js" defer></script>
@@ -1614,6 +1588,11 @@
 
       if (trackIndex && panelsIndex.length > 0) {
         let currentIndex = 0;
+        let scrollSyncTimer = null;
+        let programmaticScrollTimer = null;
+        let isProgrammaticScroll = false;
+
+        const isMobileAccordion = () => window.matchMedia('(max-width: 860px)').matches;
 
         if (dotsContainerIndex) {
           panelsIndex.forEach((panel, index) => {
@@ -1623,8 +1602,7 @@
             if (index === 0) dot.classList.add('is-active');
             
             dot.addEventListener('click', () => {
-              activatePanelIndex(index);
-              scrollToPanelIndex(index);
+              openPanelIndex(index);
             });
             
             dotsContainerIndex.appendChild(dot);
@@ -1634,59 +1612,107 @@
         const dotsIndex = dotsContainerIndex ? dotsContainerIndex.querySelectorAll('.endo-acc-dot') : [];
 
         function activatePanelIndex(index) {
+          const safeIndex = Math.max(0, Math.min(index, panelsIndex.length - 1));
+
           panelsIndex.forEach((p, idx) => {
-            if (idx === index) {
+            if (idx === safeIndex) {
               p.classList.add('is-active');
+              p.setAttribute('aria-expanded', 'true');
             } else {
               p.classList.remove('is-active');
+              p.setAttribute('aria-expanded', 'false');
             }
           });
 
           dotsIndex.forEach((d, idx) => {
-            if (idx === index) {
+            if (idx === safeIndex) {
               d.classList.add('is-active');
             } else {
               d.classList.remove('is-active');
             }
           });
 
-          currentIndex = index;
+          currentIndex = safeIndex;
         }
 
         function scrollToPanelIndex(index) {
           const targetPanel = panelsIndex[index];
           if (!targetPanel) return;
+
+          isProgrammaticScroll = true;
+          window.clearTimeout(programmaticScrollTimer);
+
           const scrollOffset = targetPanel.offsetLeft - (trackIndex.clientWidth / 2) + (targetPanel.clientWidth / 2);
           trackIndex.scrollTo({ left: scrollOffset, behavior: 'smooth' });
+
+          programmaticScrollTimer = window.setTimeout(() => {
+            isProgrammaticScroll = false;
+          }, 700);
+        }
+
+        function openPanelIndex(index) {
+          const targetIndex = Math.max(0, Math.min(index, panelsIndex.length - 1));
+          activatePanelIndex(targetIndex);
+
+          window.requestAnimationFrame(() => {
+            scrollToPanelIndex(targetIndex);
+          });
+        }
+
+        function activateClosestPanelAfterSwipe() {
+          if (!isMobileAccordion() || isProgrammaticScroll) return;
+
+          const trackCenter = trackIndex.scrollLeft + (trackIndex.clientWidth / 2);
+          let closestIndex = currentIndex;
+          let closestDistance = Number.POSITIVE_INFINITY;
+
+          panelsIndex.forEach((panel, index) => {
+            const panelCenter = panel.offsetLeft + (panel.offsetWidth / 2);
+            const distance = Math.abs(panelCenter - trackCenter);
+
+            if (distance < closestDistance) {
+              closestDistance = distance;
+              closestIndex = index;
+            }
+          });
+
+          if (closestIndex !== currentIndex) {
+            openPanelIndex(closestIndex);
+          }
         }
 
         panelsIndex.forEach((panel, index) => {
           panel.addEventListener('mouseenter', () => activatePanelIndex(index));
           panel.addEventListener('click', () => {
-            activatePanelIndex(index);
-            scrollToPanelIndex(index);
+            openPanelIndex(index);
           });
         });
 
+        trackIndex.addEventListener('pointerdown', () => {
+          window.clearTimeout(programmaticScrollTimer);
+          isProgrammaticScroll = false;
+        }, { passive: true });
+
+        trackIndex.addEventListener('scroll', () => {
+          if (!isMobileAccordion() || isProgrammaticScroll) return;
+
+          window.clearTimeout(scrollSyncTimer);
+          scrollSyncTimer = window.setTimeout(activateClosestPanelAfterSwipe, 120);
+        }, { passive: true });
+
         if (btnPrevAcc && btnNextAcc) {
           btnPrevAcc.addEventListener('click', () => {
-            if (currentIndex > 0) {
-              activatePanelIndex(currentIndex - 1);
-              scrollToPanelIndex(currentIndex - 1);
-            } else {
-              trackIndex.scrollBy({ left: -300, behavior: 'smooth' });
-            }
+            const previousIndex = Math.max(0, currentIndex - 1);
+            openPanelIndex(previousIndex);
           });
 
           btnNextAcc.addEventListener('click', () => {
-            if (currentIndex < panelsIndex.length - 1) {
-              activatePanelIndex(currentIndex + 1);
-              scrollToPanelIndex(currentIndex + 1);
-            } else {
-              trackIndex.scrollBy({ left: 300, behavior: 'smooth' });
-            }
+            const nextIndex = Math.min(panelsIndex.length - 1, currentIndex + 1);
+            openPanelIndex(nextIndex);
           });
         }
+
+        activatePanelIndex(currentIndex);
       }
     });
   </script>
