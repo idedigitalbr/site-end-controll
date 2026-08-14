@@ -1,5 +1,18 @@
 # Changelog — ENDCONTROL Engenharia
 
+## [2026-08-14] - Reorganização dos serviços e agrupador Projetos
+
+### Changed
+- Reordenados menu, radar e cards para a sequência aprovada: Integridade Estrutural, Obras de Artes Especiais, ENDs, Soldagem, Projetos, Soluções Tecnológicas Integradas, Adequação Normativa, Calibração, Trepanação, Certificação e Consultoria.
+- Criado o agrupador visual **Projetos**, sem numeração, com os serviços **5. Gerenciamento de Projetos** e **6. Elaboração de Projetos Mecânicos**.
+- Atualizada a navegação compartilhada para manter os 12 serviços sincronizados entre menu, radar, autoplay, setas, dots e card de destaque.
+
+## [2026-08-14] - Padronização dos cantos arredondados das seções
+
+### Changed
+- Aplicado o mesmo `border-radius: 28px` da seção de depoimentos às seções principais da página e à Presença Nacional.
+- Mantido `overflow: hidden` para impedir que fundos e imagens ultrapassem os cantos em desktop, tablet e mobile.
+
 ## [2026-08-13] - Radar Sweep sincronizado com as 12 solucoes
 
 ### Added & Changed
