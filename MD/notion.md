@@ -1,5 +1,22 @@
 # Histórico de sincronização — DB_IDE
 
+## 2026-08-14 - Remoção de foto não utilizada
+
+- Projeto: site-end-controll
+- Tarefa: remover a foto de inspeção por alpinismo em vaso de pressão.
+- Status local: Concluída.
+- Registro: arquivo excluído, referência do HERO removida e demais usos substituídos por foto existente.
+- Observação: memória local atualizada; nenhuma sincronização externa foi executada nesta etapa.
+
+## 2026-08-14 - Reforco visual do Radar Sweep
+
+- Projeto: site-end-controll
+- Tarefa: reforcar o feixe rotativo do radar de solucoes conforme a referencia visual aprovada.
+- Status local: Concluida.
+- Registro: CSS atualizado com cone ciano mais forte, nucleo branco-ciano, halo difuso e ponto central; JavaScript e arcos de progresso preservados.
+- Validacao: testes automatizados, integridade estrutural e `git diff --check` aprovados.
+- Observacao: memoria local atualizada; nenhuma sincronizacao externa foi executada nesta etapa.
+
 ## 2026-08-14 - Curadoria das fotos do HERO
 
 - Projeto: site-end-controll
@@ -7,6 +24,14 @@
 - Status local: Concluída.
 - Registro: removidas apenas as entradas do slideshow; arquivos preservados para as demais referências do site; primeira foto restante marcada como ativa.
 - Observação: memória local atualizada; nenhuma sincronização externa foi executada nesta etapa.
+
+## 2026-08-14 - Logo do credito do rodape
+
+- Projeto: site-end-controll
+- Tarefa: substituir a logo SVG do credito "Desenvolvido por" pela imagem oficial da ide digital.
+- Status local: Concluida.
+- Registro: `index.html` agora utiliza `assets/Logos/logo-dev-idedigital.png`, preservando link, acessibilidade e dimensionamento.
+- Observacao: memoria local atualizada; nenhuma sincronizacao externa foi executada nesta etapa.
 
 ## 2026-08-13 - Radar Sweep das solucoes
 

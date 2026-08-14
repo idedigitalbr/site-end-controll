@@ -2056,13 +2056,13 @@ textarea.form-control {
   width: 100%;
   height: 100%;
   background-image: 
-    radial-gradient(rgba(105, 156, 168, 0.12) 1px, transparent 1px),
-    linear-gradient(rgba(105, 156, 168, 0.015) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(105, 156, 168, 0.015) 1px, transparent 1px);
+    radial-gradient(rgba(105, 156, 168, 0.22) 1px, transparent 1px),
+    linear-gradient(rgba(105, 156, 168, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(105, 156, 168, 0.025) 1px, transparent 1px);
   background-size: 24px 24px, 120px 120px, 120px 120px;
   pointer-events: none;
   z-index: 1;
-  opacity: 0.85;
+  opacity: 0.95;
 }
 
 /* Radar Decorativo */
@@ -2070,7 +2070,7 @@ textarea.form-control {
   position: absolute;
   width: 320px;
   height: 320px;
-  border: 1px solid rgba(105, 156, 168, 0.08);
+  border: 1px solid rgba(105, 156, 168, 0.17);
   border-radius: 50%;
   pointer-events: none;
   z-index: 1;
@@ -2087,7 +2087,7 @@ textarea.form-control {
   right: 12%;
   width: 400px;
   height: 400px;
-  border: 1.5px dashed rgba(105, 156, 168, 0.04);
+  border: 1.5px dashed rgba(105, 156, 168, 0.1);
   border-radius: 50%;
   pointer-events: none;
   z-index: 1;
@@ -2098,7 +2098,7 @@ textarea.form-control {
   content: '';
   position: absolute;
   inset: 80px;
-  border: 1px solid rgba(105, 156, 168, 0.02);
+  border: 1px solid rgba(105, 156, 168, 0.07);
   border-radius: 50%;
 }
 
@@ -2106,7 +2106,7 @@ textarea.form-control {
   content: '';
   position: absolute;
   inset: 160px;
-  border: 1px dashed rgba(0, 213, 255, 0.02);
+  border: 1px dashed rgba(0, 213, 255, 0.07);
   border-radius: 50%;
 }
 
@@ -2114,7 +2114,7 @@ textarea.form-control {
   content: '';
   position: absolute;
   inset: 40px;
-  border: 1px dashed rgba(105, 156, 168, 0.06);
+  border: 1px dashed rgba(105, 156, 168, 0.14);
   border-radius: 50%;
 }
 
@@ -2122,9 +2122,9 @@ textarea.form-control {
   content: '';
   position: absolute;
   inset: 80px;
-  border: 1px solid rgba(105, 156, 168, 0.06);
+  border: 1px solid rgba(105, 156, 168, 0.14);
   border-radius: 50%;
-  background: conic-gradient(from 0deg, rgba(105, 156, 168, 0.06) 0deg, transparent 90deg, transparent 360deg);
+  background: conic-gradient(from 0deg, rgba(105, 156, 168, 0.14) 0deg, transparent 90deg, transparent 360deg);
   animation: radarSweep 12s linear infinite;
 }
 
@@ -2135,7 +2135,7 @@ textarea.form-control {
 /* Linhas Blueprint */
 .about-tech-line {
   position: absolute;
-  background: rgba(105, 156, 168, 0.15);
+  background: rgba(105, 156, 168, 0.26);
   pointer-events: none;
   z-index: 1;
 }
@@ -2180,7 +2180,7 @@ textarea.form-control {
   left: 15%;
   width: 180px;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(105, 156, 168, 0.18), transparent);
+  background: linear-gradient(90deg, transparent, rgba(105, 156, 168, 0.3), transparent);
   pointer-events: none;
   z-index: 1;
   animation: lineSlide 10s ease-in-out infinite;
@@ -2196,11 +2196,11 @@ textarea.form-control {
   position: absolute;
   width: 48px;
   height: 36px;
-  background-image: radial-gradient(rgba(105, 156, 168, 0.28) 1.5px, transparent 1.5px);
+  background-image: radial-gradient(rgba(105, 156, 168, 0.48) 1.5px, transparent 1.5px);
   background-size: 8px 8px;
   pointer-events: none;
   z-index: 1;
-  opacity: 0.7;
+  opacity: 0.95;
 }
 
 .dots-top-right {
@@ -2211,26 +2211,6 @@ textarea.form-control {
 .dots-bottom-left {
   bottom: 120px;
   left: 4%;
-}
-
-.about-tech-coordinates {
-  position: absolute;
-  font-family: monospace;
-  font-size: 10px;
-  letter-spacing: 1.5px;
-  color: var(--slate-blue);
-  opacity: 0.35;
-  pointer-events: none;
-  z-index: 1;
-  animation: coordsBlink 6s infinite;
-  top: 140px;
-  right: 48%;
-}
-
-@keyframes coordsBlink {
-  0%, 100% { opacity: 0.12; }
-  45%, 55% { opacity: 0.45; }
-  50% { opacity: 0.18; }
 }
 
 /* Hover/Move Glow Interaction */

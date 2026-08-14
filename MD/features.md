@@ -1,5 +1,20 @@
 # Features — ENDCONTROL Engenharia
 
+## Remoção de foto não utilizada
+
+- Status: Concluída
+- Data: 2026-08-14
+- Removida a foto de inspeção por alpinismo em vaso de pressão e eliminadas suas referências ativas.
+- Conteúdos que dependiam dela passaram a utilizar uma foto existente de inspeção por ultrassom.
+
+## Radar Sweep com feixe reforcado
+
+- Status: Concluida
+- Data: 2026-08-14
+- O feixe rotativo passou a usar tres camadas visuais: cone ciano com cauda gradual, nucleo branco-ciano e halo difuso com blur.
+- Preservados a animacao WAAPI, o centro do radar, os arcos de progresso, a navegacao e o suporte a `prefers-reduced-motion`.
+- Validacao: 18 testes do radar, integridade estrutural do site e verificacao de whitespace aprovados.
+
 ## Curadoria das fotos do HERO
 
 - Status: Concluída
@@ -15,6 +30,13 @@
 - `Projetos` funciona como agrupador sem numeração para Gerenciamento de Projetos e Elaboração de Projetos Mecânicos.
 - Navegação por menu, radar, autoplay, setas e dots permanece sincronizada.
 - Validação: testes da ordem, testes do radar e integridade estrutural aprovados.
+
+## Logo do credito do rodape
+
+- Status: Concluida
+- Data: 2026-08-14
+- Substituida a logo SVG embutida do credito "Desenvolvido por" pela imagem oficial `assets/Logos/logo-dev-idedigital.png`.
+- Mantidos o link para o site da ide digital, o texto alternativo, o hover e a responsividade.
 
 ## Radar Sweep sincronizado
 
