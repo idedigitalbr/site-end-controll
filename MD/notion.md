@@ -1,5 +1,14 @@
 # Histórico de sincronização — DB_IDE
 
+## 2026-08-14 - Implementação da Nova Página Institucional Sobre Nós
+
+- Projeto: site-end-controll
+- Tarefa: Criação e integração completa da nova página institucional Sobre Nós (`sobre-nos.html`, `src/css/sobre-nos.css`, `src/js/sobre-nos.js`).
+- Status local: Concluída.
+- Commit: `4596091`
+- Registro: Implementadas 8 seções especializadas seguindo 100% o design aprovado: Hero com logotipo vertical, card flutuante de 5 indicadores de impacto, história com vídeo institucional e modal de reprodução, timeline 2006–2023+, Missão/Visão/Valores com circuitos eletrônicos SVG, Metodologia de trabalho em 4 passos com setas conectoras direcionais, galeria 3x3 com lightbox interativo e fotos reais do acervo, 4 pilares de compromisso técnico e CTA final. Navegação bidirecional integrada na Home (`index.html`). Deploy na VPS validado via GitHub Actions.
+- Observação: Memória local e pipeline sincronizados com sucesso.
+
 ## 2026-08-14 - Mapeamento e Atualização Geral do Contexto do Projeto
 
 - Projeto: site-end-controll
