@@ -1,6 +1,13 @@
 # Histórico de sincronização — DB_IDE
 
-## 2026-08-14 - Implementação da Nova Página Institucional Sobre Nós
+## 2026-08-15 - Refinamento Visual Fiel da Página Sobre Nós & Ajuste do Menu
+
+- Projeto: site-end-controll
+- Tarefa: Refinamento cirúrgico da página Sobre Nós (`sobre-nos.html`, `src/css/sobre-nos.css`) e limpeza da barra de navegação no header global (`index.html`, `sobre-nos.html`).
+- Status local: Concluída.
+- Commit: `dc77221` (e `aa2d568`)
+- Registro: Alinhamento de 100% de fidelidade visual às referências oficiais em `REF-SOBRE-NOS`. Implementado Hero compacto de aço escovado com logotipo 3D espiral cromado e texto `— SOBRE NÓS —`, topo arredondado na seção clara de história (`border-radius: 44px 44px 0 0`) e barra de indicadores flutuante com `z-index: 30` independente. Seções corporativas com backgrounds oficiais e fotografias reais da EndControl. Deploy automático na VPS com Docker concluído com sucesso.
+- Observação: Memória local e pipeline sincronizados com sucesso.
 
 - Projeto: site-end-controll
 - Tarefa: Criação e integração completa da nova página institucional Sobre Nós (`sobre-nos.html`, `src/css/sobre-nos.css`, `src/js/sobre-nos.js`).
