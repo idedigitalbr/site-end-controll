@@ -1,5 +1,15 @@
 # Changelog — ENDCONTROL Engenharia
 
+## [2026-08-15] - Duplicação e Versão Light da Página Sobre Nós
+
+### Added
+- **Duplicação da Página Sobre Nós (`sobre-nos-2.html`):** Criada uma cópia fiel da página institucional `sobre-nos.html`, habilitando a classe `.light-theme`.
+- **Tema Claro Slate/Ice-Blue (`src/css/sobre-nos.css`):** Adicionado suporte para tema claro dedicado em todas as seções que anteriormente possuíam fundo escuro (`.sn-essence-section`, `.sn-commitment-section`, `.sn-process-section`, `.sn-hero-section`, `.sn-cta-section`), aplicando tom suave ice-blue (`#94b5c6`), badges arredondados brancos com texto escuro, sombras refinadas e destaques em azul royal (`#0052cc`), idênticos à referência visual enviada pelo cliente.
+- **Alternador Rápido de Versão (`theme-switch-btn`):** Adicionado botão no header global tanto na página original (`sobre-nos.html`) quanto na nova versão (`sobre-nos-2.html`) para permitir alternância rápida com 1 clique entre o tema Dark original e a nova Versão Light.
+
+### Changed
+- **Navegação (`index.html`, `sobre-nos.html`, `sobre-nos-2.html`):** Atualizada a barra de navegação para incluir o atalho "☀️ Versão Light".
+
 ## [2026-08-14] - Implementação da Nova Página Institucional Sobre Nós
 
 ### Added
