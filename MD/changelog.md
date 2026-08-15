@@ -1,14 +1,17 @@
 # Changelog — ENDCONTROL Engenharia
 
-## [2026-08-15] - Duplicação e Versão Light da Página Sobre Nós
+## [2026-08-15] - Refinamento Visual Meticuloso da Página Sobre Nós & Ajuste do Header
 
 ### Added
-- **Duplicação da Página Sobre Nós (`sobre-nos-2.html`):** Criada uma cópia fiel da página institucional `sobre-nos.html`, habilitando a classe `.light-theme`.
-- **Tema Claro Slate/Ice-Blue (`src/css/sobre-nos.css`):** Adicionado suporte para tema claro dedicado em todas as seções que anteriormente possuíam fundo escuro (`.sn-essence-section`, `.sn-commitment-section`, `.sn-process-section`, `.sn-hero-section`, `.sn-cta-section`), aplicando tom suave ice-blue (`#94b5c6`), badges arredondados brancos com texto escuro, sombras refinadas e destaques em azul royal (`#0052cc`), idênticos à referência visual enviada pelo cliente.
-- **Alternador Rápido de Versão (`theme-switch-btn`):** Adicionado botão no header global tanto na página original (`sobre-nos.html`) quanto na nova versão (`sobre-nos-2.html`) para permitir alternância rápida com 1 clique entre o tema Dark original e a nova Versão Light.
+- **Refinamento da Página Sobre Nós (`sobre-nos.html`, `src/css/sobre-nos.css`):** Reestruturação visual com fidelidade total às referências oficiais em `REF-SOBRE-NOS`.
+- **Hero Compacto & Logotipo 3D Metálico:** Enquadramento proporcional do background em aço escovado com o logotipo espiral 3D cromado, texto `— SOBRE NÓS —` e letreiro oficial centralizados.
+- **Canvas Claro Arredondado & Indicadores Flutuantes:** A seção de história recebeu topo arredondado (`border-radius: 44px 44px 0 0`) e a barra de métricas flutua com `z-index: 30` sem cortes ou sobreposições.
+- **Identidade Corporativa 3D Glass:** Fundo em aço inox claro (`BG-aco-inox-claro-fundo.webp`), cards com badges 3D (Alvo, Olho, Diamante) e pílulas luminosas azuis.
+- **Metodologia de 4 Etapas:** Integração da foto operacional com máscara suave de fade e fluxo interligado por setas com glow ciano.
+- **Compromisso Técnico & CTA Final:** Foto dos engenheiros em campo à direita, 4 pilares técnicos e CTA final com fundo em aço escuro e emblema com traços tech.
 
 ### Changed
-- **Navegação (`index.html`, `sobre-nos.html`, `sobre-nos-2.html`):** Atualizada a barra de navegação para incluir o atalho "☀️ Versão Light".
+- **Menu de Navegação Global (`index.html`, `sobre-nos.html`):** Removido o atalho temporário "☀️ Versão Light" da barra de navegação, mantendo o menu limpo e oficial (Home, Sobre Nós, Nossas Soluções, Contatos).
 
 ## [2026-08-14] - Implementação da Nova Página Institucional Sobre Nós
 

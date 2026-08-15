@@ -1,5 +1,15 @@
 # Features — ENDCONTROL Engenharia
 
+## Refinamento Visual e Estrutural da Página Sobre Nós
+
+- Status: Concluída
+- Data: 2026-08-15
+- Commit: `aa2d568`
+- Refinado o layout da página `sobre-nos.html` com 100% de fidelidade visual às referências oficiais em `REF-SOBRE-NOS`.
+- Implementado Hero compacto de aço escovado com logotipo 3D espiral, topo arredondado na seção clara de história e barra de indicadores flutuante com z-index independente.
+- Ajustadas todas as seções corporativas com backgrounds oficiais e fotografias reais da EndControl.
+- Limpeza da barra de navegação no header da Home e da página Sobre Nós.
+
 ## Nova Página Institucional Sobre Nós
 
 - Status: Concluída
