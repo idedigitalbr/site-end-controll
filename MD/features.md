@@ -1,5 +1,14 @@
 # Features — ENDCONTROL Engenharia
 
+## Nova Página Institucional Sobre Nós
+
+- Status: Concluída
+- Data: 2026-08-14
+- Criada a página `sobre-nos.html` com layout de alta fidelidade técnica, 8 seções especializadas (Hero, Indicadores flutuantes, História + Vídeo, Timeline 2006-2023+, Missão/Visão/Valores com circuitos SVG, Metodologia 4 etapas, Galeria 3x3 com lightbox, Compromisso e CTA Final).
+- Integrados estilos dedicados em `src/css/sobre-nos.css` e interatividades em `src/js/sobre-nos.js`.
+- Conectada a navegação bidirecional com a Home (`index.html`).
+- Validação: integridade do site e testes unitários 100% aprovados.
+
 ## Mapeamento e Atualização Geral do Contexto do Projeto
 
 - Status: Concluída

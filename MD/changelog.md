@@ -1,5 +1,15 @@
 # Changelog — ENDCONTROL Engenharia
 
+## [2026-08-14] - Implementação da Nova Página Institucional Sobre Nós
+
+### Added
+- **Página Sobre Nós (`sobre-nos.html`):** Estrutura completa e semântica com Hero institucional, card flutuante de indicadores de impacto (+18 anos, +300 projetos, +1.250 ativos, 100% segurança, +120 clientes), seção de história com vídeo institucional e modal de reprodução, timeline histórica 2006–2023+, pilares de Missão, Visão e Valores com glassmorphism e circuitos eletrônicos, metodologia de trabalho em 4 passos com setas conectoras, galeria grid 3x3 de fotografias operacionais reais com lightbox interativo, 4 pilares de compromisso técnico e CTA final pré-footer.
+- **Estilos Modulares (`src/css/sobre-nos.css`):** Design system exclusivo utilizando tokens globais (`tokens.css`), responsividade refinada para 7 viewports e animações de hover e transição.
+- **Scripts Dedicados (`src/js/sobre-nos.js`):** Controle de abertura/fechamento e reprodução de vídeo institucional, lightbox com navegação por teclado e setas da galeria 3x3, nós interativos da timeline e animações suaves de entrada com `IntersectionObserver`.
+
+### Changed
+- **Navegação Integrada (`index.html`):** Links do menu principal e botão "Saiba Mais" da seção institucional direcionando para a nova página `sobre-nos.html`.
+
 ## [2026-08-14] - Mapeamento e Atualização Geral do Contexto do Projeto
 
 ### Changed

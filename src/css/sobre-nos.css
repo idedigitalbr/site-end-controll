@@ -1,0 +1,1410 @@
+/* ==========================================================================
+   ENDCONTROL ENGENHARIA — PÁGINA SOBRE NÓS
+   Design System & Estilização Dedicada
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   0. CONFIGURAÇÕES GERAIS E ESTRUTURA
+   -------------------------------------------------------------------------- */
+.sn-page-wrapper {
+  background: var(--color-bg-deep);
+  color: var(--color-text-primary);
+  font-family: var(--font-primary);
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Utilitário para destaques de cor ciano/azul */
+.sn-highlight-blue {
+  color: var(--color-cyan);
+  font-weight: inherit;
+}
+
+.sn-highlight-gradient {
+  background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-cyan) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+/* Linha com tag/eyebrow centralizada com traços ciano laterais */
+.sn-eyebrow-line {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 20px;
+  font-family: var(--font-primary);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-cyan);
+}
+
+.sn-eyebrow-line::before,
+.sn-eyebrow-line::after {
+  content: "";
+  display: inline-block;
+  width: 42px;
+  height: 1.5px;
+  background: linear-gradient(90deg, transparent, var(--color-cyan));
+}
+
+.sn-eyebrow-line::after {
+  background: linear-gradient(90deg, var(--color-cyan), transparent);
+}
+
+/* Tag para seções claras */
+.sn-eyebrow-line.light-mode {
+  color: var(--color-primary-strong);
+}
+
+.sn-eyebrow-line.light-mode::before {
+  background: linear-gradient(90deg, transparent, var(--color-primary));
+}
+
+.sn-eyebrow-line.light-mode::after {
+  background: linear-gradient(90deg, var(--color-primary), transparent);
+}
+
+/* Tag simples alinhada à esquerda */
+.sn-eyebrow-left {
+  display: inline-block;
+  font-family: var(--font-primary);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-cyan);
+  margin-bottom: 16px;
+}
+
+/* Dot matrix decorativo de fundo */
+.sn-dot-matrix {
+  position: absolute;
+  width: 60px;
+  height: 120px;
+  background-image: radial-gradient(rgba(0, 156, 255, 0.35) 1.5px, transparent 1.5px);
+  background-size: 14px 14px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.sn-dot-matrix.left {
+  left: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.sn-dot-matrix.right {
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* --------------------------------------------------------------------------
+   1. SEÇÃO HERO (SOBRE A ENDCONTROL)
+   -------------------------------------------------------------------------- */
+.sn-hero-section {
+  position: relative;
+  min-height: 500px;
+  padding: 140px 0 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: radial-gradient(circle at 50% 30%, rgba(0, 156, 255, 0.16) 0%, transparent 65%),
+              linear-gradient(180deg, #040c18 0%, var(--color-bg-deep) 100%);
+  overflow: hidden;
+  border-bottom: 1px solid rgba(0, 156, 255, 0.15);
+}
+
+.sn-hero-bg-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.25;
+  filter: saturate(0.8) brightness(0.65);
+  pointer-events: none;
+}
+
+.sn-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 40%, rgba(7, 20, 41, 0.4) 0%, rgba(2, 11, 24, 0.92) 100%);
+  pointer-events: none;
+}
+
+.sn-hero-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.sn-hero-logo-wrapper {
+  margin: 8px 0 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  filter: drop-shadow(0 10px 30px rgba(0, 156, 255, 0.4));
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sn-hero-logo-wrapper:hover {
+  transform: scale(1.03);
+}
+
+.sn-hero-logo-img {
+  max-width: 320px;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* --------------------------------------------------------------------------
+   2. SEÇÃO INDICADORES (FLOATING METRICS BAR)
+   -------------------------------------------------------------------------- */
+.sn-indicators-wrapper {
+  position: relative;
+  z-index: 10;
+  margin-top: -55px;
+  margin-bottom: 10px;
+  padding: 0 20px;
+}
+
+.sn-indicators-card {
+  max-width: 1220px;
+  margin: 0 auto;
+  background: #ffffff;
+  border-radius: 24px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.12),
+              0 6px 20px rgba(0, 156, 255, 0.1);
+  padding: 30px 36px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  align-items: center;
+  position: relative;
+  border: 1px solid rgba(0, 156, 255, 0.15);
+}
+
+.sn-indicator-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 4px 18px;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.sn-indicator-item:hover {
+  transform: translateY(-2px);
+}
+
+.sn-indicator-item:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 15%;
+  height: 70%;
+  width: 1px;
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.sn-indicator-icon-box {
+  width: 50px;
+  height: 50px;
+  border-radius: 14px;
+  background: rgba(0, 156, 255, 0.08);
+  border: 1px solid rgba(0, 156, 255, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary-strong);
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.sn-indicator-item:hover .sn-indicator-icon-box {
+  background: var(--color-primary-strong);
+  color: #ffffff;
+  box-shadow: 0 8px 20px rgba(0, 123, 255, 0.35);
+}
+
+.sn-indicator-icon-box svg {
+  width: 24px;
+  height: 24px;
+  stroke-width: 2.2;
+}
+
+.sn-indicator-text-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.sn-indicator-value {
+  font-family: var(--font-primary);
+  font-size: 1.55rem;
+  font-weight: 800;
+  line-height: 1.1;
+  color: #0c1a30;
+  letter-spacing: -0.02em;
+}
+
+.sn-indicator-label {
+  font-family: var(--font-primary);
+  font-size: 0.84rem;
+  font-weight: 500;
+  color: #5d6f88;
+  margin-top: 3px;
+  line-height: 1.25;
+}
+
+/* --------------------------------------------------------------------------
+   3. SEÇÃO NOSSA HISTÓRIA (LIGHT BACKGROUND + VÍDEO)
+   -------------------------------------------------------------------------- */
+.sn-history-section {
+  position: relative;
+  background: #f4f8fb;
+  color: #0c1a30;
+  padding: 90px 0 80px;
+  overflow: hidden;
+}
+
+.sn-history-container {
+  max-width: 1220px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.sn-history-headline {
+  font-family: var(--font-primary);
+  font-size: clamp(2rem, 3.8vw, 2.9rem);
+  font-weight: 800;
+  line-height: 1.18;
+  letter-spacing: -0.03em;
+  color: #0c1a30;
+  margin-bottom: 20px;
+}
+
+.sn-history-headline .sn-highlight-blue {
+  color: var(--color-primary-strong);
+}
+
+.sn-history-description {
+  font-family: var(--font-primary);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #4b5d75;
+  max-width: 780px;
+  margin: 0 auto 48px;
+}
+
+/* Container do Vídeo Institucional */
+.sn-video-box {
+  position: relative;
+  width: 100%;
+  max-width: 1020px;
+  margin: 0 auto;
+  aspect-ratio: 16 / 9;
+  border-radius: 24px;
+  overflow: hidden;
+  background: #000000;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.25),
+              0 0 0 1px rgba(0, 156, 255, 0.2);
+  cursor: pointer;
+}
+
+.sn-video-cover-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
+  filter: brightness(0.78);
+}
+
+.sn-video-box:hover .sn-video-cover-img {
+  transform: scale(1.03);
+  filter: brightness(0.65);
+}
+
+.sn-video-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(0, 30, 70, 0.2) 0%, rgba(2, 11, 24, 0.7) 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  pointer-events: none;
+}
+
+.sn-video-play-btn {
+  width: 86px;
+  height: 86px;
+  border-radius: 50%;
+  background: rgba(7, 20, 41, 0.65);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 2.5px solid var(--color-cyan);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  box-shadow: 0 0 30px rgba(0, 194, 255, 0.5), inset 0 0 15px rgba(0, 194, 255, 0.25);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.sn-video-play-btn svg {
+  width: 32px;
+  height: 32px;
+  margin-left: 5px;
+  fill: #ffffff;
+}
+
+.sn-video-box:hover .sn-video-play-btn {
+  transform: scale(1.12);
+  background: var(--color-cyan);
+  border-color: #ffffff;
+  box-shadow: 0 0 45px rgba(0, 194, 255, 0.85);
+}
+
+.sn-video-box:hover .sn-video-play-btn svg {
+  fill: #040c18;
+}
+
+.sn-video-label {
+  position: absolute;
+  bottom: 28px;
+  font-family: var(--font-primary);
+  font-size: 0.92rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #ffffff;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+}
+
+/* --------------------------------------------------------------------------
+   4. SEÇÃO TIMELINE (CARD INTEGRADO NA SEÇÃO CLARA)
+   -------------------------------------------------------------------------- */
+.sn-timeline-box {
+  max-width: 1220px;
+  margin: 56px auto 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1.5px solid rgba(0, 156, 255, 0.35);
+  border-radius: 24px;
+  padding: 44px 36px 36px;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.05);
+  position: relative;
+}
+
+.sn-timeline-track {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+}
+
+/* Linha conectora contínua no topo */
+.sn-timeline-track::before {
+  content: "";
+  position: absolute;
+  top: 15px;
+  left: 10%;
+  right: 10%;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(0, 156, 255, 0.3), var(--color-cyan), rgba(0, 156, 255, 0.3));
+  z-index: 1;
+}
+
+.sn-timeline-item {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0 8px;
+  transition: transform 0.3s ease;
+}
+
+.sn-timeline-item:hover {
+  transform: translateY(-4px);
+}
+
+.sn-timeline-dot-wrapper {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 2px solid var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  box-shadow: 0 0 14px rgba(0, 156, 255, 0.4);
+  transition: all 0.3s ease;
+}
+
+.sn-timeline-dot-inner {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--color-primary-strong);
+  transition: all 0.3s ease;
+}
+
+.sn-timeline-item:hover .sn-timeline-dot-wrapper {
+  border-color: var(--color-cyan);
+  box-shadow: 0 0 22px rgba(0, 194, 255, 0.8);
+  transform: scale(1.15);
+}
+
+.sn-timeline-item:hover .sn-timeline-dot-inner {
+  background: var(--color-cyan);
+}
+
+.sn-timeline-year {
+  font-family: var(--font-primary);
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--color-primary-strong);
+  margin-bottom: 6px;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.sn-timeline-title {
+  font-family: var(--font-primary);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #0c1a30;
+  margin-bottom: 10px;
+  line-height: 1.25;
+}
+
+.sn-timeline-desc {
+  font-family: var(--font-primary);
+  font-size: 0.86rem;
+  line-height: 1.55;
+  color: #556880;
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   5. SEÇÃO NOSSA ESSÊNCIA (MISSÃO, VISÃO, VALORES — DARK THEME)
+   -------------------------------------------------------------------------- */
+.sn-essence-section {
+  position: relative;
+  background: var(--color-bg-deep);
+  color: var(--color-text-primary);
+  padding: 110px 0 100px;
+  overflow: hidden;
+}
+
+.sn-essence-hud-bg {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    radial-gradient(circle at 10% 50%, rgba(0, 156, 255, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 90% 50%, rgba(0, 194, 255, 0.08) 0%, transparent 40%);
+  pointer-events: none;
+}
+
+.sn-essence-container {
+  max-width: 1220px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.sn-essence-headline {
+  font-family: var(--font-primary);
+  font-size: clamp(2rem, 3.8vw, 2.9rem);
+  font-weight: 800;
+  line-height: 1.18;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+  margin-bottom: 60px;
+}
+
+.sn-essence-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  text-align: left;
+}
+
+/* Card de Missão, Visão e Valores */
+.sn-essence-card {
+  position: relative;
+  background: rgba(7, 20, 41, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1.5px solid rgba(0, 156, 255, 0.35);
+  border-radius: 24px;
+  padding: 38px 34px 42px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+}
+
+.sn-essence-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--color-cyan);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 194, 255, 0.25);
+}
+
+/* Detalhe de circuito eletrônico no canto superior direito */
+.sn-circuit-corner {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 90px;
+  height: 90px;
+  pointer-events: none;
+}
+
+.sn-circuit-corner svg {
+  width: 100%;
+  height: 100%;
+  stroke: rgba(0, 194, 255, 0.4);
+  fill: none;
+  stroke-width: 1.5;
+  transition: stroke 0.3s ease;
+}
+
+.sn-essence-card:hover .sn-circuit-corner svg {
+  stroke: rgba(0, 194, 255, 0.85);
+}
+
+.sn-essence-card-header {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 24px;
+}
+
+.sn-essence-icon-badge {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: rgba(0, 156, 255, 0.12);
+  border: 1.5px solid var(--color-cyan);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-cyan);
+  box-shadow: 0 0 16px rgba(0, 194, 255, 0.35);
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.sn-essence-card:hover .sn-essence-icon-badge {
+  background: rgba(0, 194, 255, 0.25);
+  box-shadow: 0 0 25px rgba(0, 194, 255, 0.65);
+  transform: scale(1.08);
+}
+
+.sn-essence-icon-badge svg {
+  width: 26px;
+  height: 26px;
+}
+
+.sn-essence-card-title {
+  font-family: var(--font-primary);
+  font-size: 1.45rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin: 0;
+}
+
+.sn-essence-card-body {
+  font-family: var(--font-primary);
+  font-size: 0.98rem;
+  line-height: 1.7;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+/* Lista de Valores */
+.sn-values-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sn-values-list li {
+  position: relative;
+  padding-left: 22px;
+  font-family: var(--font-primary);
+  font-size: 0.95rem;
+  color: var(--color-text-secondary);
+  line-height: 1.45;
+}
+
+.sn-values-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 7px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-cyan);
+  box-shadow: 0 0 8px var(--color-cyan);
+}
+
+/* --------------------------------------------------------------------------
+   6. SEÇÃO COMO TRABALHAMOS (METODOLOGIA 4 ETAPAS)
+   -------------------------------------------------------------------------- */
+.sn-process-section {
+  position: relative;
+  background: linear-gradient(180deg, var(--color-bg-deep) 0%, #06152a 100%);
+  color: var(--color-text-primary);
+  padding: 100px 0 110px;
+  overflow: hidden;
+  border-top: 1px solid rgba(0, 156, 255, 0.12);
+  border-bottom: 1px solid rgba(0, 156, 255, 0.12);
+}
+
+.sn-process-bg-art {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 480px;
+  height: auto;
+  opacity: 0.28;
+  pointer-events: none;
+  mix-blend-mode: luminosity;
+  filter: contrast(1.1) brightness(0.9);
+  mask-image: radial-gradient(circle at bottom left, black 50%, transparent 85%);
+  -webkit-mask-image: radial-gradient(circle at bottom left, black 50%, transparent 85%);
+}
+
+.sn-process-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 0.85fr 1.55fr;
+  gap: 56px;
+  align-items: center;
+}
+
+.sn-process-info-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 440px;
+}
+
+.sn-process-headline {
+  font-family: var(--font-primary);
+  font-size: clamp(1.9rem, 3.2vw, 2.6rem);
+  font-weight: 800;
+  line-height: 1.18;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+.sn-process-description {
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--color-text-secondary);
+  margin-bottom: 32px;
+}
+
+/* Fluxo horizontal de 4 passos */
+.sn-process-steps-col {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  position: relative;
+}
+
+.sn-process-step-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  padding: 0 6px;
+}
+
+/* Seta conectora entre os passos no desktop */
+.sn-process-step-item:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 76px;
+  right: -24px;
+  width: 32px;
+  height: 2px;
+  background: var(--color-cyan);
+  box-shadow: 0 0 8px var(--color-cyan);
+  z-index: 1;
+}
+
+.sn-process-step-item:not(:last-child)::before {
+  content: "";
+  position: absolute;
+  top: 73px;
+  right: -24px;
+  width: 8px;
+  height: 8px;
+  border-top: 2px solid var(--color-cyan);
+  border-right: 2px solid var(--color-cyan);
+  transform: rotate(45deg);
+  box-shadow: 2px -2px 6px rgba(0, 194, 255, 0.6);
+  z-index: 1;
+}
+
+.sn-step-number {
+  font-family: var(--font-primary);
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--color-cyan);
+  letter-spacing: 0.1em;
+  margin-bottom: 12px;
+}
+
+.sn-step-icon-node {
+  position: relative;
+  z-index: 2;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, rgba(0, 156, 255, 0.22) 0%, rgba(7, 20, 41, 0.9) 100%);
+  border: 2px solid var(--color-cyan);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  box-shadow: 0 0 20px rgba(0, 194, 255, 0.35);
+  margin-bottom: 20px;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sn-process-step-item:hover .sn-step-icon-node {
+  transform: scale(1.1);
+  background: var(--color-primary-strong);
+  box-shadow: 0 0 30px rgba(0, 194, 255, 0.7);
+}
+
+.sn-step-icon-node svg {
+  width: 32px;
+  height: 32px;
+  stroke-width: 2;
+}
+
+.sn-step-title {
+  font-family: var(--font-primary);
+  font-size: 1.12rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 10px;
+  line-height: 1.25;
+}
+
+.sn-step-desc {
+  font-family: var(--font-primary);
+  font-size: 0.86rem;
+  line-height: 1.55;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   7. SEÇÃO NOSSAS FOTOS (GALERIA 3X3 — LIGHT THEME)
+   -------------------------------------------------------------------------- */
+.sn-gallery-section {
+  position: relative;
+  background: #ffffff;
+  color: #0c1a30;
+  padding: 100px 0 110px;
+  overflow: hidden;
+}
+
+.sn-gallery-container {
+  max-width: 1220px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.sn-gallery-headline {
+  font-family: var(--font-primary);
+  font-size: clamp(2rem, 3.8vw, 2.9rem);
+  font-weight: 800;
+  line-height: 1.18;
+  letter-spacing: -0.03em;
+  color: #0c1a30;
+  margin-bottom: 50px;
+}
+
+.sn-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.sn-gallery-card {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  aspect-ratio: 16 / 10;
+  background: #0c1a30;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sn-gallery-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.16),
+              0 0 0 2px var(--color-primary);
+}
+
+.sn-gallery-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease;
+}
+
+.sn-gallery-card:hover .sn-gallery-img {
+  transform: scale(1.06);
+}
+
+.sn-gallery-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(7, 20, 41, 0.88) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  display: flex;
+  align-items: flex-end;
+  padding: 20px;
+  text-align: left;
+}
+
+.sn-gallery-card:hover .sn-gallery-overlay {
+  opacity: 1;
+}
+
+.sn-gallery-caption {
+  font-family: var(--font-primary);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.3;
+}
+
+/* --------------------------------------------------------------------------
+   8. SEÇÃO NOSSO COMPROMISSO (4 PILARES + FOTO TÉCNICA)
+   -------------------------------------------------------------------------- */
+.sn-commitment-section {
+  position: relative;
+  background: #030d1d;
+  color: #ffffff;
+  padding: 100px 0 110px;
+  overflow: hidden;
+}
+
+.sn-commitment-bg-photo {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 58%;
+  height: 100%;
+  object-fit: cover;
+  object-position: right center;
+  opacity: 0.42;
+  filter: contrast(1.15) brightness(0.85);
+  mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.9) 45%, black 100%);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.9) 45%, black 100%);
+  pointer-events: none;
+}
+
+.sn-commitment-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 2;
+}
+
+.sn-commitment-header {
+  max-width: 600px;
+  margin-bottom: 50px;
+}
+
+.sn-commitment-headline {
+  font-family: var(--font-primary);
+  font-size: clamp(2rem, 3.6vw, 2.8rem);
+  font-weight: 800;
+  line-height: 1.18;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+  margin-bottom: 16px;
+}
+
+.sn-commitment-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  max-width: 100%;
+}
+
+.sn-commitment-card {
+  position: relative;
+  background: rgba(7, 20, 41, 0.75);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(0, 156, 255, 0.3);
+  border-bottom: 3px solid var(--color-cyan);
+  border-radius: 18px;
+  padding: 28px 22px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+  transition: all 0.35s ease;
+}
+
+.sn-commitment-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--color-cyan);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 25px rgba(0, 194, 255, 0.3);
+}
+
+.sn-commitment-card-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.sn-commitment-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: rgba(0, 194, 255, 0.12);
+  border: 1px solid rgba(0, 194, 255, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-cyan);
+  flex-shrink: 0;
+}
+
+.sn-commitment-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.sn-commitment-card-title {
+  font-family: var(--font-primary);
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0;
+}
+
+.sn-commitment-card-text {
+  font-family: var(--font-primary);
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   9. SEÇÃO CTA FINAL (PRÉ-FOOTER)
+   -------------------------------------------------------------------------- */
+.sn-cta-section {
+  position: relative;
+  background: radial-gradient(circle at center, rgba(0, 156, 255, 0.18) 0%, transparent 70%),
+              linear-gradient(180deg, #030d1d 0%, #01060e 100%);
+  color: #ffffff;
+  padding: 110px 0 110px;
+  text-align: center;
+  overflow: hidden;
+  border-top: 1px solid rgba(0, 156, 255, 0.15);
+}
+
+.sn-cta-bg-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.2;
+  filter: contrast(1.1) brightness(0.6);
+  mix-blend-mode: luminosity;
+  pointer-events: none;
+}
+
+.sn-cta-container {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 2;
+}
+
+.sn-cta-headline {
+  font-family: var(--font-primary);
+  font-size: clamp(2.1rem, 4.2vw, 3.2rem);
+  font-weight: 800;
+  line-height: 1.18;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+.sn-cta-description {
+  font-family: var(--font-primary);
+  font-size: 1.08rem;
+  line-height: 1.65;
+  color: var(--color-text-secondary);
+  max-width: 680px;
+  margin: 0 auto 38px;
+}
+
+.sn-cta-buttons-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* --------------------------------------------------------------------------
+   10. MODAL DE VÍDEO & LIGHTBOX INTEGRADOS
+   -------------------------------------------------------------------------- */
+.sn-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 10020;
+  background: rgba(2, 11, 24, 0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  padding: 40px 20px;
+}
+
+.sn-lightbox.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.sn-lightbox-img-wrapper {
+  position: relative;
+  max-width: 1000px;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sn-lightbox-img {
+  max-width: 100%;
+  max-height: 75vh;
+  object-fit: contain;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8),
+              0 0 0 1px rgba(0, 194, 255, 0.4);
+}
+
+.sn-lightbox-caption {
+  margin-top: 16px;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.sn-lightbox-close-btn {
+  position: absolute;
+  top: 24px;
+  right: 28px;
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 2.4rem;
+  cursor: pointer;
+  transition: color 0.2s ease, transform 0.2s ease;
+  line-height: 1;
+  z-index: 10;
+}
+
+.sn-lightbox-close-btn:hover {
+  color: var(--color-cyan);
+  transform: scale(1.15);
+}
+
+.sn-lightbox-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(7, 20, 41, 0.75);
+  border: 1px solid rgba(0, 194, 255, 0.4);
+  color: #ffffff;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  z-index: 10;
+}
+
+.sn-lightbox-nav-btn:hover {
+  background: var(--color-cyan);
+  color: #040c18;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.sn-lightbox-nav-btn.prev {
+  left: 24px;
+}
+
+.sn-lightbox-nav-btn.next {
+  right: 24px;
+}
+
+/* --------------------------------------------------------------------------
+   11. RESPONSIVIDADE E BREAKPOINTS
+   -------------------------------------------------------------------------- */
+@media (max-width: 1200px) {
+  .sn-indicators-card {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  
+  .sn-indicator-item:not(:last-child)::after {
+    display: none;
+  }
+
+  .sn-indicator-item {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    padding-bottom: 16px;
+  }
+
+  .sn-process-container {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .sn-process-info-col {
+    max-width: 100%;
+    text-align: center;
+    align-items: center;
+  }
+
+  .sn-process-bg-art {
+    display: none;
+  }
+}
+
+@media (max-width: 980px) {
+  .sn-essence-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .sn-commitment-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .sn-commitment-bg-photo {
+    width: 100%;
+    opacity: 0.2;
+    mask-image: radial-gradient(circle at center, black 40%, transparent 90%);
+    -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 90%);
+  }
+
+  .sn-gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .sn-hero-section {
+    padding: 130px 0 80px;
+    min-height: 440px;
+  }
+
+  .sn-hero-logo-img {
+    max-width: 240px;
+  }
+
+  .sn-indicators-wrapper {
+    margin-top: -40px;
+  }
+
+  .sn-indicators-card {
+    grid-template-columns: 1fr;
+    padding: 24px 20px;
+    gap: 16px;
+  }
+
+  .sn-indicator-item {
+    padding: 8px 10px;
+  }
+
+  /* Timeline mobile: Vertical contínua com nós à esquerda */
+  .sn-timeline-box {
+    padding: 32px 20px;
+    margin-top: 40px;
+  }
+
+  .sn-timeline-track {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding-left: 20px;
+  }
+
+  .sn-timeline-track::before {
+    top: 15px;
+    bottom: 15px;
+    left: 36px;
+    right: auto;
+    width: 2px;
+    height: auto;
+    background: linear-gradient(180deg, var(--color-primary), var(--color-cyan));
+  }
+
+  .sn-timeline-item {
+    flex-direction: row;
+    align-items: flex-start;
+    text-align: left;
+    gap: 18px;
+    padding: 0;
+  }
+
+  .sn-timeline-dot-wrapper {
+    margin-bottom: 0;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .sn-timeline-content-mob {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sn-timeline-year {
+    font-size: 1.5rem;
+    margin-bottom: 4px;
+  }
+
+  /* Metodologia mobile: 4 passos empilhados */
+  .sn-process-steps-col {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .sn-process-step-item:not(:last-child)::after {
+    top: auto;
+    bottom: -20px;
+    right: 50%;
+    transform: translateX(50%);
+    width: 2px;
+    height: 18px;
+    background: var(--color-cyan);
+  }
+
+  .sn-process-step-item:not(:last-child)::before {
+    top: auto;
+    bottom: -22px;
+    right: 50%;
+    transform: translateX(50%) rotate(135deg);
+    width: 8px;
+    height: 8px;
+  }
+
+  .sn-commitment-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sn-gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .sn-cta-buttons-row {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .sn-cta-buttons-row .btn {
+    width: 100% !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .sn-history-headline,
+  .sn-essence-headline,
+  .sn-gallery-headline,
+  .sn-commitment-headline,
+  .sn-cta-headline {
+    font-size: 1.75rem;
+  }
+
+  .sn-video-play-btn {
+    width: 64px;
+    height: 64px;
+  }
+
+  .sn-video-play-btn svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .sn-video-label {
+    font-size: 0.78rem;
+    bottom: 16px;
+  }
+}
