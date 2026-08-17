@@ -1,5 +1,27 @@
 # Changelog — ENDCONTROL Engenharia
 
+## [2026-08-17] - Criação da Página Solução 1: Engenharia de Integridade Estrutural
+
+### Added
+- **Página de Solução (`1-solucao-engenharia-de-integridade-estrutural.html`):** Duplicação estruturada da base institucional (`sobre-nos.html`) e incorporação das 5 seções dinâmicas da home page:
+  - **Seção Hero Principal:** Carrossel operacional com fotos em alta definição, camada tecnológica HUD de circuitos e 4 pilares inferiores com badges luminosos.
+  - **Seção Sobre a EndControl:** Grid de 2 colunas com fotos sobrepostas, efeitos bloom e banner de valores (Segurança, Confiabilidade, Eficiência, Sustentabilidade).
+  - **Seção Nossas Soluções:** Gráfico orbital em radar interativo integrado via `solucoes.js` e `radar-progress.js` com painel de métricas (+18 anos, +300 especialistas, 100% Brasil, +1.250 projetos).
+  - **Seção Principais Áreas de Atuação:** Accordion horizontal interativo com 10 segmentos de mercado (Aeroespacial, Alimentício, Ambiental, Energia, Ferroviário, Mineração, Naval, Óleo e Gás, Papel e Celulose, Químico e Petroquímico).
+  - **Seção Dúvidas Frequentes (FAQ):** Grid interativo de perguntas e respostas com sanfona expansível.
+  - **Integração de CSS e Scripts:** Inclusão dos módulos de estilo (`hero.css`, `solucoes.css`, `sections.css`, `segmentos.css`, `responsive.css`) e scripts interativos para total paridade funcional.
+
+## [2026-08-17] - Implementação da Arquitetura Panorâmica de 3 Zonas na Seção "Como Trabalhamos" (Fidelidade Figma)
+
+### Added
+- **Arquitetura Panorâmica Widescreen de 3 Zonas (`sobre-nos.html`, `src/css/sobre-nos.css`):**
+  - **ZONA 1 — Fotografia do Técnico (26%):** Espaçador físico no grid reservando o primeiro quarto para a fotografia ancorada na extrema esquerda, com preservação da iluminação quente industrial e transição multi-stop suave em gradiente até o navy escuro (`#010610`).
+  - **ZONA 2 — Bloco de Conteúdo (27%):** Eyebrow `COMO TRABALHAMOS` (tracking 0.2em), headline em exatamente duas linhas com destaque ciano em `cada etapa.`, parágrafo em 3 linhas de respiro e botão `Conheça nossas soluções` amplo (340px) com seta ciano à direita (`space-between`).
+  - **ZONA 3 — Metodologia (47%):** 4 nós metodológicos com círculos de 126px com glow ciano translúcido, números `01-04` centralizados no mesmo eixo vertical dos círculos, ícones com stroke fino de 1.8px (equipe, prancheta, ferramentas cruzadas, gráfico crescente) e conectores horizontais contínuos que preenchem os gaps alinhados pelo centro geométrico dos círculos.
+  - **Container Widescreen e Detalhes de Fundo:** Container com `max-width: 1920px` e largura livre, pontilhado técnico superior e arcos blueprint sutis.
+- **Player de Vídeo Institucional com Controles e Auto-Hide (`sobre-nos.html`, `src/js/sobre-nos.js`):** Autoplay contínuo, barra de progresso interativa com scrub, timecode `mm:ss`, mute/unmute, fullscreen e auto-hide após 2,5s.
+- **Padronização de Arredondamentos e Sobreposições (`src/css/sobre-nos.css`):** Cantos arredondados (`36px`), encaixe profundo sem gaps (`-36px`) e paddings ampliados em todas as seções.
+
 ## [2026-08-15] - Refinamento Visual Meticuloso da Página Sobre Nós & Ajuste do Header
 
 ### Added
