@@ -1,5 +1,13 @@
 # Histórico de sincronização — DB_IDE
 
+## 2026-08-18 - Criação da Página 3: Ensaios Não Destrutivos (ENDs) e Integração de Soluções
+
+- Projeto: site-end-controll
+- Tarefa: Desenvolvimento da página `3-solucao-ensaios-nao-destrutivos-ends.html` com layout de alta fidelidade visual (Hero Inox, Sobre o Serviço com 3 fotos de inspeção e métricas, Como Trabalhamos HUD, Accordion de 10 Segmentos, Capacidades Técnicas Convencionais e Avançadas, Metodologia de 4 passos, Compromisso e Footer Minimal Glow), além da atualização dos links nos menus de navegação global.
+- Status local: Concluída.
+- Commit: `4d4c5f8`
+- Registro: Sincronização e push efetuados com sucesso no branch `main` do GitHub. Memória persistente no Obsidian (`MD/`) e changelog atualizados.
+
 ## 2026-08-18 - Redesign dos Cards de Missão, Visão e Valores & Reordenação de Compromisso
 
 - Projeto: site-end-controll
