@@ -1,0 +1,1241 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ensaios Não Destrutivos (ENDs) | ENDCONTROL Engenharia</title>
+  <meta name="description" content="Ensaios Não Destrutivos (ENDs) convencionais e avançados da EndControl. Inspeção precisa e integridade estrutural sem alterar ou danificar componentes críticos." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://endcontrol.suporteide.digital/3-solucao-ensaios-nao-destrutivos-ends.html" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://endcontrol.suporteide.digital/3-solucao-ensaios-nao-destrutivos-ends.html" />
+  <meta property="og:title" content="Ensaios Não Destrutivos (ENDs) | ENDCONTROL Engenharia" />
+  <meta property="og:description" content="Inspeção e diagnóstico de integridade com Ensaios Não Destrutivos (ENDs) convencionais e avançados para componentes críticos." />
+  <meta property="og:image" content="https://endcontrol.suporteide.digital/assets/Logos/logo-principal-endcontrol-horizontal.webp" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Ensaios Não Destrutivos (ENDs) | ENDCONTROL Engenharia" />
+  <meta name="twitter:description" content="Inspeção e diagnóstico de integridade com Ensaios Não Destrutivos (ENDs) convencionais e avançados para componentes críticos." />
+  <meta name="twitter:image" content="https://endcontrol.suporteide.digital/assets/Logos/logo-principal-endcontrol-horizontal.webp" />
+
+  <!-- Favicon & Fonts -->
+  <link rel="icon" type="image/webp" href="./assets/Logos/icon-endcontrol.webp" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="./src/css/tokens.css?v=80.0" />
+  <link rel="stylesheet" href="./src/css/base.css?v=80.0" />
+  <link rel="stylesheet" href="./src/css/header.css?v=80.0" />
+  <link rel="stylesheet" href="./src/css/components.css?v=80.0" />
+  <link rel="stylesheet" href="./src/css/sections.css?v=80.0" />
+  <link rel="stylesheet" href="./src/css/solucoes.css?v=80.0" />
+  <link rel="stylesheet" href="./src/css/segmentos.css?v=80.0" />
+  <link rel="stylesheet" href="./src/css/sobre-nos.css?v=81.0" />
+  <link rel="stylesheet" href="./src/css/servico-integridade.css?v=83.0" />
+  <link rel="stylesheet" href="./src/css/work-units-footer.css?v=80.0" />
+  <link rel="stylesheet" href="./src/css/responsive.css?v=80.0" />
+
+  <!-- Script de Fallback Automático de Imagens -->
+  <script>
+    document.addEventListener('error', function(event) {
+      const target = event.target;
+      const tagName = target.tagName.toLowerCase();
+      
+      if (tagName === 'img' || tagName === 'video' || tagName === 'source') {
+        const element = target;
+        if (element.hasAttribute('data-no-fallback')) return;
+        let fallbackCount = parseInt(element.getAttribute('data-fallback-count') || '0', 10);
+        const srcUrl = element.getAttribute('src') || element.getAttribute('srcset');
+        if (!srcUrl) return;
+        
+        let assetPath = '';
+        if (srcUrl.includes('/assets/')) {
+          assetPath = 'assets/' + srcUrl.split('/assets/')[1];
+        } else if (srcUrl.includes('assets/')) {
+          assetPath = 'assets/' + srcUrl.split('assets/')[1];
+        } else {
+          return;
+        }
+        
+        const fallbacks = [
+          './' + assetPath,
+          'https://endcontrol.suporteide.digital/' + assetPath
+        ];
+        
+        if (fallbackCount < fallbacks.length) {
+          const nextFallback = fallbacks[fallbackCount];
+          element.setAttribute('data-fallback-count', fallbackCount + 1);
+          
+          if (tagName === 'source') {
+            element.setAttribute('srcset', nextFallback);
+          } else {
+            element.setAttribute('src', nextFallback);
+          }
+        }
+      }
+    }, true);
+
+    window.addEventListener('DOMContentLoaded', function() {
+      if (window.location.protocol === 'file:') {
+        for (let i = 0; i < document.styleSheets.length; i++) {
+          try {
+            const sheet = document.styleSheets[i];
+            const rules = sheet.cssRules || sheet.rules;
+            if (!rules) continue;
+            for (let j = 0; j < rules.length; j++) {
+              const rule = rules[j];
+              if (rule.style && rule.style.backgroundImage) {
+                const bg = rule.style.backgroundImage;
+                if (bg && bg.includes('/assets/')) {
+                  const parts = bg.split('/assets/');
+                  const assetPath = 'assets/' + parts[1].replace(/['"\)]/g, '');
+                  rule.style.backgroundImage = "url('./" + assetPath + "')";
+                } else if (bg && bg.includes('assets/') && !bg.includes('./assets/') && !bg.includes('../assets/')) {
+                  const parts = bg.split('assets/');
+                  const assetPath = 'assets/' + parts[1].replace(/['"\)]/g, '');
+                  rule.style.backgroundImage = "url('./" + assetPath + "')";
+                }
+              }
+            }
+          } catch (e) {}
+        }
+      }
+    });
+  </script>
+</head>
+<body class="sn-page-wrapper">
+
+  <!-- =========================================================================
+       HEADER GLOBAL
+       ========================================================================= -->
+  <header class="site-header" id="topo">
+    <div class="brand-group">
+      <a class="brand-main" href="index.html#home" aria-label="ENDCONTROL Engenharia">
+        <img src="./assets/Logos/logo-endcontrol-horizontal-negativo.png" alt="Logo ENDCONTROL" width="468" height="54" />
+      </a>
+    </div>
+
+    <button class="menu-toggle" aria-expanded="false" aria-controls="main-menu" aria-label="Abrir menu">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="main-menu" id="main-menu">
+      <a href="index.html#home">Home</a>
+      <a href="sobre-nos.html">Sobre Nós</a>
+      <div class="dropdown">
+        <a class="drop-link active" href="index.html#solucoes" aria-haspopup="true" style="color: var(--color-cyan); text-shadow: 0 0 10px rgba(0, 194, 255, 0.6);">Nossas Soluções</a>
+        <div class="drop-panel dropdown-rich-menu" aria-label="Submenu Nossas Soluções">
+          <a class="dropdown-item-rich" href="1-solucao-engenharia-de-integridade-estrutural.html" data-service-id="0">
+            <span class="dropdown-item-logo">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </span>
+            <span class="dropdown-item-text">1. Engenharia de Integridade Estrutural</span>
+          </a>
+
+          <a class="dropdown-item-rich" href="2-solucao-inspecao-em-obras-de-artes-especiais.html" data-service-id="1">
+            <span class="dropdown-item-logo">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M3 18l3-12h12l3 12M9 18v-6h6v6"/></svg>
+            </span>
+            <span class="dropdown-item-text">2. Inspeção em Obras de Artes Especiais</span>
+          </a>
+          
+          <a class="dropdown-item-rich" href="3-solucao-ensaios-nao-destrutivos-ends.html" data-service-id="2" style="background: rgba(0, 194, 255, 0.12); border-color: rgba(0, 194, 255, 0.4);">
+            <span class="dropdown-item-logo">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#00c2ff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20M12 2v20M4.93 4.93l14.14 14.14M4.93 19.07L19.07 4.93"/></svg>
+            </span>
+            <span class="dropdown-item-text" style="color: var(--color-cyan); font-weight: 700;">3. Ensaios Não Destrutivos (ENDs)</span>
+          </a>
+
+          <a class="dropdown-item-rich" href="index.html#solucoes" data-service-id="3">
+            <span class="dropdown-item-logo">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 3z"/></svg>
+            </span>
+            <span class="dropdown-item-text">4. Engenharia de Soldagem</span>
+          </a>
+          <div class="item-with-submenu">
+            <a class="dropdown-item-rich item-has-children" href="index.html#solucoes" aria-expanded="false">
+              <span class="dropdown-item-logo">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2M9 12h6M9 16h4"/></svg>
+              </span>
+              <span class="dropdown-item-text">Projetos</span>
+              <svg class="sub-chevron" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </a>
+            <div class="submenuzinho">
+              <a href="index.html#solucoes" class="submenuzinho-item" data-service-id="4">
+                <span class="submenuzinho-bullet">•</span>
+                <span>5. Gerenciamento de Projetos</span>
+              </a>
+              <a href="index.html#solucoes" class="submenuzinho-item" data-service-id="5">
+                <span class="submenuzinho-bullet">•</span>
+                <span>6. Elaboração de Projetos Mecânicos</span>
+              </a>
+            </div>
+          </div>
+          <a class="dropdown-item-rich" href="index.html#solucoes" data-service-id="6">
+            <span class="dropdown-item-logo">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+            </span>
+            <span class="dropdown-item-text">7. Soluções Tecnológicas Integradas</span>
+          </a>
+          <a class="dropdown-item-rich" href="index.html#solucoes" data-service-id="8">
+            <span class="dropdown-item-logo">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            </span>
+            <span class="dropdown-item-text">8. Inspeção e Adequação Normativa</span>
+          </a>
+          <a class="dropdown-item-rich" href="index.html#solucoes" data-service-id="9">
+            <span class="dropdown-item-logo">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+            </span>
+            <span class="dropdown-item-text">9. Calibração de Instrumentos</span>
+          </a>
+          <a class="dropdown-item-rich" href="index.html#solucoes" data-service-id="10">
+            <span class="dropdown-item-logo">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="9"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="3" x2="12" y2="9"/></svg>
+            </span>
+            <span class="dropdown-item-text">10. Trepanação (Hot Tapping)</span>
+          </a>
+          <a class="dropdown-item-rich" href="index.html#solucoes" data-service-id="11">
+            <span class="dropdown-item-logo">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+            </span>
+            <span class="dropdown-item-text">11. Certificação de Matéria-Prima</span>
+          </a>
+          <a class="dropdown-item-rich" href="index.html#solucoes" data-service-id="12">
+            <span class="dropdown-item-logo">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </span>
+            <span class="dropdown-item-text">12. Consultoria e Assessoria Técnica</span>
+          </a>
+        </div>
+      </div>
+      <div class="dropdown contacts-dropdown">
+        <a class="drop-link btn-contacts-menu" href="https://api.whatsapp.com/send?phone=5591984040710" target="_blank" rel="noopener" aria-haspopup="true">Contatos</a>
+        <div class="drop-panel" aria-label="Submenu Contatos">
+          <a href="https://api.whatsapp.com/send?phone=5591984040710" target="_blank" rel="noopener">Falar com Especialista</a>
+          <a href="index.html#contato">Canais de Contato</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- =========================================================================
+       1. TOPO DA PÁGINA (HERO INOX ESCOVADO COM LOGO WATERMARK)
+       ========================================================================= -->
+  <section class="sn-hero-section" id="hero-sobre" aria-label="Apresentação Institucional EndControl">
+    <div class="sn-hero-overlay"></div>
+  </section>
+
+  <main id="sn-main-content">
+
+    <!-- =========================================================================
+         2. SOBRE O SERVIÇO (CARD CLARO ARREDONDADO COM COMPOSIÇÃO DE FOTOS E MÉTRICAS)
+         ========================================================================= -->
+    <section class="svc-solution-section" id="sobre-servico" aria-label="Sobre os Ensaios Não Destrutivos">
+      <div class="sn-dot-matrix left" aria-hidden="true"></div>
+      <div class="sn-dot-matrix right" aria-hidden="true"></div>
+
+      <div class="sn-history-container">
+        
+        <!-- Eyebrow Tag -->
+        <div class="sn-eyebrow-line light-mode">ENSAIOS NÃO DESTRUTIVOS (ENDS)</div>
+
+        <!-- Headline Principal -->
+        <h1 class="sn-history-headline">
+          Inspeção precisa e integridade<br>
+          <span class="sn-highlight-blue">sem danos aos seus ativos.</span>
+        </h1>
+
+        <!-- Texto Descritivo Oficial -->
+        <p class="sn-history-description">
+          Oferecemos um conjunto completo de técnicas de <strong>Ensaios Não Destrutivos (ENDs)</strong> para inspeção e avaliação precisa da integridade estrutural e operacional de componentes críticos. Nossas metodologias permitem detectar descontinuidades e falhas potenciais sem causar danos ou alterações às características originais dos equipamentos, garantindo segurança, confiabilidade e máxima disponibilidade operacional.
+        </p>
+
+        <!-- Composição de 3 Fotos Reais de ENDs (1 Grande Vertical + 2 Empilhadas) -->
+        <div class="svc-trio-photo-grid" aria-label="Fotografias de Ensaios Não Destrutivos em Campo">
+          
+          <!-- Foto Principal 1 (Esquerda) -->
+          <div class="svc-trio-col-large">
+            <img src="./assets/Fotografias/Serviços - Banco de Imagens/03 - Ensaios Não Destrutivos (ENDs)/ensaios_nao_destrutivos_01.png" alt="Técnicos da EndControl realizando ensaio não destrutivo em planta industrial" loading="eager" />
+          </div>
+
+          <!-- Coluna com 2 Fotos Empilhadas (Direita) -->
+          <div class="svc-trio-col-stacked">
+            
+            <!-- Foto 2 (Superior) -->
+            <div class="svc-trio-stacked-item">
+              <img src="./assets/Fotografias/Serviços - Banco de Imagens/03 - Ensaios Não Destrutivos (ENDs)/ensaios_nao_destrutivos_02.png" alt="Inspeção ultrassônica e medição de integridade em tubulação industrial" loading="eager" />
+            </div>
+
+            <!-- Foto 3 (Inferior) -->
+            <div class="svc-trio-stacked-item">
+              <img src="./assets/Fotografias/Serviços - Banco de Imagens/03 - Ensaios Não Destrutivos (ENDs)/ensaios_nao_destrutivos_03.png" alt="Análise de dados técnicos e monitoramento de descontinuidades em sala de controle" loading="eager" />
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Indicadores Flutuantes / Métricas Institucionais -->
+        <div class="sn-indicators-card">
+          
+          <!-- Indicador 1: Experiência -->
+          <div class="sn-indicator-item">
+            <div class="sn-indicator-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+              </svg>
+            </div>
+            <div class="sn-indicator-text-box">
+              <span class="sn-indicator-value">+18 anos</span>
+              <span class="sn-indicator-label">de experiência</span>
+            </div>
+          </div>
+
+          <!-- Indicador 2: Portfólio de Técnicas -->
+          <div class="sn-indicator-item">
+            <div class="sn-indicator-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <polyline points="10 9 9 9 8 9"></polyline>
+              </svg>
+            </div>
+            <div class="sn-indicator-text-box">
+              <span class="sn-indicator-value">+300</span>
+              <span class="sn-indicator-label">projetos realizados</span>
+            </div>
+          </div>
+
+          <!-- Indicador 3: Ativos Avaliados -->
+          <div class="sn-indicator-item">
+            <div class="sn-indicator-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+                <path d="m9 14 2 2 4-4"></path>
+              </svg>
+            </div>
+            <div class="sn-indicator-text-box">
+              <span class="sn-indicator-value">+1.250</span>
+              <span class="sn-indicator-label">ativos avaliados</span>
+            </div>
+          </div>
+
+          <!-- Indicador 4: Segurança -->
+          <div class="sn-indicator-item">
+            <div class="sn-indicator-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                <path d="m9 12 2 2 4-4"></path>
+              </svg>
+            </div>
+            <div class="sn-indicator-text-box">
+              <span class="sn-indicator-value">100%</span>
+              <span class="sn-indicator-label">compromisso com segurança</span>
+            </div>
+          </div>
+
+          <!-- Indicador 5: Clientes -->
+          <div class="sn-indicator-item">
+            <div class="sn-indicator-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+            </div>
+            <div class="sn-indicator-text-box">
+              <span class="sn-indicator-value">+120</span>
+              <span class="sn-indicator-label">clientes atendidos</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         3. COMO TRABALHAMOS (METODOLOGIA 4 PASSOS - 3 ZONAS FIGMA HUD)
+         ========================================================================= -->
+    <section class="sn-process-section" id="como-trabalhamos" aria-label="Como Trabalhamos">
+      <!-- Camada Absoluta de Foto do Técnico à Esquerda -->
+      <div class="sn-process-photo-layer" aria-hidden="true">
+        <img src="./assets/Paginas Imgs/SOBRE NOS/sobrezinho.jpg" alt="Técnico EndControl em Campo executando END" class="sn-process-bg-art" loading="lazy" />
+        <div class="sn-process-photo-fade"></div>
+      </div>
+
+      <!-- Detalhes Tecnológicos Sutis (Pontos e Arcos Fundo) -->
+      <div class="sn-process-tech-decor" aria-hidden="true">
+        <div class="sn-process-tech-dots"></div>
+        <div class="sn-process-tech-arcs"></div>
+      </div>
+
+      <!-- Grid Panorâmico Widescreen de 3 Zonas -->
+      <div class="sn-process-widescreen-container">
+        
+        <!-- ZONA 1: Espaçador Físico da Foto (26%) -->
+        <div class="sn-process-photo-zone" aria-hidden="true"></div>
+
+        <!-- ZONA 2: Bloco de Conteúdo Central (27%) -->
+        <div class="sn-process-info-zone">
+          <span class="sn-process-eyebrow">COMO TRABALHAMOS</span>
+          <h2 class="sn-process-headline">
+            Método, conhecimento<br>
+            e precisão em <span class="sn-highlight-blue">cada etapa.</span>
+          </h2>
+          <p class="sn-process-description">
+            Uma abordagem estruturada que garante clareza, controle e resultados consistentes em ambientes industriais complexos.
+          </p>
+          <a href="#tecnicas-ends" class="sn-process-cta-btn">
+            <span>Conheça nossas soluções</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+        </div>
+
+        <!-- ZONA 3: 4 Passos Conectados (47%) -->
+        <div class="sn-process-track-zone">
+          
+          <!-- Passo 01 -->
+          <div class="sn-step-unit">
+            <span class="sn-step-number">01</span>
+            <div class="sn-step-node">
+              <svg viewBox="0 0 24 24" width="42" height="42" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+            </div>
+            <h3 class="sn-step-title">Entendimento<br>do desafio</h3>
+            <p class="sn-step-desc">Analisamos o contexto da operação, materiais, geometria e criticidade do ativo.</p>
+          </div>
+
+          <!-- Conector 01 -> 02 -->
+          <div class="sn-step-line-connector" aria-hidden="true">
+            <span class="sn-connector-stem"></span>
+            <svg class="sn-connector-head" viewBox="0 0 10 14" width="9" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="2 2 8 7 2 12"></polyline>
+            </svg>
+          </div>
+
+          <!-- Passo 02 -->
+          <div class="sn-step-unit">
+            <span class="sn-step-number">02</span>
+            <div class="sn-step-node">
+              <svg viewBox="0 0 24 24" width="42" height="42" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+                <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+                <path d="m9 14 2 2 4-4"></path>
+                <line x1="9" y1="10" x2="15" y2="10"></line>
+              </svg>
+            </div>
+            <h3 class="sn-step-title">Planejamento<br>técnico</h3>
+            <p class="sn-step-desc">Definimos a técnica de END mais adequada, procedimentos e critérios normativos.</p>
+          </div>
+
+          <!-- Conector 02 -> 03 -->
+          <div class="sn-step-line-connector" aria-hidden="true">
+            <span class="sn-connector-stem"></span>
+            <svg class="sn-connector-head" viewBox="0 0 10 14" width="9" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="2 2 8 7 2 12"></polyline>
+            </svg>
+          </div>
+
+          <!-- Passo 03 -->
+          <div class="sn-step-unit">
+            <span class="sn-step-number">03</span>
+            <div class="sn-step-node">
+              <svg viewBox="0 0 24 24" width="42" height="42" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+                <path d="M9.3 6.3a1 1 0 0 1 0 1.4L7.7 9.3a1 1 0 0 1-1.4 0L2.53 5.53a6 6 0 0 0 7.94 7.94l6.91 6.91a2.12 2.12 0 0 0 3-3l-6.91-6.91a6 6 0 0 0-7.94-7.94l3.76-3.76z"></path>
+              </svg>
+            </div>
+            <h3 class="sn-step-title">Execução<br>em campo</h3>
+            <p class="sn-step-desc">Inspetores certificados realizam ensaios com precisão e instrumentos calibrados.</p>
+          </div>
+
+          <!-- Conector 03 -> 04 -->
+          <div class="sn-step-line-connector" aria-hidden="true">
+            <span class="sn-connector-stem"></span>
+            <svg class="sn-connector-head" viewBox="0 0 10 14" width="9" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="2 2 8 7 2 12"></polyline>
+            </svg>
+          </div>
+
+          <!-- Passo 04 -->
+          <div class="sn-step-unit">
+            <span class="sn-step-number">04</span>
+            <div class="sn-step-node">
+              <svg viewBox="0 0 24 24" width="42" height="42" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="20" x2="18" y2="10"></line>
+                <line x1="12" y1="20" x2="12" y2="4"></line>
+                <line x1="6" y1="20" x2="6" y2="14"></line>
+                <path d="M3 12l5-5 5 5 7-7"></path>
+                <polyline points="15 5 20 5 20 10"></polyline>
+              </svg>
+            </div>
+            <h3 class="sn-step-title">Análise e<br>resultado</h3>
+            <p class="sn-step-desc">Laudos detalhados com rastreabilidade, diagnóstico e recomendações conclusivas.</p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         4. SEÇÃO QUANDO APLICAR (ACCORDION WIDGET COM OS 10 SEGMENTOS DA HOME)
+         ========================================================================= -->
+    <section class="section segmentos-secao wf-section section-full-width" id="quando-aplicar" data-wf-label="SEÇÃO QUANDO APLICAR">
+      <div class="container">
+        <div class="segmentos-head reveal">
+          <span class="segmentos-eyebrow">SERVIÇO 03</span>
+          <h2 class="segmentos-title">Situações em que esse <span class="segmentos-highlight">serviço agrega valor</span></h2>
+          <p class="segmentos-subtitle">
+            Ensaios Não Destrutivos aplicados para detectar descontinuidades, mitigar riscos e assegurar a máxima confiabilidade operacional nos principais setores industriais.
+          </p>
+        </div>
+      </div>
+
+      <!-- ACCORDION VERTICAL FULL-WIDTH (10 PAINÉIS DE ATUAÇÃO INDUSTRIAL) -->
+      <div class="endo-acc-full-wrapper" aria-label="Áreas de Atuação dos Ensaios Não Destrutivos">
+        
+        <!-- SETAS DE NAVEGAÇÃO (VISÍVEIS EM MOBILE/TABLET) -->
+        <button class="endo-acc-nav endo-acc-nav--prev" id="btnPrevAcc" aria-label="Navegar para a esquerda" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M15 18l-6-6 6-6"/>
+            </svg>
+        </button>
+
+        <!-- LISTA DE 10 PAINÉIS ACCORDION JUNTOS (FULL-WIDTH SEAMLESS) -->
+        <ul class="endo-acc-row" id="accTrackIndex">
+
+            <!-- PAINEL 1: Aeroespacial -->
+            <li class="endo-acc-panel is-active" data-index="0" tabindex="0">
+                <img class="endo-acc-card__img" src="./assets/Paginas Imgs/HOME/CARDS-AREAS-ATUACAO/Aeroespacial.webp" alt="Área Aeroespacial" loading="eager">
+                <div class="endo-acc-card__overlay"></div>
+                <div class="endo-acc-card__content">
+                    <svg class="endo-acc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3.5c-.5-.5-2.5 0-4 1.5L13.5 8.5 5.3 6.7c-.5-.1-.9.1-1.2.5l-.6.9c-.3.4-.2 1 .2 1.3L8 12l-3 3-2.5-.5c-.3-.1-.7 0-.9.3l-.3.4c-.2.3-.1.8.2 1l2.5 1.7 1.7 2.5c.2.3.7.4 1 .2l.4-.3c.3-.2.4-.6.3-.9L7 16l3-3 2.6 4.3c.3.4.9.5 1.3.2l.9-.6c.4-.3.6-.7.5-1.2z"/>
+                    </svg>
+                    <h3 class="endo-acc-card__title">Aeroespacial</h3>
+                    <div class="endo-acc-card__extra">
+                        <p class="endo-acc-card__desc">Inspeções de alta precisão em turbinas, fuselagens, asas e ligas aeronáuticas especiais.</p>
+                    </div>
+                </div>
+            </li>
+
+            <!-- PAINEL 2: Alimentício -->
+            <li class="endo-acc-panel" data-index="1" tabindex="0">
+                <img class="endo-acc-card__img" src="./assets/Paginas Imgs/HOME/CARDS-AREAS-ATUACAO/Alimenticio.webp" alt="Área Alimentícia" loading="lazy">
+                <div class="endo-acc-card__overlay"></div>
+                <div class="endo-acc-card__content">
+                    <svg class="endo-acc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 2v6a3 3 0 0 1-3 3 3 3 0 0 1-3-3V2"/>
+                        <path d="M15 2v18"/>
+                        <path d="M6 2v7a3 3 0 0 0 3 3h0a3 3 0 0 0 3-3V2"/>
+                        <path d="M9 12v10"/>
+                    </svg>
+                    <h3 class="endo-acc-card__title">Alimentício</h3>
+                    <div class="endo-acc-card__extra">
+                        <p class="endo-acc-card__desc">Controle de integridade sanitária em tanques de inox, tubulações e linhas de envase.</p>
+                    </div>
+                </div>
+            </li>
+
+            <!-- PAINEL 3: Ambiental -->
+            <li class="endo-acc-panel" data-index="2" tabindex="0">
+                <img class="endo-acc-card__img" src="./assets/Paginas Imgs/HOME/CARDS-AREAS-ATUACAO/Ambiental.webp" alt="Área Ambiental" loading="lazy">
+                <div class="endo-acc-card__overlay"></div>
+                <div class="endo-acc-card__content">
+                    <svg class="endo-acc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/>
+                        <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>
+                    </svg>
+                    <h3 class="endo-acc-card__title">Ambiental</h3>
+                    <div class="endo-acc-card__extra">
+                        <p class="endo-acc-card__desc">Ensaios de estanqueidade e monitoramento em bacias de contenção e efluentes.</p>
+                    </div>
+                </div>
+            </li>
+
+            <!-- PAINEL 4: Energia -->
+            <li class="endo-acc-panel" data-index="3" tabindex="0">
+                <img class="endo-acc-card__img" src="./assets/Paginas Imgs/HOME/CARDS-AREAS-ATUACAO/Energia.webp" alt="Área de Energia" loading="lazy">
+                <div class="endo-acc-card__overlay"></div>
+                <div class="endo-acc-card__content">
+                    <svg class="endo-acc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                    </svg>
+                    <h3 class="endo-acc-card__title">Energia</h3>
+                    <div class="endo-acc-card__extra">
+                        <p class="endo-acc-card__desc">Ensaios em turbinas hidrelétricas, pás eólicas, geradores e linhas de transmissão.</p>
+                    </div>
+                </div>
+            </li>
+
+            <!-- PAINEL 5: Ferroviário -->
+            <li class="endo-acc-panel" data-index="4" tabindex="0">
+                <img class="endo-acc-card__img" src="./assets/Paginas Imgs/HOME/CARDS-AREAS-ATUACAO/Ferroviario.webp" alt="Área Ferroviária" loading="lazy">
+                <div class="endo-acc-card__overlay"></div>
+                <div class="endo-acc-card__content">
+                    <svg class="endo-acc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="4" y="3" width="16" height="12" rx="2"/>
+                        <path d="M4 11h16"/>
+                        <path d="M12 3v8"/>
+                        <path d="m8 19-3 3"/>
+                        <path d="m16 19 3 3"/>
+                        <circle cx="8" cy="15" r="1"/>
+                        <circle cx="16" cy="15" r="1"/>
+                    </svg>
+                    <h3 class="endo-acc-card__title">Ferroviário</h3>
+                    <div class="endo-acc-card__extra">
+                        <p class="endo-acc-card__desc">Ultrassom e partículas magnéticas em trilhos, rodeiros, eixos e engates ferroviários.</p>
+                    </div>
+                </div>
+            </li>
+
+            <!-- PAINEL 6: Mineração -->
+            <li class="endo-acc-panel" data-index="5" tabindex="0">
+                <img class="endo-acc-card__img" src="./assets/Paginas Imgs/HOME/CARDS-AREAS-ATUACAO/Mineracao.webp" alt="Área de Mineração" loading="lazy">
+                <div class="endo-acc-card__overlay"></div>
+                <div class="endo-acc-card__content">
+                    <svg class="endo-acc-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+                    </svg>
+                    <h3 class="endo-acc-card__title">Mineração</h3>
+                    <div class="endo-acc-card__extra">
+                        <p class="endo-acc-card__desc">Detecção precoce de trincas e fadiga em britadores, moinhos e estruturas de suporte.</p>
+                    </div>
+                </div>
+            </li>
+
+            <!-- PAINEL 7: Naval -->
+            <li class="endo-acc-panel" data-index="6" tabindex="0">
+                <img class="endo-acc-card__img" src="./assets/Paginas Imgs/HOME/CARDS-AREAS-ATUACAO/Naval.webp" alt="Área Naval" loading="lazy">
+                <div class="endo-acc-card__overlay"></div>
+                <div class="endo-acc-card__content">
+                    <svg class="endo-acc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M2 21c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1 .6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/>
+                        <path d="M19.38 20A11.6 11.6 0 0 0 21 14l-9-4-9 4c0 2.9.94 5.34 2.81 7.76"/>
+                        <path d="M19 10 12 3 5 10"/>
+                        <path d="M12 3v7"/>
+                    </svg>
+                    <h3 class="endo-acc-card__title">Naval</h3>
+                    <div class="endo-acc-card__extra">
+                        <p class="endo-acc-card__desc">Inspeções de casco, plataformas offshore, soldas submarinas e conveses metálicos.</p>
+                    </div>
+                </div>
+            </li>
+
+            <!-- PAINEL 8: Óleo e Gás -->
+            <li class="endo-acc-panel" data-index="7" tabindex="0">
+                <img class="endo-acc-card__img" src="./assets/Paginas Imgs/HOME/CARDS-AREAS-ATUACAO/Oleo-Gas.webp" alt="Área de Óleo e Gás" loading="lazy">
+                <div class="endo-acc-card__overlay"></div>
+                <div class="endo-acc-card__content">
+                    <svg class="endo-acc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>
+                    </svg>
+                    <h3 class="endo-acc-card__title">Óleo e Gás</h3>
+                    <div class="endo-acc-card__extra">
+                        <p class="endo-acc-card__desc">Mapeamento de corrosão e perda de parede em dutos, tanques API e vasos sob pressão.</p>
+                    </div>
+                </div>
+            </li>
+
+            <!-- PAINEL 9: Papel e Celulose -->
+            <li class="endo-acc-panel" data-index="8" tabindex="0">
+                <img class="endo-acc-card__img" src="./assets/Paginas Imgs/HOME/CARDS-AREAS-ATUACAO/Papel-Celulose.webp" alt="Área de Papel e Celulose" loading="lazy">
+                <div class="endo-acc-card__overlay"></div>
+                <div class="endo-acc-card__content">
+                    <svg class="endo-acc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                        <polyline points="14 2 14 8 20 8"/>
+                        <line x1="16" y1="13" x2="8" y2="13"/>
+                        <line x1="16" y1="17" x2="8" y2="17"/>
+                        <polyline points="10 9 9 9 8 9"/>
+                    </svg>
+                    <h3 class="endo-acc-card__title">Papel e Celulose</h3>
+                    <div class="endo-acc-card__extra">
+                        <p class="endo-acc-card__desc">Inspeção técnica e ultrassom em caldeiras de recuperação, digestores e rolos secadores.</p>
+                    </div>
+                </div>
+            </li>
+
+            <!-- PAINEL 10: Químico e Petroquímico -->
+            <li class="endo-acc-panel" data-index="9" tabindex="0">
+                <img class="endo-acc-card__img" src="./assets/Paginas Imgs/HOME/CARDS-AREAS-ATUACAO/Quimico-Petroquimico.webp" alt="Área Química e Petroquímica" loading="lazy">
+                <div class="endo-acc-card__overlay"></div>
+                <div class="endo-acc-card__content">
+                    <svg class="endo-acc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M10 2v7.527a2 2 0 0 1-.211.896L4.72 20.55a1 1 0 0 0 .9 1.45h12.76a1 1 0 0 0 .9-1.45l-5.069-10.127A2 2 0 0 1 14 9.527V2"/>
+                        <path d="M8.5 2h7"/>
+                        <path d="M7 16h10"/>
+                    </svg>
+                    <h3 class="endo-acc-card__title">Químico e Petroquímico</h3>
+                    <div class="endo-acc-card__extra">
+                        <p class="endo-acc-card__desc">Avaliação de reatores, colunas de destilação e trocadores de calor sob severa corrosão.</p>
+                    </div>
+                </div>
+            </li>
+
+        </ul>
+
+        <!-- BOTÃO PRÓXIMO -->
+        <button class="endo-acc-nav endo-acc-nav--next" id="btnNextAcc" aria-label="Navegar para a direita" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 18l6-6-6-6"/>
+            </svg>
+        </button>
+
+        <!-- INDICADORES DOTS (PONTOS DE NAVEGAÇÃO) -->
+        <div class="endo-acc-dots" id="accDotsIndex"></div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         5. CAPACIDADES TÉCNICAS (CONVENCIONAIS VS AVANÇADOS)
+         ========================================================================= -->
+    <section class="svc-techniques-section" id="tecnicas-ends" aria-label="Capacidades Técnicas em Ensaios Não Destrutivos">
+      <div class="svc-techniques-overlay" aria-hidden="true"></div>
+      
+      <div class="svc-techniques-container">
+        
+        <div class="svc-techniques-header">
+          <span class="svc-techniques-eyebrow">CAPACIDADES TÉCNICAS</span>
+          <h2 class="svc-techniques-headline">
+            Técnicas de ENDs <span class="sn-highlight-blue">Convencionais e Avançadas</span>
+          </h2>
+          <p class="svc-techniques-subtitle">
+            Do ensaio visual a tecnologias ultrassônicas e radiográficas de ponta, dimensionamos a técnica perfeita para o material, geometria e criticidade de cada ativo.
+          </p>
+        </div>
+
+        <div class="svc-techniques-grid">
+          
+          <!-- Card 1: Ensaios Convencionais -->
+          <div class="svc-tech-card">
+            <div class="svc-tech-card-header">
+              <div class="svc-tech-card-icon">
+                <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <path d="m4.93 4.93 14.14 14.14"></path>
+                </svg>
+              </div>
+              <div>
+                <h3 class="svc-tech-card-title">Ensaios Convencionais</h3>
+                <span class="svc-tech-card-badge">Precisão e Rastreabilidade</span>
+              </div>
+            </div>
+
+            <ul class="svc-tech-items-list">
+              <li class="svc-tech-item">
+                <span class="svc-tech-item-bullet">◆</span>
+                <span class="svc-tech-item-text"><strong>Inspeção Visual (EV)</strong> — Avaliação dimensional e superficial detalhada.</span>
+              </li>
+              <li class="svc-tech-item">
+                <span class="svc-tech-item-bullet">◆</span>
+                <span class="svc-tech-item-text"><strong>Líquido Penetrante (LP)</strong> — Detecção de descontinuidades abertas à superfície.</span>
+              </li>
+              <li class="svc-tech-item">
+                <span class="svc-tech-item-bullet">◆</span>
+                <span class="svc-tech-item-text"><strong>Partículas Magnéticas (PM)</strong> — Revelação de trincas superficiais e subsuperficiais em ferromagnéticos.</span>
+              </li>
+              <li class="svc-tech-item">
+                <span class="svc-tech-item-bullet">◆</span>
+                <span class="svc-tech-item-text"><strong>Ultrassom Convencional (US)</strong> — Medição de espessura e caracterização volumétrica.</span>
+              </li>
+              <li class="svc-tech-item">
+                <span class="svc-tech-item-bullet">◆</span>
+                <span class="svc-tech-item-text"><strong>Radiografia Industrial (RI)</strong> — Mapeamento interno de juntas soldadas e fundidos.</span>
+              </li>
+              <li class="svc-tech-item">
+                <span class="svc-tech-item-bullet">◆</span>
+                <span class="svc-tech-item-text"><strong>Estanqueidade (LT)</strong> — Verificação rigorosa contra vazamentos e perdas.</span>
+              </li>
+              <li class="svc-tech-item">
+                <span class="svc-tech-item-bullet">◆</span>
+                <span class="svc-tech-item-text"><strong>Videoscopia (EVI)</strong> — Inspeção visual remota em áreas de difícil acesso.</span>
+              </li>
+              <li class="svc-tech-item">
+                <span class="svc-tech-item-bullet">◆</span>
+                <span class="svc-tech-item-text"><strong>Réplicas Metalográficas (RM)</strong> — Caracterização microestrutural in-situ.</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Card 2: Ensaios Avançados -->
+          <div class="svc-tech-card">
+            <div class="svc-tech-card-header">
+              <div class="svc-tech-card-icon">
+                <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                </svg>
+              </div>
+              <div>
+                <h3 class="svc-tech-card-title">Ensaios Avançados</h3>
+                <span class="svc-tech-card-badge">Alta Tecnologia e Imagem</span>
+              </div>
+            </div>
+
+            <ul class="svc-tech-items-list">
+              <li class="svc-tech-item">
+                <span class="svc-tech-item-bullet">◆</span>
+                <span class="svc-tech-item-text"><strong>Phased Array (PAUT)</strong> — Imagem setorial e focalização eletrônica de feixes.</span>
+              </li>
+              <li class="svc-tech-item">
+                <span class="svc-tech-item-bullet">◆</span>
+                <span class="svc-tech-item-text"><strong>Ultrassom TOFD</strong> — Dimensionamento de trincas por difração de tempo de voo.</span>
+              </li>
+              <li class="svc-tech-item">
+                <span class="svc-tech-item-bullet">◆</span>
+                <span class="svc-tech-item-text"><strong>Ondas Guiadas (GWUT)</strong> — Inspeção de longas extensões de tubulações.</span>
+              </li>
+              <li class="svc-tech-item">
+                <span class="svc-tech-item-bullet">◆</span>
+                <span class="svc-tech-item-text"><strong>Ultrassom EMAT</strong> — Ensaios sem acoplante em temperaturas elevadas.</span>
+              </li>
+              <li class="svc-tech-item">
+                <span class="svc-tech-item-bullet">◆</span>
+                <span class="svc-tech-item-text"><strong>Radiografia Digital (DR / CR)</strong> — Imagens digitais imediatas e de alta resolução.</span>
+              </li>
+              <li class="svc-tech-item">
+                <span class="svc-tech-item-bullet">◆</span>
+                <span class="svc-tech-item-text"><strong>Correntes Parasitas (ET / Pulsed)</strong> — Inspeção de tubos de trocadores e revestimentos.</span>
+              </li>
+              <li class="svc-tech-item">
+                <span class="svc-tech-item-bullet">◆</span>
+                <span class="svc-tech-item-text"><strong>ACFM & Termografia (IR)</strong> — Detecção de trincas superficiais e gradientes térmicos.</span>
+              </li>
+              <li class="svc-tech-item">
+                <span class="svc-tech-item-bullet">◆</span>
+                <span class="svc-tech-item-text"><strong>Drones & Escaneamento 3D</strong> — Inspeção remota em altura e mapeamento tridimensional.</span>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         6. NOSSA METODOLOGIA (AÇO INOX CLARO + FLUXO HORIZONTAL DE 4 ETAPAS)
+         ========================================================================= -->
+    <section class="svc-methodology-section" id="metodologia" aria-label="Nossa Metodologia de Engenharia">
+      <div class="svc-methodology-container">
+        
+        <div class="svc-methodology-eyebrow">NOSSA METODOLOGIA</div>
+        <h2 class="svc-methodology-headline">
+          Como transformamos dados em <span class="highlight-blue">decisões</span> de engenharia.
+        </h2>
+
+        <div class="svc-methodology-flow">
+          
+          <!-- Etapa 01: Coleta de dados -->
+          <div class="svc-method-card">
+            <div class="svc-method-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+              </svg>
+            </div>
+            <span class="svc-method-badge">01</span>
+            <h3 class="svc-method-title">Coleta de dados</h3>
+            <p class="svc-method-desc">Capturamos informações críticas em campo com tecnologia de ponta e protocolos confiáveis.</p>
+          </div>
+
+          <!-- Conector 01 -> 02 -->
+          <div class="svc-method-arrow-connector" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </div>
+
+          <!-- Etapa 02: Diagnóstico técnico -->
+          <div class="svc-method-card">
+            <div class="svc-method-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="3"></circle>
+                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+              </svg>
+            </div>
+            <span class="svc-method-badge">02</span>
+            <h3 class="svc-method-title">Diagnóstico técnico</h3>
+            <p class="svc-method-desc">Nossos especialistas analisam o cenário com base em normas, histórico e dados operacionais.</p>
+          </div>
+
+          <!-- Conector 02 -> 03 -->
+          <div class="svc-method-arrow-connector" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </div>
+
+          <!-- Etapa 03: Análise de integridade -->
+          <div class="svc-method-card">
+            <div class="svc-method-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <polyline points="10 9 9 9 8 9"></polyline>
+              </svg>
+            </div>
+            <span class="svc-method-badge">03</span>
+            <h3 class="svc-method-title">Análise de engenharia</h3>
+            <p class="svc-method-desc">Aplicamos metodologias avançadas para dimensionar descontinuidades e simular cenários técnicos.</p>
+          </div>
+
+          <!-- Conector 03 -> 04 -->
+          <div class="svc-method-arrow-connector" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </div>
+
+          <!-- Etapa 04: Recomendações executáveis -->
+          <div class="svc-method-card">
+            <div class="svc-method-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+                <path d="m9 14 2 2 4-4"></path>
+              </svg>
+            </div>
+            <span class="svc-method-badge">04</span>
+            <h3 class="svc-method-title">Recomendações executáveis</h3>
+            <p class="svc-method-desc">Entregamos soluções práticas, laudos detalhados e planos priorizados de intervenção.</p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         7. SEÇÃO — NOSSO COMPROMISSO (4 PILARES + FOTO TÉCNICA)
+         ========================================================================= -->
+    <section class="sn-commitment-section" id="compromisso">
+      <div class="sn-commitment-blueprint-bg" aria-hidden="true"></div>
+      <img src="./assets/Fotografias/Serviços - Banco de Imagens/01 - Engenharia de Integridade Estrutural/equipe-engenharia-integridade-estrutural-planta-industrial.webp" alt="Equipe Técnica de Ensaios Não Destrutivos da EndControl" class="sn-commitment-bg-photo" loading="lazy" />
+
+      <div class="sn-commitment-container">
+        
+        <div class="sn-commitment-header">
+          <span class="sn-eyebrow-left light-mode">NOSSO COMPROMISSO</span>
+          <h2 class="sn-commitment-headline">
+            Excelência técnica começa<br>
+            com <span class="sn-highlight-blue">responsabilidade.</span>
+          </h2>
+        </div>
+
+        <div class="sn-commitment-grid">
+          
+          <!-- Pilar 1: Segurança -->
+          <div class="sn-commitment-card">
+            <div class="sn-commitment-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                <polyline points="9 12 12 15 15 12"></polyline>
+                <line x1="12" y1="8" x2="12" y2="15"></line>
+              </svg>
+            </div>
+            <h3 class="sn-commitment-card-title">Segurança</h3>
+            <p class="sn-commitment-card-text">Protegemos pessoas, meio ambiente e operações industriais.</p>
+          </div>
+
+          <!-- Pilar 2: Confiabilidade -->
+          <div class="sn-commitment-card">
+            <div class="sn-commitment-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="8" r="6"></circle>
+                <path d="m9 12 2 2 4-4"></path>
+                <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"></path>
+              </svg>
+            </div>
+            <h3 class="sn-commitment-card-title">Confiabilidade</h3>
+            <p class="sn-commitment-card-text">Entregamos com rigor técnico e máxima responsabilidade.</p>
+          </div>
+
+          <!-- Pilar 3: Eficiência -->
+          <div class="sn-commitment-card">
+            <div class="sn-commitment-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 3v18h18"></path>
+                <path d="m19 9-5 5-4-4-3 3"></path>
+                <path d="m14 9 5 0 0 5"></path>
+              </svg>
+            </div>
+            <h3 class="sn-commitment-card-title">Eficiência</h3>
+            <p class="sn-commitment-card-text">Soluções que otimizam recursos e reduzem riscos de paradas.</p>
+          </div>
+
+          <!-- Pilar 4: Parceria -->
+          <div class="sn-commitment-card">
+            <div class="sn-commitment-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+            </div>
+            <h3 class="sn-commitment-card-title">Parceria</h3>
+            <p class="sn-commitment-card-text">Relacionamentos sólidos e foco em resultados contínuos.</p>
+          </div>
+
+        </div>
+
+        <!-- Botão CTA da Seção -->
+        <div class="sn-commitment-cta">
+          <a href="https://api.whatsapp.com/send?phone=5591984040710" target="_blank" rel="noopener" class="btn btn-primary sn-commitment-btn">
+            <span>Fale com nossos especialistas</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =========================================================================
+       8. FOOTER OFICIAL ENDCONTROL
+       ========================================================================= -->
+  <footer class="footer-minimal-glow-section">
+    <div class="footer-minimal-container">
+      
+      <!-- Top Grid: 3 Colunas Separadas por Divisores Verticais Glow -->
+      <div class="footer-minimal-top-grid">
+        
+        <!-- Coluna 1: Localização -->
+        <div class="footer-col-location">
+          <div class="footer-col-header">
+            <svg class="footer-header-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#00c2ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+            <span class="footer-header-title">LOCALIZAÇÃO</span>
+          </div>
+          <div class="footer-location-details">
+            <p>Av. Alcindo Cacela, 2120</p>
+            <p>Belém, Pará - Brasil</p>
+            <p class="footer-sub-text">(Escritório Sede)</p>
+          </div>
+        </div>
+
+        <!-- Divisor Vertical 1 -->
+        <div class="footer-v-divider" aria-hidden="true"></div>
+
+        <!-- Coluna 2: Logo Central + Slogan + Redes Sociais -->
+        <div class="footer-col-center">
+          <div class="footer-logo-glow-wrapper">
+            <img src="./assets/Logos/logo-endcontrol-vertical-mono-negativo.webp" alt="ENDCONTROL Engenharia" class="footer-minimal-logo" width="115" height="115" style="max-width: 115px; width: 115px; height: auto;">
+          </div>
+          <p class="footer-minimal-slogan">Excelência em Engenharia de Integridade e Soluções Industriais.</p>
+          <div class="footer-minimal-social-row">
+            <a href="https://www.instagram.com/endcontrol" target="_blank" rel="noopener" aria-label="Instagram" class="social-circle-minimal">
+              <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            </a>
+            <a href="https://www.linkedin.com/company/endcontrol" target="_blank" rel="noopener" aria-label="LinkedIn" class="social-circle-minimal">
+              <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+            </a>
+            <a href="https://www.youtube.com" target="_blank" rel="noopener" aria-label="YouTube" class="social-circle-minimal">
+              <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Divisor Vertical 2 -->
+        <div class="footer-v-divider" aria-hidden="true"></div>
+
+        <!-- Coluna 3: Fale Conosco + WhatsApp + E-mail -->
+        <div class="footer-col-contact">
+          <div class="footer-header-title text-center">FALE CONOSCO</div>
+          <div class="footer-title-divider" aria-hidden="true">
+            <span class="divider-line"></span>
+            <span class="divider-dot"></span>
+            <span class="divider-line"></span>
+          </div>
+          <a href="https://api.whatsapp.com/send?phone=5591984040710" target="_blank" rel="noopener" class="footer-whatsapp-row">
+            <svg class="footer-whatsapp-icon" viewBox="0 0 24 24" width="32" height="32" fill="none">
+              <path d="M20.5 11.5a8.5 8.5 0 0 1-12.8 7.3L3 20l1.3-4.6A8.5 8.5 0 1 1 20.5 11.5z" stroke="#00c2ff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              <path d="M16.5 14.2c-.25-.13-1.47-.73-1.7-.81-.23-.08-.39-.13-.56.13-.16.25-.64.81-.79.98-.14.16-.29.19-.54.06-.25-.13-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.38-1.72-.14-.25-.01-.38.11-.51.11-.11.25-.29.38-.44.13-.14.17-.25.25-.41.08-.16.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.84-.2-.48-.41-.42-.56-.43h-.48c-.16 0-.44.06-.67.31-.23.25-.87.85-.87 2.08s.89 2.41 1.01 2.58c.13.16 1.75 2.67 4.24 3.75.59.26 1.05.41 1.41.53.6.19 1.14.16 1.57.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.21-.16-.46-.29z" fill="#00c2ff"/>
+            </svg>
+            <span class="footer-phone-number">(91) 9.8404-0710</span>
+          </a>
+          <a href="mailto:contato@endcontrol.com.br" class="footer-email-row">
+            <svg class="footer-email-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#00c2ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+            <span>contato@endcontrol.com.br</span>
+          </a>
+          <a href="https://api.whatsapp.com/send?phone=5591984040710" target="_blank" rel="noopener" class="footer-wsp-button">
+            CHAMAR NO WHATSAPP
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Barra Inferior de Direitos / Links -->
+      <div class="footer-minimal-bottom-bar">
+        <span class="copyright-left">Copyright © 2026 ENDCONTROL Engenharia – Todos os direitos reservados.</span>
+        <a href="#" class="legal-center">Termos & Privacidade</a>
+        <div class="dev-right">
+          <span>Desenvolvido por:</span>
+          <a href="https://idedigital.com.br" target="_blank" rel="noopener" aria-label="ide digital" style="display: inline-flex; align-items: center; text-decoration: none; color: inherit;">
+            <img src="./assets/Logos/logo-dev-idedigital.png" alt="ide digital" class="idedigital-logo-img" width="64" height="16">
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Scripts Globais e Locais -->
+  <script src="./src/js/main.js?v=25.0" defer></script>
+  <script src="./src/js/sobre-nos.js?v=67.0" defer></script>
+
+  <!-- Script Controlador do Accordion de "Quando Aplicar" -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const trackIndex = document.getElementById('accTrackIndex');
+      const panelsIndex = document.querySelectorAll('#accTrackIndex .endo-acc-panel');
+      const btnPrevAcc = document.getElementById('btnPrevAcc');
+      const btnNextAcc = document.getElementById('btnNextAcc');
+      const dotsContainerIndex = document.getElementById('accDotsIndex');
+
+      if (trackIndex && panelsIndex.length > 0) {
+        let currentIndex = 0;
+        let programmaticScrollTimer = null;
+        let isProgrammaticScroll = false;
+
+        const isMobileAccordion = () => window.matchMedia('(max-width: 860px)').matches;
+
+        if (dotsContainerIndex) {
+          panelsIndex.forEach((panel, index) => {
+            const dot = document.createElement('button');
+            dot.classList.add('endo-acc-dot');
+            dot.setAttribute('aria-label', `Ir para segmento ${index + 1}`);
+            if (index === 0) dot.classList.add('is-active');
+            
+            dot.addEventListener('click', () => {
+              openPanelIndex(index);
+            });
+            
+            dotsContainerIndex.appendChild(dot);
+          });
+        }
+
+        const dotsIndex = dotsContainerIndex ? dotsContainerIndex.querySelectorAll('.endo-acc-dot') : [];
+
+        function activatePanelIndex(index) {
+          const safeIndex = Math.max(0, Math.min(index, panelsIndex.length - 1));
+
+          panelsIndex.forEach((p, idx) => {
+            if (idx === safeIndex) {
+              p.classList.add('is-active');
+              p.setAttribute('aria-expanded', 'true');
+            } else {
+              p.classList.remove('is-active');
+              p.setAttribute('aria-expanded', 'false');
+            }
+          });
+
+          dotsIndex.forEach((d, idx) => {
+            if (idx === safeIndex) {
+              d.classList.add('is-active');
+            } else {
+              d.classList.remove('is-active');
+            }
+          });
+
+          currentIndex = safeIndex;
+        }
+
+        function scrollToPanelIndex(index) {
+          const targetPanel = panelsIndex[index];
+          if (!targetPanel) return;
+
+          isProgrammaticScroll = true;
+          window.clearTimeout(programmaticScrollTimer);
+
+          const scrollOffset = targetPanel.offsetLeft - (trackIndex.clientWidth / 2) + (targetPanel.clientWidth / 2);
+          trackIndex.scrollTo({ left: scrollOffset, behavior: 'smooth' });
+
+          programmaticScrollTimer = window.setTimeout(() => {
+            isProgrammaticScroll = false;
+          }, 700);
+        }
+
+        function openPanelIndex(index) {
+          const targetIndex = Math.max(0, Math.min(index, panelsIndex.length - 1));
+          activatePanelIndex(targetIndex);
+
+          window.requestAnimationFrame(() => {
+            scrollToPanelIndex(targetIndex);
+          });
+        }
+
+        panelsIndex.forEach((panel, index) => {
+          panel.addEventListener('click', (e) => {
+            openPanelIndex(index);
+          });
+
+          panel.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              openPanelIndex(index);
+            }
+          });
+
+          panel.addEventListener('mouseenter', () => {
+            if (!isMobileAccordion()) {
+              activatePanelIndex(index);
+            }
+          });
+        });
+
+        if (btnPrevAcc) {
+          btnPrevAcc.addEventListener('click', () => {
+            const nextIdx = (currentIndex - 1 + panelsIndex.length) % panelsIndex.length;
+            openPanelIndex(nextIdx);
+          });
+        }
+
+        if (btnNextAcc) {
+          btnNextAcc.addEventListener('click', () => {
+            const nextIdx = (currentIndex + 1) % panelsIndex.length;
+            openPanelIndex(nextIdx);
+          });
+        }
+      }
+    });
+  </script>
+</body>
+</html>

@@ -11,15 +11,15 @@
 }
 
 /* --------------------------------------------------------------------------
-   S2 — SOBRE A SOLUÇÃO (WHITE MODE COM CONTAINER ARREDONDADO E FOTO ÚNICA)
+   S2 — SERVIÇO 1: SOBRE A SOLUÇÃO (WHITE MODE COM CONTAINER ARREDONDADO E FOTO ÚNICA)
    -------------------------------------------------------------------------- */
 .svc-solution-section {
   position: relative;
-  background: #f4f8fb;
+  background: #ffffff;
   color: #0c1a30;
-  border-radius: 36px;
-  margin-top: -36px;
-  padding: 90px 0 85px;
+  border-radius: 48px;
+  margin-top: -24px;
+  padding: 85px 0 80px;
   z-index: 5;
   overflow: hidden;
   box-shadow: 0 14px 45px rgba(0, 20, 60, 0.06);
@@ -102,7 +102,339 @@
   margin: 0;
 }
 
+.svc-solution-paragraphs p strong {
+  color: #0b1a30;
+  font-weight: 700;
+}
+
+.svc-solution-paragraphs p strong.highlight-blue {
+  color: #0066ff;
+  font-weight: 700;
+}
+
 /* Imagem Única Grande da Solução (Fidelidade ao Padrão Home S2) */
+.svc-solution-media-col {
+  position: relative;
+}
+
+.svc-single-photo-wrapper {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  background: #0c1a30;
+  box-shadow: 0 18px 45px rgba(0, 20, 60, 0.12), 0 2px 10px rgba(0, 102, 255, 0.08);
+  border: 1.5px solid rgba(0, 102, 255, 0.2);
+  height: 420px;
+}
+
+.svc-single-photo-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.svc-single-photo-wrapper:hover img {
+  transform: scale(1.03);
+}
+
+.svc-photo-overlay-glow {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 102, 255, 0.04) 0%, rgba(2, 11, 24, 0.25) 100%);
+  pointer-events: none;
+}
+
+/* --------------------------------------------------------------------------
+   S2 — SERVIÇO 2: SOBRE A SOLUÇÃO (FUNDO CYAN #CBF0FC + CARD HUD COM 2 FOTOS)
+   -------------------------------------------------------------------------- */
+.svc-solution-section--cyan,
+.svc-solution-section:has(.svc-duo-photo-wrapper) {
+  background: linear-gradient(135deg, #c4eefb 0%, #d8f4fd 50%, #cbf0fc 100%);
+  color: #0c1a30;
+  border-radius: 48px;
+  margin-top: -24px;
+  padding: 80px 0;
+  box-shadow: 0 16px 45px rgba(0, 80, 160, 0.08);
+}
+
+.svc-solution-section--cyan .svc-solution-container,
+.svc-solution-section:has(.svc-duo-photo-wrapper) .svc-solution-container {
+  max-width: 1260px;
+  padding: 0 32px;
+}
+
+.svc-solution-section--cyan .svc-solution-main-grid,
+.svc-solution-section:has(.svc-duo-photo-wrapper) .svc-solution-main-grid {
+  grid-template-columns: 1.15fr 1fr;
+  margin-bottom: 0;
+}
+
+/* Coluna Esquerda: Composição de 2 Fotos Sobrepostas com Moldura HUD Tecnológica (Sem borda branca) */
+.svc-duo-photo-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 580px;
+  height: 430px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.svc-photo-box {
+  position: absolute;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.svc-photo-box--top-left {
+  top: 0;
+  left: 0;
+  width: 60%;
+  height: 230px;
+  z-index: 2;
+}
+
+.svc-photo-box--bottom-right {
+  bottom: 0;
+  right: 0;
+  width: 78%;
+  height: 290px;
+  z-index: 1;
+}
+
+.svc-duo-photo-wrapper:hover .svc-photo-box--top-left {
+  transform: translate(-4px, -4px) scale(1.02);
+}
+
+.svc-duo-photo-wrapper:hover .svc-photo-box--bottom-right {
+  transform: translate(4px, 4px) scale(1.01);
+}
+
+/* Moldura HUD Externa com Cantoneiras */
+.svc-hud-frame {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(0, 102, 255, 0.16);
+  border-radius: 28px;
+  box-shadow: 0 16px 36px rgba(0, 30, 80, 0.14);
+}
+
+/* Cantoneiras HUD (Brackets escuros/navy nos 4 cantos) */
+.svc-hud-bracket {
+  position: absolute;
+  width: 13px;
+  height: 13px;
+  border-color: #0b1a30;
+  border-style: solid;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.svc-hud-bracket.corner-tl {
+  top: -2px;
+  left: -2px;
+  border-width: 2.5px 0 0 2.5px;
+  border-top-left-radius: 5px;
+}
+
+.svc-hud-bracket.corner-tr {
+  top: -2px;
+  right: -2px;
+  border-width: 2.5px 2.5px 0 0;
+  border-top-right-radius: 5px;
+}
+
+.svc-hud-bracket.corner-bl {
+  bottom: -2px;
+  left: -2px;
+  border-width: 0 0 2.5px 2.5px;
+  border-bottom-left-radius: 5px;
+}
+
+.svc-hud-bracket.corner-br {
+  bottom: -2px;
+  right: -2px;
+  border-width: 0 2.5px 2.5px 0;
+  border-bottom-right-radius: 5px;
+}
+
+/* Container Interno da Foto (Sem Borda Branca) */
+.svc-photo-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1.5px solid rgba(0, 60, 140, 0.2);
+  box-shadow: inset 0 0 18px rgba(0, 0, 0, 0.12);
+  background: #0b1a30;
+}
+
+.svc-photo-inner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.svc-photo-box:hover .svc-photo-inner img {
+  transform: scale(1.03);
+}
+
+/* Coluna Direita (Serviço 2): Conteúdo com Detalhes Geométricos e Dot Grid */
+.svc-solution-section--cyan .svc-solution-content-col,
+.svc-solution-section:has(.svc-duo-photo-wrapper) .svc-solution-content-col {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 40px 40px 40px 44px;
+  border-radius: 36px;
+  background: rgba(235, 248, 254, 0.55);
+  background-image: radial-gradient(rgba(0, 102, 255, 0.14) 1.2px, transparent 1.2px);
+  background-size: 18px 18px;
+  box-shadow: inset 0 0 30px rgba(255, 255, 255, 0.6);
+}
+
+.svc-solution-eyebrow-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.svc-solution-section--cyan .svc-solution-eyebrow,
+.svc-solution-section:has(.svc-duo-photo-wrapper) .svc-solution-eyebrow {
+  font-family: var(--font-primary, "Inter", sans-serif);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #0066ff;
+  margin: 0;
+}
+
+.svc-solution-section--cyan .svc-solution-eyebrow::after,
+.svc-solution-section:has(.svc-duo-photo-wrapper) .svc-solution-eyebrow::after {
+  display: none;
+}
+
+.svc-solution-eyebrow-accent {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: #0066ff;
+}
+
+.svc-eyebrow-diamond {
+  font-size: 0.72rem;
+  line-height: 1;
+  color: #0066ff;
+}
+
+.svc-eyebrow-bar {
+  display: inline-block;
+  width: 44px;
+  height: 2px;
+  background: #0066ff;
+  border-radius: 2px;
+}
+
+.svc-solution-section--cyan .svc-solution-headline,
+.svc-solution-section:has(.svc-duo-photo-wrapper) .svc-solution-headline {
+  font-family: var(--font-primary, "Inter", sans-serif);
+  font-size: clamp(2.2rem, 3.2vw, 3rem);
+  font-weight: 900;
+  line-height: 1.12;
+  letter-spacing: -0.035em;
+  color: #0b1a30;
+  margin-bottom: 22px;
+}
+
+.svc-solution-headline .highlight-blue {
+  color: #0066ff;
+}
+
+.svc-solution-section--cyan .svc-solution-paragraphs,
+.svc-solution-section:has(.svc-duo-photo-wrapper) .svc-solution-paragraphs {
+  margin-bottom: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.svc-solution-section--cyan .svc-solution-paragraphs p,
+.svc-solution-section:has(.svc-duo-photo-wrapper) .svc-solution-paragraphs p {
+  font-family: var(--font-primary, "Inter", sans-serif);
+  font-size: 1.02rem;
+  line-height: 1.62;
+  color: #2c4460;
+  margin: 0;
+}
+
+/* Botão Fale com Especialista (Pílula Cyan com Círculo de Seta) */
+.svc-cyan-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: #c3eafb;
+  border: 1.8px solid #0066ff;
+  border-radius: 12px;
+  padding: 8px 18px 8px 8px;
+  color: #0066ff;
+  font-family: var(--font-primary, "Inter", sans-serif);
+  font-size: 0.98rem;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(0, 102, 255, 0.12);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.svc-cyan-cta-btn:hover {
+  background: #0066ff;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 102, 255, 0.28);
+}
+
+.svc-cyan-cta-circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #89d3f8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0066ff;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.svc-cyan-cta-btn:hover .svc-cyan-cta-circle {
+  background: #ffffff;
+  color: #0066ff;
+}
+
+.svc-cyan-cta-arrow {
+  color: #0066ff;
+  transition: transform 0.25s ease, color 0.3s ease;
+  flex-shrink: 0;
+}
+
+.svc-cyan-cta-btn:hover .svc-cyan-cta-arrow {
+  color: #ffffff;
+  transform: translateX(4px);
+}
+
+/* Suporte de Compatibilidade para Foto Única */
 .svc-solution-media-col {
   position: relative;
 }
@@ -386,6 +718,33 @@
   height: 20px;
 }
 
+.svc-methodology-quote {
+  margin: 48px auto 0;
+  max-width: 860px;
+  padding: 18px 32px;
+  border-left: 4px solid #0066ff;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(8px);
+  border-radius: 0 16px 16px 0;
+  box-shadow: 0 6px 24px rgba(0, 40, 100, 0.06);
+  text-align: center;
+}
+
+.svc-methodology-quote p {
+  font-family: var(--font-primary, "Inter", sans-serif);
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #1e3250;
+  margin: 0;
+  line-height: 1.55;
+}
+
+.svc-methodology-quote p strong,
+.svc-methodology-quote p .highlight-blue {
+  color: #0066ff;
+  font-weight: 700;
+}
+
 /* --------------------------------------------------------------------------
    S5 — QUANDO APLICAR (ACCORDION FULL-WIDTH COM ESPAÇAMENTO E BORDER-RADIUS)
    -------------------------------------------------------------------------- */
@@ -472,3 +831,277 @@
     font-size: 1.65rem;
   }
 }
+
+/* --------------------------------------------------------------------------
+   S2 — 3-PHOTO COMPOSITION GRID (CONFORME DESIGN DA HERO/HISTÓRIA)
+   -------------------------------------------------------------------------- */
+.svc-trio-photo-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 20px;
+  max-width: 960px;
+  margin: 36px auto 40px auto;
+  align-items: stretch;
+}
+
+.svc-trio-col-large {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(0, 20, 60, 0.12);
+  border: 1.5px solid rgba(0, 102, 255, 0.18);
+  height: 420px;
+  background: #0b1a30;
+}
+
+.svc-trio-col-large img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.svc-trio-col-stacked {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: 420px;
+}
+
+.svc-trio-stacked-item {
+  position: relative;
+  flex: 1;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(0, 20, 60, 0.1);
+  border: 1.5px solid rgba(0, 102, 255, 0.18);
+  background: #0b1a30;
+}
+
+.svc-trio-stacked-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.svc-trio-col-large:hover img,
+.svc-trio-stacked-item:hover img {
+  transform: scale(1.03);
+}
+
+@media (max-width: 860px) {
+  .svc-trio-photo-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin: 24px auto 30px auto;
+  }
+  .svc-trio-col-large {
+    height: 280px;
+  }
+  .svc-trio-col-stacked {
+    height: auto;
+    gap: 16px;
+  }
+  .svc-trio-stacked-item {
+    height: 180px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   SEÇÃO TÉCNICAS E MÉTODOS DE END (CONVENCIONAIS & AVANÇADOS)
+   -------------------------------------------------------------------------- */
+.svc-techniques-section {
+  position: relative;
+  background: #071324 url('../../assets/Paginas Imgs/SOBRE NOS/REF-SOBRE-NOS/bgs/bg-inox-v1-optimized.webp') center / cover no-repeat;
+  color: #ffffff;
+  border-radius: 36px;
+  margin-top: -36px;
+  padding: 95px 0 100px;
+  z-index: 7;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+.svc-techniques-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 30%, rgba(2, 11, 24, 0.7) 0%, rgba(2, 11, 24, 0.95) 100%);
+  pointer-events: none;
+}
+
+.svc-techniques-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 2;
+}
+
+.svc-techniques-header {
+  text-align: center;
+  max-width: 820px;
+  margin: 0 auto 50px;
+}
+
+.svc-techniques-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--font-primary, "Inter", sans-serif);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-cyan, #00c2ff);
+  margin-bottom: 16px;
+}
+
+.svc-techniques-eyebrow::before,
+.svc-techniques-eyebrow::after {
+  content: "";
+  display: inline-block;
+  width: 36px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--color-cyan, #00c2ff));
+}
+
+.svc-techniques-eyebrow::after {
+  background: linear-gradient(90deg, var(--color-cyan, #00c2ff), transparent);
+}
+
+.svc-techniques-headline {
+  font-family: var(--font-primary, "Inter", sans-serif);
+  font-size: clamp(2rem, 3.4vw, 2.75rem);
+  font-weight: 800;
+  line-height: 1.18;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+  margin-bottom: 16px;
+}
+
+.svc-techniques-subtitle {
+  font-family: var(--font-primary, "Inter", sans-serif);
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: #b0c4de;
+  margin: 0;
+}
+
+.svc-techniques-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+.svc-tech-card {
+  background: rgba(12, 26, 48, 0.75);
+  border: 1px solid rgba(0, 194, 255, 0.22);
+  border-radius: 24px;
+  padding: 36px 32px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(12px);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.svc-tech-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(0, 194, 255, 0.5);
+  box-shadow: 0 20px 50px rgba(0, 194, 255, 0.15);
+}
+
+.svc-tech-card-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.svc-tech-card-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 14px;
+  background: rgba(0, 194, 255, 0.12);
+  border: 1px solid rgba(0, 194, 255, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-cyan, #00c2ff);
+  flex-shrink: 0;
+}
+
+.svc-tech-card-title {
+  font-family: var(--font-primary, "Inter", sans-serif);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.svc-tech-card-badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-cyan, #00c2ff);
+  margin-top: 2px;
+}
+
+.svc-tech-items-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 18px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.svc-tech-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-family: var(--font-primary, "Inter", sans-serif);
+  font-size: 0.92rem;
+  line-height: 1.45;
+  color: #d8e5f2;
+}
+
+.svc-tech-item-bullet {
+  color: var(--color-cyan, #00c2ff);
+  font-size: 1.1rem;
+  line-height: 1;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.svc-tech-item-text strong {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+@media (max-width: 900px) {
+  .svc-techniques-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+@media (max-width: 600px) {
+  .svc-tech-items-list {
+    grid-template-columns: 1fr;
+  }
+  .svc-tech-card {
+    padding: 24px 20px;
+  }
+}
+

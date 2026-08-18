@@ -1,5 +1,58 @@
 # Changelog — ENDCONTROL Engenharia
 
+## [2026-08-18] - Criação da Página 3: Ensaios Não Destrutivos (ENDs) e Integração Global
+
+### Added
+- **1. Nova Página da Solução 3 (`3-solucao-ensaios-nao-destrutivos-ends.html`):**
+  - Desenvolvida a página institucional completa para o serviço **3. Ensaios Não Destrutivos (ENDs)** com base nos dados do portfólio oficial e na composição visual de referência:
+    - **Header Global & Topo Hero Inox Escovado:** Padronizada a altura com `.sn-hero-section` e marca d'água 3D.
+    - **Sobre o Serviço:** Headline e parágrafos oficiais focados na detecção de descontinuidades sem alterações ou danos aos componentes, composição de 3 fotos reais de inspeção em campo (`.svc-trio-photo-grid`) e barra de Indicadores Flutuantes (`.sn-indicators-card`).
+    - **Como Trabalhamos:** Seção HUD escura com foto em campo e 4 passos circulares conectados (01 Entendimento, 02 Planejamento, 03 Execução, 04 Análise).
+    - **Situações em que esse serviço agrega valor:** Accordion vertical full-width interativo com os 10 segmentos industriais (Aeroespacial, Alimentício, Ambiental, Energia, Ferroviário, Mineração, Naval, Óleo & Gás, Papel & Celulose, Químico & Petroquímico).
+    - **Capacidades Técnicas:** Grade de alta tecnologia apresentando o portfólio completo de ensaios **Convencionais** (EV, LP, PM, US, RI, LT, EVI, RM) e **Avançados** (PAUT, TOFD, GWUT, EMAT, DR/CR, CT Scan, IR, ET, ACFM, Drones e Escaneamento 3D).
+    - **Nossa Metodologia:** Fluxo horizontal com 4 etapas conectadas sobre fundo aço inox claro.
+    - **Nosso Compromisso:** Grid dos 4 pilares (*Segurança*, *Confiabilidade*, *Eficiência*, *Parceria*) com fotografia técnica e botão CTA para atendimento WhatsApp.
+    - **Footer Minimal Glow:** Rodapé completo com dados institucionais, redes sociais e canais de contato.
+
+### Changed & Refined
+- **2. Integração dos Menus de Navegação:**
+  - Atualizados os links do submenu de soluções em `index.html`, `sobre-nos.html`, `1-solucao-engenharia-de-integridade-estrutural.html`, `2-solucao-inspecao-em-obras-de-artes-especiais.html` e `src/js/solucoes.js` para apontarem para `3-solucao-ensaios-nao-destrutivos-ends.html`.
+- **3. Estilização Dedicada em `src/css/servico-integridade.css`:**
+  - Adicionadas classes para a composição de 3 fotos (`.svc-trio-photo-grid`) e grade técnica de capacidades (`.svc-techniques-section`), com total responsividade para Desktop, Tablet e Mobile.
+
+
+### Fixed & Refined
+- **1. Restauração do Fundo Branco Puro na Seção 2 do Serviço 1 (`1-solucao-engenharia-de-integridade-estrutural.html`, `src/css/servico-integridade.css`):**
+  - Isolada a regra base de `.svc-solution-section` com fundo branco `#ffffff`, container arredondado e coluna de conteúdo limpa e transparente para o **Serviço 1** (*Engenharia de Integridade Estrutural*).
+  - Escopado o estilo azul/cyan (`linear-gradient(135deg, #c4eefb 0%, #d8f4fd 50%, #cbf0fc 100%)`) e o card dot-matrix exclusivamente para o **Serviço 2** (`.svc-solution-section--cyan`), eliminando qualquer sobreposição ou conflito entre as páginas.
+  - Atualizado o versionamento de cache para `v=82.0`.
+
+## [2026-08-18] - Reordenação e Ajuste de Seções da Página 2 (Inspeção em Obras de Artes Especiais)
+
+### Changed & Refined
+- **1. Reordenação Estrita das Seções (`2-solucao-inspecao-em-obras-de-artes-especiais.html`):**
+  - Sequência ajustada com fidelidade ao modelo de referência:
+    1. **Header Global & Topo Institucional** (`site-header`, `sn-hero-section`)
+    2. **Sobre o Serviço** (`svc-solution-section` / `#sobre-servico`)
+    3. **Como Trabalhamos** (`sn-process-section` / `#como-trabalhamos` — Foto lateral + 4 passos circulares azuis conectados)
+    4. **Quando Aplicar / Situações em que este serviço agrega valor** (`segmentos-secao` / `#quando-aplicar` — Accordion vertical)
+    5. **Nossa Metodologia** (`svc-methodology-section` / `#metodologia` — Fundo Aço Inox claro, 4 cards brancos 01 a 04 + citação/frase de destaque na base)
+    6. **Nosso Compromisso** (`sn-commitment-section` / `#compromisso` — Foto técnica + 4 cards verticais)
+    7. **Footer Minimalista Glow** (`footer-minimal-glow-section`)
+- **5. Limpeza Visual e Redução de Altura da Seção 3 (`2-solucao-inspecao-em-obras-de-artes-especiais.html`, `src/css/sobre-nos.css`):**
+  - Removido o botão *"Conheça nossas soluções"* da seção **Como Trabalhamos**, tornando a lateral de texto mais leve e focada.
+  - Reduzida a altura vertical da seção **Como Trabalhamos** (`padding: 60px 0; min-height: 480px`) para eliminar excesso de espaço vazio e manter proporção compacta.
+  - Removida a faixa/frase inferior de citação da seção **Nossa Metodologia** conforme solicitado.
+
+## [2026-08-18] - Duplicação da Página de Soluções: Criação do Serviço 2 (Inspeção em Obras de Artes Especiais)
+
+### Added
+- **1. Nova Página da Solução 2 (`2-solucao-inspecao-em-obras-de-artes-especiais.html`):**
+  - Duplicada a estrutura completa e validada da Solução 1 (`1-solucao-engenharia-de-integridade-estrutural.html`).
+  - Atualizados títulos, metatags de SEO, URLs canônicas, Open Graph e Twitter Cards para *Inspeção em Obras de Artes Especiais*.
+  - Configurado o menu de navegação global destacando o Item 2 como ativo no submenu de soluções.
+  - Atualizados os links de direcionamento do menu e do radar/soluções em `index.html`, `sobre-nos.html`, `1-solucao-engenharia-de-integridade-estrutural.html` e `src/js/solucoes.js`.
+
 ## [2026-08-18] - Redesign Completo dos Cards de Missão, Visão e Valores (Fidelidade ao Print)
 
 ### Changed & Refined

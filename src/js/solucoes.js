@@ -31,6 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'Suporte à gestão de ativos'
       ],
       image: './assets/Fotografias/editadas/operacional-alpinismo-industrial-escada-tanque-edit.webp',
+      url: '2-solucao-inspecao-em-obras-de-artes-especiais.html',
       ctaText: 'Saiba Mais',
       iconSvg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20"/><path d="M4 20v-4"/><path d="M8 20v-8"/><path d="M12 20V8"/><path d="M16 20v-8"/><path d="M20 20v-4"/><path d="M4 16l4-4 4 0 4 0 4 4"/><path d="M8 12l4-4 4 4"/></svg>`
     },
@@ -48,6 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'Emissão acústica e TOFD'
       ],
       image: './assets/Fotografias/editadas/operacional-ultrassom-solda-tubulacao-edit-final.webp',
+      url: '3-solucao-ensaios-nao-destrutivos-ends.html',
       ctaText: 'Saiba Mais',
       iconSvg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="3" width="12" height="18" rx="2"/><circle cx="12" cy="15" r="2"/><path d="M9 8h6"/><path d="M9 5.5h6"/></svg>`
     },

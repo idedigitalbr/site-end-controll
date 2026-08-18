@@ -1,5 +1,13 @@
 # Features — ENDCONTROL Engenharia
 
+## Página 3: Ensaios Não Destrutivos (ENDs) e Integração de Soluções
+
+- Status: Concluída
+- Data: 2026-08-18
+- Criada a página `3-solucao-ensaios-nao-destrutivos-ends.html` com arquitetura visual e técnica oficial: Hero Inox, Sobre o Serviço com 3 fotos reais e métricas flutuantes, Como Trabalhamos HUD, Accordion de 10 Segmentos Industriais, Grade de Técnicas Convencionais e Avançadas, Metodologia de 4 passos, Compromisso e Footer Minimal Glow.
+- Atualizados os links e dropdowns de soluções em todas as páginas do site (`index.html`, `sobre-nos.html`, `1-solucao...`, `2-solucao...`, `src/js/solucoes.js`).
+- Estilização dedicada em `src/css/servico-integridade.css` para a composição de 3 fotos e capacidades técnicas.
+
 ## Redesign dos Cards de Missão, Visão e Valores & Reordenação dos Cards de Compromisso
 
 - Status: Concluída
