@@ -1,5 +1,14 @@
 # Histórico de sincronização — DB_IDE
 
+## 2026-08-18 - Redesign dos Cards de Missão, Visão e Valores & Reordenação de Compromisso
+
+- Projeto: site-end-controll
+- Tarefa: Redesign da seção de Identidade Corporativa em `sobre-nos.html` (header em linha, aba azul superior, tipografia alinhada à esquerda) e reordenação/travamento rígido em pixels dos 4 cards de compromisso (`168px` x `245px`).
+- Status local: Concluída.
+- Registro: Fidelidade visual pixel-perfect com as referências, layout responsivo em múltiplos viewports, cache atualizado para `v=82.0` e 36 testes automatizados aprovados.
+- Observação: Memória local e pipeline sincronizados.
+
+
 ## 2026-08-18 - Modernização Completa do Radar FFS (12 Mecanismos API 579), Feixe Laser e Fundo #04163A
 
 - Projeto: site-end-controll

@@ -1,5 +1,35 @@
 # Changelog — ENDCONTROL Engenharia
 
+## [2026-08-18] - Redesign Completo dos Cards de Missão, Visão e Valores (Fidelidade ao Print)
+
+### Changed & Refined
+- **1. Estrutura e Alinhamento dos Cards (`sobre-nos.html`, `src/css/sobre-nos.css`):**
+  - Redesenhada a seção de **Identidade Corporativa (Missão, Visão e Valores)** com fidelidade pixel-perfect à referência oficial:
+    - **Header em Linha:** Ícone circular à esquerda (`60px`, fundo `#eaf2fd` e borda azul suave) e título em negrito à direita (`font-size: 1.7rem; color: #08182e`).
+    - **Aba Azul Superior:** Inserida a aba azul de destaque no topo esquerdo de cada card (`.sn-essence-card-tab`).
+    - **Underline em Visão:** Inserido o traço azul decorativo de sublinhado sob o título *Visão*.
+    - **Corpo e Lista de Valores:** Parágrafos alinhados à esquerda com excelente contraste e legibilidade; lista de *Valores* estruturada com marcadores de ponto azul vibrante (`•`).
+    - **Cards e Sombreamento:** Fundo branco puro (`#ffffff`), cantos arredondados de `24px` e sombra realista profunda sobre a textura metálica de aço escovado (`BG-aco-inox-claro-fundo.webp`).
+  - Cache atualizado para `v=82.0`.
+
+## [2026-08-18] - Reordenação e Travamento de Dimensões Exatas em Pixels dos Cards de Compromisso
+
+### Changed & Refined
+- **1. Reordenação dos Cards de Compromisso (`sobre-nos.html`, `1-solucao-engenharia-de-integridade-estrutural.html`):**
+  - Atualizada a ordem sequencial dos 4 cards de compromisso:
+    1. **Eficiência** (*Soluções que otimizam recursos e reduzem riscos.*)
+    2. **Segurança** (*Protegemos pessoas, meio ambiente e operações.*)
+    3. **Parceria** (*Relacionamentos sólidos e foco em resultados.*)
+    4. **Confiabilidade** (*Entregamos com qualidade e responsabilidade.*)
+- **2. Travamento Rígido em Pixels (`src/css/sobre-nos.css`):**
+  - Removidas frações e percentuais variáveis da grade.
+  - Definida largura física idêntica e fixa de **`168px`** para todos os 4 cards (`width: 168px; min-width: 168px; max-width: 168px; box-sizing: border-box`).
+  - Definida altura mínima uniforme de **`245px`** (`min-height: 245px; height: 100%`) com padding equilibrado (`28px 16px 24px`), assegurando simetria geométrica 100% idêntica entre os 4 blocos.
+  - Grade estruturada em `grid-template-columns: repeat(4, 168px)` com `gap: 16px` no Desktop, `220px` no Tablet e `280px` no Mobile.
+  - Cache atualizado para `v=81.0`.
+- **3. Remoção de Botão na Seção "Como Trabalhamos" (`sobre-nos.html`):**
+  - Removido o botão redundante *"Conheça nossas soluções"* do bloco descritivo lateral, limpando o layout e dando foco total aos 4 passos da metodologia.
+
 ## [2026-08-18] - Modernização Completa do Radar FFS (12 Mecanismos API 579), Feixe Laser e Fundo #04163A
 
 ### Added & Refined

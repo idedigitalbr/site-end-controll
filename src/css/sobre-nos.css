@@ -610,121 +610,134 @@
 .sn-essence-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
-  text-align: center;
+  gap: 28px;
+  align-items: stretch;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-/* Card de Missão, Visão e Valores no padrão 3D White Glass */
+/* Card de Missão, Visão e Valores */
 .sn-essence-card {
   position: relative;
   background: #ffffff;
-  border: 1px solid rgba(0, 102, 255, 0.14);
-  border-radius: 28px;
-  padding: 44px 34px 44px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 24px;
+  padding: 36px 30px 38px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  box-shadow: 0 20px 50px rgba(0, 20, 60, 0.08), 0 4px 15px rgba(0, 0, 0, 0.03);
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  align-items: flex-start;
+  text-align: left;
+  box-shadow: 0 16px 38px rgba(0, 20, 50, 0.22), 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.35s ease;
   overflow: hidden;
+  height: 100%;
+  box-sizing: border-box;
 }
 
 .sn-essence-card:hover {
   transform: translateY(-6px);
-  border-color: #0066ff;
-  box-shadow: 0 26px 60px rgba(0, 30, 80, 0.14), 0 0 25px rgba(0, 102, 255, 0.18);
+  box-shadow: 0 24px 50px rgba(0, 30, 80, 0.28), 0 0 20px rgba(0, 102, 255, 0.18);
 }
 
+/* Aba azul no topo esquerdo de cada card */
+.sn-essence-card-tab {
+  position: absolute;
+  top: 0;
+  left: 20px;
+  width: 52px;
+  height: 5px;
+  background: linear-gradient(90deg, #0088ff, #0052cc);
+  border-radius: 0 0 4px 4px;
+}
+
+/* Header em linha: Ícone à esquerda + Título à direita */
 .sn-essence-card-header {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 20px;
+  gap: 16px;
+  margin-bottom: 22px;
   width: 100%;
+  text-align: left;
 }
 
 .sn-essence-icon-badge {
-  width: 82px;
-  height: 82px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
-  background: radial-gradient(circle at 35% 35%, #ffffff 0%, #f0f6fc 65%, #dde9f7 100%);
-  border: 2px solid rgba(0, 102, 255, 0.35);
+  background: #eaf2fd;
+  border: 1.5px solid rgba(0, 102, 255, 0.2);
   display: flex;
   align-items: center;
   justify-content: center;
   color: #0066ff;
-  box-shadow: 0 10px 24px rgba(0, 80, 200, 0.16), inset 0 2px 6px rgba(255, 255, 255, 0.9);
   flex-shrink: 0;
-  transition: all 0.35s ease;
+  box-shadow: 0 4px 14px rgba(0, 80, 200, 0.08);
+  transition: all 0.3s ease;
 }
 
 .sn-essence-card:hover .sn-essence-icon-badge {
-  transform: scale(1.08);
+  transform: scale(1.06);
+  background: #deedfe;
   border-color: #0066ff;
-  box-shadow: 0 14px 30px rgba(0, 102, 255, 0.35), inset 0 0 15px rgba(0, 102, 255, 0.15);
 }
 
 .sn-essence-icon-badge svg {
-  width: 36px;
-  height: 36px;
+  width: 28px;
+  height: 28px;
 }
 
 .sn-essence-card-title {
   font-family: var(--font-primary);
   font-size: 1.7rem;
   font-weight: 800;
-  color: #0c1a30;
-  margin: 6px 0 0;
+  color: #08182e;
+  margin: 0;
+  line-height: 1.15;
   letter-spacing: -0.02em;
 }
 
-.sn-essence-divider {
-  width: 52px;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, #0066ff, transparent);
-  position: relative;
-  margin: 4px 0 8px;
+.sn-essence-title-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
-.sn-divider-dot {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
+.sn-essence-title-line {
+  width: 28px;
+  height: 2.5px;
   background: #0066ff;
+  border-radius: 2px;
+  margin-top: 5px;
 }
 
 .sn-essence-card-body {
   font-family: var(--font-primary);
-  font-size: 0.96rem;
+  font-size: 0.94rem;
   line-height: 1.65;
-  color: #4b5d75;
+  color: #2b3e55;
   margin: 0;
-  text-align: center;
+  text-align: left;
 }
 
-/* Lista de Valores */
+/* Lista de Valores com bullets azuis alinhados à esquerda */
 .sn-values-list {
   list-style: none;
   padding: 0;
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 11px;
+  gap: 8px;
   width: 100%;
   text-align: left;
 }
 
 .sn-values-list li {
   position: relative;
-  padding-left: 20px;
+  padding-left: 18px;
   font-family: var(--font-primary);
-  font-size: 0.95rem;
-  color: #384e68;
+  font-size: 0.92rem;
+  color: #2b3e55;
   line-height: 1.45;
   font-weight: 500;
 }
@@ -735,20 +748,8 @@
   left: 0;
   top: -1px;
   color: #0066ff;
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   font-weight: 800;
-}
-
-.sn-card-bottom-pill {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 76px;
-  height: 4.5px;
-  border-radius: 999px;
-  background: linear-gradient(90deg, #00c2ff, #0066ff);
-  box-shadow: 0 0 14px rgba(0, 156, 255, 0.8);
 }
 
 /* --------------------------------------------------------------------------
@@ -1241,19 +1242,25 @@
 
 .sn-commitment-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-  max-width: 680px;
+  grid-template-columns: repeat(4, 168px);
+  gap: 16px;
+  max-width: 720px;
 }
 
 .sn-commitment-card {
   position: relative;
+  width: 168px;
+  min-width: 168px;
+  max-width: 168px;
+  min-height: 245px;
+  height: 100%;
+  box-sizing: border-box;
   background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border: 1px solid rgba(0, 102, 255, 0.18);
   border-radius: 20px;
-  padding: 28px 18px 24px;
+  padding: 28px 16px 24px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1855,11 +1862,20 @@
 @media (max-width: 1024px) {
   .sn-essence-grid {
     grid-template-columns: 1fr;
+    max-width: 540px;
+    margin: 0 auto;
     gap: 24px;
   }
 
   .sn-commitment-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 220px);
+    gap: 16px;
+  }
+
+  .sn-commitment-card {
+    width: 220px;
+    min-width: 220px;
+    max-width: 220px;
   }
 
   .sn-commitment-bg-photo {
@@ -2093,7 +2109,17 @@
   }
 
   .sn-commitment-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 280px;
+    gap: 16px;
+    justify-content: center;
+    margin: 0 auto;
+  }
+
+  .sn-commitment-card {
+    width: 280px;
+    min-width: 280px;
+    max-width: 280px;
+    min-height: auto;
   }
 
   .sn-commitment-cta {
@@ -2308,8 +2334,8 @@
 }
 
 .sn-page-wrapper.light-theme .sn-values-list li::before {
-  background: #0052cc;
-  box-shadow: 0 0 8px rgba(0, 82, 204, 0.4);
+  color: #0052cc;
+  background: transparent;
 }
 
 .sn-page-wrapper.light-theme .sn-essence-icon-badge {

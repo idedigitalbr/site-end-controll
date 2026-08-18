@@ -1,5 +1,15 @@
 # Features — ENDCONTROL Engenharia
 
+## Redesign dos Cards de Missão, Visão e Valores & Reordenação dos Cards de Compromisso
+
+- Status: Concluída
+- Data: 2026-08-18
+- Redesenhada a seção de Identidade Corporativa (Missão, Visão e Valores) em `sobre-nos.html` com layout de header em linha (ícone à esquerda + título à direita), aba superior azul decorativa e alinhamento à esquerda.
+- Reordenados os 4 cards de compromisso (Eficiência, Segurança, Parceria, Confiabilidade) e travadas suas dimensões exatas em pixels (`168px` de largura por `245px` de altura mínima).
+- Removido botão redundante da seção "Como Trabalhamos" para foco na metodologia de 4 etapas.
+- Versionamento de cache atualizado para `v=82.0`.
+
+
 ## Modernização Completa do Radar FFS (12 Mecanismos API 579 em Inglês) & Design System #04163A
 
 - Status: Concluída
