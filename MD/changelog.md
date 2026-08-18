@@ -2,6 +2,9 @@
 
 ## [2026-08-18] - Padronização Oficial da Hierarquia da Seção Sobre o Serviço (Soluções 1, 2 e 3)
 
+- **Commit:** `250039c`
+- **Deploy:** Concluído com sucesso na VPS (`https://endcontrol.suporteide.digital/`)
+
 ### Fixed & Refined
 - **1. Padronização da Hierarquia Visual e Textual da Seção Sobre o Serviço:**
   - Implementado o padrão oficial em todas as páginas de serviços:

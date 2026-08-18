@@ -5,6 +5,9 @@
 - Projeto: site-end-controll
 - Tarefa: Implementação do padrão oficial de hierarquia na seção Sobre o Serviço (Eyebrow `SOBRE O SERVIÇO` -> Headline H1 com o nome do serviço -> Mini Título / Subtítulo `p.svc-solution-subtitle` -> Parágrafos corridos), ajuste dos textos de OAEs e ENDs, integração das fotos da pasta 02 e invalidação de cache `v=86.0`.
 - Status local: Concluída.
+- Commit: `250039c`
+- Deploy VPS: Concluído com sucesso via GitHub Actions (`https://endcontrol.suporteide.digital/`).
+- Sincronização Notion: Atualizadas as sub-tarefas `Changelogs` e `Check WhatsApp` no banco `DB_IDE`.
 - Observação: Memória persistente no Obsidian (`MD/`) e changelog sincronizados.
 
 ## 2026-08-18 - Padronização da Altura do Banner de Topo (Hero) na Solução 3
