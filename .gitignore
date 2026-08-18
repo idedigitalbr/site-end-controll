@@ -19,4 +19,5 @@ build/
 # Pastas locais pesadas ignoradas
 assets-nao-usados/
 backup.ps1
-
+desktop.ini
+Desktop.ini

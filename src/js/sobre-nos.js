@@ -29,46 +29,178 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // 2. MODAL DE VÍDEO INSTITUCIONAL
+  // 2. PLAYER DE VÍDEO INSTITUCIONAL CUSTOMIZADO (INLINE COM CONTROLES & AUTO-HIDE)
   const videoBox = document.getElementById('snVideoBox');
-  const videoModal = document.getElementById('snVideoModal');
-  const videoModalClose = document.getElementById('snVideoModalClose');
-  const modalVideoElement = document.getElementById('snModalVideoElement');
-  const modalOverlay = document.getElementById('wf-modal-overlay');
+  const inlinePlayer = document.getElementById('snInlineVideoPlayer');
+  const btnPlayPause = document.getElementById('snBtnPlayPause');
+  const btnMute = document.getElementById('snBtnMute');
+  const btnFullscreen = document.getElementById('snBtnFullscreen');
+  const timeDisplay = document.getElementById('snTimeDisplay');
+  const progressContainer = document.getElementById('snProgressContainer');
+  const progressBar = document.getElementById('snProgressBar');
 
-  if (videoBox && videoModal) {
-    videoBox.addEventListener('click', function () {
-      videoModal.classList.add('open');
-      if (modalOverlay) modalOverlay.classList.add('open');
-      document.body.classList.add('modal-open');
+  let idleTimer = null;
 
-      // Se houver vídeo, tentar iniciar reprodução
-      if (modalVideoElement && modalVideoElement.src) {
-        modalVideoElement.currentTime = 0;
-        modalVideoElement.play().catch(function () {});
+  // Formatar segundos em mm:ss
+  function formatTime(seconds) {
+    if (isNaN(seconds) || seconds < 0) return '0:00';
+    const mins = Math.floor(seconds / 60);
+    const secs = Math.floor(seconds % 60);
+    return mins + ':' + (secs < 10 ? '0' : '') + secs;
+  }
+
+  // Atualizar botões de Play / Pause
+  function updatePlayPauseIcons() {
+    if (!inlinePlayer || !btnPlayPause) return;
+    const iconPause = btnPlayPause.querySelector('.icon-pause');
+    const iconPlay = btnPlayPause.querySelector('.icon-play');
+    if (inlinePlayer.paused) {
+      if (iconPause) iconPause.style.display = 'none';
+      if (iconPlay) iconPlay.style.display = 'block';
+    } else {
+      if (iconPause) iconPause.style.display = 'block';
+      if (iconPlay) iconPlay.style.display = 'none';
+    }
+  }
+
+  // Atualizar botões de Mute / Unmute
+  function updateMuteIcons() {
+    if (!inlinePlayer || !btnMute) return;
+    const iconMuted = btnMute.querySelector('.icon-muted');
+    const iconUnmuted = btnMute.querySelector('.icon-unmuted');
+    if (inlinePlayer.muted || inlinePlayer.volume === 0) {
+      if (iconMuted) iconMuted.style.display = 'block';
+      if (iconUnmuted) iconUnmuted.style.display = 'none';
+    } else {
+      if (iconMuted) iconMuted.style.display = 'none';
+      if (iconUnmuted) iconUnmuted.style.display = 'block';
+    }
+  }
+
+  // Gerenciador de Inatividade (Esconde os controles após 2.5 segundos sem movimento)
+  function showControlsTemporarily() {
+    if (!videoBox) return;
+    videoBox.classList.remove('sn-player-idle');
+    clearTimeout(idleTimer);
+
+    // Se o vídeo estiver pausado, mantém os controles visíveis
+    if (inlinePlayer && inlinePlayer.paused) return;
+
+    idleTimer = setTimeout(function () {
+      videoBox.classList.add('sn-player-idle');
+    }, 2500);
+  }
+
+  if (inlinePlayer && videoBox) {
+    // 1. Iniciar autoplay seguro com mute e mostrar controles iniciais
+    inlinePlayer.play().then(function() {
+      updatePlayPauseIcons();
+      showControlsTemporarily();
+    }).catch(function() {
+      updatePlayPauseIcons();
+    });
+
+    // 2. Movimentação do mouse e toque para exibir/ocultar barra
+    videoBox.addEventListener('mousemove', showControlsTemporarily);
+    videoBox.addEventListener('mouseenter', showControlsTemporarily);
+    videoBox.addEventListener('touchstart', showControlsTemporarily, { passive: true });
+    videoBox.addEventListener('mouseleave', function () {
+      if (inlinePlayer && !inlinePlayer.paused) {
+        videoBox.classList.add('sn-player-idle');
       }
     });
 
-    const closeVideoModal = function () {
-      videoModal.classList.remove('open');
-      if (modalOverlay) modalOverlay.classList.remove('open');
-      document.body.classList.remove('modal-open');
-      if (modalVideoElement) {
-        modalVideoElement.pause();
+    // 3. Clique no player para alternar Play/Pause
+    btnPlayPause.addEventListener('click', function (e) {
+      e.stopPropagation();
+      if (inlinePlayer.paused) {
+        inlinePlayer.play();
+      } else {
+        inlinePlayer.pause();
       }
-    };
+      updatePlayPauseIcons();
+      showControlsTemporarily();
+    });
 
-    if (videoModalClose) {
-      videoModalClose.addEventListener('click', closeVideoModal);
-    }
-    if (modalOverlay) {
-      modalOverlay.addEventListener('click', closeVideoModal);
-    }
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && videoModal.classList.contains('open')) {
-        closeVideoModal();
+    // Clique direto no corpo do vídeo
+    inlinePlayer.addEventListener('click', function () {
+      if (inlinePlayer.paused) {
+        inlinePlayer.play();
+      } else {
+        inlinePlayer.pause();
+      }
+      updatePlayPauseIcons();
+      showControlsTemporarily();
+    });
+
+    inlinePlayer.addEventListener('play', updatePlayPauseIcons);
+    inlinePlayer.addEventListener('pause', updatePlayPauseIcons);
+
+    // 4. Mute / Unmute
+    btnMute.addEventListener('click', function (e) {
+      e.stopPropagation();
+      inlinePlayer.muted = !inlinePlayer.muted;
+      if (!inlinePlayer.muted && inlinePlayer.volume === 0) {
+        inlinePlayer.volume = 1;
+      }
+      updateMuteIcons();
+      showControlsTemporarily();
+    });
+
+    // 5. Atualização da Barra de Progresso e Tempo
+    inlinePlayer.addEventListener('timeupdate', function () {
+      if (!isNaN(inlinePlayer.duration) && inlinePlayer.duration > 0) {
+        const percent = (inlinePlayer.currentTime / inlinePlayer.duration) * 100;
+        if (progressBar) progressBar.style.width = percent + '%';
+        if (timeDisplay) {
+          timeDisplay.textContent = formatTime(inlinePlayer.currentTime) + ' / ' + formatTime(inlinePlayer.duration);
+        }
       }
     });
+
+    inlinePlayer.addEventListener('loadedmetadata', function () {
+      if (timeDisplay && inlinePlayer.duration) {
+        timeDisplay.textContent = formatTime(inlinePlayer.currentTime) + ' / ' + formatTime(inlinePlayer.duration);
+      }
+    });
+
+    // 6. Clique na barra de progresso para avançar / retroceder
+    if (progressContainer) {
+      progressContainer.addEventListener('click', function (e) {
+        e.stopPropagation();
+        const rect = progressContainer.getBoundingClientRect();
+        const clickX = e.clientX - rect.left;
+        const width = rect.width;
+        if (width > 0 && !isNaN(inlinePlayer.duration)) {
+          const seekTime = (clickX / width) * inlinePlayer.duration;
+          inlinePlayer.currentTime = seekTime;
+          showControlsTemporarily();
+        }
+      });
+    }
+
+    // 7. Fullscreen nativo no container do player
+    if (btnFullscreen) {
+      btnFullscreen.addEventListener('click', function (e) {
+        e.stopPropagation();
+        if (!document.fullscreenElement) {
+          if (videoBox.requestFullscreen) {
+            videoBox.requestFullscreen();
+          } else if (videoBox.webkitRequestFullscreen) {
+            videoBox.webkitRequestFullscreen();
+          } else if (inlinePlayer.webkitEnterFullscreen) {
+            inlinePlayer.webkitEnterFullscreen();
+          }
+        } else {
+          if (document.exitFullscreen) {
+            document.exitFullscreen();
+          } else if (document.webkitExitFullscreen) {
+            document.webkitExitFullscreen();
+          }
+        }
+        showControlsTemporarily();
+      });
+    }
   }
 
   // 3. LIGHTBOX DA GALERIA 3X3 DE FOTOS

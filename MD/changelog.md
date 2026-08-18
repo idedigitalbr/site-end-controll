@@ -1,15 +1,73 @@
 # Changelog — ENDCONTROL Engenharia
 
-## [2026-08-17] - Criação da Página Solução 1: Engenharia de Integridade Estrutural
+## [2026-08-18] - Modernização Completa do Radar FFS (12 Mecanismos API 579), Feixe Laser e Fundo #04163A
 
-### Added
-- **Página de Solução (`1-solucao-engenharia-de-integridade-estrutural.html`):** Duplicação estruturada da base institucional (`sobre-nos.html`) e incorporação das 5 seções dinâmicas da home page:
-  - **Seção Hero Principal:** Carrossel operacional com fotos em alta definição, camada tecnológica HUD de circuitos e 4 pilares inferiores com badges luminosos.
-  - **Seção Sobre a EndControl:** Grid de 2 colunas com fotos sobrepostas, efeitos bloom e banner de valores (Segurança, Confiabilidade, Eficiência, Sustentabilidade).
-  - **Seção Nossas Soluções:** Gráfico orbital em radar interativo integrado via `solucoes.js` e `radar-progress.js` com painel de métricas (+18 anos, +300 especialistas, 100% Brasil, +1.250 projetos).
-  - **Seção Principais Áreas de Atuação:** Accordion horizontal interativo com 10 segmentos de mercado (Aeroespacial, Alimentício, Ambiental, Energia, Ferroviário, Mineração, Naval, Óleo e Gás, Papel e Celulose, Químico e Petroquímico).
-  - **Seção Dúvidas Frequentes (FAQ):** Grid interativo de perguntas e respostas com sanfona expansível.
-  - **Integração de CSS e Scripts:** Inclusão dos módulos de estilo (`hero.css`, `solucoes.css`, `sections.css`, `segmentos.css`, `responsive.css`) e scripts interativos para total paridade funcional.
+### Added & Refined
+- **1. Matriz Oficial de 12 Mecanismos de Dano da API 579 em Inglês (`src/js/radar-ffs.js`, `src/css/radar-ffs.css`):**
+  - Implementada a matriz completa dos 12 mecanismos ASME FFS-1 / API 579: *1. Brittle Fracture, 2. General Metal Loss, 3. Local Metal Loss, 4. Pitting Corrosion, 5. Hydrogen Blisters & Damages, 6. Weld (Misalignment & Distortion), 7. Crack-like Flaws, 8. Creep, 9. Fire Damage, 10. Dents and Gouges, 11. Lamination Damage, 12. Fatigue Damage*.
+  - Ícones vetoriais SVG customizados em alta resolução e tipografia técnica em inglês.
+  - Distribuição polar perfeita em 360° com espaçamento regular de 30°.
+- **2. Posicionamento Contextual Externo dos Rótulos (Fim do "Indo pro ladinho"):**
+  - Corrigido o conflito de `transform: scale()` no estado ativo que sobrescrevia a translação e causava deslocamento lateral do texto.
+  - Todos os 12 rótulos agora residem 100% no lado externo da órbita (`top`, `top-right`, `right`, `bottom-right`, `bottom`, `bottom-left`, `left`, `top-left`), garantindo alinhamento central estável e visão totalmente desobstruída do interior do radar.
+- **3. Feixe de Varredura Laser de Alta Definição (Sem "Cotó"):**
+  - Feixe contínuo de 480px (raio 240px) estendendo-se do centro à órbita externa com laser neon azul/ciano (`#00C2FF`), núcleo branco e blur atmosférico (`filter: blur(1.5px)`), proporcionando estética de scanner industrial idêntica à Home.
+- **4. Núcleo Central FFS (#04163A) & Paleta Aberta:**
+  - Reduzido o diâmetro do núcleo para 165px (proporção harmônica) e removida a imagem de logo duplicada acima da sigla.
+  - Abertura da cor de fundo da seção `.ffs-section` e do núcleo para o tom azul nobre `#04163A` com gradientes radiais em `#0B3375` e `#07265E`, halo atmosférico expandido e bases dos nós em `#061A3C`.
+- **5. Backup Standalone da Seção CTA Final:**
+  - Criado o arquivo `backup-secao-cta-final.html` com todos os estilos e estrutura isolada, removendo a seção de `sobre-nos.html` e `1-solucao-engenharia-de-integridade-estrutural.html`.
+- **6. Testes Unitários:** Todos os 36 testes automatizados passando com 100% de sucesso.
+
+## [2026-08-18] - Correção de Responsividade da Seção Metodologia / Diferencial em Notebooks (1366px)
+
+### Fixed & Refined
+- **1. Fluid Sizing da Seção Panorâmica de 3 Zonas (`src/css/sobre-nos.css`):**
+  - Corrigido o overflow e corte lateral do 4º pilar/etapa ("Solução personalizada" / "Análise e resultado") que ocorria em resoluções de notebooks (1366x768, 1440x900, 1280x800).
+  - Transformadas as unidades `.sn-step-unit` de largura rígida (`flex: 0 0 auto; width: 180px`) em flexíveis e auto-adaptáveis (`flex: 1 1 0; min-width: 0; max-width: 175px`), com conectores direcionais retráteis (`flex: 0 1 50px; min-width: 8px-14px`).
+  - Redefinida a proporção do grid de 3 zonas para `16% 30% 54%` em notebooks (1440px / 1366px), garantindo respiro e espaço suficiente para que todos os 4 passos fiquem 100% visíveis em linha horizontal contínua sem quebrar ou vazar a borda da tela.
+- **2. Breakpoints Dedicados (1600px, 1440px/1366px, 1280px, 1024px e 768px):**
+  - Escala proporcional de círculos (`118px` em Full HD, `106px` em 1600px, `86px` em 1366px/1440px, `76px` em 1280px, `96px` em tablet e `88px` em mobile).
+  - Alinhamento pixel-perfect dos conectores contínuos com cálculo geométrico exato no centro dos círculos (`margin-top` balanceado em cada viewport).
+  - Tipografia de títulos e descrições escalada proporcionalmente para excelente legibilidade sem sobreposições.
+- **3. Aplicação Unificada:**
+  - O ajuste corrige automaticamente tanto a página *Sobre Nós* (`sobre-nos.html`, seção *Como Trabalhamos / Metodologia*) quanto as páginas de Serviços (`1-solucao-engenharia-de-integridade-estrutural.html`, seção *Nosso Diferencial Técnico*).
+- **4. Cache Invalidation:** Atualizado o versionamento de `sobre-nos.css` para `v=70.0` em ambas as páginas.
+
+## [2026-08-18] - Refinamento e Recorte Focal (Zoom & Destaque) das Fotos do Accordion (Serviço 1)
+
+### Changed & Refined
+- **1. Enquadramento e Foco Técnico nos 8 Painéis do Accordion (`quando-aplicar`):**
+  - **Perda de espessura:** Recorte e zoom direcionados para o tablet de diagnóstico exibindo a curva A-Scan / medição de espessura em primeiro plano e o transdutor de ultrassom posicionado no perfil metálico.
+  - **Trincas:** Zoom no cordão de solda da coluna estrutural e sensor de ultrassom acoplado diretamente na junta soldada.
+  - **Distorções:** Foco nos chumbadores, porcas de fixação da placa de base, fundação e instrumento de medição/calibrador de profundidade.
+  - **Corrosão:** Zoom expressivo na textura oxidada e descamação/piteamento da viga metálica com a sonda de contato medindo a camada corroída.
+  - **Danos térmicos:** Foco no anel e suportes diagonais superiores do tanque sob altas temperaturas de processo com o técnico apontando para o ponto crítico.
+  - **Hidrogênio:** Foco no corpo da bomba centrífuga industrial, acoplamento, skid de assentamento e lanterna de inspeção estrutural.
+  - **Fadiga:** Foco na escalada técnica na escada marinheiro com gaiola no costado do tanque cilíndrico em altura (NR35).
+  - **Continuidade operacional:** Foco na caminhada da equipe técnica da ENDCONTROL com maletas e equipamentos rumo à refinaria em operação.
+- **2. Otimização de CSS (`segmentos.css`):** Removidos overrides legados de `object-position` para garantir centralização precisa e simétrica em todos os viewports e resoluções.
+- **3. Backup Seguro:** Imagens originais em alta resolução preservadas na pasta `originals_backup`.
+- **4. Cache Invalidation:** Atualizado o versionamento de `segmentos.css` para `v70.0`.
+
+## [2026-08-17] - Refinamento de Consistência Visual do Serviço 1 (Engenharia de Integridade Estrutural)
+
+### Changed & Refined
+- **1. Topo da Página:** Replicada a estrutura e background da página *Sobre Nós* (`sn-hero-section` com `bg-topo-hero-sobre-nos-com-logo-.webp`), removendo o logo monocromático duplicado.
+- **2. Headline Principal da S2:** Definido o título principal H1 como **Engenharia de Integridade Estrutural**, com subtítulo harmonioso em menor escala (*Avaliações Fitness-For-Service (FFS) e decisões seguras sobre ativos críticos*).
+- **3. Imagem do Hero (S2):** Substituído o mosaico fotográfico por uma única foto grande em alta resolução com moldura HUD e glow da Home (`operacional-engenheiros-inspecao-bomba-edit.webp`).
+- **4. Botões Padronizados:** Unificado o estilo de botão em toda a página utilizando o componente oficial da Home S2 (`.btn-about-outline-premium` com `.btn-about-icon-circle` e setas animadas).
+- **5. Animação e Interação do Radar FFS (1:1 com a Home):** Replicada integralmente a lógica de medição de ângulos por `getBoundingClientRect()`, rotação única de feixe via Web Animations API, leitura contínua de matriz de transformação (`DOMMatrixReadOnly`), pausa no hover para leitura sem conflitos e ativação instantânea no clique com `moveSweepTo(index, 'nearest')`.
+
+- **6. Seção "Quando Aplicar":** Restaurado o componente oficial de Accordion vertical full-width (`.endo-acc-full-wrapper` / `.endo-acc-row`) com 8 situações de dano (*Perda de espessura, Trincas, Distorções, Corrosão, Danos térmicos, Hidrogênio, Fadiga, Continuidade operacional*), controles por swipe, touch e setas. Adicionado padding inferior de 115px para eliminar qualquer sobreposição dos cards pela seção seguinte.
+
+- **8. Aplicação do Banco Fotográfico Oficial do Serviço 1:**
+  - **S2 (Hero / Sobre o Serviço):** Inserida a fotografia de destaque `inspecao-corrosao-viga-metalica-eng-integridade.webp`.
+  - **S5 (Quando Aplicar - 8 Painéis do Accordion):** Mapeadas as 8 fotografias exclusivas em alta resolução da pasta `assets/Paginas Imgs/SOLUCOES/1.Engenharia de Integridade/SESSAO CARDS/` (`endcontrol_01_corrosao_foco_superior.png` a `endcontrol_08_continuidade_operacional_foco_superior.png`).
+  - **S6 (Nosso Diferencial):** Foto de inspeção mecânica de skid `inspecao-integridade-base-bomba-industrial-skid.webp`.
+  - **S7 (Nosso Compromisso):** Foto da equipe técnica `equipe-engenharia-integridade-estrutural-planta-industrial.webp`.
+- **Testes & Qualidade:** 36 testes unitários passando com 100% de sucesso via Node.js test runner.
+
 
 ## [2026-08-17] - Implementação da Arquitetura Panorâmica de 3 Zonas na Seção "Como Trabalhamos" (Fidelidade Figma)
 

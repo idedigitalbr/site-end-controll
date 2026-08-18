@@ -3,22 +3,22 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Sobre Nós | ENDCONTROL Engenharia - Inteligência em Integridade Industrial</title>
-  <meta name="description" content="Conheça a história, valores, metodologia e compromisso da EndControl Engenharia. Mais de 18 anos de excelência técnica e integridade em ativos industriais." />
+  <title>Engenharia de Integridade Estrutural | ENDCONTROL Engenharia</title>
+  <meta name="description" content="Engenharia de Integridade Estrutural e avaliações Fitness-For-Service (FFS) da EndControl. Decisões seguras e confiabilidade para ativos industriais críticos." />
   <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://endcontrol.suporteide.digital/sobre-nos.html" />
+  <link rel="canonical" href="https://endcontrol.suporteide.digital/1-solucao-engenharia-de-integridade-estrutural.html" />
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://endcontrol.suporteide.digital/sobre-nos.html" />
-  <meta property="og:title" content="Sobre Nós | ENDCONTROL Engenharia" />
-  <meta property="og:description" content="Conheça a história, essência e soluções de engenharia de alta confiabilidade da EndControl." />
+  <meta property="og:url" content="https://endcontrol.suporteide.digital/1-solucao-engenharia-de-integridade-estrutural.html" />
+  <meta property="og:title" content="Engenharia de Integridade Estrutural | ENDCONTROL Engenharia" />
+  <meta property="og:description" content="Avaliações Fitness-For-Service (FFS), diagnóstico técnico e integridade estrutural para decisões seguras sobre ativos críticos." />
   <meta property="og:image" content="https://endcontrol.suporteide.digital/assets/Logos/logo-principal-endcontrol-horizontal.webp" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Sobre Nós | ENDCONTROL Engenharia" />
-  <meta name="twitter:description" content="Conheça a história, essência e soluções de engenharia de alta confiabilidade da EndControl." />
+  <meta name="twitter:title" content="Engenharia de Integridade Estrutural | ENDCONTROL Engenharia" />
+  <meta name="twitter:description" content="Avaliações Fitness-For-Service (FFS), diagnóstico técnico e integridade estrutural para decisões seguras sobre ativos críticos." />
   <meta name="twitter:image" content="https://endcontrol.suporteide.digital/assets/Logos/logo-principal-endcontrol-horizontal.webp" />
 
   <!-- Favicon & Fonts -->
@@ -28,19 +28,20 @@
   <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   
   <!-- CSS Stylesheets -->
-  <link rel="stylesheet" href="./src/css/tokens.css?v=67.0" />
-  <link rel="stylesheet" href="./src/css/base.css?v=67.0" />
-  <link rel="stylesheet" href="./src/css/header.css?v=67.0" />
-  <link rel="stylesheet" href="./src/css/hero.css?v=30.0" />
-  <link rel="stylesheet" href="./src/css/solucoes.css?v=56.0" />
-  <link rel="stylesheet" href="./src/css/sections.css?v=35.0" />
-  <link rel="stylesheet" href="./src/css/segmentos.css?v=32.0" />
-  <link rel="stylesheet" href="./src/css/components.css?v=67.0" />
-  <link rel="stylesheet" href="./src/css/work-units-footer.css?v=67.0" />
-  <link rel="stylesheet" href="./src/css/sobre-nos.css?v=67.0" />
-  <link rel="stylesheet" href="./src/css/responsive.css?v=30.0" />
+  <link rel="stylesheet" href="./src/css/tokens.css?v=69.0" />
+  <link rel="stylesheet" href="./src/css/base.css?v=69.0" />
+  <link rel="stylesheet" href="./src/css/header.css?v=69.0" />
+  <link rel="stylesheet" href="./src/css/components.css?v=69.0" />
+  <link rel="stylesheet" href="./src/css/sections.css?v=69.0" />
+  <link rel="stylesheet" href="./src/css/solucoes.css?v=60.0" />
+  <link rel="stylesheet" href="./src/css/radar-ffs.css?v=4.0" />
+  <link rel="stylesheet" href="./src/css/segmentos.css?v=70.0" />
+  <link rel="stylesheet" href="./src/css/sobre-nos.css?v=70.0" />
+  <link rel="stylesheet" href="./src/css/servico-integridade.css?v=9.0" />
+  <link rel="stylesheet" href="./src/css/work-units-footer.css?v=69.0" />
+  <link rel="stylesheet" href="./src/css/responsive.css?v=32.0" />
 
-  <!-- Script de Fallback Automático de Imagens e Vídeos -->
+  <!-- Script de Fallback Automático de Imagens -->
   <script>
     document.addEventListener('error', function(event) {
       const target = event.target;
@@ -73,21 +74,8 @@
           
           if (tagName === 'source') {
             element.setAttribute('srcset', nextFallback);
-            const videoParent = element.parentNode;
-            if (videoParent && videoParent.tagName.toLowerCase() === 'video') {
-              videoParent.load();
-              if (videoParent.hasAttribute('autoplay')) {
-                videoParent.play().catch(function() {});
-              }
-            }
           } else {
             element.setAttribute('src', nextFallback);
-            if (tagName === 'video') {
-              element.load();
-              if (element.hasAttribute('autoplay')) {
-                videoParent.play().catch(function() {});
-              }
-            }
           }
         }
       }
@@ -124,7 +112,7 @@
 <body class="sn-page-wrapper">
 
   <!-- =========================================================================
-       HEADER GLOBAL (REAPROVEITADO DA HOME COM ATIVO EM SOBRE NÓS)
+       HEADER GLOBAL
        ========================================================================= -->
   <header class="site-header" id="topo">
     <div class="brand-group">
@@ -139,15 +127,15 @@
 
     <nav class="main-menu" id="main-menu">
       <a href="index.html#home">Home</a>
-      <a href="sobre-nos.html" style="color: var(--color-cyan); text-shadow: 0 0 10px rgba(0, 194, 255, 0.6);">Sobre Nós</a>
+      <a href="sobre-nos.html">Sobre Nós</a>
       <div class="dropdown">
-        <a class="drop-link" href="index.html#solucoes" aria-haspopup="true">Nossas Soluções</a>
+        <a class="drop-link active" href="index.html#solucoes" aria-haspopup="true" style="color: var(--color-cyan); text-shadow: 0 0 10px rgba(0, 194, 255, 0.6);">Nossas Soluções</a>
         <div class="drop-panel dropdown-rich-menu" aria-label="Submenu Nossas Soluções">
-          <a class="dropdown-item-rich" href="index.html#solucoes" data-service-id="0">
+          <a class="dropdown-item-rich" href="1-solucao-engenharia-de-integridade-estrutural.html" data-service-id="0" style="background: rgba(0, 194, 255, 0.12); border-color: rgba(0, 194, 255, 0.4);">
             <span class="dropdown-item-logo">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#00c2ff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
             </span>
-            <span class="dropdown-item-text">1. Engenharia de Integridade Estrutural</span>
+            <span class="dropdown-item-text" style="color: var(--color-cyan); font-weight: 700;">1. Engenharia de Integridade Estrutural</span>
           </a>
 
           <a class="dropdown-item-rich" href="index.html#solucoes" data-service-id="1">
@@ -235,338 +223,150 @@
     </nav>
   </header>
 
-  <main>
-    <!-- =========================================================================
-         SEÇÃO 01 — HERO (SOBRE A ENDCONTROL)
-         ========================================================================= -->
-    <section class="sn-hero-section" id="hero-sobre" aria-label="Apresentação Institucional EndControl">
-      <div class="sn-hero-overlay"></div>
-    </section>
+  <!-- =========================================================================
+       1. TOPO DA PÁGINA (CÓPIA EXATA DE SOBRE NÓS)
+       ========================================================================= -->
+  <section class="sn-hero-section" id="hero-sobre" aria-label="Apresentação Institucional EndControl">
+    <div class="sn-hero-overlay"></div>
+  </section>
+
+  <main id="sn-main-content">
 
     <!-- =========================================================================
-         SEÇÃO 02 — INDICADORES FLUTUANTES (FLOATING METRICS)
+         2 & 3 & 4. SOBRE A SOLUÇÃO (HERO S2 COM TÍTULO, SUBTÍTULO, FOTO ÚNICA E BOTÃO PADRÃO HOME)
          ========================================================================= -->
-    <div class="sn-indicators-wrapper" aria-label="Indicadores Institucionais">
-      <div class="sn-indicators-card">
+    <section class="svc-solution-section" id="sobre-servico" aria-label="Sobre a Engenharia de Integridade Estrutural">
+      <div class="svc-solution-container">
         
-        <!-- Indicador 1: Experiência -->
-        <div class="sn-indicator-item">
-          <div class="sn-indicator-icon-box">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
-              <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
-            </svg>
-          </div>
-          <div class="sn-indicator-text-box">
-            <span class="sn-indicator-value">+18 anos</span>
-            <span class="sn-indicator-label">de experiência</span>
-          </div>
-        </div>
-
-        <!-- Indicador 2: Projetos -->
-        <div class="sn-indicator-item">
-          <div class="sn-indicator-icon-box">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-              <polyline points="14 2 14 8 20 8"></polyline>
-              <line x1="16" y1="13" x2="8" y2="13"></line>
-              <line x1="16" y1="17" x2="8" y2="17"></line>
-              <polyline points="10 9 9 9 8 9"></polyline>
-            </svg>
-          </div>
-          <div class="sn-indicator-text-box">
-            <span class="sn-indicator-value">+300</span>
-            <span class="sn-indicator-label">projetos realizados</span>
-          </div>
-        </div>
-
-        <!-- Indicador 3: Ativos -->
-        <div class="sn-indicator-item">
-          <div class="sn-indicator-icon-box">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-              <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
-              <path d="m9 14 2 2 4-4"></path>
-            </svg>
-          </div>
-          <div class="sn-indicator-text-box">
-            <span class="sn-indicator-value">+1.250</span>
-            <span class="sn-indicator-label">ativos avaliados</span>
-          </div>
-        </div>
-
-        <!-- Indicador 4: Segurança -->
-        <div class="sn-indicator-item">
-          <div class="sn-indicator-icon-box">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-              <path d="m9 12 2 2 4-4"></path>
-            </svg>
-          </div>
-          <div class="sn-indicator-text-box">
-            <span class="sn-indicator-value">100%</span>
-            <span class="sn-indicator-label">compromisso com segurança</span>
-          </div>
-        </div>
-
-        <!-- Indicador 5: Clientes -->
-        <div class="sn-indicator-item">
-          <div class="sn-indicator-icon-box">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-              <circle cx="9" cy="7" r="4"></circle>
-              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-            </svg>
-          </div>
-          <div class="sn-indicator-text-box">
-            <span class="sn-indicator-value">+120</span>
-            <span class="sn-indicator-label">clientes atendidos</span>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- =========================================================================
-         SEÇÃO 03 — NOSSA HISTÓRIA (BACKGROUND CLARO COM TOPO ARREDONDADO + VÍDEO + TIMELINE)
-         ========================================================================= -->
-    <section class="sn-history-section" id="historia">
-      <div class="sn-dot-matrix left" aria-hidden="true"></div>
-      <div class="sn-dot-matrix right" aria-hidden="true"></div>
-
-      <div class="sn-history-container">
-        
-        <!-- Eyebrow Tag -->
-        <div class="sn-eyebrow-line light-mode">NOSSA HISTÓRIA</div>
-
-        <!-- Headline Principal -->
-        <h1 class="sn-history-headline">
-          Uma trajetória construída<br>
-          com <span class="sn-highlight-blue">propósito e proximidade.</span>
-        </h1>
-
-        <!-- Texto Descritivo -->
-        <p class="sn-history-description">
-          Desde o início, nosso compromisso é claro: entregar soluções técnicas que aumentam a segurança, a confiabilidade e a eficiência de ativos industriais. Crescemos lado a lado com a indústria brasileira, evoluindo continuamente para atender desafios cada vez mais complexos.
-        </p>
-
-        <!-- Frame de Vídeo Institucional com Player Personalizado & Autoplay -->
-        <div class="sn-video-box" id="snVideoBox" tabindex="0" aria-label="Vídeo Institucional da EndControl">
-          <video class="sn-video-inline-player" id="snInlineVideoPlayer" autoplay muted loop playsinline poster="./assets/Paginas Imgs/HOME/S_SEGMENTOS/quimico_petroquimico.webp" src="./assets/Videos/VIDEO-ENDCONTROL-INSTITUCIONAL.mp4">
-            <source src="./assets/Videos/VIDEO-ENDCONTROL-INSTITUCIONAL.mp4" type="video/mp4">
-            Seu navegador não suporta a reprodução de vídeo.
-          </video>
-
-          <!-- Barra de Controles Customizada (Estilo Premium / YouTube) -->
-          <div class="sn-player-controls-overlay" id="snPlayerControls">
-            <!-- Barra de Progresso Interativa -->
-            <div class="sn-player-progress-container" id="snProgressContainer">
-              <div class="sn-player-progress-bar" id="snProgressBar">
-                <span class="sn-player-progress-handle"></span>
-              </div>
-            </div>
-
-            <!-- Linha de Botões e Status -->
-            <div class="sn-player-controls-row">
-              <!-- Esquerda: Play/Pause e Contador de Tempo -->
-              <div class="sn-player-left-group">
-                <button class="sn-player-ctrl-btn" id="snBtnPlayPause" aria-label="Pausar / Reproduzir">
-                  <!-- Ícone Pause (Padrão ao iniciar em autoplay) -->
-                  <svg class="icon-pause" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><rect x="6" y="4" width="4" height="16" rx="1"></rect><rect x="14" y="4" width="4" height="16" rx="1"></rect></svg>
-                  <!-- Ícone Play -->
-                  <svg class="icon-play" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" style="display:none;"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
-                </button>
-                <div class="sn-player-time-display" id="snTimeDisplay">0:00 / 0:00</div>
-              </div>
-
-              <!-- Direita: Mudo/Volume, Fullscreen e Expandir -->
-              <div class="sn-player-right-group">
-                <!-- Botão Mute / Unmute -->
-                <button class="sn-player-ctrl-btn" id="snBtnMute" aria-label="Ativar / Desativar Som">
-                  <!-- Ícone Muted (Padrão) -->
-                  <svg class="icon-muted" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="1" y1="1" x2="23" y2="23"></line>
-                    <path d="M9 9v3a3 3 0 0 0 5.12 2.12M15 9.34V4a3 3 0 0 0-5.94-.6"></path>
-                    <path d="M17 16.95A7 7 0 0 1 5 12v-2m14 0v2a7 7 0 0 1-.11 1.23"></path>
-                    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" fill="currentColor"></polygon>
-                    <line x1="23" y1="9" x2="17" y2="15"></line>
-                    <line x1="17" y1="9" x2="23" y2="15"></line>
-                  </svg>
-                  <!-- Ícone Unmuted -->
-                  <svg class="icon-unmuted" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
-                    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-                    <path d="M15.54 8.46a5 5 0 0 1 0 7.07" fill="none" stroke-width="2.2"></path>
-                    <path d="M19.07 4.93a10 10 0 0 1 0 14.14" fill="none" stroke-width="2.2"></path>
-                  </svg>
-                </button>
-
-                <!-- Botão Tela Cheia (Fullscreen) -->
-                <button class="sn-player-ctrl-btn" id="snBtnFullscreen" aria-label="Tela Cheia">
-                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
-                  </svg>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- =========================================================================
-             SEÇÃO 04 — TIMELINE ENDCONTROL (2006 A 2023+)
-             ========================================================================= -->
-        <div class="sn-timeline-box" aria-label="Linha do Tempo da EndControl">
-          <div class="sn-timeline-track">
-            
-            <!-- Marco 1: 2006 -->
-            <div class="sn-timeline-item">
-              <div class="sn-timeline-dot-wrapper">
-                <div class="sn-timeline-dot-inner"></div>
-              </div>
-              <div class="sn-timeline-content-mob">
-                <div class="sn-timeline-year">2006</div>
-                <h3 class="sn-timeline-title">Início da Jornada</h3>
-                <p class="sn-timeline-desc">Fundação da EndControl com foco em inspeções e serviços técnicos especializados.</p>
-              </div>
-            </div>
-
-            <!-- Marco 2: 2010 -->
-            <div class="sn-timeline-item">
-              <div class="sn-timeline-dot-wrapper">
-                <div class="sn-timeline-dot-inner"></div>
-              </div>
-              <div class="sn-timeline-content-mob">
-                <div class="sn-timeline-year">2010</div>
-                <h3 class="sn-timeline-title">Expansão Técnica</h3>
-                <p class="sn-timeline-desc">Ampliação do portfólio de serviços e das equipes especializadas em campo.</p>
-              </div>
-            </div>
-
-            <!-- Marco 3: 2014 -->
-            <div class="sn-timeline-item">
-              <div class="sn-timeline-dot-wrapper">
-                <div class="sn-timeline-dot-inner"></div>
-              </div>
-              <div class="sn-timeline-content-mob">
-                <div class="sn-timeline-year">2014</div>
-                <h3 class="sn-timeline-title">Novas Tecnologias</h3>
-                <p class="sn-timeline-desc">Investimento em tecnologia e inovação para diagnósticos cada vez mais precisos.</p>
-              </div>
-            </div>
-
-            <!-- Marco 4: 2018 -->
-            <div class="sn-timeline-item">
-              <div class="sn-timeline-dot-wrapper">
-                <div class="sn-timeline-dot-inner"></div>
-              </div>
-              <div class="sn-timeline-content-mob">
-                <div class="sn-timeline-year">2018</div>
-                <h3 class="sn-timeline-title">Atuação Nacional</h3>
-                <p class="sn-timeline-desc">Consolidação de presença em diferentes estados e segmentos industriais.</p>
-              </div>
-            </div>
-
-            <!-- Marco 5: 2023+ -->
-            <div class="sn-timeline-item">
-              <div class="sn-timeline-dot-wrapper">
-                <div class="sn-timeline-dot-inner"></div>
-              </div>
-              <div class="sn-timeline-content-mob">
-                <div class="sn-timeline-year">2023+</div>
-                <h3 class="sn-timeline-title">O Futuro</h3>
-                <p class="sn-timeline-desc">Novos capítulos e compromisso com as próximas gerações.</p>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- =========================================================================
-         SEÇÃO 05 — NOSSA IDENTIDADE CORPORATIVA (MISSÃO, VISÃO E VALORES)
-         ========================================================================= -->
-    <section class="sn-essence-section" id="essencia">
-      <div class="sn-essence-container">
-        
-        <div class="sn-eyebrow-line light-mode">NOSSA IDENTIDADE CORPORATIVA</div>
-        <h2 class="sn-essence-headline">
-          Princípios que orientam cada <span class="sn-highlight-blue">decisão</span>
-        </h2>
-        <p class="sn-essence-subheadline">
-          Princípios que orientam nossas escolhas,<br>
-          guiam nossas ações e constroem nosso futuro.
-        </p>
-
-        <div class="sn-essence-grid">
+        <!-- Grid Principal: Coluna Esquerda Conteúdo + Coluna Direita Foto Única Grande -->
+        <div class="svc-solution-main-grid">
           
-          <!-- Card Missão -->
-          <div class="sn-essence-card">
-            <div class="sn-essence-card-header">
-              <div class="sn-essence-icon-badge">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="10"></circle>
-                  <circle cx="12" cy="12" r="6"></circle>
-                  <circle cx="12" cy="12" r="2"></circle>
-                  <path d="M22 2l-7.5 7.5"></path>
-                </svg>
-              </div>
-              <h3 class="sn-essence-card-title">Missão</h3>
-              <div class="sn-essence-divider">
-                <span class="sn-divider-dot"></span>
-              </div>
-            </div>
-            <p class="sn-essence-card-body">
-              Entregar soluções de engenharia e integridade industrial com segurança, qualidade e eficiência, protegendo ativos e contribuindo para a continuidade das operações dos nossos clientes.
+          <!-- Coluna Esquerda: Eyebrow, Título Principal, Subtítulo, Parágrafos e Botão Padrão Home S2 -->
+          <div class="svc-solution-content-col">
+            <span class="svc-solution-eyebrow">SOBRE O SERVIÇO</span>
+            <h1 class="svc-solution-headline">
+              Engenharia de Integridade Estrutural
+            </h1>
+            <p class="svc-solution-subtitle">
+              Avaliações Fitness-For-Service (FFS) e decisões seguras sobre ativos críticos.
             </p>
-            <div class="sn-card-bottom-pill" aria-hidden="true"></div>
+            <div class="svc-solution-paragraphs">
+              <p>
+                A Engenharia de Integridade Estrutural avalia a condição de equipamentos e instalações industriais por meio de análises Fitness-For-Service (FFS).
+              </p>
+              <p>
+                Integramos dados de inspeção, conhecimento técnico e tecnologia para apoiar decisões com segurança, confiabilidade e continuidade operacional.
+              </p>
+            </div>
+
+            <!-- Botão Preenchido Padrão Oficial (.btn .btn-primary) -->
+            <div class="about-cta">
+              <a href="https://api.whatsapp.com/send?phone=5591984040710" target="_blank" rel="noopener" class="btn btn-primary">
+                <span>Fale com um especialista</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+            </div>
           </div>
 
-          <!-- Card Visão -->
-          <div class="sn-essence-card">
-            <div class="sn-essence-card-header">
-              <div class="sn-essence-icon-badge">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path>
-                  <circle cx="12" cy="12" r="3"></circle>
-                </svg>
-              </div>
-              <h3 class="sn-essence-card-title">Visão</h3>
-              <div class="sn-essence-divider">
-                <span class="sn-divider-dot"></span>
+          <!-- Coluna Direita: Foto Única Grande com Moldura HUD e Glow da Home -->
+          <div class="about-photo-col">
+            <div class="about-media-bloom"></div>
+            <div class="about-media-wrapper">
+              <div class="about-media-glow"></div>
+              <div class="about-hud-frame"></div>
+              <span class="about-hud-corner corner-tl"></span>
+              <span class="about-hud-corner corner-tr"></span>
+              <span class="about-hud-corner corner-bl"></span>
+              <span class="about-hud-corner corner-br"></span>
+              <div class="about-media-scan-line"></div>
+              
+              <div class="svc-single-photo-wrapper">
+                <img src="./assets/Fotografias/Serviços - Banco de Imagens/01 - Engenharia de Integridade Estrutural/ensaio-ultrassom-solda-coluna-estrutura-metalica.webp" alt="Ensaio de ultrassom em solda de coluna de estrutura metálica para avaliação de integridade estrutural" loading="eager" />
+                <div class="svc-photo-overlay-glow"></div>
               </div>
             </div>
-            <p class="sn-essence-card-body">
-              Ser referência nacional em engenharia industrial, reconhecida pela excelência técnica, inovação e relacionamento de longo prazo com clientes e parceiros.
-            </p>
-            <div class="sn-card-bottom-pill" aria-hidden="true"></div>
           </div>
 
-          <!-- Card Valores -->
-          <div class="sn-essence-card">
-            <div class="sn-essence-card-header">
-              <div class="sn-essence-icon-badge">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M6 3h12l4 6-10 13L2 9Z"></path>
-                  <path d="M11 3 8 9l4 13 4-13-3-6"></path>
-                  <path d="M2 9h20"></path>
+        </div>
+
+        <!-- Faixa Inferior de 4 Benefícios da Solução (Padrão Home S2) -->
+        <div class="about-values-banner" aria-label="Benefícios da Integridade Estrutural">
+          
+          <!-- Benefício 1: Segurança -->
+          <div class="about-value-item">
+            <div class="about-value-icon-wrapper">
+              <div class="about-value-icon-glow"></div>
+              <div class="about-value-icon-circle">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
                 </svg>
               </div>
-              <h3 class="sn-essence-card-title">Valores</h3>
-              <div class="sn-essence-divider">
-                <span class="sn-divider-dot"></span>
+            </div>
+            <div class="about-value-text">
+              <h3>Segurança</h3>
+              <p>Redução de riscos e prevenção de falhas que protegem pessoas e ativos.</p>
+            </div>
+          </div>
+
+          <!-- Benefício 2: Confiabilidade -->
+          <div class="about-value-item">
+            <div class="about-value-icon-wrapper">
+              <div class="about-value-icon-glow"></div>
+              <div class="about-value-icon-circle">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                  <path d="m9 12 2 2 4-4"/>
+                </svg>
               </div>
             </div>
-            <ul class="sn-values-list">
-              <li>Ética e integridade</li>
-              <li>Segurança em primeiro lugar</li>
-              <li>Qualidade com excelência</li>
-              <li>Inovação contínua</li>
-              <li>Compromisso com resultados</li>
-              <li>Respeito às pessoas e ao meio ambiente</li>
-            </ul>
-            <div class="sn-card-bottom-pill" aria-hidden="true"></div>
+            <div class="about-value-text">
+              <h3>Confiabilidade</h3>
+              <p>Diagnósticos precisos que sustentam decisões de engenharia.</p>
+            </div>
+          </div>
+
+          <!-- Benefício 3: Vida útil -->
+          <div class="about-value-item">
+            <div class="about-value-icon-wrapper">
+              <div class="about-value-icon-glow"></div>
+              <div class="about-value-icon-circle">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                </svg>
+              </div>
+            </div>
+            <div class="about-value-text">
+              <h3>Vida útil</h3>
+              <p>Continuidade operacional e aproveitamento seguro dos equipamentos.</p>
+            </div>
+          </div>
+
+          <!-- Benefício 4: Decisão técnica -->
+          <div class="about-value-item">
+            <div class="about-value-icon-wrapper">
+              <div class="about-value-icon-glow"></div>
+              <div class="about-value-icon-circle">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect>
+                  <rect x="9" y="9" width="6" height="6"></rect>
+                  <line x1="9" y1="1" x2="9" y2="4"></line>
+                  <line x1="15" y1="1" x2="15" y2="4"></line>
+                  <line x1="9" y1="20" x2="9" y2="23"></line>
+                  <line x1="15" y1="20" x2="15" y2="23"></line>
+                  <line x1="20" y1="9" x2="23" y2="9"></line>
+                  <line x1="20" y1="14" x2="23" y2="14"></line>
+                  <line x1="1" y1="9" x2="4" y2="9"></line>
+                  <line x1="1" y1="14" x2="4" y2="14"></line>
+                </svg>
+              </div>
+            </div>
+            <div class="about-value-text">
+              <h3>Decisão técnica</h3>
+              <p>Dados e análises que transformam inspeção em planos executáveis.</p>
+            </div>
           </div>
 
         </div>
@@ -575,50 +375,406 @@
     </section>
 
     <!-- =========================================================================
-         SEÇÃO 06 — COMO TRABALHAMOS (METODOLOGIA 4 ETAPAS - 3 ZONAS FIGMA)
+         5. SEÇÃO DO RADAR FITNESS-FOR-SERVICE (ABORDAGEM FFS — 8 MECANISMOS)
          ========================================================================= -->
-    <section class="sn-process-section" id="metodologia">
-      <!-- Camada Absoluta de Foto com Multi-Gradiente de Fade -->
+    <section class="ffs-section section-full-width" id="radar-ffs" data-wf-label="SEÇÃO RADAR FITNESS-FOR-SERVICE">
+      <div class="ffs-bg-pattern"></div>
+
+      <div class="ffs-container">
+
+        <!-- COLUNA ESQUERDA — TEXTO & CHECKLIST DE AUTORIDADE -->
+        <div class="ffs-left-col">
+          <div class="ffs-badge">
+            <span class="ffs-badge-text">Abordagem FFS</span>
+          </div>
+
+          <h2 class="ffs-heading">
+            Mecanismos de dano avaliados na abordagem <span class="ffs-highlight">Fitness-For-Service.</span>
+          </h2>
+
+          <p class="ffs-description">
+            A abordagem FFS da EndControl avalia de forma integrada os principais mecanismos de dano que podem comprometer a integridade de equipamentos, assegurando decisões técnicas confiáveis e baseadas em risco.
+          </p>
+
+          <ul class="ffs-benefits-list">
+            <li class="ffs-benefit-item">
+              <span class="ffs-benefit-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                  <polyline points="9 12 11 14 15 10"/>
+                </svg>
+              </span>
+              <span>Avaliação técnica baseada em normas internacionais e RBI.</span>
+            </li>
+
+            <li class="ffs-benefit-item">
+              <span class="ffs-benefit-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                  <polyline points="9 12 11 14 15 10"/>
+                </svg>
+              </span>
+              <span>Integração de inspeção, engenharia e análise de risco.</span>
+            </li>
+
+            <li class="ffs-benefit-item">
+              <span class="ffs-benefit-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                  <polyline points="9 12 11 14 15 10"/>
+                </svg>
+              </span>
+              <span>Decisões seguras que prolongam a vida útil dos ativos.</span>
+            </li>
+
+            <li class="ffs-benefit-item">
+              <span class="ffs-benefit-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                  <polyline points="9 12 11 14 15 10"/>
+                </svg>
+              </span>
+              <span>Foco em segurança operacional e confiabilidade.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- COLUNA DIREITA — RADAR ORBITAL STANDALONE COM FEIXE ÚNICO -->
+        <div class="ffs-radar-wrapper" id="ffsRadarWrapper">
+          <div class="ffs-radar-halo"></div>
+
+          <!-- Geometria SVG para arcos de conexão orbital -->
+          <svg class="ffs-radar-canvas" id="ffsRadarCanvas" viewBox="0 0 560 560" preserveAspectRatio="none">
+            <g id="ffsConnectionsLayer" aria-hidden="true"></g>
+          </svg>
+
+          <!-- Órbita circular pontilhada e eixos -->
+          <div class="ffs-orbit-circle"></div>
+          <div class="ffs-radar-axes" aria-hidden="true">
+            <div class="ffs-axis-h"></div>
+            <div class="ffs-axis-v"></div>
+          </div>
+
+          <!-- Feixe de varredura radar único (sincronizado) -->
+          <div class="ffs-radar-sweep" id="ffsRadarSweep" aria-hidden="true"></div>
+
+          <!-- Núcleo Central FFS -->
+          <div class="ffs-center-core" id="ffsCenterCore">
+            <div class="ffs-core-title">FFS</div>
+            <div class="ffs-core-subtitle">INTEGRIDADE COM BASE EM RISCO</div>
+          </div>
+
+          <!-- Camada de Nós Satélites com 8 Mecanismos de Dano -->
+          <div class="ffs-nodes-layer" id="ffsNodesLayer">
+            <!-- Renderizado dinamicamente por src/js/radar-ffs.js -->
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         S4 — NOSSA METODOLOGIA (AÇO INOX CLARO + FLUXO HORIZONTAL DE 4 ETAPAS)
+         ========================================================================= -->
+    <section class="svc-methodology-section" id="metodologia" aria-label="Nossa Metodologia de Engenharia">
+      <div class="svc-methodology-container">
+        
+        <div class="svc-methodology-eyebrow">NOSSA METODOLOGIA</div>
+        <h2 class="svc-methodology-headline">
+          Como transformamos dados em <span class="highlight-blue">decisões</span> de engenharia.
+        </h2>
+
+        <div class="svc-methodology-flow">
+          
+          <!-- Etapa 01: Coleta de dados -->
+          <div class="svc-method-card">
+            <div class="svc-method-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+              </svg>
+            </div>
+            <span class="svc-method-badge">01</span>
+            <h3 class="svc-method-title">Coleta de dados</h3>
+            <p class="svc-method-desc">Capturamos informações críticas em campo com tecnologia e protocolos confiáveis.</p>
+          </div>
+
+          <!-- Conector 01 -> 02 -->
+          <div class="svc-method-arrow-connector" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </div>
+
+          <!-- Etapa 02: Diagnóstico técnico -->
+          <div class="svc-method-card">
+            <div class="svc-method-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="3"></circle>
+                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+              </svg>
+            </div>
+            <span class="svc-method-badge">02</span>
+            <h3 class="svc-method-title">Diagnóstico técnico</h3>
+            <p class="svc-method-desc">Analisamos a condição do ativo com base em normas, histórico e evidências.</p>
+          </div>
+
+          <!-- Conector 02 -> 03 -->
+          <div class="svc-method-arrow-connector" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </div>
+
+          <!-- Etapa 03: Avaliação de engenharia (FFS) -->
+          <div class="svc-method-card">
+            <div class="svc-method-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <polyline points="10 9 9 9 8 9"></polyline>
+              </svg>
+            </div>
+            <span class="svc-method-badge">03</span>
+            <h3 class="svc-method-title">Avaliação de engenharia (FFS)</h3>
+            <p class="svc-method-desc">Aplicamos metodologias de engenharia para interpretar danos e apoiar decisões.</p>
+          </div>
+
+          <!-- Conector 03 -> 04 -->
+          <div class="svc-method-arrow-connector" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </div>
+
+          <!-- Etapa 04: Recomendações de engenharia -->
+          <div class="svc-method-card">
+            <div class="svc-method-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+                <path d="m9 14 2 2 4-4"></path>
+              </svg>
+            </div>
+            <span class="svc-method-badge">04</span>
+            <h3 class="svc-method-title">Recomendações de engenharia</h3>
+            <p class="svc-method-desc">Entregamos orientações técnicas priorizadas e alinhadas aos objetivos da operação.</p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         6. SEÇÃO QUANDO APLICAR (ACCORDION WIDGET DA HOME / PRINT 2)
+         ========================================================================= -->
+    <section class="section segmentos-secao wf-section section-full-width" id="quando-aplicar" data-wf-label="SEÇÃO QUANDO APLICAR">
+      <div class="container">
+        <div class="segmentos-head reveal">
+          <span class="segmentos-eyebrow">QUANDO APLICAR</span>
+          <h2 class="segmentos-title">Situações em que este <span class="segmentos-highlight">serviço agrega valor</span></h2>
+          <p class="segmentos-subtitle">
+            Avaliações Fitness-For-Service e integridade estrutural aplicadas para diagnosticar, mitigar e prevenir falhas em ativos industriais críticos.
+          </p>
+        </div>
+      </div>
+
+      <!-- ACCORDION VERTICAL FULL-WIDTH (8 PAINÉIS DE MECANISMOS E SITUAÇÕES DE DANO) -->
+      <div class="endo-acc-full-wrapper" aria-label="Situações de Aplicação de Integridade Estrutural">
+        
+        <!-- SETAS DE NAVEGAÇÃO (VISÍVEIS EM MOBILE/TABLET) -->
+        <button class="endo-acc-nav endo-acc-nav--prev" id="btnPrevAcc" aria-label="Navegar para a esquerda" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M15 18l-6-6 6-6"/>
+            </svg>
+        </button>
+
+        <!-- LISTA DE PAINÉIS ACCORDION JUNTOS (FULL-WIDTH SEAMLESS) -->
+        <ul class="endo-acc-row" id="accTrackIndex">
+
+            <!-- PAINEL 1: Corrosão -->
+            <li class="endo-acc-panel is-active" data-index="0" tabindex="0">
+                <img class="endo-acc-card__img" src="./assets/Paginas Imgs/SOLUCOES/1.Engenharia de Integridade/SESSAO CARDS/endcontrol_01_corrosao_foco_superior.png" alt="Avaliação do grau de pites e danos por corrosão" loading="eager">
+                <div class="endo-acc-card__overlay"></div>
+                <div class="endo-acc-card__content">
+                    <svg class="endo-acc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <path d="M8 12a4 4 0 0 0 8 0"></path>
+                    </svg>
+                    <h3 class="endo-acc-card__title">Corrosão</h3>
+                    <div class="endo-acc-card__extra">
+                        <p class="endo-acc-card__desc">Avaliação do grau de pites e danos localizados que ameaçam a integridade da parede.</p>
+                    </div>
+                </div>
+            </li>
+
+            <!-- PAINEL 2: Perda de espessura -->
+            <li class="endo-acc-panel" data-index="1" tabindex="0">
+                <img class="endo-acc-card__img" src="./assets/Paginas Imgs/SOLUCOES/1.Engenharia de Integridade/SESSAO CARDS/endcontrol_02_perda_de_espessura_foco_superior.png" alt="Mapeamento e medição de perda geral ou localizada de espessura" loading="lazy">
+                <div class="endo-acc-card__overlay"></div>
+                <div class="endo-acc-card__content">
+                    <svg class="endo-acc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+                        <line x1="7" y1="12" x2="17" y2="12"></line>
+                    </svg>
+                    <h3 class="endo-acc-card__title">Perda de espessura</h3>
+                    <div class="endo-acc-card__extra">
+                        <p class="endo-acc-card__desc">Mapeamento e medição de perda geral ou localizada de metal em vasos e dutos.</p>
+                    </div>
+                </div>
+            </li>
+
+            <!-- PAINEL 3: Trincas -->
+            <li class="endo-acc-panel" data-index="2" tabindex="0">
+                <img class="endo-acc-card__img" src="./assets/Paginas Imgs/SOLUCOES/1.Engenharia de Integridade/SESSAO CARDS/endcontrol_03_trincas_foco_superior.png" alt="Inspeção e detecção de trincas em juntas soldadas e cascos" loading="lazy">
+                <div class="endo-acc-card__overlay"></div>
+                <div class="endo-acc-card__content">
+                    <svg class="endo-acc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 3l-3 7 5 3-4 8"></path>
+                    </svg>
+                    <h3 class="endo-acc-card__title">Trincas</h3>
+                    <div class="endo-acc-card__extra">
+                        <p class="endo-acc-card__desc">Caracterização e dimensionamento de descontinuidades e trincas em soldas e cascos.</p>
+                    </div>
+                </div>
+            </li>
+
+            <!-- PAINEL 4: Distorções -->
+            <li class="endo-acc-panel" data-index="3" tabindex="0">
+                <img class="endo-acc-card__img" src="./assets/Paginas Imgs/SOLUCOES/1.Engenharia de Integridade/SESSAO CARDS/endcontrol_04_distorcoes_foco_superior.png" alt="Análise geométrica de distorções, recalques e desalinhamentos" loading="lazy">
+                <div class="endo-acc-card__overlay"></div>
+                <div class="endo-acc-card__content">
+                    <svg class="endo-acc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 12h18M3 6h18M3 18h18"></path>
+                    </svg>
+                    <h3 class="endo-acc-card__title">Distorções</h3>
+                    <div class="endo-acc-card__extra">
+                        <p class="endo-acc-card__desc">Análise geométrica e estrutural de recalques, desvios e desalinhamentos de ativos.</p>
+                    </div>
+                </div>
+            </li>
+
+            <!-- PAINEL 5: Danos térmicos -->
+            <li class="endo-acc-panel" data-index="4" tabindex="0">
+                <img class="endo-acc-card__img" src="./assets/Paginas Imgs/SOLUCOES/1.Engenharia de Integridade/SESSAO CARDS/endcontrol_05_danos_termicos_foco_superior.png" alt="Avaliação de danos térmicos em ativos sob alta temperatura" loading="lazy">
+                <div class="endo-acc-card__overlay"></div>
+                <div class="endo-acc-card__content">
+                    <svg class="endo-acc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 3z"></path>
+                    </svg>
+                    <h3 class="endo-acc-card__title">Danos térmicos</h3>
+                    <div class="endo-acc-card__extra">
+                        <p class="endo-acc-card__desc">Análise de estruturas e componentes submetidos a exposição severa e altas temperaturas.</p>
+                    </div>
+                </div>
+            </li>
+
+            <!-- PAINEL 6: Hidrogênio -->
+            <li class="endo-acc-panel" data-index="5" tabindex="0">
+                <img class="endo-acc-card__img" src="./assets/Paginas Imgs/SOLUCOES/1.Engenharia de Integridade/SESSAO CARDS/endcontrol_06_hidrogenio_foco_superior.png" alt="Avaliação de integridade mecânica e danos por hidrogênio" loading="lazy">
+                <div class="endo-acc-card__overlay"></div>
+                <div class="endo-acc-card__content">
+                    <svg class="endo-acc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 6v12M12 6v12M4 12h8"></path>
+                        <path d="M17 14.5c.8-.7 1.5-1.2 2-1.5.5-.3 1-.3 1.5 0 .5.3.7.8.7 1.4 0 .8-.5 1.5-1.2 2.1L16 20h6" stroke-width="1.8"></path>
+                    </svg>
+                    <h3 class="endo-acc-card__title">Hidrogênio</h3>
+                    <div class="endo-acc-card__extra">
+                        <p class="endo-acc-card__desc">Identificação de fragilização, blistering e fissuração induzida por hidrogênio.</p>
+                    </div>
+                </div>
+            </li>
+
+            <!-- PAINEL 7: Fadiga -->
+            <li class="endo-acc-panel" data-index="6" tabindex="0">
+                <img class="endo-acc-card__img" src="./assets/Paginas Imgs/SOLUCOES/1.Engenharia de Integridade/SESSAO CARDS/endcontrol_07_fadiga_foco_superior.png" alt="Inspeção de fadiga e ciclos de carregamento estrutural" loading="lazy">
+                <div class="endo-acc-card__overlay"></div>
+                <div class="endo-acc-card__content">
+                    <svg class="endo-acc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M2 12h4l2.5-6 4 12 3.5-9 2 4 2-1h2"></path>
+                    </svg>
+                    <h3 class="endo-acc-card__title">Fadiga</h3>
+                    <div class="endo-acc-card__extra">
+                        <p class="endo-acc-card__desc">Estimativa de vida remanescente e avaliação de ciclos de tensão em componentes dinâmicos.</p>
+                    </div>
+                </div>
+            </li>
+
+            <!-- PAINEL 8: Continuidade Operacional -->
+            <li class="endo-acc-panel" data-index="7" tabindex="0">
+                <img class="endo-acc-card__img" src="./assets/Paginas Imgs/SOLUCOES/1.Engenharia de Integridade/SESSAO CARDS/endcontrol_08_continuidade_operacional_foco_superior.png" alt="Garantia de continuidade operacional e disponibilidade dos ativos com equipe especializada" loading="lazy">
+                <div class="endo-acc-card__overlay"></div>
+                <div class="endo-acc-card__content">
+                    <svg class="endo-acc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                    </svg>
+                    <h3 class="endo-acc-card__title">Continuidade operacional</h3>
+                    <div class="endo-acc-card__extra">
+                        <p class="endo-acc-card__desc">Sustentação técnica de engenharia para extensão de vida útil sem paradas não programadas.</p>
+                    </div>
+                </div>
+            </li>
+
+        </ul>
+
+        <!-- BOTÃO PRÓXIMO -->
+        <button class="endo-acc-nav endo-acc-nav--next" id="btnNextAcc" aria-label="Navegar para a direita" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 18l6-6-6-6"/>
+            </svg>
+        </button>
+
+        <!-- INDICADORES DOTS (PONTOS DE NAVEGAÇÃO) -->
+        <div class="endo-acc-dots" id="accDotsIndex"></div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         7. NOSSO DIFERENCIAL (FUNDO ESCURO - 3 ZONAS PANORÂMICAS + BOTÃO HOME)
+         ========================================================================= -->
+    <section class="sn-process-section" id="diferencial" aria-label="Nosso Diferencial Técnico">
+      <!-- Camada Absoluta de Foto do Técnico à Esquerda -->
       <div class="sn-process-photo-layer" aria-hidden="true">
-        <img src="./assets/Paginas Imgs/SOBRE NOS/sobrezinho.jpg" alt="Técnico EndControl em Campo" class="sn-process-bg-art" loading="lazy" />
+        <img src="./assets/Fotografias/Serviços - Banco de Imagens/01 - Engenharia de Integridade Estrutural/inspecao-integridade-base-bomba-industrial-skid.webp" alt="Técnico EndControl em Campo realizando inspeção de integridade" class="sn-process-bg-art" loading="lazy" />
         <div class="sn-process-photo-fade"></div>
       </div>
 
-      <!-- Detalhes Tecnológicos Sutis (Pontos e Arcos Fundo) -->
+      <!-- Detalhes Tecnológicos Sutis -->
       <div class="sn-process-tech-decor" aria-hidden="true">
         <div class="sn-process-tech-dots"></div>
         <div class="sn-process-tech-arcs"></div>
       </div>
 
-      <!-- Grid Panorâmico Widescreen 100% de 3 Zonas -->
+      <!-- Grid Panorâmico Widescreen de 3 Zonas -->
       <div class="sn-process-widescreen-container">
         
-        <!-- ZONA 1: Espaçador Físico da Foto (26% da largura) -->
+        <!-- ZONA 1: Espaçador Físico da Foto (26%) -->
         <div class="sn-process-photo-zone" aria-hidden="true"></div>
 
-        <!-- ZONA 2: Bloco de Conteúdo (27% da largura) -->
+        <!-- ZONA 2: Bloco de Conteúdo Central (27%) -->
         <div class="sn-process-info-zone">
-          <span class="sn-process-eyebrow">COMO TRABALHAMOS</span>
+          <span class="sn-process-eyebrow">NOSSO DIFERENCIAL</span>
           <h2 class="sn-process-headline">
-            Método, conhecimento<br>
-            e precisão em <span class="sn-highlight-blue">cada etapa.</span>
+            Inspeção, engenharia e tecnologia conectadas em <span class="sn-highlight-blue">cada análise.</span>
           </h2>
           <p class="sn-process-description">
-            Uma abordagem estruturada que garante clareza, controle e resultados consistentes em ambientes industriais complexos.
+            Combinamos dados de campo, conhecimento técnico especializado e tecnologia para entregar avaliações mais confiáveis e direcionadas à realidade operacional de cada cliente.
           </p>
-          <a href="index.html#solucoes" class="sn-btn-process-cta">
-            <span>Conheça nossas soluções</span>
-            <svg class="sn-btn-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="5" y1="12" x2="19" y2="12"></line>
-              <polyline points="12 5 19 12 12 19"></polyline>
-            </svg>
-          </a>
         </div>
 
-        <!-- ZONA 3: Metodologia - 4 Passos em Linha Contínua (47% da largura) -->
+        <!-- ZONA 3: 4 Pilares de Diferencial Conectados (47%) -->
         <div class="sn-process-track-zone">
           
-          <!-- Passo 01 -->
+          <!-- Pilar 01 -->
           <div class="sn-step-unit">
             <span class="sn-step-number">01</span>
             <div class="sn-step-node">
@@ -629,8 +785,8 @@
                 <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
               </svg>
             </div>
-            <h3 class="sn-step-title">Entendimento<br>do desafio</h3>
-            <p class="sn-step-desc">Analisamos o contexto da operação, riscos, ativos e requisitos normativos.</p>
+            <h3 class="sn-step-title">Dados<br>confiáveis</h3>
+            <p class="sn-step-desc">Coleta e controle de informações com qualidade e rastreabilidade.</p>
           </div>
 
           <!-- Conector 01 -> 02 -->
@@ -641,19 +797,19 @@
             </svg>
           </div>
 
-          <!-- Passo 02 -->
+          <!-- Pilar 02 -->
           <div class="sn-step-unit">
             <span class="sn-step-number">02</span>
             <div class="sn-step-node">
               <svg viewBox="0 0 24 24" width="42" height="42" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                 <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
                 <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-                <path d="m9 14 2 2 4-4"></path>
-                <line x1="9" y1="10" x2="15" y2="10"></line>
+                <line x1="9" y1="12" x2="15" y2="12"></line>
+                <line x1="9" y1="16" x2="13" y2="16"></line>
               </svg>
             </div>
-            <h3 class="sn-step-title">Planejamento<br>técnico</h3>
-            <p class="sn-step-desc">Definimos a estratégia, escopo, método e recursos mais adequados.</p>
+            <h3 class="sn-step-title">Conhecimento<br>especializado</h3>
+            <p class="sn-step-desc">Engenheiros especialistas aplicando normas e critérios técnicos.</p>
           </div>
 
           <!-- Conector 02 -> 03 -->
@@ -664,17 +820,16 @@
             </svg>
           </div>
 
-          <!-- Passo 03 -->
+          <!-- Pilar 03 -->
           <div class="sn-step-unit">
             <span class="sn-step-number">03</span>
             <div class="sn-step-node">
               <svg viewBox="0 0 24 24" width="42" height="42" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
-                <path d="M9.3 6.3a1 1 0 0 1 0 1.4L7.7 9.3a1 1 0 0 1-1.4 0L2.53 5.53a6 6 0 0 0 7.94 7.94l6.91 6.91a2.12 2.12 0 0 0 3-3l-6.91-6.91a6 6 0 0 0-7.94-7.94l3.76-3.76z"></path>
               </svg>
             </div>
-            <h3 class="sn-step-title">Execução<br>em campo</h3>
-            <p class="sn-step-desc">Nossa equipe realiza inspeções, ensaios e atividades com precisão e segurança.</p>
+            <h3 class="sn-step-title">Tecnologia<br>aplicada</h3>
+            <p class="sn-step-desc">Ferramentas e softwares que apoiam análises mais precisas.</p>
           </div>
 
           <!-- Conector 03 -> 04 -->
@@ -685,7 +840,7 @@
             </svg>
           </div>
 
-          <!-- Passo 04 -->
+          <!-- Pilar 04 -->
           <div class="sn-step-unit">
             <span class="sn-step-number">04</span>
             <div class="sn-step-node">
@@ -693,12 +848,11 @@
                 <line x1="18" y1="20" x2="18" y2="10"></line>
                 <line x1="12" y1="20" x2="12" y2="4"></line>
                 <line x1="6" y1="20" x2="6" y2="14"></line>
-                <path d="M3 12l5-5 5 5 7-7"></path>
                 <polyline points="15 5 20 5 20 10"></polyline>
               </svg>
             </div>
-            <h3 class="sn-step-title">Análise e<br>resultado</h3>
-            <p class="sn-step-desc">Analisamos os dados, geramos relatórios e entregamos recomendações.</p>
+            <h3 class="sn-step-title">Solução<br>personalizada</h3>
+            <p class="sn-step-desc">Avaliações adaptadas à condição do ativo e aos objetivos da operação.</p>
           </div>
 
         </div>
@@ -707,105 +861,11 @@
     </section>
 
     <!-- =========================================================================
-         SEÇÃO 07 — NOSSAS FOTOS (GALERIA GRID 3X3)
-         ========================================================================= -->
-    <section class="sn-gallery-section" id="fotos">
-      <div class="sn-dot-matrix left" aria-hidden="true"></div>
-      <div class="sn-dot-matrix right" aria-hidden="true"></div>
-
-      <div class="sn-gallery-container">
-        
-        <div class="sn-eyebrow-line light-mode">NOSSAS FOTOS</div>
-        <h2 class="sn-gallery-headline">
-          Momentos que mostram<br>
-          quem <span class="sn-highlight-blue">somos</span> e o que <span class="sn-highlight-blue">fazemos.</span>
-        </h2>
-
-        <div class="sn-gallery-grid">
-          
-          <!-- Foto 1: Inspeção Noturna em Refinaria -->
-          <div class="sn-gallery-card">
-            <img src="./assets/Fotografias/editadas/operacional-tecnico-refinaria-noite-edit.webp" alt="Técnico realizando inspeção em refinaria industrial" class="sn-gallery-img" loading="lazy" />
-            <div class="sn-gallery-overlay">
-              <p class="sn-gallery-caption">Inspeção operacional em campo de refinaria</p>
-            </div>
-          </div>
-
-          <!-- Foto 2: Discussão Técnica de Projetos em Telas -->
-          <div class="sn-gallery-card">
-            <img src="./assets/Fotografias/editadas/operacional-discussao-engenheiros-tela-edit.webp" alt="Discussão técnica entre engenheiros e análise de projetos" class="sn-gallery-img" loading="lazy" />
-            <div class="sn-gallery-overlay">
-              <p class="sn-gallery-caption">Alinhamento e planejamento estratégico de integridade</p>
-            </div>
-          </div>
-
-          <!-- Foto 3: Inspeção em Solda de Tubulação -->
-          <div class="sn-gallery-card">
-            <img src="./assets/Fotografias/editadas/operacional-ultrassom-solda-tubulacao-edit-final.webp" alt="Inspeção por ultrassom em juntas soldadas de tubulações" class="sn-gallery-img" loading="lazy" />
-            <div class="sn-gallery-overlay">
-              <p class="sn-gallery-caption">Controle e validação de qualidade de soldagem</p>
-            </div>
-          </div>
-
-          <!-- Foto 4: Ensaio Phased Array em Chapas -->
-          <div class="sn-gallery-card">
-            <img src="./assets/Fotografias/editadas/operacional-phased-array-chapas-soldadas-edit.webp" alt="Técnica avançada de Phased Array em chapas soldadas" class="sn-gallery-img" loading="lazy" />
-            <div class="sn-gallery-overlay">
-              <p class="sn-gallery-caption">Tecnologia Phased Array para detecção de descontinuidades</p>
-            </div>
-          </div>
-
-          <!-- Foto 5: Equipe Técnica com Sistema Raptor Scan -->
-          <div class="sn-gallery-card">
-            <img src="./assets/Fotografias/editadas/ultrassom-raptor-scan-tecnicos-reunidos-campo-edit.webp" alt="Técnicos reunidos em campo com equipamento Raptor Scan" class="sn-gallery-img" loading="lazy" />
-            <div class="sn-gallery-overlay">
-              <p class="sn-gallery-caption">Equipe multidisciplinar com tecnologia de ponta</p>
-            </div>
-          </div>
-
-          <!-- Foto 6: Laboratório e Diagnóstico Eletrônico -->
-          <div class="sn-gallery-card">
-            <img src="./assets/Fotografias/editadas/laboratorio-analise-placa-eletronica-edit.webp" alt="Análise técnica em laboratório de placas eletrônicas e instrumentação" class="sn-gallery-img" loading="lazy" />
-            <div class="sn-gallery-overlay">
-              <p class="sn-gallery-caption">Diagnósticos avançados de instrumentação</p>
-            </div>
-          </div>
-
-          <!-- Foto 7: Infraestrutura e Ativos Complexos Petroquímicos -->
-          <div class="sn-gallery-card">
-            <img src="./assets/Paginas Imgs/HOME/S_SEGMENTOS/quimico_petroquimico.webp" alt="Planta industrial do setor químico e petroquímico" class="sn-gallery-img" loading="lazy" />
-            <div class="sn-gallery-overlay">
-              <p class="sn-gallery-caption">Atuação especializada em plantas petroquímicas e ativos críticos</p>
-            </div>
-          </div>
-
-          <!-- Foto 8: Sistema Raptor Scan Crawler em Operação -->
-          <div class="sn-gallery-card">
-            <img src="./assets/Fotografias/editadas/ultrassom-raptor-scan-crawler-operacao-edit.webp" alt="Operação do crawler Raptor Scan em tubulações" class="sn-gallery-img" loading="lazy" />
-            <div class="sn-gallery-overlay">
-              <p class="sn-gallery-caption">Inspeção automatizada de integridade em dutos</p>
-            </div>
-          </div>
-
-          <!-- Foto 9: Engenheiros Inspecionando Bomba Industrial -->
-          <div class="sn-gallery-card">
-            <img src="./assets/Fotografias/editadas/operacional-engenheiros-inspecao-bomba-edit.webp" alt="Engenheiros realizando inspeção mecânica em bomba industrial" class="sn-gallery-img" loading="lazy" />
-            <div class="sn-gallery-overlay">
-              <p class="sn-gallery-caption">Avaliação técnica e confiabilidade de máquinas industriais</p>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-    <!-- =========================================================================
-         SEÇÃO 08 — NOSSO COMPROMISSO (4 PILARES + FOTO TÉCNICA)
+         SEÇÃO — NOSSO COMPROMISSO (4 PILARES + FOTO TÉCNICA)
          ========================================================================= -->
     <section class="sn-commitment-section" id="compromisso">
       <div class="sn-commitment-blueprint-bg" aria-hidden="true"></div>
-      <img src="./assets/Fotografias/editadas/operacional-engenheiros-inspecao-bomba-edit.webp" alt="Engenheiros e Especialistas da EndControl Engenharia" class="sn-commitment-bg-photo" loading="lazy" />
+      <img src="./assets/Fotografias/Serviços - Banco de Imagens/01 - Engenharia de Integridade Estrutural/equipe-engenharia-integridade-estrutural-planta-industrial.webp" alt="Equipe de Engenharia de Integridade Estrutural da EndControl" class="sn-commitment-bg-photo" loading="lazy" />
 
       <div class="sn-commitment-container">
         
@@ -874,775 +934,15 @@
 
         </div>
 
-      </div>
-    </section>
-
-    <!-- ════════════════════════════════════════════════════════════════════════
-         SEÇÃO HERO ESTÁTICA — HOME
-         ════════════════════════════════════════════════════════════════════════ -->
-    <section class="hero-static-container" id="home">
-      
-      <!-- Carrossel de Fundo Dinâmico do Hero com Fotos Editadas -->
-      <div class="hero-bg-slider" id="heroBgSlider">
-        <img src="./assets/Fotografias/editadas/ultrassom-raptor-scan-crawler-operacao-edit.webp" 
-             alt="Ultrassom Raptor Scan Crawler em operação" 
-             class="hero-bg-photo active" fetchpriority="high" />
-        <img src="./assets/Fotografias/editadas/operacional-alpinismo-industrial-escada-tanque-edit.webp" 
-             alt="Alpinismo industrial em escada de tanque" 
-             class="hero-bg-photo" loading="lazy" />
-        <img src="./assets/Fotografias/editadas/operacional-engenheiros-inspecao-bomba-edit.webp" 
-             alt="Engenheiros da End Controll realizando inspeção em bomba industrial" 
-             class="hero-bg-photo" loading="lazy" />
-        <img src="./assets/Fotografias/editadas/ultrassom-raptor-scan-tecnicos-reunidos-campo-edit.webp" 
-             alt="Técnicos reunidos em campo com sistema Raptor Scan" 
-             class="hero-bg-photo" loading="lazy" />
-        <img src="./assets/Fotografias/editadas/operacional-phased-array-chapas-soldadas-edit.webp" 
-             alt="Inspeção com Phased Array em chapas soldadas" 
-             class="hero-bg-photo" loading="lazy" />
-        <img src="./assets/Fotografias/editadas/laboratorio-analise-placa-eletronica-edit.webp" 
-             alt="Laboratório de análise de placa eletrônica de inspeção" 
-             class="hero-bg-photo" loading="lazy" />
-        <img src="./assets/Fotografias/editadas/operacional-discussao-engenheiros-tela-edit.webp" 
-             alt="Engenheiros discutindo relatórios técnicos e análises" 
-             class="hero-bg-photo" loading="lazy" />
-        <img src="./assets/Fotografias/editadas/operacional-inspecao-ultrassom-casco-estrutura-edit.webp" 
-             alt="Inspeção por ultrassom em casco e estruturas de grande porte" 
-             class="hero-bg-photo" loading="lazy" />
-      </div>
-
-      <!-- Overlays de Contraste e Atmosfera -->
-      <div class="hero-overlay-dark"></div>
-      <div class="hero-overlay-blue-tint"></div>
-      <div class="hero-overlay-bottom"></div>
-
-      <!-- Setas Ultra-Minimalistas de Navegação (Sem Fundo/Círculo) -->
-      <button class="hero-arrow-btn hero-arrow-prev" id="heroArrowPrev" aria-label="Fotografia anterior" title="Fotografia anterior">
-        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
-      </button>
-      <button class="hero-arrow-btn hero-arrow-next" id="heroArrowNext" aria-label="Próxima fotografia" title="Próxima fotografia">
-        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
-      </button>
-
-      <!-- Camada de Elementos Tecnológicos HUD -->
-      <div class="hero-hud-layer">
-        <!-- SVG Circuitos -->
-        <svg class="hud-circuit-svg" viewBox="0 0 800 600" fill="none">
-          <!-- Linhas de Conexão -->
-          <path d="M 520 220 L 590 290 L 710 290" stroke="rgba(0, 194, 255, 0.28)" stroke-width="1.5" />
-          <path d="M 610 120 L 680 190 L 680 340 L 650 370" stroke="rgba(0, 194, 255, 0.2)" stroke-dasharray="4 4" stroke-width="1.5" />
-          <path d="M 740 180 L 740 400 L 760 420" stroke="rgba(0, 194, 255, 0.15)" stroke-width="1" />
-          
-          <!-- Nós Circulares -->
-          <circle cx="590" cy="290" r="4.5" fill="var(--color-cyan)" class="hud-pulsing-node" />
-          <circle cx="710" cy="290" r="3" fill="var(--color-cyan)" />
-          <circle cx="680" cy="190" r="3" fill="var(--color-cyan)" />
-          <circle cx="650" cy="370" r="4" fill="var(--color-cyan)" class="hud-pulsing-node" />
-        </svg>
-
-        <!-- Grid de Pontos -->
-        <div class="hud-dots-grid"></div>
-
-        <!-- Brilho no canto direito -->
-        <div class="hud-blur-glow"></div>
-      </div>
-
-      <!-- Conteúdo do Hero -->
-      <div class="hero-content-wrapper">
-        <div class="hero-main-info">
-          
-          <!-- Badge Superior -->
-          <div class="hero-badge-pill">
-            <span class="hero-badge-text">Excelência</span>
-            <span class="hero-badge-dot">•</span>
-            <span class="hero-badge-text">Precisão</span>
-            <span class="hero-badge-dot">•</span>
-            <span class="hero-badge-text">Tecnologia</span>
-          </div>
-
-          <!-- Título Principal -->
-          <h1 class="hero-title-main">
-            Engenharia de integridade para ativos que sustentam<br>
-            <span class="highlight-cyan">grandes operações</span>
-          </h1>
-
-          <!-- Descrição / Subtítulo -->
-          <p class="hero-lead-desc">
-            Inspeções especializadas, ensaios não destrutivos e calibração de alta confiabilidade para proteger ativos críticos, pessoas e processos.
-          </p>
-
-          <!-- Divisor Luminoso -->
-          <div class="hero-separator-glow"></div>
-
-          <!-- Botões CTAs -->
-          <div class="hero-actions-container">
-            <a href="https://wa.me/5591984040710" target="_blank" class="btn primary btn-hero" rel="noopener noreferrer">
-              <span>Fale com um especialista</span>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </a>
-            <a href="#solucoes" class="btn secondary btn-hero">
-              <span>Conheça nossas soluções</span>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </a>
-          </div>
-
-        </div>
-      </div>
-
-      <!-- Faixa Inferior de Benefícios -->
-      <div class="hero-benefits-bar">
-        <div class="benefits-grid">
-          
-          <!-- Item 1: Atuação Técnica -->
-          <div class="benefit-item">
-            <div class="benefit-icon-box">
-              <svg class="benefit-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="11" cy="11" r="8"></circle>
-                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-              </svg>
-            </div>
-            <div class="benefit-text-box">
-              <h3 class="benefit-title">Atuação técnica</h3>
-              <p class="benefit-desc">Inspeções conduzidas com método e confiabilidade</p>
-            </div>
-          </div>
-
-          <!-- Item 2: Integridade de Ativos -->
-          <div class="benefit-item">
-            <div class="benefit-icon-box">
-              <svg class="benefit-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                <polyline points="9 11 11 13 15 9"></polyline>
-              </svg>
-            </div>
-            <div class="benefit-text-box">
-              <h3 class="benefit-title">Integridade de ativos</h3>
-              <p class="benefit-desc">Avaliação especializada para ambientes críticos</p>
-            </div>
-          </div>
-
-          <!-- Item 3: Tecnologia em Campo -->
-          <div class="benefit-item">
-            <div class="benefit-icon-box">
-              <svg class="benefit-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="8" y="9" width="8" height="12" rx="1.5" ry="1.5"></rect>
-                <path d="M12 1a8 8 0 0 1 5 2"></path>
-                <path d="M12 4a4 4 0 0 1 2 1"></path>
-                <path d="M12 1a8 8 0 0 0-5 2"></path>
-                <path d="M12 4a4 4 0 0 0-2 1"></path>
-                <circle cx="12" cy="15" r="1.5" fill="currentColor"></circle>
-              </svg>
-            </div>
-            <div class="benefit-text-box">
-              <h3 class="benefit-title">Tecnologia em campo</h3>
-              <p class="benefit-desc">Recursos que ampliam precisão e segurança</p>
-            </div>
-          </div>
-
-          <!-- Item 4: Compromisso Operacional -->
-          <div class="benefit-item">
-            <div class="benefit-icon-box">
-              <svg class="benefit-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                <circle cx="9" cy="7" r="4"></circle>
-                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-              </svg>
-            </div>
-            <div class="benefit-text-box">
-              <h3 class="benefit-title">Compromisso operacional</h3>
-              <p class="benefit-desc">Suporte para maior confiança nas decisões</p>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- Brilho Neon Inferior central -->
-        <div class="benefits-accent-light">
-          <div class="accent-line-glow"></div>
-          <div class="accent-dot-glow"></div>
-        </div>
-      </div>
-
-    </section>
-
-
-    <!-- ════════════════════════════════════════════════════════════════════════
-         SEÇÃO SOBRE A ENDCONTROL — LAYOUT PREMIUM
-         ════════════════════════════════════════════════════════════════════════ -->
-    <section class="section about-premium-section wf-section section-full-width" id="sobre" data-wf-label="SEÇÃO SOBRE A ENDCONTROL - LAYOUT PREMIUM">
-      <!-- Ambient Lights / Background Tech Glows & Grid -->
-      <div class="about-bg-glow glow-top-left"></div>
-      <div class="about-bg-glow glow-bottom-right"></div>
-      <div class="about-tech-pattern"></div>
-      <div class="about-tech-radar radar-top-left"></div>
-      <div class="about-tech-radar radar-bottom-right-slow"></div>
-      <div class="about-tech-line line-horizontal-top"></div>
-      <div class="about-tech-line line-vertical-right"></div>
-      <div class="about-tech-line line-sliding-middle"></div>
-      <div class="about-tech-dots dots-top-right"></div>
-      <div class="about-tech-dots dots-bottom-left"></div>
-
-      <div class="container about-container">
-        <!-- Main Top Row (2 Columns: Content Left, Photo Right) -->
-        <div class="about-main-grid">
-          
-          <!-- Left Column: Content -->
-          <div class="about-content-col reveal">
-            <!-- Top Tag / Eyebrow -->
-            <span class="about-eyebrow">SOBRE A ENDCONTROL</span>
-
-            <!-- Headline -->
-            <h2 class="about-headline">
-              Excelência técnica<br>
-              que gera <span class="highlight-blue-gradient">confiança<br>e resultado.</span>
-            </h2>
-
-            <!-- Body Paragraphs -->
-            <div class="about-paragraphs">
-              <p>A Endcontrol Engenharia é referência nacional em <strong>integridade industrial</strong>, inspeções, ensaios não destrutivos e consultoria técnica.</p>
-              <p>Combinamos conhecimento técnico, tecnologia e inovação para entregar <strong>segurança</strong>, <strong>eficiência</strong> e <strong>sustentabilidade</strong> aos nossos clientes e parceiros.</p>
-            </div>
-
-            <!-- Saiba Mais CTA Button -->
-            <div class="about-cta">
-              <a href="sobre-nos.html" class="btn-about-outline-premium">
-                <span class="btn-about-icon-circle">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                    <polyline points="12 5 19 12 12 19"></polyline>
-                  </svg>
-                </span>
-                <span class="btn-about-text">Saiba mais sobre a EndControl</span>
-                <svg class="btn-about-arrow-right" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                  <line x1="5" y1="12" x2="19" y2="12"></line>
-                  <polyline points="12 5 19 12 12 19"></polyline>
-                </svg>
-              </a>
-            </div>
-          </div>
-
-          <!-- Right Column: Overlapping Images -->
-          <div class="about-photo-col reveal delay-1">
-            <div class="about-media-bloom"></div>
-            <div class="about-media-wrapper">
-              <div class="about-media-glow"></div>
-              <div class="about-hud-frame"></div>
-              <span class="about-hud-corner corner-tl"></span>
-              <span class="about-hud-corner corner-tr"></span>
-              <span class="about-hud-corner corner-bl"></span>
-              <span class="about-hud-corner corner-br"></span>
-              <div class="about-media-scan-line"></div>
-              
-              <div class="about-media-grid">
-                <div class="about-media-main">
-                  <img src="./assets/Fotografias/editadas/operacional-engenheiros-inspecao-bomba-edit.webp" alt="Técnico da EndControl em operação industrial" loading="lazy" />
-                </div>
-                <div class="about-media-side">
-                  <div class="about-media-side-top">
-                    <img src="./assets/Fotografias/editadas/operacional-inspecao-ultrassom-casco-estrutura-edit.webp" alt="Equipe técnica em inspeção industrial" loading="lazy" />
-                  </div>
-                  <div class="about-media-side-bottom">
-                    <img src="./assets/Fotografias/editadas/operacional-discussao-engenheiros-tela-edit.webp" alt="Discussão técnica de engenheiros na EndControl" loading="lazy" />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Bottom Row: Consolidated Values Banner -->
-        <div class="about-values-banner reveal">
-          <!-- Item 1: Segurança -->
-          <div class="about-value-item">
-            <div class="about-value-icon-wrapper">
-              <div class="about-value-icon-glow"></div>
-              <div class="about-value-icon-circle">
-                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                </svg>
-              </div>
-            </div>
-            <div class="about-value-text">
-              <h3>Segurança</h3>
-              <p>Proteção e conformidade em todos os processos e operações.</p>
-            </div>
-          </div>
-
-          <!-- Item 2: Confiabilidade -->
-          <div class="about-value-item">
-            <div class="about-value-icon-wrapper">
-              <div class="about-value-icon-glow"></div>
-              <div class="about-value-icon-circle">
-                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                  <path d="m9 11 2 2 4-4"/>
-                </svg>
-              </div>
-            </div>
-            <div class="about-value-text">
-              <h3>Confiabilidade</h3>
-              <p>Precisão e rigor técnico que geram confiança nos resultados.</p>
-            </div>
-          </div>
-
-          <!-- Item 3: Eficiência -->
-          <div class="about-value-item">
-            <div class="about-value-icon-wrapper">
-              <div class="about-value-icon-glow"></div>
-              <div class="about-value-icon-circle">
-                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
-                </svg>
-              </div>
-            </div>
-            <div class="about-value-text">
-              <h3>Eficiência</h3>
-              <p>Soluções que aumentam a performance e reduzem paradas.</p>
-            </div>
-          </div>
-
-          <!-- Item 4: Sustentabilidade -->
-          <div class="about-value-item">
-            <div class="about-value-icon-wrapper">
-              <div class="about-value-icon-glow"></div>
-              <div class="about-value-icon-circle">
-                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/>
-                  <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>
-                </svg>
-              </div>
-            </div>
-            <div class="about-value-text">
-              <h3>Sustentabilidade</h3>
-              <p>Atuamos com responsabilidade e foco no futuro das indústrias.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-    <!-- ════════════════════════════════════════════════════════════════════════
-         SEÇÃO NOSSAS SOLUÇÕES — ORBITAL RADAR
-         ════════════════════════════════════════════════════════════════════════ -->
-    <section class="solucoes-section section-full-width" id="solucoes" data-wf-label="SEÇÃO NOSSAS SOLUÇÕES">
-      <div class="solucoes-bg-image"><img src="./assets/Fotografias/editadas/operacional-tecnico-refinaria-noite-edit.webp" alt="" aria-hidden="true" loading="lazy" /></div>
-      <div class="solucoes-center-halo"></div>
-      <div class="solucoes-grid-pattern"></div>
-      <div class="scan-line"></div>
-      <div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div>
-
-      <div class="solucoes-main-content">
-
-        <!-- COL ESQUERDA -->
-        <div class="solucoes-left-col">
-          <div class="hud-frame"><div class="hud-corner hud-corner--tl"></div><div class="hud-corner hud-corner--bl"></div></div>
-          <div class="solucoes-badge"><span class="solucoes-badge-text">Soluções Integradas</span></div>
-          <h2 class="solucoes-heading">Soluções <em>integradas</em><br>para cada desafio<br>industrial.</h2>
-          <p class="solucoes-description">Atuamos de forma completa e integrada para aumentar a confiabilidade, a segurança e a performance dos seus ativos industriais.</p>
-          <div class="solucoes-stats-left">
-            <div class="stat-item"><div class="stat-icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div class="stat-text"><div class="stat-number">+18 <span>anos</span></div><div class="stat-label">de experiência</div></div></div>
-            <div class="stat-item"><div class="stat-icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div class="stat-text"><div class="stat-number">+300</div><div class="stat-label">especialistas</div></div></div>
-            <div class="stat-item"><div class="stat-icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div><div class="stat-text"><div class="stat-number">100%</div><div class="stat-label">de atuação em todo<br>o território nacional</div></div></div>
-            <div class="stat-item"><div class="stat-icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4h6l1 2h3v14H5V6h3l1-2Z"/><path d="M9 11h6M9 15h6"/></svg></div><div class="stat-text"><div class="stat-number">+1.250</div><div class="stat-label">projetos entregues</div></div></div>
-          </div>
-        </div>
-
-        <!-- COL CENTRAL — ORBITAL RADAR -->
-        <div class="solucoes-center-area" id="orbitalDiagram">
-          <div class="radar-geometry">
-            <div class="radar-sweep" id="radarSweep" aria-hidden="true"></div>
-            <svg class="radar-trail-svg" viewBox="0 0 500 500" preserveAspectRatio="none">
-              <g id="radarConnectionsLayer" aria-hidden="true"></g>
+        <!-- Botão CTA da Seção -->
+        <div class="sn-commitment-cta">
+          <a href="https://api.whatsapp.com/send?phone=5591984040710" target="_blank" rel="noopener" class="btn btn-primary sn-commitment-btn">
+            <span>Fale com nossos especialistas</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
             </svg>
-            <div class="radar-circle radar-circle-outer"></div>
-            <div class="radar-circle radar-circle-inner"></div>
-            <div class="radar-axis-horizontal"></div>
-            <div class="radar-axis-vertical"></div>
-            <div class="radar-dot dot-h-left"></div>
-            <div class="radar-dot dot-h-right"></div>
-            <div class="radar-dot dot-v-top"></div>
-            <div class="radar-dot dot-v-bottom"></div>
-          </div>
-
-          <div class="orbital-center-glow"></div>
-          <div class="orbital-center-logo">
-            <img src="./assets/Logos/logo-endcontrol-vertical-mono-negativo.webp" alt="ENDCONTROL Engenharia" />
-          </div>
-
-          <div class="radar-nodes-layer" id="radarNodesLayer">
-            <!-- Rendered dynamically by src/js/solucoes.js -->
-          </div>
-        </div>
-
-        <!-- COL DIREITA — Card -->
-        <div class="solucoes-right-col">
-          <div class="highlight-card-wrapper">
-            <!-- Minimalist Vertical-Center Arrow Controls -->
-            <button class="card-side-arrow prev" id="cardSidePrev" aria-label="Serviço anterior">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-            </button>
-            <button class="card-side-arrow next" id="cardSideNext" aria-label="Próximo serviço">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-            </button>
-
-            <div class="highlight-card" id="highlightCard">
-              <div class="highlight-card-image">
-                <img id="cardImage" src="./assets/Fotografias/editadas/operacional-inspecao-ultrassom-casco-estrutura-edit.webp" alt="1. Engenharia de Integridade Estrutural" />
-                <div class="highlight-card-image-overlay"></div>
-                <div class="highlight-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><span>Destaque</span></div>
-              </div>
-              <div class="highlight-card-body" id="cardBody">
-                <h3 class="highlight-card-title" id="cardTitle">1. Engenharia de Integridade Estrutural</h3>
-                <p class="highlight-card-desc" id="cardDesc">Gestão completa de empreendimentos industriais com foco em prazos, custos e padrões de qualidade.</p>
-                <ul class="highlight-card-list" id="cardList">
-                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Planejamento e controle de escopo</li>
-                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Gestão de riscos e contingências</li>
-                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Acompanhamento físico-financeiro</li>
-                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Relatórios executivos e dashboards</li>
-                </ul>
-                <a href="#" class="highlight-card-cta" id="cardCta">Saiba Mais <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
-              </div>
-              <div class="card-progress" id="cardProgress"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="solucoes-bottom-bar">
-        <div class="bottom-bar-inner">
-        </div>
-      </div>
-
-    </section>
-
-
-    <!-- ════════════════════════════════════════════════════════════════════════
-         SEÇÃO SEGMENTOS DE ATUAÇÃO
-         ════════════════════════════════════════════════════════════════════════ -->
-    <section class="section segmentos-secao wf-section section-full-width" id="segmentos-secao" data-wf-label="SEÇÃO SEGMENTOS DE ATUAÇÃO">
-      <div class="container">
-        <div class="segmentos-head reveal">
-          <span class="segmentos-eyebrow">NOSSAS ÁREAS DE ATUAÇÃO</span>
-          <h2 class="segmentos-title">Principais <span class="segmentos-highlight">Áreas de Atuação</span></h2>
-          <p class="segmentos-subtitle">
-            Soluções de engenharia sob medida para diferentes áreas e setores industriais, com conhecimento técnico especializado e alta confiabilidade.
-          </p>
-        </div>
-      </div>
-
-      <!-- ACCORDION VERTICAL FULL-WIDTH (10 PAINÉIS DE ATUAÇÃO) -->
-      <div class="endo-acc-full-wrapper" aria-label="Áreas de Atuação Endocontrol">
-        
-        <!-- SETAS DE NAVEGAÇÃO (VISÍVEIS APENAS EM MOBILE/TABLET) -->
-        <button class="endo-acc-nav endo-acc-nav--prev" id="btnPrevAcc" aria-label="Navegar para a esquerda" type="button">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M15 18l-6-6 6-6"/>
-            </svg>
-        </button>
-
-        <!-- LISTA DE 10 PAINÉIS ACCORDION JUNTOS (FULL-WIDTH SEAMLESS) -->
-        <ul class="endo-acc-row" id="accTrackIndex">
-
-            <!-- PAINEL 1: Aeroespacial -->
-            <li class="endo-acc-panel is-active" data-index="0" tabindex="0">
-                <img class="endo-acc-card__img" src="assets/Paginas Imgs/HOME/CARDS-AREAS-ATUACAO/Aeroespacial.webp" alt="Área Aeroespacial" loading="eager">
-                <div class="endo-acc-card__overlay"></div>
-                <div class="endo-acc-card__content">
-                    <svg class="endo-acc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3.5c-.5-.5-2.5 0-4 1.5L13.5 8.5 5.3 6.7c-.5-.1-.9.1-1.2.5l-.6.9c-.3.4-.2 1 .2 1.3L8 12l-3 3-2.5-.5c-.3-.1-.7 0-.9.3l-.3.4c-.2.3-.1.8.2 1l2.5 1.7 1.7 2.5c.2.3.7.4 1 .2l.4-.3c.3-.2.4-.6.3-.9L7 16l3-3 2.6 4.3c.3.4.9.5 1.3.2l.9-.6c.4-.3.6-.7.5-1.2z"/>
-                    </svg>
-                    <h3 class="endo-acc-card__title">Aeroespacial</h3>
-                    <div class="endo-acc-card__extra">
-                        <p class="endo-acc-card__desc">Inspeções de alta precisão em turbinas, fuselagens e ligas aeronáuticas.</p>
-                    </div>
-                </div>
-            </li>
-
-            <!-- PAINEL 2: Alimentício -->
-            <li class="endo-acc-panel" data-index="1" tabindex="0">
-                <img class="endo-acc-card__img" src="assets/Paginas Imgs/HOME/CARDS-AREAS-ATUACAO/Alimenticio.webp" alt="Área Alimentícia" loading="lazy">
-                <div class="endo-acc-card__overlay"></div>
-                <div class="endo-acc-card__content">
-                    <svg class="endo-acc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M18 2v6a3 3 0 0 1-3 3 3 3 0 0 1-3-3V2"/>
-                        <path d="M15 2v18"/>
-                        <path d="M6 2v7a3 3 0 0 0 3 3h0a3 3 0 0 0 3-3V2"/>
-                        <path d="M9 12v10"/>
-                    </svg>
-                    <h3 class="endo-acc-card__title">Alimentício</h3>
-                    <div class="endo-acc-card__extra">
-                        <p class="endo-acc-card__desc">Controle sanitário em tanques de inox e linhas de processamento.</p>
-                    </div>
-                </div>
-            </li>
-
-            <!-- PAINEL 3: Ambiental -->
-            <li class="endo-acc-panel" data-index="2" tabindex="0">
-                <img class="endo-acc-card__img" src="assets/Paginas Imgs/HOME/CARDS-AREAS-ATUACAO/Ambiental.webp" alt="Área Ambiental" loading="lazy">
-                <div class="endo-acc-card__overlay"></div>
-                <div class="endo-acc-card__content">
-                    <svg class="endo-acc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/>
-                        <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>
-                    </svg>
-                    <h3 class="endo-acc-card__title">Ambiental</h3>
-                    <div class="endo-acc-card__extra">
-                        <p class="endo-acc-card__desc">Monitoramento preventivo em contenções e efluentes industriais.</p>
-                    </div>
-                </div>
-            </li>
-
-            <!-- PAINEL 4: Energia -->
-            <li class="endo-acc-panel" data-index="3" tabindex="0">
-                <img class="endo-acc-card__img" src="assets/Paginas Imgs/HOME/CARDS-AREAS-ATUACAO/Energia.webp" alt="Área de Energia" loading="lazy">
-                <div class="endo-acc-card__overlay"></div>
-                <div class="endo-acc-card__content">
-                    <svg class="endo-acc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
-                    </svg>
-                    <h3 class="endo-acc-card__title">Energia</h3>
-                    <div class="endo-acc-card__extra">
-                        <p class="endo-acc-card__desc">Ensaios técnicos em hidrelétricas, usinas eólicas e redes elétricas.</p>
-                    </div>
-                </div>
-            </li>
-
-            <!-- PAINEL 5: Ferroviário -->
-            <li class="endo-acc-panel" data-index="4" tabindex="0">
-                <img class="endo-acc-card__img" src="assets/Paginas Imgs/HOME/CARDS-AREAS-ATUACAO/Ferroviario.webp" alt="Área Ferroviária" loading="lazy">
-                <div class="endo-acc-card__overlay"></div>
-                <div class="endo-acc-card__content">
-                    <svg class="endo-acc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                        <rect x="4" y="3" width="16" height="12" rx="2"/>
-                        <path d="M4 11h16"/>
-                        <path d="M12 3v8"/>
-                        <path d="m8 19-3 3"/>
-                        <path d="m16 19 3 3"/>
-                        <circle cx="8" cy="15" r="1"/>
-                        <circle cx="16" cy="15" r="1"/>
-                    </svg>
-                    <h3 class="endo-acc-card__title">Ferroviário</h3>
-                    <div class="endo-acc-card__extra">
-                        <p class="endo-acc-card__desc">Inspeção ultrassônica em trilhos, eixos, rodeiros e vagões.</p>
-                    </div>
-                </div>
-            </li>
-
-            <!-- PAINEL 6: Mineração -->
-            <li class="endo-acc-panel" data-index="5" tabindex="0">
-                <img class="endo-acc-card__img" src="assets/Paginas Imgs/HOME/CARDS-AREAS-ATUACAO/Mineracao.webp" alt="Área de Mineração" loading="lazy">
-                <div class="endo-acc-card__overlay"></div>
-                <div class="endo-acc-card__content">
-                    <svg class="endo-acc-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
-                    </svg>
-                    <h3 class="endo-acc-card__title">Mineração</h3>
-                    <div class="endo-acc-card__extra">
-                        <p class="endo-acc-card__desc">Avaliação estrutural em escavadeiras e correias transportadoras.</p>
-                    </div>
-                </div>
-            </li>
-
-            <!-- PAINEL 7: Naval -->
-            <li class="endo-acc-panel" data-index="6" tabindex="0">
-                <img class="endo-acc-card__img" src="assets/Paginas Imgs/HOME/CARDS-AREAS-ATUACAO/Naval.webp" alt="Área Naval" loading="lazy">
-                <div class="endo-acc-card__overlay"></div>
-                <div class="endo-acc-card__content">
-                    <svg class="endo-acc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M2 21c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1 .6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/>
-                        <path d="M19.38 20A11.6 11.6 0 0 0 21 14l-9-4-9 4c0 2.9.94 5.34 2.81 7.76"/>
-                        <path d="M19 10 12 3 5 10"/>
-                        <path d="M12 3v7"/>
-                    </svg>
-                    <h3 class="endo-acc-card__title">Naval</h3>
-                    <div class="endo-acc-card__extra">
-                        <p class="endo-acc-card__desc">Ultrassom e partículas magnéticas em cascos e plataformas offshore.</p>
-                    </div>
-                </div>
-            </li>
-
-            <!-- PAINEL 8: Óleo e Gás -->
-            <li class="endo-acc-panel" data-index="7" tabindex="0">
-                <img class="endo-acc-card__img" src="assets/Paginas Imgs/HOME/CARDS-AREAS-ATUACAO/Oleo-Gas.webp" alt="Área de Óleo e Gás" loading="lazy">
-                <div class="endo-acc-card__overlay"></div>
-                <div class="endo-acc-card__content">
-                    <svg class="endo-acc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>
-                    </svg>
-                    <h3 class="endo-acc-card__title">Óleo e Gás</h3>
-                    <div class="endo-acc-card__extra">
-                        <p class="endo-acc-card__desc">Integridade em dutos, vasos de pressão, refinarias e tanques.</p>
-                    </div>
-                </div>
-            </li>
-
-            <!-- PAINEL 9: Papel e Celulose -->
-            <li class="endo-acc-panel" data-index="8" tabindex="0">
-                <img class="endo-acc-card__img" src="assets/Paginas Imgs/HOME/CARDS-AREAS-ATUACAO/Papel-Celulose.webp" alt="Área de Papel e Celulose" loading="lazy">
-                <div class="endo-acc-card__overlay"></div>
-                <div class="endo-acc-card__content">
-                    <svg class="endo-acc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
-                        <polyline points="14 2 14 8 20 8"/>
-                        <line x1="16" y1="13" x2="8" y2="13"/>
-                        <line x1="16" y1="17" x2="8" y2="17"/>
-                        <line x1="10" y1="9" x2="8" y2="9"/>
-                    </svg>
-                    <h3 class="endo-acc-card__title">Papel e Celulose</h3>
-                    <div class="endo-acc-card__extra">
-                        <p class="endo-acc-card__desc">Inspeção técnica em caldeiras de recuperação e rolos secadores.</p>
-                    </div>
-                </div>
-            </li>
-
-            <!-- PAINEL 10: Químico e Petroquímico -->
-            <li class="endo-acc-panel" data-index="9" tabindex="0">
-                <img class="endo-acc-card__img" src="assets/Paginas Imgs/HOME/CARDS-AREAS-ATUACAO/Quimico-Petroquimico.webp" alt="Área Química e Petroquímica" loading="lazy">
-                <div class="endo-acc-card__overlay"></div>
-                <div class="endo-acc-card__content">
-                    <svg class="endo-acc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M10 2v7.527a2 2 0 0 1-.211.896L4.72 20.55A2 2 0 0 0 6.508 23h10.984a2 2 0 0 0 1.788-2.45l-5.069-10.127A2 2 0 0 1 14 9.527V2"/>
-                        <path d="M8.5 2h7"/>
-                        <path d="M7 16h10"/>
-                    </svg>
-                    <h3 class="endo-acc-card__title">Químico e Petroquímico</h3>
-                    <div class="endo-acc-card__extra">
-                        <p class="endo-acc-card__desc">Mapeamento de corrosão e ensaios END em tubulações e reatores.</p>
-                    </div>
-                </div>
-            </li>
-
-        </ul>
-
-        <!-- SETA NAVEGAÇÃO DIREITA (VISÍVEIS APENAS EM MOBILE/TABLET) -->
-        <button class="endo-acc-nav endo-acc-nav--next" id="btnNextAcc" aria-label="Navegar para a direita" type="button">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M9 18l6-6-6-6"/>
-            </svg>
-        </button>
-
-      </div>
-      <div class="endo-acc-dots" id="accDotsIndex"></div>
-
-    </section>
-
-
-    <!-- ════════════════════════════════════════════════════════════════════════
-         SEÇÃO FAQ — GRID 2 COLUNAS
-         ════════════════════════════════════════════════════════════════════════ -->
-    <section class="section faq-v2 wf-section section-full-width" id="faq-secao" data-wf-label="SEÇÃO FAQ - GRID 2 COLUNAS - FUNDO CLARO">
-      <div class="container">
-        <div class="faq-v2-head reveal">
-          <span class="faq-v2-eyebrow">DÚVIDAS FREQUENTES</span>
-          <h2 class="faq-v2-title">Respostas para as <span class="faq-v2-highlight">principais dúvidas.</span></h2>
-        </div>
-        <div class="faq-v2-grid reveal">
-
-          <div class="faq-v2-item">
-            <button class="faq-v2-question">Quais serviços a Endcontrol oferece?</button>
-            <div class="faq-v2-answer">
-              <div class="faq-v2-answer-inner">
-                A Endcontrol oferece serviços completos de engenharia elétrica industrial, incluindo projetos elétricos, automação industrial, manutenção preventiva e corretiva, instalações de média e baixa tensão, SPDA e laudos técnicos.
-              </div>
-            </div>
-          </div>
-
-          <div class="faq-v2-item">
-            <button class="faq-v2-question">Como funciona o processo de contratação?</button>
-            <div class="faq-v2-answer">
-              <div class="faq-v2-answer-inner">
-                O processo começa com uma reunião de diagnóstico para entender as suas necessidades, seguida da elaboração de uma proposta técnica detalhada. Após aprovação, iniciamos o planejamento e execução do projeto com total acompanhamento.
-              </div>
-            </div>
-          </div>
-
-          <div class="faq-v2-item">
-            <button class="faq-v2-question">A Endcontrol atende em todo o Brasil?</button>
-            <div class="faq-v2-answer">
-              <div class="faq-v2-answer-inner">
-                Sim! Atuamos em todas as regiões do Brasil, com equipes próprias e parceiros estratégicos que garantem agilidade e qualidade na entrega dos serviços, independentemente da localidade.
-              </div>
-            </div>
-          </div>
-
-          <div class="faq-v2-item">
-            <button class="faq-v2-question">A Endcontrol realiza projetos personalizados?</button>
-            <div class="faq-v2-answer">
-              <div class="faq-v2-answer-inner">
-                Absolutamente. Cada projeto é desenvolvido sob medida para as necessidades específicas do cliente, respeitando normas técnicas, prazos e orçamento acordado. Não trabalhamos com soluções padronizadas.
-              </div>
-            </div>
-          </div>
-
-          <div class="faq-v2-item">
-            <button class="faq-v2-question">Quais certificações a Endcontrol possui?</button>
-            <div class="faq-v2-answer">
-              <div class="faq-v2-answer-inner">
-                Nossa equipe é formada por engenheiros e técnicos com registro ativo no CREA, além de certificações em normas como NR-10, NR-12 e NR-35. Todos os laudos são emitidos com responsabilidade técnica devidamente registrada.
-              </div>
-            </div>
-          </div>
-
-          <div class="faq-v2-item">
-            <button class="faq-v2-question">Como solicito uma proposta ou orçamento?</button>
-            <div class="faq-v2-answer">
-              <div class="faq-v2-answer-inner">
-                Você pode solicitar um orçamento diretamente pelo nosso formulário de contato, por e-mail ou pelo WhatsApp. Nossa equipe retornará em até 24 horas úteis com as informações necessárias.
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-
-    <!-- =========================================================================
-         SEÇÃO 09 — CTA FINAL (PRÉ-FOOTER)
-         ========================================================================= -->
-    <section class="sn-cta-section" id="cta-final">
-      <div class="sn-cta-container">
-        
-        <div class="sn-cta-tag-row">
-          <span class="sn-cta-tag-line"></span>
-          <span class="sn-cta-eyebrow">SOLUÇÕES QUE GERAM CONFIANÇA</span>
-          <span class="sn-cta-tag-line"></span>
-        </div>
-
-        <h2 class="sn-cta-headline">
-          Grandes operações exigem<br>
-          parceiros em quem se pode <span class="sn-highlight-blue">confiar.</span>
-        </h2>
-        
-        <p class="sn-cta-description">
-          Conheça nossas soluções e descubra como podemos impulsionar os desafios da sua operação com tecnologia, método e engenharia.
-        </p>
-
-        <div class="sn-cta-buttons-row">
-          <a href="index.html#solucoes" class="btn btn-primary sn-cta-btn-primary">
-            <span>Conheça nossas soluções</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
           </a>
-          <a href="https://api.whatsapp.com/send?phone=5591984040710" target="_blank" rel="noopener" class="btn btn-secondary sn-cta-btn-secondary">
-            <span>Fale com um especialista</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-          </a>
-        </div>
-
-        <!-- Emblema Tecnológico Inferior -->
-        <div class="sn-cta-emblem-wrapper">
-          <div class="sn-cta-emblem-line left"></div>
-          <div class="sn-cta-logo-box">
-            <img src="./assets/Logos/logo-endcontrol-vertical-mono-negativo.webp" alt="ENDCONTROL Engenharia" class="sn-cta-emblem-img" width="110" height="42" />
-          </div>
-          <div class="sn-cta-emblem-line right"></div>
         </div>
 
       </div>
@@ -1651,7 +951,7 @@
   </main>
 
   <!-- =========================================================================
-       SEÇÃO 10 — FOOTER OFICIAL (REAPROVEITADO DA HOME)
+       FOOTER OFICIAL ENDCONTROL
        ========================================================================= -->
   <footer class="footer-minimal-glow-section">
     <div class="footer-minimal-container">
@@ -1744,46 +1044,15 @@
     </div>
   </footer>
 
-  <!-- =========================================================================
-       MODAIS E LIGHTBOX
-       ========================================================================= -->
-  <div class="wf-modal-overlay" id="wf-modal-overlay"></div>
-
-  <!-- Modal Vídeo Institucional -->
-  <div class="wf-modal" id="snVideoModal" style="padding: 0 !important; overflow: hidden !important; background: #000 !important; border: 1px solid var(--color-cyan) !important; max-width: 900px;">
-    <button class="wf-modal-close" id="snVideoModalClose" aria-label="Fechar modal" style="color: #fff !important; font-size: 2.2rem; top: 16px; right: 20px;">&times;</button>
-    <div style="padding: 0; background: #000;">
-      <video id="snModalVideoElement" controls playsinline poster="./assets/Paginas Imgs/HOME/S_SEGMENTOS/quimico_petroquimico.webp" src="./assets/Videos/VIDEO-ENDCONTROL-INSTITUCIONAL.mp4" style="width: 100%; max-height: 80vh; display: block; border-radius: 20px;">
-        <source src="./assets/Videos/VIDEO-ENDCONTROL-INSTITUCIONAL.mp4" type="video/mp4">
-        Seu navegador não suporta reprodução de vídeo.
-      </video>
-    </div>
-  </div>
-
-  <!-- Lightbox da Galeria 3x3 -->
-  <div class="sn-lightbox" id="snLightbox" role="dialog" aria-modal="true" aria-label="Galeria de Fotos Ampliada">
-    <button class="sn-lightbox-close-btn" id="snLightboxClose" aria-label="Fechar galeria">&times;</button>
-    <button class="sn-lightbox-nav-btn prev" id="snLightboxPrev" aria-label="Foto anterior">&#10094;</button>
-    <button class="sn-lightbox-nav-btn next" id="snLightboxNext" aria-label="Próxima foto">&#10095;</button>
-    <div class="sn-lightbox-img-wrapper">
-      <img id="snLightboxImg" src="" alt="Foto ampliada da EndControl" class="sn-lightbox-img" />
-      <div id="snLightboxCaption" class="sn-lightbox-caption"></div>
-    </div>
-  </div>
-
-  <!-- Scripts -->
-  <script src="./src/js/main.js?v=23.0" defer></script>
+  <!-- Scripts Globais e Locais -->
+  <script src="./src/js/main.js?v=25.0" defer></script>
   <script src="./src/js/radar-progress.js?v=6.0" defer></script>
-  <script src="./src/js/solucoes.js?v=59.0" defer></script>
-  <script src="https://unpkg.com/lucide@0.321.0" defer></script>
-  <script src="./src/js/sobre-nos.js?v=65.0" defer></script>
+  <script src="./src/js/radar-ffs.js?v=4.0" defer></script>
+  <script src="./src/js/sobre-nos.js?v=67.0" defer></script>
+
+  <!-- Script Controlador do Accordion de "Quando Aplicar" (Idêntico ao da Home) -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      if (typeof lucide !== 'undefined') {
-        lucide.createIcons();
-      }
-
-      // CONTROLE DO ACCORDION VERTICAL (10 CARDS)
       const trackIndex = document.getElementById('accTrackIndex');
       const panelsIndex = document.querySelectorAll('#accTrackIndex .endo-acc-panel');
       const btnPrevAcc = document.getElementById('btnPrevAcc');
@@ -1792,7 +1061,6 @@
 
       if (trackIndex && panelsIndex.length > 0) {
         let currentIndex = 0;
-        let scrollSyncTimer = null;
         let programmaticScrollTimer = null;
         let isProgrammaticScroll = false;
 
@@ -1802,7 +1070,7 @@
           panelsIndex.forEach((panel, index) => {
             const dot = document.createElement('button');
             dot.classList.add('endo-acc-dot');
-            dot.setAttribute('aria-label', `Ir para segmento ${index + 1}`);
+            dot.setAttribute('aria-label', `Ir para aplicação ${index + 1}`);
             if (index === 0) dot.classList.add('is-active');
             
             dot.addEventListener('click', () => {
@@ -1863,60 +1131,38 @@
           });
         }
 
-        function activateClosestPanelAfterSwipe() {
-          if (!isMobileAccordion() || isProgrammaticScroll) return;
+        panelsIndex.forEach((panel, index) => {
+          panel.addEventListener('click', (e) => {
+            openPanelIndex(index);
+          });
 
-          const trackCenter = trackIndex.scrollLeft + (trackIndex.clientWidth / 2);
-          let closestIndex = currentIndex;
-          let closestDistance = Number.POSITIVE_INFINITY;
-
-          panelsIndex.forEach((panel, index) => {
-            const panelCenter = panel.offsetLeft + (panel.offsetWidth / 2);
-            const distance = Math.abs(panelCenter - trackCenter);
-
-            if (distance < closestDistance) {
-              closestDistance = distance;
-              closestIndex = index;
+          panel.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              openPanelIndex(index);
             }
           });
 
-          if (closestIndex !== currentIndex) {
-            openPanelIndex(closestIndex);
-          }
-        }
-
-        panelsIndex.forEach((panel, index) => {
-          panel.addEventListener('mouseenter', () => activatePanelIndex(index));
-          panel.addEventListener('click', () => {
-            openPanelIndex(index);
+          panel.addEventListener('mouseenter', () => {
+            if (!isMobileAccordion()) {
+              activatePanelIndex(index);
+            }
           });
         });
 
-        trackIndex.addEventListener('pointerdown', () => {
-          window.clearTimeout(programmaticScrollTimer);
-          isProgrammaticScroll = false;
-        }, { passive: true });
-
-        trackIndex.addEventListener('scroll', () => {
-          if (!isMobileAccordion() || isProgrammaticScroll) return;
-
-          window.clearTimeout(scrollSyncTimer);
-          scrollSyncTimer = window.setTimeout(activateClosestPanelAfterSwipe, 120);
-        }, { passive: true });
-
-        if (btnPrevAcc && btnNextAcc) {
+        if (btnPrevAcc) {
           btnPrevAcc.addEventListener('click', () => {
-            const previousIndex = Math.max(0, currentIndex - 1);
-            openPanelIndex(previousIndex);
-          });
-
-          btnNextAcc.addEventListener('click', () => {
-            const nextIndex = Math.min(panelsIndex.length - 1, currentIndex + 1);
-            openPanelIndex(nextIndex);
+            const nextIdx = (currentIndex - 1 + panelsIndex.length) % panelsIndex.length;
+            openPanelIndex(nextIdx);
           });
         }
 
-        activatePanelIndex(currentIndex);
+        if (btnNextAcc) {
+          btnNextAcc.addEventListener('click', () => {
+            const nextIdx = (currentIndex + 1) % panelsIndex.length;
+            openPanelIndex(nextIdx);
+          });
+        }
       }
     });
   </script>

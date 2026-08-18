@@ -165,10 +165,6 @@
   filter: none;
 }
 
-.endo-acc-panel[data-index="0"] .endo-acc-card__img { object-position: right bottom; }
-.endo-acc-panel[data-index="4"] .endo-acc-card__img { object-position: left bottom; }
-.endo-acc-panel[data-index="6"] .endo-acc-card__img { object-position: left bottom; }
-
 .endo-acc-panel:hover .endo-acc-card__img,
 .endo-acc-panel:focus-within .endo-acc-card__img,
 .endo-acc-panel.is-active .endo-acc-card__img {

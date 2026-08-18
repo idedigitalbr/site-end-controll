@@ -28,12 +28,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   
   <!-- CSS Stylesheets -->
-  <link rel="stylesheet" href="./src/css/tokens.css?v=60.0" />
-  <link rel="stylesheet" href="./src/css/base.css?v=60.0" />
-  <link rel="stylesheet" href="./src/css/header.css?v=60.0" />
-  <link rel="stylesheet" href="./src/css/components.css?v=60.0" />
-  <link rel="stylesheet" href="./src/css/work-units-footer.css?v=60.0" />
-  <link rel="stylesheet" href="./src/css/sobre-nos.css?v=60.0" />
+  <link rel="stylesheet" href="./src/css/tokens.css?v=68.0" />
+  <link rel="stylesheet" href="./src/css/base.css?v=68.0" />
+  <link rel="stylesheet" href="./src/css/header.css?v=68.0" />
+  <link rel="stylesheet" href="./src/css/components.css?v=68.0" />
+  <link rel="stylesheet" href="./src/css/work-units-footer.css?v=68.0" />
+  <link rel="stylesheet" href="./src/css/sobre-nos.css?v=70.0" />
 
   <!-- Script de Fallback Automático de Imagens e Vídeos -->
   <script>
@@ -138,7 +138,7 @@
       <div class="dropdown">
         <a class="drop-link" href="index.html#solucoes" aria-haspopup="true">Nossas Soluções</a>
         <div class="drop-panel dropdown-rich-menu" aria-label="Submenu Nossas Soluções">
-          <a class="dropdown-item-rich" href="index.html#solucoes" data-service-id="0">
+          <a class="dropdown-item-rich" href="1-solucao-engenharia-de-integridade-estrutural.html" data-service-id="0">
             <span class="dropdown-item-logo">
               <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
             </span>
@@ -346,14 +346,64 @@
           Desde o início, nosso compromisso é claro: entregar soluções técnicas que aumentam a segurança, a confiabilidade e a eficiência de ativos industriais. Crescemos lado a lado com a indústria brasileira, evoluindo continuamente para atender desafios cada vez mais complexos.
         </p>
 
-        <!-- Frame de Vídeo Institucional -->
-        <div class="sn-video-box" id="snVideoBox" role="button" tabindex="0" aria-label="Reproduzir Vídeo Institucional da EndControl">
-          <img src="./assets/Paginas Imgs/HOME/S_SEGMENTOS/quimico_petroquimico.webp" alt="Instalações Industriais de Alta Complexidade EndControl" class="sn-video-cover-img" loading="lazy" />
-          <div class="sn-video-overlay">
-            <button class="sn-video-play-btn" aria-label="Assistir ao vídeo">
-              <svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"/></svg>
-            </button>
-            <span class="sn-video-label">ASSISTA AO VÍDEO INSTITUCIONAL</span>
+        <!-- Frame de Vídeo Institucional com Player Personalizado & Autoplay -->
+        <div class="sn-video-box" id="snVideoBox" tabindex="0" aria-label="Vídeo Institucional da EndControl">
+          <video class="sn-video-inline-player" id="snInlineVideoPlayer" autoplay muted loop playsinline poster="./assets/Paginas Imgs/HOME/S_SEGMENTOS/quimico_petroquimico.webp" src="./assets/Videos/VIDEO-ENDCONTROL-INSTITUCIONAL.mp4">
+            <source src="./assets/Videos/VIDEO-ENDCONTROL-INSTITUCIONAL.mp4" type="video/mp4">
+            Seu navegador não suporta a reprodução de vídeo.
+          </video>
+
+          <!-- Barra de Controles Customizada (Estilo Premium / YouTube) -->
+          <div class="sn-player-controls-overlay" id="snPlayerControls">
+            <!-- Barra de Progresso Interativa -->
+            <div class="sn-player-progress-container" id="snProgressContainer">
+              <div class="sn-player-progress-bar" id="snProgressBar">
+                <span class="sn-player-progress-handle"></span>
+              </div>
+            </div>
+
+            <!-- Linha de Botões e Status -->
+            <div class="sn-player-controls-row">
+              <!-- Esquerda: Play/Pause e Contador de Tempo -->
+              <div class="sn-player-left-group">
+                <button class="sn-player-ctrl-btn" id="snBtnPlayPause" aria-label="Pausar / Reproduzir">
+                  <!-- Ícone Pause (Padrão ao iniciar em autoplay) -->
+                  <svg class="icon-pause" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><rect x="6" y="4" width="4" height="16" rx="1"></rect><rect x="14" y="4" width="4" height="16" rx="1"></rect></svg>
+                  <!-- Ícone Play -->
+                  <svg class="icon-play" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" style="display:none;"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+                </button>
+                <div class="sn-player-time-display" id="snTimeDisplay">0:00 / 0:00</div>
+              </div>
+
+              <!-- Direita: Mudo/Volume, Fullscreen e Expandir -->
+              <div class="sn-player-right-group">
+                <!-- Botão Mute / Unmute -->
+                <button class="sn-player-ctrl-btn" id="snBtnMute" aria-label="Ativar / Desativar Som">
+                  <!-- Ícone Muted (Padrão) -->
+                  <svg class="icon-muted" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="1" y1="1" x2="23" y2="23"></line>
+                    <path d="M9 9v3a3 3 0 0 0 5.12 2.12M15 9.34V4a3 3 0 0 0-5.94-.6"></path>
+                    <path d="M17 16.95A7 7 0 0 1 5 12v-2m14 0v2a7 7 0 0 1-.11 1.23"></path>
+                    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" fill="currentColor"></polygon>
+                    <line x1="23" y1="9" x2="17" y2="15"></line>
+                    <line x1="17" y1="9" x2="23" y2="15"></line>
+                  </svg>
+                  <!-- Ícone Unmuted -->
+                  <svg class="icon-unmuted" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+                    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                    <path d="M15.54 8.46a5 5 0 0 1 0 7.07" fill="none" stroke-width="2.2"></path>
+                    <path d="M19.07 4.93a10 10 0 0 1 0 14.14" fill="none" stroke-width="2.2"></path>
+                  </svg>
+                </button>
+
+                <!-- Botão Tela Cheia (Fullscreen) -->
+                <button class="sn-player-ctrl-btn" id="snBtnFullscreen" aria-label="Tela Cheia">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -520,16 +570,30 @@
     </section>
 
     <!-- =========================================================================
-         SEÇÃO 06 — COMO TRABALHAMOS (METODOLOGIA 4 ETAPAS)
+         SEÇÃO 06 — COMO TRABALHAMOS (METODOLOGIA 4 ETAPAS - 3 ZONAS FIGMA)
          ========================================================================= -->
     <section class="sn-process-section" id="metodologia">
-      <img src="./assets/Fotografias/editadas/operacional-inspecao-ultrassom-casco-estrutura-edit.webp" alt="Engenharia e Inspeção EndControl" class="sn-process-bg-art" loading="lazy" />
+      <!-- Camada Absoluta de Foto com Multi-Gradiente de Fade -->
+      <div class="sn-process-photo-layer" aria-hidden="true">
+        <img src="./assets/Paginas Imgs/SOBRE NOS/sobrezinho.jpg" alt="Técnico EndControl em Campo" class="sn-process-bg-art" loading="lazy" />
+        <div class="sn-process-photo-fade"></div>
+      </div>
 
-      <div class="sn-process-container">
+      <!-- Detalhes Tecnológicos Sutis (Pontos e Arcos Fundo) -->
+      <div class="sn-process-tech-decor" aria-hidden="true">
+        <div class="sn-process-tech-dots"></div>
+        <div class="sn-process-tech-arcs"></div>
+      </div>
+
+      <!-- Grid Panorâmico Widescreen 100% de 3 Zonas -->
+      <div class="sn-process-widescreen-container">
         
-        <!-- Coluna Esquerda: Texto e CTA -->
-        <div class="sn-process-info-col">
-          <span class="sn-eyebrow-left">COMO TRABALHAMOS</span>
+        <!-- ZONA 1: Espaçador Físico da Foto (26% da largura) -->
+        <div class="sn-process-photo-zone" aria-hidden="true"></div>
+
+        <!-- ZONA 2: Bloco de Conteúdo (27% da largura) -->
+        <div class="sn-process-info-zone">
+          <span class="sn-process-eyebrow">COMO TRABALHAMOS</span>
           <h2 class="sn-process-headline">
             Método, conhecimento<br>
             e precisão em <span class="sn-highlight-blue">cada etapa.</span>
@@ -537,69 +601,98 @@
           <p class="sn-process-description">
             Uma abordagem estruturada que garante clareza, controle e resultados consistentes em ambientes industriais complexos.
           </p>
-          <a href="index.html#solucoes" class="btn btn-secondary sn-btn-outline-cyan">
+          <a href="1-solucao-engenharia-de-integridade-estrutural.html" class="sn-btn-process-cta">
             <span>Conheça nossas soluções</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            <svg class="sn-btn-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
           </a>
         </div>
 
-        <!-- Coluna Direita: Fluxograma de 4 Etapas -->
-        <div class="sn-process-steps-col">
+        <!-- ZONA 3: Metodologia - 4 Passos em Linha Contínua (47% da largura) -->
+        <div class="sn-process-track-zone">
           
-          <!-- Etapa 01 -->
-          <div class="sn-process-step-item">
+          <!-- Passo 01 -->
+          <div class="sn-step-unit">
             <span class="sn-step-number">01</span>
-            <div class="sn-step-icon-node">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <div class="sn-step-node">
+              <svg viewBox="0 0 24 24" width="42" height="42" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
                 <circle cx="9" cy="7" r="4"></circle>
                 <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
                 <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
               </svg>
             </div>
-            <h3 class="sn-step-title">Entendimento do desafio</h3>
+            <h3 class="sn-step-title">Entendimento<br>do desafio</h3>
             <p class="sn-step-desc">Analisamos o contexto da operação, riscos, ativos e requisitos normativos.</p>
           </div>
 
-          <!-- Etapa 02 -->
-          <div class="sn-process-step-item">
+          <!-- Conector 01 -> 02 -->
+          <div class="sn-step-line-connector" aria-hidden="true">
+            <span class="sn-connector-stem"></span>
+            <svg class="sn-connector-head" viewBox="0 0 10 14" width="9" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="2 2 8 7 2 12"></polyline>
+            </svg>
+          </div>
+
+          <!-- Passo 02 -->
+          <div class="sn-step-unit">
             <span class="sn-step-number">02</span>
-            <div class="sn-step-icon-node">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+            <div class="sn-step-node">
+              <svg viewBox="0 0 24 24" width="42" height="42" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                 <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
-                <line x1="9" y1="12" x2="15" y2="12"></line>
-                <line x1="9" y1="16" x2="13" y2="16"></line>
+                <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+                <path d="m9 14 2 2 4-4"></path>
+                <line x1="9" y1="10" x2="15" y2="10"></line>
               </svg>
             </div>
-            <h3 class="sn-step-title">Planejamento técnico</h3>
+            <h3 class="sn-step-title">Planejamento<br>técnico</h3>
             <p class="sn-step-desc">Definimos a estratégia, escopo, método e recursos mais adequados.</p>
           </div>
 
-          <!-- Etapa 03 -->
-          <div class="sn-process-step-item">
+          <!-- Conector 02 -> 03 -->
+          <div class="sn-step-line-connector" aria-hidden="true">
+            <span class="sn-connector-stem"></span>
+            <svg class="sn-connector-head" viewBox="0 0 10 14" width="9" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="2 2 8 7 2 12"></polyline>
+            </svg>
+          </div>
+
+          <!-- Passo 03 -->
+          <div class="sn-step-unit">
             <span class="sn-step-number">03</span>
-            <div class="sn-step-icon-node">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <div class="sn-step-node">
+              <svg viewBox="0 0 24 24" width="42" height="42" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+                <path d="M9.3 6.3a1 1 0 0 1 0 1.4L7.7 9.3a1 1 0 0 1-1.4 0L2.53 5.53a6 6 0 0 0 7.94 7.94l6.91 6.91a2.12 2.12 0 0 0 3-3l-6.91-6.91a6 6 0 0 0-7.94-7.94l3.76-3.76z"></path>
               </svg>
             </div>
-            <h3 class="sn-step-title">Execução em campo</h3>
+            <h3 class="sn-step-title">Execução<br>em campo</h3>
             <p class="sn-step-desc">Nossa equipe realiza inspeções, ensaios e atividades com precisão e segurança.</p>
           </div>
 
-          <!-- Etapa 04 -->
-          <div class="sn-process-step-item">
+          <!-- Conector 03 -> 04 -->
+          <div class="sn-step-line-connector" aria-hidden="true">
+            <span class="sn-connector-stem"></span>
+            <svg class="sn-connector-head" viewBox="0 0 10 14" width="9" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="2 2 8 7 2 12"></polyline>
+            </svg>
+          </div>
+
+          <!-- Passo 04 -->
+          <div class="sn-step-unit">
             <span class="sn-step-number">04</span>
-            <div class="sn-step-icon-node">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <div class="sn-step-node">
+              <svg viewBox="0 0 24 24" width="42" height="42" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                 <line x1="18" y1="20" x2="18" y2="10"></line>
                 <line x1="12" y1="20" x2="12" y2="4"></line>
                 <line x1="6" y1="20" x2="6" y2="14"></line>
-                <path d="M4 8l5-5 5 5 6-6"></path>
+                <path d="M3 12l5-5 5 5 7-7"></path>
+                <polyline points="15 5 20 5 20 10"></polyline>
               </svg>
             </div>
-            <h3 class="sn-step-title">Análise e resultado</h3>
+            <h3 class="sn-step-title">Análise e<br>resultado</h3>
             <p class="sn-step-desc">Analisamos os dados, geramos relatórios e entregamos recomendações.</p>
           </div>
 
@@ -776,48 +869,15 @@
 
         </div>
 
-      </div>
-    </section>
-
-    <!-- =========================================================================
-         SEÇÃO 09 — CTA FINAL (PRÉ-FOOTER)
-         ========================================================================= -->
-    <section class="sn-cta-section" id="cta-final">
-      <div class="sn-cta-container">
-        
-        <div class="sn-cta-tag-row">
-          <span class="sn-cta-tag-line"></span>
-          <span class="sn-cta-eyebrow">SOLUÇÕES QUE GERAM CONFIANÇA</span>
-          <span class="sn-cta-tag-line"></span>
-        </div>
-
-        <h2 class="sn-cta-headline">
-          Grandes operações exigem<br>
-          parceiros em quem se pode <span class="sn-highlight-blue">confiar.</span>
-        </h2>
-        
-        <p class="sn-cta-description">
-          Conheça nossas soluções e descubra como podemos impulsionar os desafios da sua operação com tecnologia, método e engenharia.
-        </p>
-
-        <div class="sn-cta-buttons-row">
-          <a href="index.html#solucoes" class="btn btn-primary sn-cta-btn-primary">
-            <span>Conheça nossas soluções</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        <!-- Botão CTA da Seção -->
+        <div class="sn-commitment-cta">
+          <a href="https://api.whatsapp.com/send?phone=5591984040710" target="_blank" rel="noopener" class="btn btn-primary sn-commitment-btn">
+            <span>Fale com nossos especialistas</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
           </a>
-          <a href="https://api.whatsapp.com/send?phone=5591984040710" target="_blank" rel="noopener" class="btn btn-secondary sn-cta-btn-secondary">
-            <span>Fale com um especialista</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-          </a>
-        </div>
-
-        <!-- Emblema Tecnológico Inferior -->
-        <div class="sn-cta-emblem-wrapper">
-          <div class="sn-cta-emblem-line left"></div>
-          <div class="sn-cta-logo-box">
-            <img src="./assets/Logos/logo-endcontrol-vertical-mono-negativo.webp" alt="ENDCONTROL Engenharia" class="sn-cta-emblem-img" width="110" height="42" />
-          </div>
-          <div class="sn-cta-emblem-line right"></div>
         </div>
 
       </div>
@@ -928,8 +988,8 @@
   <div class="wf-modal" id="snVideoModal" style="padding: 0 !important; overflow: hidden !important; background: #000 !important; border: 1px solid var(--color-cyan) !important; max-width: 900px;">
     <button class="wf-modal-close" id="snVideoModalClose" aria-label="Fechar modal" style="color: #fff !important; font-size: 2.2rem; top: 16px; right: 20px;">&times;</button>
     <div style="padding: 0; background: #000;">
-      <video id="snModalVideoElement" controls playsinline poster="./assets/Paginas Imgs/HOME/S_SEGMENTOS/quimico_petroquimico.webp" style="width: 100%; max-height: 80vh; display: block; border-radius: 20px;">
-        <source src="./assets/Videos/Depoimentos/depoimento-1-empresaria.mp4" type="video/mp4">
+      <video id="snModalVideoElement" controls playsinline poster="./assets/Paginas Imgs/HOME/S_SEGMENTOS/quimico_petroquimico.webp" src="./assets/Videos/VIDEO-ENDCONTROL-INSTITUCIONAL.mp4" style="width: 100%; max-height: 80vh; display: block; border-radius: 20px;">
+        <source src="./assets/Videos/VIDEO-ENDCONTROL-INSTITUCIONAL.mp4" type="video/mp4">
         Seu navegador não suporta reprodução de vídeo.
       </video>
     </div>
@@ -948,6 +1008,6 @@
 
   <!-- Scripts -->
   <script src="https://unpkg.com/lucide@0.321.0" defer></script>
-  <script src="./src/js/sobre-nos.js?v=60.0" defer></script>
+  <script src="./src/js/sobre-nos.js?v=65.0" defer></script>
 </body>
 </html>

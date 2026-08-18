@@ -1,5 +1,21 @@
 # Histórico de sincronização — DB_IDE
 
+## 2026-08-18 - Modernização Completa do Radar FFS (12 Mecanismos API 579), Feixe Laser e Fundo #04163A
+
+- Projeto: site-end-controll
+- Tarefa: Refatoração integral do Radar FFS (Fitness-For-Service) com 12 mecanismos em inglês (ASME FFS-1 / API 579), feixe de varredura contínuo de 480px, correção de alinhamento contextual externo dos rótulos, núcleo central FFS compacto (165px) em tom `#04163A` luminoso e backup standalone da seção CTA Final.
+- Status local: Concluída.
+- Registro: Alinhamento visual 1:1 com o padrão ouro do radar da Home. Suíte completa de testes automatizados (36 testes) passando com 100% de sucesso.
+- Observação: Memória local e pipeline sincronizados.
+
+## 2026-08-18 - Correção de Responsividade da Seção Metodologia e Diferencial em Notebooks (1366px)
+
+- Projeto: site-end-controll
+- Tarefa: Correção do overflow e corte lateral do 4º passo nos monitores de notebook (1366px) nas seções Como Trabalhamos (`sobre-nos.html`) e Nosso Diferencial (`1-solucao-engenharia-de-integridade-estrutural.html`).
+- Status local: Concluída.
+- Registro: Ajustada a arquitetura flexível em `src/css/sobre-nos.css` com grid responsivo de 3 zonas (`16% 30% 54%` em 1440px/1366px), unidades `.sn-step-unit` fluidas (`flex: 1 1 0`), círculos dos passos proporcionais e conectores dinâmicos alinhados geometricamente. Cache invalidado para `v=70.0`.
+- Observação: Memória local e testes unitários 100% atualizados.
+
 ## 2026-08-15 - Refinamento Visual Fiel da Página Sobre Nós & Ajuste do Menu
 
 - Projeto: site-end-controll

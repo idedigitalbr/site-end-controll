@@ -1,5 +1,25 @@
 # Features — ENDCONTROL Engenharia
 
+## Modernização Completa do Radar FFS (12 Mecanismos API 579 em Inglês) & Design System #04163A
+
+- Status: Concluída
+- Data: 2026-08-18
+- Implementada a matriz completa dos 12 mecanismos de dano da norma ASME FFS-1 / API 579 em inglês no radar interativo da página de Engenharia de Integridade Estrutural.
+- Corrigido o alinhamento contextual externo dos 12 rótulos, eliminando o deslocamento lateral no estado ativo e desobstruindo 100% o interior do radar.
+- Feixe de varredura laser contínuo de 480px com tecnologia neon azul/ciano, blur atmosférico e núcleo luminoso (padrão 1:1 com a Home).
+- Núcleo central FFS compacto (165px) com gradiente aberto e luminoso no tom `#04163A` sem poluição de logo.
+- Backup standalone da seção CTA Final criado em `backup-secao-cta-final.html` e removido das páginas ativas.
+- Validação: 36 testes automatizados aprovados.
+
+## Correção de Responsividade da Seção Metodologia e Diferencial em Notebooks (1366px)
+
+- Status: Concluída
+- Data: 2026-08-18
+- Ajustado o dimensionamento dos 4 passos (`.sn-step-unit`, `.sn-step-node`, `.sn-step-line-connector`) e a proporção de grid do container panorâmico (`.sn-process-widescreen-container`) em `src/css/sobre-nos.css`.
+- Eliminado o corte lateral do 4º passo ("Solução personalizada" / "Análise e resultado") em monitores de notebooks com 1366px, 1440px e 1280px.
+- Aplicado automaticamente na página Sobre Nós (`sobre-nos.html`) e nas páginas de Serviços (`1-solucao-engenharia-de-integridade-estrutural.html`).
+- Versionamento de cache de CSS atualizado para `v=70.0`.
+
 ## Refinamento Visual e Estrutural da Página Sobre Nós
 
 - Status: Concluída

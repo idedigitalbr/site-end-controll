@@ -82,6 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'Monitoramento de deformações'
       ],
       image: './assets/Fotografias/editadas/operacional-inspecao-ultrassom-casco-estrutura-edit.webp',
+      url: '1-solucao-engenharia-de-integridade-estrutural.html',
       ctaText: 'Saiba Mais',
       iconSvg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`
     },
@@ -535,7 +536,7 @@ document.addEventListener('DOMContentLoaded', () => {
         cardDesc.textContent = data.desc;
         cardList.innerHTML = data.topics.map(t => `<li>${checkSvg} ${t}</li>`).join('');
         cardCta.innerHTML = `${data.ctaText} ${arrowSvg}`;
-        cardCta.href = '#';
+        cardCta.href = data.url || '1-solucao-engenharia-de-integridade-estrutural.html';
         const onReady = () => {
           cardImage.style.opacity = '1';
           setTimeout(() => {
@@ -553,7 +554,7 @@ document.addEventListener('DOMContentLoaded', () => {
       cardDesc.textContent = data.desc;
       cardList.innerHTML = data.topics.map(t => `<li>${checkSvg} ${t}</li>`).join('');
       cardCta.innerHTML = `${data.ctaText} ${arrowSvg}`;
-      cardCta.href = '#';
+      cardCta.href = data.url || '1-solucao-engenharia-de-integridade-estrutural.html';
     }
   }
 
