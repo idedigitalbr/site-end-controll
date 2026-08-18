@@ -1,5 +1,19 @@
 # Histórico de sincronização — DB_IDE
 
+## 2026-08-18 - Padronização Oficial da Hierarquia da Seção Sobre o Serviço (Soluções 1, 2 e 3)
+
+- Projeto: site-end-controll
+- Tarefa: Implementação do padrão oficial de hierarquia na seção Sobre o Serviço (Eyebrow `SOBRE O SERVIÇO` -> Headline H1 com o nome do serviço -> Mini Título / Subtítulo `p.svc-solution-subtitle` -> Parágrafos corridos), ajuste dos textos de OAEs e ENDs, integração das fotos da pasta 02 e invalidação de cache `v=86.0`.
+- Status local: Concluída.
+- Observação: Memória persistente no Obsidian (`MD/`) e changelog sincronizados.
+
+## 2026-08-18 - Padronização da Altura do Banner de Topo (Hero) na Solução 3
+
+- Projeto: site-end-controll
+- Tarefa: Correção e alinhamento da altura do banner hero inox escovado na página `3-solucao-ensaios-nao-destrutivos-ends.html` para ficar idêntico ao das Soluções 1 e 2 (altura compacta), com invalidação de cache via versão `v=85.0`.
+- Status local: Concluída.
+- Observação: Memória persistente no Obsidian (`MD/`) e changelog atualizados.
+
 ## 2026-08-18 - Criação da Página 3: Ensaios Não Destrutivos (ENDs) e Integração de Soluções
 
 - Projeto: site-end-controll

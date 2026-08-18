@@ -1,5 +1,19 @@
 # Features — ENDCONTROL Engenharia
 
+## Padronização Oficial da Hierarquia da Seção Sobre o Serviço (Soluções 1, 2 e 3)
+
+- Status: Concluída
+- Data: 2026-08-18
+- Padronizada a hierarquia visual em 4 níveis (Eyebrow -> Headline com Nome do Serviço -> Mini Título / Subtítulo Técnico -> Parágrafos Corridos) nas páginas de serviços (`1-solucao...`, `2-solucao...`, `3-solucao...`).
+- Atualizadas as fotografias de Obras de Artes Especiais para a pasta oficial `02` e bump de cache para `v=86.0`.
+
+## Padronização da Altura do Banner de Topo (Hero) nas Soluções 1, 2 e 3
+
+- Status: Concluída
+- Data: 2026-08-18
+- Padronizada a altura compacta do banner hero inox escovado na página `3-solucao-ensaios-nao-destrutivos-ends.html` em conformidade com as páginas 1 e 2.
+- Atualizado o versionamento de cache para `v=85.0` em todas as páginas de soluções.
+
 ## Página 3: Ensaios Não Destrutivos (ENDs) e Integração de Soluções
 
 - Status: Concluída

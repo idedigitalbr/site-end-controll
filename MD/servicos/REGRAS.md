@@ -116,6 +116,23 @@ Quando a tarefa for gerar uma imagem full-page:
 - mantenha começo, meio e fim da narrativa;
 - não introduza uma identidade visual diferente.
 
+## Padrão Oficial: Topo (Hero) e Seção "Sobre o Serviço" (Obrigatório em Todas as 12 Páginas)
+
+Em todas as páginas de serviços (`1-solucao...` a `12-solucao...`), a abertura e a segunda seção devem seguir estritamente esta estrutura padronizada:
+
+### 1. Topo Hero Inox Compacto
+- **Elemento:** `<section class="sn-hero-section" id="hero-sobre">` com `<div class="sn-hero-overlay"></div>`.
+- **Altura Compacta:** Estilizado com `.sn-page-wrapper .sn-hero-section { margin-top: -80px; }` em `src/css/servico-integridade.css`, garantindo a altura compacta do banner hero inox com a marca d'água 3D perfeitamente posicionada.
+
+### 2. Seção Sobre o Serviço — Hierarquia em 4 Níveis
+- **Nível 1 — Eyebrow / Tag:** `SOBRE O SERVIÇO` (ou `SOBRE A SOLUÇÃO EM...`)
+- **Nível 2 — Headline Principal (H1):** **Nome Oficial do Serviço** (ex: *1. Engenharia de Integridade Estrutural*, *2. Inspeção em Obras de Artes Especiais*, *3. Ensaios Não Destrutivos (ENDs)*, etc.).
+- **Nível 3 — Mini Título / Subtítulo (`.svc-solution-subtitle`):** Frase técnica de apoio menor que o H1, resumindo a proposta de valor.
+- **Nível 4 — Texto Corrido / Parágrafos (`.svc-solution-paragraphs`):** Explicação aprofundada com termos técnicos e normas destacados.
+
+---
+
 ## Critério final
 
 O resultado deve parecer criado pela mesma equipe da Home e do Sobre Nós, dentro do mesmo sistema visual, mas com uma composição pensada especificamente para aquele serviço.
+

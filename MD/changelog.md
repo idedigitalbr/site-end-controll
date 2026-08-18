@@ -1,5 +1,51 @@
 # Changelog — ENDCONTROL Engenharia
 
+## [2026-08-18] - Padronização Oficial da Hierarquia da Seção Sobre o Serviço (Soluções 1, 2 e 3)
+
+### Fixed & Refined
+- **1. Padronização da Hierarquia Visual e Textual da Seção Sobre o Serviço:**
+  - Implementado o padrão oficial em todas as páginas de serviços:
+    - **Eyebrow / Tag:** `SOBRE O SERVIÇO`
+    - **Headline (H1):** Nome oficial do serviço (`Engenharia de Integridade Estrutural`, `Inspeção em Obras de Artes Especiais`, `Ensaios Não Destrutivos (ENDs)`)
+    - **Mini Título / Subtítulo:** Frase técnica de destaque (`p.svc-solution-subtitle`)
+    - **Texto Corrido / Parágrafos:** Detalhamento técnico oficial com termos destacados
+  - Atualizada a página `2-solucao-inspecao-em-obras-de-artes-especiais.html` com o título exato, subtítulo, texto descritivo oficial e fotografias reais da pasta `02 - Inspeção em Obras de Artes Especiais` (`obras_arte_especiais_01.webp` e `obras_arte_especiais_02.webp`).
+  - Atualizada a página `3-solucao-ensaios-nao-destrutivos-ends.html` para seguir estritamente o mesmo padrão estrutural.
+  - Atualizada a estilização de subtítulo e espaçamento em `src/css/servico-integridade.css` e bump de cache para `v=86.0`.
+
+## [2026-08-18] - Remoção e Substituição da Imagem Phased Array Chapas Soldadas
+
+### Removed & Replaced
+- **1. Exclusão e Substituição de Imagem Operacional (`operacional-phased-array-chapas-soldadas-edit.webp`):**
+  - Removido o arquivo físico de imagem `assets/Fotografias/editadas/operacional-phased-array-chapas-soldadas-edit.webp`.
+  - Substituídas todas as suas ocorrências no código:
+    - `index.html`: Hero slider atualizado com `operacional-ultrassom-solda-tubulacao-edit-final.webp`.
+    - `sobre-nos.html`: Card 4 da galeria atualizado com `operacional-alpinismo-industrial-escada-tanque-edit.webp`.
+    - `src/data/units.js`: Base Paragominas/Carajás atualizada com `operacional-alpinismo-industrial-escada-tanque-edit.webp`.
+    - `src/js/album.js`: Inspeção de Vasos sob Pressão atualizada com `operacional-alpinismo-industrial-escada-tanque-edit.webp`.
+    - `src/js/main.js`: Trajetória / Linha do tempo (ano 2017) atualizada com `ultrassom-raptor-scan-tecnicos-reunidos-campo-edit.webp`.
+    - `src/js/solucoes-integridade.js`: Mecanismo Trincas e Indicadores atualizado com `ensaio-ultrassom-solda-coluna-estrutura-metalica.webp`.
+    - `src/js/solucoes.js`: Serviço de Engenharia de Soldagem atualizado com `ensaio-ultrassom-solda-coluna-estrutura-metalica.webp`.
+    - `MD/implementation_plan-SOBRE-NOS.md`: Referência documental atualizada.
+
+## [2026-08-18] - Padronização da Altura do Banner de Topo (Hero) na Solução 3
+
+### Fixed & Refined
+- **1. Padronização da Altura do Hero na Página 3 (`3-solucao-ensaios-nao-destrutivos-ends.html`):**
+  - Ajustado o versionamento dos stylesheets para `v=85.0` garantindo a correta aplicação da regra `.sn-page-wrapper .sn-hero-section { margin-top: -80px; }` definida em `src/css/servico-integridade.css`.
+  - A altura do banner hero inox escovado agora fica idêntica e compacta como nas páginas de Solução 1 e 2, eliminando o espaçamento vertical excessivo.
+  - Atualizados os cabeçalhos de cache em `1-solucao...` e `2-solucao...` para `v=85.0`.
+
+## [2026-08-18] - Otimização Global e Padronização de Imagens dos 12 Serviços (Banco de Imagens)
+
+### Changed & Optimized
+- **1. Compressão em Lote e Isolamento de Originais em `bckp/originais/` (Todas as 12 Pastas):**
+  - Isoladas e organizadas todas as **83 fotografias originais em alta resolução** na pasta dedicada [`bckp/originais/`](file:///g:/Meu%20Drive/.PROJETOS/Sites%20Institucionais/site-end-controll/bckp/originais) com subpastas por serviço (totalizando **156,54 MB**).
+  - Adicionado `bckp/` ao `.gitignore` para manter o repositório git leve e limpo.
+  - Convertidas e comprimidas todas as fotos para o padrão moderno de alta fidelidade **WebP (qualidade 85)** na raiz de cada pasta em `assets/Fotografias/Serviços - Banco de Imagens/` (totalizando apenas **12,75 MB**).
+  - **Redução global de 91,9% (economia de 143,79 MB)** no diretório de assets públicos do site.
+  - Atualizadas as referências de imagem em `3-solucao-ensaios-nao-destrutivos-ends.html`.
+
 ## [2026-08-18] - Criação da Página 3: Ensaios Não Destrutivos (ENDs) e Integração Global
 
 ### Added

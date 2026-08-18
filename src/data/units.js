@@ -69,9 +69,9 @@ window.units = [
     ],
     aboutText: "Base móvel e fixa especializada no atendimento direto aos grandes complexos minerários e de alumina no Pará (Hydro, Vale). Equipes especializadas prontas para atendimento imediato em paradas de fábrica e auditorias de segurança.",
     images: {
-      cover: "./assets/Fotografias/editadas/operacional-phased-array-chapas-soldadas-edit.webp",
+      cover: "./assets/Fotografias/editadas/operacional-alpinismo-industrial-escada-tanque-edit.webp",
       album: [
-        { title: "Inspeção em Plantas de Mineração", url: "./assets/Fotografias/editadas/operacional-phased-array-chapas-soldadas-edit.webp" },
+        { title: "Inspeção e Acesso em Mineração", url: "./assets/Fotografias/editadas/operacional-alpinismo-industrial-escada-tanque-edit.webp" },
         { title: "Ensaios em Minerodutos", url: "./assets/Fotografias/editadas/operacional-ultrassom-solda-tubulacao-edit-final.webp" }
       ]
     },

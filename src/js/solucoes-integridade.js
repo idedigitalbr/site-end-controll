@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'Cálculo de tensões residuais em juntas soldadas',
         'Avaliação conforme API 579-1 / ASME FFS-1 Parte 9'
       ],
-      image: './assets/Fotografias/editadas/operacional-phased-array-chapas-soldadas-edit.webp',
+      image: './assets/Fotografias/Serviços - Banco de Imagens/01 - Engenharia de Integridade Estrutural/ensaio-ultrassom-solda-coluna-estrutura-metalica.webp',
       ctaText: 'Falar com Especialista',
       iconSvg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 4L14 9l3 2-6 8"/><line x1="4" y1="20" x2="8" y2="16"/><line x1="14" y1="4" x2="16" y2="2"/></svg>`
     },

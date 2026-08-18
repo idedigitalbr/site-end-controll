@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "role": "Medição de espessura por ultrassom e verificação de taxas de corrosão em campo.",
             "category": "ativos",
             "subcategory": "Vasos de Pressão",
-            "photo": "./assets/Fotografias/editadas/operacional-phased-array-chapas-soldadas-edit.webp"
+            "photo": "./assets/Fotografias/editadas/operacional-alpinismo-industrial-escada-tanque-edit.webp"
         },
         {
             "name": "Inspeção Interna de Tanques de Armazenamento",

@@ -18,6 +18,7 @@ build/
 
 # Pastas locais pesadas ignoradas
 assets-nao-usados/
+bckp/
 backup.ps1
 desktop.ini
 Desktop.ini

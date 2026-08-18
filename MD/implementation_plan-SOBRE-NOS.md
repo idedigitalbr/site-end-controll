@@ -122,7 +122,7 @@ graph TD
   5. Equipe completa de engenheiros em campo (`ultrassom-raptor-scan-tecnicos-reunidos-campo-edit.webp`)
   6. Análise de telemetria e softwares em estação de trabalho (`laboratorio-analise-placa-eletronica-edit.webp`)
   7. Planta industrial petroquímica ao entardecer (`assets/Paginas Imgs/HOME/S_SEGMENTOS/quimico_petroquimico.webp`)
-  8. Ensaio por ultrassom phased array (`operacional-phased-array-chapas-soldadas-edit.webp`)
+  8. Alpinismo industrial em escada de tanque (`operacional-alpinismo-industrial-escada-tanque-edit.webp`)
   9. Engenheiros avaliando integridade de bomba industrial (`operacional-engenheiros-inspecao-bomba-edit.webp`)
 - **Tratamento:** Bordas arredondadas (16px), `object-fit: cover`, hover suave com leve zoom e abertura em Lightbox interativo.
 

@@ -929,7 +929,7 @@
         year: "2017",
         title: "Expansão para Mineração & Siderurgia",
         desc: "Parcerias estratégicas e consolidação em grandes complexos minerários e de alumina no Pará (Marabá, Paragominas e Carajás).",
-        img: "./assets/Fotografias/editadas/operacional-phased-array-chapas-soldadas-edit.webp"
+        img: "./assets/Fotografias/editadas/ultrassom-raptor-scan-tecnicos-reunidos-campo-edit.webp"
       },
       {
         year: "2019",
