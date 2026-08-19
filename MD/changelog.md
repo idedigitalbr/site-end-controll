@@ -1,6 +1,27 @@
 # Changelog — ENDCONTROL Engenharia
 
-## [2026-08-19] - Correção Definitiva do Corte de Texto em 'Materiais e durabilidade' e Otimização Tipográfica nos Cards
+## [2026-08-19] - Integração da Seção 4 (Expanding Bento Grid Master com Painel Lateral) em '2. Inspeção em Obras de Artes Especiais'
+
+- **Arquivo:** `2-solucao-inspecao-em-obras-de-artes-especiais.html`, `src/css/servico-integridade.css`
+
+### Added & Refined
+- **1. Inserção da Composição Master na Página de Solução 2 (`2-solucao-inspecao-em-obras-de-artes-especiais.html`):**
+  - Adicionada a nova seção `#escopo-tecnico` logo após *"Sobre o Serviço"* e antes de *"Como Trabalhamos"*.
+  - **Sidebar Institucional 1:1:** Wireframe CAD da ponte estaiada com flare estelar, headline destacada e os 4 Pilares de Excelência.
+  - **Mapeamento Contextual dos 14 Serviços Oficiais das Fotos:**
+    - *Inspeção Cadastral e Rotineira (Normativa ABNT NBR)*
+    - *Geotecnia e Fundações*
+    - *Monitoramento Contínuo com Sensores e Automação*
+    - *Inspeção Visual Detalhada com Cesto Elevatório e Andaimes*
+    - *Análise Laboratorial (Carbonatação, Testemunhos, Cloretos, Metalografia)*
+    - *Integridade Estrutural e Prova de Carga*
+    - *Inspeção Geométrica com Drone e Laser 3D*
+    - *Inspeção Especial com Topografia de Alta Precisão*
+    - *Inspeção Extraordinária com Georadar (GPR)*
+    - *Análise e Modelagem Numérica (MEF 3D)*
+    - *Elaboração de Relatório Técnico (NBR 9452 e Custos)*
+    - *Consultoria e Inspeção Subaquática (Mergulho e ROV)*
+  - **Física Elástica Ativa:** Expansão dinâmica e empurrão dos vizinhos a 60/120 FPS.
 
 - **Arquivo:** `componentes-cards-.html`
 

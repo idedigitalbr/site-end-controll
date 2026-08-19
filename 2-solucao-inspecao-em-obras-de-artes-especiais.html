@@ -321,6 +321,492 @@
 
 
     <!-- =========================================================================
+         SEÇÃO 2.5: ESCOPO TÉCNICO COMPLETO EM OAES (EXPANDING BENTO GRID MASTER)
+         ========================================================================= -->
+    <section class="svc-bento-section" id="escopo-tecnico" aria-label="Escopo Técnico Completo em Obras de Artes Especiais">
+      <div class="svc-bento-container">
+        
+        <div class="bento-master-layout">
+          
+          <!-- ==================================================================
+               COLUNA ESQUERDA: PAINEL LATERAL INSTITUCIONAL (1:1 COM O PRINT)
+               ================================================================== -->
+          <aside class="ec-bento-sidebar">
+            
+            <!-- Arte Vetorial da Ponte Estaiada (Stay-Cabled Bridge & Beacon Flare) -->
+            <div class="ec-bento-sidebar-bridge-art" aria-hidden="true">
+              <svg viewBox="0 0 420 860" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMaxYMid meet">
+                <defs>
+                  <linearGradient id="bridgeLineGradOAE" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.75"/>
+                    <stop offset="30%" stop-color="#00C2FF" stop-opacity="0.6"/>
+                    <stop offset="100%" stop-color="#0055AA" stop-opacity="0.15"/>
+                  </linearGradient>
+                  <linearGradient id="cableGradOAE" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#00C2FF" stop-opacity="0.7"/>
+                    <stop offset="70%" stop-color="#00C2FF" stop-opacity="0.25"/>
+                    <stop offset="100%" stop-color="#00C2FF" stop-opacity="0.05"/>
+                  </linearGradient>
+                  <filter id="starFlareGlowOAE" x="-50%" y="-50%" width="200%" height="200%">
+                    <feGaussianBlur stdDeviation="6" result="blur1"/>
+                    <feGaussianBlur stdDeviation="15" result="blur2"/>
+                    <feMerge>
+                      <feMergeNode in="blur2"/>
+                      <feMergeNode in="blur1"/>
+                      <feMergeNode in="SourceGraphic"/>
+                    </feMerge>
+                  </filter>
+                </defs>
+
+                <!-- Estrutura Principal do Mastro / Pylon -->
+                <line x1="330" y1="120" x2="330" y2="820" stroke="url(#bridgeLineGradOAE)" stroke-width="2.5"/>
+                <line x1="355" y1="120" x2="385" y2="820" stroke="url(#bridgeLineGradOAE)" stroke-width="2"/>
+                <line x1="305" y1="120" x2="275" y2="820" stroke="url(#bridgeLineGradOAE)" stroke-width="2"/>
+
+                <!-- Vigas Transversais do Mastro -->
+                <line x1="300" y1="220" x2="360" y2="220" stroke="#00C2FF" stroke-width="1.5" stroke-opacity="0.5"/>
+                <line x1="290" y1="360" x2="370" y2="360" stroke="#00C2FF" stroke-width="1.5" stroke-opacity="0.5"/>
+                <line x1="280" y1="520" x2="380" y2="520" stroke="#00C2FF" stroke-width="1.8" stroke-opacity="0.6"/>
+                <line x1="270" y1="680" x2="390" y2="680" stroke="#00C2FF" stroke-width="2" stroke-opacity="0.7"/>
+
+                <!-- Travamentos em X (Truss Bracing) -->
+                <line x1="300" y1="220" x2="370" y2="360" stroke="#00C2FF" stroke-width="1" stroke-opacity="0.3" stroke-dasharray="3 3"/>
+                <line x1="360" y1="220" x2="290" y2="360" stroke="#00C2FF" stroke-width="1" stroke-opacity="0.3" stroke-dasharray="3 3"/>
+                <line x1="290" y1="360" x2="380" y2="520" stroke="#00C2FF" stroke-width="1" stroke-opacity="0.3" stroke-dasharray="4 4"/>
+                <line x1="370" y1="360" x2="280" y2="520" stroke="#00C2FF" stroke-width="1" stroke-opacity="0.3" stroke-dasharray="4 4"/>
+
+                <!-- Cabos Estaiados Radiantes (Stay Cables para Esquerda) -->
+                <line x1="330" y1="160" x2="40" y2="760" stroke="url(#cableGradOAE)" stroke-width="1.2"/>
+                <line x1="330" y1="200" x2="80" y2="760" stroke="url(#cableGradOAE)" stroke-width="1.2"/>
+                <line x1="330" y1="240" x2="120" y2="760" stroke="url(#cableGradOAE)" stroke-width="1.2"/>
+                <line x1="330" y1="280" x2="160" y2="760" stroke="url(#cableGradOAE)" stroke-width="1.2"/>
+                <line x1="330" y1="320" x2="200" y2="760" stroke="url(#cableGradOAE)" stroke-width="1.2"/>
+                <line x1="330" y1="360" x2="240" y2="760" stroke="url(#cableGradOAE)" stroke-width="1.2"/>
+                <line x1="330" y1="400" x2="270" y2="760" stroke="url(#cableGradOAE)" stroke-width="1.2"/>
+
+                <!-- Cabos Estaiados Radiantes (Stay Cables para Direita) -->
+                <line x1="330" y1="160" x2="460" y2="760" stroke="url(#cableGradOAE)" stroke-width="1.2"/>
+                <line x1="330" y1="200" x2="440" y2="760" stroke="url(#cableGradOAE)" stroke-width="1.2"/>
+                <line x1="330" y1="240" x2="420" y2="760" stroke="url(#cableGradOAE)" stroke-width="1.2"/>
+                <line x1="330" y1="280" x2="400" y2="760" stroke="url(#cableGradOAE)" stroke-width="1.2"/>
+
+                <!-- Tabuleiro Inferior da Ponte (Deck Truss) -->
+                <line x1="10" y1="760" x2="480" y2="760" stroke="#00C2FF" stroke-width="2.5" stroke-opacity="0.8"/>
+                <line x1="10" y1="785" x2="480" y2="785" stroke="#00C2FF" stroke-width="1.5" stroke-opacity="0.5"/>
+                <line x1="10" y1="810" x2="480" y2="810" stroke="#00C2FF" stroke-width="1" stroke-opacity="0.3"/>
+
+                <!-- Treliça Vertical do Tabuleiro -->
+                <line x1="60" y1="760" x2="60" y2="785" stroke="#00C2FF" stroke-width="1" stroke-opacity="0.5"/>
+                <line x1="110" y1="760" x2="110" y2="785" stroke="#00C2FF" stroke-width="1" stroke-opacity="0.5"/>
+                <line x1="160" y1="760" x2="160" y2="785" stroke="#00C2FF" stroke-width="1" stroke-opacity="0.5"/>
+                <line x1="210" y1="760" x2="210" y2="785" stroke="#00C2FF" stroke-width="1" stroke-opacity="0.5"/>
+                <line x1="260" y1="760" x2="260" y2="785" stroke="#00C2FF" stroke-width="1" stroke-opacity="0.5"/>
+                <line x1="310" y1="760" x2="310" y2="785" stroke="#00C2FF" stroke-width="1" stroke-opacity="0.5"/>
+                <line x1="360" y1="760" x2="360" y2="785" stroke="#00C2FF" stroke-width="1" stroke-opacity="0.5"/>
+
+                <!-- Flare Luminoso Estelar no Topo do Mastro -->
+                <g filter="url(#starFlareGlowOAE)">
+                  <circle cx="330" cy="120" r="18" fill="#00C2FF" fill-opacity="0.35"/>
+                  <circle cx="330" cy="120" r="8" fill="#00C2FF" fill-opacity="0.8"/>
+                  <circle cx="330" cy="120" r="3.5" fill="#FFFFFF"/>
+                  <line x1="300" y1="120" x2="360" y2="120" stroke="#FFFFFF" stroke-width="1.5" stroke-opacity="0.9"/>
+                  <line x1="330" y1="90" x2="330" y2="150" stroke="#FFFFFF" stroke-width="1.5" stroke-opacity="0.9"/>
+                  <line x1="312" y1="102" x2="348" y2="138" stroke="#00C2FF" stroke-width="1" stroke-opacity="0.7"/>
+                  <line x1="312" y1="138" x2="348" y2="102" stroke="#00C2FF" stroke-width="1" stroke-opacity="0.7"/>
+                </g>
+              </svg>
+            </div>
+
+            <!-- Fade Suave para Leitura dos Textos -->
+            <div class="ec-bento-sidebar-fade" aria-hidden="true"></div>
+
+            <!-- Conteúdo Principal do Painel -->
+            <div class="ec-bento-sidebar-content">
+              
+              <!-- Logo Oficial -->
+              <div class="sidebar-brand-wrap">
+                <img src="./assets/Logos/logo-endcontrol-horizontal-negativo.png" alt="ENDCONTROL Inspeções e Engenharia" class="sidebar-brand-logo" loading="lazy" />
+              </div>
+
+              <!-- Eyebrow Tag -->
+              <span class="sidebar-eyebrow">INSPEÇÕES ESPECIALIZADAS</span>
+
+              <!-- Headline Principal -->
+              <h2 class="sidebar-headline">
+                Escopo técnico completo para <span class="highlight-cyan">pontes, viadutos e estruturas críticas.</span>
+              </h2>
+
+              <!-- Barra Ciano -->
+              <div class="sidebar-divider" aria-hidden="true"></div>
+
+              <!-- Parágrafo Explicativo -->
+              <p class="sidebar-paragraph">
+                Atuamos com tecnologia, método e equipe especializada para garantir diagnósticos precisos e segurança estrutural em todas as fases da vida útil das estruturas.
+              </p>
+
+              <!-- 4 Pilares de Excelência -->
+              <div class="sidebar-pillars-list">
+                
+                <!-- Pilar 1: Segurança -->
+                <div class="sidebar-pillar-item">
+                  <div class="sidebar-pillar-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    </svg>
+                  </div>
+                  <div class="sidebar-pillar-info">
+                    <h4 class="sidebar-pillar-title">Segurança em primeiro lugar</h4>
+                    <p class="sidebar-pillar-desc">Proteção de pessoas, ativos e do meio ambiente.</p>
+                  </div>
+                </div>
+
+                <!-- Pilar 2: Dados -->
+                <div class="sidebar-pillar-item">
+                  <div class="sidebar-pillar-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="10"/>
+                      <circle cx="12" cy="12" r="6"/>
+                      <circle cx="12" cy="12" r="2"/>
+                    </svg>
+                  </div>
+                  <div class="sidebar-pillar-info">
+                    <h4 class="sidebar-pillar-title">Dados que geram confiança</h4>
+                    <p class="sidebar-pillar-desc">Informações precisas para decisões estratégicas.</p>
+                  </div>
+                </div>
+
+                <!-- Pilar 3: Tecnologia -->
+                <div class="sidebar-pillar-item">
+                  <div class="sidebar-pillar-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                    </svg>
+                  </div>
+                  <div class="sidebar-pillar-info">
+                    <h4 class="sidebar-pillar-title">Tecnologia e experiência</h4>
+                    <p class="sidebar-pillar-desc">Métodos avançados e equipe altamente qualificada.</p>
+                  </div>
+                </div>
+
+                <!-- Pilar 4: Compromisso -->
+                <div class="sidebar-pillar-item">
+                  <div class="sidebar-pillar-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                      <circle cx="9" cy="7" r="4"/>
+                      <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                      <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                    </svg>
+                  </div>
+                  <div class="sidebar-pillar-info">
+                    <h4 class="sidebar-pillar-title">Compromisso com resultados</h4>
+                    <p class="sidebar-pillar-desc">Entregas ágeis, claras e alinhadas ao seu objetivo.</p>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          </aside>
+
+          <!-- ==================================================================
+               COLUNA DIREITA: O EXPANDING BENTO GRID COM OS 13 SERVIÇOS
+               ================================================================== -->
+          <div class="bento-expanding-wrapper">
+
+            <!-- LINHA 1 (Hero + Inspeção Cadastral/Rotineira + Stack Geotecnia/Monitoramento) -->
+            <div class="bento-row bento-row--top">
+              
+              <!-- 1. HERO PRINCIPAL -->
+              <article class="ec-card-dark bento-flex-card bento-card--hero" tabindex="0">
+                <img src="./assets/Fotografias/Serviços - Banco de Imagens/02 - Inspeção em Obras de Artes Especiais/obras_arte_especiais_01.webp" alt="Avaliação completa em pontes e viadutos" class="ec-card-dark-bg-img" style="object-position: center 38%;" loading="eager" />
+                <div class="ec-card-dark-overlay--hero"></div>
+                <div class="ec-card-dark-content ec-card-dark-content--hero">
+                  <span class="ec-hero-tag ec-hero-tag--cyan">Avaliação completa.</span>
+                  <h3 class="ec-hero-headline-dark">Tecnologia, método e especialistas em cada detalhe.</h3>
+                </div>
+              </article>
+
+              <!-- 2. INSPEÇÃO CADASTRAL E ROTINEIRA -->
+              <article class="ec-card-white bento-flex-card bento-card--ends" tabindex="0">
+                <div class="ec-card-white-content">
+                  <div class="ec-card-white-icon-wrapper">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                      <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+                      <line x1="12" y1="22.08" x2="12" y2="12"/>
+                    </svg>
+                  </div>
+                  <h3 class="ec-card-white-title">Inspeções Normativas</h3>
+                  <ul class="ec-card-white-checklist">
+                    <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>Inspeção Cadastral Inicial</li>
+                    <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>Inspeção Rotineira Periódica</li>
+                    <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>Fichas Cadastrais ABNT NBR</li>
+                    <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>Comparação com Histórico</li>
+                    <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>Ensaios Não Destrutivos (END)</li>
+                  </ul>
+                </div>
+              </article>
+
+              <!-- 3 & 4. STACK VERTICAL (Geotecnia + Monitoramento) -->
+              <div class="bento-stack-vertical bento-card--stack">
+                
+                <!-- 3. Geotecnia e Fundações -->
+                <article class="ec-card-white bento-stack-item bento-card--geotecnia" tabindex="0">
+                  <img src="./assets/Fotografias/Serviços - Banco de Imagens/02 - Inspeção em Obras de Artes Especiais/obras_arte_especiais_05.webp" alt="Sondagem e ensaios geotécnicos em pontes e viadutos" class="ec-card-white-bg-img" style="object-position: center right;" loading="lazy" />
+                  <div class="ec-card-white-overlay--horizontal"></div>
+                  <div class="ec-card-white-content">
+                    <div class="ec-card-white-head-row">
+                      <div class="ec-card-white-icon-wrapper">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/></svg>
+                      </div>
+                      <h3 class="ec-card-white-title">Geotecnia e Fundações</h3>
+                    </div>
+                    <ul class="ec-card-white-checklist">
+                      <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>Sondagem e Ensaios de Solo</li>
+                      <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>Estabilidade de Encostas</li>
+                    </ul>
+                  </div>
+                </article>
+
+                <!-- 4. Monitoramento Estrutural Contínuo -->
+                <article class="ec-card-white bento-stack-item bento-card--monitoramento" tabindex="0">
+                  <img src="./assets/Fotografias/Serviços - Banco de Imagens/02 - Inspeção em Obras de Artes Especiais/obras_arte_especiais_04.webp" alt="Monitoramento contínuo em tempo real" class="ec-card-white-bg-img" style="object-position: center right;" loading="lazy" />
+                  <div class="ec-card-white-overlay--horizontal"></div>
+                  <div class="ec-card-white-content">
+                    <div class="ec-card-white-head-row">
+                      <div class="ec-card-white-icon-wrapper">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                      </div>
+                      <h3 class="ec-card-white-title">Monitoramento Contínuo</h3>
+                    </div>
+                    <ul class="ec-card-white-checklist">
+                      <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>Sistemas Automatizados em Tempo Real</li>
+                      <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>Avaliação Dinâmica com Sensores</li>
+                    </ul>
+                  </div>
+                </article>
+
+              </div>
+
+            </div>
+
+            <!-- LINHA 2 (Inspeção Visual Detalhada + Materiais + Integridade + Geometria Drone) -->
+            <div class="bento-row bento-row--middle-1">
+
+              <!-- 5. INSPEÇÃO VISUAL DETALHADA -->
+              <article class="ec-card-white bento-flex-card bento-card--inspecao" tabindex="0">
+                <div class="ec-card-white-content">
+                  <div class="ec-card-white-head-row">
+                    <div class="ec-card-white-icon-wrapper">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+                    </div>
+                    <h3 class="ec-card-white-title">Inspeção Visual Detalhada</h3>
+                  </div>
+                  <ul class="ec-card-white-checklist">
+                    <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>Acesso Especial (Cesto, Andaimes)</li>
+                  </ul>
+                  <div class="bento-card-inspecao-photo">
+                    <div class="bento-card-inspecao-fade"></div>
+                    <img src="./assets/Fotografias/Serviços - Banco de Imagens/02 - Inspeção em Obras de Artes Especiais/obras_arte_especiais_06.webp" alt="Inspeção visual detalhada com cesto elevatório em ponte" loading="lazy" />
+                  </div>
+                </div>
+              </article>
+
+              <!-- 6. ANÁLISE LABORATORIAL E MATERIAIS -->
+              <article class="ec-card-dark bento-flex-card bento-card--materiais" tabindex="0">
+                <div class="ec-card-dark-content">
+                  <div class="ec-card-dark-head-row">
+                    <div class="ec-card-dark-icon-wrapper">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M10 2v7.527a2 2 0 0 1-.211.896L4.72 20.55A2 2 0 0 0 6.508 23h10.984a2 2 0 0 0 1.788-2.45l-5.069-10.127A2 2 0 0 1 14 9.527V2"/>
+                        <path d="M8.5 2h7"/>
+                        <path d="M7 16h10"/>
+                      </svg>
+                    </div>
+                    <h3 class="ec-card-dark-title">Análise Laboratorial</h3>
+                  </div>
+                  <ul class="ec-card-dark-checklist">
+                    <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>Profundidade de Carbonatação</li>
+                    <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>Extração e Análise de Testemunhos</li>
+                    <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>Potencial de Corrosão & Cloretos</li>
+                    <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>Ensaios Químicos e Metalográficos</li>
+                  </ul>
+                </div>
+              </article>
+
+              <!-- 7. INTEGRIDADE ESTRUTURAL E PROVA DE CARGA -->
+              <article class="ec-card-white bento-flex-card bento-card--integridade" tabindex="0">
+                <div class="ec-card-white-content">
+                  <div class="ec-card-white-icon-wrapper">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="3" y="3" width="18" height="18" rx="2"/>
+                      <path d="M3 9h18"/>
+                      <path d="M9 21V9"/>
+                    </svg>
+                  </div>
+                  <h3 class="ec-card-white-title">Integridade Estrutural</h3>
+                  <ul class="ec-card-white-checklist">
+                    <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>Prova de Carga Estática/Dinâmica</li>
+                    <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>Instrumentação Especializada</li>
+                  </ul>
+                </div>
+              </article>
+
+              <!-- 8. INSPEÇÃO GEOMÉTRICA (DRONE) -->
+              <article class="ec-card-dark bento-flex-card bento-card--geometria" tabindex="0">
+                <img src="./assets/Fotografias/Serviços - Banco de Imagens/02 - Inspeção em Obras de Artes Especiais/obras_arte_especiais_02.webp" alt="Drone em inspeção de pilares e vigas de viaduto" class="ec-card-dark-bg-img" style="object-position: center bottom;" loading="lazy" />
+                <div class="ec-card-dark-overlay--vertical"></div>
+                <div class="ec-card-dark-content">
+                  <div class="ec-card-dark-head-row">
+                    <div class="ec-card-dark-icon-wrapper">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l4 6-10 12L2 9l4-6z"/></svg>
+                    </div>
+                    <h3 class="ec-card-dark-title">Inspeção Geométrica</h3>
+                  </div>
+                  <ul class="ec-card-dark-checklist">
+                    <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>Levantamento 3D & Drone</li>
+                    <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>Escaneamento Laser 3D</li>
+                  </ul>
+                </div>
+              </article>
+
+            </div>
+
+            <!-- LINHA 3 (Topografia + GPR + Análise Estrutural MEF 3D) -->
+            <div class="bento-row bento-row--middle-2">
+
+              <!-- 9. INSPEÇÃO ESPECIAL E TOPOGRAFIA -->
+              <article class="ec-card-dark bento-flex-card bento-card--topografia" tabindex="0">
+                <img src="./assets/Fotografias/Serviços - Banco de Imagens/02 - Inspeção em Obras de Artes Especiais/obras_arte_especiais_03.webp" alt="Topógrafo com estação total em ponte" class="ec-card-dark-bg-img" style="object-position: center right;" loading="lazy" />
+                <div class="ec-card-dark-overlay--horizontal"></div>
+                <div class="ec-card-dark-content">
+                  <div class="ec-card-dark-head-row">
+                    <div class="ec-card-dark-icon-wrapper">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                    </div>
+                    <h3 class="ec-card-dark-title">Inspeção Especial</h3>
+                  </div>
+                  <ul class="ec-card-dark-checklist">
+                    <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>Topografia e Nivelamento de Precisão</li>
+                    <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>Avaliação em Obras Complexas</li>
+                  </ul>
+                </div>
+              </article>
+
+              <!-- 10. INSPEÇÃO EXTRAORDINÁRIA E GPR -->
+              <article class="ec-card-dark bento-flex-card bento-card--gpr" tabindex="0">
+                <img src="./assets/Fotografias/Serviços - Banco de Imagens/02 - Inspeção em Obras de Artes Especiais/obras_arte_especiais_04.webp" alt="Georadar GPR para varredura de concreto" class="ec-card-dark-bg-img" style="object-position: center right;" loading="lazy" />
+                <div class="ec-card-dark-overlay--horizontal"></div>
+                <div class="ec-card-dark-content">
+                  <div class="ec-card-dark-head-row">
+                    <div class="ec-card-dark-icon-wrapper">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2"/><path d="M16.24 7.76a6 6 0 0 1 0 8.49m-8.48-.01a6 6 0 0 1 0-8.49m11.31-2.82a10 10 0 0 1 0 14.14m-14.14 0a10 10 0 0 1 0-14.14"/></svg>
+                    </div>
+                    <h3 class="ec-card-dark-title">Inspeção Extraordinária</h3>
+                  </div>
+                  <ul class="ec-card-dark-checklist">
+                    <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>Avaliação Imediata Pós-Eventos e Acidentes</li>
+                    <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>Varredura com Georadar (GPR)</li>
+                  </ul>
+                </div>
+              </article>
+
+              <!-- 11. ANÁLISE ESTRUTURAL E MODELAGEM NUMÉRICA MEF -->
+              <article class="ec-card-white bento-flex-card bento-card--analise" tabindex="0">
+                <div class="ec-card-white-content">
+                  <div class="ec-card-white-head-row">
+                    <div class="ec-card-white-icon-wrapper">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="3"/><circle cx="6" cy="17" r="3"/><circle cx="18" cy="17" r="3"/><line x1="12" y1="8" x2="6" y2="14"/><line x1="12" y1="8" x2="18" y2="14"/><line x1="9" y1="17" x2="15" y2="17"/></svg>
+                    </div>
+                    <h3 class="ec-card-white-title">Análise Estrutural</h3>
+                  </div>
+                  <ul class="ec-card-white-checklist">
+                    <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>Modelagem Numérica (MEF) & Capacidade Portante</li>
+                  </ul>
+                  <div class="bento-mef-wrapper">
+                    <svg viewBox="0 0 300 80" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+                      <defs>
+                        <linearGradient id="mefRefGradOAE" x1="0%" y1="0%" x2="100%" y2="0%">
+                          <stop offset="0%" stop-color="#00C2FF" stop-opacity="0.95"/>
+                          <stop offset="30%" stop-color="#10B981" stop-opacity="0.9"/>
+                          <stop offset="60%" stop-color="#F59E0B" stop-opacity="0.9"/>
+                          <stop offset="100%" stop-color="#EF4444" stop-opacity="0.95"/>
+                        </linearGradient>
+                        <linearGradient id="deckGradOAE" x1="0%" y1="0%" x2="100%" y2="0%">
+                          <stop offset="0%" stop-color="#00C2FF" stop-opacity="0.45"/>
+                          <stop offset="35%" stop-color="#10B981" stop-opacity="0.4"/>
+                          <stop offset="65%" stop-color="#F59E0B" stop-opacity="0.4"/>
+                          <stop offset="100%" stop-color="#EF4444" stop-opacity="0.45"/>
+                        </linearGradient>
+                      </defs>
+                      <polygon points="30,28 150,12 270,28 150,44" fill="url(#deckGradOAE)" stroke="url(#mefRefGradOAE)" stroke-width="1.2"/>
+                      <polygon points="30,28 30,42 150,58 150,44" fill="#0080B0" fill-opacity="0.3" stroke="#0B8060" stroke-width="0.6"/>
+                      <polygon points="150,44 150,58 270,42 270,28" fill="#B07020" fill-opacity="0.3" stroke="#B07020" stroke-width="0.6"/>
+                      <line x1="60" y1="25" x2="60" y2="39" stroke="#00C2FF" stroke-width="0.5" opacity="0.6"/>
+                      <line x1="120" y1="17" x2="120" y2="40" stroke="#10B981" stroke-width="0.5" opacity="0.6"/>
+                      <line x1="180" y1="17" x2="180" y2="40" stroke="#F59E0B" stroke-width="0.5" opacity="0.6"/>
+                      <line x1="240" y1="25" x2="240" y2="35" stroke="#EF4444" stroke-width="0.5" opacity="0.6"/>
+                      <rect x="57" y="42" width="6" height="24" rx="1" fill="#0080B0" opacity="0.6"/>
+                      <rect x="147" y="52" width="6" height="20" rx="1" fill="#F59E0B" opacity="0.6"/>
+                      <rect x="237" y="42" width="6" height="24" rx="1" fill="#EF4444" opacity="0.6"/>
+                    </svg>
+                  </div>
+                </div>
+              </article>
+
+            </div>
+
+            <!-- LINHA 4 (Elaboração de Relatórios Técnicos + Consultoria & Inspeção Subaquática) -->
+            <div class="bento-row bento-row--bottom">
+
+              <!-- 12. ELABORAÇÃO DE RELATÓRIO TÉCNICO -->
+              <article class="ec-card-white bento-flex-card bento-card--documentacao" tabindex="0">
+                <img src="./assets/Fotografias/editadas/operacional-discussao-engenheiros-tela-edit.webp" alt="Elaboração de laudos periciais e relatórios técnicos" class="ec-card-white-bg-img" style="object-position: center right;" loading="lazy" />
+                <div class="ec-card-white-overlay--horizontal"></div>
+                <div class="ec-card-white-content">
+                  <div class="ec-card-white-head-row">
+                    <div class="ec-card-white-icon-wrapper">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg>
+                    </div>
+                    <h3 class="ec-card-white-title">Laudos e Relatórios Técnicos</h3>
+                  </div>
+                  <ul class="ec-card-white-checklist">
+                    <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>Diagnóstico de Patologias & Classificação ABNT NBR 9452</li>
+                    <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>Recomendações Técnicas para Intervenção e Estimativa de Custos</li>
+                  </ul>
+                </div>
+              </article>
+
+              <!-- 13. CONSULTORIA E INSPEÇÃO SUBAQUÁTICA -->
+              <article class="ec-card-dark bento-flex-card bento-card--consultoria" tabindex="0">
+                <img src="./assets/Fotografias/editadas/operacional-engenheiros-inspecao-bomba-edit.webp" alt="Consultoria técnica e inspeção subaquática com ROV" class="ec-card-dark-bg-img" style="object-position: center right;" loading="lazy" />
+                <div class="ec-card-dark-overlay--horizontal"></div>
+                <div class="ec-card-dark-content">
+                  <div class="ec-card-dark-head-row">
+                    <div class="ec-card-dark-icon-wrapper">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <h3 class="ec-card-dark-title">Consultoria & Inspeção Submersa</h3>
+                  </div>
+                  <ul class="ec-card-dark-checklist">
+                    <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>Inspeção Subaquática de Fundações e Pilares (Mergulho / ROV)</li>
+                    <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>Planejamento Estratégico de Manutenções Periódicas</li>
+                  </ul>
+                </div>
+              </article>
+
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- =========================================================================
          3. COMO TRABALHAMOS (METODOLOGIA 4 PASSOS - 3 ZONAS FIGMA)
          ========================================================================= -->
     <section class="sn-process-section" id="como-trabalhamos" aria-label="Como Trabalhamos - Inspeção em Obras de Artes Especiais">
