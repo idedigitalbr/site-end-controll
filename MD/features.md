@@ -1,5 +1,13 @@
 # Features — ENDCONTROL Engenharia
 
+## Cards Borderless & Smooth Shadows (Design Sem Bordas)
+
+- Status: Concluída
+- Data: 2026-08-19
+- **Arquivo:** `componentes-cards-.html`
+- **Design Sem Bordas:** Eliminadas todas as bordas duras (`border: none`) dos cards Dark e White.
+- **Profundidade com Sombras:** Uso de sombras suaves e degradês sem emendas para integração visual limpa com fotos e fundos.
+
 ## Expanding Dynamic Bento Grid 100% Modular (Reutilização dos 4 Componentes)
 
 - Status: Concluída

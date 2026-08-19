@@ -1,6 +1,13 @@
 # Changelog — ENDCONTROL Engenharia
 
-## [2026-08-19] - Reconstrução do Expanding Dynamic Bento Grid com Reutilização Direta dos 4 Componentes Oficiais
+## [2026-08-19] - Ajuste Visual dos Cards para Design Sem Bordas (Borderless & Smooth Shadows)
+
+- **Arquivo:** `componentes-cards-.html`
+
+### Added & Refined
+- **1. Remoção de Bordas Duras (`componentes-cards-.html`):**
+  - Removidas todas as bordas (`border: none`) dos cards Dark e White (`.ec-card-dark`, `.ec-card-white`), criando uma integração visual 100% limpa, contínua e moderna.
+  - O relevo e a profundidade agora são definidos exclusivamente por sombras suaves (`box-shadow: 0 6px 22px rgba(...)`) e realce luminoso no hover, exatamente como na referência visual.
 
 - **Arquivo:** `componentes-cards-.html`
 
