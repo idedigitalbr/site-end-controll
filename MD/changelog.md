@@ -2,6 +2,8 @@
 
 ## [2026-08-19] - Cálculo Dinâmico de Raio Seguro do Feixe do Radar e Refinamento de Quadrantes
 
+- **Commit:** `38824d6`
+
 ### Added & Refined
 - **1. Cálculo Dinâmico de Raio Seguro do Feixe (`src/js/radar-progress.js`, `src/js/solucoes.js`, `src/css/solucoes.css`):**
   - Implementadas as funções `getDistanceToRect` e `getSafeSweepRadius` para calcular geometricamente a distância euclidiana exata entre o centro do radar e a caixa delimitadora do ícone e label do nó ativo.
