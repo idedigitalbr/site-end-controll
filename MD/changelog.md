@@ -1,6 +1,16 @@
 # Changelog — ENDCONTROL Engenharia
 
-## [2026-08-19] - Criação da Biblioteca de Componentes de Cards (Horizontal & Vertical / Dark & White)
+## [2026-08-19] - Tríade de Componentes de Cards (Horizontal, Vertical & Sem Foto / Dark & White)
+
+- **Arquivo:** `componentes-cards-.html`
+
+### Added & Refined
+- **1. Tríade de Padrões de Cards (`componentes-cards-.html`):**
+  - **Card 1 (Horizontal):** Layout com fusão de degradê horizontal (`to right`), textos e checklist organizados à esquerda e fotografia técnica à direita (`operacional-discussao-engenheiros-tela-edit.webp`).
+  - **Card 2 (Vertical):** Layout com fusão vertical (`to bottom`), cabeçalho e checklist no topo e foto em evidência na base inferior (`obras_arte_especiais_02.webp` - Drone / Geometria).
+  - **Card 3 (Sem Foto / Clean):** Layout liso sem imagem de fundo, ícone 3D Cube no topo, título e lista técnica expandida de 5 métodos de Ensaios Não Destrutivos (Ultrassom, LP, PM, CP, Impact-Echo).
+  - **Seção 1 (Cards Dark):** Versão completa dos 3 cards no tema escuro navy (`#071429`) com nós neon cyan (`#00c2ff`).
+  - **Seção 2 (Cards White):** Versão completa dos 3 cards no tema claro (`#ffffff`) com nós azuis (`#0077ff`) e marcadores ciano.
 
 - **Arquivo Criado:** `componentes-cards-.html`
 

@@ -1,13 +1,14 @@
 # Features — ENDCONTROL Engenharia
 
-## Biblioteca de Componentes de Cards (Horizontal & Vertical / Dark & White)
+## Biblioteca de Componentes de Cards (Horizontal, Vertical & Sem Foto / Dark & White)
 
 - Status: Concluída
 - Data: 2026-08-19
-- **Novo Arquivo:** `componentes-cards-.html` criado como repositório central de componentes modulares de cards.
+- **Arquivo:** `componentes-cards-.html` criado e consolidado como repositório central de componentes modulares de cards.
 - **Card Horizontal (Esquerda):** Layout com fusão de degradê horizontal (`to right`), conteúdo estruturado à esquerda e fotografia técnica à direita.
-- **Card Vertical (Direita):** Layout com fusão vertical (`to bottom`), cabeçalho e checklist no topo e foto em destaque na base inferior (Drone / Inspeção).
-- **Variações Dark e White:** Duas seções padronizadas (Dark Navy `#071429` com nós neon e White `#ffffff` com nós azuis).
+- **Card Vertical (Centro):** Layout com fusão vertical (`to bottom`), cabeçalho e checklist no topo e foto em destaque na base inferior (Drone / Inspeção).
+- **Card Sem Foto (Direita):** Layout clean liso sem fotografia, ícone 3D Cube no topo, título e lista técnica expandida de 5 itens.
+- **Variações Dark e White:** Duas seções padronizadas com os 3 tipos de cards (Dark Navy `#071429` com nós neon e White `#ffffff` com nós azuis).
 
 ## Gerenciamento de Pausa e Retomada Inteligente do Radar (Hover 2s / Clique 10s) & Refinamento de Feixe F5
 

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Biblioteca de Componentes — Cards Horizontal & Vertical | ENDCONTROL</title>
+  <title>Biblioteca de Componentes — Cards Horizontal, Vertical & Sem Foto | ENDCONTROL</title>
   <link rel="icon" type="image/webp" href="./assets/Logos/icon-endcontrol.webp" />
   
   <!-- Fontes Oficiais -->
@@ -66,7 +66,7 @@
     }
 
     .components-showcase {
-      max-width: 1260px;
+      max-width: 1280px;
       margin: 0 auto;
       display: flex;
       flex-direction: column;
@@ -145,16 +145,17 @@
       color: var(--text-muted);
     }
 
-    /* Grid de 2 Colunas */
-    .cards-grid-2cols {
+    /* Grid de 3 Colunas (Horizontal | Vertical | Sem Foto) */
+    .cards-grid-3cols {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 28px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      align-items: stretch;
       width: 100%;
     }
 
     /* ==========================================================================
-       2. CARDS DARK (ESQUERDA: HORIZONTAL / DIREITA: VERTICAL)
+       2. CARDS DARK (HORIZONTAL | VERTICAL | SEM FOTO)
        ========================================================================== */
     .ec-card-dark {
       position: relative;
@@ -231,7 +232,7 @@
       flex-direction: column;
       height: 100%;
       min-height: 310px;
-      padding: 30px 34px;
+      padding: 28px 30px;
       gap: 12px;
       box-sizing: border-box;
     }
@@ -248,8 +249,8 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 50px;
-      height: 50px;
+      width: 48px;
+      height: 48px;
       border-radius: var(--radius-icon);
       background: rgba(6, 18, 38, 0.9);
       border: 1.5px solid rgba(0, 194, 255, 0.45);
@@ -277,7 +278,7 @@
 
     .ec-card-dark-title {
       font-family: var(--font-heading);
-      font-size: 1.55rem;
+      font-size: 1.4rem;
       font-weight: 700;
       color: #ffffff;
       line-height: 1.2;
@@ -289,10 +290,9 @@
     }
 
     .ec-card-dark-text {
-      font-size: 0.92rem;
+      font-size: 0.9rem;
       color: rgba(255, 255, 255, 0.85);
-      max-width: 320px;
-      line-height: 1.55;
+      line-height: 1.5;
     }
 
     .ec-card-dark-checklist {
@@ -321,7 +321,7 @@
     }
 
     /* ==========================================================================
-       3. CARDS WHITE (ESQUERDA: HORIZONTAL / DIREITA: VERTICAL)
+       3. CARDS WHITE (HORIZONTAL | VERTICAL | SEM FOTO)
        ========================================================================== */
     .ec-card-white {
       position: relative;
@@ -397,7 +397,7 @@
       flex-direction: column;
       height: 100%;
       min-height: 310px;
-      padding: 30px 34px;
+      padding: 28px 30px;
       gap: 12px;
       box-sizing: border-box;
     }
@@ -413,8 +413,8 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 50px;
-      height: 50px;
+      width: 48px;
+      height: 48px;
       border-radius: var(--radius-icon);
       background: #eef6ff;
       border: 1.5px solid rgba(0, 120, 255, 0.25);
@@ -440,7 +440,7 @@
 
     .ec-card-white-title {
       font-family: var(--font-heading);
-      font-size: 1.55rem;
+      font-size: 1.4rem;
       font-weight: 700;
       color: var(--text-dark);
       line-height: 1.2;
@@ -452,10 +452,9 @@
     }
 
     .ec-card-white-text {
-      font-size: 0.92rem;
+      font-size: 0.9rem;
       color: #475569;
-      max-width: 320px;
-      line-height: 1.55;
+      line-height: 1.5;
     }
 
     .ec-card-white-checklist {
@@ -488,12 +487,16 @@
        4. RESPONSIVIDADE
        ========================================================================== */
     @media (max-width: 1024px) {
-      .cards-grid-2cols {
-        grid-template-columns: 1fr;
+      .cards-grid-3cols {
+        grid-template-columns: repeat(2, 1fr);
       }
     }
 
     @media (max-width: 720px) {
+      .cards-grid-3cols {
+        grid-template-columns: 1fr;
+      }
+
       body {
         padding: 24px 16px 60px;
       }
@@ -504,7 +507,7 @@
 
       .ec-card-dark-content,
       .ec-card-white-content {
-        padding: 24px 22px;
+        padding: 24px 20px;
       }
     }
   </style>
@@ -516,22 +519,22 @@
     <!-- CABEÇALHO GERAL -->
     <header class="showcase-header">
       <span class="showcase-badge">Biblioteca de Componentes — ENDCONTROL</span>
-      <h1>Cards Institucionais (Horizontal & Vertical)</h1>
-      <p>Card da Esquerda com layout e filtro horizontal (esquerda &rarr; direita). Card da Direita com layout e filtro vertical (cima &rarr; baixo).</p>
+      <h1>Biblioteca de Cards (Horizontal, Vertical & Sem Foto)</h1>
+      <p>Padrões modulares de cards: <strong>Card 1 Horizontal</strong> (foto na direita), <strong>Card 2 Vertical</strong> (foto em baixo) e <strong>Card 3 Sem Foto</strong> (lista técnica pura).</p>
     </header>
 
     <!-- ======================================================================
-         SEÇÃO 1: CARDS DARK (ESQUERDA: HORIZONTAL / DIREITA: VERTICAL)
+         SEÇÃO 1: CARDS DARK (3 TIPOS)
          ====================================================================== -->
     <section class="section-block">
       <div class="section-head">
         <h2 class="section-title">Cards Dark (Versão Escura)</h2>
-        <p class="section-subtitle">Esquerda: Filtro Horizontal com texto à esquerda e foto à direita | Direita: Filtro Vertical com cabeçalho no topo e foto em baixo.</p>
+        <p class="section-subtitle">Card 1: Filtro Horizontal | Card 2: Filtro Vertical (Drone) | Card 3: Sem Foto (Ensaios Não Destrutivos).</p>
       </div>
 
-      <div class="cards-grid-2cols">
+      <div class="cards-grid-3cols">
 
-        <!-- CARD 1 DARK (ESQUERDA): HORIZONTAL (SOLICITE UMA PROPOSTA) -->
+        <!-- CARD 1 DARK: HORIZONTAL (FOTO NA DIREITA) -->
         <article class="ec-card-dark">
           <img 
             src="./assets/Fotografias/editadas/operacional-discussao-engenheiros-tela-edit.webp" 
@@ -540,7 +543,6 @@
             style="object-position: center right;"
             loading="lazy" 
           />
-          <!-- Filtro Horizontal -->
           <div class="ec-card-dark-overlay--horizontal"></div>
           <div class="ec-card-dark-content">
             <div class="ec-card-dark-icon-wrapper">
@@ -557,7 +559,7 @@
             <ul class="ec-card-dark-checklist">
               <li>
                 <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>
-                Atendimento rápido e consultivo
+                Atendimento consultivo
               </li>
               <li>
                 <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>
@@ -565,13 +567,13 @@
               </li>
               <li>
                 <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>
-                Foco em segurança e resultados
+                Foco em segurança
               </li>
             </ul>
           </div>
         </article>
 
-        <!-- CARD 2 DARK (DIREITA): VERTICAL (GEOMETRIA / DRONE) -->
+        <!-- CARD 2 DARK: VERTICAL (FOTO EM BAIXO) -->
         <article class="ec-card-dark">
           <img 
             src="./assets/Fotografias/Serviços - Banco de Imagens/02 - Inspeção em Obras de Artes Especiais/obras_arte_especiais_02.webp" 
@@ -580,10 +582,8 @@
             style="object-position: center bottom;"
             loading="lazy" 
           />
-          <!-- Filtro Vertical (Cima -> Baixo) -->
           <div class="ec-card-dark-overlay--vertical"></div>
           <div class="ec-card-dark-content">
-            <!-- Cabeçalho com Ícone e Título Lado a Lado no Topo -->
             <div class="ec-card-dark-head-row">
               <div class="ec-card-dark-icon-wrapper">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -610,21 +610,58 @@
           </div>
         </article>
 
+        <!-- CARD 3 DARK: SEM FOTO (LISTA TÉCNICA PURA) -->
+        <article class="ec-card-dark">
+          <div class="ec-card-dark-content">
+            <div class="ec-card-dark-icon-wrapper">
+              <!-- Ícone Cubo 3D -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+                <line x1="12" y1="22.08" x2="12" y2="12"/>
+              </svg>
+            </div>
+            <h3 class="ec-card-dark-title">Ensaios não destrutivos</h3>
+            <ul class="ec-card-dark-checklist">
+              <li>
+                <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>
+                Ultrassom
+              </li>
+              <li>
+                <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>
+                Líquido Penetrante
+              </li>
+              <li>
+                <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>
+                Partículas Magnéticas
+              </li>
+              <li>
+                <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>
+                Correntes Parasitas
+              </li>
+              <li>
+                <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>
+                Impact-Echo
+              </li>
+            </ul>
+          </div>
+        </article>
+
       </div>
     </section>
 
     <!-- ======================================================================
-         SEÇÃO 2: CARDS WHITE (ESQUERDA: HORIZONTAL / DIREITA: VERTICAL)
+         SEÇÃO 2: CARDS WHITE (3 TIPOS)
          ====================================================================== -->
     <section class="section-block">
       <div class="section-head">
         <h2 class="section-title">Cards White (Versão Clara)</h2>
-        <p class="section-subtitle">Esquerda: Filtro Branco Horizontal | Direita: Filtro Branco Vertical com cabeçalho no topo e foto em baixo.</p>
+        <p class="section-subtitle">Card 1: Filtro Branco Horizontal | Card 2: Filtro Branco Vertical (Drone) | Card 3: Sem Foto (Ensaios Não Destrutivos).</p>
       </div>
 
-      <div class="cards-grid-2cols">
+      <div class="cards-grid-3cols">
 
-        <!-- CARD 1 WHITE (ESQUERDA): HORIZONTAL (SOLICITE UMA PROPOSTA) -->
+        <!-- CARD 1 WHITE: HORIZONTAL (FOTO NA DIREITA) -->
         <article class="ec-card-white">
           <img 
             src="./assets/Fotografias/editadas/operacional-discussao-engenheiros-tela-edit.webp" 
@@ -633,7 +670,6 @@
             style="object-position: center right;"
             loading="lazy" 
           />
-          <!-- Filtro Branco Horizontal -->
           <div class="ec-card-white-overlay--horizontal"></div>
           <div class="ec-card-white-content">
             <div class="ec-card-white-icon-wrapper">
@@ -650,7 +686,7 @@
             <ul class="ec-card-white-checklist">
               <li>
                 <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>
-                Atendimento rápido e consultivo
+                Atendimento consultivo
               </li>
               <li>
                 <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>
@@ -658,13 +694,13 @@
               </li>
               <li>
                 <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>
-                Foco em segurança e resultados
+                Foco em segurança
               </li>
             </ul>
           </div>
         </article>
 
-        <!-- CARD 2 WHITE (DIREITA): VERTICAL (GEOMETRIA / DRONE) -->
+        <!-- CARD 2 WHITE: VERTICAL (FOTO EM BAIXO) -->
         <article class="ec-card-white">
           <img 
             src="./assets/Fotografias/Serviços - Banco de Imagens/02 - Inspeção em Obras de Artes Especiais/obras_arte_especiais_02.webp" 
@@ -673,10 +709,8 @@
             style="object-position: center bottom;"
             loading="lazy" 
           />
-          <!-- Filtro Branco Vertical (Cima -> Baixo) -->
           <div class="ec-card-white-overlay--vertical"></div>
           <div class="ec-card-white-content">
-            <!-- Cabeçalho com Ícone e Título Lado a Lado no Topo -->
             <div class="ec-card-white-head-row">
               <div class="ec-card-white-icon-wrapper">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -698,6 +732,43 @@
               <li>
                 <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>
                 Mapeamento de Danos
+              </li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- CARD 3 WHITE: SEM FOTO (LISTA TÉCNICA PURA) -->
+        <article class="ec-card-white">
+          <div class="ec-card-white-content">
+            <div class="ec-card-white-icon-wrapper">
+              <!-- Ícone Cubo 3D -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+                <line x1="12" y1="22.08" x2="12" y2="12"/>
+              </svg>
+            </div>
+            <h3 class="ec-card-white-title">Ensaios não destrutivos</h3>
+            <ul class="ec-card-white-checklist">
+              <li>
+                <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>
+                Ultrassom
+              </li>
+              <li>
+                <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>
+                Líquido Penetrante
+              </li>
+              <li>
+                <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>
+                Partículas Magnéticas
+              </li>
+              <li>
+                <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>
+                Correntes Parasitas
+              </li>
+              <li>
+                <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>
+                Impact-Echo
               </li>
             </ul>
           </div>
