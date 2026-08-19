@@ -1396,7 +1396,7 @@
 }
 
 .bento-stack-item .ec-card-white-content {
-  padding: clamp(12px, 1.2vw, 18px);
+  padding: clamp(12px, 1.2vw, 18px) clamp(12px, 1.2vw, 18px) clamp(12px, 1.2vw, 18px) clamp(18px, 1.5vw, 26px);
   gap: 6px;
 }
 
@@ -1484,15 +1484,15 @@
   flex-direction: column;
   height: 100%;
   min-height: 100%;
-  padding: clamp(14px, 1.1vw, 20px);
+  padding: clamp(14px, 1.1vw, 20px) clamp(14px, 1.1vw, 20px) clamp(14px, 1.1vw, 20px) clamp(20px, 1.6vw, 28px);
   gap: 8px;
   box-sizing: border-box;
 }
 
 .ec-card-dark-content--hero {
   justify-content: flex-end;
-  gap: 4px;
-  padding: clamp(18px, 1.6vw, 28px);
+  gap: 6px;
+  padding: clamp(18px, 1.6vw, 28px) clamp(18px, 1.6vw, 28px) clamp(18px, 1.6vw, 28px) clamp(24px, 2vw, 36px);
 }
 
 .ec-card-dark-head-row {
@@ -1642,7 +1642,7 @@
   flex-direction: column;
   height: 100%;
   min-height: 100%;
-  padding: clamp(14px, 1.1vw, 20px);
+  padding: clamp(14px, 1.1vw, 20px) clamp(14px, 1.1vw, 20px) clamp(14px, 1.1vw, 20px) clamp(20px, 1.6vw, 28px);
   gap: 8px;
   box-sizing: border-box;
 }
@@ -1727,9 +1727,9 @@
 }
 
 .bento-card-inspecao-photo {
-  width: calc(100% + clamp(28px, 2.2vw, 40px));
+  width: calc(100% + clamp(20px, 1.6vw, 28px) + clamp(14px, 1.1vw, 20px));
   height: clamp(60px, 5.5vw, 85px);
-  margin: auto calc(-1 * clamp(14px, 1.1vw, 20px)) 0;
+  margin: auto calc(-1 * clamp(14px, 1.1vw, 20px)) 0 calc(-1 * clamp(20px, 1.6vw, 28px));
   position: relative;
   overflow: hidden;
 }
