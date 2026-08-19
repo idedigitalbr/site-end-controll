@@ -1,5 +1,23 @@
 # Changelog — ENDCONTROL Engenharia
 
+## [2026-08-19] - Criação da Página da Solução 4 (Engenharia de Soldagem) e Integração Global
+
+- **Arquivos:** `4-solucao-engenharia-de-soldagem.html`, `index.html`, `sobre-nos.html`, `1-solucao-engenharia-de-integridade-estrutural.html`, `2-solucao-inspecao-em-obras-de-artes-especiais.html`, `3-solucao-ensaios-nao-destrutivos-ends.html`, `src/js/solucoes.js`, `src/css/servico-integridade.css`
+
+### Added & Refined
+- **1. Página Oficial da Solução 4 (`4-solucao-engenharia-de-soldagem.html`):**
+  - Desenvolvida a página institucional completa para o serviço **4. Engenharia de Soldagem**:
+    - **Header Global & Topo Hero Inox:** Padrão com marca d'água 3D e navegação integrada.
+    - **Sobre o Serviço:** Seção cyan com 2 fotos técnicas sobrepostas em moldura HUD, headline, texto oficial focado em qualificação de EPS, RQPS, PIT, IEIS e normas ASME/AWS/ISO, além do botão de contato direto via WhatsApp.
+    - **Quando Aplicar:** Accordion interativo full-width com os 8 mecanismos e situações críticas em soldagem (Qualificação RQPS, Qualificação de Soldadores, Trincas e Descontinuidades, Reparos em Operação, Revestimentos/Cladding, Controle Térmico/PWHT, Auditorias/PIT e Continuidade Operacional).
+    - **Como Trabalhamos:** Seção com arte técnica de supervisão e fluxo de 4 passos conectados (01 Elaboração EPS/PIT, 02 Qualificação RQPS, 03 Instrução IEIS, 04 Inspeção e Data Book Final).
+    - **Escopo Técnico (Bento Grid Master):** Painel lateral dark com arte vetorial de tocha de soldagem/arco elétrico e os 4 pilares de excelência + grade elástica expansível com capacidades técnicas completas.
+    - **Metodologia, Compromisso e Footer:** Seções padronizadas e footer minimalista com iluminação glow.
+- **2. Integração Global nos Menus e Submenus de Soluções:**
+  - Atualizados os menus de navegação em `index.html`, `sobre-nos.html`, `1-solucao...`, `2-solucao...`, `3-solucao...` e `src/js/solucoes.js` conectando o item "4. Engenharia de Soldagem" à nova página.
+- **3. Refinamento de Proporções do Painel Lateral Bento (`.ec-bento-sidebar`):**
+  - Ajustada a altura e distribuição vertical em `src/css/servico-integridade.css` para eliminar qualquer possibilidade de corte ou barra de rolagem interna, mantendo proporção harmônica e fluida em todas as resoluções.
+
 ## [2026-08-19] - Ajuste do Espaçamento Inferior da Seção Bento para 160px
 
 - **Arquivo:** `src/css/servico-integridade.css`, páginas HTML

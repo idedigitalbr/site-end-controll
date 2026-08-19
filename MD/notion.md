@@ -1,5 +1,15 @@
 # Histórico de sincronização — DB_IDE
 
+## 2026-08-19 - Criação da Página 4 (Engenharia de Soldagem) e Integração Global no Site
+
+- Projeto: site-end-controll
+- Tarefa: Criação da página oficial da Solução 4 (`4-solucao-engenharia-de-soldagem.html`) com padrão institucional de alta fidelidade (Hero Inox, Sobre o Serviço em cyan com moldura HUD e fotos reais, Accordion Quando Aplicar com 8 situações críticas de soldagem, Metodologia Como Trabalhamos de 4 passos com arte de tocha e arco elétrico, Escopo Técnico Bento Grid Master com sidebar dark institucional e mosaico de capacidades, Metodologia, Compromisso e Rodapé Minimal Glow), atualização global dos menus de navegação em todas as páginas e refinamento das proporções do painel lateral Bento.
+- Status local: Concluída.
+- Commit: A ser gerado no push final.
+- Deploy VPS: Pipeline automatizado via GitHub Actions Docker Compose (`https://endcontrol.suporteide.digital/`).
+- Sincronização Notion: Atualizadas as sub-tarefas `Changelogs` e `Check WhatsApp` no banco `DB_IDE`.
+- Observação: Memória persistente no Obsidian (`MD/`) e changelog sincronizados.
+
 ## 2026-08-19 - Refinamento do Bento Grid, Remoção de Scrollbar no Painel Lateral e Badges de Alto Contraste
 
 - Projeto: site-end-controll

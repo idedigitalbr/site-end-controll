@@ -1,5 +1,13 @@
 # Features — ENDCONTROL Engenharia
 
+## Página da Solução 4: Engenharia de Soldagem e Integração Global
+
+- Status: Concluída
+- Data: 2026-08-19
+- **Arquivo:** `4-solucao-engenharia-de-soldagem.html`
+- **Página Institucional Completa:** Desenvolvida a página do serviço 4 com layout oficial de alto nível: Hero Inox, Sobre o Serviço com 2 fotos sobrepostas em moldura HUD, Accordion Quando Aplicar (8 situações críticas em soldagem), Metodologia Como Trabalhamos (4 etapas), Bento Grid Master com painel lateral dark e arte vetorial de tocha/arco elétrico, Metodologia, Compromisso e Rodapé Minimal Glow.
+- **Navegação Global:** Dropdowns, menus e radar atualizados conectando `4-solucao-engenharia-de-soldagem.html` em todo o ecossistema do site.
+
 ## Painel Lateral Institucional (Sidebar Dark) 1:1 com Arte da Ponte Estaiada
 
 - Status: Concluída
