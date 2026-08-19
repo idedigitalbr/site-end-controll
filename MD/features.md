@@ -1,5 +1,14 @@
 # Features — ENDCONTROL Engenharia
 
+## Expanding Bento Grid com Painel Lateral Institucional (Composição Master Oficial)
+
+- Status: Concluída
+- Data: 2026-08-19
+- **Arquivo:** `componentes-cards-.html`
+- **Painel Lateral Institucional (Sidebar Dark):** Logo ENDCONTROL, tag `INSPEÇÕES ESPECIALIZADAS`, headline com destaque neon, parágrafo executivo, divisor e 4 pilares verticais (`Segurança em primeiro lugar`, `Dados que geram confiança`, `Tecnologia e experiência`, `Compromisso com resultados`).
+- **Mosaico Bento Grid Integrado (13 Cards):** Grade expansível com física real de empurrão acoplada ao lado do painel de apresentação.
+- **Adaptação Completa:** Layout mestre de 2 colunas com suporte a telas ultra-wide, laptops, tablets e mobile.
+
 ## Expanding Bento Grid com Expansão Física e Deslocamento Dinâmico dos Vizinhos
 
 - Status: Concluída

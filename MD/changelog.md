@@ -1,6 +1,21 @@
 # Changelog — ENDCONTROL Engenharia
 
-## [2026-08-19] - Implementação de Expanding Bento Grid com Expansão Física Real (Cards se Empurram e Redimensionam no Hover)
+## [2026-08-19] - Criação da Seção 4: Expanding Bento Grid com Painel Lateral de Apresentação (Composição Master Oficial)
+
+- **Arquivo:** `componentes-cards-.html`
+
+### Added & Refined
+- **1. Seção 4: Composição Master com Painel Lateral Institucional (`componentes-cards-.html`):**
+  - **Coluna da Esquerda (`ec-bento-sidebar`):**
+    - Logo oficial negativo da ENDCONTROL.
+    - Eyebrow tag neon: `INSPEÇÕES ESPECIALIZADAS`.
+    - Headline com destaque ciano: *"Escopo técnico completo para pontes, viadutos e estruturas críticas."*
+    - Divisor ciano e parágrafo institucional.
+    - 4 Pilares de Excelência em lista vertical com ícones circulares neon (`Segurança em primeiro lugar`, `Dados que geram confiança`, `Tecnologia e experiência`, `Compromisso com resultados`).
+    - Marca d'água técnica de blueprint no fundo inferior.
+  - **Coluna da Direita (`bento-expanding-wrapper`):**
+    - O mosaico de 13 capacidades técnicas completas integradas com física autêntica de expansão/empurrão em tempo real.
+  - **Responsividade Master:** 2 colunas em desktop, empilhamento perfeito com fluidez touch em tablets e smartphones.
 
 - **Arquivo:** `componentes-cards-.html`
 
