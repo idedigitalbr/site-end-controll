@@ -1,14 +1,15 @@
 # Features — ENDCONTROL Engenharia
 
-## Biblioteca de Componentes de Cards (Horizontal, Vertical & Sem Foto / Dark & White)
+## Catálogo de Componentes de Cards (4 Tipologias / Dark & White)
 
 - Status: Concluída
 - Data: 2026-08-19
-- **Arquivo:** `componentes-cards-.html` criado e consolidado como repositório central de componentes modulares de cards.
-- **Card Horizontal (Esquerda):** Layout com fusão de degradê horizontal (`to right`), conteúdo estruturado à esquerda e fotografia técnica à direita.
-- **Card Vertical (Centro):** Layout com fusão vertical (`to bottom`), cabeçalho e checklist no topo e foto em destaque na base inferior (Drone / Inspeção).
-- **Card Sem Foto (Direita):** Layout clean liso sem fotografia, ícone 3D Cube no topo, título e lista técnica expandida de 5 itens.
-- **Variações Dark e White:** Duas seções padronizadas com os 3 tipos de cards (Dark Navy `#071429` com nós neon e White `#ffffff` com nós azuis).
+- **Arquivo:** `componentes-cards-.html` consolidado com os 4 formatos oficiais de cards para o projeto.
+- **Tipo 1 (Horizontal):** Fusão horizontal (`to right`), conteúdo estruturado à esquerda e fotografia técnica à direita.
+- **Tipo 2 (Vertical):** Fusão vertical (`to bottom`), cabeçalho e checklist no topo e foto em destaque na base inferior (Drone / Inspeção).
+- **Tipo 3 (Sem Foto):** Layout clean sem imagem, ícone 3D Cube no topo, título e lista técnica expandida de 5 itens.
+- **Tipo 4 (Foto Cheia / Hero Destaque):** Layout full background media, tag superior e headline institucional de alto impacto na base.
+- **Variações Dark e White:** Duas seções padronizadas com os 4 tipos de cards (Dark Navy `#071429` com nós neon e White `#ffffff` com nós azuis).
 
 ## Gerenciamento de Pausa e Retomada Inteligente do Radar (Hover 2s / Clique 10s) & Refinamento de Feixe F5
 

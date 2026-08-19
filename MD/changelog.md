@@ -1,6 +1,17 @@
 # Changelog — ENDCONTROL Engenharia
 
-## [2026-08-19] - Tríade de Componentes de Cards (Horizontal, Vertical & Sem Foto / Dark & White)
+## [2026-08-19] - Catálogo Oficial de 4 Tipologias de Cards (Horizontal, Vertical, Sem Foto & Foto Cheia Hero)
+
+- **Arquivo:** `componentes-cards-.html`
+
+### Added & Refined
+- **1. Catálogo com 4 Tipologias de Cards (`componentes-cards-.html`):**
+  - **Tipo 1 (Horizontal):** Layout com fusão horizontal (`to right`), textos à esquerda e foto à direita (`operacional-discussao-engenheiros-tela-edit.webp`).
+  - **Tipo 2 (Vertical):** Layout com fusão vertical (`to bottom`), cabeçalho e checklist no topo e foto em evidência na base inferior (`obras_arte_especiais_02.webp` - Drone / Geometria).
+  - **Tipo 3 (Sem Foto / Clean):** Layout liso sem fotografia, ícone 3D Cube no topo, título e lista técnica expandida de 5 itens (Ultrassom, LP, PM, CP, Impact-Echo).
+  - **Tipo 4 (Foto Cheia / Hero Destaque):** Layout full-photo (`obras_arte_especiais_03.webp`), degradê ascendente na base com Tag em destaque (`Avaliação completa.`) e Headline de impacto (`Tecnologia, método e especialistas em cada detalhe.`).
+  - **Seção 1 (Cards Dark):** Os 4 modelos no tema escuro navy (`#071429`) com nós neon cyan (`#00c2ff`).
+  - **Seção 2 (Cards White):** Os 4 modelos no tema claro (`#ffffff`) com nós azuis (`#0077ff`) e marcadores ciano.
 
 - **Arquivo:** `componentes-cards-.html`
 
