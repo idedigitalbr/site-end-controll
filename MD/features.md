@@ -1,13 +1,15 @@
 # Features — ENDCONTROL Engenharia
 
-## Seção Expanding Dynamic Bento Grid (13 Serviços Integrados)
+## Expanding Dynamic Bento Grid 100% Modular (Reutilização dos 4 Componentes)
 
 - Status: Concluída
 - Data: 2026-08-19
-- **Arquivo:** `componentes-cards-.html` integrado com a composição completa do mosaico Bento Grid/Masonry oficial.
-- **Mosaico Dinâmico de 13 Cards:** Composição que combina os 4 formatos de cards (Hero, Horizontal, Vertical e Sem Foto) em uma grade viva e interativa.
-- **Efeito Spotlight & Expansão:** Hover inteligente com micro-zoom, halo neon, suavização contextual dos itens não focados e renderização isométrica MEF em SVG.
-- **Responsividade Total:** Adaptação suave entre 4 colunas (desktop amplo), 3/2 colunas (notebook/tablet) e 1 coluna (mobile).
+- **Arquivo:** `componentes-cards-.html` padronizado e limpo, sem classes redundantes.
+- **Reutilização Direta:** A seção 3 (Bento Grid) consome diretamente as 4 tipologias oficiais (`.ec-card-dark`, `.ec-card-white`, `ec-card-*-overlay--horizontal`, `--vertical`, `--hero`).
+- **Composição dos 13 Serviços:** 1 Hero largo, 3 sem foto (ENDs, Integridade, Materiais), 6 horizontais (Geotecnia, Monitoramento, Topografia, GPR, Documentação, Consultoria) e 3 verticais (Inspeção visual, Geometria Drone e Análise Estrutural).
+- **Fluidez & Dynamic Grid:** Efeito Spotlight, elevação no hover (`translateY(-5px) scale(1.015)`), borda neon ativa e responsividade total.
+
+## Catálogo de Componentes de Cards (4 Tipologias / Dark & White)
 
 ## Catálogo de Componentes de Cards (4 Tipologias / Dark & White)
 

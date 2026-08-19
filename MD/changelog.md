@@ -1,6 +1,24 @@
 # Changelog — ENDCONTROL Engenharia
 
-## [2026-08-19] - Nova Seção Expanding Dynamic Bento Grid (13 Capacidades e Serviços Integrados)
+## [2026-08-19] - Reconstrução do Expanding Dynamic Bento Grid com Reutilização Direta dos 4 Componentes Oficiais
+
+- **Arquivo:** `componentes-cards-.html`
+
+### Added & Refined
+- **1. Reutilização Modular Estrita no Bento Grid (`componentes-cards-.html`):**
+  - O mosaico Bento Grid de 13 serviços foi totalmente reconstruído reutilizando diretamente as classes e estrutura HTML dos **4 componentes oficiais** criados (`.ec-card-dark`, `.ec-card-white`, `.ec-card-*-overlay--horizontal`, `.ec-card-*-overlay--vertical`, `.ec-card-*-overlay--hero`, `.ec-card-*-content`, `.ec-card-*-head-row`, `.ec-card-*-icon-wrapper`, `.ec-card-*-checklist`).
+  - **Grid 4 Colunas Fluida & Dinâmica:**
+    - *Card 1 (Span 2):* Componente **Foto Cheia Hero** (`Avaliação completa. Tecnologia, método e especialistas...`).
+    - *Card 2 (Col 3):* Componente **Sem Foto White** (`Ensaios não destrutivos` - 5 itens).
+    - *Cards 3 e 4 (Stack Col 4):* Componentes **Horizontal White** compactos (`Geotecnia` e `Monitoramento estrutural`).
+    - *Card 5 (Col 1):* Componente **Vertical White** (`Inspeção visual` com foto na base).
+    - *Card 6 (Col 2):* Componente **Sem Foto Dark** (`Materiais e durabilidade`).
+    - *Card 7 (Col 3):* Componente **Sem Foto White** (`Integridade estrutural`).
+    - *Card 8 (Col 4 - Span 2 Linhas):* Componente **Vertical Dark** alto (`Geometria` com foto do drone).
+    - *Cards 9 e 10 (Col 1 e 2):* Componentes **Horizontal Dark** (`Topografia` e `GPR`).
+    - *Card 11 (Col 3):* Componente **Vertical White** (`Análise estrutural` com gráfico MEF 3D).
+    - *Cards 12 e 13 (Span 2 cada):* Componentes **Horizontal Largo White & Dark** (`Documentação e gestão` e `Consultoria técnica`).
+  - **Efeito Spotlight e Expansão:** Transições suaves com física de mola (`cubic-bezier(0.2, 0.8, 0.2, 1)`), elevação e iluminação de borda neon cyan.
 
 - **Arquivo:** `componentes-cards-.html`
 
