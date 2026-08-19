@@ -1944,4 +1944,26 @@
   .bento-stack-vertical { gap: 12px; }
 }
 
+/* Hierarquia Global de Camadas e Sobreposições das Seções */
+.svc-solution-section {
+  z-index: 5;
+}
+
+.svc-methodology-section {
+  z-index: 7;
+}
+
+.segmentos-secao {
+  z-index: 8;
+}
+
+.sn-process-section {
+  z-index: 9;
+}
+
+.sn-commitment-section {
+  z-index: 10;
+}
+
+
 
