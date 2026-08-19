@@ -1,6 +1,25 @@
 # Changelog — ENDCONTROL Engenharia
 
-## [2026-08-19] - Ajuste Visual dos Cards para Design Sem Bordas (Borderless & Smooth Shadows)
+## [2026-08-19] - Refinamento Visual 1:1 do Expanding Bento Grid com a Referência Oficial
+
+- **Arquivo:** `componentes-cards-.html`
+
+### Added & Refined
+- **1. Fidelidade Visual 1:1 (`componentes-cards-.html`):**
+  - O mosaico Bento Grid agora flutua diretamente sobre o fundo suave ciano/ice blue (`#dceef5`), eliminando a caixa preta externa anterior e reproduzindo com exatidão a estética da referência.
+  - **Reutilização e Proporções dos 13 Cards:**
+    1. *Hero (Ponte Estaiada à Noite):* Destaque com gradiente ascendente, tag ciano neon e headline em 2 linhas.
+    2. *Ensaios Não Destrutivos:* Card branco sem foto com 5 itens de checklist.
+    3. *Geotecnia (Top) + Monitoramento Estrutural (Bottom):* Stack na coluna 4 com fotos integradas à direita e transição de degradê sem emendas.
+    4. *Inspeção Visual:* Card vertical com foto de plataforma elevatória na base e fusão vertical suave.
+    5. *Materiais e Durabilidade:* Card Dark Navy com ícone de balão de ensaio e 4 testes laboratoriais.
+    6. *Integridade Estrutural:* Card branco sem foto com prova de carga e ensaio dinâmico.
+    7. *Geometria (Drone):* Card vertical Dark alto (2 linhas) com cabeçalho no topo e foto de drone sob o pilar.
+    8. *Topografia & GPR:* Cards Dark com fotos operacionais à direita.
+    9. *Análise Estrutural:* Render isométrico MEF 3D colorido com gradiente de tensões.
+    10. *Documentação e Gestão:* Card branco largo (2 colunas) com plantas e relatórios.
+    11. *Consultoria Técnica:* Card Dark largo (2 colunas) com engenheiros consultores em campo.
+  - Tipografia calibrada com `DM Sans` para títulos e `Inter` para checklists, ícones circulares com halos suaves e transições fluidas no hover.
 
 - **Arquivo:** `componentes-cards-.html`
 

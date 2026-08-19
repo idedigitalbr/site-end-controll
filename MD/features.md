@@ -1,5 +1,12 @@
 # Features — ENDCONTROL Engenharia
 
+## Bento Grid 1:1 Idêntico à Referência (13 Capacidades Integradas)
+
+- Status: Concluída
+- Data: 2026-08-19
+- **Arquivo:** `componentes-cards-.html`
+- **Fidelidade Visual 1:1:** Fundo suave `#dceef5`, cards borderless com sombras suaves, proporções exatas da grade 4x4, alinhamentos laterais precisos e fotografias com transições de degradê idênticas ao design original.
+
 ## Cards Borderless & Smooth Shadows (Design Sem Bordas)
 
 - Status: Concluída
