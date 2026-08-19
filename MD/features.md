@@ -1,5 +1,12 @@
 # Features — ENDCONTROL Engenharia
 
+## Cálculo Dinâmico de Raio Seguro do Feixe do Radar e Refinamento de Quadrantes
+
+- Status: Concluída
+- Data: 2026-08-19
+- Implementado cálculo dinâmico e euclidiano da distância entre o centro do radar e os nós (`getDistanceToRect`, `getSafeSweepRadius`), garantindo que o feixe de varredura termine com margem de segurança de 16px antes dos ícones/rótulos ativos.
+- Refinamento de quadrantes para 180° e 210°, atualização das variáveis CSS `--sweep-radius` em tempo real e adição de 20 testes unitários automatizados.
+
 ## Padronização Oficial da Hierarquia da Seção Sobre o Serviço (Soluções 1, 2 e 3)
 
 - Status: Concluída

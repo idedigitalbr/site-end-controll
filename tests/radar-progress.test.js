@@ -4,6 +4,7 @@ const {
   buildConnections,
   canConnect,
   getBackwardAngle,
+  getDistanceToRect,
   getConnectionVisualState,
   getDomAngle,
   getForwardAngle,
@@ -14,6 +15,7 @@ const {
   getLabelPlacement,
   normalizeAngle,
   getSafeArcAngles,
+  getSafeSweepRadius,
   getProgressState
 } = require('../src/js/radar-progress.js');
 
@@ -178,7 +180,7 @@ test('places labels by polar quadrant', () => {
   assert.equal(getLabelPlacement(-90), 'top');
   assert.equal(getLabelPlacement(30), 'right');
   assert.equal(getLabelPlacement(90), 'bottom');
-  assert.equal(getLabelPlacement(180), 'right');
+  assert.equal(getLabelPlacement(180), 'left');
 });
 
 test('places labels according to the approved radar alignment map', () => {
@@ -188,10 +190,10 @@ test('places labels according to the approved radar alignment map', () => {
   assert.equal(getLabelPlacement(90), 'bottom');
   assert.equal(getLabelPlacement(120), 'bottom');
   assert.equal(getLabelPlacement(150), 'left');
-  assert.equal(getLabelPlacement(210), 'left');
+  assert.equal(getLabelPlacement(210), 'right');
   assert.equal(getLabelPlacement(-60), 'bottom');
   assert.equal(getLabelPlacement(0), 'left');
-  assert.equal(getLabelPlacement(180), 'right');
+  assert.equal(getLabelPlacement(180), 'left');
   assert.equal(getLabelPlacement(240), 'bottom');
 });
 
@@ -215,4 +217,35 @@ test('calculates sweep angles from real DOM-style center points', () => {
   assert.equal(getDomAngle(center, { x: 180, y: 100 }), 90);
   assert.equal(getDomAngle(center, { x: 100, y: 180 }), 180);
   assert.equal(getDomAngle(center, { x: 20, y: 100 }), 270);
+});
+
+test('calculates exact Euclidean distance to axis-aligned bounding rectangles', () => {
+  const center = { x: 300, y: 300 };
+
+  // Rectangle directly above
+  const topRect = { left: 270, right: 330, top: 100, bottom: 160 };
+  assert.equal(getDistanceToRect(center, topRect), 140);
+
+  // Rectangle directly to the right
+  const rightRect = { left: 420, right: 480, top: 270, bottom: 330 };
+  assert.equal(getDistanceToRect(center, rightRect), 120);
+
+  // Rectangle diagonal
+  const diagRect = { left: 400, right: 460, top: 100, bottom: 160 };
+  assert.equal(Math.round(getDistanceToRect(center, diagRect)), 172);
+});
+
+test('computes safe sweep radius terminating before icon and label with requested margin', () => {
+  const center = { x: 350, y: 350 };
+  const iconRect = { left: 326, right: 374, top: 20, bottom: 68 }; // icon dist = 282
+  const labelRect = { left: 290, right: 410, top: 77, bottom: 117 }; // label dist = 233 (between icon and center)
+
+  const safeRadius = getSafeSweepRadius(center, [iconRect, labelRect], {
+    safetyGap: 16,
+    minRadius: 50,
+    maxRadius: 350
+  });
+
+  // Nearest obstacle is the label bottom (dist = 233), safeRadius should be 233 - 16 = 217
+  assert.equal(safeRadius, 217);
 });

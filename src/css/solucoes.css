@@ -271,18 +271,21 @@
 /* Active scanning plane: structural rings < sweep < progress paths < nodes/text. */
 .radar-sweep {
   position: absolute;
-  top: calc(50% - var(--r-outer));
-  left: calc(50% - var(--r-outer));
-  width: calc(var(--r-outer) * 2);
-  height: calc(var(--r-outer) * 2);
+  top: calc(50% - var(--sweep-radius, var(--r-outer)));
+  left: calc(50% - var(--sweep-radius, var(--r-outer)));
+  width: calc(var(--sweep-radius, var(--r-outer)) * 2);
+  height: calc(var(--sweep-radius, var(--r-outer)) * 2);
   border-radius: 50%;
   z-index: 2;
   pointer-events: none;
   transform: rotate(0deg);
   transform-origin: 50% 50%;
-  will-change: transform;
-  overflow: hidden;
+  will-change: transform, width, height, top, left;
   opacity: 1;
+  transition: width 1600ms cubic-bezier(0.45, 0, 0.2, 1),
+              height 1600ms cubic-bezier(0.45, 0, 0.2, 1),
+              top 1600ms cubic-bezier(0.45, 0, 0.2, 1),
+              left 1600ms cubic-bezier(0.45, 0, 0.2, 1);
   background:
     conic-gradient(
       from 0deg at 50% 50%,
@@ -305,8 +308,6 @@
       rgba(113, 230, 255, var(--radar-sweep-halo-opacity)) 359.2deg,
       rgba(0, 194, 255, 0) 360deg
     );
-  -webkit-mask-image: radial-gradient(circle, #000 0%, rgba(0, 0, 0, 0.98) 72%, rgba(0, 0, 0, 0.72) 91%, transparent 100%);
-  mask-image: radial-gradient(circle, #000 0%, rgba(0, 0, 0, 0.98) 72%, rgba(0, 0, 0, 0.72) 91%, transparent 100%);
 }
 
 .radar-sweep::before {
@@ -314,27 +315,35 @@
   position: absolute;
   left: 50%;
   top: 0;
-  width: 5px;
+  width: 4px;
   height: 50%;
   transform: translateX(-50%);
   transform-origin: 50% 100%;
-  background: linear-gradient(180deg, rgba(0, 194, 255, 0) 0%, rgba(0, 194, 255, var(--radar-sweep-halo-opacity)) 62%, rgba(255, 255, 255, 0.72) 100%);
-  box-shadow: 0 0 8px rgba(0, 194, 255, 0.62), 0 0 18px rgba(0, 194, 255, 0.28);
+  background: linear-gradient(180deg,
+    #ffffff 0%,
+    rgba(147, 241, 255, 0.95) 15%,
+    rgba(0, 194, 255, var(--radar-sweep-halo-opacity)) 50%,
+    rgba(0, 194, 255, 0.15) 82%,
+    rgba(0, 194, 255, 0) 100%
+  );
+  box-shadow: 0 0 8px rgba(0, 194, 255, 0.75), 0 0 18px rgba(0, 194, 255, 0.35);
   filter: blur(3px);
-  opacity: var(--radar-sweep-halo-opacity);
+  opacity: 0.95;
 }
 
 .radar-sweep::after {
   content: '';
   position: absolute;
   left: 50%;
-  top: 50%;
-  width: 7px;
-  height: 7px;
+  top: 0;
+  width: 6.5px;
+  height: 6.5px;
   border-radius: 50%;
   transform: translate(-50%, -50%);
-  background: rgba(255, 255, 255, 0.84);
-  box-shadow: 0 0 7px rgba(0, 194, 255, 0.72), 0 0 15px rgba(0, 194, 255, 0.3);
+  background: #ffffff;
+  border: 1px solid var(--color-cyan, #00c2ff);
+  box-shadow: 0 0 5px #00c2ff, 0 0 10px #00c2ff, 0 0 18px rgba(0, 194, 255, 0.85);
+  z-index: 3;
 }
 
 .radar-trail-svg {
@@ -558,7 +567,7 @@
   align-items: center;
   position: absolute;
   z-index: 1;
-  font-size: clamp(0.64rem, 0.68vw, 0.76rem);
+  font-size: clamp(0.62rem, 0.66vw, 0.74rem);
   font-weight: 600;
   color: #ffffff;
   line-height: 1.18;
@@ -584,10 +593,14 @@
 
 .service-node.label-pos-left .service-node-label {
   top: 50%;
-  right: calc(100% + 14px);
+  right: calc(100% + 12px);
   transform: translateY(-50%);
   align-items: flex-end;
   text-align: right;
+}
+
+.service-node.label-ring-inner.label-pos-left .service-node-label {
+  right: calc(100% + 9px);
 }
 
 .service-node.label-pos-top .service-node-label {
@@ -797,6 +810,7 @@
   .radar-sweep {
     opacity: calc(var(--radar-sweep-halo-opacity) + 0.1);
     will-change: auto;
+    transition: none !important;
   }
 
   .service-node.is-active .service-node-icon {

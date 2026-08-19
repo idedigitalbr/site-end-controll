@@ -1,5 +1,12 @@
 # Histórico de sincronização — DB_IDE
 
+## 2026-08-19 - Cálculo Dinâmico de Raio Seguro do Feixe do Radar e Refinamento de Quadrantes
+
+- Projeto: site-end-controll
+- Tarefa: Implementação de cálculo dinâmico e euclidiano da distância entre o centro e os nós do radar (`getDistanceToRect`, `getSafeSweepRadius`) para término com margem segura do feixe laser antes dos ícones e rótulos, refinamento de quadrantes e 20 testes unitários automatizados.
+- Status local: Concluída.
+- Observação: Memória persistente no Obsidian (`MD/`) e changelog sincronizados.
+
 ## 2026-08-18 - Padronização Oficial da Hierarquia da Seção Sobre o Serviço (Soluções 1, 2 e 3)
 
 - Projeto: site-end-controll

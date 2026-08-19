@@ -159,7 +159,7 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       id: 9,
       title: '10. Certificação de Matéria-Prima',
-      shortTitle: '10. Certificação de<br>Matéria-Prima',
+      shortTitle: '10. Certificação<br>de Matéria-Prima',
       ring: 'inner',
       angle: 120, // Lower Left Inner (7:00)
       desc: 'Verificação e validação da conformidade de materiais metálicos e poliméricos por ensaios químicos, mecânicos e metalográficos.',
@@ -321,28 +321,55 @@ document.addEventListener('DOMContentLoaded', () => {
   window.requestAnimationFrame(adjustLabelPlacements);
 
   let measuredAngles = servicesData.map(service => RadarProgress.normalizeAngle(service.angle + 90));
+  let measuredRadii = servicesData.map(() => 0);
 
-  function measureRadarAngles() {
+  function measureRadarMetrics() {
     const centerRect = orbitalCenterLogo.getBoundingClientRect();
+    const diagramRect = orbitalDiagram.getBoundingClientRect();
     const center = {
       x: centerRect.left + centerRect.width / 2,
       y: centerRect.top + centerRect.height / 2
     };
+    const centerLogoRadius = Math.max(centerRect.width, centerRect.height) / 2;
+    const maxRadius = Math.min(diagramRect.width, diagramRect.height) * 0.495;
 
-    measuredAngles = Array.from(serviceNodes, (node, index) => {
+    measuredAngles = [];
+    measuredRadii = [];
+
+    serviceNodes.forEach((node, index) => {
       const icon = node.querySelector('.service-node-icon');
+      const label = node.querySelector('.service-node-label');
       const iconRect = icon?.getBoundingClientRect() || node.getBoundingClientRect();
       const angle = RadarProgress.getDomAngle(center, {
         x: iconRect.left + iconRect.width / 2,
         y: iconRect.top + iconRect.height / 2
       });
 
+      const targets = [iconRect];
+      if (label) {
+        targets.push(label.getBoundingClientRect());
+      }
+
+      const safeRadius = RadarProgress.getSafeSweepRadius(center, targets, {
+        safetyGap: 16,
+        minRadius: centerLogoRadius + 10,
+        maxRadius
+      });
+
       node.dataset.angle = angle.toFixed(2);
+      node.dataset.radius = safeRadius.toFixed(2);
       servicesData[index].measuredAngle = angle;
-      return angle;
+      servicesData[index].measuredRadius = safeRadius;
+
+      measuredAngles.push(angle);
+      measuredRadii.push(safeRadius);
     });
 
-    return measuredAngles;
+    return { measuredAngles, measuredRadii };
+  }
+
+  function measureRadarAngles() {
+    return measureRadarMetrics().measuredAngles;
   }
 
   function polarPoint(service) {
@@ -567,6 +594,13 @@ document.addEventListener('DOMContentLoaded', () => {
     delete orbitalDiagram.dataset.targetStep;
   }
 
+  function setSweepRadius(radius) {
+    const numericRadius = Number(radius) || measuredRadii[activeIndex] || 0;
+    if (numericRadius > 0) {
+      radarSweep.style.setProperty('--sweep-radius', `${numericRadius.toFixed(2)}px`);
+    }
+  }
+
   function setSweepAngle(angle) {
     currentSweepAngle = Number(angle) || 0;
     radarSweep.style.transform = `rotate(${currentSweepAngle}deg)`;
@@ -599,6 +633,9 @@ document.addEventListener('DOMContentLoaded', () => {
     sweepTargetIndex = null;
     clearTimeout(approachTimer);
     clearTransientNodeStates();
+    if (measuredRadii[activeIndex] > 0) {
+      setSweepRadius(measuredRadii[activeIndex]);
+    }
     updateRadarStates();
     updatePagination(activeIndex);
     updateCard(activeIndex, true);
@@ -617,6 +654,11 @@ document.addEventListener('DOMContentLoaded', () => {
     clearTimeout(approachTimer);
     stopSweepAtCurrentPosition();
     clearTransientNodeStates();
+
+    const targetRadius = measuredRadii[index];
+    if (targetRadius > 0) {
+      setSweepRadius(targetRadius);
+    }
 
     if (reducedMotionQuery.matches) {
       setSweepAngle(measuredAngles[index]);
@@ -744,8 +786,11 @@ document.addEventListener('DOMContentLoaded', () => {
     sweepTargetIndex = null;
     clearTransientNodeStates();
     adjustLabelPlacements();
-    measureRadarAngles();
+    measureRadarMetrics();
     setSweepAngle(measuredAngles[activeIndex]);
+    if (measuredRadii[activeIndex] > 0) {
+      setSweepRadius(measuredRadii[activeIndex]);
+    }
 
     if (wasAutoPlaying && !reducedMotionQuery.matches) {
       autoPlayEnabled = true;
@@ -764,6 +809,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const radarResizeObserver = new ResizeObserver(scheduleRadarMeasurement);
   radarResizeObserver.observe(orbitalDiagram);
   window.addEventListener('resize', scheduleRadarMeasurement, { passive: true });
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(scheduleRadarMeasurement);
+  }
 
   reducedMotionQuery.addEventListener('change', event => {
     if (event.matches) {
@@ -771,13 +819,19 @@ document.addEventListener('DOMContentLoaded', () => {
       stopSweepAtCurrentPosition();
       clearTransientNodeStates();
       setSweepAngle(measuredAngles[activeIndex]);
+      if (measuredRadii[activeIndex] > 0) {
+        setSweepRadius(measuredRadii[activeIndex]);
+      }
       return;
     }
     startAutoPlay();
   });
 
-  measureRadarAngles();
+  measureRadarMetrics();
   setSweepAngle(measuredAngles[activeIndex]);
+  if (measuredRadii[activeIndex] > 0) {
+    setSweepRadius(measuredRadii[activeIndex]);
+  }
   updateRadarStates();
   updatePagination(activeIndex);
   updateCard(activeIndex, false);
@@ -787,7 +841,8 @@ document.addEventListener('DOMContentLoaded', () => {
     config: RADAR_CONFIG,
     get currentStep() { return activeIndex + 1; },
     get targetStep() { return sweepTargetIndex === null ? null : sweepTargetIndex + 1; },
-    get angles() { return [...measuredAngles]; }
+    get angles() { return [...measuredAngles]; },
+    get radii() { return [...measuredRadii]; }
   });
 
   // CountUp animation for stats

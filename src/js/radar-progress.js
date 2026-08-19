@@ -184,15 +184,61 @@
 
     if (normalizedAngle === 300) return 'bottom';
     if (normalizedAngle === 0) return 'left';
-    if (normalizedAngle === 30 || normalizedAngle === 180) return 'right';
+    if (normalizedAngle === 180) return 'left';
     if (normalizedAngle === 240) return 'bottom';
-    if (normalizedAngle === 330 || normalizedAngle === 150 || normalizedAngle === 210) {
-      return normalizedAngle === 330 ? 'right' : 'left';
-    }
+    if (normalizedAngle === 210) return 'right';
+    if (normalizedAngle === 30 || normalizedAngle === 330) return 'right';
+    if (normalizedAngle === 150) return 'left';
     if (normalizedAngle >= 330 || normalizedAngle < 30) return 'right';
     if (normalizedAngle < 150) return 'bottom';
     if (normalizedAngle < 270) return 'left';
     return 'top';
+  }
+
+  function getDistanceToRect(center, rect) {
+    if (!center || !rect) return Infinity;
+    const cx = Number(center.x) || 0;
+    const cy = Number(center.y) || 0;
+    const minX = Number(rect.left) || 0;
+    const maxX = Number(rect.right) || 0;
+    const minY = Number(rect.top) || 0;
+    const maxY = Number(rect.bottom) || 0;
+
+    const clampX = Math.max(minX, Math.min(cx, maxX));
+    const clampY = Math.max(minY, Math.min(cy, maxY));
+    const dx = clampX - cx;
+    const dy = clampY - cy;
+
+    return Math.hypot(dx, dy);
+  }
+
+  function getSafeSweepRadius(center, nodeElements, options) {
+    const safetyGap = Math.max(0, Number(options && options.safetyGap) || 16);
+    const minRadius = Math.max(0, Number(options && options.minRadius) || 0);
+    const maxRadius = Math.max(minRadius, Number(options && options.maxRadius) || Infinity);
+
+    let nearestObstacle = Infinity;
+
+    if (Array.isArray(nodeElements)) {
+      nodeElements.forEach(el => {
+        if (!el) return;
+        const rect = typeof el.getBoundingClientRect === 'function' ? el.getBoundingClientRect() : el;
+        const dist = getDistanceToRect(center, rect);
+        if (dist < nearestObstacle) {
+          nearestObstacle = dist;
+        }
+      });
+    } else if (nodeElements) {
+      const rect = typeof nodeElements.getBoundingClientRect === 'function' ? nodeElements.getBoundingClientRect() : nodeElements;
+      nearestObstacle = getDistanceToRect(center, rect);
+    }
+
+    if (!Number.isFinite(nearestObstacle)) {
+      return maxRadius < Infinity ? maxRadius : minRadius;
+    }
+
+    const safeRadius = nearestObstacle - safetyGap;
+    return Math.max(minRadius, Math.min(safeRadius, maxRadius));
   }
 
   function getProgressState(services, activeStep) {
@@ -217,6 +263,7 @@
     buildConnections,
     canConnect,
     getBackwardAngle,
+    getDistanceToRect,
     getDomAngle,
     getForwardAngle,
     getNearestAngle,
@@ -227,6 +274,7 @@
     getConnectionInsetDegrees,
     getLabelPlacement,
     getSafeArcAngles,
+    getSafeSweepRadius,
     getNodeState,
     normalizeAngle,
     getProgressState

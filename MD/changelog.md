@@ -1,5 +1,16 @@
 # Changelog — ENDCONTROL Engenharia
 
+## [2026-08-19] - Cálculo Dinâmico de Raio Seguro do Feixe do Radar e Refinamento de Quadrantes
+
+### Added & Refined
+- **1. Cálculo Dinâmico de Raio Seguro do Feixe (`src/js/radar-progress.js`, `src/js/solucoes.js`, `src/css/solucoes.css`):**
+  - Implementadas as funções `getDistanceToRect` e `getSafeSweepRadius` para calcular geometricamente a distância euclidiana exata entre o centro do radar e a caixa delimitadora do ícone e label do nó ativo.
+  - O feixe laser de varredura agora termina com recuo seguro e margem de respiro (`safetyGap: 16px`), evitando sobreposição ou avanço indesejado sobre o ícone e rótulo do serviço selecionado.
+  - Adicionada medição e atribuição dinâmica via CSS custom property `--sweep-radius` em tempo real nas mudanças de serviço, autoplay, redimensionamento (`ResizeObserver`) e carregamento de fontes (`document.fonts.ready`).
+- **2. Refinamento de Posicionamento por Quadrantes e Testes:**
+  - Ajustadas regras de alinhamento para ângulos de 180° e 210°.
+  - Criados testes unitários dedicados em `tests/radar-progress.test.js` para `getDistanceToRect` e `getSafeSweepRadius`. Suíte de 20 testes 100% aprovada.
+
 ## [2026-08-18] - Padronização Oficial da Hierarquia da Seção Sobre o Serviço (Soluções 1, 2 e 3)
 
 - **Commit:** `250039c`
