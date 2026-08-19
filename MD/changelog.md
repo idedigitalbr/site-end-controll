@@ -1,6 +1,48 @@
 # Changelog — ENDCONTROL Engenharia
 
-## [2026-08-19] - Refinamento Visual 1:1 do Painel Lateral Institucional (Sidebar) Conforme Print Oficial
+## [2026-08-19] - Correção Definitiva do Corte de Texto em 'Materiais e durabilidade' e Otimização Tipográfica nos Cards
+
+- **Arquivo:** `componentes-cards-.html`
+
+### Added & Refined
+- **1. Eliminação de Truncamento de Textos (`componentes-cards-.html`):**
+  - **Remoção de `white-space: nowrap`:** Eliminada a regra restritiva que forçava títulos longos em linha única mesmo quando a coluna estava em estado de repouso comprimido.
+  - **Tipografia Fluida com `clamp()` e `overflow-wrap`:** Aplicado `word-break: normal; overflow-wrap: break-word; min-width: 0; font-size: clamp(14px, 1.05vw, 18px)` nos títulos e `clamp(11.5px, 0.82vw, 13.5px)` no checklist.
+  - **Resultado:** O título *"Materiais e durabilidade"* e todos os testes laboratoriais agora são exibidos 100% legíveis e completos, sem nenhum corte ou elipse em qualquer resolução de tela.
+
+## [2026-08-19] - Customização Contextual da Seção "Como Trabalhamos" por Serviço (Fotos & Metodologias Exclusivas)
+
+- **Arquivos:** `1-solucao-engenharia-de-integridade-estrutural.html`, `2-solucao-inspecao-em-obras-de-artes-especiais.html`, `3-solucao-ensaios-nao-destrutivos-ends.html`
+
+### Changed & Refined
+- **1. Serviço 01 — Engenharia de Integridade Estrutural (`1-solucao-engenharia-de-integridade-estrutural.html`):**
+  - **Fotografia Específica:** Aplicada foto técnica real de campo `analise-ultrassom-a-scan-perfil-espessura-viga-metalica.webp`.
+  - **Eyebrow, Headline & Descrição:** Adaptados para a metodologia Fitness-For-Service (FFS) e normas internacionais (API 579 / ASME FFS-1).
+  - **4 Etapas Conectadas:**
+    - `01. Mapeamento de Danos` — Levantamento de corrosão, espessuras e deformações.
+    - `02. Caracterização de Mecanismos` — Identificação dos modos de degradação e histórico.
+    - `03. Modelagem e Cálculo FFS` — Simulações analíticas e computacionais de tensões.
+    - `04. Laudo e Vida Residual` — Parecer conclusivo, limites operacionais e plano mitigatório.
+
+- **2. Serviço 02 — Inspeção em Obras de Artes Especiais (`2-solucao-inspecao-em-obras-de-artes-especiais.html`):**
+  - **Fotografia Específica:** Substituída a foto genérica institucional pela foto técnica `obras_arte_especiais_03.webp` (topógrafo/engenheiro inspecionando ponte).
+  - **Eyebrow, Headline & Descrição:** Focados em conformidade com a ABNT NBR 9452 para pontes, viadutos, passarelas e túneis.
+  - **4 Etapas Conectadas:**
+    - `01. Levantamento Cadastral` — Histórico estrutural, geometria e acesso.
+    - `02. Inspeção e Ensaios em Campo` — Investigação minuciosa de patologias e apoios.
+    - `03. Diagnóstico e Classificação NBR` — Classificação do estado da obra segundo a NBR 9452.
+    - `04. Relatório Técnico e Recomendações` — Laudo conclusivo e plano de intervenção.
+
+- **3. Serviço 03 — Ensaios Não Destrutivos (`3-solucao-ensaios-nao-destrutivos-ends.html`):**
+  - **Fotografia Específica:** Substituída a foto genérica pela foto operacional `ensaios_nao_destrutivos_04.webp`.
+  - **Eyebrow, Headline & Descrição:** Focados na detecção de descontinuidades sem dano aos componentes e calibração de instrumentos.
+  - **4 Etapas Conectadas:**
+    - `01. Avaliação do Ativo e Criticidade` — Análise de geometria, soldas e esforço operacional.
+    - `02. Seleção do Método e Procedimento` — Escolha técnica (US, LP, PM, RI, EV) conforme normas ASME/AWS/ISO.
+    - `03. Execução Técnica em Campo` — Aplicação por inspetores qualificados com instrumentos calibrados.
+    - `04. Laudo Técnico e Rastreabilidade` — Laudo detalhado com dimensionamento de descontinuidades.
+
+- **4. Preservação Total de Layout:** Mantidos 100% intactos o layout panorâmico widescreen de 3 zonas, conectores SVG, grids responsivas e estilos CSS.
 
 - **Arquivo:** `componentes-cards-.html`
 
