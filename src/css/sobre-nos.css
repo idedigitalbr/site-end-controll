@@ -10,14 +10,12 @@
   background: #f0f5f7;
   color: var(--color-text-primary);
   font-family: var(--font-primary);
-  overflow-x: hidden;
   position: relative;
 }
 
 .sn-page-wrapper main,
 #sn-main-content {
   background: #f0f5f7;
-  overflow-x: hidden;
   display: flex;
   flex-direction: column;
   gap: 0;

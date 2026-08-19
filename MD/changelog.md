@@ -1,5 +1,103 @@
 # Changelog — ENDCONTROL Engenharia
 
+## [2026-08-19] - Ajuste do Espaçamento Inferior da Seção Bento para 160px
+
+- **Arquivo:** `src/css/servico-integridade.css`, páginas HTML
+
+### Updated
+- **1. Respiro Inferior Ampliado na Seção Bento Grid (`.svc-bento-section`):**
+  - Ajustado `padding: 120px 0 160px 0;` (120px no topo e 160px na base) no desktop para garantir uma folga visual ampla e harmoniosa antes da transição da seção seguinte.
+  - Bump de versão de estilos para `v=95.0`.
+
+## [2026-08-19] - Remoção Definitiva de Scroll Interno no Painel Lateral Bento (`.ec-bento-sidebar`)
+
+- **Arquivo:** `src/css/servico-integridade.css`, `componentes-cards-.html`, páginas de soluções HTML
+
+### Fixed
+- **1. Eliminação de Rolagem Interna e Altura Auto no Painel Lateral (`.ec-bento-sidebar`):**
+  - Removidas restrições rígidas de altura (`calc(100vh - ...)`, `max-height: 94vh`, `min-height: 600px`), permitindo que o painel lateral ajuste sua altura naturalmente de acordo com o conteúdo completo.
+  - Eliminado qualquer aparecimento de scrollbar interna e corte de textos (título, logotipo e pilares de excelência sempre 100% visíveis).
+  - Mantido comportamento `position: sticky; top: clamp(80px, 9vh, 96px)` fluído e natural enquanto o usuário navega pelo grid de serviços.
+  - Bump de versão de estilos para `v=95.0`.
+
+## [2026-08-19] - Ajuste dos Espaçamentos Superior e Inferior da Seção Bento para 120px
+
+- **Arquivo:** `src/css/servico-integridade.css`, páginas HTML
+
+### Updated
+- **1. Respiro Generoso na Seção Bento Grid (`.svc-bento-section`):**
+  - Configurado `padding: 120px 0;` (superior e inferior) no desktop para garantir um enquadramento arejado e espaçamento equilibrado entre a seção escura de cima e a seção de metodologia de baixo.
+  - Mantido `padding: 60px 0;` em telas mobile para preservar a densidade e usabilidade em telas compactas.
+  - Bump de versão de estilos para `v=94.0`.
+
+## [2026-08-19] - Aumento de Contraste e Legibilidade dos Badges de Categoria sobre Fotos
+
+- **Arquivo:** `src/css/servico-integridade.css`, `componentes-cards-.html`, `3-solucao-ensaios-nao-destrutivos-ends.html`
+
+### Fixed & Enhanced
+- **1. Alta Legibilidade dos Badges sobre Fotografias Industriais (`.ec-card-badge`):**
+  - **Cards Claros (Convencional):** Fundo em vidro branco fosco quase opaco (`background: rgba(255, 255, 255, 0.94)`), `backdrop-filter: blur(12px)`, sombra suave e texto em azul marinho escuro profundo (`#071e3d`) com micro-indicador azul `#0062e3`. Cria contraste nítido instantâneo mesmo sobre uniformes escuros ou peças de aço da foto de fundo.
+  - **Cards Escuros (Avançado):** Fundo em vidro marinho profundo (`background: rgba(2, 16, 36, 0.88)`), borda ciano 40%, sombra e texto em ciano elétrico (`#00c2ff`) com micro-indicador brilhante.
+  - Bump de versão de estilos para `v=93.0`.
+
+## [2026-08-19] - Badges Discretos de Categoria e Diferenciação Visual nos Cards de ENDs (Página 3)
+
+- **Arquivo:** `src/css/servico-integridade.css`, `3-solucao-ensaios-nao-destrutivos-ends.html`, `componentes-cards-.html`
+
+### Added & Refined
+- **1. Badges Discretos no Canto Superior Direito (`.ec-card-badge`):**
+  - Adicionados micro-badges elegantes, sutis e minimalistas em formato pill no canto superior direito de cada card.
+  - Tipografia compacta com `font-size: 10px`, `font-weight: 600` e cores suaves em cinza slate / cinza translúcido sem competir com o título ou checklist principal.
+  - Safe zone com `padding-right` no cabeçalho dos cards evitando qualquer sobreposição visual.
+- **2. Diferenciação Visual por Categorias em Ensaios Não Destrutivos (ENDs):**
+  - **Ensaios Avançados (Cards Dark):** Phased Array & TOFD, Radiografia Digital, Réplicas Metalográficas, Ondas Guiadas & EMAT, Correntes Parasitas & ACFM, Emissão Acústica e Drones.
+  - **Ensaios Convencionais (Cards White):** Inspeção Visual, Líquido Penetrante, Partículas Magnéticas, Ultrassom Convencional, Estanqueidade, Termografia e Laudos Normativos.
+  - Bump de versão de estilos para `v=92.0`.
+
+## [2026-08-19] - Expansão do Painel Lateral Bento para Ocupar a Altura do Viewport (~94-95vh)
+
+- **Arquivo:** `src/css/servico-integridade.css`, `componentes-cards-.html`, páginas HTML
+
+### Fixed & Refined
+- **1. Ocupação Total da Altura do Viewport (`.ec-bento-sidebar`):**
+  - Ajustada a altura do painel lateral para `height: calc(100vh - clamp(95px, 11vh, 120px))`, `max-height: 94vh` e `min-height: 600px`, fazendo o card preencher elegantemente quase toda a altura da tela (~94vh–95vh) enquanto permanece fixado (`position: sticky`) durante toda a rolagem do Bento Grid.
+  - O container interno `.ec-bento-sidebar-content` agora utiliza `display: flex; flex-direction: column; justify-content: space-between; height: 100%`, distribuindo perfeitamente o cabeçalho institucional no topo e a lista dos 4 pilares na metade inferior sem sobrar espaços vazios ou parecer encolhido.
+  - Bump de versão de estilos para `v=91.0`.
+
+## [2026-08-19] - Destravamento de Sticky Scroll e Compactação Elegante do Painel Bento no Viewport
+
+- **Arquivo:** `src/css/sobre-nos.css`, `src/css/base.css`, `src/css/servico-integridade.css`, `componentes-cards-.html`, páginas HTML
+
+### Fixed & Refined
+- **1. Destravamento do Scroll Context do `position: sticky`:**
+  - Removido `overflow-x: hidden` de `.sn-page-wrapper` e `#sn-main-content` em `src/css/sobre-nos.css` e substituído por `overflow-x: clip` em `src/css/base.css`, eliminando o container de overflow falso que impedia o card de grudar durante o scroll da página.
+- **2. Compactação Proporcional e Enquadramento Completo (`.ec-bento-sidebar`):**
+  - Reduzidos os paddings, gaps e tamanhos tipográficos de forma perfeitamente harmoniosa, permitindo que todo o conteúdo (logo, headline, parágrafo e todos os 4 pilares) caiba com folga em qualquer altura de tela sem sobrar ou cortar no rodapé e sem gerar barras de rolagem internas.
+  - Fixado em `position: sticky; top: 96px; align-self: start;`.
+  - Bump de versão de estilos para `v=90.0`.
+
+## [2026-08-19] - Ajuste do Canto Boleado Inferior na Seção 'Sobre o Serviço' em Soluções 2
+
+- **Arquivo:** `src/css/servico-integridade.css`, `2-solucao-inspecao-em-obras-de-artes-especiais.html`
+
+### Fixed & Refined
+- **1. Acabamento Boleado Inferior na Seção Cyan (`.svc-solution-section--cyan`):**
+  - Ajustado `border-radius: 48px !important` e `z-index: 10` na seção `#sobre-servico` para garantir que o seu fundo gradiente ciano tenha as curvas inferiores completamente visíveis e arredondadas (boleadas) sobre a seção seguinte.
+  - Ajustada a transição da seção seguinte (`.sn-page-wrapper .segmentos-secao`) com `margin-top: -48px !important`, `padding-top: 110px !important` e remoção dos cantos arredondados superiores (`border-top-left-radius: 0 !important; border-top-right-radius: 0 !important`), eliminando o corte reto/recortes expostos e permitindo que o contorno curvo ciano se sobreponha suavemente ao fundo branco.
+  - Sincronização e bump de versão de estilos para `v=89.1`.
+
+## [2026-08-19] - Fix Sticky & Enquadramento 100vh do Painel Lateral do Bento Grid
+
+- **Arquivo:** `src/css/servico-integridade.css`, `componentes-cards-.html`, `2-solucao-inspecao-em-obras-de-artes-especiais.html`, `3-solucao-ensaios-nao-destrutivos-ends.html`
+
+### Added & Refined
+- **1. Painel Lateral Sticky e Contido no Viewport (`.ec-bento-sidebar`):**
+  - Ajustado `align-items: start` no container mestre `.bento-master-layout` para que o painel lateral não estique infinitamente acompanhando toda a altura das 4 linhas do Bento Grid.
+  - Aplicado `position: sticky`, `top: clamp(80px, 10vh, 100px)` e `max-height: calc(100vh - clamp(95px, 12vh, 115px))` no card escuro para fixá-lo perfeitamente na tela durante a rolagem do usuário ao longo da seção e travar suavemente no rodapé da seção ao término.
+  - Adicionado scrollbar discreto customizado no container interno `.ec-bento-sidebar-content` para telas com altura vertical reduzida, mantendo todos os 4 pilares e textos sempre acessíveis.
+  - Atualizado `overflow-x: clip` na seção `.svc-bento-section` para destravar a rolagem vertical de elementos `position: sticky`.
+  - Bump de cache das folhas de estilo para `v=89.0`.
+
 ## [2026-08-19] - Integração da Seção 4 (Expanding Bento Grid Master com Painel Lateral) em '2. Inspeção em Obras de Artes Especiais'
 
 - **Arquivo:** `2-solucao-inspecao-em-obras-de-artes-especiais.html`, `src/css/servico-integridade.css`

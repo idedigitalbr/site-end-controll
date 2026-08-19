@@ -152,12 +152,29 @@
    -------------------------------------------------------------------------- */
 .svc-solution-section--cyan,
 .svc-solution-section:has(.svc-duo-photo-wrapper) {
+  position: relative;
+  z-index: 10;
   background: linear-gradient(135deg, #c4eefb 0%, #d8f4fd 50%, #cbf0fc 100%);
   color: #0c1a30;
-  border-radius: 48px;
+  border-radius: 48px !important;
   margin-top: -24px;
-  padding: 80px 0;
-  box-shadow: 0 16px 45px rgba(0, 80, 160, 0.08);
+  padding: 65px 0 28px;
+  box-shadow: 0 20px 50px rgba(0, 80, 160, 0.12);
+  overflow: hidden;
+}
+
+/* Transição harmoniosa para a seção seguinte (Quando Aplicar / Segmentos) */
+.svc-solution-section--cyan + .segmentos-secao,
+.svc-solution-section + .segmentos-secao,
+.sn-page-wrapper .segmentos-secao {
+  position: relative;
+  z-index: 5;
+  margin-top: -48px !important;
+  padding-top: 110px !important;
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+  border-bottom-left-radius: 48px !important;
+  border-bottom-right-radius: 48px !important;
 }
 
 .svc-solution-section--cyan .svc-solution-container,
@@ -820,6 +837,15 @@
     margin-top: -28px;
   }
 
+  .sn-page-wrapper .segmentos-secao {
+    padding-top: 85px !important;
+    margin-top: -36px !important;
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+    border-bottom-left-radius: 28px !important;
+    border-bottom-right-radius: 28px !important;
+  }
+
   .svc-single-photo-wrapper {
     height: 260px;
   }
@@ -1124,9 +1150,15 @@
   background-image: 
     radial-gradient(circle at 10% 10%, rgba(0, 194, 255, 0.12) 0%, transparent 45%),
     radial-gradient(circle at 90% 90%, rgba(0, 98, 227, 0.09) 0%, transparent 45%);
-  padding: clamp(50px, 6vw, 90px) 0;
+  padding: 120px 0 160px 0;
   z-index: 6;
   overflow-x: clip;
+}
+
+@media (max-width: 768px) {
+  .svc-bento-section {
+    padding: 60px 0 90px 0;
+  }
 }
 
 .svc-bento-container {
@@ -1143,24 +1175,24 @@
   align-items: start;
 }
 
-/* Painel Lateral Escuro de Apresentação (Sticky & 100vh Aware) */
+/* Painel Lateral Escuro de Apresentação (Sticky & Natural Auto Height - Sem Scroll Interno) */
 .ec-bento-sidebar {
   background: linear-gradient(175deg, #010c1c 0%, #03162f 42%, #010e22 100%);
   border-radius: clamp(20px, 1.8vw, 28px);
-  border: 1px solid rgba(0, 194, 255, 0.14);
-  padding: clamp(24px, 2.2vw, 34px) clamp(20px, 1.8vw, 28px);
+  border: 1px solid rgba(0, 194, 255, 0.16);
+  padding: clamp(28px, 2.5vw, 38px) clamp(22px, 1.8vw, 30px);
   display: flex;
   flex-direction: column;
   box-shadow: 
-    0 20px 50px rgba(1, 10, 24, 0.55),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    0 24px 60px rgba(1, 10, 24, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
   position: sticky;
-  top: clamp(80px, 10vh, 100px);
+  top: clamp(80px, 9vh, 96px);
   align-self: start;
   height: auto;
-  max-height: calc(100vh - clamp(95px, 12vh, 115px));
+  min-height: auto;
+  max-height: none;
   box-sizing: border-box;
-  user-select: none;
   overflow: hidden;
   z-index: 5;
 }
@@ -1182,7 +1214,7 @@
   top: 0;
   right: 0;
   bottom: 0;
-  width: 68%;
+  width: 70%;
   pointer-events: none;
   z-index: 1;
   opacity: 0.42;
@@ -1215,21 +1247,8 @@
   z-index: 2;
   display: flex;
   flex-direction: column;
-  gap: clamp(12px, 1.3vw, 18px);
-  overflow-y: auto;
-  overflow-x: hidden;
-  padding-right: 2px;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(0, 194, 255, 0.35) transparent;
-}
-
-.ec-bento-sidebar-content::-webkit-scrollbar {
-  width: 4px;
-}
-
-.ec-bento-sidebar-content::-webkit-scrollbar-thumb {
-  background: rgba(0, 194, 255, 0.35);
-  border-radius: 4px;
+  height: auto;
+  gap: clamp(14px, 1.6vh, 20px);
 }
 
 .sidebar-brand-wrap {
@@ -1240,7 +1259,7 @@
 }
 
 .sidebar-brand-logo {
-  height: clamp(28px, 2.2vw, 36px);
+  height: clamp(26px, 2.2vw, 34px);
   width: auto;
   object-fit: contain;
 }
@@ -1257,7 +1276,7 @@
 
 .sidebar-headline {
   font-family: var(--font-primary, "Inter", sans-serif);
-  font-size: clamp(24px, 2vw, 31px);
+  font-size: clamp(22px, 1.8vw, 29px);
   font-weight: 800;
   color: #ffffff;
   line-height: 1.18;
@@ -1280,24 +1299,24 @@
 
 .sidebar-paragraph {
   font-family: var(--font-primary, "Inter", sans-serif);
-  font-size: clamp(13px, 0.95vw, 14.5px);
+  font-size: clamp(12.5px, 0.9vw, 14px);
   color: rgba(255, 255, 255, 0.85);
-  line-height: 1.55;
+  line-height: 1.5;
   margin: 0;
 }
 
 .sidebar-pillars-list {
   display: flex;
   flex-direction: column;
-  gap: clamp(12px, 1.2vw, 18px);
-  margin-top: 6px;
-  padding-top: 6px;
+  gap: clamp(10px, 1.3vh, 16px);
+  margin-top: clamp(8px, 1.2vh, 14px);
+  padding-top: clamp(8px, 1.2vh, 14px);
 }
 
 .sidebar-pillar-item {
   display: flex;
   align-items: flex-start;
-  gap: 13px;
+  gap: 12px;
   transition: transform 300ms ease;
 }
 
@@ -1306,8 +1325,8 @@
 }
 
 .sidebar-pillar-icon {
-  width: clamp(38px, 2.6vw, 44px);
-  height: clamp(38px, 2.6vw, 44px);
+  width: clamp(34px, 2.4vw, 40px);
+  height: clamp(34px, 2.4vw, 40px);
   border-radius: 50%;
   background: rgba(3, 26, 56, 0.85);
   border: 1.5px solid rgba(0, 194, 255, 0.45);
@@ -1330,8 +1349,8 @@
 }
 
 .sidebar-pillar-icon svg {
-  width: clamp(18px, 1.3vw, 22px);
-  height: clamp(18px, 1.3vw, 22px);
+  width: clamp(16px, 1.2vw, 20px);
+  height: clamp(16px, 1.2vw, 20px);
   stroke: currentColor;
 }
 
@@ -1343,17 +1362,17 @@
 
 .sidebar-pillar-title {
   font-family: var(--font-primary, "Inter", sans-serif);
-  font-size: clamp(13.5px, 1vw, 15px);
+  font-size: clamp(13px, 0.95vw, 14.5px);
   font-weight: 700;
   color: #ffffff;
-  line-height: 1.25;
+  line-height: 1.22;
 }
 
 .sidebar-pillar-desc {
   font-family: var(--font-primary, "Inter", sans-serif);
-  font-size: clamp(11.5px, 0.85vw, 13px);
+  font-size: clamp(11px, 0.8vw, 12.5px);
   color: rgba(255, 255, 255, 0.72);
-  line-height: 1.35;
+  line-height: 1.32;
 }
 
 /* Base Bento Wrapper & Rows */
@@ -1519,6 +1538,8 @@
   margin-bottom: 2px;
   min-width: 0;
   width: 100%;
+  padding-right: clamp(65px, 5.5vw, 85px);
+  box-sizing: border-box;
 }
 
 .ec-card-dark-icon-wrapper {
@@ -1672,6 +1693,8 @@
   margin-bottom: 2px;
   min-width: 0;
   width: 100%;
+  padding-right: clamp(65px, 5.5vw, 85px);
+  box-sizing: border-box;
 }
 
 .ec-card-white-icon-wrapper {
@@ -1738,6 +1761,105 @@
   stroke: #00abe3;
   flex-shrink: 0;
   margin-top: 2px;
+}
+
+/* ==========================================================================
+   BADGE DISCRETO DE CATEGORIA NOS CARDS (ALTA LEGIBILIDADE SOBRE FOTOS)
+   ========================================================================== */
+.ec-card-badge {
+  position: absolute;
+  top: clamp(12px, 1.1vw, 16px);
+  right: clamp(12px, 1.2vw, 18px);
+  z-index: 5;
+  font-family: var(--font-primary, "Inter", sans-serif);
+  font-size: clamp(9.5px, 0.7vw, 11px);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 4px 11px;
+  border-radius: 999px;
+  line-height: 1.2;
+  user-select: none;
+  pointer-events: none;
+  transition: all 300ms ease;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 5.5px;
+}
+
+/* Badge no Card Escuro (Ensaios Avançados) */
+.ec-card-dark .ec-card-badge,
+.ec-card-badge--avancado {
+  background: rgba(2, 16, 36, 0.88);
+  color: #00c2ff;
+  border: 1px solid rgba(0, 194, 255, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 4px 14px rgba(0, 8, 20, 0.55);
+}
+
+.ec-card-dark .ec-card-badge::before,
+.ec-card-badge--avancado::before {
+  content: "";
+  display: inline-block;
+  width: 5.5px;
+  height: 5.5px;
+  border-radius: 50%;
+  background: #00c2ff;
+  box-shadow: 0 0 6px #00c2ff;
+  flex-shrink: 0;
+  transition: background 300ms ease;
+}
+
+.ec-card-dark:hover .ec-card-badge,
+.ec-card-dark:focus-within .ec-card-badge {
+  background: rgba(0, 194, 255, 0.95);
+  color: #021226;
+  border-color: #00c2ff;
+  box-shadow: 0 0 16px rgba(0, 194, 255, 0.6);
+}
+
+.ec-card-dark:hover .ec-card-badge::before,
+.ec-card-dark:focus-within .ec-card-badge::before {
+  background: #021226;
+  box-shadow: none;
+}
+
+/* Badge no Card Claro (Ensaios Convencionais - Máximo Contraste sobre Fotos e Fundos) */
+.ec-card-white .ec-card-badge,
+.ec-card-badge--convencional {
+  background: rgba(255, 255, 255, 0.94);
+  color: #071e3d;
+  border: 1px solid rgba(0, 50, 120, 0.16);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 4px 14px rgba(10, 30, 60, 0.22);
+}
+
+.ec-card-white .ec-card-badge::before,
+.ec-card-badge--convencional::before {
+  content: "";
+  display: inline-block;
+  width: 5.5px;
+  height: 5.5px;
+  border-radius: 50%;
+  background: #0062e3;
+  flex-shrink: 0;
+  transition: background 300ms ease;
+}
+
+.ec-card-white:hover .ec-card-badge,
+.ec-card-white:focus-within .ec-card-badge {
+  background: #0062e3;
+  color: #ffffff;
+  border-color: #0062e3;
+  box-shadow: 0 4px 16px rgba(0, 98, 227, 0.4);
+}
+
+.ec-card-white:hover .ec-card-badge::before,
+.ec-card-white:focus-within .ec-card-badge::before {
+  background: #ffffff;
 }
 
 .bento-card--inspecao .ec-card-white-content {
@@ -2008,11 +2130,15 @@
   box-shadow: 0 -18px 45px rgba(0, 20, 60, 0.25), 0 14px 40px rgba(0, 20, 60, 0.08);
 }
 
+.sn-page-wrapper .segmentos-secao,
 .segmentos-secao {
   position: relative;
   z-index: 5;
-  margin-top: -40px;
-  border-radius: 48px;
+  margin-top: -48px !important;
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+  border-bottom-left-radius: 48px !important;
+  border-bottom-right-radius: 48px !important;
 }
 
 .sn-process-section {
