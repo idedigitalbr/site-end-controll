@@ -1,6 +1,16 @@
 # Changelog — ENDCONTROL Engenharia
 
-## [2026-08-19] - Ajuste do Comportamento de Pausa e Retomada Automática dos Slides (Hover 2s e Clique 10s)
+## [2026-08-19] - Criação da Biblioteca de Componentes de Cards (Horizontal & Vertical / Dark & White)
+
+- **Arquivo Criado:** `componentes-cards-.html`
+
+### Added & Refined
+- **1. Biblioteca Modular de Cards (`componentes-cards-.html`):**
+  - **Card Horizontal (Esquerda):** Layout com fusão horizontal (`linear-gradient(to right, ...)`), textos e checklist organizados à esquerda e fotografia de discussão técnica na tela (`operacional-discussao-engenheiros-tela-edit.webp`) posicionada à direita.
+  - **Card Vertical (Direita):** Layout com fusão vertical de cima para baixo (`linear-gradient(to bottom, ...)`), cabeçalho alinhado horizontalmente no topo (ícone badge + título `Geometria`) e checklist logo abaixo, com fotografia do drone (`obras_arte_especiais_02.webp`) em evidência na base inferior.
+  - **Seção 1 (Cards Dark):** Versão com fundo navy (`#071429`), nós neon cyan (`#00c2ff`) e tipografia clara.
+  - **Seção 2 (Cards White):** Versão clara com fundo branco puro (`#ffffff`), nós azuis (`#0077ff`), tipografia em dark navy (`#071429`) e marcadores ciano.
+  - Design 100% responsivo, limpo e sem botões redundantes, pronto para reutilização na criação de novas seções.
 
 - **Commit:** `81b1a9d`
 

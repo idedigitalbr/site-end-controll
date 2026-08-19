@@ -1,0 +1,1569 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ENDCONTROL - Escopo Técnico Completo para Pontes, Viadutos e Estruturas Críticas</title>
+  
+  <!-- Fontes Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       1. VARIÁVEIS E SISTEMA DE DESIGN (EXATO ANEXO 1 DE REFERÊNCIA)
+       ========================================================================== */
+    :root {
+      --font-main: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-heading: "DM Sans", var(--font-main);
+      
+      /* Cores Exatas da Referência */
+      --navy-bg-page: #040914;
+      --navy-hero-dark: #07152d;
+      --navy-hero-card: #091a38;
+      --navy-card-dark: #0c1e3d;
+      --navy-card-dark-deep: #081732;
+      
+      --cyan-bright: #00c2ff;
+      --cyan-soft: #00abe3;
+      --blue-brand: #0062e3;
+      --blue-accent: #007bff;
+      
+      --text-white: #ffffff;
+      --text-slate-100: #f8fafc;
+      --text-slate-200: #e2e8f0;
+      --text-slate-300: #cbd5e1;
+      --text-slate-400: #94a3b8;
+      --text-slate-600: #475569;
+      --text-dark: #071429;
+
+      --card-white: #ffffff;
+      
+      --border-card-white: rgba(226, 232, 240, 0.85);
+      --border-card-dark: rgba(0, 194, 255, 0.22);
+      --border-card-glow: rgba(0, 194, 255, 0.55);
+
+      --radius-panel: 24px;
+      --radius-card: 18px;
+      --radius-thumb: 12px;
+      --radius-pill: 9999px;
+
+      --shadow-card: 0 4px 16px rgba(4, 12, 28, 0.06);
+      --shadow-dark: 0 12px 30px rgba(2, 6, 16, 0.4);
+      --shadow-hover: 0 16px 36px rgba(0, 0, 0, 0.35), 0 0 22px rgba(0, 194, 255, 0.28);
+      
+      --transition-base: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--navy-bg-page);
+      background-image: 
+        radial-gradient(circle at 8% 12%, rgba(0, 194, 255, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 92% 88%, rgba(0, 98, 227, 0.09) 0%, transparent 45%),
+        linear-gradient(180deg, #030712 0%, #061124 50%, #040914 100%);
+      color: var(--text-dark);
+      font-family: var(--font-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 24px 20px;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ==========================================================================
+       2. ESTRUTURA GERAL DO BENTO (COMPACTO E PROPORCIONAL AO ANEXO 1)
+       ========================================================================== */
+    .bento-master-section {
+      width: 100%;
+      max-width: 1480px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .bento-master-container {
+      display: grid;
+      grid-template-columns: 345px 1fr;
+      gap: 14px;
+      align-items: stretch;
+    }
+
+    @media (max-width: 1300px) {
+      .bento-master-container {
+        grid-template-columns: 315px 1fr;
+        gap: 12px;
+      }
+    }
+
+    @media (max-width: 1080px) {
+      .bento-master-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+    }
+
+    /* ==========================================================================
+       3. PAINEL HERO LATERAL ESQUERDO (EXATO ANEXO 1)
+       ========================================================================== */
+    .bento-hero-panel {
+      background: linear-gradient(165deg, #091a38 0%, #061328 65%, #030916 100%);
+      border: 1px solid rgba(0, 194, 255, 0.22);
+      border-radius: var(--radius-panel);
+      padding: 30px 24px 26px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      z-index: 1;
+    }
+
+    /* Ilustração técnica de treliça / ponte no fundo do painel */
+    .bento-hero-bg-lines {
+      position: absolute;
+      right: -70px;
+      top: 18%;
+      width: 380px;
+      height: 380px;
+      opacity: 0.14;
+      pointer-events: none;
+      background-image: 
+        radial-gradient(circle at center, #00c2ff 1.2px, transparent 1.2px),
+        linear-gradient(to right, rgba(0, 194, 255, 0.2) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 194, 255, 0.2) 1px, transparent 1px);
+      background-size: 20px 20px;
+      border-radius: 50%;
+      mask-image: radial-gradient(ellipse at center, black 35%, transparent 75%);
+      -webkit-mask-image: radial-gradient(ellipse at center, black 35%, transparent 75%);
+    }
+
+    .bento-hero-glow {
+      position: absolute;
+      top: -60px;
+      left: -60px;
+      width: 220px;
+      height: 220px;
+      background: radial-gradient(circle, rgba(0, 194, 255, 0.25) 0%, transparent 70%);
+      filter: blur(40px);
+      pointer-events: none;
+    }
+
+    .bento-hero-header {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Logo Oficial com o Ícone Circular Exato */
+    .bento-brand-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 22px;
+      text-decoration: none;
+    }
+
+    .bento-brand-icon {
+      width: 34px;
+      height: 34px;
+      background: linear-gradient(135deg, #00c2ff 0%, #0062e3 100%);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 14px rgba(0, 194, 255, 0.5);
+    }
+
+    .bento-brand-icon svg {
+      width: 19px;
+      height: 19px;
+      color: #ffffff;
+    }
+
+    .bento-brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .bento-brand-title {
+      color: #ffffff;
+      font-size: 1.05rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      line-height: 1;
+    }
+
+    .bento-brand-tagline {
+      color: var(--cyan-bright);
+      font-size: 0.58rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-top: 3px;
+    }
+
+    .bento-hero-eyebrow {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--cyan-bright);
+      margin-bottom: 10px;
+    }
+
+    .bento-hero-title {
+      font-family: var(--font-heading);
+      font-size: clamp(1.6rem, 1.85vw, 1.95rem);
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1.16;
+      margin-bottom: 12px;
+      letter-spacing: -0.015em;
+    }
+
+    .bento-hero-highlight {
+      color: var(--cyan-bright);
+      display: inline;
+    }
+
+    .bento-hero-bar {
+      width: 30px;
+      height: 3px;
+      background: var(--blue-brand);
+      border-radius: var(--radius-pill);
+      margin-bottom: 14px;
+    }
+
+    .bento-hero-desc {
+      font-size: 0.85rem;
+      color: var(--text-slate-300);
+      line-height: 1.5;
+      margin-bottom: 20px;
+      font-weight: 400;
+    }
+
+    /* 4 Pilares Verticais Compactos */
+    .bento-hero-pillars {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .bento-pillar-item {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      padding: 9px 11px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 12px;
+      backdrop-filter: blur(8px);
+      transition: var(--transition-base);
+      cursor: pointer;
+    }
+
+    .bento-pillar-item:hover {
+      background: rgba(0, 194, 255, 0.09);
+      border-color: rgba(0, 194, 255, 0.35);
+      transform: translateX(3px);
+    }
+
+    .bento-pillar-icon {
+      width: 30px;
+      height: 30px;
+      min-width: 30px;
+      border-radius: 50%;
+      background: rgba(0, 194, 255, 0.12);
+      border: 1px solid rgba(0, 194, 255, 0.35);
+      color: var(--cyan-bright);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 10px rgba(0, 194, 255, 0.15);
+      transition: var(--transition-base);
+    }
+
+    .bento-pillar-item:hover .bento-pillar-icon {
+      background: var(--cyan-bright);
+      color: #040c1a;
+      box-shadow: 0 0 14px rgba(0, 194, 255, 0.6);
+      transform: scale(1.06);
+    }
+
+    .bento-pillar-icon svg {
+      width: 15px;
+      height: 15px;
+    }
+
+    .bento-pillar-content {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .bento-pillar-title {
+      font-size: 0.81rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 1px;
+      line-height: 1.2;
+    }
+
+    .bento-pillar-subtitle {
+      font-size: 0.69rem;
+      color: var(--text-slate-400);
+      line-height: 1.25;
+    }
+
+    /* ==========================================================================
+       4. MOSAICO BENTO GRID (4 COLUNAS X 4 LINHAS)
+       ========================================================================== */
+    .bento-grid-wrapper {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: 175px 165px 165px 120px;
+      gap: 13px;
+      position: relative;
+    }
+
+    /* Efeito Spotlight Suave no Hover */
+    .bento-grid-wrapper:hover .bento-card:not(:hover) {
+      opacity: 0.72;
+      filter: saturate(0.88);
+      transform: scale(0.993);
+    }
+
+    /* Estrutura Base de Cada Card */
+    .bento-card {
+      border-radius: var(--radius-card);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+      cursor: pointer;
+      outline: none;
+      box-shadow: var(--shadow-card);
+      will-change: transform, box-shadow;
+      border: 1px solid transparent;
+      user-select: none;
+    }
+
+    /* Hover & Expansão Ativa */
+    .bento-card:hover,
+    .bento-card:focus-visible,
+    .bento-card.is-expanded {
+      opacity: 1 !important;
+      filter: saturate(1.08) !important;
+      transform: translateY(-3px) scale(1.018);
+      z-index: 10;
+      box-shadow: var(--shadow-hover);
+    }
+
+    /* Card Branco / Light */
+    .bento-card--white {
+      background: var(--card-white);
+      color: var(--text-dark);
+      border-color: var(--border-card-white);
+      padding: 15px 17px;
+    }
+
+    .bento-card--white:hover {
+      border-color: rgba(0, 171, 227, 0.5);
+    }
+
+    /* Card Dark Navy */
+    .bento-card--dark {
+      background: linear-gradient(145deg, #0c1e3d 0%, #061329 100%);
+      color: #ffffff;
+      border-color: var(--border-card-dark);
+      padding: 15px 17px;
+      box-shadow: var(--shadow-dark);
+    }
+
+    .bento-card--dark:hover {
+      border-color: var(--border-card-glow);
+      background: linear-gradient(145deg, #10274e 0%, #081834 100%);
+    }
+
+    /* Header de Card (Ícone Badge Circular + Título) */
+    .bento-card-head {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 10px;
+    }
+
+    .bento-card-badge {
+      width: 32px;
+      height: 32px;
+      min-width: 32px;
+      border-radius: 50%;
+      background: #f0f7ff;
+      border: 1px solid rgba(0, 98, 227, 0.25);
+      color: var(--blue-brand);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition-base);
+    }
+
+    .bento-card:hover .bento-card-badge {
+      background: var(--cyan-bright);
+      color: #040c1a;
+      border-color: var(--cyan-bright);
+      transform: rotate(5deg) scale(1.08);
+      box-shadow: 0 0 12px rgba(0, 194, 255, 0.45);
+    }
+
+    .bento-card--dark .bento-card-badge {
+      background: rgba(0, 194, 255, 0.12);
+      border-color: rgba(0, 194, 255, 0.35);
+      color: var(--cyan-bright);
+    }
+
+    .bento-card-badge svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .bento-card-title {
+      font-family: var(--font-heading);
+      font-size: 0.94rem;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+    }
+
+    .bento-card--white .bento-card-title {
+      color: var(--navy-hero-dark);
+    }
+
+    .bento-card--dark .bento-card-title {
+      color: #ffffff;
+    }
+
+    /* Checklist com Círculo Azul e Checkmark */
+    .bento-checklist {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+    }
+
+    .bento-checklist-item {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 0.77rem;
+      font-weight: 500;
+      line-height: 1.25;
+      transition: var(--transition-base);
+    }
+
+    .bento-card--white .bento-checklist-item {
+      color: #334155;
+    }
+
+    .bento-card--dark .bento-checklist-item {
+      color: var(--text-slate-200);
+    }
+
+    .bento-card:hover .bento-checklist-item {
+      transform: translateX(2px);
+    }
+
+    .bento-check-icon {
+      width: 15px;
+      height: 15px;
+      min-width: 15px;
+      border-radius: 50%;
+      background: rgba(0, 171, 227, 0.12);
+      color: var(--blue-brand);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition-base);
+    }
+
+    .bento-card--dark .bento-check-icon {
+      background: rgba(0, 194, 255, 0.18);
+      color: var(--cyan-bright);
+    }
+
+    .bento-card:hover .bento-check-icon {
+      background: var(--blue-brand);
+      color: #ffffff;
+    }
+
+    .bento-card--dark:hover .bento-check-icon {
+      background: var(--cyan-bright);
+      color: #040c1a;
+    }
+
+    .bento-check-icon svg {
+      width: 9px;
+      height: 9px;
+      stroke-width: 3;
+    }
+
+    /* ==========================================================================
+       5. ESPECIFICAÇÕES DOS CARDS (GRID POSITIONING EXATO)
+       ========================================================================== */
+
+    /* CARD 1: FOTO HERO DESTACADA (Ponte Estaiada Iluminada ao Entardecer) */
+    .card-ponte-destaque {
+      grid-column: 1 / span 2;
+      grid-row: 1;
+      padding: 0;
+      position: relative;
+      background: #020712;
+      border: 1px solid rgba(0, 194, 255, 0.3);
+    }
+
+    .card-ponte-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transition: transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .card-ponte-destaque:hover .card-ponte-img {
+      transform: scale(1.06);
+    }
+
+    .card-ponte-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(3, 9, 22, 0.95) 0%, rgba(3, 9, 22, 0.35) 55%, transparent 85%);
+      z-index: 1;
+    }
+
+    .card-ponte-content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 16px 20px;
+      z-index: 2;
+    }
+
+    .card-ponte-tag {
+      font-size: 0.82rem;
+      font-weight: 800;
+      color: var(--cyan-bright);
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+      margin-bottom: 2px;
+      display: block;
+    }
+
+    .card-ponte-text {
+      font-family: var(--font-heading);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.3;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
+      max-width: 90%;
+    }
+
+    /* CARD 2: Ensaios Não Destrutivos (ENDs) */
+    .card-ends {
+      grid-column: 3;
+      grid-row: 1;
+    }
+
+    /* STACK DA COLUNA 4: Geotecnia + Monitoramento Estrutural */
+    .bento-col4-stack {
+      grid-column: 4;
+      grid-row: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      height: 100%;
+    }
+
+    .card-split-media {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      padding: 11px 14px;
+      gap: 8px;
+    }
+
+    .card-split-info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card-split-info .bento-card-head {
+      margin-bottom: 6px;
+    }
+
+    .card-split-thumb {
+      width: 66px;
+      height: 66px;
+      min-width: 66px;
+      border-radius: var(--radius-thumb);
+      overflow: hidden;
+      position: relative;
+      border: 1px solid rgba(0, 171, 227, 0.2);
+    }
+
+    .card-split-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .bento-card:hover .card-split-thumb img {
+      transform: scale(1.1);
+    }
+
+    /* CARD 5: Inspeção Visual (Com Foto na Base) */
+    .card-inspecao-visual {
+      grid-column: 1;
+      grid-row: 2;
+      padding-bottom: 0;
+    }
+
+    .card-bottom-photo {
+      width: calc(100% + 34px);
+      height: 75px;
+      margin: 9px -17px 0 -17px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-bottom-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .card-inspecao-visual:hover .card-bottom-photo img {
+      transform: scale(1.08);
+    }
+
+    /* CARD 6: Materiais e Durabilidade (Dark Card) */
+    .card-materiais {
+      grid-column: 2;
+      grid-row: 2;
+    }
+
+    /* CARD 7: Integridade Estrutural */
+    .card-integridade {
+      grid-column: 3;
+      grid-row: 2;
+    }
+
+    /* CARD 8: Geometria / Drone (TALL CARD: Coluna 4, Linhas 2 e 3) */
+    .card-geometria-drone {
+      grid-column: 4;
+      grid-row: 2 / span 2;
+      padding: 0;
+      position: relative;
+      background: #061122;
+      border: 1px solid rgba(0, 194, 255, 0.25);
+    }
+
+    .card-drone-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transition: transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .card-geometria-drone:hover .card-drone-bg {
+      transform: scale(1.06);
+    }
+
+    .card-drone-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom, 
+        rgba(7, 20, 41, 0.94) 0%, 
+        rgba(7, 20, 41, 0.4) 38%, 
+        rgba(7, 20, 41, 0.05) 60%, 
+        rgba(7, 20, 41, 0.7) 100%
+      );
+      z-index: 1;
+    }
+
+    .card-drone-header {
+      position: relative;
+      z-index: 2;
+      padding: 16px 18px;
+    }
+
+    .card-drone-header .bento-card-title {
+      color: #ffffff;
+    }
+
+    .card-drone-header .bento-checklist-item {
+      color: #ffffff;
+      text-shadow: 0 1px 6px rgba(0, 0, 0, 0.85);
+      margin-top: 8px;
+    }
+
+    .card-drone-badge {
+      background: rgba(0, 194, 255, 0.22);
+      border-color: var(--cyan-bright);
+      color: var(--cyan-bright);
+    }
+
+    /* CARD 9: Topografia (Linha 3, Col 1) */
+    .card-topografia {
+      grid-column: 1;
+      grid-row: 3;
+      padding: 11px 14px;
+    }
+
+    /* CARD 10: GPR Georadar (Linha 3, Col 2) */
+    .card-gpr {
+      grid-column: 2;
+      grid-row: 3;
+      padding: 11px 14px;
+    }
+
+    /* CARD 11: Análise Estrutural (Linha 3, Col 3) */
+    .card-analise-estrutural {
+      grid-column: 3;
+      grid-row: 3;
+      padding-bottom: 0;
+    }
+
+    .card-mef-graphic {
+      width: calc(100% + 34px);
+      height: 78px;
+      margin: 4px -17px 0 -17px;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(180deg, transparent 0%, rgba(0, 194, 255, 0.04) 100%);
+    }
+
+    .card-mef-graphic svg {
+      width: 100%;
+      height: 100%;
+      transition: transform 0.5s ease;
+    }
+
+    .card-analise-estrutural:hover .card-mef-graphic svg {
+      transform: scale(1.06);
+    }
+
+    /* LINHA 4: CARDS 12 & 13 (Span 2 Cols Cada - Compacto) */
+    .card-documentacao {
+      grid-column: 1 / span 2;
+      grid-row: 4;
+      padding: 14px 18px;
+      background: #ffffff;
+    }
+
+    .card-consultoria {
+      grid-column: 3 / span 2;
+      grid-row: 4;
+      padding: 14px 18px;
+      background: linear-gradient(145deg, #0c2146 0%, #061329 100%);
+    }
+
+    .card-wide-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      width: 100%;
+      height: 100%;
+    }
+
+    .card-wide-left {
+      flex: 1;
+    }
+
+    .card-wide-left .bento-card-head {
+      margin-bottom: 7px;
+    }
+
+    .card-wide-right-media {
+      width: 140px;
+      height: 80px;
+      min-width: 140px;
+      border-radius: var(--radius-thumb);
+      overflow: hidden;
+      position: relative;
+      border: 1px solid rgba(0, 171, 227, 0.22);
+    }
+
+    .card-wide-right-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .bento-card:hover .card-wide-right-media img {
+      transform: scale(1.08);
+    }
+
+    /* ==========================================================================
+       6. RESPONSIVIDADE ADAPTATIVA DO BENTO GRID
+       ========================================================================== */
+    @media (max-width: 1200px) {
+      .bento-grid-wrapper {
+        grid-template-rows: 165px 155px 155px 115px;
+        gap: 10px;
+      }
+      .bento-card-title {
+        font-size: 0.88rem;
+      }
+      .bento-checklist-item {
+        font-size: 0.74rem;
+      }
+      .card-split-thumb {
+        width: 58px;
+        height: 58px;
+        min-width: 58px;
+      }
+    }
+
+    @media (max-width: 992px) {
+      .bento-grid-wrapper {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+      }
+      .card-ponte-destaque {
+        grid-column: span 2;
+        grid-row: auto;
+        min-height: 170px;
+      }
+      .card-ends {
+        grid-column: span 1;
+        grid-row: auto;
+      }
+      .bento-col4-stack {
+        grid-column: span 1;
+        grid-row: auto;
+      }
+      .card-inspecao-visual {
+        grid-column: span 1;
+        grid-row: auto;
+      }
+      .card-materiais {
+        grid-column: span 1;
+        grid-row: auto;
+      }
+      .card-integridade {
+        grid-column: span 1;
+        grid-row: auto;
+      }
+      .card-geometria-drone {
+        grid-column: span 1;
+        grid-row: auto;
+        min-height: 220px;
+      }
+      .card-topografia {
+        grid-column: span 1;
+        grid-row: auto;
+      }
+      .card-gpr {
+        grid-column: span 1;
+        grid-row: auto;
+      }
+      .card-analise-estrutural {
+        grid-column: span 1;
+        grid-row: auto;
+      }
+      .card-documentacao,
+      .card-consultoria {
+        grid-column: span 2;
+        grid-row: auto;
+      }
+    }
+
+    @media (max-width: 640px) {
+      body {
+        padding: 16px 10px;
+      }
+      .bento-hero-panel {
+        padding: 24px 16px;
+        border-radius: 20px;
+      }
+      .bento-hero-title {
+        font-size: 1.55rem;
+      }
+      .bento-grid-wrapper {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+      .card-ponte-destaque,
+      .card-ends,
+      .bento-col4-stack,
+      .card-inspecao-visual,
+      .card-materiais,
+      .card-integridade,
+      .card-geometria-drone,
+      .card-topografia,
+      .card-gpr,
+      .card-analise-estrutural,
+      .card-documentacao,
+      .card-consultoria {
+        grid-column: span 1 !important;
+        grid-row: auto !important;
+      }
+      .card-wide-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .card-wide-right-media {
+        width: 100%;
+        height: 90px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==========================================================================
+       SEÇÃO MASTER: ESCOPO TÉCNICO COMPLETO PARA PONTES, VIADUTOS E ESTRUTURAS CRÍTICAS
+       ========================================================================== -->
+  <section class="bento-master-section" id="escopo-tecnico-bento" aria-label="Escopo Técnico Completo EndControl">
+    
+    <div class="bento-master-container">
+      
+      <!-- ======================================================================
+           COLUNA ESQUERDA: PAINEL HERO (INSPEÇÕES ESPECIALIZADAS)
+           ====================================================================== -->
+      <aside class="bento-hero-panel">
+        <div class="bento-hero-glow"></div>
+        <div class="bento-hero-bg-lines"></div>
+
+        <div class="bento-hero-header">
+          <!-- Logo EndControl Oficial -->
+          <a href="#" class="bento-brand-logo" aria-label="EndControl Engenharia">
+            <div class="bento-brand-icon">
+              <!-- SVG Ícone com Ondas/Esfera Tecnológica Exata da Referência -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/>
+                <path d="M2 12h20"/>
+              </svg>
+            </div>
+            <div class="bento-brand-text">
+              <span class="bento-brand-title">ENDCONTROL</span>
+              <span class="bento-brand-tagline">Inspeções e Engenharia</span>
+            </div>
+          </a>
+
+          <!-- Eyebrow & Título com Destaque -->
+          <span class="bento-hero-eyebrow">INSPEÇÕES ESPECIALIZADAS</span>
+          <h1 class="bento-hero-title">
+            Escopo técnico completo para <span class="bento-hero-highlight">pontes, viadutos e estruturas críticas.</span>
+          </h1>
+
+          <div class="bento-hero-bar"></div>
+
+          <!-- Parágrafo de Posicionamento -->
+          <p class="bento-hero-desc">
+            Atuamos com tecnologia, método e equipe especializada para garantir diagnósticos precisos e segurança estrutural em todas as fases da vida útil das estruturas.
+          </p>
+        </div>
+
+        <!-- 4 Pilares de Garantia e Confiabilidade -->
+        <div class="bento-hero-pillars">
+          
+          <!-- Pilar 1: Segurança -->
+          <div class="bento-pillar-item" tabindex="0">
+            <div class="bento-pillar-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </div>
+            <div class="bento-pillar-content">
+              <strong class="bento-pillar-title">Segurança em primeiro lugar</strong>
+              <span class="bento-pillar-subtitle">Proteção de pessoas, ativos e do meio ambiente.</span>
+            </div>
+          </div>
+
+          <!-- Pilar 2: Dados -->
+          <div class="bento-pillar-item" tabindex="0">
+            <div class="bento-pillar-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <circle cx="12" cy="12" r="6"/>
+                <circle cx="12" cy="12" r="2"/>
+              </svg>
+            </div>
+            <div class="bento-pillar-content">
+              <strong class="bento-pillar-title">Dados que geram confiança</strong>
+              <span class="bento-pillar-subtitle">Informações precisas para decisões estratégicas.</span>
+            </div>
+          </div>
+
+          <!-- Pilar 3: Tecnologia -->
+          <div class="bento-pillar-item" tabindex="0">
+            <div class="bento-pillar-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+              </svg>
+            </div>
+            <div class="bento-pillar-content">
+              <strong class="bento-pillar-title">Tecnologia e experiência</strong>
+              <span class="bento-pillar-subtitle">Métodos avançados e equipe altamente qualificada.</span>
+            </div>
+          </div>
+
+          <!-- Pilar 4: Resultados -->
+          <div class="bento-pillar-item" tabindex="0">
+            <div class="bento-pillar-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+              </svg>
+            </div>
+            <div class="bento-pillar-content">
+              <strong class="bento-pillar-title">Compromisso com resultados</strong>
+              <span class="bento-pillar-subtitle">Entregas ágeis, claras e alinhadas ao seu objetivo.</span>
+            </div>
+          </div>
+
+        </div>
+      </aside>
+
+      <!-- ======================================================================
+           COLUNA DIREITA: MOSAICO BENTO GRID (13 CAPACIDADES E SERVIÇOS)
+           ====================================================================== -->
+      <main class="bento-grid-wrapper" id="bentoInteractiveGrid">
+
+        <!-- ------------------------------------------------------------------
+             LINHA 1
+             ------------------------------------------------------------------ -->
+        
+        <!-- CARD 1: FOTO HERO DESTACADA (Ponte Estaiada Iluminada à Noite / Avaliação Completa) -->
+        <article class="bento-card card-ponte-destaque" tabindex="0" data-card-id="1">
+          <img src="assets/Fotografias/Serviços - Banco de Imagens/02 - Inspeção em Obras de Artes Especiais/obras_arte_especiais_01.webp" alt="Avaliação completa em pontes, viadutos e OAEs" class="card-ponte-img" loading="eager" />
+          <div class="card-ponte-overlay"></div>
+          <div class="card-ponte-content">
+            <span class="card-ponte-tag">Avaliação completa.</span>
+            <h2 class="card-ponte-text">Tecnologia, método e especialistas em cada detalhe.</h2>
+          </div>
+        </article>
+
+        <!-- CARD 2: Ensaios Não Destrutivos (ENDs) -->
+        <article class="bento-card bento-card--white card-ends" tabindex="0" data-card-id="2">
+          <div>
+            <div class="bento-card-head">
+              <div class="bento-card-badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                  <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+                  <line x1="12" y1="22.08" x2="12" y2="12"/>
+                </svg>
+              </div>
+              <h3 class="bento-card-title">Ensaios não destrutivos</h3>
+            </div>
+            <ul class="bento-checklist">
+              <li class="bento-checklist-item">
+                <span class="bento-check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"/></svg></span>
+                Ultrassom
+              </li>
+              <li class="bento-checklist-item">
+                <span class="bento-check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"/></svg></span>
+                Líquido Penetrante
+              </li>
+              <li class="bento-checklist-item">
+                <span class="bento-check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"/></svg></span>
+                Partículas Magnéticas
+              </li>
+              <li class="bento-checklist-item">
+                <span class="bento-check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"/></svg></span>
+                Correntes Parasitas
+              </li>
+              <li class="bento-checklist-item">
+                <span class="bento-check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"/></svg></span>
+                Impact-Echo
+              </li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- STACK DA COLUNA 4: Geotecnia + Monitoramento Estrutural -->
+        <div class="bento-col4-stack">
+          
+          <!-- CARD 3: Geotecnia -->
+          <article class="bento-card bento-card--white card-split-media" tabindex="0" data-card-id="3" style="flex: 1;">
+            <div class="card-split-info">
+              <div class="bento-card-head">
+                <div class="bento-card-badge">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m8 3 4 8 5-5 5 15H2L8 3z"/>
+                  </svg>
+                </div>
+                <h3 class="bento-card-title">Geotecnia</h3>
+              </div>
+              <ul class="bento-checklist">
+                <li class="bento-checklist-item">
+                  <span class="bento-check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"/></svg></span>
+                  Sondagem
+                </li>
+                <li class="bento-checklist-item">
+                  <span class="bento-check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"/></svg></span>
+                  Ensaios de solo
+                </li>
+              </ul>
+            </div>
+            <div class="card-split-thumb">
+              <img src="assets/Fotografias/Serviços - Banco de Imagens/02 - Inspeção em Obras de Artes Especiais/obras_arte_especiais_05.webp" alt="Sondagem e ensaios geotécnicos em campo" loading="lazy" />
+            </div>
+          </article>
+
+          <!-- CARD 4: Monitoramento Estrutural -->
+          <article class="bento-card bento-card--white card-split-media" tabindex="0" data-card-id="4" style="flex: 1;">
+            <div class="card-split-info">
+              <div class="bento-card-head">
+                <div class="bento-card-badge">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                  </svg>
+                </div>
+                <h3 class="bento-card-title">Monitoramento estrutural</h3>
+              </div>
+              <ul class="bento-checklist">
+                <li class="bento-checklist-item">
+                  <span class="bento-check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"/></svg></span>
+                  Instrumentação
+                </li>
+                <li class="bento-checklist-item">
+                  <span class="bento-check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"/></svg></span>
+                  Aquisição de dados
+                </li>
+              </ul>
+            </div>
+            <div class="card-split-thumb">
+              <img src="assets/Fotografias/Serviços - Banco de Imagens/02 - Inspeção em Obras de Artes Especiais/obras_arte_especiais_04.webp" alt="Monitoramento e instrumentação técnica estrutural" loading="lazy" />
+            </div>
+          </article>
+
+        </div>
+
+        <!-- ------------------------------------------------------------------
+             LINHA 2
+             ------------------------------------------------------------------ -->
+
+        <!-- CARD 5: Inspeção Visual (Com Foto de Plataforma na Base) -->
+        <article class="bento-card bento-card--white card-inspecao-visual" tabindex="0" data-card-id="5">
+          <div>
+            <div class="bento-card-head">
+              <div class="bento-card-badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/>
+                  <circle cx="12" cy="12" r="3"/>
+                </svg>
+              </div>
+              <h3 class="bento-card-title">Inspeção visual</h3>
+            </div>
+            <ul class="bento-checklist">
+              <li class="bento-checklist-item">
+                <span class="bento-check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"/></svg></span>
+                Inspeção Visual Detalhada
+              </li>
+            </ul>
+          </div>
+          <div class="card-bottom-photo">
+            <img src="assets/Fotografias/Serviços - Banco de Imagens/02 - Inspeção em Obras de Artes Especiais/obras_arte_especiais_06.webp" alt="Inspeção visual com plataforma elevatória" loading="lazy" />
+          </div>
+        </article>
+
+        <!-- CARD 6: Materiais e Durabilidade (Dark Card) -->
+        <article class="bento-card bento-card--dark card-materiais" tabindex="0" data-card-id="6">
+          <div>
+            <div class="bento-card-head">
+              <div class="bento-card-badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M10 2v7.527a2 2 0 0 1-.211.896L4.72 20.55A2 2 0 0 0 6.508 23h10.984a2 2 0 0 0 1.788-2.45l-5.069-10.127A2 2 0 0 1 14 9.527V2"/>
+                  <path d="M8.5 2h7"/>
+                  <path d="M7 16h10"/>
+                </svg>
+              </div>
+              <h3 class="bento-card-title">Materiais e durabilidade</h3>
+            </div>
+            <ul class="bento-checklist">
+              <li class="bento-checklist-item">
+                <span class="bento-check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"/></svg></span>
+                Carbonataçāo
+              </li>
+              <li class="bento-checklist-item">
+                <span class="bento-check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"/></svg></span>
+                Extração e Análise de Testemunhos
+              </li>
+              <li class="bento-checklist-item">
+                <span class="bento-check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"/></svg></span>
+                Potencial de Corrosão
+              </li>
+              <li class="bento-checklist-item">
+                <span class="bento-check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"/></svg></span>
+                Teor de Cloretos
+              </li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- CARD 7: Integridade Estrutural -->
+        <article class="bento-card bento-card--white card-integridade" tabindex="0" data-card-id="7">
+          <div>
+            <div class="bento-card-head">
+              <div class="bento-card-badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="3" width="18" height="18" rx="2"/>
+                  <path d="M3 9h18"/>
+                  <path d="M9 21V9"/>
+                </svg>
+              </div>
+              <h3 class="bento-card-title">Integridade estrutural</h3>
+            </div>
+            <ul class="bento-checklist">
+              <li class="bento-checklist-item">
+                <span class="bento-check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"/></svg></span>
+                Prova de Carga
+              </li>
+              <li class="bento-checklist-item">
+                <span class="bento-check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"/></svg></span>
+                Ensaio Dinâmico
+              </li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- CARD 8: Geometria / Drone (TALL CARD NA COLUNA 4 - Span 2 Linhas) -->
+        <article class="bento-card card-geometria-drone" tabindex="0" data-card-id="8">
+          <img src="assets/Fotografias/Serviços - Banco de Imagens/02 - Inspeção em Obras de Artes Especiais/obras_arte_especiais_02.webp" alt="Drone de inspeção técnica em pilar de viaduto" class="card-drone-bg" loading="lazy" />
+          <div class="card-drone-overlay"></div>
+          <div class="card-drone-header">
+            <div class="bento-card-head">
+              <div class="bento-card-badge card-drone-badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M6 3h12l4 6-10 12L2 9l4-6z"/>
+                </svg>
+              </div>
+              <h3 class="bento-card-title">Geometria</h3>
+            </div>
+            <ul class="bento-checklist">
+              <li class="bento-checklist-item">
+                <span class="bento-check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"/></svg></span>
+                Levantamento 3D
+              </li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- ------------------------------------------------------------------
+             LINHA 3
+             ------------------------------------------------------------------ -->
+
+        <!-- CARD 9: Topografia (Linha 3, Col 1) -->
+        <article class="bento-card bento-card--white card-split-media card-topografia" tabindex="0" data-card-id="9">
+          <div class="card-split-info">
+            <div class="bento-card-head">
+              <div class="bento-card-badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+              </div>
+              <h3 class="bento-card-title">Topografia</h3>
+            </div>
+            <ul class="bento-checklist">
+              <li class="bento-checklist-item">
+                <span class="bento-check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"/></svg></span>
+                Levantamento Topográfico
+              </li>
+            </ul>
+          </div>
+          <div class="card-split-thumb">
+            <img src="assets/Fotografias/Serviços - Banco de Imagens/02 - Inspeção em Obras de Artes Especiais/obras_arte_especiais_03.webp" alt="Topógrafo em campo com estação total na ponte" loading="lazy" />
+          </div>
+        </article>
+
+        <!-- CARD 10: GPR (Georadar) - Dark Card (Linha 3, Col 2) -->
+        <article class="bento-card bento-card--dark card-split-media card-gpr" tabindex="0" data-card-id="10">
+          <div class="card-split-info">
+            <div class="bento-card-head">
+              <div class="bento-card-badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="2"/>
+                  <path d="M16.24 7.76a6 6 0 0 1 0 8.49m-8.48-.01a6 6 0 0 1 0-8.49m11.31-2.82a10 10 0 0 1 0 14.14m-14.14 0a10 10 0 0 1 0-14.14"/>
+                </svg>
+              </div>
+              <h3 class="bento-card-title">GPR</h3>
+            </div>
+            <ul class="bento-checklist">
+              <li class="bento-checklist-item">
+                <span class="bento-check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"/></svg></span>
+                Georadar
+              </li>
+            </ul>
+          </div>
+          <div class="card-split-thumb">
+            <img src="assets/Fotografias/Serviços - Banco de Imagens/02 - Inspeção em Obras de Artes Especiais/obras_arte_especiais_04.webp" alt="Carrinho de Georadar GPR para pavimentos" loading="lazy" />
+          </div>
+        </article>
+
+        <!-- CARD 11: Análise Estrutural (Linha 3, Col 3 - Com Render MEF 3D) -->
+        <article class="bento-card bento-card--white card-analise-estrutural" tabindex="0" data-card-id="11">
+          <div>
+            <div class="bento-card-head">
+              <div class="bento-card-badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="5" r="3"/>
+                  <circle cx="6" cy="17" r="3"/>
+                  <circle cx="18" cy="17" r="3"/>
+                  <line x1="12" y1="8" x2="6" y2="14"/>
+                  <line x1="12" y1="8" x2="18" y2="14"/>
+                  <line x1="9" y1="17" x2="15" y2="17"/>
+                </svg>
+              </div>
+              <h3 class="bento-card-title">Análise estrutural</h3>
+            </div>
+            <ul class="bento-checklist">
+              <li class="bento-checklist-item">
+                <span class="bento-check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"/></svg></span>
+                Modelagem e Análise
+              </li>
+            </ul>
+          </div>
+          <!-- Representação Gráfica MEF de Pontes e Viadutos -->
+          <div class="card-mef-graphic">
+            <svg viewBox="0 0 300 80" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+              <defs>
+                <linearGradient id="mefRefGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#00C2FF" stop-opacity="0.9"/>
+                  <stop offset="30%" stop-color="#10B981" stop-opacity="0.85"/>
+                  <stop offset="60%" stop-color="#F59E0B" stop-opacity="0.85"/>
+                  <stop offset="100%" stop-color="#EF4444" stop-opacity="0.9"/>
+                </linearGradient>
+                <linearGradient id="deckGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#00C2FF" stop-opacity="0.45"/>
+                  <stop offset="35%" stop-color="#10B981" stop-opacity="0.4"/>
+                  <stop offset="65%" stop-color="#F59E0B" stop-opacity="0.4"/>
+                  <stop offset="100%" stop-color="#EF4444" stop-opacity="0.45"/>
+                </linearGradient>
+                <linearGradient id="sideGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#0080B0" stop-opacity="0.35"/>
+                  <stop offset="50%" stop-color="#0B8060" stop-opacity="0.3"/>
+                  <stop offset="100%" stop-color="#B07020" stop-opacity="0.35"/>
+                </linearGradient>
+              </defs>
+              
+              <!-- 3D Isometric Bridge Deck (top face) -->
+              <polygon points="30,28 150,12 270,28 150,44" fill="url(#deckGrad)" stroke="url(#mefRefGrad)" stroke-width="1.2"/>
+              
+              <!-- Side face (depth) -->
+              <polygon points="30,28 30,42 150,58 150,44" fill="url(#sideGrad)" stroke="#0B8060" stroke-width="0.6" opacity="0.7"/>
+              <polygon points="150,44 150,58 270,42 270,28" fill="url(#sideGrad)" stroke="#B07020" stroke-width="0.6" opacity="0.7"/>
+              
+              <!-- Mesh grid lines on top deck -->
+              <line x1="60" y1="25" x2="60" y2="39" stroke="#00C2FF" stroke-width="0.5" opacity="0.6"/>
+              <line x1="90" y1="21" x2="90" y2="37" stroke="#10B981" stroke-width="0.5" opacity="0.6"/>
+              <line x1="120" y1="17" x2="120" y2="40" stroke="#10B981" stroke-width="0.5" opacity="0.6"/>
+              <line x1="150" y1="12" x2="150" y2="44" stroke="#F59E0B" stroke-width="0.5" opacity="0.6"/>
+              <line x1="180" y1="17" x2="180" y2="40" stroke="#F59E0B" stroke-width="0.5" opacity="0.6"/>
+              <line x1="210" y1="21" x2="210" y2="37" stroke="#EF4444" stroke-width="0.5" opacity="0.6"/>
+              <line x1="240" y1="25" x2="240" y2="35" stroke="#EF4444" stroke-width="0.5" opacity="0.6"/>
+              
+              <!-- Cross mesh lines on top deck -->
+              <line x1="45" y1="26" x2="255" y2="26" stroke="#009CCC" stroke-width="0.4" opacity="0.5"/>
+              <line x1="65" y1="32" x2="235" y2="32" stroke="#0B9070" stroke-width="0.4" opacity="0.5"/>
+              <line x1="90" y1="38" x2="210" y2="38" stroke="#C08030" stroke-width="0.4" opacity="0.5"/>
+              
+              <!-- Vertical mesh on side faces -->
+              <line x1="60" y1="32" x2="60" y2="42" stroke="#0080B0" stroke-width="0.4" opacity="0.4"/>
+              <line x1="90" y1="34" x2="90" y2="48" stroke="#0B8060" stroke-width="0.4" opacity="0.4"/>
+              <line x1="120" y1="37" x2="120" y2="53" stroke="#0B8060" stroke-width="0.4" opacity="0.4"/>
+              <line x1="180" y1="37" x2="180" y2="53" stroke="#B07020" stroke-width="0.4" opacity="0.4"/>
+              <line x1="210" y1="34" x2="210" y2="48" stroke="#C06020" stroke-width="0.4" opacity="0.4"/>
+              <line x1="240" y1="32" x2="240" y2="42" stroke="#D04020" stroke-width="0.4" opacity="0.4"/>
+              
+              <!-- Bridge piers / supports -->
+              <rect x="57" y="42" width="6" height="26" rx="1" fill="#0080B0" opacity="0.55"/>
+              <rect x="117" y="50" width="6" height="22" rx="1" fill="#10B981" opacity="0.5"/>
+              <rect x="177" y="50" width="6" height="22" rx="1" fill="#F59E0B" opacity="0.5"/>
+              <rect x="237" y="42" width="6" height="26" rx="1" fill="#EF4444" opacity="0.55"/>
+              
+              <!-- Ground line -->
+              <line x1="20" y1="68" x2="280" y2="68" stroke="#334155" stroke-width="1" opacity="0.4"/>
+              
+              <!-- Stress nodes (FEA mesh points) on deck -->
+              <circle cx="30" cy="28" r="2" fill="#00C2FF" opacity="0.9"/>
+              <circle cx="60" cy="25" r="1.8" fill="#00C2FF" opacity="0.8"/>
+              <circle cx="90" cy="21" r="2" fill="#10B981" opacity="0.9"/>
+              <circle cx="120" cy="17" r="1.8" fill="#10B981" opacity="0.8"/>
+              <circle cx="150" cy="12" r="2.5" fill="#F59E0B" opacity="0.95"/>
+              <circle cx="180" cy="17" r="1.8" fill="#F59E0B" opacity="0.8"/>
+              <circle cx="210" cy="21" r="2" fill="#EF4444" opacity="0.8"/>
+              <circle cx="240" cy="25" r="1.8" fill="#EF4444" opacity="0.85"/>
+              <circle cx="270" cy="28" r="2" fill="#EF4444" opacity="0.9"/>
+              
+              <!-- Bottom edge nodes -->
+              <circle cx="60" cy="39" r="1.5" fill="#00A0D0" opacity="0.6"/>
+              <circle cx="150" cy="44" r="1.8" fill="#D09020" opacity="0.65"/>
+              <circle cx="240" cy="35" r="1.5" fill="#D04040" opacity="0.6"/>
+              
+              <!-- Diagonal truss lines inside deck for structure feel -->
+              <line x1="30" y1="28" x2="60" y2="39" stroke="#00C2FF" stroke-width="0.6" opacity="0.4" stroke-dasharray="2 2"/>
+              <line x1="60" y1="25" x2="90" y2="37" stroke="#00C2FF" stroke-width="0.6" opacity="0.4" stroke-dasharray="2 2"/>
+              <line x1="120" y1="17" x2="150" y2="44" stroke="#10B981" stroke-width="0.6" opacity="0.35" stroke-dasharray="2 2"/>
+              <line x1="210" y1="21" x2="240" y2="35" stroke="#EF4444" stroke-width="0.6" opacity="0.4" stroke-dasharray="2 2"/>
+              <line x1="240" y1="25" x2="270" y2="28" stroke="#EF4444" stroke-width="0.6" opacity="0.4" stroke-dasharray="2 2"/>
+            </svg>
+          </div>
+        </article>
+
+        <!-- ------------------------------------------------------------------
+             LINHA 4 (CARDS LARGOS 12 & 13)
+             ------------------------------------------------------------------ -->
+
+        <!-- CARD 12: Documentação e Gestão (Linha 4, Cols 1 e 2) -->
+        <article class="bento-card card-documentacao" tabindex="0" data-card-id="12">
+          <div class="card-wide-inner">
+            <div class="card-wide-left">
+              <div class="bento-card-head">
+                <div class="bento-card-badge">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                    <polyline points="14 2 14 8 20 8"/>
+                    <line x1="16" y1="13" x2="8" y2="13"/>
+                    <line x1="16" y1="17" x2="8" y2="17"/>
+                    <polyline points="10 9 9 9 8 9"/>
+                  </svg>
+                </div>
+                <h3 class="bento-card-title">Documentação e gestão</h3>
+              </div>
+              <ul class="bento-checklist">
+                <li class="bento-checklist-item">
+                  <span class="bento-check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"/></svg></span>
+                  Relatórios Técnicos
+                </li>
+                <li class="bento-checklist-item">
+                  <span class="bento-check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"/></svg></span>
+                  Planos de Inspeção e Manutenção
+                </li>
+              </ul>
+            </div>
+            <div class="card-wide-right-media">
+              <img src="assets/Fotografias/Serviços - Banco de Imagens/05 - Gerenciamento de Projetos/gerenciamento_projetos_02.webp" alt="Gestão e documentação técnica com plantas e relatórios" loading="lazy" />
+            </div>
+          </div>
+        </article>
+
+        <!-- CARD 13: Consultoria Técnica (Linha 4, Cols 3 e 4 - Dark Card) -->
+        <article class="bento-card card-consultoria" tabindex="0" data-card-id="13">
+          <div class="card-wide-inner">
+            <div class="card-wide-left">
+              <div class="bento-card-head">
+                <div class="bento-card-badge">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                    <circle cx="9" cy="7" r="4"/>
+                    <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                  </svg>
+                </div>
+                <h3 class="bento-card-title" style="color: #ffffff;">Consultoria técnica</h3>
+              </div>
+              <ul class="bento-checklist">
+                <li class="bento-checklist-item">
+                  <span class="bento-check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"/></svg></span>
+                  Parecer Técnico
+                </li>
+                <li class="bento-checklist-item">
+                  <span class="bento-check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"/></svg></span>
+                  Apoio em decisões estratégicas
+                </li>
+              </ul>
+            </div>
+            <div class="card-wide-right-media">
+              <img src="assets/Fotografias/Serviços - Banco de Imagens/05 - Gerenciamento de Projetos/gerenciamento_projetos_03.webp" alt="Engenheiros consultores discutindo projeto em campo" loading="lazy" />
+            </div>
+          </div>
+        </article>
+
+      </main>
+
+    </div>
+
+  </section>
+
+  <!-- ==========================================================================
+       7. SCRIPTS DE INTERATIVIDADE E COMPORTAMENTO DINÂMICO
+       ========================================================================== -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const cards = document.querySelectorAll('.bento-card');
+      const pillars = document.querySelectorAll('.bento-pillar-item');
+
+      // Interatividade nos Cards do Bento Grid
+      cards.forEach(card => {
+        card.addEventListener('mouseenter', () => {
+          cards.forEach(c => {
+            if (c !== card) c.classList.remove('is-active-target');
+          });
+          card.classList.add('is-active-target');
+        });
+
+        card.addEventListener('click', () => {
+          const isExpanded = card.classList.contains('is-expanded');
+          cards.forEach(c => c.classList.remove('is-expanded'));
+          if (!isExpanded) {
+            card.classList.add('is-expanded');
+          }
+        });
+
+        // Acessibilidade por Teclado
+        card.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            card.click();
+          }
+        });
+      });
+
+      // Interatividade nos Pilares da Barra Lateral
+      pillars.forEach(pillar => {
+        pillar.addEventListener('mouseenter', () => {
+          pillar.classList.add('is-active');
+        });
+        pillar.addEventListener('mouseleave', () => {
+          pillar.classList.remove('is-active');
+        });
+      });
+    });
+  </script>
+</body>
+</html>
