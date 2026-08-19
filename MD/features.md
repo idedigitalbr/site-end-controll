@@ -1,5 +1,15 @@
 # Features — ENDCONTROL Engenharia
 
+## Bento Grid Editorial 12 Colunas (Masonry Arquitetônico & Hover Escalado)
+
+- Status: Concluída
+- Data: 2026-08-19
+- **Arquivo:** `componentes-cards-.html`
+- **Estrutura 12 Colunas Fluida:** `grid-template-columns: repeat(12, minmax(0, 1fr))`, `gap: clamp(8px, 1vw, 14px)`, `max-width: 1440px`.
+- **Encaixe Perfeito sem Buracos:** Composição matemática exata dos 13 serviços distribuídos em 5 linhas de altura proporcional (`aspect-ratio` e `grid-row`).
+- **Interações Expansíveis Premium:** Hover com escala diferenciada por tamanho do card (`1.038` pequeno, `1.025` médio, `1.015` grande), micro-zoom na imagem, elevação suave e foco spotlight nos cards ativos.
+- **Responsividade Multi-Dispositivo:** Adaptação suave para 6 colunas em tablets e 2/1 colunas em mobile.
+
 ## Bento Grid 1:1 Idêntico à Referência (13 Capacidades Integradas)
 
 - Status: Concluída

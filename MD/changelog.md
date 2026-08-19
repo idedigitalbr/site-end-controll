@@ -1,6 +1,32 @@
 # Changelog — ENDCONTROL Engenharia
 
-## [2026-08-19] - Refinamento Visual 1:1 do Expanding Bento Grid com a Referência Oficial
+## [2026-08-19] - Refatoração Completa da Seção Existente para Bento Grid Editorial 12 Colunas (Masonry Arquitetônico)
+
+- **Arquivo:** `componentes-cards-.html`
+
+### Added & Refined
+- **1. Arquitetura em CSS Grid de 12 Colunas (`componentes-cards-.html`):**
+  - Implementada a composição assimétrica de 12 colunas com `grid-auto-flow: dense`, `gap: clamp(8px, 1vw, 14px)` e `max-width: 1440px`.
+  - **Mapeamento Preciso dos 13 Cards (Zero Espaços Vazios):**
+    - `Hero Destaque:` `grid-column: span 5; grid-row: span 2; aspect-ratio: 1.25 / 1;` (Colunas 1 a 5, Linhas 1 a 2).
+    - `Ensaios Não Destrutivos:` `grid-column: span 3; grid-row: span 2;` (Colunas 6 a 8, Linhas 1 a 2).
+    - `Geotecnia:` `grid-column: span 4; grid-row: span 1;` (Colunas 9 a 12, Linha 1).
+    - `Monitoramento Estrutural:` `grid-column: span 4; grid-row: span 1;` (Colunas 9 a 12, Linha 2).
+    - `Inspeção Visual:` `grid-column: span 3;` (Colunas 1 a 3, Linha 3).
+    - `Materiais e Durabilidade:` `grid-column: span 3;` (Colunas 4 a 6, Linha 3).
+    - `Integridade Estrutural:` `grid-column: span 3;` (Colunas 7 a 9, Linha 3).
+    - `Geometria (Drone):` `grid-column: span 3; grid-row: span 2; aspect-ratio: 0.72 / 1;` (Colunas 10 a 12, Linhas 3 a 4).
+    - `Topografia:` `grid-column: span 3;` (Colunas 1 a 3, Linha 4).
+    - `GPR:` `grid-column: span 3;` (Colunas 4 a 6, Linha 4).
+    - `Análise Estrutural:` `grid-column: span 3;` (Colunas 7 a 9, Linha 4).
+    - `Documentação e Gestão:` `grid-column: span 6;` (Colunas 1 a 6, Linha 5).
+    - `Consultoria Técnica:` `grid-column: span 6;` (Colunas 7 a 12, Linha 5).
+  - **Micro-Interações e Hover Expansível Escalado:**
+    - `.card--small:hover`: `translateY(-4px) scale(1.038)`.
+    - `.card--medium:hover`: `translateY(-4px) scale(1.025)`.
+    - `.card--large:hover`: `translateY(-3px) scale(1.015)`.
+    - Suavização dos cards vizinhos com `:has()`, micro-zoom na imagem de fundo (`scale(1.035)`) e rotação sutil de ícones.
+  - **Totalmente Responsivo:** Grid de 6 colunas no tablet (`768px - 1100px`) e grid de 2/1 colunas no mobile com tratamento rigoroso de touch (`@media (hover: hover)` e `@media (prefers-reduced-motion)`).
 
 - **Arquivo:** `componentes-cards-.html`
 

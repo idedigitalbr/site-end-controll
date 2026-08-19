@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Biblioteca de Cards & Expanding Bento Grid | ENDCONTROL</title>
+  <title>Bento Grid Editorial & Biblioteca de Cards | ENDCONTROL</title>
   <link rel="icon" type="image/webp" href="./assets/Logos/icon-endcontrol.webp" />
   
   <!-- Fontes Oficiais -->
@@ -20,12 +20,13 @@
       --font-heading: "DM Sans", var(--font-main);
 
       /* Cores Base dos Cards Dark */
-      --navy-bg: #07152b;
-      --navy-card-dark: #091b36;
-      --navy-card-shadow: 0 10px 28px rgba(7, 20, 41, 0.22);
+      --navy-bg: linear-gradient(135deg, #03162f 0%, #001329 100%);
+      --navy-solid: #07152b;
+      --navy-card-shadow: 0 10px 28px rgba(3, 22, 47, 0.25);
 
       /* Cores Base dos Cards White */
-      --card-white-bg: #ffffff;
+      --card-white-bg: rgba(255, 255, 255, 0.96);
+      --card-white-border: 1px solid rgba(0, 80, 160, 0.06);
       --card-white-shadow: 0 8px 24px rgba(10, 35, 70, 0.06);
 
       /* Acentos & Neon */
@@ -40,10 +41,9 @@
       --text-muted: #64748b;
 
       /* Raios e Transições */
-      --radius-card: 22px;
+      --radius-card: clamp(16px, 1.5vw, 24px);
       --radius-icon: 50%;
-      --transition-smooth: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-      --transition-spring: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+      --transition-spring: transform 500ms cubic-bezier(0.22, 1, 0.36, 1), filter 350ms ease, opacity 350ms ease, box-shadow 350ms ease;
     }
 
     * {
@@ -60,14 +60,16 @@
         radial-gradient(circle at 90% 90%, rgba(0, 98, 227, 0.09) 0%, transparent 45%);
       color: var(--text-body);
       min-height: 100vh;
-      padding: 40px 20px 100px;
+      padding: 40px 16px 100px;
       line-height: 1.5;
       -webkit-font-smoothing: antialiased;
     }
 
     .components-showcase {
-      max-width: 1360px;
-      margin: 0 auto;
+      width: 100%;
+      max-width: 1440px;
+      margin-inline: auto;
+      padding-inline: clamp(10px, 2vw, 24px);
       display: flex;
       flex-direction: column;
       gap: 56px;
@@ -76,10 +78,10 @@
     /* Cabeçalho Geral da Página */
     .showcase-header {
       background: #ffffff;
-      padding: 28px 36px;
-      border-radius: 22px;
+      padding: clamp(20px, 2vw, 32px);
+      border-radius: var(--radius-card);
       box-shadow: 0 10px 30px rgba(0, 40, 80, 0.06);
-      border: none;
+      border: 1px solid rgba(0, 80, 160, 0.06);
     }
 
     .showcase-badge {
@@ -97,7 +99,7 @@
 
     .showcase-header h1 {
       font-family: var(--font-heading);
-      font-size: 1.9rem;
+      font-size: clamp(22px, 2vw, 32px);
       font-weight: 800;
       color: var(--text-dark);
       letter-spacing: -0.02em;
@@ -105,7 +107,7 @@
 
     .showcase-header p {
       color: var(--text-muted);
-      font-size: 0.95rem;
+      font-size: clamp(14px, 1vw, 16px);
       margin-top: 4px;
     }
 
@@ -124,7 +126,7 @@
 
     .section-title {
       font-family: var(--font-heading);
-      font-size: 1.35rem;
+      font-size: clamp(18px, 1.5vw, 24px);
       font-weight: 800;
       color: var(--text-dark);
       display: flex;
@@ -141,28 +143,27 @@
     }
 
     .section-subtitle {
-      font-size: 0.92rem;
+      font-size: clamp(13px, 0.95vw, 15px);
       color: var(--text-muted);
     }
 
     /* ==========================================================================
-       2. REGRAS CSS COMPARTILHADAS DOS 4 COMPONENTES DE CARDS
+       2. REGRAS CSS COMPARTILHADAS DOS CARDS
        ========================================================================== */
     
     .cards-grid-4cols {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
+      gap: clamp(8px, 1vw, 14px);
       align-items: stretch;
       width: 100%;
     }
 
-    /* --- BASE CARD DARK (SEM BORDAS) --- */
+    /* --- BASE CARD DARK --- */
     .ec-card-dark {
       position: relative;
       border-radius: var(--radius-card);
       overflow: hidden;
-      min-height: 280px;
       background: var(--navy-bg);
       border: none;
       box-shadow: var(--navy-card-shadow);
@@ -173,15 +174,6 @@
       cursor: pointer;
     }
 
-    .ec-card-dark:hover,
-    .ec-card-dark:focus-visible {
-      transform: translateY(-4px) scale(1.015);
-      box-shadow: 
-        0 16px 36px rgba(7, 20, 41, 0.45),
-        0 0 20px rgba(0, 194, 255, 0.22);
-      z-index: 5;
-    }
-
     .ec-card-dark-bg-img {
       position: absolute;
       inset: 0;
@@ -189,11 +181,7 @@
       height: 100%;
       object-fit: cover;
       z-index: 0;
-      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .ec-card-dark:hover .ec-card-dark-bg-img {
-      transform: scale(1.05);
+      transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
     }
 
     /* Degradês Dark */
@@ -202,12 +190,12 @@
       inset: 0;
       z-index: 1;
       background: linear-gradient(
-        to right,
-        rgba(7, 21, 43, 0.98) 0%,
-        rgba(7, 21, 43, 0.94) 40%,
-        rgba(7, 21, 43, 0.72) 65%,
-        rgba(7, 21, 43, 0.25) 85%,
-        rgba(7, 21, 43, 0.05) 100%
+        90deg,
+        rgba(3, 22, 47, 0.98) 0%,
+        rgba(3, 22, 47, 0.94) 40%,
+        rgba(3, 22, 47, 0.68) 65%,
+        rgba(3, 22, 47, 0.2) 85%,
+        transparent 100%
       );
       pointer-events: none;
     }
@@ -218,10 +206,10 @@
       z-index: 1;
       background: linear-gradient(
         to bottom,
-        rgba(7, 21, 43, 0.98) 0%,
-        rgba(7, 21, 43, 0.92) 26%,
-        rgba(7, 21, 43, 0.55) 55%,
-        rgba(7, 21, 43, 0.15) 80%,
+        rgba(3, 22, 47, 0.98) 0%,
+        rgba(3, 22, 47, 0.92) 26%,
+        rgba(3, 22, 47, 0.5) 55%,
+        rgba(3, 22, 47, 0.15) 80%,
         transparent 100%
       );
       pointer-events: none;
@@ -233,9 +221,9 @@
       z-index: 1;
       background: linear-gradient(
         to top,
-        rgba(4, 12, 28, 0.95) 0%,
-        rgba(4, 12, 28, 0.75) 30%,
-        rgba(4, 12, 28, 0.3) 60%,
+        rgba(0, 13, 31, 0.95) 0%,
+        rgba(0, 13, 31, 0.65) 35%,
+        rgba(0, 13, 31, 0.05) 75%,
         transparent 100%
       );
       pointer-events: none;
@@ -248,7 +236,7 @@
       flex-direction: column;
       height: 100%;
       min-height: 100%;
-      padding: 22px 24px;
+      padding: clamp(16px, 1.5vw, 24px);
       gap: 10px;
       box-sizing: border-box;
     }
@@ -256,7 +244,7 @@
     .ec-card-dark-content--hero {
       justify-content: flex-end;
       gap: 4px;
-      padding: 22px 24px;
+      padding: clamp(20px, 2vw, 32px);
     }
 
     .ec-card-dark-head-row {
@@ -270,37 +258,26 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 40px;
-      height: 40px;
+      width: clamp(34px, 2.5vw, 44px);
+      height: clamp(34px, 2.5vw, 44px);
       border-radius: var(--radius-icon);
       background: rgba(0, 194, 255, 0.12);
       border: 1px solid rgba(0, 194, 255, 0.35);
       color: var(--cyan-neon);
       flex-shrink: 0;
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
-      transition: var(--transition-smooth);
+      transition: var(--transition-spring);
     }
 
     .ec-card-dark-icon-wrapper svg {
-      width: 20px;
-      height: 20px;
+      width: clamp(18px, 1.3vw, 22px);
+      height: clamp(18px, 1.3vw, 22px);
       stroke: var(--cyan-neon);
-    }
-
-    .ec-card-dark:hover .ec-card-dark-icon-wrapper {
-      transform: scale(1.08) rotate(5deg);
-      background: var(--cyan-neon);
-      color: #040c1a;
-      box-shadow: 0 0 16px rgba(0, 194, 255, 0.6);
-    }
-
-    .ec-card-dark:hover .ec-card-dark-icon-wrapper svg {
-      stroke: #040c1a;
     }
 
     .ec-card-dark-title {
       font-family: var(--font-heading);
-      font-size: 1.18rem;
+      font-size: clamp(16px, 1.2vw, 20px);
       font-weight: 700;
       color: #ffffff;
       line-height: 1.2;
@@ -308,8 +285,8 @@
     }
 
     .ec-card-dark-text {
-      font-size: 0.86rem;
-      color: rgba(255, 255, 255, 0.82);
+      font-size: clamp(13px, 0.95vw, 15px);
+      color: rgba(255, 255, 255, 0.85);
       line-height: 1.45;
     }
 
@@ -319,27 +296,27 @@
       margin: 0;
       display: flex;
       flex-direction: column;
-      gap: 7px;
+      gap: 6px;
     }
 
     .ec-card-dark-checklist li {
       display: flex;
       align-items: center;
       gap: 8px;
-      font-size: 0.85rem;
+      font-size: clamp(12.5px, 0.9vw, 15px);
       font-weight: 500;
       color: rgba(255, 255, 255, 0.95);
     }
 
     .ec-card-dark-checklist svg.check-icon {
-      width: 16px;
-      height: 16px;
+      width: 15px;
+      height: 15px;
       stroke: var(--cyan-soft);
       flex-shrink: 0;
     }
 
     .ec-hero-tag {
-      font-size: 0.78rem;
+      font-size: clamp(12px, 0.8vw, 14px);
       font-weight: 800;
       letter-spacing: 0.05em;
       text-transform: uppercase;
@@ -351,34 +328,26 @@
 
     .ec-hero-headline-dark {
       font-family: var(--font-heading);
-      font-size: 1.15rem;
+      font-size: clamp(18px, 1.5vw, 24px);
       font-weight: 700;
       color: #ffffff;
       line-height: 1.28;
       margin: 0;
     }
 
-    /* --- BASE CARD WHITE (SEM BORDAS) --- */
+    /* --- BASE CARD WHITE --- */
     .ec-card-white {
       position: relative;
       border-radius: var(--radius-card);
       overflow: hidden;
-      min-height: 280px;
-      background: #ffffff;
-      border: none;
+      background: var(--card-white-bg);
+      border: var(--card-white-border);
       box-shadow: var(--card-white-shadow);
       transition: var(--transition-spring);
       display: flex;
       flex-direction: column;
       user-select: none;
       cursor: pointer;
-    }
-
-    .ec-card-white:hover,
-    .ec-card-white:focus-visible {
-      transform: translateY(-4px) scale(1.015);
-      box-shadow: 0 16px 36px rgba(10, 40, 90, 0.12), 0 0 18px rgba(0, 194, 255, 0.18);
-      z-index: 5;
     }
 
     .ec-card-white-bg-img {
@@ -388,11 +357,7 @@
       height: 100%;
       object-fit: cover;
       z-index: 0;
-      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .ec-card-white:hover .ec-card-white-bg-img {
-      transform: scale(1.05);
+      transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
     }
 
     /* Degradês White */
@@ -401,12 +366,12 @@
       inset: 0;
       z-index: 1;
       background: linear-gradient(
-        to right,
-        #ffffff 0%,
-        rgba(255, 255, 255, 0.98) 40%,
-        rgba(255, 255, 255, 0.78) 65%,
-        rgba(255, 255, 255, 0.25) 85%,
-        rgba(255, 255, 255, 0.05) 100%
+        90deg,
+        rgba(255, 255, 255, 0.98) 0%,
+        rgba(255, 255, 255, 0.92) 42%,
+        rgba(255, 255, 255, 0.65) 68%,
+        rgba(255, 255, 255, 0.15) 88%,
+        transparent 100%
       );
       pointer-events: none;
     }
@@ -417,10 +382,10 @@
       z-index: 1;
       background: linear-gradient(
         to bottom,
-        #ffffff 0%,
-        rgba(255, 255, 255, 0.98) 26%,
-        rgba(255, 255, 255, 0.72) 55%,
-        rgba(255, 255, 255, 0.2) 80%,
+        rgba(255, 255, 255, 0.98) 0%,
+        rgba(255, 255, 255, 0.92) 26%,
+        rgba(255, 255, 255, 0.6) 55%,
+        rgba(255, 255, 255, 0.15) 80%,
         transparent 100%
       );
       pointer-events: none;
@@ -447,7 +412,7 @@
       flex-direction: column;
       height: 100%;
       min-height: 100%;
-      padding: 22px 24px;
+      padding: clamp(16px, 1.5vw, 24px);
       gap: 10px;
       box-sizing: border-box;
     }
@@ -455,7 +420,7 @@
     .ec-card-white-content--hero {
       justify-content: flex-end;
       gap: 4px;
-      padding: 22px 24px;
+      padding: clamp(20px, 2vw, 32px);
     }
 
     .ec-card-white-head-row {
@@ -469,38 +434,26 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 40px;
-      height: 40px;
+      width: clamp(34px, 2.5vw, 44px);
+      height: clamp(34px, 2.5vw, 44px);
       border-radius: var(--radius-icon);
       background: #f0f7ff;
       border: 1px solid rgba(0, 98, 227, 0.2);
       color: #0062e3;
       flex-shrink: 0;
       box-shadow: 0 2px 8px rgba(0, 98, 227, 0.08);
-      transition: var(--transition-smooth);
+      transition: var(--transition-spring);
     }
 
     .ec-card-white-icon-wrapper svg {
-      width: 20px;
-      height: 20px;
-      transition: var(--transition-smooth);
-    }
-
-    .ec-card-white:hover .ec-card-white-icon-wrapper {
-      background: var(--cyan-neon);
-      color: #040c1a;
-      border-color: var(--cyan-neon);
-      transform: scale(1.08) rotate(5deg);
-      box-shadow: 0 0 16px rgba(0, 194, 255, 0.45);
-    }
-
-    .ec-card-white:hover .ec-card-white-icon-wrapper svg {
-      stroke: #040c1a;
+      width: clamp(18px, 1.3vw, 22px);
+      height: clamp(18px, 1.3vw, 22px);
+      transition: var(--transition-spring);
     }
 
     .ec-card-white-title {
       font-family: var(--font-heading);
-      font-size: 1.18rem;
+      font-size: clamp(16px, 1.2vw, 20px);
       font-weight: 700;
       color: var(--text-dark);
       line-height: 1.2;
@@ -508,7 +461,7 @@
     }
 
     .ec-card-white-text {
-      font-size: 0.86rem;
+      font-size: clamp(13px, 0.95vw, 15px);
       color: #475569;
       line-height: 1.45;
     }
@@ -519,21 +472,21 @@
       margin: 0;
       display: flex;
       flex-direction: column;
-      gap: 7px;
+      gap: 6px;
     }
 
     .ec-card-white-checklist li {
       display: flex;
       align-items: center;
       gap: 8px;
-      font-size: 0.85rem;
+      font-size: clamp(12.5px, 0.9vw, 15px);
       font-weight: 500;
       color: #334155;
     }
 
     .ec-card-white-checklist svg.check-icon {
-      width: 16px;
-      height: 16px;
+      width: 15px;
+      height: 15px;
       stroke: #00abe3;
       flex-shrink: 0;
     }
@@ -544,7 +497,7 @@
 
     .ec-hero-headline-white {
       font-family: var(--font-heading);
-      font-size: 1.15rem;
+      font-size: clamp(18px, 1.5vw, 24px);
       font-weight: 700;
       color: var(--text-dark);
       line-height: 1.28;
@@ -552,83 +505,117 @@
     }
 
     /* ==========================================================================
-       3. SEÇÃO EXPANDING DYNAMIC BENTO GRID (EXATA DA REFERÊNCIA)
+       3. EXPANDING DYNAMIC BENTO GRID (12-COLUNAS EDITORIAL & MASONRY PREMIUM)
        ========================================================================== */
     .bento-dynamic-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 15px;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      grid-auto-flow: dense;
+      gap: clamp(8px, 1vw, 14px);
+      width: 100%;
       position: relative;
     }
 
-    /* Efeito Spotlight Suave no Hover da Grade */
-    .bento-dynamic-grid:hover > .ec-card-dark:not(:hover),
-    .bento-dynamic-grid:hover > .ec-card-white:not(:hover),
-    .bento-dynamic-grid:hover > .bento-stack-col:not(:hover) {
-      opacity: 0.82;
-      filter: saturate(0.92);
-      transform: scale(0.995);
+    /* --- POSICIONAMENTO E PROPORÇÕES DA COMPOSIÇÃO 12 COLUNAS --- */
+    
+    /* 1. HERO PRINCIPAL (Col 1-5, Row 1-2) */
+    .bento-card-hero {
+      grid-column: span 5;
+      grid-row: span 2;
+      aspect-ratio: 1.25 / 1;
     }
 
-    /* Modificadores de Span do Bento Grid */
-    .bento-span-2cols {
-      grid-column: span 2;
-    }
-
-    .bento-span-2rows {
+    /* 2. ENSAIOS NÃO DESTRUTIVOS (Col 6-8, Row 1-2) */
+    .bento-card-ends {
+      grid-column: span 3;
       grid-row: span 2;
     }
 
-    .bento-stack-col {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      height: 100%;
+    /* 3. GEOTECNIA (Col 9-12, Row 1) */
+    .bento-card-geotecnia {
+      grid-column: span 4;
+      grid-row: span 1;
     }
 
-    /* Ajuste Compacto dos Cards Empilhados (Geotecnia + Monitoramento) */
-    .bento-compact-card {
-      min-height: 135px !important;
-      flex: 1;
+    /* 4. MONITORAMENTO ESTRUTURAL (Col 9-12, Row 2) */
+    .bento-card-monitoramento {
+      grid-column: span 4;
+      grid-row: span 1;
     }
 
-    .bento-compact-card .ec-card-white-content {
-      padding: 14px 16px;
+    /* 5. INSPEÇÃO VISUAL (Col 1-3, Row 3) */
+    .bento-card-inspecao {
+      grid-column: span 3;
+    }
+
+    /* 6. MATERIAIS E DURABILIDADE (Col 4-6, Row 3) */
+    .bento-card-materiais {
+      grid-column: span 3;
+    }
+
+    /* 7. INTEGRIDADE ESTRUTURAL (Col 7-9, Row 3) */
+    .bento-card-integridade {
+      grid-column: span 3;
+    }
+
+    /* 8. GEOMETRIA VERTICAL ALTO (Col 10-12, Row 3-4) */
+    .bento-card-geometria {
+      grid-column: span 3;
+      grid-row: span 2;
+      aspect-ratio: 0.72 / 1;
+    }
+
+    /* 9. TOPOGRAFIA (Col 1-3, Row 4) */
+    .bento-card-topografia {
+      grid-column: span 3;
+    }
+
+    /* 10. GPR (Col 4-6, Row 4) */
+    .bento-card-gpr {
+      grid-column: span 3;
+    }
+
+    /* 11. ANÁLISE ESTRUTURAL (Col 7-9, Row 4) */
+    .bento-card-analise {
+      grid-column: span 3;
+    }
+
+    /* 12. DOCUMENTAÇÃO E GESTÃO (Col 1-6, Row 5) */
+    .bento-card-documentacao {
+      grid-column: span 6;
+    }
+
+    /* 13. CONSULTORIA TÉCNICA (Col 7-12, Row 5) */
+    .bento-card-consultoria {
+      grid-column: span 6;
+    }
+
+    /* --- AJUSTES ESPECÍFICOS DE CONTEÚDO DOS CARDS DO BENTO --- */
+
+    /* Geotecnia e Monitoramento Compactos */
+    .bento-card-compact .ec-card-white-content {
+      padding: clamp(12px, 1.2vw, 18px);
       gap: 6px;
     }
 
-    .bento-compact-card .ec-card-white-icon-wrapper {
-      width: 32px;
-      height: 32px;
+    .bento-card-compact .ec-card-white-icon-wrapper {
+      width: clamp(30px, 2vw, 36px);
+      height: clamp(30px, 2vw, 36px);
     }
 
-    .bento-compact-card .ec-card-white-icon-wrapper svg {
-      width: 16px;
-      height: 16px;
+    .bento-card-compact .ec-card-white-title {
+      font-size: clamp(14px, 1.1vw, 18px);
     }
 
-    .bento-compact-card .ec-card-white-title {
-      font-size: 0.98rem;
-    }
-
-    .bento-compact-card .ec-card-white-checklist {
-      gap: 4px;
-    }
-
-    .bento-compact-card .ec-card-white-checklist li {
-      font-size: 0.8rem;
-      gap: 6px;
-    }
-
-    /* Inspeção Visual (Foto na Base) */
+    /* Inspeção Visual - Foto na Base */
     .bento-card-inspecao .ec-card-white-content {
       padding-bottom: 0;
     }
 
     .bento-card-inspecao-photo {
-      width: calc(100% + 48px);
-      height: 80px;
-      margin: auto -24px 0 -24px;
+      width: calc(100% + clamp(32px, 3vw, 48px));
+      height: clamp(65px, 6vw, 90px);
+      margin: auto calc(-1 * clamp(16px, 1.5vw, 24px)) 0;
       position: relative;
       overflow: hidden;
     }
@@ -638,11 +625,7 @@
       height: 100%;
       object-fit: cover;
       object-position: center 30%;
-      transition: transform 0.4s ease;
-    }
-
-    .bento-card-inspecao:hover .bento-card-inspecao-photo img {
-      transform: scale(1.06);
+      transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
     }
 
     .bento-card-inspecao-fade {
@@ -651,7 +634,7 @@
       z-index: 1;
       background: linear-gradient(
         to bottom,
-        #ffffff 0%,
+        rgba(255, 255, 255, 1) 0%,
         rgba(255, 255, 255, 0.85) 25%,
         transparent 80%
       );
@@ -662,7 +645,7 @@
     .bento-mef-wrapper {
       margin-top: auto;
       width: 100%;
-      height: 65px;
+      height: clamp(55px, 5vw, 75px);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -674,47 +657,241 @@
     }
 
     /* ==========================================================================
-       4. RESPONSIVIDADE
+       4. INTERAÇÕES DE HOVER EXPANSÍVEL (DESKTOP)
        ========================================================================== */
-    @media (max-width: 1240px) {
-      .cards-grid-4cols {
-        grid-template-columns: repeat(2, 1fr);
+    @media (hover: hover) and (pointer: fine) {
+      /* Intensidade Escalada por Tamanho */
+      .card--large:hover,
+      .card--large:focus-visible {
+        transform: translateY(-3px) scale(1.015);
+        z-index: 10;
       }
 
-      .bento-dynamic-grid {
-        grid-template-columns: repeat(2, 1fr);
+      .card--medium:hover,
+      .card--medium:focus-visible {
+        transform: translateY(-4px) scale(1.025);
+        z-index: 10;
       }
 
-      .bento-span-2rows {
-        grid-row: auto;
+      .card--small:hover,
+      .card--small:focus-visible {
+        transform: translateY(-4px) scale(1.038);
+        z-index: 10;
+      }
+
+      /* Brilho e Elevação no Card Focado */
+      .ec-card-dark:hover,
+      .ec-card-dark:focus-visible {
+        box-shadow: 0 18px 42px rgba(3, 22, 47, 0.5), 0 0 22px rgba(0, 194, 255, 0.25);
+      }
+
+      .ec-card-white:hover,
+      .ec-card-white:focus-visible {
+        box-shadow: 0 18px 42px rgba(10, 40, 90, 0.12), 0 0 18px rgba(0, 194, 255, 0.18);
+      }
+
+      .ec-card-dark:hover .ec-card-dark-bg-img,
+      .ec-card-white:hover .ec-card-white-bg-img,
+      .bento-card-inspecao:hover .bento-card-inspecao-photo img {
+        transform: scale(1.035);
+      }
+
+      .ec-card-dark:hover .ec-card-dark-icon-wrapper,
+      .ec-card-white:hover .ec-card-white-icon-wrapper {
+        background: var(--cyan-neon);
+        color: #040c1a;
+        border-color: var(--cyan-neon);
+        transform: scale(1.08) rotate(4deg);
+        box-shadow: 0 0 16px rgba(0, 194, 255, 0.45);
+      }
+
+      .ec-card-dark:hover .ec-card-dark-icon-wrapper svg,
+      .ec-card-white:hover .ec-card-white-icon-wrapper svg {
+        stroke: #040c1a;
+      }
+
+      /* Cards Vizinhos Suavizados */
+      .bento-dynamic-grid:has(.ec-card-dark:hover) .ec-card-dark:not(:hover),
+      .bento-dynamic-grid:has(.ec-card-dark:hover) .ec-card-white:not(:hover),
+      .bento-dynamic-grid:has(.ec-card-white:hover) .ec-card-dark:not(:hover),
+      .bento-dynamic-grid:has(.ec-card-white:hover) .ec-card-white:not(:hover) {
+        opacity: 0.82;
+        filter: saturate(0.9);
       }
     }
 
-    @media (max-width: 720px) {
+    /* ==========================================================================
+       5. RESPONSIVIDADE (TABLET & MOBILE)
+       ========================================================================== */
+    
+    /* TABLET (768px a 1100px): Grid de 6 Colunas */
+    @media (max-width: 1100px) and (min-width: 768px) {
+      .bento-dynamic-grid {
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+      }
+
+      .bento-card-hero {
+        grid-column: span 6;
+        aspect-ratio: 16 / 9;
+      }
+
+      .bento-card-ends {
+        grid-column: span 3;
+        grid-row: auto;
+      }
+
+      .bento-card-geotecnia {
+        grid-column: span 3;
+        grid-row: auto;
+      }
+
+      .bento-card-monitoramento {
+        grid-column: span 3;
+        grid-row: auto;
+      }
+
+      .bento-card-inspecao {
+        grid-column: span 3;
+      }
+
+      .bento-card-materiais {
+        grid-column: span 3;
+      }
+
+      .bento-card-integridade {
+        grid-column: span 3;
+      }
+
+      .bento-card-geometria {
+        grid-column: span 3;
+        grid-row: auto;
+        aspect-ratio: 1.1 / 1;
+      }
+
+      .bento-card-topografia {
+        grid-column: span 3;
+      }
+
+      .bento-card-gpr {
+        grid-column: span 3;
+      }
+
+      .bento-card-analise {
+        grid-column: span 3;
+      }
+
+      .bento-card-documentacao {
+        grid-column: span 6;
+      }
+
+      .bento-card-consultoria {
+        grid-column: span 6;
+      }
+
+      .cards-grid-4cols {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* MOBILE (<768px): Grid de 2 Colunas */
+    @media (max-width: 767px) {
       body {
-        padding: 20px 12px 60px;
+        padding: 20px 10px 60px;
       }
 
       .components-showcase {
-        gap: 40px;
+        gap: 36px;
       }
 
-      .showcase-header {
-        padding: 20px 20px;
+      .cards-grid-4cols {
+        grid-template-columns: 1fr;
       }
 
-      .cards-grid-4cols,
+      .bento-dynamic-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .bento-card-hero {
+        grid-column: 1 / -1;
+        aspect-ratio: 16 / 10;
+      }
+
+      .bento-card-ends {
+        grid-column: 1 / -1;
+        grid-row: auto;
+      }
+
+      .bento-card-geotecnia {
+        grid-column: 1 / -1;
+      }
+
+      .bento-card-monitoramento {
+        grid-column: 1 / -1;
+      }
+
+      .bento-card-inspecao {
+        grid-column: span 1;
+      }
+
+      .bento-card-materiais {
+        grid-column: span 1;
+      }
+
+      .bento-card-integridade {
+        grid-column: span 1;
+      }
+
+      .bento-card-geometria {
+        grid-column: span 1;
+        grid-row: auto;
+        aspect-ratio: 0.9 / 1;
+      }
+
+      .bento-card-topografia {
+        grid-column: span 1;
+      }
+
+      .bento-card-gpr {
+        grid-column: span 1;
+      }
+
+      .bento-card-analise {
+        grid-column: 1 / -1;
+      }
+
+      .bento-card-documentacao {
+        grid-column: 1 / -1;
+      }
+
+      .bento-card-consultoria {
+        grid-column: 1 / -1;
+      }
+    }
+
+    /* MOBILE PEQUENO (<420px): Coluna Única */
+    @media (max-width: 420px) {
       .bento-dynamic-grid {
         grid-template-columns: 1fr;
       }
 
-      .bento-span-2cols {
+      .bento-card-inspecao,
+      .bento-card-materiais,
+      .bento-card-integridade,
+      .bento-card-geometria,
+      .bento-card-topografia,
+      .bento-card-gpr {
         grid-column: span 1;
       }
+    }
 
-      .ec-card-dark-content,
-      .ec-card-white-content {
-        padding: 20px 18px;
+    /* REDUCED MOTION */
+    @media (prefers-reduced-motion: reduce) {
+      *, ::before, ::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
       }
     }
   </style>
@@ -726,8 +903,8 @@
     <!-- CABEÇALHO GERAL -->
     <header class="showcase-header">
       <span class="showcase-badge">Biblioteca de Componentes — ENDCONTROL</span>
-      <h1>Catálogo de Cards & Expanding Bento Grid</h1>
-      <p>Biblioteca oficial com as 4 tipologias modulares e a composição completa do <strong>Expanding Bento Grid</strong>.</p>
+      <h1>Catálogo de Cards & Bento Grid Editorial</h1>
+      <p>Mosaico arquitetônico e responsivo construído sobre CSS Grid de 12 colunas, proporções fluidas com <code>clamp()</code> e micro-interações expansíveis.</p>
     </header>
 
     <!-- ======================================================================
@@ -742,7 +919,7 @@
       <div class="cards-grid-4cols">
 
         <!-- CARD 1 DARK: HORIZONTAL -->
-        <article class="ec-card-dark" tabindex="0">
+        <article class="ec-card-dark card--medium" tabindex="0">
           <img src="./assets/Fotografias/editadas/operacional-discussao-engenheiros-tela-edit.webp" alt="Discussão técnica de engenheiros" class="ec-card-dark-bg-img" style="object-position: center right;" loading="lazy" />
           <div class="ec-card-dark-overlay--horizontal"></div>
           <div class="ec-card-dark-content">
@@ -760,7 +937,7 @@
         </article>
 
         <!-- CARD 2 DARK: VERTICAL -->
-        <article class="ec-card-dark" tabindex="0">
+        <article class="ec-card-dark card--medium" tabindex="0">
           <img src="./assets/Fotografias/Serviços - Banco de Imagens/02 - Inspeção em Obras de Artes Especiais/obras_arte_especiais_02.webp" alt="Drone em inspeção técnica de estruturas" class="ec-card-dark-bg-img" style="object-position: center bottom;" loading="lazy" />
           <div class="ec-card-dark-overlay--vertical"></div>
           <div class="ec-card-dark-content">
@@ -777,7 +954,7 @@
         </article>
 
         <!-- CARD 3 DARK: SEM FOTO -->
-        <article class="ec-card-dark" tabindex="0">
+        <article class="ec-card-dark card--medium" tabindex="0">
           <div class="ec-card-dark-content">
             <div class="ec-card-dark-icon-wrapper"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></div>
             <h3 class="ec-card-dark-title">Ensaios não destrutivos</h3>
@@ -792,7 +969,7 @@
         </article>
 
         <!-- CARD 4 DARK: HERO DESTAQUE -->
-        <article class="ec-card-dark" tabindex="0">
+        <article class="ec-card-dark card--large" tabindex="0">
           <img src="./assets/Fotografias/Serviços - Banco de Imagens/02 - Inspeção em Obras de Artes Especiais/obras_arte_especiais_03.webp" alt="Engenheiro EndControl inspecionando ponte" class="ec-card-dark-bg-img" style="object-position: center;" loading="lazy" />
           <div class="ec-card-dark-overlay--hero"></div>
           <div class="ec-card-dark-content ec-card-dark-content--hero">
@@ -816,7 +993,7 @@
       <div class="cards-grid-4cols">
 
         <!-- CARD 1 WHITE: HORIZONTAL -->
-        <article class="ec-card-white" tabindex="0">
+        <article class="ec-card-white card--medium" tabindex="0">
           <img src="./assets/Fotografias/editadas/operacional-discussao-engenheiros-tela-edit.webp" alt="Discussão técnica de engenheiros" class="ec-card-white-bg-img" style="object-position: center right;" loading="lazy" />
           <div class="ec-card-white-overlay--horizontal"></div>
           <div class="ec-card-white-content">
@@ -832,7 +1009,7 @@
         </article>
 
         <!-- CARD 2 WHITE: VERTICAL -->
-        <article class="ec-card-white" tabindex="0">
+        <article class="ec-card-white card--medium" tabindex="0">
           <img src="./assets/Fotografias/Serviços - Banco de Imagens/02 - Inspeção em Obras de Artes Especiais/obras_arte_especiais_02.webp" alt="Drone em inspeção técnica de estruturas" class="ec-card-white-bg-img" style="object-position: center bottom;" loading="lazy" />
           <div class="ec-card-white-overlay--vertical"></div>
           <div class="ec-card-white-content">
@@ -849,7 +1026,7 @@
         </article>
 
         <!-- CARD 3 WHITE: SEM FOTO -->
-        <article class="ec-card-white" tabindex="0">
+        <article class="ec-card-white card--medium" tabindex="0">
           <div class="ec-card-white-content">
             <div class="ec-card-white-icon-wrapper"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></div>
             <h3 class="ec-card-white-title">Ensaios não destrutivos</h3>
@@ -864,7 +1041,7 @@
         </article>
 
         <!-- CARD 4 WHITE: HERO DESTAQUE -->
-        <article class="ec-card-white" tabindex="0">
+        <article class="ec-card-white card--large" tabindex="0">
           <img src="./assets/Fotografias/Serviços - Banco de Imagens/02 - Inspeção em Obras de Artes Especiais/obras_arte_especiais_03.webp" alt="Engenheiro EndControl inspecionando ponte" class="ec-card-white-bg-img" style="object-position: center;" loading="lazy" />
           <div class="ec-card-white-overlay--hero"></div>
           <div class="ec-card-white-content ec-card-white-content--hero">
@@ -877,22 +1054,22 @@
     </section>
 
     <!-- ======================================================================
-         SEÇÃO 3: EXPANDING DYNAMIC BENTO GRID (COMPOSIÇÃO 1:1 DA REFERÊNCIA)
+         SEÇÃO 3: EXPANDING DYNAMIC BENTO GRID (COMPOSIÇÃO 12 COLUNAS EDITORIAL)
          ====================================================================== -->
     <section class="section-block">
       <div class="section-head">
-        <h2 class="section-title">3. Expanding Bento Grid (13 Serviços Integrados)</h2>
-        <p class="section-subtitle">Composição visual fiel 1:1 à referência com 13 serviços, layout fluido e sem bordas duras.</p>
+        <h2 class="section-title">3. Expanding Bento Grid (13 Capacidades e Serviços Integrados)</h2>
+        <p class="section-subtitle">Composição premium assimétrica em CSS Grid de 12 colunas com proporções fluidas, hover expansível e zero espaços vazios.</p>
       </div>
 
       <main class="bento-dynamic-grid">
 
         <!-- ------------------------------------------------------------------
-             LINHA 1
+             LINHA 1 & 2 DO MOSAICO
              ------------------------------------------------------------------ -->
         
-        <!-- 1. HERO FOTO CHEIA (Ponte Estaiada à Noite - Span 2 Colunas) -->
-        <article class="ec-card-dark bento-span-2cols" tabindex="0">
+        <!-- 1. HERO PRINCIPAL (Span 5 Cols, Span 2 Rows) -->
+        <article class="ec-card-dark bento-card-hero card--large" tabindex="0">
           <img src="./assets/Fotografias/Serviços - Banco de Imagens/02 - Inspeção em Obras de Artes Especiais/obras_arte_especiais_01.webp" alt="Avaliação completa em pontes e viadutos" class="ec-card-dark-bg-img" style="object-position: center 38%;" loading="eager" />
           <div class="ec-card-dark-overlay--hero"></div>
           <div class="ec-card-dark-content ec-card-dark-content--hero">
@@ -901,8 +1078,8 @@
           </div>
         </article>
 
-        <!-- 2. SEM FOTO (Ensaios Não Destrutivos - 1 Coluna) -->
-        <article class="ec-card-white" tabindex="0">
+        <!-- 2. ENSAIOS NÃO DESTRUTIVOS (Span 3 Cols, Span 2 Rows) -->
+        <article class="ec-card-white bento-card-ends card--medium" tabindex="0">
           <div class="ec-card-white-content">
             <div class="ec-card-white-icon-wrapper">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -922,53 +1099,48 @@
           </div>
         </article>
 
-        <!-- STACK COLUNA 4: 3. Geotecnia (Top) + 4. Monitoramento (Bottom) -->
-        <div class="bento-stack-col">
-          
-          <!-- 3. HORIZONTAL (Geotecnia) -->
-          <article class="ec-card-white bento-compact-card" tabindex="0">
-            <img src="./assets/Fotografias/Serviços - Banco de Imagens/02 - Inspeção em Obras de Artes Especiais/obras_arte_especiais_05.webp" alt="Sondagem e ensaios geotécnicos" class="ec-card-white-bg-img" style="object-position: center right;" loading="lazy" />
-            <div class="ec-card-white-overlay--horizontal"></div>
-            <div class="ec-card-white-content">
-              <div class="ec-card-white-head-row">
-                <div class="ec-card-white-icon-wrapper">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/></svg>
-                </div>
-                <h3 class="ec-card-white-title">Geotecnia</h3>
+        <!-- 3. GEOTECNIA (Span 4 Cols, Row 1) -->
+        <article class="ec-card-white bento-card-geotecnia bento-card-compact card--small" tabindex="0">
+          <img src="./assets/Fotografias/Serviços - Banco de Imagens/02 - Inspeção em Obras de Artes Especiais/obras_arte_especiais_05.webp" alt="Sondagem e ensaios geotécnicos" class="ec-card-white-bg-img" style="object-position: center right;" loading="lazy" />
+          <div class="ec-card-white-overlay--horizontal"></div>
+          <div class="ec-card-white-content">
+            <div class="ec-card-white-head-row">
+              <div class="ec-card-white-icon-wrapper">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/></svg>
               </div>
-              <ul class="ec-card-white-checklist">
-                <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>Sondagem</li>
-                <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>Ensaios de solo</li>
-              </ul>
+              <h3 class="ec-card-white-title">Geotecnia</h3>
             </div>
-          </article>
+            <ul class="ec-card-white-checklist">
+              <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>Sondagem</li>
+              <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>Ensaios de solo</li>
+            </ul>
+          </div>
+        </article>
 
-          <!-- 4. HORIZONTAL (Monitoramento Estrutural) -->
-          <article class="ec-card-white bento-compact-card" tabindex="0">
-            <img src="./assets/Fotografias/Serviços - Banco de Imagens/02 - Inspeção em Obras de Artes Especiais/obras_arte_especiais_04.webp" alt="Monitoramento técnico" class="ec-card-white-bg-img" style="object-position: center right;" loading="lazy" />
-            <div class="ec-card-white-overlay--horizontal"></div>
-            <div class="ec-card-white-content">
-              <div class="ec-card-white-head-row">
-                <div class="ec-card-white-icon-wrapper">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-                </div>
-                <h3 class="ec-card-white-title">Monitoramento estrutural</h3>
+        <!-- 4. MONITORAMENTO ESTRUTURAL (Span 4 Cols, Row 2) -->
+        <article class="ec-card-white bento-card-monitoramento bento-card-compact card--small" tabindex="0">
+          <img src="./assets/Fotografias/Serviços - Banco de Imagens/02 - Inspeção em Obras de Artes Especiais/obras_arte_especiais_04.webp" alt="Monitoramento técnico" class="ec-card-white-bg-img" style="object-position: center right;" loading="lazy" />
+          <div class="ec-card-white-overlay--horizontal"></div>
+          <div class="ec-card-white-content">
+            <div class="ec-card-white-head-row">
+              <div class="ec-card-white-icon-wrapper">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
               </div>
-              <ul class="ec-card-white-checklist">
-                <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>Instrumentação</li>
-                <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>Aquisição de dados</li>
-              </ul>
+              <h3 class="ec-card-white-title">Monitoramento estrutural</h3>
             </div>
-          </article>
-
-        </div>
+            <ul class="ec-card-white-checklist">
+              <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>Instrumentação</li>
+              <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>Aquisição de dados</li>
+            </ul>
+          </div>
+        </article>
 
         <!-- ------------------------------------------------------------------
-             LINHA 2
+             LINHA 3 DO MOSAICO
              ------------------------------------------------------------------ -->
 
-        <!-- 5. VERTICAL (Inspeção Visual - Foto em Baixo) -->
-        <article class="ec-card-white bento-card-inspecao" tabindex="0">
+        <!-- 5. INSPEÇÃO VISUAL (Span 3 Cols) -->
+        <article class="ec-card-white bento-card-inspecao card--medium" tabindex="0">
           <div class="ec-card-white-content">
             <div class="ec-card-white-head-row">
               <div class="ec-card-white-icon-wrapper">
@@ -986,8 +1158,8 @@
           </div>
         </article>
 
-        <!-- 6. SEM FOTO DARK (Materiais e Durabilidade) -->
-        <article class="ec-card-dark" tabindex="0">
+        <!-- 6. MATERIAIS E DURABILIDADE (Span 3 Cols) -->
+        <article class="ec-card-dark bento-card-materiais card--medium" tabindex="0">
           <div class="ec-card-dark-content">
             <div class="ec-card-dark-head-row">
               <div class="ec-card-dark-icon-wrapper">
@@ -1008,8 +1180,8 @@
           </div>
         </article>
 
-        <!-- 7. SEM FOTO WHITE (Integridade Estrutural) -->
-        <article class="ec-card-white" tabindex="0">
+        <!-- 7. INTEGRIDADE ESTRUTURAL (Span 3 Cols) -->
+        <article class="ec-card-white bento-card-integridade card--medium" tabindex="0">
           <div class="ec-card-white-content">
             <div class="ec-card-white-icon-wrapper">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -1026,8 +1198,8 @@
           </div>
         </article>
 
-        <!-- 8. VERTICAL DARK (Geometria / Drone - Span 2 Linhas) -->
-        <article class="ec-card-dark bento-span-2rows" tabindex="0">
+        <!-- 8. GEOMETRIA VERTICAL ALTO (Span 3 Cols, Span 2 Rows) -->
+        <article class="ec-card-dark bento-card-geometria card--medium" tabindex="0">
           <img src="./assets/Fotografias/Serviços - Banco de Imagens/02 - Inspeção em Obras de Artes Especiais/obras_arte_especiais_02.webp" alt="Drone em pilar de viaduto" class="ec-card-dark-bg-img" style="object-position: center bottom;" loading="lazy" />
           <div class="ec-card-dark-overlay--vertical"></div>
           <div class="ec-card-dark-content">
@@ -1044,26 +1216,28 @@
         </article>
 
         <!-- ------------------------------------------------------------------
-             LINHA 3
+             LINHA 4 DO MOSAICO
              ------------------------------------------------------------------ -->
 
-        <!-- 9. HORIZONTAL DARK (Topografia) -->
-        <article class="ec-card-dark" tabindex="0">
+        <!-- 9. TOPOGRAFIA (Span 3 Cols) -->
+        <article class="ec-card-dark bento-card-topografia card--small" tabindex="0">
           <img src="./assets/Fotografias/Serviços - Banco de Imagens/02 - Inspeção em Obras de Artes Especiais/obras_arte_especiais_03.webp" alt="Topógrafo com estação total" class="ec-card-dark-bg-img" style="object-position: center right;" loading="lazy" />
           <div class="ec-card-dark-overlay--horizontal"></div>
           <div class="ec-card-dark-content">
-            <div class="ec-card-dark-icon-wrapper">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            <div class="ec-card-dark-head-row">
+              <div class="ec-card-dark-icon-wrapper">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <h3 class="ec-card-dark-title">Topografia</h3>
             </div>
-            <h3 class="ec-card-dark-title">Topografia</h3>
             <ul class="ec-card-dark-checklist">
               <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>Levantamento Topográfico</li>
             </ul>
           </div>
         </article>
 
-        <!-- 10. HORIZONTAL DARK (GPR) -->
-        <article class="ec-card-dark" tabindex="0">
+        <!-- 10. GPR (Span 3 Cols) -->
+        <article class="ec-card-dark bento-card-gpr card--small" tabindex="0">
           <img src="./assets/Fotografias/Serviços - Banco de Imagens/02 - Inspeção em Obras de Artes Especiais/obras_arte_especiais_04.webp" alt="Georadar GPR" class="ec-card-dark-bg-img" style="object-position: center right;" loading="lazy" />
           <div class="ec-card-dark-overlay--horizontal"></div>
           <div class="ec-card-dark-content">
@@ -1079,8 +1253,8 @@
           </div>
         </article>
 
-        <!-- 11. VERTICAL WHITE (Análise Estrutural com Render Gráfico MEF 3D) -->
-        <article class="ec-card-white" tabindex="0">
+        <!-- 11. ANÁLISE ESTRUTURAL (Span 3 Cols) -->
+        <article class="ec-card-white bento-card-analise card--medium" tabindex="0">
           <div class="ec-card-white-content">
             <div class="ec-card-white-head-row">
               <div class="ec-card-white-icon-wrapper">
@@ -1123,11 +1297,11 @@
         </article>
 
         <!-- ------------------------------------------------------------------
-             LINHA 4
+             LINHA 5 DO MOSAICO
              ------------------------------------------------------------------ -->
 
-        <!-- 12. HORIZONTAL WHITE LARGO (Documentação e Gestão - Span 2 Colunas) -->
-        <article class="ec-card-white bento-span-2cols" tabindex="0">
+        <!-- 12. DOCUMENTAÇÃO E GESTÃO (Span 6 Cols) -->
+        <article class="ec-card-white bento-card-documentacao card--medium" tabindex="0">
           <img src="./assets/Fotografias/editadas/operacional-discussao-engenheiros-tela-edit.webp" alt="Documentação técnica" class="ec-card-white-bg-img" style="object-position: center right;" loading="lazy" />
           <div class="ec-card-white-overlay--horizontal"></div>
           <div class="ec-card-white-content">
@@ -1144,8 +1318,8 @@
           </div>
         </article>
 
-        <!-- 13. HORIZONTAL DARK LARGO (Consultoria Técnica - Span 2 Colunas) -->
-        <article class="ec-card-dark bento-span-2cols" tabindex="0">
+        <!-- 13. CONSULTORIA TÉCNICA (Span 6 Cols) -->
+        <article class="ec-card-dark bento-card-consultoria card--medium" tabindex="0">
           <img src="./assets/Fotografias/editadas/operacional-engenheiros-inspecao-bomba-edit.webp" alt="Consultoria técnica especializada" class="ec-card-dark-bg-img" style="object-position: center right;" loading="lazy" />
           <div class="ec-card-dark-overlay--horizontal"></div>
           <div class="ec-card-dark-content">
