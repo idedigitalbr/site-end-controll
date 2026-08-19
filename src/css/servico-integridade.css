@@ -20,9 +20,9 @@
   border-radius: 48px;
   margin-top: -24px;
   padding: 85px 0 80px;
-  z-index: 5;
+  z-index: 10;
   overflow: hidden;
-  box-shadow: 0 14px 45px rgba(0, 20, 60, 0.06);
+  box-shadow: 0 16px 45px rgba(0, 20, 60, 0.12);
 }
 
 .svc-solution-container {
@@ -567,12 +567,12 @@
   position: relative;
   background: url('../../assets/Paginas Imgs/SOBRE NOS/REF-SOBRE-NOS/bgs/BG-aco-inox-claro-fundo.webp') center center / cover no-repeat, #eaf0f5;
   color: #0c1a30;
-  border-radius: 36px;
-  margin-top: -36px;
-  padding: 100px 0 105px;
-  z-index: 7;
+  border-radius: 48px;
+  margin-top: -75px;
+  padding: 105px 0 110px;
+  z-index: 10;
   overflow: hidden;
-  box-shadow: 0 -10px 35px rgba(0, 20, 60, 0.05), 0 14px 40px rgba(0, 20, 60, 0.05);
+  box-shadow: 0 -18px 45px rgba(0, 20, 60, 0.25), 0 14px 40px rgba(0, 20, 60, 0.08);
 }
 
 .svc-methodology-container {
@@ -1946,24 +1946,48 @@
 
 /* Hierarquia Global de Camadas e Sobreposições das Seções */
 .svc-solution-section {
+  position: relative;
+  z-index: 10;
+  border-radius: 48px;
+  box-shadow: 0 16px 45px rgba(0, 20, 60, 0.12);
+}
+
+.ffs-section {
+  position: relative;
   z-index: 5;
+  margin-top: -60px;
 }
 
 .svc-methodology-section {
-  z-index: 7;
+  position: relative;
+  z-index: 10;
+  margin-top: -75px;
+  border-radius: 48px;
+  box-shadow: 0 -18px 45px rgba(0, 20, 60, 0.25), 0 14px 40px rgba(0, 20, 60, 0.08);
 }
 
 .segmentos-secao {
-  z-index: 8;
+  position: relative;
+  z-index: 5;
+  margin-top: -40px;
+  border-radius: 48px;
 }
 
 .sn-process-section {
-  z-index: 9;
+  position: relative;
+  z-index: 15;
+  margin-top: -60px;
+  border-radius: 48px;
+  box-shadow: 0 -20px 50px rgba(4, 21, 59, 0.6), 0 22px 55px rgba(4, 21, 59, 0.5);
 }
 
 .sn-commitment-section {
-  z-index: 10;
+  position: relative;
+  z-index: 5;
+  margin-top: -60px;
+  border-radius: 48px;
 }
+
 
 
 
