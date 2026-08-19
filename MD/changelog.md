@@ -2,6 +2,8 @@
 
 ## [2026-08-19] - Ajuste do Comportamento de Pausa e Retomada Automática dos Slides (Hover 2s e Clique 10s)
 
+- **Commit:** `81b1a9d`
+
 ### Added & Refined
 - **1. Gerenciamento Centralizado de Pausa e Retomada (`src/js/solucoes.js`, `tests/radar-progress.test.js`):**
   - **Hover no Card e nos Nós do Radar:** Ao passar o mouse sobre o card de destaque (`highlightCard`) ou nós do radar, o autoplay pausa instantaneamente. Ao retirar o mouse, aguarda exatamente **2 segundos** (`hoverResumeDelay: 2000`) antes de retomar o ciclo normal.
