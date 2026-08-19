@@ -1,5 +1,13 @@
 # Features — ENDCONTROL Engenharia
 
+## Painel Lateral Institucional (Sidebar Dark) 1:1 com Arte da Ponte Estaiada
+
+- Status: Concluída
+- Data: 2026-08-19
+- **Arquivo:** `componentes-cards-.html`
+- **Arte Vetorial Integrada:** Wireframe CAD de ponte estaiada com cabos radiantes, treliças e flare estelar luminoso no topo do mastro.
+- **Acabamento Premium:** Gradiente Dark Navy, ambient neon glow no canto inferior esquerdo e badges circulares com anel de vidro ciano.
+
 ## Expanding Bento Grid com Painel Lateral Institucional (Composição Master Oficial)
 
 - Status: Concluída

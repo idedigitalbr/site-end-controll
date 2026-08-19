@@ -1,6 +1,15 @@
 # Changelog — ENDCONTROL Engenharia
 
-## [2026-08-19] - Criação da Seção 4: Expanding Bento Grid com Painel Lateral de Apresentação (Composição Master Oficial)
+## [2026-08-19] - Refinamento Visual 1:1 do Painel Lateral Institucional (Sidebar) Conforme Print Oficial
+
+- **Arquivo:** `componentes-cards-.html`
+
+### Added & Refined
+- **1. Refinamento de Fidelidade da Sidebar Institucional (`componentes-cards-.html`):**
+  - **Arte Vetorial Integrada da Ponte Estaiada:** Renderização de modelo vetorial CAD com mastro, vigas transversais, treliça em X, cabos estaiados radiantes e flare luminoso estelar no topo do pilar.
+  - **Filtro de Iluminação & Flare:** Efeito de glow estelar com `feGaussianBlur` e halos concêntricos ciano e branco puro.
+  - **Ambient Glow Neon:** Halo difuso ciano no canto inferior esquerdo (`rgba(0, 194, 255, 0.28)`) trazendo profundidade atmosférica.
+  - **Badges Circulares Neon 1:1:** Ícones circulares com anel de vidro ciano, fundo navy translúcido e tipografia perfeitamente ajustada aos 4 pilares.
 
 - **Arquivo:** `componentes-cards-.html`
 
