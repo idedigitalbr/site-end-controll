@@ -1,5 +1,15 @@
 # Histórico de sincronização — DB_IDE
 
+## 2026-08-19 - Refinamento do Bento Grid, Remoção de Scrollbar no Painel Lateral e Badges de Alto Contraste
+
+- Projeto: site-end-controll
+- Tarefa: Refinamento do Bento Grid institucional com remoção definitiva de scrollbar interno na sidebar dark (`.ec-bento-sidebar`), altura automática e sticky fluida; aumento do espaçamento inferior da seção Bento para 160px; e micro-badges de alto contraste em vidro fosco 94% sobre fotografias técnicas nos cards convencionais e avançados.
+- Status local: Concluída.
+- Commit: `ed0d976`
+- Deploy VPS: Concluído com sucesso via Docker (`https://endcontrol.suporteide.digital/`).
+- Sincronização Notion: Atualizadas as sub-tarefas `Changelogs` e `Check WhatsApp` no banco `DB_IDE`.
+- Observação: Memória persistente no Obsidian (`MD/`) e changelog sincronizados.
+
 ## 2026-08-19 - Gerenciamento de Pausa/Retomada do Radar (Hover 2s / Clique 10s) & Feixe F5
 
 - Projeto: site-end-controll
