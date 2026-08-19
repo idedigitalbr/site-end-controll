@@ -1,6 +1,14 @@
 # Changelog — ENDCONTROL Engenharia
 
-## [2026-08-19] - Refatoração Completa da Seção Existente para Bento Grid Editorial 12 Colunas (Masonry Arquitetônico)
+## [2026-08-19] - Física Elástica e Expansão Dinâmica no Bento Grid (Expansão do Ativo & Contração dos Vizinhos)
+
+- **Arquivo:** `componentes-cards-.html`
+
+### Added & Refined
+- **1. Sistema de Expansão e Contração Adaptativa (`componentes-cards-.html`):**
+  - **Card em Hover (Expansão Fluida):** Ganha elevação `translateY(-7px)` e escala ampliada proporcionalmente (`1.06` para pequenos, `1.045` para médios e `1.025` para hero), alcançando `z-index: 30`, halo neon ciano e brilho calibrado.
+  - **Cards Vizinhos (Contração Elástica):** Ao focar em qualquer card, todos os demais cards sofrem uma contração suave e coordenada (`transform: scale(0.965); opacity: 0.68; filter: saturate(0.85)`), criando espaço visual imediato para o card em destaque.
+  - **Aceleração por Hardware GPU:** Aplicação de `will-change: transform, box-shadow, opacity, filter` e `backface-visibility: hidden` para atingir 60/120 fps constantes em monitores de alta taxa de atualização com curva spring `cubic-bezier(0.25, 1, 0.35, 1)`.
 
 - **Arquivo:** `componentes-cards-.html`
 

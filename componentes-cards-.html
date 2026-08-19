@@ -657,66 +657,87 @@
     }
 
     /* ==========================================================================
-       4. INTERAÇÕES DE HOVER EXPANSÍVEL (DESKTOP)
+       4. INTERAÇÕES DE HOVER EXPANSÍVEL E ADAPTATIVO ULTRA-FLUIDO (DESKTOP)
        ========================================================================== */
     @media (hover: hover) and (pointer: fine) {
-      /* Intensidade Escalada por Tamanho */
+      /* Base de Aceleração por GPU para 60/120fps Constantes */
+      .ec-card-dark,
+      .ec-card-white {
+        backface-visibility: hidden;
+        transform-origin: center center;
+        will-change: transform, box-shadow, opacity, filter;
+      }
+
+      /* QUANDO UM CARD ESTÁ EM HOVER: TODOS OS OUTROS SE CONTRAEM SUAVEMENTE */
+      .bento-dynamic-grid:has(.ec-card-dark:hover) .ec-card-dark:not(:hover),
+      .bento-dynamic-grid:has(.ec-card-dark:hover) .ec-card-white:not(:hover),
+      .bento-dynamic-grid:has(.ec-card-white:hover) .ec-card-dark:not(:hover),
+      .bento-dynamic-grid:has(.ec-card-white:hover) .ec-card-white:not(:hover) {
+        transform: scale(0.965);
+        opacity: 0.68;
+        filter: saturate(0.85) brightness(0.95);
+      }
+
+      /* CARD ATIVO EM HOVER: EXPANDE E GANHA DESTAQUE MÁXIMO */
       .card--large:hover,
       .card--large:focus-visible {
-        transform: translateY(-3px) scale(1.015);
-        z-index: 10;
+        transform: translateY(-6px) scale(1.025) !important;
+        z-index: 30;
+        opacity: 1 !important;
+        filter: saturate(1.05) brightness(1.02) !important;
       }
 
       .card--medium:hover,
       .card--medium:focus-visible {
-        transform: translateY(-4px) scale(1.025);
-        z-index: 10;
+        transform: translateY(-7px) scale(1.045) !important;
+        z-index: 30;
+        opacity: 1 !important;
+        filter: saturate(1.05) brightness(1.02) !important;
       }
 
       .card--small:hover,
       .card--small:focus-visible {
-        transform: translateY(-4px) scale(1.038);
-        z-index: 10;
+        transform: translateY(-7px) scale(1.06) !important;
+        z-index: 30;
+        opacity: 1 !important;
+        filter: saturate(1.05) brightness(1.02) !important;
       }
 
-      /* Brilho e Elevação no Card Focado */
+      /* Sombras e Halo Luminoso no Card Ativo */
       .ec-card-dark:hover,
       .ec-card-dark:focus-visible {
-        box-shadow: 0 18px 42px rgba(3, 22, 47, 0.5), 0 0 22px rgba(0, 194, 255, 0.25);
+        box-shadow: 
+          0 24px 50px rgba(0, 10, 25, 0.6),
+          0 0 35px rgba(0, 194, 255, 0.35);
       }
 
       .ec-card-white:hover,
       .ec-card-white:focus-visible {
-        box-shadow: 0 18px 42px rgba(10, 40, 90, 0.12), 0 0 18px rgba(0, 194, 255, 0.18);
+        box-shadow: 
+          0 24px 50px rgba(10, 40, 90, 0.16),
+          0 0 30px rgba(0, 194, 255, 0.25);
       }
 
+      /* Movimento Parallax Independente da Imagem de Fundo */
       .ec-card-dark:hover .ec-card-dark-bg-img,
       .ec-card-white:hover .ec-card-white-bg-img,
       .bento-card-inspecao:hover .bento-card-inspecao-photo img {
-        transform: scale(1.035);
+        transform: scale(1.055);
       }
 
+      /* Realce Dinâmico do Ícone em Hover */
       .ec-card-dark:hover .ec-card-dark-icon-wrapper,
       .ec-card-white:hover .ec-card-white-icon-wrapper {
         background: var(--cyan-neon);
         color: #040c1a;
         border-color: var(--cyan-neon);
-        transform: scale(1.08) rotate(4deg);
-        box-shadow: 0 0 16px rgba(0, 194, 255, 0.45);
+        transform: scale(1.12) rotate(6deg);
+        box-shadow: 0 0 20px rgba(0, 194, 255, 0.65);
       }
 
       .ec-card-dark:hover .ec-card-dark-icon-wrapper svg,
       .ec-card-white:hover .ec-card-white-icon-wrapper svg {
         stroke: #040c1a;
-      }
-
-      /* Cards Vizinhos Suavizados */
-      .bento-dynamic-grid:has(.ec-card-dark:hover) .ec-card-dark:not(:hover),
-      .bento-dynamic-grid:has(.ec-card-dark:hover) .ec-card-white:not(:hover),
-      .bento-dynamic-grid:has(.ec-card-white:hover) .ec-card-dark:not(:hover),
-      .bento-dynamic-grid:has(.ec-card-white:hover) .ec-card-white:not(:hover) {
-        opacity: 0.82;
-        filter: saturate(0.9);
       }
     }
 

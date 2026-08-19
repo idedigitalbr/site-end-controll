@@ -1,5 +1,13 @@
 # Features — ENDCONTROL Engenharia
 
+## Bento Grid com Física Elástica (Expansão do Focado & Contração dos Vizinhos)
+
+- Status: Concluída
+- Data: 2026-08-19
+- **Arquivo:** `componentes-cards-.html`
+- **Dinâmica de Respiração:** O card sob foco do cursor cresce de forma proeminente (`scale(1.06)` a `scale(1.025)` com `z-index: 30`) enquanto todos os outros cards do mosaico se retraem suavemente (`scale(0.965)` e `opacity: 0.68`).
+- **Fluidez 60/120 FPS:** Renderização 100% acelerada por hardware via GPU com curvas spring `cubic-bezier(0.25, 1, 0.35, 1)`.
+
 ## Bento Grid Editorial 12 Colunas (Masonry Arquitetônico & Hover Escalado)
 
 - Status: Concluída
