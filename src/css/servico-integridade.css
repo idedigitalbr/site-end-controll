@@ -1364,7 +1364,7 @@
 .bento-row--top { min-height: 310px; }
 .bento-row--middle-1 { min-height: 240px; }
 .bento-row--middle-2 { min-height: 230px; }
-.bento-row--bottom { min-height: 180px; }
+.bento-row--bottom { min-height: 200px; }
 
 .bento-flex-card {
   min-width: 0;
