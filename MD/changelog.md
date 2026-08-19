@@ -1,6 +1,28 @@
 # Changelog — ENDCONTROL Engenharia
 
-## [2026-08-19] - Catálogo Oficial de 4 Tipologias de Cards (Horizontal, Vertical, Sem Foto & Foto Cheia Hero)
+## [2026-08-19] - Nova Seção Expanding Dynamic Bento Grid (13 Capacidades e Serviços Integrados)
+
+- **Arquivo:** `componentes-cards-.html`
+
+### Added & Refined
+- **1. Seção 3: Expanding Dynamic Bento Grid (`componentes-cards-.html`):**
+  - Implementada a composição completa e fluida das **13 capacidades técnicas e serviços** baseada no layout Bento/Masonry oficial.
+  - **Efeito Spotlight e Expansão:** Foco interativo com elevação suave (`transform: translateY(-4px) scale(1.018)`), halo luminoso neon cyan e suavização dos cards secundários no hover do mosaico.
+  - **13 Cards Integrados:**
+    1. *Ponte Hero Destaque:* Avaliação completa em grande formato.
+    2. *Ensaios Não Destrutivos:* Lista técnica de 5 métodos com ícone 3D.
+    3. *Geotecnia:* Split horizontal com foto de sondagem em campo.
+    4. *Monitoramento Estrutural:* Split horizontal com instrumentação e sensores.
+    5. *Inspeção Visual:* Card com foto em base do cesto aéreo.
+    6. *Materiais e Durabilidade:* Card Dark Navy com 4 testes laboratoriais.
+    7. *Integridade Estrutural:* Prova de Carga e Ensaio Dinâmico.
+    8. *Geometria (Drone):* Card vertical de 2 linhas com fotografia de drone sob o pilar da ponte.
+    9. *Topografia:* Card Dark com estação total em campo.
+    10. *GPR:* Card Dark com carrinho de Georadar em pavimento.
+    11. *Análise Estrutural:* Card com gráfico isométrico MEF 3D de elementos finitos.
+    12. *Documentação e Gestão:* Split largo com relatórios e laptop.
+    13. *Consultoria Técnica:* Card Dark largo com parecer técnico e engenheiros consultores.
+  - Grade 100% responsiva (4 colunas no Desktop, 3/2 colunas no Tablet, 1 coluna no Mobile).
 
 - **Arquivo:** `componentes-cards-.html`
 

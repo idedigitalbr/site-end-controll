@@ -1,5 +1,14 @@
 # Features — ENDCONTROL Engenharia
 
+## Seção Expanding Dynamic Bento Grid (13 Serviços Integrados)
+
+- Status: Concluída
+- Data: 2026-08-19
+- **Arquivo:** `componentes-cards-.html` integrado com a composição completa do mosaico Bento Grid/Masonry oficial.
+- **Mosaico Dinâmico de 13 Cards:** Composição que combina os 4 formatos de cards (Hero, Horizontal, Vertical e Sem Foto) em uma grade viva e interativa.
+- **Efeito Spotlight & Expansão:** Hover inteligente com micro-zoom, halo neon, suavização contextual dos itens não focados e renderização isométrica MEF em SVG.
+- **Responsividade Total:** Adaptação suave entre 4 colunas (desktop amplo), 3/2 colunas (notebook/tablet) e 1 coluna (mobile).
+
 ## Catálogo de Componentes de Cards (4 Tipologias / Dark & White)
 
 - Status: Concluída
