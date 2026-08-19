@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Bento Grid Editorial & Biblioteca de Cards | ENDCONTROL</title>
+  <title>Expanding Dynamic Bento Grid & Biblioteca de Cards | ENDCONTROL</title>
   <link rel="icon" type="image/webp" href="./assets/Logos/icon-endcontrol.webp" />
   
   <!-- Fontes Oficiais -->
@@ -21,7 +21,6 @@
 
       /* Cores Base dos Cards Dark */
       --navy-bg: linear-gradient(135deg, #03162f 0%, #001329 100%);
-      --navy-solid: #07152b;
       --navy-card-shadow: 0 10px 28px rgba(3, 22, 47, 0.25);
 
       /* Cores Base dos Cards White */
@@ -43,7 +42,12 @@
       /* Raios e Transições */
       --radius-card: clamp(16px, 1.5vw, 24px);
       --radius-icon: 50%;
-      --transition-spring: transform 500ms cubic-bezier(0.22, 1, 0.36, 1), filter 350ms ease, opacity 350ms ease, box-shadow 350ms ease;
+      --transition-elastic: flex 650ms cubic-bezier(0.25, 1, 0.35, 1),
+                            min-height 550ms cubic-bezier(0.25, 1, 0.35, 1),
+                            transform 500ms cubic-bezier(0.25, 1, 0.35, 1),
+                            box-shadow 450ms ease,
+                            opacity 400ms ease,
+                            filter 400ms ease;
     }
 
     * {
@@ -54,7 +58,7 @@
 
     body {
       font-family: var(--font-main);
-      background-color: #dceef5; /* Fundo suave exato da referência */
+      background-color: #dceef5; /* Fundo suave da referência */
       background-image: 
         radial-gradient(circle at 10% 10%, rgba(0, 194, 255, 0.12) 0%, transparent 45%),
         radial-gradient(circle at 90% 90%, rgba(0, 98, 227, 0.09) 0%, transparent 45%);
@@ -148,7 +152,7 @@
     }
 
     /* ==========================================================================
-       2. REGRAS CSS COMPARTILHADAS DOS CARDS
+       2. REGRAS CSS DOS CARDS COMPARTILHADOS
        ========================================================================== */
     
     .cards-grid-4cols {
@@ -167,7 +171,6 @@
       background: var(--navy-bg);
       border: none;
       box-shadow: var(--navy-card-shadow);
-      transition: var(--transition-spring);
       display: flex;
       flex-direction: column;
       user-select: none;
@@ -252,6 +255,7 @@
       align-items: center;
       gap: 11px;
       margin-bottom: 2px;
+      white-space: nowrap;
     }
 
     .ec-card-dark-icon-wrapper {
@@ -266,7 +270,7 @@
       color: var(--cyan-neon);
       flex-shrink: 0;
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
-      transition: var(--transition-spring);
+      transition: transform 450ms ease, background 450ms ease, color 450ms ease;
     }
 
     .ec-card-dark-icon-wrapper svg {
@@ -306,6 +310,7 @@
       font-size: clamp(12.5px, 0.9vw, 15px);
       font-weight: 500;
       color: rgba(255, 255, 255, 0.95);
+      white-space: nowrap;
     }
 
     .ec-card-dark-checklist svg.check-icon {
@@ -343,7 +348,6 @@
       background: var(--card-white-bg);
       border: var(--card-white-border);
       box-shadow: var(--card-white-shadow);
-      transition: var(--transition-spring);
       display: flex;
       flex-direction: column;
       user-select: none;
@@ -428,6 +432,7 @@
       align-items: center;
       gap: 11px;
       margin-bottom: 2px;
+      white-space: nowrap;
     }
 
     .ec-card-white-icon-wrapper {
@@ -442,13 +447,13 @@
       color: #0062e3;
       flex-shrink: 0;
       box-shadow: 0 2px 8px rgba(0, 98, 227, 0.08);
-      transition: var(--transition-spring);
+      transition: transform 450ms ease, background 450ms ease, color 450ms ease;
     }
 
     .ec-card-white-icon-wrapper svg {
       width: clamp(18px, 1.3vw, 22px);
       height: clamp(18px, 1.3vw, 22px);
-      transition: var(--transition-spring);
+      transition: stroke 450ms ease;
     }
 
     .ec-card-white-title {
@@ -482,6 +487,7 @@
       font-size: clamp(12.5px, 0.9vw, 15px);
       font-weight: 500;
       color: #334155;
+      white-space: nowrap;
     }
 
     .ec-card-white-checklist svg.check-icon {
@@ -505,110 +511,93 @@
     }
 
     /* ==========================================================================
-       3. EXPANDING DYNAMIC BENTO GRID (12-COLUNAS EDITORIAL & MASONRY PREMIUM)
+       3. EXPANDING BENTO GRID COM FÍSICA ELÁSTICA (CARDS SE EMPURRAM E AJUSTAM)
        ========================================================================== */
-    .bento-dynamic-grid {
-      display: grid;
-      grid-template-columns: repeat(12, minmax(0, 1fr));
-      grid-auto-flow: dense;
-      gap: clamp(8px, 1vw, 14px);
+    .bento-expanding-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(10px, 1.2vw, 16px);
       width: 100%;
       position: relative;
     }
 
-    /* --- POSICIONAMENTO E PROPORÇÕES DA COMPOSIÇÃO 12 COLUNAS --- */
-    
-    /* 1. HERO PRINCIPAL (Col 1-5, Row 1-2) */
-    .bento-card-hero {
-      grid-column: span 5;
-      grid-row: span 2;
-      aspect-ratio: 1.25 / 1;
+    /* Linhas Flexíveis Coordenadas */
+    .bento-row {
+      display: flex;
+      gap: clamp(10px, 1.2vw, 16px);
+      width: 100%;
+      transition: var(--transition-elastic);
     }
 
-    /* 2. ENSAIOS NÃO DESTRUTIVOS (Col 6-8, Row 1-2) */
-    .bento-card-ends {
-      grid-column: span 3;
-      grid-row: span 2;
+    /* Alturas Base das Linhas */
+    .bento-row--top {
+      min-height: 310px;
     }
 
-    /* 3. GEOTECNIA (Col 9-12, Row 1) */
-    .bento-card-geotecnia {
-      grid-column: span 4;
-      grid-row: span 1;
+    .bento-row--middle-1 {
+      min-height: 240px;
     }
 
-    /* 4. MONITORAMENTO ESTRUTURAL (Col 9-12, Row 2) */
-    .bento-card-monitoramento {
-      grid-column: span 4;
-      grid-row: span 1;
+    .bento-row--middle-2 {
+      min-height: 230px;
     }
 
-    /* 5. INSPEÇÃO VISUAL (Col 1-3, Row 3) */
-    .bento-card-inspecao {
-      grid-column: span 3;
+    .bento-row--bottom {
+      min-height: 180px;
     }
 
-    /* 6. MATERIAIS E DURABILIDADE (Col 4-6, Row 3) */
-    .bento-card-materiais {
-      grid-column: span 3;
+    /* Cards Flexíveis com Transição Elástica */
+    .bento-flex-card {
+      min-width: 0;
+      flex: 1 1 0%;
+      transition: var(--transition-elastic);
+      will-change: flex, transform, box-shadow;
     }
 
-    /* 7. INTEGRIDADE ESTRUTURAL (Col 7-9, Row 3) */
-    .bento-card-integridade {
-      grid-column: span 3;
+    /* --- LINHA 1 (Hero 5 + ENDs 3 + Stack 4) --- */
+    .bento-row--top .bento-card--hero {
+      flex: 5 1 0%;
     }
 
-    /* 8. GEOMETRIA VERTICAL ALTO (Col 10-12, Row 3-4) */
-    .bento-card-geometria {
-      grid-column: span 3;
-      grid-row: span 2;
-      aspect-ratio: 0.72 / 1;
+    .bento-row--top .bento-card--ends {
+      flex: 3 1 0%;
     }
 
-    /* 9. TOPOGRAFIA (Col 1-3, Row 4) */
-    .bento-card-topografia {
-      grid-column: span 3;
+    .bento-row--top .bento-card--stack {
+      flex: 4 1 0%;
     }
 
-    /* 10. GPR (Col 4-6, Row 4) */
-    .bento-card-gpr {
-      grid-column: span 3;
+    /* Stack Vertical Interno da Linha 1 */
+    .bento-stack-vertical {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(10px, 1.2vw, 16px);
+      min-width: 0;
+      transition: var(--transition-elastic);
     }
 
-    /* 11. ANÁLISE ESTRUTURAL (Col 7-9, Row 4) */
-    .bento-card-analise {
-      grid-column: span 3;
+    .bento-stack-item {
+      flex: 1 1 0%;
+      min-width: 0;
+      transition: var(--transition-elastic);
     }
 
-    /* 12. DOCUMENTAÇÃO E GESTÃO (Col 1-6, Row 5) */
-    .bento-card-documentacao {
-      grid-column: span 6;
-    }
-
-    /* 13. CONSULTORIA TÉCNICA (Col 7-12, Row 5) */
-    .bento-card-consultoria {
-      grid-column: span 6;
-    }
-
-    /* --- AJUSTES ESPECÍFICOS DE CONTEÚDO DOS CARDS DO BENTO --- */
-
-    /* Geotecnia e Monitoramento Compactos */
-    .bento-card-compact .ec-card-white-content {
+    .bento-stack-item .ec-card-white-content {
       padding: clamp(12px, 1.2vw, 18px);
       gap: 6px;
     }
 
-    .bento-card-compact .ec-card-white-icon-wrapper {
+    .bento-stack-item .ec-card-white-icon-wrapper {
       width: clamp(30px, 2vw, 36px);
       height: clamp(30px, 2vw, 36px);
     }
 
-    .bento-card-compact .ec-card-white-title {
+    .bento-stack-item .ec-card-white-title {
       font-size: clamp(14px, 1.1vw, 18px);
     }
 
-    /* Inspeção Visual - Foto na Base */
-    .bento-card-inspecao .ec-card-white-content {
+    /* Inspeção Visual (Foto na Base) */
+    .bento-card--inspecao .ec-card-white-content {
       padding-bottom: 0;
     }
 
@@ -657,82 +646,123 @@
     }
 
     /* ==========================================================================
-       4. INTERAÇÕES DE HOVER EXPANSÍVEL E ADAPTATIVO ULTRA-FLUIDO (DESKTOP)
+       4. MECÂNICA DE EXPANSÃO / EMPURRÃO DINÂMICO NO HOVER (DESKTOP)
        ========================================================================== */
     @media (hover: hover) and (pointer: fine) {
-      /* Base de Aceleração por GPU para 60/120fps Constantes */
-      .ec-card-dark,
-      .ec-card-white {
-        backface-visibility: hidden;
-        transform-origin: center center;
-        will-change: transform, box-shadow, opacity, filter;
+      
+      /* --- COMPORTAMENTO DA LINHA 1 (HERO / ENDS / STACK) --- */
+      .bento-row--top:hover .bento-flex-card:not(:hover),
+      .bento-row--top:hover .bento-card--stack:not(:hover) {
+        flex: 1.8 1 0%;
+        opacity: 0.78;
+        transform: scale(0.98);
       }
 
-      /* QUANDO UM CARD ESTÁ EM HOVER: TODOS OS OUTROS SE CONTRAEM SUAVEMENTE */
-      .bento-dynamic-grid:has(.ec-card-dark:hover) .ec-card-dark:not(:hover),
-      .bento-dynamic-grid:has(.ec-card-dark:hover) .ec-card-white:not(:hover),
-      .bento-dynamic-grid:has(.ec-card-white:hover) .ec-card-dark:not(:hover),
-      .bento-dynamic-grid:has(.ec-card-white:hover) .ec-card-white:not(:hover) {
-        transform: scale(0.965);
-        opacity: 0.68;
-        filter: saturate(0.85) brightness(0.95);
+      .bento-row--top .bento-card--hero:hover {
+        flex: 7.2 1 0%;
+        transform: translateY(-4px) scale(1.015);
+        z-index: 15;
+        opacity: 1;
       }
 
-      /* CARD ATIVO EM HOVER: EXPANDE E GANHA DESTAQUE MÁXIMO */
-      .card--large:hover,
-      .card--large:focus-visible {
-        transform: translateY(-6px) scale(1.025) !important;
-        z-index: 30;
-        opacity: 1 !important;
-        filter: saturate(1.05) brightness(1.02) !important;
+      .bento-row--top .bento-card--ends:hover {
+        flex: 5.5 1 0%;
+        transform: translateY(-4px) scale(1.02);
+        z-index: 15;
+        opacity: 1;
       }
 
-      .card--medium:hover,
-      .card--medium:focus-visible {
-        transform: translateY(-7px) scale(1.045) !important;
-        z-index: 30;
-        opacity: 1 !important;
-        filter: saturate(1.05) brightness(1.02) !important;
+      .bento-row--top .bento-card--stack:hover {
+        flex: 5.8 1 0%;
+        z-index: 15;
+        opacity: 1;
       }
 
-      .card--small:hover,
-      .card--small:focus-visible {
-        transform: translateY(-7px) scale(1.06) !important;
-        z-index: 30;
-        opacity: 1 !important;
-        filter: saturate(1.05) brightness(1.02) !important;
+      /* Stack Vertical Interno (Geotecnia vs Monitoramento se empurram) */
+      .bento-stack-vertical:hover .bento-stack-item:not(:hover) {
+        flex: 0.7 1 0%;
+        opacity: 0.8;
       }
 
-      /* Sombras e Halo Luminoso no Card Ativo */
+      .bento-stack-vertical .bento-stack-item:hover {
+        flex: 1.45 1 0%;
+        transform: translateY(-3px) scale(1.02);
+        z-index: 20;
+        opacity: 1;
+      }
+
+      /* --- COMPORTAMENTO DA LINHA 2 (INSPEÇÃO / MATERIAIS / INTEGRIDADE / GEOMETRIA) --- */
+      .bento-row--middle-1:hover .bento-flex-card:not(:hover) {
+        flex: 0.65 1 0%;
+        opacity: 0.78;
+        transform: scale(0.98);
+      }
+
+      .bento-row--middle-1 .bento-flex-card:hover {
+        flex: 2.3 1 0%;
+        transform: translateY(-5px) scale(1.03);
+        z-index: 15;
+        opacity: 1;
+      }
+
+      /* --- COMPORTAMENTO DA LINHA 3 (TOPOGRAFIA / GPR / ANÁLISE) --- */
+      .bento-row--middle-2:hover .bento-flex-card:not(:hover) {
+        flex: 0.68 1 0%;
+        opacity: 0.78;
+        transform: scale(0.98);
+      }
+
+      .bento-row--middle-2 .bento-flex-card:hover {
+        flex: 2.4 1 0%;
+        transform: translateY(-5px) scale(1.03);
+        z-index: 15;
+        opacity: 1;
+      }
+
+      /* --- COMPORTAMENTO DA LINHA 4 (DOCUMENTAÇÃO / CONSULTORIA) --- */
+      .bento-row--bottom:hover .bento-flex-card:not(:hover) {
+        flex: 0.7 1 0%;
+        opacity: 0.78;
+        transform: scale(0.98);
+      }
+
+      .bento-row--bottom .bento-flex-card:hover {
+        flex: 2.2 1 0%;
+        transform: translateY(-4px) scale(1.02);
+        z-index: 15;
+        opacity: 1;
+      }
+
+      /* Sombras e Halos Luminosos nos Cards em Hover */
       .ec-card-dark:hover,
       .ec-card-dark:focus-visible {
         box-shadow: 
-          0 24px 50px rgba(0, 10, 25, 0.6),
-          0 0 35px rgba(0, 194, 255, 0.35);
+          0 22px 48px rgba(0, 10, 25, 0.55),
+          0 0 32px rgba(0, 194, 255, 0.32);
       }
 
       .ec-card-white:hover,
       .ec-card-white:focus-visible {
         box-shadow: 
-          0 24px 50px rgba(10, 40, 90, 0.16),
-          0 0 30px rgba(0, 194, 255, 0.25);
+          0 22px 48px rgba(10, 40, 90, 0.15),
+          0 0 28px rgba(0, 194, 255, 0.22);
       }
 
-      /* Movimento Parallax Independente da Imagem de Fundo */
+      /* Micro-Zoom Parallax nas Imagens de Fundo */
       .ec-card-dark:hover .ec-card-dark-bg-img,
       .ec-card-white:hover .ec-card-white-bg-img,
-      .bento-card-inspecao:hover .bento-card-inspecao-photo img {
-        transform: scale(1.055);
+      .bento-card--inspecao:hover .bento-card-inspecao-photo img {
+        transform: scale(1.045);
       }
 
-      /* Realce Dinâmico do Ícone em Hover */
+      /* Realce do Ícone */
       .ec-card-dark:hover .ec-card-dark-icon-wrapper,
       .ec-card-white:hover .ec-card-white-icon-wrapper {
         background: var(--cyan-neon);
         color: #040c1a;
         border-color: var(--cyan-neon);
-        transform: scale(1.12) rotate(6deg);
-        box-shadow: 0 0 20px rgba(0, 194, 255, 0.65);
+        transform: scale(1.1) rotate(5deg);
+        box-shadow: 0 0 18px rgba(0, 194, 255, 0.6);
       }
 
       .ec-card-dark:hover .ec-card-dark-icon-wrapper svg,
@@ -745,76 +775,42 @@
        5. RESPONSIVIDADE (TABLET & MOBILE)
        ========================================================================== */
     
-    /* TABLET (768px a 1100px): Grid de 6 Colunas */
+    /* TABLET (768px a 1100px) */
     @media (max-width: 1100px) and (min-width: 768px) {
-      .bento-dynamic-grid {
-        grid-template-columns: repeat(6, minmax(0, 1fr));
+      .bento-row--top {
+        flex-wrap: wrap;
       }
-
-      .bento-card-hero {
-        grid-column: span 6;
-        aspect-ratio: 16 / 9;
+      .bento-row--top .bento-card--hero {
+        flex: 1 1 100%;
+        min-height: 260px;
       }
-
-      .bento-card-ends {
-        grid-column: span 3;
-        grid-row: auto;
+      .bento-row--top .bento-card--ends {
+        flex: 1 1 45%;
       }
-
-      .bento-card-geotecnia {
-        grid-column: span 3;
-        grid-row: auto;
+      .bento-row--top .bento-card--stack {
+        flex: 1 1 45%;
       }
-
-      .bento-card-monitoramento {
-        grid-column: span 3;
-        grid-row: auto;
+      .bento-row--middle-1,
+      .bento-row--middle-2 {
+        flex-wrap: wrap;
       }
-
-      .bento-card-inspecao {
-        grid-column: span 3;
+      .bento-row--middle-1 .bento-flex-card,
+      .bento-row--middle-2 .bento-flex-card {
+        flex: 1 1 45%;
+        min-height: 220px;
       }
-
-      .bento-card-materiais {
-        grid-column: span 3;
+      .bento-row--bottom {
+        flex-direction: column;
       }
-
-      .bento-card-integridade {
-        grid-column: span 3;
+      .bento-row--bottom .bento-flex-card {
+        min-height: 160px;
       }
-
-      .bento-card-geometria {
-        grid-column: span 3;
-        grid-row: auto;
-        aspect-ratio: 1.1 / 1;
-      }
-
-      .bento-card-topografia {
-        grid-column: span 3;
-      }
-
-      .bento-card-gpr {
-        grid-column: span 3;
-      }
-
-      .bento-card-analise {
-        grid-column: span 3;
-      }
-
-      .bento-card-documentacao {
-        grid-column: span 6;
-      }
-
-      .bento-card-consultoria {
-        grid-column: span 6;
-      }
-
       .cards-grid-4cols {
         grid-template-columns: repeat(2, 1fr);
       }
     }
 
-    /* MOBILE (<768px): Grid de 2 Colunas */
+    /* MOBILE (<768px) */
     @media (max-width: 767px) {
       body {
         padding: 20px 10px 60px;
@@ -828,81 +824,23 @@
         grid-template-columns: 1fr;
       }
 
-      .bento-dynamic-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 10px;
+      .bento-row {
+        flex-direction: column;
+        gap: 12px;
+        min-height: auto;
       }
 
-      .bento-card-hero {
-        grid-column: 1 / -1;
-        aspect-ratio: 16 / 10;
+      .bento-flex-card,
+      .bento-stack-item {
+        min-height: 190px;
       }
 
-      .bento-card-ends {
-        grid-column: 1 / -1;
-        grid-row: auto;
+      .bento-card--hero {
+        min-height: 240px;
       }
 
-      .bento-card-geotecnia {
-        grid-column: 1 / -1;
-      }
-
-      .bento-card-monitoramento {
-        grid-column: 1 / -1;
-      }
-
-      .bento-card-inspecao {
-        grid-column: span 1;
-      }
-
-      .bento-card-materiais {
-        grid-column: span 1;
-      }
-
-      .bento-card-integridade {
-        grid-column: span 1;
-      }
-
-      .bento-card-geometria {
-        grid-column: span 1;
-        grid-row: auto;
-        aspect-ratio: 0.9 / 1;
-      }
-
-      .bento-card-topografia {
-        grid-column: span 1;
-      }
-
-      .bento-card-gpr {
-        grid-column: span 1;
-      }
-
-      .bento-card-analise {
-        grid-column: 1 / -1;
-      }
-
-      .bento-card-documentacao {
-        grid-column: 1 / -1;
-      }
-
-      .bento-card-consultoria {
-        grid-column: 1 / -1;
-      }
-    }
-
-    /* MOBILE PEQUENO (<420px): Coluna Única */
-    @media (max-width: 420px) {
-      .bento-dynamic-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .bento-card-inspecao,
-      .bento-card-materiais,
-      .bento-card-integridade,
-      .bento-card-geometria,
-      .bento-card-topografia,
-      .bento-card-gpr {
-        grid-column: span 1;
+      .bento-stack-vertical {
+        gap: 12px;
       }
     }
 
@@ -924,8 +862,8 @@
     <!-- CABEÇALHO GERAL -->
     <header class="showcase-header">
       <span class="showcase-badge">Biblioteca de Componentes — ENDCONTROL</span>
-      <h1>Catálogo de Cards & Bento Grid Editorial</h1>
-      <p>Mosaico arquitetônico e responsivo construído sobre CSS Grid de 12 colunas, proporções fluidas com <code>clamp()</code> e micro-interações expansíveis.</p>
+      <h1>Expanding Dynamic Bento Grid & Biblioteca de Cards</h1>
+      <p>Mosaico elástico e adaptativo onde <strong>os cards se expandem e empurram ativamente os vizinhos</strong> com física suave de mola em tempo real.</p>
     </header>
 
     <!-- ======================================================================
@@ -940,7 +878,7 @@
       <div class="cards-grid-4cols">
 
         <!-- CARD 1 DARK: HORIZONTAL -->
-        <article class="ec-card-dark card--medium" tabindex="0">
+        <article class="ec-card-dark" tabindex="0">
           <img src="./assets/Fotografias/editadas/operacional-discussao-engenheiros-tela-edit.webp" alt="Discussão técnica de engenheiros" class="ec-card-dark-bg-img" style="object-position: center right;" loading="lazy" />
           <div class="ec-card-dark-overlay--horizontal"></div>
           <div class="ec-card-dark-content">
@@ -958,7 +896,7 @@
         </article>
 
         <!-- CARD 2 DARK: VERTICAL -->
-        <article class="ec-card-dark card--medium" tabindex="0">
+        <article class="ec-card-dark" tabindex="0">
           <img src="./assets/Fotografias/Serviços - Banco de Imagens/02 - Inspeção em Obras de Artes Especiais/obras_arte_especiais_02.webp" alt="Drone em inspeção técnica de estruturas" class="ec-card-dark-bg-img" style="object-position: center bottom;" loading="lazy" />
           <div class="ec-card-dark-overlay--vertical"></div>
           <div class="ec-card-dark-content">
@@ -975,7 +913,7 @@
         </article>
 
         <!-- CARD 3 DARK: SEM FOTO -->
-        <article class="ec-card-dark card--medium" tabindex="0">
+        <article class="ec-card-dark" tabindex="0">
           <div class="ec-card-dark-content">
             <div class="ec-card-dark-icon-wrapper"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></div>
             <h3 class="ec-card-dark-title">Ensaios não destrutivos</h3>
@@ -990,7 +928,7 @@
         </article>
 
         <!-- CARD 4 DARK: HERO DESTAQUE -->
-        <article class="ec-card-dark card--large" tabindex="0">
+        <article class="ec-card-dark" tabindex="0">
           <img src="./assets/Fotografias/Serviços - Banco de Imagens/02 - Inspeção em Obras de Artes Especiais/obras_arte_especiais_03.webp" alt="Engenheiro EndControl inspecionando ponte" class="ec-card-dark-bg-img" style="object-position: center;" loading="lazy" />
           <div class="ec-card-dark-overlay--hero"></div>
           <div class="ec-card-dark-content ec-card-dark-content--hero">
@@ -1014,7 +952,7 @@
       <div class="cards-grid-4cols">
 
         <!-- CARD 1 WHITE: HORIZONTAL -->
-        <article class="ec-card-white card--medium" tabindex="0">
+        <article class="ec-card-white" tabindex="0">
           <img src="./assets/Fotografias/editadas/operacional-discussao-engenheiros-tela-edit.webp" alt="Discussão técnica de engenheiros" class="ec-card-white-bg-img" style="object-position: center right;" loading="lazy" />
           <div class="ec-card-white-overlay--horizontal"></div>
           <div class="ec-card-white-content">
@@ -1030,7 +968,7 @@
         </article>
 
         <!-- CARD 2 WHITE: VERTICAL -->
-        <article class="ec-card-white card--medium" tabindex="0">
+        <article class="ec-card-white" tabindex="0">
           <img src="./assets/Fotografias/Serviços - Banco de Imagens/02 - Inspeção em Obras de Artes Especiais/obras_arte_especiais_02.webp" alt="Drone em inspeção técnica de estruturas" class="ec-card-white-bg-img" style="object-position: center bottom;" loading="lazy" />
           <div class="ec-card-white-overlay--vertical"></div>
           <div class="ec-card-white-content">
@@ -1047,7 +985,7 @@
         </article>
 
         <!-- CARD 3 WHITE: SEM FOTO -->
-        <article class="ec-card-white card--medium" tabindex="0">
+        <article class="ec-card-white" tabindex="0">
           <div class="ec-card-white-content">
             <div class="ec-card-white-icon-wrapper"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></div>
             <h3 class="ec-card-white-title">Ensaios não destrutivos</h3>
@@ -1062,7 +1000,7 @@
         </article>
 
         <!-- CARD 4 WHITE: HERO DESTAQUE -->
-        <article class="ec-card-white card--large" tabindex="0">
+        <article class="ec-card-white" tabindex="0">
           <img src="./assets/Fotografias/Serviços - Banco de Imagens/02 - Inspeção em Obras de Artes Especiais/obras_arte_especiais_03.webp" alt="Engenheiro EndControl inspecionando ponte" class="ec-card-white-bg-img" style="object-position: center;" loading="lazy" />
           <div class="ec-card-white-overlay--hero"></div>
           <div class="ec-card-white-content ec-card-white-content--hero">
@@ -1075,289 +1013,306 @@
     </section>
 
     <!-- ======================================================================
-         SEÇÃO 3: EXPANDING DYNAMIC BENTO GRID (COMPOSIÇÃO 12 COLUNAS EDITORIAL)
+         SEÇÃO 3: EXPANDING DYNAMIC BENTO GRID (FÍSICA ELÁSTICA DE EMPURRÃO)
          ====================================================================== -->
     <section class="section-block">
       <div class="section-head">
-        <h2 class="section-title">3. Expanding Bento Grid (13 Capacidades e Serviços Integrados)</h2>
-        <p class="section-subtitle">Composição premium assimétrica em CSS Grid de 12 colunas com proporções fluidas, hover expansível e zero espaços vazios.</p>
+        <h2 class="section-title">3. Expanding Dynamic Bento Grid (13 Serviços Integrados)</h2>
+        <p class="section-subtitle">Mosaico arquitetônico elástico onde <strong>o card focado expande e empurra ativamente os vizinhos</strong> em tempo real com física contínua de 60 FPS.</p>
       </div>
 
-      <main class="bento-dynamic-grid">
+      <div class="bento-expanding-wrapper">
 
         <!-- ------------------------------------------------------------------
-             LINHA 1 & 2 DO MOSAICO
+             LINHA 1 (Hero + Ensaios Não Destrutivos + Stack Geotecnia/Monitoramento)
              ------------------------------------------------------------------ -->
-        
-        <!-- 1. HERO PRINCIPAL (Span 5 Cols, Span 2 Rows) -->
-        <article class="ec-card-dark bento-card-hero card--large" tabindex="0">
-          <img src="./assets/Fotografias/Serviços - Banco de Imagens/02 - Inspeção em Obras de Artes Especiais/obras_arte_especiais_01.webp" alt="Avaliação completa em pontes e viadutos" class="ec-card-dark-bg-img" style="object-position: center 38%;" loading="eager" />
-          <div class="ec-card-dark-overlay--hero"></div>
-          <div class="ec-card-dark-content ec-card-dark-content--hero">
-            <span class="ec-hero-tag ec-hero-tag--cyan">Avaliação completa.</span>
-            <h3 class="ec-hero-headline-dark">Tecnologia, método e especialistas em cada detalhe.</h3>
-          </div>
-        </article>
-
-        <!-- 2. ENSAIOS NÃO DESTRUTIVOS (Span 3 Cols, Span 2 Rows) -->
-        <article class="ec-card-white bento-card-ends card--medium" tabindex="0">
-          <div class="ec-card-white-content">
-            <div class="ec-card-white-icon-wrapper">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
-                <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
-                <line x1="12" y1="22.08" x2="12" y2="12"/>
-              </svg>
+        <div class="bento-row bento-row--top">
+          
+          <!-- 1. HERO PRINCIPAL (Expande empurrando os outros da linha) -->
+          <article class="ec-card-dark bento-flex-card bento-card--hero" tabindex="0">
+            <img src="./assets/Fotografias/Serviços - Banco de Imagens/02 - Inspeção em Obras de Artes Especiais/obras_arte_especiais_01.webp" alt="Avaliação completa em pontes e viadutos" class="ec-card-dark-bg-img" style="object-position: center 38%;" loading="eager" />
+            <div class="ec-card-dark-overlay--hero"></div>
+            <div class="ec-card-dark-content ec-card-dark-content--hero">
+              <span class="ec-hero-tag ec-hero-tag--cyan">Avaliação completa.</span>
+              <h3 class="ec-hero-headline-dark">Tecnologia, método e especialistas em cada detalhe.</h3>
             </div>
-            <h3 class="ec-card-white-title">Ensaios não destrutivos</h3>
-            <ul class="ec-card-white-checklist">
-              <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>Ultrassom</li>
-              <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>Líquido Penetrante</li>
-              <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>Partículas Magnéticas</li>
-              <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>Correntes Parasitas</li>
-              <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>Impact-Echo</li>
-            </ul>
-          </div>
-        </article>
+          </article>
 
-        <!-- 3. GEOTECNIA (Span 4 Cols, Row 1) -->
-        <article class="ec-card-white bento-card-geotecnia bento-card-compact card--small" tabindex="0">
-          <img src="./assets/Fotografias/Serviços - Banco de Imagens/02 - Inspeção em Obras de Artes Especiais/obras_arte_especiais_05.webp" alt="Sondagem e ensaios geotécnicos" class="ec-card-white-bg-img" style="object-position: center right;" loading="lazy" />
-          <div class="ec-card-white-overlay--horizontal"></div>
-          <div class="ec-card-white-content">
-            <div class="ec-card-white-head-row">
+          <!-- 2. ENSAIOS NÃO DESTRUTIVOS (Expande empurrando o Hero e o Stack) -->
+          <article class="ec-card-white bento-flex-card bento-card--ends" tabindex="0">
+            <div class="ec-card-white-content">
               <div class="ec-card-white-icon-wrapper">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/></svg>
-              </div>
-              <h3 class="ec-card-white-title">Geotecnia</h3>
-            </div>
-            <ul class="ec-card-white-checklist">
-              <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>Sondagem</li>
-              <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>Ensaios de solo</li>
-            </ul>
-          </div>
-        </article>
-
-        <!-- 4. MONITORAMENTO ESTRUTURAL (Span 4 Cols, Row 2) -->
-        <article class="ec-card-white bento-card-monitoramento bento-card-compact card--small" tabindex="0">
-          <img src="./assets/Fotografias/Serviços - Banco de Imagens/02 - Inspeção em Obras de Artes Especiais/obras_arte_especiais_04.webp" alt="Monitoramento técnico" class="ec-card-white-bg-img" style="object-position: center right;" loading="lazy" />
-          <div class="ec-card-white-overlay--horizontal"></div>
-          <div class="ec-card-white-content">
-            <div class="ec-card-white-head-row">
-              <div class="ec-card-white-icon-wrapper">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-              </div>
-              <h3 class="ec-card-white-title">Monitoramento estrutural</h3>
-            </div>
-            <ul class="ec-card-white-checklist">
-              <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>Instrumentação</li>
-              <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>Aquisição de dados</li>
-            </ul>
-          </div>
-        </article>
-
-        <!-- ------------------------------------------------------------------
-             LINHA 3 DO MOSAICO
-             ------------------------------------------------------------------ -->
-
-        <!-- 5. INSPEÇÃO VISUAL (Span 3 Cols) -->
-        <article class="ec-card-white bento-card-inspecao card--medium" tabindex="0">
-          <div class="ec-card-white-content">
-            <div class="ec-card-white-head-row">
-              <div class="ec-card-white-icon-wrapper">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
-              </div>
-              <h3 class="ec-card-white-title">Inspeção visual</h3>
-            </div>
-            <ul class="ec-card-white-checklist">
-              <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>Inspeção Visual Detalhada</li>
-            </ul>
-            <div class="bento-card-inspecao-photo">
-              <div class="bento-card-inspecao-fade"></div>
-              <img src="./assets/Fotografias/Serviços - Banco de Imagens/02 - Inspeção em Obras de Artes Especiais/obras_arte_especiais_06.webp" alt="Inspeção visual com cesto elevatório" loading="lazy" />
-            </div>
-          </div>
-        </article>
-
-        <!-- 6. MATERIAIS E DURABILIDADE (Span 3 Cols) -->
-        <article class="ec-card-dark bento-card-materiais card--medium" tabindex="0">
-          <div class="ec-card-dark-content">
-            <div class="ec-card-dark-head-row">
-              <div class="ec-card-dark-icon-wrapper">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M10 2v7.527a2 2 0 0 1-.211.896L4.72 20.55A2 2 0 0 0 6.508 23h10.984a2 2 0 0 0 1.788-2.45l-5.069-10.127A2 2 0 0 1 14 9.527V2"/>
-                  <path d="M8.5 2h7"/>
-                  <path d="M7 16h10"/>
+                  <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                  <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+                  <line x1="12" y1="22.08" x2="12" y2="12"/>
                 </svg>
               </div>
-              <h3 class="ec-card-dark-title">Materiais e durabilidade</h3>
+              <h3 class="ec-card-white-title">Ensaios não destrutivos</h3>
+              <ul class="ec-card-white-checklist">
+                <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>Ultrassom</li>
+                <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>Líquido Penetrante</li>
+                <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>Partículas Magnéticas</li>
+                <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>Correntes Parasitas</li>
+                <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>Impact-Echo</li>
+              </ul>
             </div>
-            <ul class="ec-card-dark-checklist">
-              <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>Carbonataçāo</li>
-              <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>Extração e Análise de Testemunhos</li>
-              <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>Potencial de Corrosão</li>
-              <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>Teor de Cloretos</li>
-            </ul>
-          </div>
-        </article>
+          </article>
 
-        <!-- 7. INTEGRIDADE ESTRUTURAL (Span 3 Cols) -->
-        <article class="ec-card-white bento-card-integridade card--medium" tabindex="0">
-          <div class="ec-card-white-content">
-            <div class="ec-card-white-icon-wrapper">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="3" y="3" width="18" height="18" rx="2"/>
-                <path d="M3 9h18"/>
-                <path d="M9 21V9"/>
-              </svg>
-            </div>
-            <h3 class="ec-card-white-title">Integridade estrutural</h3>
-            <ul class="ec-card-white-checklist">
-              <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>Prova de Carga</li>
-              <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>Ensaio Dinâmico</li>
-            </ul>
-          </div>
-        </article>
-
-        <!-- 8. GEOMETRIA VERTICAL ALTO (Span 3 Cols, Span 2 Rows) -->
-        <article class="ec-card-dark bento-card-geometria card--medium" tabindex="0">
-          <img src="./assets/Fotografias/Serviços - Banco de Imagens/02 - Inspeção em Obras de Artes Especiais/obras_arte_especiais_02.webp" alt="Drone em pilar de viaduto" class="ec-card-dark-bg-img" style="object-position: center bottom;" loading="lazy" />
-          <div class="ec-card-dark-overlay--vertical"></div>
-          <div class="ec-card-dark-content">
-            <div class="ec-card-dark-head-row">
-              <div class="ec-card-dark-icon-wrapper">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l4 6-10 12L2 9l4-6z"/></svg>
+          <!-- 3 & 4. STACK VERTICAL (Geotecnia + Monitoramento) -->
+          <div class="bento-stack-vertical bento-card--stack">
+            
+            <!-- 3. Geotecnia -->
+            <article class="ec-card-white bento-stack-item bento-card--geotecnia" tabindex="0">
+              <img src="./assets/Fotografias/Serviços - Banco de Imagens/02 - Inspeção em Obras de Artes Especiais/obras_arte_especiais_05.webp" alt="Sondagem e ensaios geotécnicos" class="ec-card-white-bg-img" style="object-position: center right;" loading="lazy" />
+              <div class="ec-card-white-overlay--horizontal"></div>
+              <div class="ec-card-white-content">
+                <div class="ec-card-white-head-row">
+                  <div class="ec-card-white-icon-wrapper">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/></svg>
+                  </div>
+                  <h3 class="ec-card-white-title">Geotecnia</h3>
+                </div>
+                <ul class="ec-card-white-checklist">
+                  <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>Sondagem</li>
+                  <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>Ensaios de solo</li>
+                </ul>
               </div>
-              <h3 class="ec-card-dark-title">Geometria</h3>
-            </div>
-            <ul class="ec-card-dark-checklist">
-              <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>Levantamento 3D</li>
-            </ul>
+            </article>
+
+            <!-- 4. Monitoramento Estrutural -->
+            <article class="ec-card-white bento-stack-item bento-card--monitoramento" tabindex="0">
+              <img src="./assets/Fotografias/Serviços - Banco de Imagens/02 - Inspeção em Obras de Artes Especiais/obras_arte_especiais_04.webp" alt="Monitoramento técnico" class="ec-card-white-bg-img" style="object-position: center right;" loading="lazy" />
+              <div class="ec-card-white-overlay--horizontal"></div>
+              <div class="ec-card-white-content">
+                <div class="ec-card-white-head-row">
+                  <div class="ec-card-white-icon-wrapper">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                  </div>
+                  <h3 class="ec-card-white-title">Monitoramento estrutural</h3>
+                </div>
+                <ul class="ec-card-white-checklist">
+                  <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>Instrumentação</li>
+                  <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>Aquisição de dados</li>
+                </ul>
+              </div>
+            </article>
+
           </div>
-        </article>
+
+        </div>
 
         <!-- ------------------------------------------------------------------
-             LINHA 4 DO MOSAICO
+             LINHA 2 (Inspeção Visual + Materiais + Integridade + Geometria Drone)
              ------------------------------------------------------------------ -->
+        <div class="bento-row bento-row--middle-1">
 
-        <!-- 9. TOPOGRAFIA (Span 3 Cols) -->
-        <article class="ec-card-dark bento-card-topografia card--small" tabindex="0">
-          <img src="./assets/Fotografias/Serviços - Banco de Imagens/02 - Inspeção em Obras de Artes Especiais/obras_arte_especiais_03.webp" alt="Topógrafo com estação total" class="ec-card-dark-bg-img" style="object-position: center right;" loading="lazy" />
-          <div class="ec-card-dark-overlay--horizontal"></div>
-          <div class="ec-card-dark-content">
-            <div class="ec-card-dark-head-row">
-              <div class="ec-card-dark-icon-wrapper">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+          <!-- 5. INSPEÇÃO VISUAL -->
+          <article class="ec-card-white bento-flex-card bento-card--inspecao" tabindex="0">
+            <div class="ec-card-white-content">
+              <div class="ec-card-white-head-row">
+                <div class="ec-card-white-icon-wrapper">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+                </div>
+                <h3 class="ec-card-white-title">Inspeção visual</h3>
               </div>
-              <h3 class="ec-card-dark-title">Topografia</h3>
-            </div>
-            <ul class="ec-card-dark-checklist">
-              <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>Levantamento Topográfico</li>
-            </ul>
-          </div>
-        </article>
-
-        <!-- 10. GPR (Span 3 Cols) -->
-        <article class="ec-card-dark bento-card-gpr card--small" tabindex="0">
-          <img src="./assets/Fotografias/Serviços - Banco de Imagens/02 - Inspeção em Obras de Artes Especiais/obras_arte_especiais_04.webp" alt="Georadar GPR" class="ec-card-dark-bg-img" style="object-position: center right;" loading="lazy" />
-          <div class="ec-card-dark-overlay--horizontal"></div>
-          <div class="ec-card-dark-content">
-            <div class="ec-card-dark-head-row">
-              <div class="ec-card-dark-icon-wrapper">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2"/><path d="M16.24 7.76a6 6 0 0 1 0 8.49m-8.48-.01a6 6 0 0 1 0-8.49m11.31-2.82a10 10 0 0 1 0 14.14m-14.14 0a10 10 0 0 1 0-14.14"/></svg>
+              <ul class="ec-card-white-checklist">
+                <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>Inspeção Visual Detalhada</li>
+              </ul>
+              <div class="bento-card-inspecao-photo">
+                <div class="bento-card-inspecao-fade"></div>
+                <img src="./assets/Fotografias/Serviços - Banco de Imagens/02 - Inspeção em Obras de Artes Especiais/obras_arte_especiais_06.webp" alt="Inspeção visual com cesto elevatório" loading="lazy" />
               </div>
-              <h3 class="ec-card-dark-title">GPR</h3>
             </div>
-            <ul class="ec-card-dark-checklist">
-              <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>Georadar</li>
-            </ul>
-          </div>
-        </article>
+          </article>
 
-        <!-- 11. ANÁLISE ESTRUTURAL (Span 3 Cols) -->
-        <article class="ec-card-white bento-card-analise card--medium" tabindex="0">
-          <div class="ec-card-white-content">
-            <div class="ec-card-white-head-row">
+          <!-- 6. MATERIAIS E DURABILIDADE -->
+          <article class="ec-card-dark bento-flex-card bento-card--materiais" tabindex="0">
+            <div class="ec-card-dark-content">
+              <div class="ec-card-dark-head-row">
+                <div class="ec-card-dark-icon-wrapper">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M10 2v7.527a2 2 0 0 1-.211.896L4.72 20.55A2 2 0 0 0 6.508 23h10.984a2 2 0 0 0 1.788-2.45l-5.069-10.127A2 2 0 0 1 14 9.527V2"/>
+                    <path d="M8.5 2h7"/>
+                    <path d="M7 16h10"/>
+                  </svg>
+                </div>
+                <h3 class="ec-card-dark-title">Materiais e durabilidade</h3>
+              </div>
+              <ul class="ec-card-dark-checklist">
+                <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>Carbonataçāo</li>
+                <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>Extração e Análise de Testemunhos</li>
+                <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>Potencial de Corrosão</li>
+                <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>Teor de Cloretos</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- 7. INTEGRIDADE ESTRUTURAL -->
+          <article class="ec-card-white bento-flex-card bento-card--integridade" tabindex="0">
+            <div class="ec-card-white-content">
               <div class="ec-card-white-icon-wrapper">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="3"/><circle cx="6" cy="17" r="3"/><circle cx="18" cy="17" r="3"/><line x1="12" y1="8" x2="6" y2="14"/><line x1="12" y1="8" x2="18" y2="14"/><line x1="9" y1="17" x2="15" y2="17"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="3" width="18" height="18" rx="2"/>
+                  <path d="M3 9h18"/>
+                  <path d="M9 21V9"/>
+                </svg>
               </div>
-              <h3 class="ec-card-white-title">Análise estrutural</h3>
+              <h3 class="ec-card-white-title">Integridade estrutural</h3>
+              <ul class="ec-card-white-checklist">
+                <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>Prova de Carga</li>
+                <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>Ensaio Dinâmico</li>
+              </ul>
             </div>
-            <ul class="ec-card-white-checklist">
-              <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>Modelagem e Análise</li>
-            </ul>
-            <div class="bento-mef-wrapper">
-              <svg viewBox="0 0 300 80" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
-                <defs>
-                  <linearGradient id="mefRefGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stop-color="#00C2FF" stop-opacity="0.95"/>
-                    <stop offset="30%" stop-color="#10B981" stop-opacity="0.9"/>
-                    <stop offset="60%" stop-color="#F59E0B" stop-opacity="0.9"/>
-                    <stop offset="100%" stop-color="#EF4444" stop-opacity="0.95"/>
-                  </linearGradient>
-                  <linearGradient id="deckGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stop-color="#00C2FF" stop-opacity="0.45"/>
-                    <stop offset="35%" stop-color="#10B981" stop-opacity="0.4"/>
-                    <stop offset="65%" stop-color="#F59E0B" stop-opacity="0.4"/>
-                    <stop offset="100%" stop-color="#EF4444" stop-opacity="0.45"/>
-                  </linearGradient>
-                </defs>
-                <polygon points="30,28 150,12 270,28 150,44" fill="url(#deckGrad)" stroke="url(#mefRefGrad)" stroke-width="1.2"/>
-                <polygon points="30,28 30,42 150,58 150,44" fill="#0080B0" fill-opacity="0.3" stroke="#0B8060" stroke-width="0.6"/>
-                <polygon points="150,44 150,58 270,42 270,28" fill="#B07020" fill-opacity="0.3" stroke="#B07020" stroke-width="0.6"/>
-                <line x1="60" y1="25" x2="60" y2="39" stroke="#00C2FF" stroke-width="0.5" opacity="0.6"/>
-                <line x1="120" y1="17" x2="120" y2="40" stroke="#10B981" stroke-width="0.5" opacity="0.6"/>
-                <line x1="180" y1="17" x2="180" y2="40" stroke="#F59E0B" stroke-width="0.5" opacity="0.6"/>
-                <line x1="240" y1="25" x2="240" y2="35" stroke="#EF4444" stroke-width="0.5" opacity="0.6"/>
-                <rect x="57" y="42" width="6" height="24" rx="1" fill="#0080B0" opacity="0.6"/>
-                <rect x="147" y="52" width="6" height="20" rx="1" fill="#F59E0B" opacity="0.6"/>
-                <rect x="237" y="42" width="6" height="24" rx="1" fill="#EF4444" opacity="0.6"/>
-              </svg>
+          </article>
+
+          <!-- 8. GEOMETRIA (DRONE) -->
+          <article class="ec-card-dark bento-flex-card bento-card--geometria" tabindex="0">
+            <img src="./assets/Fotografias/Serviços - Banco de Imagens/02 - Inspeção em Obras de Artes Especiais/obras_arte_especiais_02.webp" alt="Drone em pilar de viaduto" class="ec-card-dark-bg-img" style="object-position: center bottom;" loading="lazy" />
+            <div class="ec-card-dark-overlay--vertical"></div>
+            <div class="ec-card-dark-content">
+              <div class="ec-card-dark-head-row">
+                <div class="ec-card-dark-icon-wrapper">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l4 6-10 12L2 9l4-6z"/></svg>
+                </div>
+                <h3 class="ec-card-dark-title">Geometria</h3>
+              </div>
+              <ul class="ec-card-dark-checklist">
+                <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>Levantamento 3D</li>
+              </ul>
             </div>
-          </div>
-        </article>
+          </article>
+
+        </div>
 
         <!-- ------------------------------------------------------------------
-             LINHA 5 DO MOSAICO
+             LINHA 3 (Topografia + GPR + Análise Estrutural)
              ------------------------------------------------------------------ -->
+        <div class="bento-row bento-row--middle-2">
 
-        <!-- 12. DOCUMENTAÇÃO E GESTÃO (Span 6 Cols) -->
-        <article class="ec-card-white bento-card-documentacao card--medium" tabindex="0">
-          <img src="./assets/Fotografias/editadas/operacional-discussao-engenheiros-tela-edit.webp" alt="Documentação técnica" class="ec-card-white-bg-img" style="object-position: center right;" loading="lazy" />
-          <div class="ec-card-white-overlay--horizontal"></div>
-          <div class="ec-card-white-content">
-            <div class="ec-card-white-head-row">
-              <div class="ec-card-white-icon-wrapper">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg>
+          <!-- 9. TOPOGRAFIA -->
+          <article class="ec-card-dark bento-flex-card bento-card--topografia" tabindex="0">
+            <img src="./assets/Fotografias/Serviços - Banco de Imagens/02 - Inspeção em Obras de Artes Especiais/obras_arte_especiais_03.webp" alt="Topógrafo com estação total" class="ec-card-dark-bg-img" style="object-position: center right;" loading="lazy" />
+            <div class="ec-card-dark-overlay--horizontal"></div>
+            <div class="ec-card-dark-content">
+              <div class="ec-card-dark-head-row">
+                <div class="ec-card-dark-icon-wrapper">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                </div>
+                <h3 class="ec-card-dark-title">Topografia</h3>
               </div>
-              <h3 class="ec-card-white-title">Documentação e gestão</h3>
+              <ul class="ec-card-dark-checklist">
+                <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>Levantamento Topográfico</li>
+              </ul>
             </div>
-            <ul class="ec-card-white-checklist">
-              <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>Relatórios Técnicos</li>
-              <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>Planos de Inspeção e Manutenção</li>
-            </ul>
-          </div>
-        </article>
+          </article>
 
-        <!-- 13. CONSULTORIA TÉCNICA (Span 6 Cols) -->
-        <article class="ec-card-dark bento-card-consultoria card--medium" tabindex="0">
-          <img src="./assets/Fotografias/editadas/operacional-engenheiros-inspecao-bomba-edit.webp" alt="Consultoria técnica especializada" class="ec-card-dark-bg-img" style="object-position: center right;" loading="lazy" />
-          <div class="ec-card-dark-overlay--horizontal"></div>
-          <div class="ec-card-dark-content">
-            <div class="ec-card-dark-head-row">
-              <div class="ec-card-dark-icon-wrapper">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <!-- 10. GPR -->
+          <article class="ec-card-dark bento-flex-card bento-card--gpr" tabindex="0">
+            <img src="./assets/Fotografias/Serviços - Banco de Imagens/02 - Inspeção em Obras de Artes Especiais/obras_arte_especiais_04.webp" alt="Georadar GPR" class="ec-card-dark-bg-img" style="object-position: center right;" loading="lazy" />
+            <div class="ec-card-dark-overlay--horizontal"></div>
+            <div class="ec-card-dark-content">
+              <div class="ec-card-dark-head-row">
+                <div class="ec-card-dark-icon-wrapper">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2"/><path d="M16.24 7.76a6 6 0 0 1 0 8.49m-8.48-.01a6 6 0 0 1 0-8.49m11.31-2.82a10 10 0 0 1 0 14.14m-14.14 0a10 10 0 0 1 0-14.14"/></svg>
+                </div>
+                <h3 class="ec-card-dark-title">GPR</h3>
               </div>
-              <h3 class="ec-card-dark-title">Consultoria técnica</h3>
+              <ul class="ec-card-dark-checklist">
+                <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>Georadar</li>
+              </ul>
             </div>
-            <ul class="ec-card-dark-checklist">
-              <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>Parecer Técnico</li>
-              <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>Apoio em decisões estratégicas</li>
-            </ul>
-          </div>
-        </article>
+          </article>
 
-      </main>
+          <!-- 11. ANÁLISE ESTRUTURAL -->
+          <article class="ec-card-white bento-flex-card bento-card--analise" tabindex="0">
+            <div class="ec-card-white-content">
+              <div class="ec-card-white-head-row">
+                <div class="ec-card-white-icon-wrapper">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="3"/><circle cx="6" cy="17" r="3"/><circle cx="18" cy="17" r="3"/><line x1="12" y1="8" x2="6" y2="14"/><line x1="12" y1="8" x2="18" y2="14"/><line x1="9" y1="17" x2="15" y2="17"/></svg>
+                </div>
+                <h3 class="ec-card-white-title">Análise estrutural</h3>
+              </div>
+              <ul class="ec-card-white-checklist">
+                <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>Modelagem e Análise</li>
+              </ul>
+              <div class="bento-mef-wrapper">
+                <svg viewBox="0 0 300 80" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+                  <defs>
+                    <linearGradient id="mefRefGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stop-color="#00C2FF" stop-opacity="0.95"/>
+                      <stop offset="30%" stop-color="#10B981" stop-opacity="0.9"/>
+                      <stop offset="60%" stop-color="#F59E0B" stop-opacity="0.9"/>
+                      <stop offset="100%" stop-color="#EF4444" stop-opacity="0.95"/>
+                    </linearGradient>
+                    <linearGradient id="deckGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stop-color="#00C2FF" stop-opacity="0.45"/>
+                      <stop offset="35%" stop-color="#10B981" stop-opacity="0.4"/>
+                      <stop offset="65%" stop-color="#F59E0B" stop-opacity="0.4"/>
+                      <stop offset="100%" stop-color="#EF4444" stop-opacity="0.45"/>
+                    </linearGradient>
+                  </defs>
+                  <polygon points="30,28 150,12 270,28 150,44" fill="url(#deckGrad)" stroke="url(#mefRefGrad)" stroke-width="1.2"/>
+                  <polygon points="30,28 30,42 150,58 150,44" fill="#0080B0" fill-opacity="0.3" stroke="#0B8060" stroke-width="0.6"/>
+                  <polygon points="150,44 150,58 270,42 270,28" fill="#B07020" fill-opacity="0.3" stroke="#B07020" stroke-width="0.6"/>
+                  <line x1="60" y1="25" x2="60" y2="39" stroke="#00C2FF" stroke-width="0.5" opacity="0.6"/>
+                  <line x1="120" y1="17" x2="120" y2="40" stroke="#10B981" stroke-width="0.5" opacity="0.6"/>
+                  <line x1="180" y1="17" x2="180" y2="40" stroke="#F59E0B" stroke-width="0.5" opacity="0.6"/>
+                  <line x1="240" y1="25" x2="240" y2="35" stroke="#EF4444" stroke-width="0.5" opacity="0.6"/>
+                  <rect x="57" y="42" width="6" height="24" rx="1" fill="#0080B0" opacity="0.6"/>
+                  <rect x="147" y="52" width="6" height="20" rx="1" fill="#F59E0B" opacity="0.6"/>
+                  <rect x="237" y="42" width="6" height="24" rx="1" fill="#EF4444" opacity="0.6"/>
+                </svg>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- ------------------------------------------------------------------
+             LINHA 4 (Documentação e Gestão + Consultoria Técnica)
+             ------------------------------------------------------------------ -->
+        <div class="bento-row bento-row--bottom">
+
+          <!-- 12. DOCUMENTAÇÃO E GESTÃO -->
+          <article class="ec-card-white bento-flex-card bento-card--documentacao" tabindex="0">
+            <img src="./assets/Fotografias/editadas/operacional-discussao-engenheiros-tela-edit.webp" alt="Documentação técnica" class="ec-card-white-bg-img" style="object-position: center right;" loading="lazy" />
+            <div class="ec-card-white-overlay--horizontal"></div>
+            <div class="ec-card-white-content">
+              <div class="ec-card-white-head-row">
+                <div class="ec-card-white-icon-wrapper">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg>
+                </div>
+                <h3 class="ec-card-white-title">Documentação e gestão</h3>
+              </div>
+              <ul class="ec-card-white-checklist">
+                <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>Relatórios Técnicos</li>
+                <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>Planos de Inspeção e Manutenção</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- 13. CONSULTORIA TÉCNICA -->
+          <article class="ec-card-dark bento-flex-card bento-card--consultoria" tabindex="0">
+            <img src="./assets/Fotografias/editadas/operacional-engenheiros-inspecao-bomba-edit.webp" alt="Consultoria técnica especializada" class="ec-card-dark-bg-img" style="object-position: center right;" loading="lazy" />
+            <div class="ec-card-dark-overlay--horizontal"></div>
+            <div class="ec-card-dark-content">
+              <div class="ec-card-dark-head-row">
+                <div class="ec-card-dark-icon-wrapper">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <h3 class="ec-card-dark-title">Consultoria técnica</h3>
+              </div>
+              <ul class="ec-card-dark-checklist">
+                <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>Parecer Técnico</li>
+                <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>Apoio em decisões estratégicas</li>
+              </ul>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
 
     </section>
 

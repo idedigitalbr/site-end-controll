@@ -1,5 +1,14 @@
 # Features — ENDCONTROL Engenharia
 
+## Expanding Bento Grid com Expansão Física e Deslocamento Dinâmico dos Vizinhos
+
+- Status: Concluída
+- Data: 2026-08-19
+- **Arquivo:** `componentes-cards-.html`
+- **Expansão Física Real:** O card em hover ganha largura/proporção dinâmica ativa, empurrando fisicamente os cards vizinhos que se comprimem suavemente em tempo real.
+- **Física Elástica em Linhas Coordenadas:** Linha 1 (Hero + ENDs + Geotecnia/Monitoramento), Linha 2 (Inspeção + Materiais + Integridade + Geometria), Linha 3 (Topografia + GPR + Análise), Linha 4 (Documentação + Consultoria).
+- **Fluidez e Retorno Suave:** Curvas físicas `cubic-bezier(0.25, 1, 0.35, 1)` a 60/120 FPS.
+
 ## Bento Grid com Física Elástica (Expansão do Focado & Contração dos Vizinhos)
 
 - Status: Concluída

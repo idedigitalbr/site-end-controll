@@ -1,6 +1,16 @@
 # Changelog — ENDCONTROL Engenharia
 
-## [2026-08-19] - Física Elástica e Expansão Dinâmica no Bento Grid (Expansão do Ativo & Contração dos Vizinhos)
+## [2026-08-19] - Implementação de Expanding Bento Grid com Expansão Física Real (Cards se Empurram e Redimensionam no Hover)
+
+- **Arquivo:** `componentes-cards-.html`
+
+### Added & Refined
+- **1. Mecânica Real de Expansão e Deslocamento Elástico (`componentes-cards-.html`):**
+  - **Expansão Dinâmica por `flex-grow`:** Ao passar o mouse sobre qualquer card, sua largura física é ampliada em tempo real (ex: de `flex: 1` para `flex: 2.4` ou de `flex: 5` para `flex: 7.2`).
+  - **Deslocamento / Empurrão dos Vizinhos:** Os cards vizinhos na mesma linha são fisicamente empurrados e contraem sua largura (ex: para `flex: 0.65` ou `flex: 1.8`) para acomodar o card ativo.
+  - **Stack Vertical Independente:** Dentro da coluna de Geotecnia e Monitoramento, o card focado também expande sua altura interna vertical (`flex: 1.45`), comprimindo o irmão (`flex: 0.7`).
+  - **Física de Mola Suave e Contínua:** Transições com `cubic-bezier(0.25, 1, 0.35, 1)` a 60/120 FPS em aceleração de hardware.
+  - **Degradação Elegante em Mobile:** Em telas touch/mobile, o layout se adapta a colunas independentes sem sobreposições ou distorções.
 
 - **Arquivo:** `componentes-cards-.html`
 
