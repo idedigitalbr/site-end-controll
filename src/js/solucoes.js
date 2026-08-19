@@ -232,7 +232,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const RADAR_CONFIG = Object.freeze({
     transitionDuration: 1600,
     autoAdvanceInterval: 2000,
-    manualResumeDelay: 12000,
+    hoverResumeDelay: 2000,
+    manualResumeDelay: 10000,
     approachStartRatio: 0.56,
     easing: 'cubic-bezier(0.45, 0, 0.2, 1)'
   });
@@ -318,20 +319,26 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  adjustLabelPlacements();
   window.requestAnimationFrame(adjustLabelPlacements);
 
   let measuredAngles = servicesData.map(service => RadarProgress.normalizeAngle(service.angle + 90));
-  let measuredRadii = servicesData.map(() => 0);
+  let measuredRadii = servicesData.map(service => {
+    if (service.angle === -90 && service.ringIndex === 0) return 146;
+    return service.ringIndex === 0 ? 208.5 : 125;
+  });
 
   function measureRadarMetrics() {
     const centerRect = orbitalCenterLogo.getBoundingClientRect();
     const diagramRect = orbitalDiagram.getBoundingClientRect();
+    const width = diagramRect.width || orbitalDiagram.offsetWidth || 500;
+    const height = diagramRect.height || orbitalDiagram.offsetHeight || 500;
     const center = {
-      x: centerRect.left + centerRect.width / 2,
-      y: centerRect.top + centerRect.height / 2
+      x: (centerRect.left && centerRect.right) ? (centerRect.left + centerRect.width / 2) : (diagramRect.left + width / 2),
+      y: (centerRect.top && centerRect.bottom) ? (centerRect.top + centerRect.height / 2) : (diagramRect.top + height / 2)
     };
-    const centerLogoRadius = Math.max(centerRect.width, centerRect.height) / 2;
-    const maxRadius = Math.min(diagramRect.width, diagramRect.height) * 0.495;
+    const centerLogoRadius = Math.max(centerRect.width || 140, centerRect.height || 140) / 2;
+    const maxRadius = Math.min(width, height) * 0.495;
 
     measuredAngles = [];
     measuredRadii = [];
@@ -350,11 +357,21 @@ document.addEventListener('DOMContentLoaded', () => {
         targets.push(label.getBoundingClientRect());
       }
 
-      const safeRadius = RadarProgress.getSafeSweepRadius(center, targets, {
+      let safeRadius = RadarProgress.getSafeSweepRadius(center, targets, {
         safetyGap: 16,
         minRadius: centerLogoRadius + 10,
         maxRadius
       });
+
+      // Strict boundary protection for Item 0 (12:00 position with label below icon):
+      // The beam must NEVER cross or pass behind the label / title
+      const service = servicesData[index];
+      if (service.angle === -90 && service.ringIndex === 0) {
+        const theoreticalMax = Math.min(width, height) * 0.295;
+        if (!safeRadius || safeRadius > theoreticalMax || !Number.isFinite(safeRadius)) {
+          safeRadius = theoreticalMax;
+        }
+      }
 
       node.dataset.angle = angle.toFixed(2);
       node.dataset.radius = safeRadius.toFixed(2);
@@ -493,7 +510,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const dot = document.createElement('div');
     dot.className = 'card-progress-dot';
     dot.dataset.index = i;
-    dot.addEventListener('click', () => { goToService(i); pauseAutoPlay(); });
+    dot.addEventListener('click', () => { goToService(i); handleManualInteraction(); });
     cardProgress.appendChild(dot);
   });
   const progressDots = document.querySelectorAll('.card-progress-dot');
@@ -513,6 +530,10 @@ document.addEventListener('DOMContentLoaded', () => {
   let resizeFrame = null;
   const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
   let isTransitioning = false;
+
+  // Interaction and pause state management
+  let isHovered = false;
+  let manualPauseUntil = 0;
 
   function updateRadarStates() {
     const progressState = RadarProgress.getProgressState(servicesData, activeIndex);
@@ -640,7 +661,7 @@ document.addEventListener('DOMContentLoaded', () => {
     updatePagination(activeIndex);
     updateCard(activeIndex, true);
 
-    if (autoPlayEnabled && !reducedMotionQuery.matches) {
+    if (autoPlayEnabled && !isHovered && performance.now() >= manualPauseUntil && !reducedMotionQuery.matches) {
       scheduleNextSweep();
     }
   }
@@ -709,13 +730,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const prevService = () => {
     const nextIdx = (activeIndex - 1 + servicesData.length) % servicesData.length;
     moveSweepTo(nextIdx, 'backward');
-    pauseAutoPlay();
+    handleManualInteraction();
   };
 
   const nextService = () => {
     const nextIdx = (activeIndex + 1) % servicesData.length;
     moveSweepTo(nextIdx, 'forward');
-    pauseAutoPlay();
+    handleManualInteraction();
   };
 
   document.getElementById('cardSidePrev')?.addEventListener('click', prevService);
@@ -731,28 +752,16 @@ document.addEventListener('DOMContentLoaded', () => {
       const serviceId = parseInt(serviceLink.dataset.serviceId, 10);
       if (!isNaN(serviceId)) {
         goToService(serviceId);
-        pauseAutoPlay();
+        handleManualInteraction();
       }
     }
   });
 
-  function startAutoPlay() {
-    stopAutoPlay();
-    if (reducedMotionQuery.matches) return;
-
-    autoPlayEnabled = true;
-    scheduleNextSweep();
-  }
-
-  function scheduleNextSweep(
-    delay = Math.max(0, RADAR_CONFIG.autoAdvanceInterval - RADAR_CONFIG.transitionDuration)
-  ) {
-    clearTimeout(cycleTimer);
-    if (!autoPlayEnabled || reducedMotionQuery.matches || sweepAnimation) return;
-
-    cycleTimer = window.setTimeout(() => {
-      moveSweepTo((activeIndex + 1) % servicesData.length, 'forward');
-    }, delay);
+  function clearResumeTimer() {
+    if (resumeTimer) {
+      clearTimeout(resumeTimer);
+      resumeTimer = null;
+    }
   }
 
   function stopAutoPlay() {
@@ -761,22 +770,87 @@ document.addEventListener('DOMContentLoaded', () => {
     cycleTimer = null;
   }
 
-  function pauseAutoPlay() {
-    stopAutoPlay();
-    clearTimeout(resumeTimer);
-    resumeTimer = window.setTimeout(startAutoPlay, RADAR_CONFIG.manualResumeDelay);
+  function scheduleNextSweep(
+    delay = Math.max(0, RADAR_CONFIG.autoAdvanceInterval - RADAR_CONFIG.transitionDuration)
+  ) {
+    clearTimeout(cycleTimer);
+    if (!autoPlayEnabled || reducedMotionQuery.matches || sweepAnimation || isHovered) return;
+
+    cycleTimer = window.setTimeout(() => {
+      moveSweepTo((activeIndex + 1) % servicesData.length, 'forward');
+    }, delay);
   }
 
+  function startAutoPlay() {
+    clearResumeTimer();
+    stopAutoPlay();
+    if (reducedMotionQuery.matches || isHovered) return;
+
+    autoPlayEnabled = true;
+    scheduleNextSweep();
+  }
+
+  function handleHoverEnter() {
+    isHovered = true;
+    stopAutoPlay();
+    clearResumeTimer();
+  }
+
+  function handleHoverLeave() {
+    isHovered = false;
+    clearResumeTimer();
+    if (reducedMotionQuery.matches) return;
+
+    const now = performance.now();
+    const remainingManual = manualPauseUntil - now;
+    const delay = remainingManual > 0
+      ? Math.max(RADAR_CONFIG.hoverResumeDelay, remainingManual)
+      : RADAR_CONFIG.hoverResumeDelay;
+
+    resumeTimer = window.setTimeout(() => {
+      resumeTimer = null;
+      if (!isHovered && performance.now() >= manualPauseUntil) {
+        startAutoPlay();
+      }
+    }, delay);
+  }
+
+  function handleManualInteraction() {
+    manualPauseUntil = performance.now() + RADAR_CONFIG.manualResumeDelay;
+    stopAutoPlay();
+    clearResumeTimer();
+
+    if (!isHovered && !reducedMotionQuery.matches) {
+      resumeTimer = window.setTimeout(() => {
+        resumeTimer = null;
+        if (!isHovered && performance.now() >= manualPauseUntil) {
+          startAutoPlay();
+        }
+      }, RADAR_CONFIG.manualResumeDelay);
+    }
+  }
+
+  function pauseAutoPlay() {
+    handleManualInteraction();
+  }
+
+  // Highlight Card hover pause / resume
+  highlightCard.addEventListener('mouseenter', handleHoverEnter);
+  highlightCard.addEventListener('mouseleave', handleHoverLeave);
+
+  // Radar Nodes hover and click interactions
   serviceNodes.forEach(node => {
     node.addEventListener('click', () => {
-      goToService(parseInt(node.dataset.index));
-      pauseAutoPlay();
+      goToService(parseInt(node.dataset.index, 10));
+      handleManualInteraction();
     });
-    node.addEventListener('mouseenter', () => stopAutoPlay());
-    node.addEventListener('mouseleave', () => {
-      startAutoPlay();
-    });
+    node.addEventListener('mouseenter', handleHoverEnter);
+    node.addEventListener('mouseleave', handleHoverLeave);
   });
+
+  // Orbital Center Logo hover pause / resume
+  orbitalCenterLogo?.addEventListener('mouseenter', handleHoverEnter);
+  orbitalCenterLogo?.addEventListener('mouseleave', handleHoverLeave);
 
   function refreshRadarMeasurements() {
     const wasAutoPlaying = autoPlayEnabled;
@@ -792,7 +866,7 @@ document.addEventListener('DOMContentLoaded', () => {
       setSweepRadius(measuredRadii[activeIndex]);
     }
 
-    if (wasAutoPlaying && !reducedMotionQuery.matches) {
+    if (wasAutoPlaying && !isHovered && performance.now() >= manualPauseUntil && !reducedMotionQuery.matches) {
       autoPlayEnabled = true;
       scheduleNextSweep();
     }
@@ -815,6 +889,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   reducedMotionQuery.addEventListener('change', event => {
     if (event.matches) {
+      clearResumeTimer();
       stopAutoPlay();
       stopSweepAtCurrentPosition();
       clearTransientNodeStates();
@@ -827,6 +902,7 @@ document.addEventListener('DOMContentLoaded', () => {
     startAutoPlay();
   });
 
+  adjustLabelPlacements();
   measureRadarMetrics();
   setSweepAngle(measuredAngles[activeIndex]);
   if (measuredRadii[activeIndex] > 0) {
@@ -842,7 +918,15 @@ document.addEventListener('DOMContentLoaded', () => {
     get currentStep() { return activeIndex + 1; },
     get targetStep() { return sweepTargetIndex === null ? null : sweepTargetIndex + 1; },
     get angles() { return [...measuredAngles]; },
-    get radii() { return [...measuredRadii]; }
+    get radii() { return [...measuredRadii]; },
+    get isHovered() { return isHovered; },
+    get isAutoPlayActive() { return autoPlayEnabled && !isHovered && performance.now() >= manualPauseUntil; },
+    get remainingManualPause() { return Math.max(0, manualPauseUntil - performance.now()); },
+    handleHoverEnter,
+    handleHoverLeave,
+    handleManualInteraction,
+    startAutoPlay,
+    stopAutoPlay
   });
 
   // CountUp animation for stats

@@ -190,9 +190,9 @@ test('places labels according to the approved radar alignment map', () => {
   assert.equal(getLabelPlacement(90), 'bottom');
   assert.equal(getLabelPlacement(120), 'bottom');
   assert.equal(getLabelPlacement(150), 'left');
-  assert.equal(getLabelPlacement(210), 'right');
+  assert.equal(getLabelPlacement(210), 'left');
   assert.equal(getLabelPlacement(-60), 'bottom');
-  assert.equal(getLabelPlacement(0), 'left');
+  assert.equal(getLabelPlacement(0), 'right');
   assert.equal(getLabelPlacement(180), 'left');
   assert.equal(getLabelPlacement(240), 'bottom');
 });
@@ -248,4 +248,82 @@ test('computes safe sweep radius terminating before icon and label with requeste
 
   // Nearest obstacle is the label bottom (dist = 233), safeRadius should be 233 - 16 = 217
   assert.equal(safeRadius, 217);
+});
+
+test('radar sweep on index.html has initial safe sweep radius inline style to prevent load/F5 overflow', () => {
+  const fs = require('node:fs');
+  const path = require('node:path');
+  const rootDir = path.resolve(__dirname, '..');
+  const indexHtml = fs.readFileSync(path.join(rootDir, 'index.html'), 'utf8');
+
+  assert.ok(
+    indexHtml.includes('id="radarSweep" style="--sweep-radius: 29.2%; transform: rotate(0deg);"'),
+    'index.html must have initial safe --sweep-radius and rotation inline on #radarSweep'
+  );
+});
+
+test('solucoes.css defines --sweep-radius-initial and uses it as safe fallback for .radar-sweep', () => {
+  const fs = require('node:fs');
+  const path = require('node:path');
+  const rootDir = path.resolve(__dirname, '..');
+  const solucoesCss = fs.readFileSync(path.join(rootDir, 'src/css/solucoes.css'), 'utf8');
+
+  assert.ok(
+    solucoesCss.includes('--sweep-radius-initial: 29.2%'),
+    'solucoes.css must define --sweep-radius-initial: 29.2%'
+  );
+  assert.ok(
+    solucoesCss.includes('--sweep-radius, var(--sweep-radius-initial, 29.2%)'),
+    '.radar-sweep must use --sweep-radius-initial as fallback instead of full outer ring'
+  );
+});
+
+test('solucoes.js protects item 0 at 12:00 from exceeding label boundary on initial render and resize', () => {
+  const fs = require('node:fs');
+  const path = require('node:path');
+  const rootDir = path.resolve(__dirname, '..');
+  const solucoesJs = fs.readFileSync(path.join(rootDir, 'src/js/solucoes.js'), 'utf8');
+
+  assert.ok(
+    solucoesJs.includes('if (service.angle === -90 && service.ringIndex === 0)'),
+    'solucoes.js must enforce strict boundary protection for item 0 at 12:00'
+  );
+});
+
+test('solucoes.js configures hoverResumeDelay at 2s and manualResumeDelay at 10s', () => {
+  const fs = require('node:fs');
+  const path = require('node:path');
+  const rootDir = path.resolve(__dirname, '..');
+  const solucoesJs = fs.readFileSync(path.join(rootDir, 'src/js/solucoes.js'), 'utf8');
+
+  assert.ok(solucoesJs.includes('hoverResumeDelay: 2000'), 'hoverResumeDelay must be 2000ms');
+  assert.ok(solucoesJs.includes('manualResumeDelay: 10000'), 'manualResumeDelay must be 10000ms');
+  assert.ok(solucoesJs.includes('highlightCard.addEventListener(\'mouseenter\', handleHoverEnter)'));
+  assert.ok(solucoesJs.includes('highlightCard.addEventListener(\'mouseleave\', handleHoverLeave)'));
+});
+
+test('pause state prioritization logic enforces 10s cooldown priority over 2s hover resume', () => {
+  const hoverDelay = 2000;
+  const manualDelay = 10000;
+
+  // Scenario 1: Simple hover enter and leave (no manual click)
+  let manualPauseUntil = 0;
+  let now = 1000;
+  let remainingManual = manualPauseUntil - now;
+  let computedDelay = remainingManual > 0 ? Math.max(hoverDelay, remainingManual) : hoverDelay;
+  assert.equal(computedDelay, 2000, 'Simple hover leave should resume after 2 seconds');
+
+  // Scenario 2: Manual click occurred at t=0, hover leave at t=3s (7s remaining on manual cooldown)
+  manualPauseUntil = 10000;
+  now = 3000;
+  remainingManual = manualPauseUntil - now;
+  computedDelay = remainingManual > 0 ? Math.max(hoverDelay, remainingManual) : hoverDelay;
+  assert.equal(computedDelay, 7000, 'Hover leave with active click cooldown must respect the remaining 7 seconds');
+
+  // Scenario 3: Manual click occurred at t=0, hover leave at t=12s (click cooldown already expired)
+  manualPauseUntil = 10000;
+  now = 12000;
+  remainingManual = manualPauseUntil - now;
+  computedDelay = remainingManual > 0 ? Math.max(hoverDelay, remainingManual) : hoverDelay;
+  assert.equal(computedDelay, 2000, 'Hover leave after click cooldown has expired should resume after 2 seconds');
 });

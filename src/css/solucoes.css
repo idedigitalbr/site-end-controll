@@ -250,6 +250,8 @@
   z-index: 2;
   --r-outer: 49.5%;
   --r-inner: 30.5%;
+  --sweep-radius-initial: 29.2%;
+  --sweep-radius: var(--sweep-radius-initial);
   --radar-line-future-opacity: 0.12;
   --radar-line-completed-opacity: 0.42;
   --radar-line-current-opacity: 0.68;
@@ -271,10 +273,10 @@
 /* Active scanning plane: structural rings < sweep < progress paths < nodes/text. */
 .radar-sweep {
   position: absolute;
-  top: calc(50% - var(--sweep-radius, var(--r-outer)));
-  left: calc(50% - var(--sweep-radius, var(--r-outer)));
-  width: calc(var(--sweep-radius, var(--r-outer)) * 2);
-  height: calc(var(--sweep-radius, var(--r-outer)) * 2);
+  top: calc(50% - var(--sweep-radius, var(--sweep-radius-initial, 29.2%)));
+  left: calc(50% - var(--sweep-radius, var(--sweep-radius-initial, 29.2%)));
+  width: calc(var(--sweep-radius, var(--sweep-radius-initial, 29.2%)) * 2);
+  height: calc(var(--sweep-radius, var(--sweep-radius-initial, 29.2%)) * 2);
   border-radius: 50%;
   z-index: 2;
   pointer-events: none;
@@ -601,6 +603,10 @@
 
 .service-node.label-ring-inner.label-pos-left .service-node-label {
   right: calc(100% + 9px);
+}
+
+.service-node.label-ring-inner.label-pos-right .service-node-label {
+  left: calc(100% + 9px);
 }
 
 .service-node.label-pos-top .service-node-label {
@@ -1310,6 +1316,7 @@
     max-width: min(460px, 94vw);
     --r-outer: 48%;
     --r-inner: 30%;
+    --sweep-radius-initial: 28.5%;
   }
   .orbital-center-logo {
     min-width: 80px;
@@ -1367,6 +1374,7 @@
     max-width: min(350px, 98vw);
     --r-outer: 47%;
     --r-inner: 29.5%;
+    --sweep-radius-initial: 28%;
   }
   .orbital-center-logo {
     min-width: 64px;

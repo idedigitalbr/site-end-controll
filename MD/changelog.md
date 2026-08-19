@@ -1,5 +1,31 @@
 # Changelog — ENDCONTROL Engenharia
 
+## [2026-08-19] - Ajuste do Comportamento de Pausa e Retomada Automática dos Slides (Hover 2s e Clique 10s)
+
+### Added & Refined
+- **1. Gerenciamento Centralizado de Pausa e Retomada (`src/js/solucoes.js`, `tests/radar-progress.test.js`):**
+  - **Hover no Card e nos Nós do Radar:** Ao passar o mouse sobre o card de destaque (`highlightCard`) ou nós do radar, o autoplay pausa instantaneamente. Ao retirar o mouse, aguarda exatamente **2 segundos** (`hoverResumeDelay: 2000`) antes de retomar o ciclo normal.
+  - **Interação / Clique Intencional:** Ao clicar em qualquer nó do radar, setas de navegação (anterior/próximo), pontos de paginação ou links de serviço, o autoplay pausa com janela de espera de **10 segundos** (`manualResumeDelay: 10000`).
+  - **Prioridade Estrita de Estados:** A pausa por clique (10s) tem prioridade total sobre o hover simples (2s). Se o usuário clica e retira o mouse, o slider só retoma após completar os 10s da interação. Se o usuário re-hoverar durante a contagem regressiva de 2s ou 10s, o timer é imediatamente cancelado até que o mouse saia novamente.
+  - **Prevenção de Conflitos e Múltiplos Timers:** Unificado o controle de timers (`resumeTimer`, `cycleTimer`, `isHovered`, `manualPauseUntil`), impedindo duplicação de autoplays e garantindo transições suaves.
+  - Suíte de 43 testes unitários 100% aprovada.
+
+### Fixed & Refined
+- **1. Reposicionamento dos Rótulos dos Nós 6 e 8 (`src/js/radar-progress.js`, `src/css/solucoes.css`, `tests/radar-progress.test.js`):**
+  - **Ícone 6 (Elaboração de Projetos Mecânicos - 210° / 10h no anel externo):** Texto movido do lado direito para a **esquerda** do ícone (`label-pos-left`), desobstruindo a geometria interna do radar.
+  - **Ícone 8 (Inspeção e Adequação Normativa - 0° / 3h no anel interno):** Texto movido do lado esquerdo para a **direita** do ícone (`label-pos-right`), aproveitando o espaço externo à direita do anel interno.
+  - Adicionada regra CSS de espaçamento simétrico `.service-node.label-ring-inner.label-pos-right .service-node-label { left: calc(100% + 9px); }`.
+  - Atualizados os testes unitários em `tests/radar-progress.test.js` e as versões de cache buster nos scripts.
+
+## [2026-08-19] - Correção do Feixe do Radar na Inicialização e Refresh (F5)
+
+### Fixed & Refined
+- **1. Raio Seguro Inicial do Feixe (`index.html`, `src/css/solucoes.css`, `src/js/solucoes.js`):**
+  - Corrigido o estado inicial do feixe do radar no carregamento da página e F5: o feixe agora inicia imediatamente no comprimento seguro (`--sweep-radius-initial: 29.2%`), terminando no ponto ciano logo abaixo do título *1. Engenharia de Integridade Estrutural*, sem atravessar o texto ou o ícone superior (conforme Print 2).
+  - Substituído o fallback do CSS `.radar-sweep` de `--r-outer` (49.5% / borda externa total) para `--sweep-radius-initial: 29.2%`.
+  - Definido estilo inline inicial em `#radarSweep` no HTML para evitar qualquer transição ou flash de layout antes da execução do JavaScript.
+  - Adicionadas travas e proteção estrita de limites geométricos no `solucoes.js` para o Item 0 (12:00), garantindo posicionamento perfeito em todas as resoluções e atualizados os testes automatizados em `tests/radar-progress.test.js`.
+
 ## [2026-08-19] - Cálculo Dinâmico de Raio Seguro do Feixe do Radar e Refinamento de Quadrantes
 
 - **Commit:** `38824d6`

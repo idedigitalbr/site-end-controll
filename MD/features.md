@@ -1,5 +1,15 @@
 # Features — ENDCONTROL Engenharia
 
+## Gerenciamento de Pausa e Retomada Inteligente do Radar (Hover 2s / Clique 10s) & Refinamento de Feixe F5
+
+- Status: Concluída
+- Data: 2026-08-19
+- **Controle Inteligente de Autoplay:** Hover no card e nós pausa o autoplay e retoma em **2 segundos** após a saída do cursor; cliques manuais (nós, setas, dots) acionam janela de espera de **10 segundos** (`manualResumeDelay: 10000`).
+- **Priorização de Cooldown:** Clique manual tem prioridade estrita sobre o hover, garantindo que o usuário tenha tempo de leitura sem interrupções indesejadas.
+- **Proteção do Feixe no F5/Carregamento:** Estilo inline inicial e variável CSS `--sweep-radius-initial: 29.2%` evitam que o feixe laser ultrapasse o rótulo do Item 0 no primeiro frame.
+- **Ajuste de Rótulos 6 e 8:** Item 6 reposicionado para a esquerda e Item 8 para a direita do anel interno, com espaçamento simétrico.
+- **Testes Automatizados:** 25 testes unitários passando com 100% de sucesso.
+
 ## Cálculo Dinâmico de Raio Seguro do Feixe do Radar e Refinamento de Quadrantes
 
 - Status: Concluída

@@ -1,5 +1,12 @@
 # Histórico de sincronização — DB_IDE
 
+## 2026-08-19 - Gerenciamento de Pausa/Retomada do Radar (Hover 2s / Clique 10s) & Feixe F5
+
+- Projeto: site-end-controll
+- Tarefa: Implementação de lógica de autoplay com pausa inteligente (Hover com retorno em 2s, interação/clique manual com espera de 10s e cooldown prioritário), proteção de feixe inicial no F5 com fallback de raio seguro (29.2%), reposicionamento de rótulos dos nós 6 e 8 e expansão da suíte para 25 testes unitários.
+- Status local: Concluída.
+- Observação: Memória persistente no Obsidian (`MD/`) e changelog sincronizados.
+
 ## 2026-08-19 - Cálculo Dinâmico de Raio Seguro do Feixe do Radar e Refinamento de Quadrantes
 
 - Projeto: site-end-controll

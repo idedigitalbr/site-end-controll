@@ -183,10 +183,10 @@
     const normalizedAngle = ((Number(angle) % 360) + 360) % 360;
 
     if (normalizedAngle === 300) return 'bottom';
-    if (normalizedAngle === 0) return 'left';
+    if (normalizedAngle === 0) return 'right';
     if (normalizedAngle === 180) return 'left';
     if (normalizedAngle === 240) return 'bottom';
-    if (normalizedAngle === 210) return 'right';
+    if (normalizedAngle === 210) return 'left';
     if (normalizedAngle === 30 || normalizedAngle === 330) return 'right';
     if (normalizedAngle === 150) return 'left';
     if (normalizedAngle >= 330 || normalizedAngle < 30) return 'right';
