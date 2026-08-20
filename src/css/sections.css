@@ -30,8 +30,26 @@ body {
   z-index: 1;
 }
 
-/* O bloco de oportunidades começa após o carrossel de áreas, sem cobri-lo. */
+/* O bloco de oportunidades fica na camada frontal (z-index superior) sobre a seção anterior e a próxima */
+#oportunidades,
+.oportunidades-section {
+  position: relative !important;
+  z-index: 25 !important;
+  margin-top: -48px !important;
+  margin-bottom: -48px !important;
+  border-radius: 28px !important;
+  box-shadow: 0 24px 60px rgba(7, 20, 41, 0.16) !important;
+}
+
 #segmentos-secao + #oportunidades {
+  margin-top: -48px !important;
+  margin-bottom: -48px !important;
+}
+
+#oportunidades + #faq-secao,
+#oportunidades + .faq-v2 {
+  position: relative !important;
+  z-index: 1 !important;
   margin-top: 0 !important;
   padding-top: 130px !important;
 }
@@ -53,8 +71,16 @@ body {
 }
 
 @media (max-width: 1024px) {
+  #oportunidades,
+  .oportunidades-section,
   #segmentos-secao + #oportunidades {
-    padding-top: 95px !important;
+    margin-top: -36px !important;
+    margin-bottom: -36px !important;
+  }
+
+  #oportunidades + #faq-secao,
+  #oportunidades + .faq-v2 {
+    padding-top: 105px !important;
   }
 
   #home.hero-static-container + #sobre.about-premium-section {
@@ -63,8 +89,16 @@ body {
 }
 
 @media (max-width: 576px) {
+  #oportunidades,
+  .oportunidades-section,
   #segmentos-secao + #oportunidades {
-    padding-top: 80px !important;
+    margin-top: -28px !important;
+    margin-bottom: -28px !important;
+  }
+
+  #oportunidades + #faq-secao,
+  #oportunidades + .faq-v2 {
+    padding-top: 85px !important;
   }
 
   #home.hero-static-container + #sobre.about-premium-section {
@@ -1259,8 +1293,10 @@ p {
    Seção FAQ v2 — Grid 2 Colunas (estilo referência) */
 
 .faq-v2 {
+  position: relative !important;
+  z-index: 1 !important;
   background: #effaff;
-  padding: 108px 0 80px;
+  padding: 130px 0 80px;
 }
 
 .faq-v2-head {
@@ -1381,7 +1417,8 @@ p {
   }
 
   .faq-v2 {
-    padding: 84px 0 56px;
+    margin-top: -36px !important;
+    padding: 96px 0 56px;
   }
 }
 
@@ -3568,21 +3605,255 @@ textarea.form-control {
    ========================================================================== */
 
 .oportunidades-section {
-  position: relative;
+  position: relative !important;
+  z-index: 25 !important;
   width: 100% !important;
   max-width: 100% !important;
   margin: 0 !important;
   border-radius: 28px !important;
-  box-shadow: none !important;
+  box-shadow: 0 24px 60px rgba(7, 20, 41, 0.16) !important;
   background: var(--color-cinza-fraco, #cce6ed) !important;
   color: #071429;
-  padding: 128px 0 100px;
+  padding: 116px 0 96px;
   overflow: hidden;
+}
+
+/* Background Ambient Glows */
+.oportunidades-bg-glow {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+  filter: blur(50px);
+  opacity: 0.85;
+}
+
+.oportunidades-bg-glow.glow-tr {
+  top: -100px;
+  right: -80px;
+  width: 480px;
+  height: 480px;
+  background: radial-gradient(circle, rgba(0, 194, 255, 0.24) 0%, rgba(0, 140, 255, 0.08) 45%, transparent 70%);
+}
+
+.oportunidades-bg-glow.glow-bl {
+  bottom: -100px;
+  left: -80px;
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(circle, rgba(0, 171, 227, 0.18) 0%, rgba(0, 98, 227, 0.06) 45%, transparent 70%);
+}
+
+/* Background Blueprint Pattern / Dot Matrix (Anexos 2 e 3) */
+.oportunidades-bg-pattern {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    radial-gradient(rgba(14, 55, 95, 0.22) 1.2px, transparent 1.2px),
+    linear-gradient(rgba(14, 55, 95, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(14, 55, 95, 0.035) 1px, transparent 1px);
+  background-size: 24px 24px, 120px 120px, 120px 120px;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.95;
+}
+
+/* Radar Decorativo (Anexo 2) */
+.oportunidades-decor-radar {
+  position: absolute;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.oportunidades-decor-radar.radar-top-right {
+  top: -40px;
+  right: -30px;
+  width: 340px;
+  height: 340px;
+}
+
+.oportunidades-decor-radar.radar-left {
+  top: 50%;
+  transform: translateY(-50%);
+  left: -60px;
+  width: 280px;
+  height: 280px;
+}
+
+.oportunidades-radar-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Feixe Cônico Rotativo de Varredura Radar */
+.oportunidades-radar-beam {
+  position: absolute;
+  inset: 20px;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 0deg,
+    rgba(0, 171, 227, 0.22) 0deg,
+    rgba(0, 171, 227, 0.06) 45deg,
+    transparent 80deg,
+    transparent 360deg
+  );
+  animation: radarBeamRotate 14s linear infinite;
+  mask-image: radial-gradient(circle, #000 62%, transparent 70%);
+  -webkit-mask-image: radial-gradient(circle, #000 62%, transparent 70%);
+}
+
+@keyframes radarBeamRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Linhas Técnicas Blueprint com Nós Luminosos */
+.oportunidades-tech-line {
+  position: absolute;
+  background: rgba(14, 55, 95, 0.28);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.oportunidades-tech-line::after {
+  content: '';
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #00abe3;
+  box-shadow: 0 0 8px rgba(0, 171, 227, 0.85);
+}
+
+.line-h-tr {
+  top: 60px;
+  right: 280px;
+  width: 170px;
+  height: 1px;
+}
+
+.line-h-tr::after {
+  left: 0;
+  top: -2px;
+}
+
+.line-h-bl {
+  bottom: 50px;
+  left: 10%;
+  width: 190px;
+  height: 1px;
+}
+
+.line-h-bl::after {
+  right: 0;
+  top: -2px;
+}
+
+.line-v-left {
+  top: 18%;
+  left: 3.5%;
+  width: 1px;
+  height: 190px;
+}
+
+.line-v-left::after {
+  bottom: 0;
+  left: -2px;
+}
+
+.line-v-right {
+  bottom: 12%;
+  right: 4.5%;
+  width: 1px;
+  height: 160px;
+}
+
+.line-v-right::after {
+  top: 0;
+  left: -2px;
+}
+
+/* Laser de Varredura Suave Horizontal */
+.oportunidades-scan-line {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(0, 171, 227, 0.32) 50%, transparent 100%);
+  pointer-events: none;
+  z-index: 1;
+  animation: oportunidadesScan 12s ease-in-out infinite;
+}
+
+@keyframes oportunidadesScan {
+  0%, 100% { opacity: 0.12; transform: translateY(-35px); }
+  50% { opacity: 0.4; transform: translateY(35px); }
+}
+
+/* Matriz de Crosshairs (+) HUD (Anexo 3) */
+.oportunidades-cross-grid {
+  position: absolute;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.85;
+}
+
+.grid-top-center {
+  top: 26px;
+  left: calc(50% - 42px);
+}
+
+.grid-bottom-left {
+  bottom: 32px;
+  left: 6%;
+}
+
+/* HUD Corner Brackets Framing (Anexo 3) */
+.oportunidades-hud-bracket {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  pointer-events: none;
+  z-index: 1;
+  border-color: rgba(0, 171, 227, 0.65);
+  border-style: solid;
+}
+
+.bracket-tl {
+  top: 36px;
+  left: calc(50% - 620px);
+  border-width: 2px 0 0 2px;
+  border-top-left-radius: 8px;
+}
+
+.bracket-tr {
+  top: 36px;
+  right: calc(50% - 620px);
+  border-width: 2px 2px 0 0;
+  border-top-right-radius: 8px;
+}
+
+.bracket-bl {
+  bottom: 32px;
+  left: calc(50% - 620px);
+  border-width: 0 0 2px 2px;
+  border-bottom-left-radius: 8px;
+}
+
+.bracket-br {
+  bottom: 32px;
+  right: calc(50% - 620px);
+  border-width: 0 2px 2px 0;
+  border-bottom-right-radius: 8px;
 }
 
 .oportunidades-container {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   max-width: 1260px;
   margin: 0 auto;
   padding: 0 32px;
@@ -3806,6 +4077,27 @@ textarea.form-control {
 }
 
 /* ---- Responsive ---- */
+@media (max-width: 1280px) {
+  .bracket-tl,
+  .bracket-bl {
+    left: 20px;
+  }
+
+  .bracket-tr,
+  .bracket-br {
+    right: 20px;
+  }
+}
+
+@media (max-width: 992px) {
+  .oportunidades-hud-bracket,
+  .grid-bottom-left,
+  .line-v-left,
+  .line-v-right {
+    display: none;
+  }
+}
+
 @media (max-width: 860px) {
   .oportunidades-grid {
     grid-template-columns: 1fr;
@@ -3822,7 +4114,24 @@ textarea.form-control {
   }
 
   .oportunidades-section {
-    padding: 108px 0 80px;
+    padding: 90px 0 70px;
+  }
+
+  .oportunidades-decor-radar.radar-top-right {
+    top: -60px;
+    right: -60px;
+    width: 260px;
+    height: 260px;
+    opacity: 0.6;
+  }
+
+  .oportunidades-decor-radar.radar-left {
+    opacity: 0.4;
+  }
+
+  .line-h-tr,
+  .line-h-bl {
+    display: none;
   }
 }
 

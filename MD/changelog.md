@@ -1,5 +1,27 @@
 # Changelog — ENDCONTROL Engenharia
 
+
+
+## [2026-08-20] - Elevação Total da Camada (z-index: 25) e Sobreposição Frontal sobre Seção Anterior e Próxima (v=39.0)
+
+- **Arquivos:** `index.html`, `src/css/sections.css`, `MD/changelog.md`
+
+### Fixed & Enhanced
+- **1. Elementos Decorativos de Fundo Blueprint e Radar (Anexos 2 e 3):**
+  - Adicionado grid de pontos CAD / blueprint dot matrix (`.oportunidades-bg-pattern`) preenchendo o fundo claro sem sobrecarregar.
+  - Implementado radar com círculos concêntricos técnicos e feixe cônico animado com rotação contínua (`.oportunidades-decor-radar.radar-top-right`) no canto superior direito.
+  - Inserido sonar/radar em arcos concêntricos na lateral esquerda (`.radar-left`).
+  - Adicionadas matrizes de crosshairs HUD (`+ + + +`) nos topos e rodapés internos (`.oportunidades-cross-grid`), idênticas ao mockup do Anexo 3.
+  - Implementados corner brackets HUD (`┌ ┐ └ ┘`), linhas guia técnicas com nós luminosos em ciano neon e laser de varredura suave horizontal.
+  - Removidas todas as escritas/tags de texto decorativas de fundo (`SYS.SEC...` e `GRID...`), mantendo o design 100% limpo, geométrico e visual.
+- **2. Hierarquia de Camadas, Sombra de Elevação e Sobreposição Frontal Total (`z-index: 25 !important`):**
+  - Configurado `z-index: 25 !important`, `position: relative !important`, `border-radius: 28px !important` e sombra de elevação profunda `box-shadow: 0 24px 60px rgba(7, 20, 41, 0.16) !important` na `#oportunidades` / `.oportunidades-section`.
+  - Aplicadas margens negativas de sobreposição (`margin-top: -48px !important` e `margin-bottom: -48px !important`), garantindo que tanto o topo quanto o rodapé arredondado fiquem **completamente na frente** da seção anterior (`#segmentos-secao`) e da seção seguinte (`#faq-secao`).
+  - Ajustado o padding da seção FAQ (`padding-top: 130px !important`) com `z-index: 1 !important` para passar 100% por baixo de Oportunidades.
+- **3. Invalidação de Cache (`sections.css?v=39.0`):**
+  - Atualizada a versão do stylesheet em `index.html` para atualização imediata.
+
+
 ## [2026-08-20] - Ajuste de Margem Direita (280px), Recuo Esquerdo Otimizado e Cache Invalidation v=112.0
 
 - **Arquivos:** `src/css/sobre-nos.css`, `src/css/servico-integridade.css`, todas as 12 páginas de soluções, `sobre-nos.html`, `MD/changelog.md`, `MD/features.md`

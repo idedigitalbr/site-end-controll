@@ -1,5 +1,13 @@
 # Features — ENDCONTROL Engenharia
 
+## Elevação Frontal e Elementos Blueprint Decorativos na Seção Oportunidades
+
+- Status: Concluída
+- Data: 2026-08-20
+- **Arquivos:** `index.html`, `src/css/sections.css`, `MD/changelog.md`
+- **Elementos Blueprint & HUD:** Integrados radar com feixe de varredura rotativo, sonar em arcos, matrizes de crosshairs (+) HUD, corner brackets e linhas técnicas com nós de neon ciano no background da seção Oportunidades e Carreiras.
+- **Sobreposição Frontal e Elevação (`z-index: 25`):** Aplicada elevação com sombra profunda `box-shadow: 0 24px 60px rgba(7, 20, 41, 0.16)` e margens negativas de -48px no topo e rodapé, garantindo que o card se sobreponha frontalmente à seção anterior (#segmentos-secao) e à seção seguinte (#faq-secao).
+
 ## Margem Direita de 200px e Elevação na Seção Como Trabalhamos
 
 - Status: Concluída
