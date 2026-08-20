@@ -118,6 +118,7 @@
   position: relative;
   min-height: 380px;
   padding: 100px 0 70px;
+  margin-top: -80px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -798,8 +799,8 @@
 .sn-process-photo-fade {
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, rgba(8, 21, 42, 0) 0%, rgba(8, 21, 42, 0.2) 25%, rgba(4, 21, 59, 0.45) 48%, rgba(4, 21, 59, 0.92) 74%, #04153B 100%),
-              linear-gradient(180deg, rgba(8, 21, 42, 0.45) 0%, transparent 20%, transparent 80%, rgba(4, 21, 59, 0.65) 100%);
+  background: linear-gradient(90deg, rgba(8, 21, 42, 0.2) 0%, rgba(4, 21, 59, 0.6) 20%, rgba(4, 21, 59, 0.88) 42%, rgba(4, 21, 59, 0.98) 68%, #04153B 100%),
+              linear-gradient(180deg, rgba(8, 21, 42, 0.65) 0%, transparent 25%, transparent 75%, rgba(4, 21, 59, 0.85) 100%);
 }
 
 /* Detalhes Tecnológicos Sutis (Pontilhado Superior & Arcos Concêntricos Fundo) */
@@ -865,50 +866,62 @@
   pointer-events: none;
 }
 
-/* ZONA 2: Bloco de Conteúdo (Centro-Esquerda) */
+/* ZONA 2: Bloco de Conteúdo (Centro-Esquerda) com Scrim Escuro de Alto Contraste */
 .sn-process-info-zone {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  max-width: 440px;
-  padding-right: 16px;
+  max-width: 450px;
+  padding: 18px 24px 18px 12px;
+  border-radius: 16px;
+  background: radial-gradient(ellipse at 15% 50%, rgba(4, 21, 59, 0.82) 0%, rgba(4, 21, 59, 0.5) 65%, transparent 100%);
   box-sizing: border-box;
   z-index: 3;
 }
 
 .sn-process-eyebrow {
   font-family: var(--font-primary);
-  font-size: 15px;
-  font-weight: 700;
-  letter-spacing: 0.2em;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   color: #00c2ff;
   margin-bottom: 16px;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  background: rgba(0, 194, 255, 0.14);
+  border: 1px solid rgba(0, 194, 255, 0.4);
+  border-radius: 6px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.6), 0 0 14px rgba(0, 194, 255, 0.3);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.95), 0 0 10px rgba(0, 194, 255, 0.7);
 }
 
 .sn-process-headline {
   font-family: var(--font-primary);
   font-size: clamp(26px, 2vw, 38px);
-  font-weight: 700;
+  font-weight: 800;
   line-height: 1.18;
   letter-spacing: -0.02em;
   color: #ffffff;
   margin-bottom: 18px;
+  text-shadow: 0 3px 12px rgba(0, 0, 0, 0.98), 0 6px 26px rgba(0, 0, 0, 0.9), 0 1px 3px rgba(0, 0, 0, 1);
 }
 
 .sn-process-headline .sn-highlight-blue {
   color: #00c2ff;
-  text-shadow: 0 0 18px rgba(0, 194, 255, 0.5);
+  text-shadow: 0 3px 12px rgba(0, 0, 0, 0.98), 0 0 22px rgba(0, 194, 255, 0.9), 0 0 36px rgba(0, 194, 255, 0.5);
 }
 
 .sn-process-description {
   font-family: var(--font-primary);
   font-size: 15.5px;
-  line-height: 1.55;
-  color: #8fa3b8;
+  font-weight: 500;
+  line-height: 1.58;
+  color: #f0f6fc;
   margin-bottom: 0;
   max-width: 430px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.98), 0 4px 18px rgba(0, 0, 0, 0.92), 0 1px 2px rgba(0, 0, 0, 1);
 }
 
 /* ZONA 3: Metodologia - 4 Passos em Linha Contínua */
@@ -1916,7 +1929,8 @@
     margin: 0 auto;
     text-align: center;
     align-items: center;
-    padding-right: 0;
+    padding: 0;
+    background: none;
   }
 
   .sn-process-headline {
