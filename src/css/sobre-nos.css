@@ -774,7 +774,7 @@
   justify-content: center;
 }
 
-/* Camada Absoluta de Foto com Fade em Alpha Masking e Harmonização Cromática */
+/* Camada Absoluta de Foto com Cores Naturais Golden Hour e Transição Suave */
 .sn-process-photo-layer {
   position: absolute;
   left: 0;
@@ -786,8 +786,8 @@
   pointer-events: none;
   z-index: 1;
   overflow: hidden;
-  mask-image: linear-gradient(90deg, #000 0%, #000 25%, rgba(0, 0, 0, 0.85) 50%, rgba(0, 0, 0, 0.35) 75%, transparent 100%);
-  -webkit-mask-image: linear-gradient(90deg, #000 0%, #000 25%, rgba(0, 0, 0, 0.85) 50%, rgba(0, 0, 0, 0.35) 75%, transparent 100%);
+  mask-image: linear-gradient(90deg, #000 0%, #000 28%, rgba(0, 0, 0, 0.9) 50%, rgba(0, 0, 0, 0.4) 75%, transparent 100%);
+  -webkit-mask-image: linear-gradient(90deg, #000 0%, #000 28%, rgba(0, 0, 0, 0.9) 50%, rgba(0, 0, 0, 0.4) 75%, transparent 100%);
 }
 
 .sn-process-photo-layer .sn-process-bg-art {
@@ -796,29 +796,28 @@
   object-fit: cover;
   object-position: left 20%;
   display: block;
-  filter: brightness(0.84) contrast(1.06) saturate(0.85);
+  filter: contrast(1.05) brightness(1.0);
 }
 
 .sn-process-photo-fade {
   position: absolute;
   inset: 0;
   background: 
-    /* Banho azul corporativo que equaliza tons quentes/frios de todas as fotos */
-    linear-gradient(135deg, rgba(4, 21, 59, 0.35) 0%, rgba(4, 21, 59, 0.7) 50%, #04153B 100%),
-    /* Dissolução horizontal multi-stop ultra-suave */
+    /* Transição suave que mantém a luz do sol 100% natural à esquerda */
     linear-gradient(90deg, 
-      rgba(4, 21, 59, 0.1) 0%, 
-      rgba(4, 21, 59, 0.28) 22%, 
-      rgba(4, 21, 59, 0.6) 48%, 
-      rgba(4, 21, 59, 0.88) 72%, 
-      #04153B 90%, 
+      transparent 0%, 
+      transparent 18%, 
+      rgba(4, 21, 59, 0.3) 36%, 
+      rgba(4, 21, 59, 0.72) 58%, 
+      rgba(4, 21, 59, 0.92) 78%, 
+      #04153B 92%, 
       #04153B 100%),
-    /* Suavização de topo e base */
+    /* Suavização de bordas superior e inferior */
     linear-gradient(180deg, 
-      rgba(4, 21, 59, 0.55) 0%, 
-      transparent 22%, 
-      transparent 78%, 
-      rgba(4, 21, 59, 0.7) 100%);
+      rgba(4, 21, 59, 0.35) 0%, 
+      transparent 20%, 
+      transparent 80%, 
+      rgba(4, 21, 59, 0.55) 100%);
 }
 
 /* Detalhes Tecnológicos Sutis (Pontilhado Superior & Arcos Concêntricos Fundo) */
