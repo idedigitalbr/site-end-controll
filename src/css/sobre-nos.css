@@ -850,12 +850,13 @@
   width: 100%;
   max-width: 1920px;
   margin: 0 auto;
-  padding: 0 clamp(70px, 10.42vw, 200px) 0 clamp(16px, 1.25vw, 24px);
+  padding-right: 200px !important;
+  padding-left: 24px !important;
   box-sizing: border-box;
   display: grid;
   grid-template-columns: 18% 28% 54%;
   align-items: center;
-  column-gap: clamp(16px, 1.6vw, 30px);
+  column-gap: 24px;
 }
 
 /* ZONA 1: Espaçador Físico da Fotografia (Reserva o primeiro quinto) */
@@ -906,51 +907,8 @@
   font-size: 15.5px;
   line-height: 1.55;
   color: #8fa3b8;
-  margin-bottom: 24px;
+  margin-bottom: 0;
   max-width: 430px;
-}
-
-/* Botão Conheça nossas soluções (.sn-btn-process-cta e .sn-process-cta-btn) */
-.sn-btn-process-cta,
-.sn-process-cta-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  max-width: 320px;
-  height: 50px;
-  padding: 0 22px;
-  box-sizing: border-box;
-  background: rgba(8, 21, 42, 0.65);
-  border: 1.5px solid rgba(0, 194, 255, 0.45);
-  border-radius: 8px;
-  color: #ffffff;
-  font-family: var(--font-primary);
-  font-size: 15px;
-  font-weight: 500;
-  text-decoration: none;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 2px 14px rgba(0, 194, 255, 0.12);
-}
-
-.sn-btn-process-cta:hover,
-.sn-process-cta-btn:hover {
-  border-color: #00c2ff;
-  background: rgba(0, 194, 255, 0.16);
-  color: #ffffff;
-  box-shadow: 0 0 24px rgba(0, 194, 255, 0.5);
-}
-
-.sn-btn-process-cta .sn-btn-arrow,
-.sn-process-cta-btn svg {
-  color: #00c2ff;
-  transition: transform 0.25s ease;
-  flex-shrink: 0;
-}
-
-.sn-btn-process-cta:hover .sn-btn-arrow,
-.sn-process-cta-btn:hover svg {
-  transform: translateX(4px);
 }
 
 /* ZONA 3: Metodologia - 4 Passos em Linha Contínua */
@@ -961,8 +919,8 @@
   width: 100%;
   position: relative;
   box-sizing: border-box;
-  gap: clamp(2px, 0.6vw, 10px);
-  padding-right: clamp(10px, 1.5vw, 24px);
+  gap: 12px;
+  padding-right: 40px !important;
 }
 
 .sn-step-unit {
@@ -972,7 +930,7 @@
   text-align: center;
   flex: 1 1 0;
   min-width: 0;
-  max-width: 155px;
+  max-width: 145px;
   position: relative;
   z-index: 2;
 }
@@ -980,19 +938,19 @@
 /* Números 01, 02, 03, 04 Centralizados no mesmo Eixo X dos Círculos */
 .sn-step-number {
   font-family: var(--font-primary);
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 700;
   color: #00c2ff;
   letter-spacing: 0.05em;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
   text-shadow: 0 0 10px rgba(0, 194, 255, 0.5);
   line-height: 1.2;
 }
 
 /* Círculos Grandes com Glow Refinado */
 .sn-step-node {
-  width: 108px;
-  height: 108px;
+  width: 96px;
+  height: 96px;
   border-radius: 50%;
   background: radial-gradient(circle at center, rgba(0, 194, 255, 0.16) 0%, rgba(4, 21, 59, 0.88) 75%);
   border: 1.5px solid rgba(0, 194, 255, 0.85);
@@ -1001,7 +959,7 @@
   justify-content: center;
   color: #00c2ff;
   box-shadow: 0 0 22px rgba(0, 194, 255, 0.35), inset 0 0 14px rgba(0, 194, 255, 0.12);
-  margin-bottom: 18px;
+  margin-bottom: 16px;
   position: relative;
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   flex-shrink: 0;
@@ -1015,8 +973,8 @@
 }
 
 .sn-step-node svg {
-  width: 38px;
-  height: 38px;
+  width: 34px;
+  height: 34px;
   stroke: #00c2ff;
   transition: stroke 0.3s ease;
 }
@@ -1030,13 +988,51 @@
 .sn-step-line-connector {
   display: flex;
   align-items: center;
-  flex: 0 1 40px;
-  min-width: 10px;
-  margin-top: 86px; /* Eixo geométrico dos círculos (número + margem + raio) */
+  flex: 0 1 36px;
+  min-width: 8px;
+  margin-top: 76px; /* Eixo geométrico dos círculos (número + margem + raio) */
   position: relative;
   color: #00c2ff;
   margin-left: -2px;
   margin-right: -2px;
+}
+
+.sn-connector-stem {
+  flex: 1;
+  height: 1.5px;
+  background: linear-gradient(90deg, rgba(0, 194, 255, 0.4), #00c2ff);
+  box-shadow: 0 0 8px rgba(0, 194, 255, 0.6);
+}
+
+.sn-connector-head {
+  color: #00c2ff;
+  margin-left: -2px;
+  filter: drop-shadow(0 0 4px rgba(0, 194, 255, 0.8));
+  flex-shrink: 0;
+}
+
+/* Títulos dos Passos em 2 Linhas */
+.sn-step-title {
+  font-family: var(--font-primary);
+  font-size: 15.5px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.2;
+  margin-bottom: 8px;
+  text-align: center;
+  word-break: break-word;
+}
+
+/* Descrições dos Passos */
+.sn-step-desc {
+  font-family: var(--font-primary);
+  font-size: 12px;
+  line-height: 1.44;
+  color: #8fa3b8;
+  text-align: center;
+  max-width: 140px;
+  margin: 0 auto;
+  word-break: break-word;
 }
 
 .sn-connector-stem {
@@ -1633,49 +1629,50 @@
   .sn-process-widescreen-container {
     grid-template-columns: 15% 30% 55%;
     column-gap: 16px;
-    padding: 0 clamp(50px, 9vw, 150px) 0 20px;
+    padding-right: 160px !important;
+    padding-left: 20px !important;
   }
 
   .sn-process-track-zone {
-    padding-right: 12px;
-    gap: 4px;
+    padding-right: 30px !important;
+    gap: 8px;
   }
 
   .sn-step-unit {
-    max-width: 140px;
+    max-width: 135px;
   }
 
   .sn-step-node {
-    width: 96px;
-    height: 96px;
+    width: 88px;
+    height: 88px;
     margin-bottom: 14px;
   }
 
   .sn-step-node svg {
-    width: 34px;
-    height: 34px;
+    width: 32px;
+    height: 32px;
   }
 
   .sn-step-number {
     font-size: 16px;
-    margin-bottom: 9px;
+    margin-bottom: 8px;
   }
 
   .sn-step-line-connector {
-    margin-top: 76px;
-    min-width: 10px;
-    flex: 0 1 32px;
+    margin-top: 70px;
+    min-width: 8px;
+    flex: 0 1 30px;
   }
 
   .sn-step-title {
-    font-size: 15px;
-    margin-bottom: 7px;
+    font-size: 14.5px;
+    margin-bottom: 6px;
   }
 
   .sn-step-desc {
     font-size: 11.5px;
     line-height: 1.42;
-    max-width: 130px;
+    max-width: 128px;
   }
 }
 
@@ -1693,7 +1690,8 @@
   .sn-process-widescreen-container {
     grid-template-columns: 13% 32% 55%;
     column-gap: 14px;
-    padding: 0 clamp(40px, 7.5vw, 110px) 0 18px;
+    padding-right: 120px !important;
+    padding-left: 18px !important;
   }
 
   .sn-process-info-zone {
@@ -1715,27 +1713,19 @@
   .sn-process-description {
     font-size: 13.5px;
     line-height: 1.46;
-    margin-bottom: 20px;
+    margin-bottom: 0;
     max-width: 340px;
   }
 
-  .sn-btn-process-cta,
-  .sn-process-cta-btn {
-    max-width: 270px;
-    height: 44px;
-    font-size: 13.5px;
-    padding: 0 16px;
-  }
-
   .sn-process-track-zone {
-    gap: 2px;
-    padding-right: 8px;
+    gap: 6px;
+    padding-right: 24px !important;
   }
 
   .sn-step-unit {
     flex: 1 1 0;
     min-width: 0;
-    max-width: 122px;
+    max-width: 120px;
   }
 
   .sn-step-number {
@@ -1745,8 +1735,8 @@
   }
 
   .sn-step-node {
-    width: 82px;
-    height: 82px;
+    width: 80px;
+    height: 80px;
     margin-bottom: 12px;
     box-shadow: 0 0 16px rgba(0, 194, 255, 0.3), inset 0 0 10px rgba(0, 194, 255, 0.1);
   }
@@ -1757,9 +1747,9 @@
   }
 
   .sn-step-line-connector {
-    margin-top: 65px;
-    min-width: 8px;
-    flex: 0 1 26px;
+    margin-top: 64px;
+    min-width: 6px;
+    flex: 0 1 24px;
   }
 
   .sn-connector-head {
@@ -1807,7 +1797,8 @@
   .sn-process-widescreen-container {
     grid-template-columns: 11% 34% 55%;
     column-gap: 12px;
-    padding: 0 clamp(32px, 5.5vw, 70px) 0 16px;
+    padding-right: 80px !important;
+    padding-left: 16px !important;
   }
 
   .sn-process-info-zone {
@@ -1823,23 +1814,16 @@
   .sn-process-description {
     font-size: 12.5px;
     line-height: 1.42;
-    margin-bottom: 16px;
-  }
-
-  .sn-btn-process-cta,
-  .sn-process-cta-btn {
-    max-width: 250px;
-    height: 42px;
-    font-size: 13px;
+    margin-bottom: 0;
   }
 
   .sn-process-track-zone {
-    padding-right: 4px;
-    gap: 2px;
+    padding-right: 16px !important;
+    gap: 4px;
   }
 
   .sn-step-unit {
-    max-width: 110px;
+    max-width: 108px;
   }
 
   .sn-step-number {
@@ -1860,8 +1844,8 @@
 
   .sn-step-line-connector {
     margin-top: 57px;
-    min-width: 6px;
-    flex: 0 1 20px;
+    min-width: 4px;
+    flex: 0 1 18px;
   }
 
   .sn-step-title {
@@ -1942,11 +1926,6 @@
   .sn-process-description {
     max-width: 500px;
     font-size: 15px;
-  }
-
-  .sn-btn-process-cta,
-  .sn-process-cta-btn {
-    margin: 0 auto;
   }
 
   .sn-process-track-zone {
