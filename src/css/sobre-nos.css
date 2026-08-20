@@ -116,8 +116,8 @@
    -------------------------------------------------------------------------- */
 .sn-hero-section {
   position: relative;
-  min-height: 310px;
-  padding: 70px 0 45px;
+  min-height: 380px;
+  padding: 100px 0 70px;
   margin-top: -80px;
   display: flex;
   align-items: center;
