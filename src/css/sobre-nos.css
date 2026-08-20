@@ -125,9 +125,10 @@
   text-align: center;
   background: url('../../assets/Paginas Imgs/SOBRE NOS/REF-SOBRE-NOS/bgs/bg-topo-hero-sobre-nos-com-logo-.webp') center 24% / cover no-repeat;
   overflow: hidden;
-  border-radius: 0 0 36px 36px;
+  border-radius: 0 0 48px 48px;
   border-bottom: none;
-  z-index: 20;
+  z-index: 25;
+  box-shadow: 0 16px 40px rgba(0, 10, 30, 0.45);
 }
 
 .sn-hero-overlay {
