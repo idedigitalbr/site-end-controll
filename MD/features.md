@@ -1,11 +1,11 @@
 # Features — ENDCONTROL Engenharia
 
-## Ajuste de Margem e Espaçamento na Seção Áreas de Atuação da Home
+## Calibração Ultra-Wide (1920px) de Margens e Espaçamento em Áreas de Atuação
 
 - Status: Concluída
 - Data: 2026-08-20
-- **Arquivos:** `src/css/segmentos.css`, `index.html`, `MD/changelog.md`
-- **Espaçamento e Respiro Visual:** Adicionado `padding-bottom: 110px` na seção de Áreas de Atuação (`.segmentos-secao`) no desktop com escala responsiva calibrada (90px em tablets e 75px em mobile), eliminando a sobreposição e contato direto com o bloco subsequente de Oportunidades. Ajustada a margem dos indicadores mobile (`.endo-acc-dots`) e bump de versão do CSS para `segmentos.css?v=33.0`.
+- **Arquivos:** `src/css/segmentos.css`, `src/css/sections.css`, `index.html`, `MD/changelog.md`
+- **Espaçamento e Respiro Visual:** Expandido `padding-bottom` de `.segmentos-secao` para 170px e `padding-top` de `#oportunidades` para 130px. Configurada largura segura `width: min(1440px, calc(100% - 96px))` no accordion `.endo-acc-full-wrapper` com 240px de margem lateral em telas 1920px, evitando proximidade das bordas. Versão do CSS atualizada para `sections.css?v=36.0` e `segmentos.css?v=34.0`.
 
 ## Página da Solução 4: Engenharia de Soldagem e Integração Global
 

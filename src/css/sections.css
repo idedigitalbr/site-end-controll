@@ -33,7 +33,7 @@ body {
 /* O bloco de oportunidades começa após o carrossel de áreas, sem cobri-lo. */
 #segmentos-secao + #oportunidades {
   margin-top: 0 !important;
-  padding-top: 100px !important;
+  padding-top: 130px !important;
 }
 
 /* Hero e Sobre: topo reto e sem sobreposição entre os dois blocos. */
@@ -54,7 +54,7 @@ body {
 
 @media (max-width: 1024px) {
   #segmentos-secao + #oportunidades {
-    padding-top: 80px !important;
+    padding-top: 95px !important;
   }
 
   #home.hero-static-container + #sobre.about-premium-section {
@@ -63,6 +63,10 @@ body {
 }
 
 @media (max-width: 576px) {
+  #segmentos-secao + #oportunidades {
+    padding-top: 80px !important;
+  }
+
   #home.hero-static-container + #sobre.about-premium-section {
     padding-top: 60px !important;
   }

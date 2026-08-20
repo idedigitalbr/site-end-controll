@@ -1,14 +1,16 @@
 # Changelog — ENDCONTROL Engenharia
 
-## [2026-08-20] - Ajuste de Margem e Espaçamento na Seção Áreas de Atuação da Home
+## [2026-08-20] - Calibração Ultra-Wide / 1920px de Margens e Espaçamento em Áreas de Atuação
 
-- **Arquivos:** `src/css/segmentos.css`, `index.html`, `MD/changelog.md`
+- **Arquivos:** `src/css/segmentos.css`, `src/css/sections.css`, `index.html`, `MD/changelog.md`
 
 ### Fixed & Enhanced
-- **1. Espaçamento Inferior na Seção Áreas de Atuação (`#segmentos-secao`):**
-  - Adicionado `padding-bottom: 110px` na classe `.segmentos-secao` no desktop (e responsivo calibrado com 90px em tablets e 75px em mobile), garantindo respiro elegante entre os cards de áreas de atuação e a seção subsequente (`#oportunidades`).
-  - Ajustado o espaçamento inferior dos indicadores `.endo-acc-dots` para `margin-bottom: 0` para harmonia no layout mobile.
-  - Atualizada a versão do CSS para `segmentos.css?v=33.0` em `index.html`.
+- **1. Respiro Vertical e Margem Superior de Oportunidades (`#segmentos-secao` & `#oportunidades`):**
+  - Aumentado o `padding-bottom` de `.segmentos-secao` para `170px` (desktop), `130px` (laptop/tablet 1024px), `110px` (tablet 860px) e `95px` (mobile).
+  - Aumentado o `padding-top` de `#segmentos-secao + #oportunidades` para `130px` (desktop) e `95px` (mobile/tablet).
+- **2. Margens Laterais e Largura Segura em Telas Ultra-Wide e 1920px:**
+  - Configurada a largura do accordion como `width: min(1440px, calc(100% - 96px))` com `margin: 36px auto 0 auto;`, garantindo recuo lateral mínimo de 48px em qualquer tela e centralização com margens confortáveis de 240px em monitores 1920px.
+  - Atualizada a versão dos estilos para `sections.css?v=36.0` e `segmentos.css?v=34.0` em `index.html`.
 
 ## [2026-08-20] - Auditoria Global do Site, Correção de Âncoras e Padronização do Rodapé
 

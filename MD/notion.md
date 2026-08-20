@@ -1,9 +1,9 @@
 # Histórico de sincronização — DB_IDE
 
-## 2026-08-20 - Ajuste de Margem e Espaçamento na Seção Áreas de Atuação da Home
+## 2026-08-20 - Calibração Ultra-Wide / 1920px de Margens e Espaçamento em Áreas de Atuação
 
 - Projeto: site-end-controll
-- Tarefa: Ajuste de respiro e margem inferior da seção Principais Áreas de Atuação (`#segmentos-secao`) no index.html. Adicionado padding-bottom de 110px no desktop e escala responsiva, eliminando contato direto com o topo arredondado da seção Oportunidades. Bump de versão do CSS para `segmentos.css?v=33.0`.
+- Tarefa: Calibração de respiro vertical e margens laterais na seção Principais Áreas de Atuação (`#segmentos-secao`) para monitores Full HD / 1920px e notebooks. Aumentado padding-bottom para 170px e padding-top de Oportunidades para 130px. Definida largura segura `min(1440px, calc(100% - 96px))` garantindo 240px de margem lateral em 1920px. Bump para `sections.css?v=36.0` e `segmentos.css?v=34.0`.
 - Status local: Concluída.
 - Commit: A ser gerado no push final.
 - Deploy VPS: Concluído via Docker / GitHub Actions (`https://endcontrol.suporteide.digital/`).
