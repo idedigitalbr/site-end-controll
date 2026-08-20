@@ -1,5 +1,12 @@
 # Features — ENDCONTROL Engenharia
 
+## Ajuste de Margem e Espaçamento na Seção Áreas de Atuação da Home
+
+- Status: Concluída
+- Data: 2026-08-20
+- **Arquivos:** `src/css/segmentos.css`, `index.html`, `MD/changelog.md`
+- **Espaçamento e Respiro Visual:** Adicionado `padding-bottom: 110px` na seção de Áreas de Atuação (`.segmentos-secao`) no desktop com escala responsiva calibrada (90px em tablets e 75px em mobile), eliminando a sobreposição e contato direto com o bloco subsequente de Oportunidades. Ajustada a margem dos indicadores mobile (`.endo-acc-dots`) e bump de versão do CSS para `segmentos.css?v=33.0`.
+
 ## Página da Solução 4: Engenharia de Soldagem e Integração Global
 
 - Status: Concluída

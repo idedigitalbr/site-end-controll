@@ -1,5 +1,15 @@
 # Histórico de sincronização — DB_IDE
 
+## 2026-08-20 - Ajuste de Margem e Espaçamento na Seção Áreas de Atuação da Home
+
+- Projeto: site-end-controll
+- Tarefa: Ajuste de respiro e margem inferior da seção Principais Áreas de Atuação (`#segmentos-secao`) no index.html. Adicionado padding-bottom de 110px no desktop e escala responsiva, eliminando contato direto com o topo arredondado da seção Oportunidades. Bump de versão do CSS para `segmentos.css?v=33.0`.
+- Status local: Concluída.
+- Commit: A ser gerado no push final.
+- Deploy VPS: Concluído via Docker / GitHub Actions (`https://endcontrol.suporteide.digital/`).
+- Sincronização Notion: Atualizadas as sub-tarefas `Changelogs` e `Check WhatsApp` no banco `DB_IDE`.
+- Observação: Memória persistente no Obsidian (`MD/`) e changelog sincronizados.
+
 ## 2026-08-20 - Auditoria Global do Site, Correção de Âncoras e Padronização do Rodapé
 
 - Projeto: site-end-controll

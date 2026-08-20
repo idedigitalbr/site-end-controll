@@ -1,5 +1,15 @@
 # Changelog — ENDCONTROL Engenharia
 
+## [2026-08-20] - Ajuste de Margem e Espaçamento na Seção Áreas de Atuação da Home
+
+- **Arquivos:** `src/css/segmentos.css`, `index.html`, `MD/changelog.md`
+
+### Fixed & Enhanced
+- **1. Espaçamento Inferior na Seção Áreas de Atuação (`#segmentos-secao`):**
+  - Adicionado `padding-bottom: 110px` na classe `.segmentos-secao` no desktop (e responsivo calibrado com 90px em tablets e 75px em mobile), garantindo respiro elegante entre os cards de áreas de atuação e a seção subsequente (`#oportunidades`).
+  - Ajustado o espaçamento inferior dos indicadores `.endo-acc-dots` para `margin-bottom: 0` para harmonia no layout mobile.
+  - Atualizada a versão do CSS para `segmentos.css?v=33.0` em `index.html`.
+
 ## [2026-08-20] - Auditoria Global do Site, Correção de Âncoras e Padronização do Rodapé
 
 - **Arquivos:** `index.html`, `tests/site-full-audit.test.js`, `MD/changelog.md`, `MD/notion.md`

@@ -4,7 +4,7 @@
 
 .segmentos-secao {
   background: #f0f5f7; /* brand standard light slate */
-  padding: 108px 0 0 0;
+  padding: 108px 0 110px 0;
   position: relative;
   overflow: hidden;
 }
@@ -327,7 +327,7 @@
   align-items: center;
   gap: 8px;
   margin-top: 25px;
-  margin-bottom: 40px;
+  margin-bottom: 0;
 }
 
 .endo-acc-dot {
@@ -355,6 +355,9 @@
 }
 
 @media (max-width: 1024px) {
+  .segmentos-secao {
+    padding: 85px 0 90px 0;
+  }
   .endo-acc-full-wrapper { height: 340px; }
   .endo-acc-card__title { font-size: 0.92rem; }
   .endo-acc-panel:hover .endo-acc-card__title,
@@ -376,6 +379,12 @@
   .endo-acc-panel:hover,
   .endo-acc-panel.is-active {
     flex: 0 0 320px;
+  }
+}
+
+@media (max-width: 768px) {
+  .segmentos-secao {
+    padding: 70px 0 75px 0;
   }
 }
 
