@@ -1,5 +1,12 @@
 # Features — ENDCONTROL Engenharia
 
+## Fundo Branco e Alto Contraste na Seção Nossas Soluções (Radar Orbital)
+
+- Status: Concluída
+- Data: 2026-08-20
+- **Arquivos:** `index.html`, `src/css/solucoes.css`, `src/js/solucoes.js`, `tests/site-integrity.ps1`, `MD/changelog.md`
+- **Fundo Claro e Legibilidade:** Fundo principal convertido para `#ffffff`, com tipografia ajustada para cores escuras de alto contraste (`#071429` e `#475569`), nós de serviço, anéis orbitais, feixe de varredura (*sweep*) e card lateral calibrados para o tema claro com invalidação de cache (`v=58.0`).
+
 ## Elevação Frontal e Elementos Blueprint Decorativos na Seção Oportunidades
 
 - Status: Concluída
