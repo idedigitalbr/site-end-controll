@@ -122,7 +122,7 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  background: url('../../assets/Paginas Imgs/SOBRE NOS/REF-SOBRE-NOS/bgs/bg-topo-hero-sobre-nos-com-logo-.webp') center center / cover no-repeat;
+  background: url('../../assets/Paginas Imgs/SOBRE NOS/REF-SOBRE-NOS/bgs/bg-topo-hero-sobre-nos-com-logo-.webp') center 24% / cover no-repeat;
   overflow: hidden;
   border-radius: 0 0 36px 36px;
   border-bottom: none;

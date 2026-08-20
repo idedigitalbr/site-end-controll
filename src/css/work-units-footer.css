@@ -3033,10 +3033,14 @@
 
 .footer-minimal-glow-section {
   background: #040918;
-  padding: 34px 20px 18px 20px;
+  padding: 38px 20px 18px 20px;
   position: relative;
   overflow: hidden;
-  border-top: 1px solid rgba(0, 156, 255, 0.15);
+  border-top: 1px solid rgba(0, 194, 255, 0.2);
+  border-radius: 36px 36px 0 0;
+  margin-top: -36px;
+  z-index: 11;
+  box-shadow: 0 -18px 45px rgba(0, 0, 0, 0.45);
   width: 100%;
   font-family: 'DM Sans', sans-serif;
 }
@@ -3397,6 +3401,12 @@
 
 /* Responsividade Mobile */
 @media (max-width: 900px) {
+  .footer-minimal-glow-section {
+    border-radius: 28px 28px 0 0;
+    margin-top: -28px;
+    padding-top: 32px;
+  }
+
   .footer-minimal-top-grid {
     flex-direction: column;
     gap: 24px;

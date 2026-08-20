@@ -1,18 +1,21 @@
 # Changelog — ENDCONTROL Engenharia
 
-## [2026-08-20] - Ajuste de Margem Direita (200px), Recuo Esquerdo e Elevação Visual na Seção Como Trabalhamos
+## [2026-08-20] - Ajuste de Margem Direita (280px), Recuo Esquerdo Otimizado e Cache Invalidation v=112.0
 
-- **Arquivos:** `src/css/sobre-nos.css`, `src/css/servico-integridade.css`, `3-solucao-ensaios-nao-destrutivos-ends.html`, `6-solucao-elaboracao-de-projetos-mecanicos.html`, `8-solucao-inspecao-e-adequacao-normativa.html`, `10-solucao-trepanacao-hot-tapping.html`, `12-solucao-consultoria-e-assessoria-tecnica.html`, `MD/changelog.md`, `MD/features.md`
+- **Arquivos:** `src/css/sobre-nos.css`, `src/css/servico-integridade.css`, todas as 12 páginas de soluções, `sobre-nos.html`, `MD/changelog.md`, `MD/features.md`
 
 ### Fixed & Enhanced
-- **1. Margem Direita Expandida para 200px em Widescreen (1920px):**
-  - Configurado padding lateral do container `.sn-process-widescreen-container` com `padding: 0 clamp(70px, 10.42vw, 200px) 0 clamp(16px, 1.25vw, 24px);`, garantindo 200px de folga livre entre o Passo 04 e a borda arredondada do card em 1920px.
-  - Ajustada a proporção de colunas para `18% Foto | 28% Texto | 54% Metodologia` e redução de ~70px na lateral esquerda para aproximar o texto e manter a foto em destaque.
-  - Escalonamento responsivo suave para 1600px (150px), 1440px (110px), 1280px (70px) e centralização 2x2 em mobile/tablets.
-- **2. Elevação Visual e Camada Superior (`z-index: 20`):**
-  - A seção `.sn-process-section` recebeu `z-index: 20 !important;` e sombra dupla de elevação (`box-shadow: 0 -20px 50px rgba(4, 21, 59, 0.65), 0 24px 60px rgba(4, 21, 59, 0.55);`), ficando consistentemente sobreposta e destacada na frente das seções adjacentes em todas as 13 páginas.
-- **3. Remoção de Botões de CTA na Seção:**
-  - Removidos os botões de CTA remanescentes das soluções 3, 6, 8, 10 e 12, mantendo a seção limpa, puramente metodológica e informativa em 100% das páginas.
+- **1. Margem Direita Ampliada para 280px em Widescreen (1920px):**
+  - Configurado padding lateral do container `.sn-process-widescreen-container` com `padding-right: 280px !important;` e `padding-left: 16px !important;`.
+  - Respiro interno na trilha `.sn-process-track-zone` com `padding-right: 48px !important;`.
+  - Ajustada a proporção de colunas para `14% Foto | 28% Texto | 58% Metodologia`, trazendo o texto ainda mais para a esquerda e garantindo respiro generoso e intocável de 280px na lateral direita.
+  - Dimensionamento compacto e refinado dos círculos (92px em Full HD, 84px em 1600px, 78px em 1440px, 70px em 1280px).
+- **2. Invalidação Total de Cache (`v=112.0`):**
+  - Atualizadas as tags de link de estilos em 100% das páginas HTML para forçar o download instantâneo do novo CSS em todos os navegadores.
+- **3. Elevação Visual e Camada Superior (`z-index: 20`):**
+  - Mantida elevação de camada com sombra dupla e sobreposição frontal elegante sobre seções vizinhas.
+- **4. Remoção Definitiva de CTAs residuais:**
+  - Seção 100% limpa, focada em metodologia e sem botões de ação.
 
 ## [2026-08-20] - Calibração Ultra-Wide / 1920px de Margens e Espaçamento em Áreas de Atuação
 
