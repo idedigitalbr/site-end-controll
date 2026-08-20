@@ -2,6 +2,17 @@
 
 
 
+## [2026-08-20] - Alteração do Fundo da Seção de Soluções (Radar) para Branco (v=58.0)
+
+- **Arquivos:** `src/css/solucoes.css`, `src/js/solucoes.js`, `index.html`, `tests/site-integrity.ps1`, `MD/changelog.md`
+
+### Enhanced
+- **Fundo Branco e Alto Contraste na Seção Nossas Soluções (Radar Orbital):**
+  - Fundo principal ajustado para `#ffffff` com grid técnico blueprint sutil.
+  - Tipografia (títulos, descrições, métricas e cards) adaptada para cores escuras de alta legibilidade (`#071429` e `#475569`).
+  - Anéis orbitais, feixe de varredura (sweep) e nós interativos recalibrados em tons de azul e ciano sobre fundo claro.
+  - Invalidação de cache aplicada (`solucoes.css?v=58.0`).
+
 ## [2026-08-20] - Elevação Total da Camada (z-index: 25) e Sobreposição Frontal sobre Seção Anterior e Próxima (v=39.0)
 
 - **Arquivos:** `index.html`, `src/css/sections.css`, `MD/changelog.md`
