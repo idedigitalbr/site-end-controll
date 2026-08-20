@@ -1,5 +1,50 @@
 # Changelog — ENDCONTROL Engenharia
 
+## [2026-08-20] - Criação e Integração Completa das Páginas de Soluções 5 a 12
+
+- **Arquivos:** `5-solucao-gerenciamento-de-projetos.html`, `6-solucao-elaboracao-de-projetos-mecanicos.html`, `7-solucao-solucoes-tecnologicas-integradas.html`, `8-solucao-inspecao-e-adequacao-normativa.html`, `9-solucao-calibracao-de-instrumentos.html`, `10-solucao-trepanacao-hot-tapping.html`, `11-solucao-certificacao-de-materia-prima.html`, `12-solucao-consultoria-e-assessoria-tecnica.html`, `1-solucao-engenharia-de-integridade-estrutural.html`, `2-solucao-inspecao-em-obras-de-artes-especiais.html`, `3-solucao-ensaios-nao-destrutivos-ends.html`, `4-solucao-engenharia-de-soldagem.html`, `index.html`, `sobre-nos.html`, `MD/changelog.md`, `MD/notion.md`
+
+### Added & Refined
+- **1. Desenvolvimento das 8 Páginas Oficiais de Soluções:**
+  - `5. Gerenciamento de Projetos`: Fiscalização, PMO, auditoria técnica e supervisão de obras.
+  - `6. Elaboração de Projetos Mecânicos`: Modelagem 3D, cálculos estruturais e detalhamento executivo.
+  - `7. Soluções Tecnológicas Integradas`: Automação, monitoramento contínuo e digitalização de ativos.
+  - `8. Inspeção e Adequação Normativa`: NR-13, NR-12, NR-11, prontuários e inspeção de conformidade.
+  - `9. Calibração de Instrumentos`: Rastreabilidade RBC/Inmetro e calibração de instrumentos de medição.
+  - `10. Trepanação (Hot Tapping)`: Intervenção em tubulações e dutos sob carga e sem parada de linha.
+  - `11. Certificação de Matéria-Prima`: Ensaios químicos, mecânicos, metalografia e validação de corrida.
+  - `12. Consultoria e Assessoria Técnica`: Pareceres, perícias de falhas, arbitragens e laudos sêniores.
+- **2. Integração Global de Navegação:**
+  - Submenus de soluções sincronizados em 100% das páginas institucionais com rotas ativas.
+- **3. Padronização Estrutural e Visual:**
+  - Header Global Inox, Seção Sobre o Serviço, Accordion Quando Aplicar, Metodologia Como Trabalhamos, Escopo Técnico Bento Grid Master, Compromisso Institucional e Footer Minimal Glow.
+
+## [2026-08-20] - Otimização e Eliminação de Fotos Duplicadas no Bento Grid de OAEs (Solução 2)
+
+- **Arquivos:** `2-solucao-inspecao-em-obras-de-artes-especiais.html`, `MD/changelog.md`, `MD/notion.md`
+
+### Fixed & Enhanced
+- **1. Eliminação de Duplicidade Visual no Stack Vertical (Cards 3 e 4):**
+  - O Card 3 (*Inspeção Rotineira*) agora é um card clean branco de alto contraste, com ícone de periodicidade e checklist limpo, eliminando o background repetido.
+  - O Card 4 (*Inspeção Detalhada*) passa a utilizar a fotografia `obras_arte_especiais_02.webp` (engenheiro em plataforma suspensa acessando aparelho de apoio e pontos críticos em altura), dando sentido técnico direto ao escopo.
+- **2. Correção de Imagens Incoerentes e Repetições:**
+  - Card 9 (*Inspeção Estrutural Especializada*): utiliza `obras_arte_especiais_04.webp` (ensaios não destrutivos e ultrassom de campo em estruturas metálicas/pontes).
+  - Card 10 (*Inspeção Subaquática*): removida a foto genérica de bomba de fábrica; transformado em card dark minimalista com ícone de radar/sonar subaquático e acabamento neon.
+  - Card 14 (*Consultoria Técnica*): substituída a foto repetida por `ultrassom-raptor-scan-tecnicos-reunidos-campo-edit.webp` (equipe sênior em alinhamento técnico e consultoria).
+  - Card 8 (*Inspeção Geométrica*): convertido em card dark clean com ícone 3D e foco em escaneamento laser e topografia.
+
+## [2026-08-20] - Correção e Restauração de Proporção e Sticky no Painel Lateral Bento (`.ec-bento-sidebar`)
+
+- **Arquivos:** `src/css/servico-integridade.css`, `1-solucao-engenharia-de-integridade-estrutural.html`, `2-solucao-inspecao-em-obras-de-artes-especiais.html`, `3-solucao-ensaios-nao-destrutivos-ends.html`, `4-solucao-engenharia-de-soldagem.html`
+
+### Fixed
+- **1. Eliminação do Esticamento Excessivo e Gaps Internos (`.ec-bento-sidebar`):**
+  - Corrigido o `align-self: stretch` e `height: 100%` que forçavam a sidebar a esticar por toda a altura de 1400px das 4 linhas do Bento Grid.
+  - Removido `justify-content: space-between` de `.ec-bento-sidebar-content`, eliminando vazios gigantes entre logotipo, eyebrow, headline, parágrafo e os 4 pilares.
+  - Restaurado `position: sticky; top: clamp(80px, 9vh, 96px); align-self: start; height: auto;`, permitindo que o painel acompanhe suavemente a rolagem do usuário ao lado dos cards de escopo técnico.
+  - Ajustado `align-items: flex-start` nos pilares de excelência para alinhamento harmônico entre ícones neon e textos descritivos.
+  - Bump de versão de cache CSS para `v=96.0`.
+
 ## [2026-08-19] - Criação da Página da Solução 4 (Engenharia de Soldagem) e Integração Global
 
 - **Arquivos:** `4-solucao-engenharia-de-soldagem.html`, `index.html`, `sobre-nos.html`, `1-solucao-engenharia-de-integridade-estrutural.html`, `2-solucao-inspecao-em-obras-de-artes-especiais.html`, `3-solucao-ensaios-nao-destrutivos-ends.html`, `src/js/solucoes.js`, `src/css/servico-integridade.css`

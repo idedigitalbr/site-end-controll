@@ -1,5 +1,31 @@
 # Histórico de sincronização — DB_IDE
 
+## 2026-08-20 - Criação e Integração Completa das Páginas de Soluções 5 a 12
+
+- Projeto: site-end-controll
+- Tarefa: Conclusão e integração de todas as 12 páginas de soluções da ENDCONTROL Engenharia (Páginas 5 a 12: Gerenciamento de Projetos, Elaboração de Projetos Mecânicos, Soluções Tecnológicas Integradas, Inspeção e Adequação Normativa, Calibração de Instrumentos, Trepanação Hot Tapping, Certificação de Matéria-Prima, Consultoria e Assessoria Técnica), sincronização global de navegação e submenus em 100% do site, padronização visual Bento Grid Master e refinamentos de CSS.
+- Status local: Concluída.
+- Commit: A ser gerado no push final.
+- Deploy VPS: Concluído via Docker / GitHub Actions (`https://endcontrol.suporteide.digital/`).
+- Sincronização Notion: Atualizadas as sub-tarefas `Changelogs` e `Check WhatsApp` no banco `DB_IDE`.
+- Observação: Memória persistente no Obsidian (`MD/`) e changelog sincronizados.
+
+## 2026-08-20 - Otimização e Eliminação de Fotos Duplicadas no Bento Grid de OAEs (Solução 2)
+
+- Projeto: site-end-controll
+- Tarefa: Eliminação de duplicidades visuais e correção de fotografias no Bento Grid de OAEs (`2-solucao-inspecao-em-obras-de-artes-especiais.html`). Removida a foto de fundo duplicada no Card 3 (Rotineira) mantendo o Card 3 clean; atribuída a foto de plataforma suspensa em altura no Card 4 (Detalhada); aplicada foto de ensaios/ultrassom no Card 9 (Estrutural Especializada); removida a foto incoerente de bomba no Card 10 (Subaquática); aplicada foto de consultoria de equipe no Card 14.
+- Status local: Concluída.
+- Commit: A ser gerado no push final.
+- Observação: Memória persistente no Obsidian (`MD/`) e changelog sincronizados.
+
+## 2026-08-20 - Correção e Restauração de Proporção e Sticky no Painel Lateral Bento
+
+- Projeto: site-end-controll
+- Tarefa: Correção de layout no painel lateral do Bento Grid (`.ec-bento-sidebar`), eliminando o esticamento vertical de 1400px causado por `align-self: stretch` e `justify-content: space-between`, restaurando a altura compacta natural, alinhamento `position: sticky; top: clamp(80px, 9vh, 96px); align-self: start;` e alinhamento `flex-start` nos pilares de excelência. Bump de versão para `v=96.0`.
+- Status local: Concluída.
+- Commit: A ser gerado no push final.
+- Observação: Memória persistente no Obsidian (`MD/`) e changelog sincronizados.
+
 ## 2026-08-19 - Criação da Página 4 (Engenharia de Soldagem) e Integração Global no Site
 
 - Projeto: site-end-controll
