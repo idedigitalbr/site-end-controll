@@ -1,5 +1,12 @@
 # Features — ENDCONTROL Engenharia
 
+## Margem Direita de 200px e Elevação na Seção Como Trabalhamos
+
+- Status: Concluída
+- Data: 2026-08-20
+- **Arquivos:** `src/css/sobre-nos.css`, `src/css/servico-integridade.css`, `3-solucao-ensaios-nao-destrutivos-ends.html`, `6-solucao-elaboracao-de-projetos-mecanicos.html`, `8-solucao-inspecao-e-adequacao-normativa.html`, `10-solucao-trepanacao-hot-tapping.html`, `12-solucao-consultoria-e-assessoria-tecnica.html`, `MD/changelog.md`
+- **Layout Panorâmico Calibrado:** Margem direita de 200px em 1920px no container `.sn-process-widescreen-container`, eliminando qualquer contato dos ícones com a borda. Redução de ~70px no recuo esquerdo para posicionar o texto de forma harmoniosa com a foto. Elevação de camada (`z-index: 20`) com sombra dupla para destaque superior sobre as seções adjacentes. Remoção de todos os botões de CTA residuais.
+
 ## Calibração Ultra-Wide (1920px) de Margens e Espaçamento em Áreas de Atuação
 
 - Status: Concluída

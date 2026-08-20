@@ -758,13 +758,13 @@
   background: linear-gradient(135deg, #08152A 0%, #04153B 55%, #061838 100%);
   color: var(--color-text-primary);
   width: 100%;
-  border-radius: 36px;
-  margin-top: -36px;
-  padding: 60px 0;
+  border-radius: 48px;
+  margin-top: -60px;
+  padding: 75px 0;
   min-height: 480px;
-  z-index: 7;
+  z-index: 20;
   overflow: hidden;
-  box-shadow: 0 -18px 45px rgba(4, 21, 59, 0.5), 0 20px 50px rgba(4, 21, 59, 0.4);
+  box-shadow: 0 -20px 50px rgba(4, 21, 59, 0.65), 0 24px 60px rgba(4, 21, 59, 0.55);
   border-top: none;
   border-bottom: none;
   display: flex;
@@ -843,22 +843,22 @@
   border: 1px solid rgba(0, 194, 255, 0.04);
 }
 
-/* Grid Panorâmico Widescreen 100% (3 Zonas Visuais: 22% Foto | 27% Texto | 51% Metodologia) */
+/* Grid Panorâmico Widescreen 100% (3 Zonas Visuais: 18% Foto | 28% Texto | 54% Metodologia com 200px de margem na direita) */
 .sn-process-widescreen-container {
   position: relative;
   z-index: 2;
   width: 100%;
   max-width: 1920px;
   margin: 0 auto;
-  padding: 0 3vw 0 2vw;
+  padding: 0 clamp(70px, 10.42vw, 200px) 0 clamp(16px, 1.25vw, 24px);
   box-sizing: border-box;
   display: grid;
-  grid-template-columns: 22% 27% 51%;
+  grid-template-columns: 18% 28% 54%;
   align-items: center;
-  column-gap: 20px;
+  column-gap: clamp(16px, 1.6vw, 30px);
 }
 
-/* ZONA 1: Espaçador Físico da Fotografia (Reserva o primeiro quarto) */
+/* ZONA 1: Espaçador Físico da Fotografia (Reserva o primeiro quinto) */
 .sn-process-photo-zone {
   min-height: 1px;
   pointer-events: none;
@@ -888,12 +888,12 @@
 
 .sn-process-headline {
   font-family: var(--font-primary);
-  font-size: clamp(28px, 2.2vw, 40px);
+  font-size: clamp(26px, 2vw, 38px);
   font-weight: 700;
-  line-height: 1.15;
+  line-height: 1.18;
   letter-spacing: -0.02em;
   color: #ffffff;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
 
 .sn-process-headline .sn-highlight-blue {
@@ -903,16 +903,17 @@
 
 .sn-process-description {
   font-family: var(--font-primary);
-  font-size: 16px;
+  font-size: 15.5px;
   line-height: 1.55;
   color: #8fa3b8;
-  margin-bottom: 30px;
+  margin-bottom: 24px;
   max-width: 430px;
 }
 
-/* Botão Conheça nossas soluções (330-350px de largura com seta ciano à direita) */
-.sn-btn-process-cta {
-  display: flex;
+/* Botão Conheça nossas soluções (.sn-btn-process-cta e .sn-process-cta-btn) */
+.sn-btn-process-cta,
+.sn-process-cta-btn {
+  display: inline-flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
@@ -922,30 +923,33 @@
   box-sizing: border-box;
   background: rgba(8, 21, 42, 0.65);
   border: 1.5px solid rgba(0, 194, 255, 0.45);
-  border-radius: 6px;
+  border-radius: 8px;
   color: #ffffff;
   font-family: var(--font-primary);
-  font-size: 15.5px;
+  font-size: 15px;
   font-weight: 500;
   text-decoration: none;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   box-shadow: 0 2px 14px rgba(0, 194, 255, 0.12);
 }
 
-.sn-btn-process-cta:hover {
+.sn-btn-process-cta:hover,
+.sn-process-cta-btn:hover {
   border-color: #00c2ff;
   background: rgba(0, 194, 255, 0.16);
   color: #ffffff;
   box-shadow: 0 0 24px rgba(0, 194, 255, 0.5);
 }
 
-.sn-btn-process-cta .sn-btn-arrow {
+.sn-btn-process-cta .sn-btn-arrow,
+.sn-process-cta-btn svg {
   color: #00c2ff;
   transition: transform 0.25s ease;
   flex-shrink: 0;
 }
 
-.sn-btn-process-cta:hover .sn-btn-arrow {
+.sn-btn-process-cta:hover .sn-btn-arrow,
+.sn-process-cta-btn:hover svg {
   transform: translateX(4px);
 }
 
@@ -957,7 +961,8 @@
   width: 100%;
   position: relative;
   box-sizing: border-box;
-  gap: 4px;
+  gap: clamp(2px, 0.6vw, 10px);
+  padding-right: clamp(10px, 1.5vw, 24px);
 }
 
 .sn-step-unit {
@@ -967,7 +972,7 @@
   text-align: center;
   flex: 1 1 0;
   min-width: 0;
-  max-width: 175px;
+  max-width: 155px;
   position: relative;
   z-index: 2;
 }
@@ -975,7 +980,7 @@
 /* Números 01, 02, 03, 04 Centralizados no mesmo Eixo X dos Círculos */
 .sn-step-number {
   font-family: var(--font-primary);
-  font-size: 19px;
+  font-size: 18px;
   font-weight: 700;
   color: #00c2ff;
   letter-spacing: 0.05em;
@@ -986,8 +991,8 @@
 
 /* Círculos Grandes com Glow Refinado */
 .sn-step-node {
-  width: 118px;
-  height: 118px;
+  width: 108px;
+  height: 108px;
   border-radius: 50%;
   background: radial-gradient(circle at center, rgba(0, 194, 255, 0.16) 0%, rgba(4, 21, 59, 0.88) 75%);
   border: 1.5px solid rgba(0, 194, 255, 0.85);
@@ -996,7 +1001,7 @@
   justify-content: center;
   color: #00c2ff;
   box-shadow: 0 0 22px rgba(0, 194, 255, 0.35), inset 0 0 14px rgba(0, 194, 255, 0.12);
-  margin-bottom: 20px;
+  margin-bottom: 18px;
   position: relative;
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   flex-shrink: 0;
@@ -1010,8 +1015,8 @@
 }
 
 .sn-step-node svg {
-  width: 42px;
-  height: 42px;
+  width: 38px;
+  height: 38px;
   stroke: #00c2ff;
   transition: stroke 0.3s ease;
 }
@@ -1025,9 +1030,9 @@
 .sn-step-line-connector {
   display: flex;
   align-items: center;
-  flex: 0 1 50px;
-  min-width: 14px;
-  margin-top: 94px; /* Eixo geométrico dos círculos (número + margem + raio) */
+  flex: 0 1 40px;
+  min-width: 10px;
+  margin-top: 86px; /* Eixo geométrico dos círculos (número + margem + raio) */
   position: relative;
   color: #00c2ff;
   margin-left: -2px;
@@ -1051,23 +1056,25 @@
 /* Títulos dos Passos em 2 Linhas */
 .sn-step-title {
   font-family: var(--font-primary);
-  font-size: 18px;
+  font-size: 16.5px;
   font-weight: 700;
   color: #ffffff;
   line-height: 1.2;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   text-align: center;
+  word-break: break-word;
 }
 
 /* Descrições dos Passos */
 .sn-step-desc {
   font-family: var(--font-primary);
-  font-size: 13px;
-  line-height: 1.48;
+  font-size: 12.5px;
+  line-height: 1.46;
   color: #8fa3b8;
   text-align: center;
-  max-width: 170px;
+  max-width: 145px;
   margin: 0 auto;
+  word-break: break-word;
 }
 
 /* --------------------------------------------------------------------------
@@ -1624,69 +1631,74 @@
    -------------------------------------------------------------------------- */
 @media (max-width: 1600px) {
   .sn-process-widescreen-container {
-    grid-template-columns: 18% 28% 54%;
+    grid-template-columns: 15% 30% 55%;
     column-gap: 16px;
-    padding: 0 28px;
+    padding: 0 clamp(50px, 9vw, 150px) 0 20px;
+  }
+
+  .sn-process-track-zone {
+    padding-right: 12px;
+    gap: 4px;
   }
 
   .sn-step-unit {
-    max-width: 155px;
+    max-width: 140px;
   }
 
   .sn-step-node {
-    width: 106px;
-    height: 106px;
-    margin-bottom: 16px;
+    width: 96px;
+    height: 96px;
+    margin-bottom: 14px;
   }
 
   .sn-step-node svg {
-    width: 38px;
-    height: 38px;
+    width: 34px;
+    height: 34px;
   }
 
   .sn-step-number {
-    font-size: 17px;
-    margin-bottom: 10px;
+    font-size: 16px;
+    margin-bottom: 9px;
   }
 
   .sn-step-line-connector {
-    margin-top: 83px;
-    min-width: 12px;
-    flex: 0 1 40px;
+    margin-top: 76px;
+    min-width: 10px;
+    flex: 0 1 32px;
   }
 
   .sn-step-title {
-    font-size: 16px;
-    margin-bottom: 8px;
+    font-size: 15px;
+    margin-bottom: 7px;
   }
 
   .sn-step-desc {
-    font-size: 12px;
-    line-height: 1.45;
-    max-width: 145px;
+    font-size: 11.5px;
+    line-height: 1.42;
+    max-width: 130px;
   }
 }
 
 /* Notebook / Laptop Standard (1366x768, 1440x900, 1280x800) */
 @media (max-width: 1440px) {
   .sn-process-section {
-    padding: 85px 0;
-    min-height: 560px;
+    padding: 75px 0;
+    min-height: 520px;
   }
 
   .sn-process-photo-layer {
-    width: 38%;
+    width: 36%;
   }
 
   .sn-process-widescreen-container {
-    grid-template-columns: 16% 30% 54%;
+    grid-template-columns: 13% 32% 55%;
     column-gap: 14px;
-    padding: 0 24px;
+    padding: 0 clamp(40px, 7.5vw, 110px) 0 18px;
   }
 
   .sn-process-info-zone {
-    max-width: 380px;
-    padding-right: 12px;
+    max-width: 370px;
+    padding-right: 10px;
   }
 
   .sn-process-eyebrow {
@@ -1695,58 +1707,59 @@
   }
 
   .sn-process-headline {
-    font-size: clamp(24px, 1.85vw, 30px);
+    font-size: clamp(22px, 1.8vw, 28px);
     line-height: 1.2;
     margin-bottom: 14px;
   }
 
   .sn-process-description {
-    font-size: 14px;
-    line-height: 1.48;
-    margin-bottom: 22px;
-    max-width: 350px;
+    font-size: 13.5px;
+    line-height: 1.46;
+    margin-bottom: 20px;
+    max-width: 340px;
   }
 
-  .sn-btn-process-cta {
-    max-width: 280px;
-    height: 46px;
-    font-size: 14px;
-    padding: 0 18px;
+  .sn-btn-process-cta,
+  .sn-process-cta-btn {
+    max-width: 270px;
+    height: 44px;
+    font-size: 13.5px;
+    padding: 0 16px;
   }
 
   .sn-process-track-zone {
     gap: 2px;
-    padding-left: 0;
+    padding-right: 8px;
   }
 
   .sn-step-unit {
     flex: 1 1 0;
     min-width: 0;
-    max-width: 135px;
+    max-width: 122px;
   }
 
   .sn-step-number {
-    font-size: 15px;
-    margin-bottom: 8px;
+    font-size: 14.5px;
+    margin-bottom: 7px;
     line-height: 1.2;
   }
 
   .sn-step-node {
-    width: 86px;
-    height: 86px;
+    width: 82px;
+    height: 82px;
     margin-bottom: 12px;
     box-shadow: 0 0 16px rgba(0, 194, 255, 0.3), inset 0 0 10px rgba(0, 194, 255, 0.1);
   }
 
   .sn-step-node svg {
-    width: 30px;
-    height: 30px;
+    width: 28px;
+    height: 28px;
   }
 
   .sn-step-line-connector {
-    margin-top: 69px;
+    margin-top: 65px;
     min-width: 8px;
-    flex: 0 1 36px;
+    flex: 0 1 26px;
   }
 
   .sn-connector-head {
@@ -1755,15 +1768,15 @@
   }
 
   .sn-step-title {
-    font-size: 14px;
+    font-size: 13.5px;
     line-height: 1.22;
-    margin-bottom: 6px;
+    margin-bottom: 5px;
   }
 
   .sn-step-desc {
-    font-size: 11.5px;
+    font-size: 11px;
     line-height: 1.38;
-    max-width: 125px;
+    max-width: 116px;
   }
 }
 
@@ -1783,77 +1796,83 @@
   }
 
   .sn-process-section {
-    padding: 75px 0;
-    min-height: 520px;
+    padding: 70px 0;
+    min-height: 490px;
   }
 
   .sn-process-photo-layer {
-    width: 35%;
+    width: 32%;
   }
 
   .sn-process-widescreen-container {
-    grid-template-columns: 14% 32% 54%;
-    column-gap: 10px;
-    padding: 0 18px;
+    grid-template-columns: 11% 34% 55%;
+    column-gap: 12px;
+    padding: 0 clamp(32px, 5.5vw, 70px) 0 16px;
   }
 
   .sn-process-info-zone {
-    max-width: 330px;
-    padding-right: 8px;
+    max-width: 320px;
+    padding-right: 6px;
   }
 
   .sn-process-headline {
-    font-size: 22px;
-    margin-bottom: 12px;
+    font-size: 21px;
+    margin-bottom: 10px;
   }
 
   .sn-process-description {
-    font-size: 13px;
-    line-height: 1.45;
-    margin-bottom: 18px;
+    font-size: 12.5px;
+    line-height: 1.42;
+    margin-bottom: 16px;
   }
 
-  .sn-btn-process-cta {
-    max-width: 260px;
-    height: 44px;
-    font-size: 13.5px;
+  .sn-btn-process-cta,
+  .sn-process-cta-btn {
+    max-width: 250px;
+    height: 42px;
+    font-size: 13px;
+  }
+
+  .sn-process-track-zone {
+    padding-right: 4px;
+    gap: 2px;
   }
 
   .sn-step-unit {
-    max-width: 118px;
+    max-width: 110px;
   }
 
   .sn-step-number {
-    font-size: 14px;
+    font-size: 13.5px;
     margin-bottom: 6px;
   }
 
   .sn-step-node {
-    width: 76px;
-    height: 76px;
+    width: 72px;
+    height: 72px;
     margin-bottom: 10px;
   }
 
   .sn-step-node svg {
-    width: 26px;
-    height: 26px;
+    width: 24px;
+    height: 24px;
   }
 
   .sn-step-line-connector {
-    margin-top: 60px;
+    margin-top: 57px;
     min-width: 6px;
-    flex: 0 1 28px;
+    flex: 0 1 20px;
   }
 
   .sn-step-title {
-    font-size: 13px;
+    font-size: 12.5px;
     margin-bottom: 4px;
   }
 
   .sn-step-desc {
     font-size: 10.5px;
-    line-height: 1.35;
-    max-width: 112px;
+    line-height: 1.32;
+    max-width: 104px;
   }
 }
 
@@ -1901,7 +1920,7 @@
   .sn-process-widescreen-container {
     grid-template-columns: 1fr;
     gap: 44px;
-    padding: 0 24px;
+    padding: 0 clamp(24px, 4vw, 40px);
   }
 
   .sn-process-photo-zone {
@@ -1925,7 +1944,8 @@
     font-size: 15px;
   }
 
-  .sn-btn-process-cta {
+  .sn-btn-process-cta,
+  .sn-process-cta-btn {
     margin: 0 auto;
   }
 
@@ -1935,7 +1955,7 @@
     gap: 36px 24px;
     max-width: 540px;
     margin: 0 auto;
-    padding-left: 0;
+    padding: 0;
   }
 
   .sn-step-unit {
