@@ -116,8 +116,8 @@
    -------------------------------------------------------------------------- */
 .sn-hero-section {
   position: relative;
-  min-height: 380px;
-  padding: 100px 0 70px;
+  min-height: 310px;
+  padding: 70px 0 45px;
   margin-top: -80px;
   display: flex;
   align-items: center;
@@ -127,7 +127,7 @@
   overflow: hidden;
   border-radius: 0 0 36px 36px;
   border-bottom: none;
-  z-index: 1;
+  z-index: 20;
 }
 
 .sn-hero-overlay {
@@ -844,26 +844,24 @@
   border: 1px solid rgba(0, 194, 255, 0.04);
 }
 
-/* Grid Panorâmico Widescreen 100% (3 Zonas Visuais: 14% Foto | 28% Texto | 58% Metodologia com 280px de margem na direita) */
+/* Container Panorâmico 100% Centralizado de Alta Precisão (Auto-Centered em qualquer resolução) */
 .sn-process-widescreen-container {
   position: relative;
   z-index: 2;
-  width: 100%;
-  max-width: 1920px;
+  width: min(1500px, calc(100% - 96px));
+  max-width: 1500px;
   margin: 0 auto;
-  padding-right: 280px !important;
-  padding-left: 16px !important;
+  padding: 0 clamp(16px, 2.5vw, 40px);
   box-sizing: border-box;
   display: grid;
-  grid-template-columns: 14% 28% 58%;
+  grid-template-columns: minmax(320px, 400px) 1fr;
   align-items: center;
-  column-gap: 20px;
+  column-gap: clamp(32px, 4vw, 72px);
 }
 
-/* ZONA 1: Espaçador Físico da Fotografia (Reserva o primeiro quinto) */
+/* ZONA 1: Oculto no grid para centralização balanceada de 2 colunas */
 .sn-process-photo-zone {
-  min-height: 1px;
-  pointer-events: none;
+  display: none;
 }
 
 /* ZONA 2: Bloco de Conteúdo (Centro-Esquerda) com Scrim Escuro de Alto Contraste */
@@ -932,8 +930,7 @@
   width: 100%;
   position: relative;
   box-sizing: border-box;
-  gap: 10px;
-  padding-right: 48px !important;
+  gap: clamp(8px, 1.2vw, 16px);
 }
 
 .sn-step-unit {
@@ -943,7 +940,7 @@
   text-align: center;
   flex: 1 1 0;
   min-width: 0;
-  max-width: 140px;
+  max-width: 145px;
   position: relative;
   z-index: 2;
 }
@@ -1001,8 +998,8 @@
 .sn-step-line-connector {
   display: flex;
   align-items: center;
-  flex: 0 1 32px;
-  min-width: 6px;
+  flex: 0 1 36px;
+  min-width: 8px;
   margin-top: 74px; /* Eixo geométrico dos círculos (número + margem + raio) */
   position: relative;
   color: #00c2ff;
@@ -1043,45 +1040,7 @@
   line-height: 1.44;
   color: #8fa3b8;
   text-align: center;
-  max-width: 135px;
-  margin: 0 auto;
-  word-break: break-word;
-}
-
-.sn-connector-stem {
-  flex: 1;
-  height: 1.5px;
-  background: linear-gradient(90deg, rgba(0, 194, 255, 0.4), #00c2ff);
-  box-shadow: 0 0 8px rgba(0, 194, 255, 0.6);
-}
-
-.sn-connector-head {
-  color: #00c2ff;
-  margin-left: -2px;
-  filter: drop-shadow(0 0 4px rgba(0, 194, 255, 0.8));
-  flex-shrink: 0;
-}
-
-/* Títulos dos Passos em 2 Linhas */
-.sn-step-title {
-  font-family: var(--font-primary);
-  font-size: 16.5px;
-  font-weight: 700;
-  color: #ffffff;
-  line-height: 1.2;
-  margin-bottom: 8px;
-  text-align: center;
-  word-break: break-word;
-}
-
-/* Descrições dos Passos */
-.sn-step-desc {
-  font-family: var(--font-primary);
-  font-size: 12.5px;
-  line-height: 1.46;
-  color: #8fa3b8;
-  text-align: center;
-  max-width: 145px;
+  max-width: 140px;
   margin: 0 auto;
   word-break: break-word;
 }
@@ -1640,14 +1599,14 @@
    -------------------------------------------------------------------------- */
 @media (max-width: 1600px) {
   .sn-process-widescreen-container {
-    grid-template-columns: 12% 30% 58%;
-    column-gap: 16px;
-    padding-right: 220px !important;
-    padding-left: 14px !important;
+    width: min(1380px, calc(100% - 64px));
+    max-width: 1380px;
+    grid-template-columns: minmax(290px, 360px) 1fr;
+    column-gap: clamp(24px, 3vw, 48px);
+    padding: 0 20px;
   }
 
   .sn-process-track-zone {
-    padding-right: 36px !important;
     gap: 8px;
   }
 
@@ -1701,19 +1660,20 @@
   }
 
   .sn-process-widescreen-container {
-    grid-template-columns: 10% 32% 58%;
-    column-gap: 14px;
-    padding-right: 180px !important;
-    padding-left: 12px !important;
+    width: min(1260px, calc(100% - 48px));
+    max-width: 1260px;
+    grid-template-columns: minmax(270px, 330px) 1fr;
+    column-gap: 20px;
+    padding: 0 16px;
   }
 
   .sn-process-info-zone {
     max-width: 370px;
-    padding-right: 10px;
+    padding: 14px 18px 14px 8px;
   }
 
   .sn-process-eyebrow {
-    font-size: 13px;
+    font-size: 12.5px;
     margin-bottom: 12px;
   }
 
@@ -1732,7 +1692,6 @@
 
   .sn-process-track-zone {
     gap: 6px;
-    padding-right: 28px !important;
   }
 
   .sn-step-unit {
@@ -1808,15 +1767,16 @@
   }
 
   .sn-process-widescreen-container {
-    grid-template-columns: 8% 34% 58%;
-    column-gap: 12px;
-    padding-right: 130px !important;
-    padding-left: 10px !important;
+    width: min(1120px, calc(100% - 32px));
+    max-width: 1120px;
+    grid-template-columns: minmax(250px, 300px) 1fr;
+    column-gap: 16px;
+    padding: 0 12px;
   }
 
   .sn-process-info-zone {
-    max-width: 320px;
-    padding-right: 6px;
+    max-width: 310px;
+    padding: 12px 14px 12px 6px;
   }
 
   .sn-process-headline {
@@ -1831,7 +1791,6 @@
   }
 
   .sn-process-track-zone {
-    padding-right: 20px !important;
     gap: 4px;
   }
 
