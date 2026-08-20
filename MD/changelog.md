@@ -1,5 +1,20 @@
 # Changelog — ENDCONTROL Engenharia
 
+## [2026-08-20] - Auditoria Global do Site, Correção de Âncoras e Padronização do Rodapé
+
+- **Arquivos:** `index.html`, `tests/site-full-audit.test.js`, `MD/changelog.md`, `MD/notion.md`
+
+### Fixed & Enhanced
+- **1. Correção de Âncora Global `#contato` e Endereço Oficial:**
+  - Adicionado `id="contato"` ao rodapé de `index.html`, permitindo navegação fluida e direta a partir de qualquer página institucional.
+  - Atualizado o endereço no rodapé de `index.html` para o padrão oficial da agência: `Av. Alcindo Cacela, 2120`, `Belém, Pará - Brasil` (eliminando texto temporário de placeholder).
+- **2. Criação da Suíte de Testes de Auditoria Automatizada (`tests/site-full-audit.test.js`):**
+  - Validação de integridade de 100% das 14 páginas HTML (Home, Sobre Nós e 12 Soluções).
+  - Validação de presença e resolução de mais de 300 imagens locais, scripts e folhas de estilo.
+  - Verificação de 100% das 73 âncoras e rotas internas do site com zero links quebrados.
+  - Verificação rigorosa de metadados de SEO (Titles, Meta Descriptions, URLs Canônicas e OpenGraph tags).
+  - Total de 50 testes automatizados 100% aprovados.
+
 ## [2026-08-20] - Criação e Integração Completa das Páginas de Soluções 5 a 12
 
 - **Arquivos:** `5-solucao-gerenciamento-de-projetos.html`, `6-solucao-elaboracao-de-projetos-mecanicos.html`, `7-solucao-solucoes-tecnologicas-integradas.html`, `8-solucao-inspecao-e-adequacao-normativa.html`, `9-solucao-calibracao-de-instrumentos.html`, `10-solucao-trepanacao-hot-tapping.html`, `11-solucao-certificacao-de-materia-prima.html`, `12-solucao-consultoria-e-assessoria-tecnica.html`, `1-solucao-engenharia-de-integridade-estrutural.html`, `2-solucao-inspecao-em-obras-de-artes-especiais.html`, `3-solucao-ensaios-nao-destrutivos-ends.html`, `4-solucao-engenharia-de-soldagem.html`, `index.html`, `sobre-nos.html`, `MD/changelog.md`, `MD/notion.md`

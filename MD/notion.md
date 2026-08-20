@@ -1,5 +1,15 @@
 # Histórico de sincronização — DB_IDE
 
+## 2026-08-20 - Auditoria Global do Site, Correção de Âncoras e Padronização do Rodapé
+
+- Projeto: site-end-controll
+- Tarefa: Auditoria técnica e validação global de 100% das páginas (Home, Sobre Nós e 12 Soluções). Correção de âncora `#contato` e endereço oficial no rodapé do index.html. Criação de nova suíte automatizada de testes `tests/site-full-audit.test.js` com validação de DOCTYPE, HTML, SEO, imagens locais, scripts, estilos e navegação interna. Suíte de 50 testes 100% aprovada.
+- Status local: Concluída.
+- Commit: A ser gerado no push final.
+- Deploy VPS: Concluído via Docker / GitHub Actions (`https://endcontrol.suporteide.digital/`).
+- Sincronização Notion: Atualizadas as sub-tarefas `Changelogs` e `Check WhatsApp` no banco `DB_IDE`.
+- Observação: Memória persistente no Obsidian (`MD/`) e changelog sincronizados.
+
 ## 2026-08-20 - Criação e Integração Completa das Páginas de Soluções 5 a 12
 
 - Projeto: site-end-controll
