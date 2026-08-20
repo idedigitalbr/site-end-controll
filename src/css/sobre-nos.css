@@ -799,8 +799,17 @@
 .sn-process-photo-fade {
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, rgba(8, 21, 42, 0.2) 0%, rgba(4, 21, 59, 0.6) 20%, rgba(4, 21, 59, 0.88) 42%, rgba(4, 21, 59, 0.98) 68%, #04153B 100%),
-              linear-gradient(180deg, rgba(8, 21, 42, 0.65) 0%, transparent 25%, transparent 75%, rgba(4, 21, 59, 0.85) 100%);
+  background: linear-gradient(90deg, 
+                rgba(4, 21, 59, 0.15) 0%, 
+                rgba(4, 21, 59, 0.45) 25%, 
+                rgba(4, 21, 59, 0.82) 52%, 
+                #04153B 78%, 
+                #04153B 100%),
+              linear-gradient(180deg, 
+                rgba(4, 21, 59, 0.4) 0%, 
+                transparent 25%, 
+                transparent 75%, 
+                rgba(4, 21, 59, 0.6) 100%);
 }
 
 /* Detalhes Tecnológicos Sutis (Pontilhado Superior & Arcos Concêntricos Fundo) */
@@ -844,19 +853,20 @@
   border: 1px solid rgba(0, 194, 255, 0.04);
 }
 
-/* Container Panorâmico 100% Centralizado de Alta Precisão (Auto-Centered em qualquer resolução) */
+/* Container Panorâmico Centralizado com Amplas Margens Laterais e Respiro */
 .sn-process-widescreen-container {
   position: relative;
   z-index: 2;
-  width: min(1500px, calc(100% - 96px));
-  max-width: 1500px;
+  width: min(1360px, calc(100% - 140px));
+  max-width: 1360px;
   margin: 0 auto;
-  padding: 0 clamp(16px, 2.5vw, 40px);
+  padding: 0 clamp(20px, 3vw, 48px);
   box-sizing: border-box;
   display: grid;
-  grid-template-columns: minmax(320px, 400px) 1fr;
+  grid-template-columns: minmax(320px, 390px) minmax(520px, 720px);
   align-items: center;
-  column-gap: clamp(32px, 4vw, 72px);
+  justify-content: space-between;
+  column-gap: clamp(40px, 5vw, 90px);
 }
 
 /* ZONA 1: Oculto no grid para centralização balanceada de 2 colunas */
@@ -864,73 +874,85 @@
   display: none;
 }
 
-/* ZONA 2: Bloco de Conteúdo (Centro-Esquerda) com Scrim Escuro de Alto Contraste */
+/* ZONA 2: Bloco de Conteúdo (Centro-Esquerda) — Clean, Elegante e Integrado (Estilo Anexo 3) */
 .sn-process-info-zone {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  max-width: 450px;
-  padding: 18px 24px 18px 12px;
-  border-radius: 16px;
-  background: radial-gradient(ellipse at 15% 50%, rgba(4, 21, 59, 0.82) 0%, rgba(4, 21, 59, 0.5) 65%, transparent 100%);
+  max-width: 410px;
+  padding: 0;
+  background: none;
   box-sizing: border-box;
   z-index: 3;
 }
 
 .sn-process-eyebrow {
   font-family: var(--font-primary);
-  font-size: 13px;
-  font-weight: 800;
-  letter-spacing: 0.22em;
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: #00c2ff;
-  margin-bottom: 16px;
+  margin-bottom: 18px;
   display: inline-flex;
   align-items: center;
-  padding: 4px 12px;
-  background: rgba(0, 194, 255, 0.14);
-  border: 1px solid rgba(0, 194, 255, 0.4);
+  padding: 5px 14px;
+  background: rgba(0, 194, 255, 0.08);
+  border: 1px solid rgba(0, 194, 255, 0.35);
   border-radius: 6px;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.6), 0 0 14px rgba(0, 194, 255, 0.3);
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.95), 0 0 10px rgba(0, 194, 255, 0.7);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3), inset 0 0 8px rgba(0, 194, 255, 0.06);
 }
 
 .sn-process-headline {
   font-family: var(--font-primary);
-  font-size: clamp(26px, 2vw, 38px);
+  font-size: clamp(26px, 2.1vw, 36px);
   font-weight: 800;
-  line-height: 1.18;
+  line-height: 1.2;
   letter-spacing: -0.02em;
   color: #ffffff;
-  margin-bottom: 18px;
-  text-shadow: 0 3px 12px rgba(0, 0, 0, 0.98), 0 6px 26px rgba(0, 0, 0, 0.9), 0 1px 3px rgba(0, 0, 0, 1);
+  margin-bottom: 20px;
+  position: relative;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6), 0 4px 16px rgba(4, 21, 59, 0.7);
 }
 
 .sn-process-headline .sn-highlight-blue {
   color: #00c2ff;
-  text-shadow: 0 3px 12px rgba(0, 0, 0, 0.98), 0 0 22px rgba(0, 194, 255, 0.9), 0 0 36px rgba(0, 194, 255, 0.5);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6), 0 0 16px rgba(0, 194, 255, 0.6);
+}
+
+.sn-process-headline::after {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 2px;
+  margin-top: 14px;
+  background: linear-gradient(90deg, #00c2ff 0%, rgba(0, 194, 255, 0.5) 60%, transparent 100%);
+  box-shadow: 0 0 8px rgba(0, 194, 255, 0.7);
+  border-radius: 2px;
 }
 
 .sn-process-description {
   font-family: var(--font-primary);
-  font-size: 15.5px;
-  font-weight: 500;
-  line-height: 1.58;
-  color: #f0f6fc;
+  font-size: 14.5px;
+  font-weight: 400;
+  line-height: 1.62;
+  color: #cbd5e1;
   margin-bottom: 0;
-  max-width: 430px;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.98), 0 4px 18px rgba(0, 0, 0, 0.92), 0 1px 2px rgba(0, 0, 0, 1);
+  max-width: 400px;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
 }
 
-/* ZONA 3: Metodologia - 4 Passos em Linha Contínua */
+/* ZONA 3: Metodologia - 4 Passos Compactos e Conectados */
 .sn-process-track-zone {
   display: flex;
   align-items: flex-start;
-  justify-content: space-between;
+  justify-content: center;
   width: 100%;
+  max-width: 720px;
   position: relative;
   box-sizing: border-box;
-  gap: clamp(8px, 1.2vw, 16px);
+  gap: 8px;
+  margin: 0 auto;
 }
 
 .sn-step-unit {
@@ -938,9 +960,9 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  flex: 1 1 0;
-  min-width: 0;
-  max-width: 145px;
+  flex: 0 1 130px;
+  min-width: 105px;
+  max-width: 135px;
   position: relative;
   z-index: 2;
 }
@@ -948,7 +970,7 @@
 /* Números 01, 02, 03, 04 Centralizados no mesmo Eixo X dos Círculos */
 .sn-step-number {
   font-family: var(--font-primary);
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 700;
   color: #00c2ff;
   letter-spacing: 0.05em;
@@ -959,8 +981,8 @@
 
 /* Círculos Grandes com Glow Refinado */
 .sn-step-node {
-  width: 92px;
-  height: 92px;
+  width: 86px;
+  height: 86px;
   border-radius: 50%;
   background: radial-gradient(circle at center, rgba(0, 194, 255, 0.16) 0%, rgba(4, 21, 59, 0.88) 75%);
   border: 1.5px solid rgba(0, 194, 255, 0.85);
@@ -968,8 +990,8 @@
   align-items: center;
   justify-content: center;
   color: #00c2ff;
-  box-shadow: 0 0 22px rgba(0, 194, 255, 0.35), inset 0 0 14px rgba(0, 194, 255, 0.12);
-  margin-bottom: 16px;
+  box-shadow: 0 0 20px rgba(0, 194, 255, 0.3), inset 0 0 12px rgba(0, 194, 255, 0.1);
+  margin-bottom: 14px;
   position: relative;
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   flex-shrink: 0;
@@ -979,12 +1001,12 @@
   transform: scale(1.05);
   border-color: #ffffff;
   color: #ffffff;
-  box-shadow: 0 0 32px rgba(0, 194, 255, 0.7);
+  box-shadow: 0 0 28px rgba(0, 194, 255, 0.7);
 }
 
 .sn-step-node svg {
-  width: 32px;
-  height: 32px;
+  width: 30px;
+  height: 30px;
   stroke: #00c2ff;
   transition: stroke 0.3s ease;
 }
@@ -998,9 +1020,9 @@
 .sn-step-line-connector {
   display: flex;
   align-items: center;
-  flex: 0 1 36px;
+  flex: 0 1 28px;
   min-width: 8px;
-  margin-top: 74px; /* Eixo geométrico dos círculos (número + margem + raio) */
+  margin-top: 68px; /* Eixo geométrico dos círculos (número + margem + raio) */
   position: relative;
   color: #00c2ff;
   margin-left: -2px;
@@ -1024,11 +1046,11 @@
 /* Títulos dos Passos em 2 Linhas */
 .sn-step-title {
   font-family: var(--font-primary);
-  font-size: 15px;
+  font-size: 14.5px;
   font-weight: 700;
   color: #ffffff;
-  line-height: 1.2;
-  margin-bottom: 8px;
+  line-height: 1.25;
+  margin-bottom: 6px;
   text-align: center;
   word-break: break-word;
 }
@@ -1036,11 +1058,11 @@
 /* Descrições dos Passos */
 .sn-step-desc {
   font-family: var(--font-primary);
-  font-size: 12px;
-  line-height: 1.44;
-  color: #8fa3b8;
+  font-size: 11.5px;
+  line-height: 1.42;
+  color: #94a3b8;
   text-align: center;
-  max-width: 140px;
+  max-width: 125px;
   margin: 0 auto;
   word-break: break-word;
 }
@@ -1599,52 +1621,61 @@
    -------------------------------------------------------------------------- */
 @media (max-width: 1600px) {
   .sn-process-widescreen-container {
-    width: min(1380px, calc(100% - 64px));
-    max-width: 1380px;
-    grid-template-columns: minmax(290px, 360px) 1fr;
-    column-gap: clamp(24px, 3vw, 48px);
+    width: min(1280px, calc(100% - 100px));
+    max-width: 1280px;
+    grid-template-columns: minmax(300px, 360px) minmax(480px, 680px);
+    column-gap: clamp(28px, 3.5vw, 60px);
     padding: 0 20px;
   }
 
+  .sn-process-info-zone {
+    max-width: 360px;
+    padding: 0;
+    background: none;
+  }
+
   .sn-process-track-zone {
-    gap: 8px;
+    gap: 7px;
+    max-width: 680px;
   }
 
   .sn-step-unit {
+    flex: 0 1 125px;
+    min-width: 100px;
     max-width: 130px;
   }
 
   .sn-step-node {
-    width: 84px;
-    height: 84px;
-    margin-bottom: 14px;
+    width: 80px;
+    height: 80px;
+    margin-bottom: 12px;
   }
 
   .sn-step-node svg {
-    width: 30px;
-    height: 30px;
+    width: 28px;
+    height: 28px;
   }
 
   .sn-step-number {
-    font-size: 15.5px;
+    font-size: 15px;
     margin-bottom: 8px;
   }
 
   .sn-step-line-connector {
-    margin-top: 68px;
+    margin-top: 64px;
     min-width: 6px;
-    flex: 0 1 28px;
+    flex: 0 1 24px;
   }
 
   .sn-step-title {
     font-size: 14px;
-    margin-bottom: 6px;
+    margin-bottom: 5px;
   }
 
   .sn-step-desc {
-    font-size: 11.5px;
-    line-height: 1.42;
-    max-width: 125px;
+    font-size: 11px;
+    line-height: 1.4;
+    max-width: 120px;
   }
 }
 
@@ -1660,20 +1691,21 @@
   }
 
   .sn-process-widescreen-container {
-    width: min(1260px, calc(100% - 48px));
-    max-width: 1260px;
-    grid-template-columns: minmax(270px, 330px) 1fr;
-    column-gap: 20px;
+    width: min(1180px, calc(100% - 80px));
+    max-width: 1180px;
+    grid-template-columns: minmax(280px, 330px) minmax(450px, 620px);
+    column-gap: clamp(20px, 2.5vw, 40px);
     padding: 0 16px;
   }
 
   .sn-process-info-zone {
-    max-width: 370px;
-    padding: 14px 18px 14px 8px;
+    max-width: 330px;
+    padding: 0;
+    background: none;
   }
 
   .sn-process-eyebrow {
-    font-size: 12.5px;
+    font-size: 12px;
     margin-bottom: 12px;
   }
 
@@ -1687,17 +1719,18 @@
     font-size: 13.5px;
     line-height: 1.46;
     margin-bottom: 0;
-    max-width: 340px;
+    max-width: 320px;
   }
 
   .sn-process-track-zone {
     gap: 6px;
+    max-width: 620px;
   }
 
   .sn-step-unit {
-    flex: 1 1 0;
-    min-width: 0;
-    max-width: 118px;
+    flex: 0 1 115px;
+    min-width: 95px;
+    max-width: 120px;
   }
 
   .sn-step-number {
@@ -1707,9 +1740,9 @@
   }
 
   .sn-step-node {
-    width: 78px;
-    height: 78px;
-    margin-bottom: 12px;
+    width: 74px;
+    height: 74px;
+    margin-bottom: 11px;
     box-shadow: 0 0 16px rgba(0, 194, 255, 0.3), inset 0 0 10px rgba(0, 194, 255, 0.1);
   }
 
@@ -1719,9 +1752,9 @@
   }
 
   .sn-step-line-connector {
-    margin-top: 62px;
+    margin-top: 59px;
     min-width: 6px;
-    flex: 0 1 22px;
+    flex: 0 1 20px;
   }
 
   .sn-connector-head {
@@ -1767,16 +1800,17 @@
   }
 
   .sn-process-widescreen-container {
-    width: min(1120px, calc(100% - 32px));
-    max-width: 1120px;
-    grid-template-columns: minmax(250px, 300px) 1fr;
-    column-gap: 16px;
+    width: min(1060px, calc(100% - 60px));
+    max-width: 1060px;
+    grid-template-columns: minmax(260px, 300px) minmax(420px, 560px);
+    column-gap: 20px;
     padding: 0 12px;
   }
 
   .sn-process-info-zone {
-    max-width: 310px;
-    padding: 12px 14px 12px 6px;
+    max-width: 290px;
+    padding: 0;
+    background: none;
   }
 
   .sn-process-headline {
@@ -1792,10 +1826,13 @@
 
   .sn-process-track-zone {
     gap: 4px;
+    max-width: 560px;
   }
 
   .sn-step-unit {
-    max-width: 106px;
+    flex: 0 1 104px;
+    min-width: 88px;
+    max-width: 110px;
   }
 
   .sn-step-number {
@@ -1804,9 +1841,9 @@
   }
 
   .sn-step-node {
-    width: 70px;
-    height: 70px;
-    margin-bottom: 10px;
+    width: 68px;
+    height: 68px;
+    margin-bottom: 9px;
   }
 
   .sn-step-node svg {
@@ -1815,7 +1852,7 @@
   }
 
   .sn-step-line-connector {
-    margin-top: 56px;
+    margin-top: 54px;
     min-width: 4px;
     flex: 0 1 16px;
   }
