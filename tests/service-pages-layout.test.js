@@ -37,8 +37,12 @@ test('service pages hide the metallic hero and use a two-column solution section
 test('service solution copy follows the home visual standard', () => {
   assert.match(standardStyles, /\.sn-page-wrapper \.svc-solution-eyebrow,\s*[\s\S]*?\.sn-page-wrapper \.sn-eyebrow-line\.light-mode\s*\{/i);
   assert.match(standardStyles, /background:\s*#00215D;/i);
-  assert.match(standardStyles, /color:\s*#ffffff;/i);
+  assert.match(standardStyles, /color:\s*#ffffff\s*!important;/i);
   assert.match(standardStyles, /border-radius:\s*999px;/i);
+  assert.match(standardStyles, /padding:\s*6px\s+16px\s*!important;/i);
+  assert.match(standardStyles, /font-size:\s*11px\s*!important;/i);
+  assert.match(standardStyles, /font-weight:\s*700\s*!important;/i);
+  assert.match(standardStyles, /letter-spacing:\s*0\.18em\s*!important;/i);
   assert.match(standardStyles, /\.sn-page-wrapper \.svc-solution-headline,[\s\S]*?font-size:\s*clamp\(2rem,\s*3\.2vw,\s*2\.85rem\);/i);
   assert.match(standardStyles, /\.sn-page-wrapper \.svc-solution-paragraphs\s+p,[\s\S]*?text-align:\s*justify;/i);
   assert.match(standardStyles, /\.sn-page-wrapper \.svc-solution-section \.svc-cyan-cta-btn,[\s\S]*?\.sn-page-wrapper \.sn-commitment-btn\s*\{/i);
@@ -47,6 +51,30 @@ test('service solution copy follows the home visual standard', () => {
   assert.match(standardStyles, /\.sn-page-wrapper \.svc-solution-section \.svc-cyan-cta-btn:hover,[\s\S]*?\.sn-page-wrapper \.sn-commitment-btn:hover\s*\{/i);
   assert.match(standardStyles, /background:\s*#00215D\s*!important;/i);
   assert.match(standardStyles, /color:\s*#ffffff\s*!important;/i);
+});
+
+test('every service page places the standard CTA after the first-section copy', () => {
+  for (const filename of servicePages) {
+    const html = fs.readFileSync(path.join(root, filename), 'utf8');
+    const section = html.match(/<section class="svc-solution-section[^>]*>[\s\S]*?<\/section>/i)?.[0] || '';
+
+    assert.match(section, /(?:class="[^"]*btn btn-primary[^"]*"|class="[^"]*svc-cyan-cta-btn[^"]*")/i, `${filename} should have a first-section CTA`);
+    assert.match(section, /Fale com um especialista/i, `${filename} should keep the standard CTA label`);
+    const copyIndex = Math.max(section.indexOf('svc-solution-paragraphs'), section.indexOf('sn-history-description'));
+    const ctaIndex = section.search(/(?:class="[^"]*btn btn-primary[^"]*"|class="[^"]*svc-cyan-cta-btn[^"]*")/i);
+    assert.ok(copyIndex >= 0 && ctaIndex > copyIndex, `${filename} should place the CTA after the first-section copy`);
+  }
+});
+
+test('uses navy for service-top blue copy and CTA arrows', () => {
+  assert.match(
+    standardStyles,
+    /\.sn-page-wrapper \.svc-solution-section \.svc-solution-subtitle[\s\S]*?color:\s*#00215D\s*!important;/i
+  );
+  assert.match(
+    standardStyles,
+    /\.sn-page-wrapper \.svc-solution-section \.svc-cyan-cta-arrow[\s\S]*?color:\s*#00215D\s*!important;[\s\S]*?stroke:\s*#00215D\s*!important;/i
+  );
 });
 
 test('keeps the service header readable after removing the dark hero', () => {

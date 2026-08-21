@@ -34,15 +34,7 @@
 
 .site-header--light-hero .main-menu > a:hover,
 .site-header--light-hero .drop-link:hover {
-  background: #00215d;
-  color: #ffffff;
-  border-radius: 999px;
-  text-shadow: none !important;
-}
-
-.site-header--light-hero .main-menu > a.active,
-.site-header--light-hero .drop-link.active {
-  background: #00215d;
+  background: #00215d !important;
   color: #ffffff !important;
   border-radius: 999px;
   text-shadow: none !important;
@@ -50,7 +42,10 @@
 
 .site-header--light-hero .main-menu > a.active,
 .site-header--light-hero .drop-link.active {
-  color: #0066ff;
+  background: #00215d !important;
+  color: #ffffff !important;
+  border-radius: 999px;
+  text-shadow: none !important;
   font-weight: 700;
 }
 
@@ -263,7 +258,7 @@
   font-weight: 800;
   padding: 0 20px;
   border-radius: 999px;
-  box-shadow: 0 4px 15px rgba(0, 98, 227, 0.4);
+  box-shadow: none !important;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -275,7 +270,7 @@
   background: var(--red) !important;
   color: #ffffff !important;
   text-shadow: none !important;
-  box-shadow: 0 0 20px rgba(0, 171, 227, 0.6), 0 4px 20px rgba(0, 171, 227, 0.5);
+  box-shadow: none !important;
   transform: translateY(-2px);
 }
 

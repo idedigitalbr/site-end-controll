@@ -74,9 +74,9 @@
 }
 
 .hero-arrow-btn:hover {
-  color: var(--color-cyan, #00c2ff);
+  color: #00215D;
   background: #ffffff;
-  border-color: rgba(0, 194, 255, 0.55);
+  border-color: #00215D;
   transform: translateY(-50%) scale(1.1);
   filter: none;
 }

@@ -23,8 +23,32 @@ test('uses white project subitems with navy hover', () => {
   assert.match(styles, /\.submenuzinho-item:hover\s*\{[\s\S]*?background:\s*#00215d\s*!important[\s\S]*?color:\s*#ffffff\s*!important/i);
 });
 
+test('keeps internal solution navigation text white on navy active and hover states', () => {
+  assert.doesNotMatch(
+    styles,
+    /\.site-header--light-hero\s+\.drop-link\.active\s*\{[^}]*color:\s*#0066ff/i,
+    'the active solutions link must not reintroduce the blue-on-navy contrast bug'
+  );
+  assert.match(
+    styles,
+    /\.site-header--light-hero\s+\.drop-link:hover\s*\{[^}]*color:\s*#ffffff\s*!important/i,
+    'the internal solutions link hover must override legacy inline colors'
+  );
+});
+
 test('adds Vagas and turns Fale com Especialista into a direct WhatsApp link', () => {
   assert.match(home, /<a href="index\.html#oportunidades">Vagas<\/a>/i);
   assert.match(home, /<a class="btn-contacts-menu" href="https:\/\/wa\.me\/5591984040710"[^>]*>Fale com Especialista<\/a>/i);
   assert.doesNotMatch(home, /contacts-dropdown/i);
+});
+
+test('removes the blue glow from the Home contact button hover', () => {
+  assert.match(
+    styles,
+    /(?:^|\r?\n)\.main-menu \.btn-contacts-menu\s*\{[^}]*?box-shadow:\s*none\s*!important;/i
+  );
+  assert.match(
+    styles,
+    /(?:^|\r?\n)\.main-menu \.btn-contacts-menu:hover\s*\{[^}]*?box-shadow:\s*none\s*!important;/i
+  );
 });

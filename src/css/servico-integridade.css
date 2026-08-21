@@ -2193,11 +2193,11 @@
 .sn-page-wrapper .svc-solution-content-col {
   grid-area: content;
   min-width: 0;
-  padding: 0;
-  background: transparent;
-  background-image: none;
-  border-radius: 0;
-  box-shadow: none;
+  padding: 0 !important;
+  background: transparent !important;
+  background-image: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
 }
 
 .sn-page-wrapper .svc-solution-main-grid > .about-photo-col,
@@ -2209,19 +2209,28 @@
 
 .sn-page-wrapper .svc-solution-eyebrow,
 .sn-page-wrapper .sn-eyebrow-line.light-mode {
-  display: inline-flex;
-  align-items: center;
-  width: fit-content;
-  gap: 0;
-  padding: 8px 16px;
-  margin: 0 0 16px;
-  border-radius: 999px;
-  background: #00215D;
-  color: #ffffff;
-  font-size: 0.82rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  line-height: 1.2;
+  display: inline-flex !important;
+  align-items: center !important;
+  width: fit-content !important;
+  gap: 0 !important;
+  padding: 6px 16px !important;
+  margin: 0 0 16px !important;
+  border-radius: 999px !important;
+  background: #00215D !important;
+  color: #ffffff !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.18em !important;
+  line-height: 1.2 !important;
+}
+
+.sn-page-wrapper .svc-solution-eyebrow-wrap {
+  gap: 0 !important;
+  margin: 0 0 16px !important;
+}
+
+.sn-page-wrapper .svc-solution-eyebrow-accent {
+  display: none !important;
 }
 
 .sn-page-wrapper .svc-solution-eyebrow::after,
@@ -2242,6 +2251,12 @@
 
 .sn-page-wrapper .svc-solution-subtitle {
   color: #00215D;
+}
+
+.sn-page-wrapper .svc-solution-section .svc-solution-subtitle,
+.sn-page-wrapper .svc-solution-section .svc-solution-headline .highlight-blue,
+.sn-page-wrapper .svc-solution-section .sn-history-headline .highlight-blue {
+  color: #00215D !important;
 }
 
 .sn-page-wrapper .svc-solution-paragraphs p,
@@ -2290,6 +2305,16 @@
   transform: translateX(4px);
 }
 
+.sn-page-wrapper .svc-solution-section .svc-cyan-cta-arrow,
+.sn-page-wrapper .svc-solution-section .btn.btn-primary svg {
+  color: #00215D !important;
+  stroke: #00215D !important;
+}
+
+.sn-page-wrapper .svc-solution-section .svc-cyan-cta-circle {
+  display: none !important;
+}
+
 /* As cinco páginas legadas com composição centralizada entram no mesmo grid. */
 .sn-page-wrapper .svc-solution-section > .sn-history-container {
   display: grid;
@@ -2299,6 +2324,7 @@
     "headline media"
     "subtitle media"
     "description media"
+    "cta media"
     "indicators indicators";
   column-gap: clamp(36px, 5vw, 72px);
   row-gap: 0;
@@ -2325,6 +2351,13 @@
 .sn-page-wrapper .svc-solution-section > .sn-history-container > .sn-history-description {
   grid-area: description;
   max-width: none;
+  margin: 0 0 28px;
+}
+
+.sn-page-wrapper .svc-solution-section > .sn-history-container > .svc-solution-standard-cta {
+  grid-area: cta;
+  justify-self: start;
+  align-self: start;
   margin: 0 0 28px;
 }
 
@@ -2362,6 +2395,7 @@
       "headline"
       "subtitle"
       "description"
+      "cta"
       "media"
       "indicators";
     gap: 0;
@@ -2390,7 +2424,7 @@
 
   .sn-page-wrapper .svc-solution-eyebrow,
   .sn-page-wrapper .sn-eyebrow-line.light-mode {
-    font-size: 0.72rem;
+    font-size: 11px;
   }
 }
 

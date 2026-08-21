@@ -33,6 +33,12 @@ body {
   z-index: 1;
 }
 
+/* A seção escura de áreas permanece à frente da seção clara seguinte. */
+#segmentos-secao {
+  position: relative !important;
+  z-index: 2 !important;
+}
+
 /* O bloco de oportunidades fica na camada frontal (z-index superior) sobre a seção anterior e a próxima */
 #oportunidades,
 .oportunidades-section {

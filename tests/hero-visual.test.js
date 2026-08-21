@@ -32,6 +32,14 @@ test('removes excessive neon glow and shadow effects from the hero banner', () =
   assert.match(styles, /\.hero-benefits-bar\s*\{[\s\S]*?box-shadow:\s*0 8px 20px[\s\S]*?backdrop-filter:\s*none\s*;/i);
 });
 
+test('mantém as setas do banner principal em azul-marinho no hover', () => {
+  const arrowHoverRule = styles.match(/\.hero-arrow-btn:hover\s*\{([\s\S]*?)\}/i);
+
+  assert.ok(arrowHoverRule, 'a regra de hover das setas do banner precisa existir');
+  assert.match(arrowHoverRule[1], /color:\s*#00215D\s*;/i);
+  assert.match(arrowHoverRule[1], /border-color:\s*#00215D\s*;/i);
+});
+
 test('uses the light navy hero reference and the requested indicator copy', () => {
   assert.match(home, /Engenharia - Inspeção - Integridade/);
   assert.doesNotMatch(home, /EXCELÊNCIA\s*[\s\S]*?PRECISÃO\s*[\s\S]*?TECNOLOGIA/i);
@@ -98,7 +106,7 @@ test('keeps the light hero header readable without relying on white navigation',
 
 test('uses a rounded navy hover and white sticky state for the light Hero header', () => {
   const headerStyles = fs.readFileSync(path.join(root, 'src', 'css', 'header.css'), 'utf8');
-  assert.match(headerStyles, /\.site-header--light-hero \.main-menu > a:hover,[\s\S]*?background:\s*#00215d\s*;[\s\S]*?color:\s*#ffffff\s*;[\s\S]*?border-radius:\s*999px/i);
+  assert.match(headerStyles, /\.site-header--light-hero \.main-menu > a:hover,[\s\S]*?background:\s*#00215d\s*(?:!important\s*)?;[\s\S]*?color:\s*#ffffff\s*(?:!important\s*)?;[\s\S]*?border-radius:\s*999px/i);
   assert.match(headerStyles, /\.site-header\.site-header--light-hero\.scrolled\s*\{[\s\S]*?background:\s*#ffffff\s*;[\s\S]*?backdrop-filter:\s*none\s*;/i);
   assert.match(headerStyles, /\.site-header--light-hero \.main-menu \.btn-contacts-menu:hover\s*\{[\s\S]*?background:\s*#00215d\s*!important[\s\S]*?color:\s*#ffffff\s*!important/i);
 });

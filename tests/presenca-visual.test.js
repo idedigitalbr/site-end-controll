@@ -18,5 +18,5 @@ test('uses the standard navy across the national presence section accents', () =
   assert.match(styles, /\.connection-line\.active\s*\{[\s\S]*?stroke:\s+#00215D\s*;/i);
   assert.match(home, /PRESENÇA NACIONAL/);
   assert.match(home, /<span class="highlight">indústria brasileira<\/span>/);
-  assert.match(home, /presenca-nacional\.css\?v=31\.0/);
+  assert.match(home, /presenca-nacional\.css\?v=32\.0/);
 });
