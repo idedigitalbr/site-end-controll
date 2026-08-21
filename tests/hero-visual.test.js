@@ -90,7 +90,7 @@ test('uses the navy indicator band, white copy and inverted primary CTA', () => 
 test('keeps the four indicators compact, aligned and centered without icons', () => {
   assert.match(styles, /\.hero-benefits-bar\s*\{[\s\S]*?position:\s*relative[\s\S]*?left:\s*auto[\s\S]*?right:\s*auto[\s\S]*?width:\s*calc\(100% - 80px\)[\s\S]*?max-width:\s*1200px[\s\S]*?margin:\s*-32px auto 32px[\s\S]*?padding:\s*14px 8px/i);
   assert.match(styles, /\.benefit-item\s*\{[\s\S]*?justify-content:\s*center[\s\S]*?text-align:\s*center/i);
-  assert.match(styles, /\.benefit-item:not\(:last-child\)\s*\{[\s\S]*?border-right:\s*1px solid rgba\(0,\s*194,\s*255,\s*0\.35\)/i);
+  assert.match(styles, /\.benefit-item:not\(:last-child\)\s*\{[\s\S]*?border-right:\s*1px solid rgba\(0,\s*33,\s*93,\s*0\.35\)/i);
   assert.match(styles, /\.benefit-text-box\s*\{[\s\S]*?align-items:\s*center[\s\S]*?text-align:\s*center/i);
   assert.doesNotMatch(home, /benefit-icon-box|benefit-svg-icon/i);
 });
