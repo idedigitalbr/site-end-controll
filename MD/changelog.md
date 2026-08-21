@@ -1,5 +1,32 @@
 # Changelog — ENDCONTROL Engenharia
 
+## [2026-08-21] - Redesign Corporativo Minimalista das Seções Como Trabalhamos e Nosso Compromisso (Sobre Nós)
+
+- **Arquivos:** `sobre-nos.html`, `src/css/sobre-nos.css`, `MD/changelog.md`
+
+### Enhanced & Redesigned
+- **Seção Como Trabalhamos (`#metodologia`):**
+  - Removido fundo escuro/foto e aplicado visual corporativo minimalista com fundo branco puro (`#ffffff`), matriz técnica sutil de pontinhos à esquerda e arcos concêntricos à direita.
+  - Pipeline de 4 etapas horizontais (Entendimento do desafio, Planejamento técnico, Execução em campo, Análise e resultado) conectados por setas minimalistas e ícones padronizados Lucide Icons.
+  - Elevação frontal da seção com `z-index: 50 !important;` sobrepondo perfeitamente as seções adjacentes.
+- **Seção Nosso Compromisso (`#compromisso`):**
+  - Substituída a grade antiga de cards soltos por um card horizontal consolidado com fundo translúcido/branco, cantos arredondados (`20px`) e divisores verticais finos.
+  - 4 pilares com ícones circulares no topo (Segurança, Confiabilidade, Eficiência e Sustentabilidade) centralizados acima dos títulos e descrições.
+  - Botão de ação padronizado em Azul Marinho (`#00215D`): `Fale com nossos especialistas →` com ícone Lucide.
+- **Padronização Global de Ícones (Lucide Icons):**
+  - Todos os ícones das seções de Essência, Metodologia e Compromisso convertidos para o padrão oficial Lucide (`data-lucide`) com inicialização resiliente.
+  - Testes automatizados (113/113) passando com 100% de sucesso.
+
+## [2026-08-21] - Elevação Frontal da Seção Sobre Nós / Nossa História sobre a Próxima Seção (Home)
+
+- **Arquivos:** `src/css/sections.css`, `MD/changelog.md`
+
+### Enhanced & Layered
+- **Camada Frontal da Seção `#sobre` (Sobre Nós / Nossa História):**
+  - Ajustado `#sobre.about-premium-section` com `position: relative !important`, `z-index: 5 !important` e sombra de elevação (`box-shadow: 0 12px 30px rgba(7, 20, 41, 0.08) !important`).
+  - Mantido `border-radius: 0 0 28px 28px !important` visível e sobreposto à seção subsequente (`#solucoes`), garantindo que o acabamento inferior arredondado da seção Sobre Nós fique em camada frontal sobre o topo da próxima seção.
+  - Testes automatizados (106/106) e integridade do projeto validados com 100% de sucesso.
+
 ## [2026-08-21] - Consolidação da Página Sobre Nós e Remoção de Versão Temporária
 
 - **Arquivos:** `sobre-nos.html`, `sobre-nos-2.html` (removido), `index.html`, páginas de soluções 1 a 12, `src/css/sobre-nos.css`, `MD/changelog.md`

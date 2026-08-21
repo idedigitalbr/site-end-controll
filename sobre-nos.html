@@ -69,7 +69,7 @@
   <link rel="stylesheet" href="./src/css/components.css?v=80.0" />
   <link rel="stylesheet" href="./src/css/work-units-footer.css?v=80.0" />
   <link rel="stylesheet" href="./src/css/responsive.css?v=80.0" />
-  <link rel="stylesheet" href="./src/css/sobre-nos.css?v=130.0" />
+  <link rel="stylesheet" href="./src/css/sobre-nos.css?v=137.0" />
 
   <style>
     /* Ajuste de respiro para a seção Sobre ficar perfeita logo abaixo do cabeçalho */
@@ -671,11 +671,7 @@
             <div class="sn-essence-card-tab" aria-hidden="true"></div>
             <div class="sn-essence-card-header">
               <div class="sn-essence-icon-badge">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="10"></circle>
-                  <circle cx="12" cy="12" r="6"></circle>
-                  <circle cx="12" cy="12" r="2"></circle>
-                </svg>
+                <i data-lucide="target" class="sn-essence-lucide" aria-hidden="true"></i>
               </div>
               <h3 class="sn-essence-card-title">Missão</h3>
             </div>
@@ -689,10 +685,7 @@
             <div class="sn-essence-card-tab" aria-hidden="true"></div>
             <div class="sn-essence-card-header">
               <div class="sn-essence-icon-badge">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path>
-                  <circle cx="12" cy="12" r="3"></circle>
-                </svg>
+                <i data-lucide="eye" class="sn-essence-lucide" aria-hidden="true"></i>
               </div>
               <div class="sn-essence-title-wrap">
                 <h3 class="sn-essence-card-title">Visão</h3>
@@ -709,11 +702,7 @@
             <div class="sn-essence-card-tab" aria-hidden="true"></div>
             <div class="sn-essence-card-header">
               <div class="sn-essence-icon-badge">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M6 3h12l4 6-10 13L2 9Z"></path>
-                  <path d="M11 3 8 9l4 13 4-13-3-6"></path>
-                  <path d="M2 9h20"></path>
-                </svg>
+                <i data-lucide="gem" class="sn-essence-lucide" aria-hidden="true"></i>
               </div>
               <h3 class="sn-essence-card-title">Valores</h3>
             </div>
@@ -733,32 +722,23 @@
     </section>
 
     <!-- =========================================================================
-         SEÇÃO 06 — COMO TRABALHAMOS (METODOLOGIA 4 ETAPAS - 3 ZONAS FIGMA)
+         SEÇÃO 06 — COMO TRABALHAMOS (METODOLOGIA 4 ETAPAS - MINIMALISTA CORPORATIVO)
          ========================================================================= -->
     <section class="sn-process-section" id="metodologia">
-      <!-- Camada Absoluta de Foto com Multi-Gradiente de Fade -->
-      <div class="sn-process-photo-layer" aria-hidden="true">
-        <img src="./assets/Paginas Imgs/SOBRE NOS/sobrezinho.jpg" alt="Técnico EndControl em Campo" class="sn-process-bg-art" loading="lazy" />
-        <div class="sn-process-photo-fade"></div>
-      </div>
-
-      <!-- Detalhes Tecnológicos Sutis (Pontos e Arcos Fundo) -->
+      <!-- Detalhes Tecnológicos Sutis (Pontos à Esquerda & Arcos Fundo à Direita) -->
       <div class="sn-process-tech-decor" aria-hidden="true">
         <div class="sn-process-tech-dots"></div>
         <div class="sn-process-tech-arcs"></div>
       </div>
 
-      <!-- Grid Panorâmico Widescreen 100% de 3 Zonas -->
+      <!-- Grid Panorâmico Widescreen 2 Zonas Clean -->
       <div class="sn-process-widescreen-container">
-        
-        <!-- ZONA 1: Espaçador Físico da Foto (26% da largura) -->
-        <div class="sn-process-photo-zone" aria-hidden="true"></div>
 
-        <!-- ZONA 2: Bloco de Conteúdo (27% da largura) -->
+        <!-- Coluna Esquerda: Título e Descrição Institucional -->
         <div class="sn-process-info-zone">
-          <div class="sn-process-badge"><span class="sn-process-badge-text">COMO TRABALHAMOS</span></div>
           <h2 class="sn-process-headline">
-            Método, conhecimento<br>
+            Método,<br>
+            conhecimento<br>
             e precisão em <em>cada etapa.</em>
           </h2>
           <p class="sn-process-description">
@@ -766,87 +746,59 @@
           </p>
         </div>
 
-        <!-- ZONA 3: Metodologia - 4 Passos em Linha Contínua (47% da largura) -->
+        <!-- Coluna Direita: Metodologia - 4 Passos Conectados por Setas -->
         <div class="sn-process-track-zone">
           
           <!-- Passo 01 -->
           <div class="sn-step-unit">
             <span class="sn-step-number">01</span>
-            <div class="sn-step-node">
-              <svg viewBox="0 0 24 24" width="42" height="42" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
-                <circle cx="9" cy="7" r="4"></circle>
-                <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
-                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-              </svg>
+            <div class="sn-step-node sn-step-node-filled">
+              <i data-lucide="user" class="sn-step-lucide" aria-hidden="true"></i>
             </div>
             <h3 class="sn-step-title">Entendimento<br>do desafio</h3>
-            <p class="sn-step-desc">Analisamos o contexto da operação, riscos, ativos e requisitos normativos.</p>
+            <p class="sn-step-desc">Analisamos a essência da operação, riscos, dados e requisitos normativos.</p>
           </div>
 
-          <!-- Conector 01 -> 02 -->
-          <div class="sn-step-line-connector" aria-hidden="true">
-            <span class="sn-connector-stem"></span>
-            <svg class="sn-connector-head" viewBox="0 0 10 14" width="9" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="2 2 8 7 2 12"></polyline>
-            </svg>
+          <!-- Conector Seta 01 -> 02 -->
+          <div class="sn-step-arrow" aria-hidden="true">
+            <i data-lucide="arrow-right" class="sn-arrow-lucide" aria-hidden="true"></i>
           </div>
 
           <!-- Passo 02 -->
           <div class="sn-step-unit">
             <span class="sn-step-number">02</span>
             <div class="sn-step-node">
-              <svg viewBox="0 0 24 24" width="42" height="42" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
-                <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-                <path d="m9 14 2 2 4-4"></path>
-                <line x1="9" y1="10" x2="15" y2="10"></line>
-              </svg>
+              <i data-lucide="clipboard-check" class="sn-step-lucide" aria-hidden="true"></i>
             </div>
             <h3 class="sn-step-title">Planejamento<br>técnico</h3>
-            <p class="sn-step-desc">Definimos a estratégia, escopo, método e recursos mais adequados.</p>
+            <p class="sn-step-desc">Definimos a estratégia, escopo, métodos e recursos adequados.</p>
           </div>
 
-          <!-- Conector 02 -> 03 -->
-          <div class="sn-step-line-connector" aria-hidden="true">
-            <span class="sn-connector-stem"></span>
-            <svg class="sn-connector-head" viewBox="0 0 10 14" width="9" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="2 2 8 7 2 12"></polyline>
-            </svg>
+          <!-- Conector Seta 02 -> 03 -->
+          <div class="sn-step-arrow" aria-hidden="true">
+            <i data-lucide="arrow-right" class="sn-arrow-lucide" aria-hidden="true"></i>
           </div>
 
           <!-- Passo 03 -->
           <div class="sn-step-unit">
             <span class="sn-step-number">03</span>
             <div class="sn-step-node">
-              <svg viewBox="0 0 24 24" width="42" height="42" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
-                <path d="M9.3 6.3a1 1 0 0 1 0 1.4L7.7 9.3a1 1 0 0 1-1.4 0L2.53 5.53a6 6 0 0 0 7.94 7.94l6.91 6.91a2.12 2.12 0 0 0 3-3l-6.91-6.91a6 6 0 0 0-7.94-7.94l3.76-3.76z"></path>
-              </svg>
+              <i data-lucide="settings" class="sn-step-lucide" aria-hidden="true"></i>
             </div>
             <h3 class="sn-step-title">Execução<br>em campo</h3>
             <p class="sn-step-desc">Nossa equipe realiza inspeções, ensaios e atividades com precisão e segurança.</p>
           </div>
 
-          <!-- Conector 03 -> 04 -->
-          <div class="sn-step-line-connector" aria-hidden="true">
-            <span class="sn-connector-stem"></span>
-            <svg class="sn-connector-head" viewBox="0 0 10 14" width="9" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="2 2 8 7 2 12"></polyline>
-            </svg>
+          <!-- Conector Seta 03 -> 04 -->
+          <div class="sn-step-arrow" aria-hidden="true">
+            <i data-lucide="arrow-right" class="sn-arrow-lucide" aria-hidden="true"></i>
           </div>
 
           <!-- Passo 04 -->
           <div class="sn-step-unit">
             <span class="sn-step-number">04</span>
             <div class="sn-step-node">
-              <svg viewBox="0 0 24 24" width="42" height="42" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="18" y1="20" x2="18" y2="10"></line>
-                <line x1="12" y1="20" x2="12" y2="4"></line>
-                <line x1="6" y1="20" x2="6" y2="14"></line>
-                <path d="M3 12l5-5 5 5 7-7"></path>
-                <polyline points="15 5 20 5 20 10"></polyline>
-              </svg>
+              <i data-lucide="trending-up" class="sn-step-lucide" aria-hidden="true"></i>
             </div>
             <h3 class="sn-step-title">Análise e<br>resultado</h3>
             <p class="sn-step-desc">Analisamos os dados, geramos relatórios e entregamos recomendações.</p>
@@ -858,7 +810,7 @@
     </section>
 
     <!-- =========================================================================
-         SEÇÃO 08 — NOSSO COMPROMISSO (4 PILARES + FOTO TÉCNICA)
+         SEÇÃO 08 — NOSSO COMPROMISSO (EXCELÊNCIA & RESPONSABILIDADE)
          ========================================================================= -->
     <section class="sn-commitment-section" id="compromisso">
       <div class="sn-commitment-blueprint-bg" aria-hidden="true"></div>
@@ -874,71 +826,60 @@
           </h2>
         </div>
 
-        <div class="sn-commitment-grid">
+        <!-- Banner Consolidado Horizontal de Valores (Estilo Anexo 1 & Anexo 2) -->
+        <div class="sn-commitment-banner">
           
-          <!-- Pilar 1: Eficiência -->
-          <div class="sn-commitment-card">
-            <div class="sn-commitment-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M3 3v18h18"></path>
-                <path d="m19 9-5 5-4-4-3 3"></path>
-                <path d="m14 9 5 0 0 5"></path>
-              </svg>
+          <!-- Item 1: Segurança -->
+          <div class="sn-commitment-item">
+            <div class="sn-commitment-item-icon">
+              <i data-lucide="shield" class="sn-commitment-lucide" aria-hidden="true"></i>
             </div>
-            <h3 class="sn-commitment-card-title">Eficiência</h3>
-            <p class="sn-commitment-card-text">Soluções que otimizam recursos e reduzem riscos.</p>
+            <div class="sn-commitment-item-text">
+              <h3>Segurança</h3>
+              <p>Proteção e conformidade em todas as pessoas e operações.</p>
+            </div>
           </div>
 
-          <!-- Pilar 2: Segurança -->
-          <div class="sn-commitment-card">
-            <div class="sn-commitment-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                <polyline points="9 12 12 15 15 12"></polyline>
-                <line x1="12" y1="8" x2="12" y2="15"></line>
-              </svg>
+          <!-- Item 2: Confiabilidade -->
+          <div class="sn-commitment-item">
+            <div class="sn-commitment-item-icon">
+              <i data-lucide="target" class="sn-commitment-lucide" aria-hidden="true"></i>
             </div>
-            <h3 class="sn-commitment-card-title">Segurança</h3>
-            <p class="sn-commitment-card-text">Protegemos pessoas, meio ambiente e operações.</p>
+            <div class="sn-commitment-item-text">
+              <h3>Confiabilidade</h3>
+              <p>Precisão e rigor técnico que geram confiança nos resultados.</p>
+            </div>
           </div>
 
-          <!-- Pilar 3: Parceria -->
-          <div class="sn-commitment-card">
-            <div class="sn-commitment-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
-                <circle cx="9" cy="7" r="4"></circle>
-                <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
-                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-              </svg>
+          <!-- Item 3: Eficiência -->
+          <div class="sn-commitment-item">
+            <div class="sn-commitment-item-icon">
+              <i data-lucide="activity" class="sn-commitment-lucide" aria-hidden="true"></i>
             </div>
-            <h3 class="sn-commitment-card-title">Parceria</h3>
-            <p class="sn-commitment-card-text">Relacionamentos sólidos e foco em resultados.</p>
+            <div class="sn-commitment-item-text">
+              <h3>Eficiência</h3>
+              <p>Soluções que otimizam a performance e reduzem paradas.</p>
+            </div>
           </div>
 
-          <!-- Pilar 4: Confiabilidade -->
-          <div class="sn-commitment-card">
-            <div class="sn-commitment-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="8" r="6"></circle>
-                <path d="m9 12 2 2 4-4"></path>
-                <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"></path>
-              </svg>
+          <!-- Item 4: Sustentabilidade -->
+          <div class="sn-commitment-item">
+            <div class="sn-commitment-item-icon">
+              <i data-lucide="leaf" class="sn-commitment-lucide" aria-hidden="true"></i>
             </div>
-            <h3 class="sn-commitment-card-title">Confiabilidade</h3>
-            <p class="sn-commitment-card-text">Entregamos com qualidade e responsabilidade.</p>
+            <div class="sn-commitment-item-text">
+              <h3>Sustentabilidade</h3>
+              <p>Atuamos com responsabilidade hoje no futuro das indústrias.</p>
+            </div>
           </div>
 
         </div>
 
         <!-- Botão CTA da Seção -->
         <div class="sn-commitment-cta">
-          <a href="https://api.whatsapp.com/send?phone=5591984040710" target="_blank" rel="noopener" class="btn btn-primary sn-commitment-btn">
+          <a href="https://api.whatsapp.com/send?phone=5591984040710" target="_blank" rel="noopener" class="sn-commitment-btn">
             <span>Fale com nossos especialistas</span>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="5" y1="12" x2="19" y2="12"></line>
-              <polyline points="12 5 19 12 12 19"></polyline>
-            </svg>
+            <i data-lucide="arrow-right" class="sn-btn-lucide" aria-hidden="true"></i>
           </a>
         </div>
 
@@ -1042,10 +983,15 @@
   <!-- Lucide Icons CDN -->
   <script src="https://unpkg.com/lucide@0.321.0" defer></script>
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      if (typeof lucide !== 'undefined') {
+    function initLucideIcons() {
+      if (typeof lucide !== 'undefined' && typeof lucide.createIcons === 'function') {
         lucide.createIcons();
       }
+    }
+    document.addEventListener('DOMContentLoaded', initLucideIcons);
+    window.addEventListener('load', initLucideIcons);
+
+    document.addEventListener('DOMContentLoaded', function() {
 
       // PLAYER DE VÍDEO INSTITUCIONAL CUSTOMIZADO
       const videoBox = document.getElementById('snVideoBox');

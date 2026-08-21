@@ -64,9 +64,18 @@ body {
 }
 
 /* Hero e Sobre: topo reto e sem sobreposição entre os dois blocos. */
-#home.hero-static-container,
-#sobre.about-premium-section {
+#home.hero-static-container {
+  position: relative;
+  z-index: 1;
   border-radius: 0 0 28px 28px !important;
+}
+
+/* Seção Sobre / Nossa História: camada frontal sobre a próxima seção (Soluções) com cantos arredondados inferiores e sombra de elevação */
+#sobre.about-premium-section {
+  position: relative !important;
+  z-index: 5 !important;
+  border-radius: 0 0 28px 28px !important;
+  box-shadow: 0 12px 30px rgba(7, 20, 41, 0.08) !important;
 }
 
 #home.hero-static-container + #sobre.about-premium-section {
