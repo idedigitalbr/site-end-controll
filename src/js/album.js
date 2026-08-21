@@ -43,14 +43,14 @@ document.addEventListener('DOMContentLoaded', () => {
             "role": "Mapeamento volumétrico de soldas de alta responsabilidade.",
             "category": "ensaios",
             "subcategory": "Ultrassom Avançado",
-            "photo": "./assets/Fotografias/editadas/laboratorio-analise-placa-eletronica-edit.webp"
+            "photo": "./assets/Fotografias/editadas/ultrassom-raptor-scan-crawler-operacao-edit.webp"
         },
         {
             "name": "Partículas Magnéticas & Líquido Penetrante",
             "role": "Detecção de trincas e descontinuidades superficiais em juntas soldadas.",
             "category": "ensaios",
             "subcategory": "Superficiais",
-            "photo": "./assets/Fotografias/editadas/operacional-tecnico-refinaria-noite-edit.webp"
+            "photo": "./assets/Fotografias/editadas/operacional-alpinismo-inspecao-vaso-pressao-edit.webp"
         },
 
         // Adequação Normativa (NRs)

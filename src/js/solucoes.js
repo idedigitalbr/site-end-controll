@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'Supervisão técnica de campo',
         'Garantia de qualidade (QA/QC)'
       ],
-      image: './assets/Fotografias/editadas/operacional-discussao-engenheiros-tela-edit.webp',
+      image: './assets/Fotografias/editadas/ultrassom-raptor-scan-tecnicos-reunidos-campo-edit.webp',
       ctaText: 'Saiba Mais',
       iconSvg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4"/><path d="M12 16h4"/><path d="M8 11h.01"/><path d="M8 16h.01"/></svg>`
     },
@@ -136,7 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'Ajuste e manutenção preventiva de medidores',
         'Atendimento in-loco e laboratório'
       ],
-      image: './assets/Fotografias/editadas/laboratorio-analise-placa-eletronica-edit.webp',
+      image: './assets/Fotografias/editadas/operacional-engenheiros-inspecao-bomba-edit.webp',
       ctaText: 'Saiba Mais',
       iconSvg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 12l3-3"/><path d="M8 16a5 5 0 0 1 0-7"/></svg>`
     },
@@ -153,7 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'Soldagem de sapatas e trepanos',
         'Procedimentos operacionais de alta segurança'
       ],
-      image: './assets/Fotografias/editadas/operacional-tecnico-refinaria-noite-edit.webp',
+      image: './assets/Fotografias/editadas/operacional-alpinismo-inspecao-vaso-pressao-edit.webp',
       ctaText: 'Saiba Mais',
       iconSvg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="3" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="21"/><line x1="3" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="21" y2="12"/></svg>`
     },

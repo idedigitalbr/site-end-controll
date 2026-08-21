@@ -1,5 +1,19 @@
 # Changelog — ENDCONTROL Engenharia
 
+## [2026-08-21] - Remoção Definitiva e Substituição de 4 Fotografias Operacionais/Laboratório
+
+- **Arquivos:** `index.html`, `sobre-nos-2.html`, `12-solucao-consultoria-e-assessoria-tecnica.html`, `9-solucao-calibracao-de-instrumentos.html`, `2-solucao-inspecao-em-obras-de-artes-especiais.html`, `componentes-cards-.html`, `identidade-visual.html`, `src/data/units.js`, `src/js/album.js`, `src/js/main.js`, `src/js/solucoes.js`, `src/js/solucoes-integridade.js`, `MD/changelog.md`, `MD/features.md`
+
+### Removed & Replaced
+- **Exclusão Física e Descontinuação de 4 Imagens:**
+  - `operacional-phased-array-chapas-soldadas-edit.webp`
+  - `operacional-tecnico-refinaria-noite-edit.webp`
+  - `operacional-discussao-engenheiros-tela-edit.webp`
+  - `laboratorio-analise-placa-eletronica-edit.webp`
+- **Substituições Contextuais Realizadas:**
+  - Substituídas em todos os pontos por fotografias ativas e aprovadas: `operacional-inspecao-ultrassom-casco-estrutura-edit.webp`, `ultrassom-raptor-scan-crawler-operacao-edit.webp`, `ultrassom-raptor-scan-tecnicos-reunidos-campo-edit.webp`, `operacional-alpinismo-inspecao-vaso-pressao-edit.webp`, `operacional-engenheiros-inspecao-bomba-edit.webp` e `operacional-ultrassom-solda-tubulacao-edit-final.webp`.
+  - Zero referências ou links quebrados remanescentes em código, estilos e scripts.
+
 ## [2026-08-21] - Remoção Completa da Seção Álbum de Fotos (S5) em Sobre Nós
 
 - **Arquivos:** `sobre-nos.html`, `src/css/sobre-nos.css`, `src/js/sobre-nos.js`, `MD/changelog.md`, `MD/features.md`

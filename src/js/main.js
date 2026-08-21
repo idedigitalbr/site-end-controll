@@ -935,13 +935,13 @@
         year: "2019",
         title: "Pioneirismo em RBI e Acesso por Cordas",
         desc: "Implementação da metodologia de Inspeção Baseada em Risco (RBI) e certificação em Acesso por Cordas para auditorias em estruturas de grande altura.",
-        img: "./assets/Fotografias/editadas/laboratorio-analise-placa-eletronica-edit.webp"
+        img: "./assets/Fotografias/editadas/operacional-alpinismo-inspecao-vaso-pressao-edit.webp"
       },
       {
         year: "2021",
         title: "Consolidação Offshore & Petroquímica",
         desc: "Expansão da atuação para o setor de Óleo & Gás na Bacia de Campos (RJ) e indústrias petroquímicas no Polo de Camaçari (BA).",
-        img: "./assets/Fotografias/editadas/operacional-tecnico-refinaria-noite-edit.webp"
+        img: "./assets/Fotografias/editadas/operacional-inspecao-ultrassom-casco-estrutura-edit.webp"
       },
       {
         year: "2024",

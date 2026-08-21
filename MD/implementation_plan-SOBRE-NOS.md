@@ -115,15 +115,14 @@ graph TD
 - **Composição:** Fundo claro com matriz de pontos decorativos.
 - **Headline:** *Momentos que mostram quem **somos** e o que **fazemos**.*
 - **Grid 3x3:** 9 fotografias operacionais reais selecionadas dos assets da EndControl:
-  1. Inspeção com tablet em tubulações (`operacional-tecnico-refinaria-noite-edit.webp`)
-  2. Reunião técnica com diretoria em sala de conferência (`operacional-discussao-engenheiros-tela-edit.webp`)
-  3. Diagnóstico e medição de equipamentos industriais (`operacional-inspecao-ultrassom-casco-estrutura-edit.webp`)
+  1. Inspeção com ultrassom em casco e estrutura (`operacional-inspecao-ultrassom-casco-estrutura-edit.webp`)
+  2. Engenheiros em campo com sistema Raptor Scan (`ultrassom-raptor-scan-tecnicos-reunidos-campo-edit.webp`)
+  3. Diagnóstico e medição de equipamentos industriais (`operacional-engenheiros-inspecao-bomba-edit.webp`)
   4. Inspeção interna em vaso/solda com EPI completo (`operacional-ultrassom-solda-tubulacao-edit-final.webp`)
-  5. Equipe completa de engenheiros em campo (`ultrassom-raptor-scan-tecnicos-reunidos-campo-edit.webp`)
-  6. Análise de telemetria e softwares em estação de trabalho (`laboratorio-analise-placa-eletronica-edit.webp`)
-  7. Planta industrial petroquímica ao entardecer (`assets/Paginas Imgs/HOME/S_SEGMENTOS/quimico_petroquimico.webp`)
-  8. Alpinismo industrial em escada de tanque (`operacional-alpinismo-industrial-escada-tanque-edit.webp`)
-  9. Engenheiros avaliando integridade de bomba industrial (`operacional-engenheiros-inspecao-bomba-edit.webp`)
+  5. Alpinismo industrial em vaso de pressão (`operacional-alpinismo-inspecao-vaso-pressao-edit.webp`)
+  6. Crawler de inspeção de ultrassom em operação (`ultrassom-raptor-scan-crawler-operacao-edit.webp`)
+  7. Alpinismo industrial em escada de tanque (`operacional-alpinismo-industrial-escada-tanque-edit.webp`)
+  8. Engenheiros avaliando integridade de bomba industrial (`operacional-engenheiros-inspecao-bomba-edit.webp`)
 - **Tratamento:** Bordas arredondadas (16px), `object-fit: cover`, hover suave com leve zoom e abertura em Lightbox interativo.
 
 ### Seção 08 — Nosso Compromisso

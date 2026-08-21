@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'Monitoramento de taxas de deformação permanente',
         'Avaliação conforme API 579-1 / ASME FFS-1 Parte 10'
       ],
-      image: './assets/Fotografias/editadas/operacional-tecnico-refinaria-noite-edit.webp',
+      image: './assets/Fotografias/editadas/operacional-inspecao-ultrassom-casco-estrutura-edit.webp',
       ctaText: 'Falar com Especialista',
       iconSvg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><line x1="8" y1="15" x2="16" y2="15"/><path d="M9 12a3 3 0 0 1 6 0"/><line x1="12" y1="7" x2="12" y2="9"/></svg>`
     },
@@ -155,7 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'Inspeção dimensional de empenamentos e deformação plástica',
         'Avaliação conforme API 579-1 / ASME FFS-1 Parte 11'
       ],
-      image: './assets/Fotografias/editadas/operacional-discussao-engenheiros-tela-edit.webp',
+      image: './assets/Fotografias/editadas/operacional-engenheiros-inspecao-bomba-edit.webp',
       ctaText: 'Falar com Especialista',
       iconSvg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 3z"/></svg>`
     }

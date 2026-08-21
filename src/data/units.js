@@ -105,9 +105,9 @@ window.units = [
     ],
     aboutText: "Representação estratégica e polo de inovação em São Paulo. Desenvolve algoritmos de IA e modelos de simulação computacional aplicados à previsão de vida útil de equipamentos e gestão de ativos de grandes indústrias químicas, alimentícias e energéticas.",
     images: {
-      cover: "./assets/Fotografias/editadas/laboratorio-analise-placa-eletronica-edit.webp",
+      cover: "./assets/Fotografias/editadas/ultrassom-raptor-scan-crawler-operacao-edit.webp",
       album: [
-        { title: "Hub Tecnológico e Simulação Computacional", url: "./assets/Fotografias/editadas/laboratorio-analise-placa-eletronica-edit.webp" }
+        { title: "Hub Tecnológico e Simulação Computacional", url: "./assets/Fotografias/editadas/ultrassom-raptor-scan-crawler-operacao-edit.webp" }
       ]
     },
     googleReviews: [
@@ -140,9 +140,9 @@ window.units = [
     ],
     aboutText: "Especializada no setor de Óleo & Gás e Naval. Presta serviços de engenharia de confiabilidade e inspeção técnica para operadoras de E&P na Bacia de Campos e Santos.",
     images: {
-      cover: "./assets/Fotografias/editadas/operacional-tecnico-refinaria-noite-edit.webp",
+      cover: "./assets/Fotografias/editadas/operacional-inspecao-ultrassom-casco-estrutura-edit.webp",
       album: [
-        { title: "Inspeções em Plataformas e Navios", url: "./assets/Fotografias/editadas/operacional-tecnico-refinaria-noite-edit.webp" }
+        { title: "Inspeções em Plataformas e Navios", url: "./assets/Fotografias/editadas/operacional-inspecao-ultrassom-casco-estrutura-edit.webp" }
       ]
     },
     googleReviews: [
