@@ -8,7 +8,7 @@ const service1Html = fs.readFileSync(path.join(root, '1-solucao-engenharia-de-in
 
 test('service 1 page follows the approved sequential section order', () => {
   const sectionSequence = [
-    'class="site-header"',
+    'class="site-header site-header--light-hero"',
     'class="sn-hero-section"',
     'class="svc-solution-section"',
     'class="ffs-section',

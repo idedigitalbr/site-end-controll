@@ -51,7 +51,7 @@ body {
   position: relative !important;
   z-index: 1 !important;
   margin-top: 0 !important;
-  padding-top: 130px !important;
+  padding-top: 72px !important;
 }
 
 /* Hero e Sobre: topo reto e sem sobreposição entre os dois blocos. */
@@ -80,7 +80,7 @@ body {
 
   #oportunidades + #faq-secao,
   #oportunidades + .faq-v2 {
-    padding-top: 105px !important;
+    padding-top: 64px !important;
   }
 
   #home.hero-static-container + #sobre.about-premium-section {
@@ -98,7 +98,7 @@ body {
 
   #oportunidades + #faq-secao,
   #oportunidades + .faq-v2 {
-    padding-top: 85px !important;
+    padding-top: 52px !important;
   }
 
   #home.hero-static-container + #sobre.about-premium-section {
@@ -1303,7 +1303,7 @@ p {
   position: relative !important;
   z-index: 1 !important;
   background: #effaff;
-  padding: 130px 0 80px;
+  padding: 72px 0 80px;
 }
 
 .faq-v2-head {
@@ -1430,7 +1430,7 @@ p {
 
   .faq-v2 {
     margin-top: -36px !important;
-    padding: 96px 0 56px;
+    padding: 68px 0 56px;
   }
 }
 
@@ -2422,7 +2422,7 @@ textarea.form-control {
   transform: translateX(4px);
 }
 
-/* Coluna Direita: Grid de Imagens Premium (Interface HUD) */
+/* Coluna Direita: Imagem única Premium (Interface HUD) */
 .about-photo-col {
   position: relative;
 }
@@ -2528,10 +2528,9 @@ textarea.form-control {
   100% { top: 20px; }
 }
 
-.about-media-grid {
-  display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: 8px;
+.about-media-single {
+  height: 380px;
+  min-height: 380px;
   border-radius: 20px;
   overflow: hidden;
   border: 8px solid var(--bg-white);
@@ -2541,31 +2540,7 @@ textarea.form-control {
   z-index: 2;
 }
 
-.about-media-main {
-  height: 380px;
-  overflow: hidden;
-}
-
-.about-media-main img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-}
-
-.about-media-side {
-  display: grid;
-  grid-template-rows: 1fr 1fr;
-  gap: 8px;
-  height: 380px;
-}
-
-.about-media-side-top, .about-media-side-bottom {
-  overflow: hidden;
-}
-
-.about-media-side img {
+.about-media-single img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -2763,24 +2738,10 @@ textarea.form-control {
     margin-left: auto;
   }
   
-  .about-media-grid {
-    grid-template-columns: 1fr;
-    border-width: 4px;
-  }
-  
-  .about-media-main {
+  .about-media-single {
     height: 280px;
-  }
-  
-  .about-media-side {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr;
-    height: 140px;
-    gap: 4px;
-  }
-
-  .about-media-side img {
-    height: 140px;
+    min-height: 280px;
+    border-width: 4px;
   }
   
   .about-media-wrapper {

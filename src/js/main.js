@@ -14,6 +14,12 @@
   /* ===================================================================
      Menu Mobile + Dropdown Inteligente
      =================================================================== */
+  function initCanonicalSolutionsMenu() {
+    document.querySelectorAll('.dropdown-rich-menu .dropdown-item-text, .dropdown-rich-menu .submenuzinho-item span:not(.submenuzinho-bullet)').forEach(function (label) {
+      label.textContent = label.textContent.replace(/^\s*\d+\.\s*/, '');
+    });
+  }
+
   function initMenu() {
     const menuToggle = document.querySelector('.menu-toggle');
     const menu = document.querySelector('#main-menu');
@@ -1410,6 +1416,7 @@
      Bootstrap
      =================================================================== */
   document.addEventListener('DOMContentLoaded', function () {
+    initCanonicalSolutionsMenu();
     initMenu();
     initHeaderScroll();
     initCursorGlow();

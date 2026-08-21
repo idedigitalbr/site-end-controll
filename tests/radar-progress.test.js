@@ -290,7 +290,7 @@ test('solucoes.js protects item 0 at 12:00 from exceeding label boundary on init
   );
 });
 
-test('solucoes.js configures hoverResumeDelay at 2s and manualResumeDelay at 10s', () => {
+test('solucoes.js pauses on hover, resumes after 2s, and keeps manual resume at 10s', () => {
   const fs = require('node:fs');
   const path = require('node:path');
   const rootDir = path.resolve(__dirname, '..');
@@ -300,6 +300,7 @@ test('solucoes.js configures hoverResumeDelay at 2s and manualResumeDelay at 10s
   assert.ok(solucoesJs.includes('manualResumeDelay: 10000'), 'manualResumeDelay must be 10000ms');
   assert.ok(solucoesJs.includes('highlightCard.addEventListener(\'mouseenter\', handleHoverEnter)'));
   assert.ok(solucoesJs.includes('highlightCard.addEventListener(\'mouseleave\', handleHoverLeave)'));
+  assert.match(solucoesJs, /node\.addEventListener\('mouseenter', \(\) => \{[\s\S]*?goToService\(parseInt\(node\.dataset\.index, 10\)\)/);
 });
 
 test('pause state prioritization logic enforces 10s cooldown priority over 2s hover resume', () => {

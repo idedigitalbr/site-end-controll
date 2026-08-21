@@ -3309,6 +3309,22 @@
   filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.18));
 }
 
+/* Mantém os ícones dos rodapés internos iguais ao padrão visual da Home. */
+.sn-page-wrapper .footer-minimal-glow-section .footer-header-icon,
+.sn-page-wrapper .footer-minimal-glow-section .footer-email-icon {
+  stroke: #ffffff !important;
+}
+
+.sn-page-wrapper .footer-minimal-glow-section .footer-whatsapp-icon path:first-child {
+  stroke: #ffffff !important;
+  fill: none !important;
+}
+
+.sn-page-wrapper .footer-minimal-glow-section .footer-whatsapp-icon path:last-child {
+  stroke: none !important;
+  fill: #ffffff !important;
+}
+
 .footer-wsp-button {
   display: inline-flex;
   align-items: center;

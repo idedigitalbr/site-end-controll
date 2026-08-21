@@ -6,6 +6,14 @@
  */
 
 document.addEventListener('DOMContentLoaded', function () {
+  function initCanonicalSolutionsMenu() {
+    document.querySelectorAll('.dropdown-rich-menu .dropdown-item-text, .dropdown-rich-menu .submenuzinho-item span:not(.submenuzinho-bullet)').forEach(function (label) {
+      label.textContent = label.textContent.replace(/^\s*\d+\.\s*/, '');
+    });
+  }
+
+  initCanonicalSolutionsMenu();
+
   // 1. HEADER SCROLL & MOBILE MENU
   const siteHeader = document.querySelector('.site-header');
   const menuToggle = document.querySelector('.menu-toggle');

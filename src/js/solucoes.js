@@ -222,8 +222,8 @@ document.addEventListener('DOMContentLoaded', () => {
       ...sourceService,
       iconName: ['shield', 'landmark', 'scan-line', 'flame', 'clipboard-list', 'share-2', 'file-text', 'gauge', 'crosshair', 'award', 'message-square', 'settings'][stepIndex],
       id: stepIndex,
-      title: `${stepIndex + 1}. ${title}`,
-      shortTitle: `${stepIndex + 1}. ${shortTitle}`,
+      title,
+      shortTitle,
       ring: ringIndex === 0 ? 'outer' : 'inner',
       angle: ringIndex === 0
         ? -90 + stepIndex * 60
@@ -233,7 +233,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const RADAR_CONFIG = Object.freeze({
     transitionDuration: 1600,
-    autoAdvanceInterval: 2000,
+    autoAdvanceInterval: 10000,
     hoverResumeDelay: 2000,
     manualResumeDelay: 10000,
     approachStartRatio: 0.56,
@@ -801,13 +801,15 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   const prevService = () => {
-    const nextIdx = (activeIndex - 1 + servicesData.length) % servicesData.length;
+    const navigationIndex = sweepTargetIndex ?? selectedIndex ?? activeIndex;
+    const nextIdx = (navigationIndex - 1 + servicesData.length) % servicesData.length;
     goToService(nextIdx, 'backward');
     handleManualInteraction();
   };
 
   const nextService = () => {
-    const nextIdx = (activeIndex + 1) % servicesData.length;
+    const navigationIndex = sweepTargetIndex ?? selectedIndex ?? activeIndex;
+    const nextIdx = (navigationIndex + 1) % servicesData.length;
     goToService(nextIdx, 'forward');
     handleManualInteraction();
   };
@@ -867,6 +869,9 @@ document.addEventListener('DOMContentLoaded', () => {
     isHovered = true;
     stopAutoPlay();
     clearResumeTimer();
+    stopSweepAtCurrentPosition();
+    sweepTargetIndex = null;
+    clearTransientNodeStates();
   }
 
   function handleHoverLeave() {
@@ -923,7 +928,10 @@ document.addEventListener('DOMContentLoaded', () => {
       goToService(parseInt(node.dataset.index, 10));
       handleManualInteraction();
     });
-    node.addEventListener('mouseenter', handleHoverEnter);
+        node.addEventListener('mouseenter', () => {
+          handleHoverEnter();
+          goToService(parseInt(node.dataset.index, 10));
+        });
     node.addEventListener('mouseleave', handleHoverLeave);
   });
 
