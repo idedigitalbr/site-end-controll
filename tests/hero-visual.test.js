@@ -89,7 +89,7 @@ test('keeps the four indicators compact, aligned and centered without icons', ()
 
 test('keeps the light hero header readable without relying on white navigation', () => {
   assert.match(home, /class="site-header site-header--light-hero"/i);
-  assert.match(home, /src="\.\/assets\/Logos\/logo-principal-endcontrol-horizontal\.webp"/i);
+  assert.match(home, /src="\.\/assets\/Logos\/logo-principal-original-horizontal-endcontrol\.png"/i);
   assert.match(styles, /\.hero-static-container\s*\{[\s\S]*?padding-top:/i);
   const headerStyles = fs.readFileSync(path.join(root, 'src', 'css', 'header.css'), 'utf8');
   assert.match(headerStyles, /\.site-header--light-hero\s*\{[\s\S]*?background:\s*#ffffff\s*;/i);

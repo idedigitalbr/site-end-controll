@@ -1,10 +1,10 @@
-// Central de assets locais (offline) da ENDCONTROL Engenharia.
+﻿// Central de assets locais (offline) da ENDCONTROL Engenharia.
 // Regra do projeto: manter imagens locais na pasta assets.
 
 window.driveAssets = {
   logos: {
-    principalHorizontal: './assets/Logos/logo-principal-endcontrol-horizontal.webp',
-    horizontalNegativo: './assets/Logos/logo-endcontrol-horizontal-negativo.png',
+    principalHorizontal: './assets/Logos/logo-principal-original-horizontal-endcontrol.png',
+    horizontalNegativo: './assets/Logos/logo-principal-original-horizontal-endcontrol.png',
     icon: './assets/Logos/icon-endcontrol.webp'
   },
   photos: {

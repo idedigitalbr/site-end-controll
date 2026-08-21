@@ -1,4 +1,4 @@
-{
+﻿{
   "schemaVersion": 1,
   "targets": {
     "/": {
@@ -9,13 +9,13 @@
       "designSystemPath": ".superdesign/design-system.md",
       "referenceIds": [
         "37aedeeb-0912-4535-b2b8-571d1476e0b4",
-        "assets-logos-logo-endcontrol-horizontal-negativo.png"
+        "assets-logos-logo-principal-original-horizontal-endcontrol.png"
       ],
       "brandAssets": {
         "logo": {
-          "assetKey": "assets-logos-logo-endcontrol-horizontal-negativo.png",
-          "url": "https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/projects/de652e71-e2b0-48ed-bed0-e09f2dc60094/brand-assets/assets-logos-logo-endcontrol-horizontal-negativo.png/logo-endcontrol-horizontal-negativo.png",
-          "sourcePath": "assets/Logos/logo-endcontrol-horizontal-negativo.png"
+          "assetKey": "assets-logos-logo-principal-original-horizontal-endcontrol.png",
+          "url": "https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/projects/de652e71-e2b0-48ed-bed0-e09f2dc60094/brand-assets/assets-logos-logo-principal-original-horizontal-endcontrol.png/logo-principal-original-horizontal-endcontrol.png",
+          "sourcePath": "assets/Logos/logo-principal-original-horizontal-endcontrol.png"
         }
       },
       "contextFiles": [
