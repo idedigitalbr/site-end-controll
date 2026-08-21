@@ -21,6 +21,7 @@ const servicePages = [
   '11-solucao-certificacao-de-materia-prima.html',
   '12-solucao-consultoria-e-assessoria-tecnica.html'
 ];
+const bentoServicePages = servicePages.filter((filename) => filename !== '1-solucao-engenharia-de-integridade-estrutural.html');
 
 test('all service pages load the shared Lucide runtime', () => {
   for (const filename of servicePages) {
@@ -72,5 +73,47 @@ test('service commitment markup remains content-driven and preserves four pillar
     assert.ok(section, `${filename} should contain the commitment section`);
     assert.equal((section.match(/class="sn-commitment-card"/g) || []).length, 4, `${filename} should preserve four commitment cards`);
     assert.equal((section.match(/class="sn-commitment-icon"/g) || []).length, 4, `${filename} should preserve four commitment icons`);
+  }
+});
+
+test('bento service grids use four fixed columns without expansion effects', () => {
+  assert.match(serviceStyles, /\.svc-bento-section\s*\{[\s\S]*?background-color:\s*#ffffff/i);
+  assert.match(serviceStyles, /\.svc-bento-section\s*\{[\s\S]*?background-image:\s*none/i);
+  assert.match(serviceStyles, /\.bento-expanding-wrapper\s*\{[\s\S]*?display:\s*grid[\s\S]*?grid-template-columns:\s*repeat\(4,\s*minmax\(0,\s*1fr\)\)/i);
+  assert.match(serviceStyles, /\.bento-row\s*\{[\s\S]*?display:\s*contents/i);
+  assert.match(serviceStyles, /\.bento-stack-vertical\s*\{[\s\S]*?display:\s*contents/i);
+  assert.match(serviceStyles, /\.bento-flex-card\s*\{[\s\S]*?transition:\s*none/i);
+  assert.doesNotMatch(serviceStyles, /@media\s*\(hover:\s*hover\)[\s\S]*?\.bento-row--top:hover/i);
+  assert.match(serviceStyles, /\.ec-card-white\s*\{[\s\S]*?background:\s*#ffffff[\s\S]*?box-shadow:\s*none/i);
+  assert.match(serviceStyles, /\.ec-card-white:hover(?:,\s*\.ec-card-white:focus-visible)?\s*\{[\s\S]*?background:\s*#00215B[\s\S]*?color:\s*#ffffff/i);
+});
+
+test('bento service cards use white surfaces without logos, images, icons or numbering', () => {
+  for (const filename of bentoServicePages) {
+    const html = fs.readFileSync(path.join(root, filename), 'utf8');
+    const cards = html.match(/<article class="(?:ec-card-dark|ec-card-white)[\s\S]*?<\/article>/gi) || [];
+
+    assert.ok(cards.length >= 4, `${filename} should contain the bento cards`);
+    assert.doesNotMatch(html, /class="sidebar-brand-(?:wrap|logo)"/i, `${filename} should not render the sidebar logo`);
+    assert.doesNotMatch(html, /class="ec-card-dark(?:\s|"|\-)/i, `${filename} should not render dark cards`);
+    assert.doesNotMatch(html, /class="ec-card-(?:dark|white)-bg-img"/i, `${filename} should not render card images`);
+    assert.doesNotMatch(html, /class="ec-card-(?:dark|white)-icon-wrapper"/i, `${filename} should not render card icons`);
+    assert.doesNotMatch(html, /class="sidebar-pillar-icon"/i, `${filename} should not render sidebar pillar icons`);
+    assert.doesNotMatch(html, /class="check-icon"/i, `${filename} should not render checklist icons`);
+    assert.doesNotMatch(html, /class="ec-card-(?:dark|white)-title"[^>]*>\s*\d+\./i, `${filename} should not number card titles`);
+  }
+});
+
+test('bento sidebars use white rounded category badges', () => {
+  const sidebarEyebrowBlock = serviceStyles.match(/\.sidebar-eyebrow\s*\{[^}]*\}/i)?.[0] || '';
+  assert.match(sidebarEyebrowBlock, /background:\s*#ffffff/i);
+  assert.match(sidebarEyebrowBlock, /color:\s*#00215D/i);
+  assert.match(sidebarEyebrowBlock, /border-radius:\s*999px/i);
+
+  for (const filename of bentoServicePages) {
+    const html = fs.readFileSync(path.join(root, filename), 'utf8');
+    const sidebar = html.match(/<aside class="ec-bento-sidebar"[\s\S]*?<\/aside>/i)?.[0] || '';
+
+    assert.match(sidebar, /<span class="sidebar-eyebrow">[^<]+<\/span>/i, `${filename} should render a sidebar category badge`);
   }
 });

@@ -161,3 +161,176 @@
   }
 }
 
+/* ==========================================================================
+   Professional solutions menu — mobile accordion
+   ========================================================================== */
+@media (max-width: 980px) {
+  body.menu-is-open {
+    overflow: hidden;
+  }
+
+  .main-menu {
+    top: 74px;
+    max-height: calc(100vh - 90px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    border: 1px solid rgba(0, 33, 93, 0.18) !important;
+    background: #ffffff !important;
+    color: #00215D !important;
+  }
+
+  .main-menu > a:not(.btn-contacts-menu) {
+    color: #00215D !important;
+  }
+
+  .main-menu .dropdown > .drop-link {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+    min-height: 46px !important;
+    padding: 0 13px !important;
+    border: 0 !important;
+    border-radius: 12px !important;
+    background: transparent !important;
+    color: #00215D !important;
+    font-size: 0.9rem !important;
+    font-weight: 800 !important;
+    letter-spacing: normal !important;
+    text-align: left !important;
+    text-transform: none !important;
+    pointer-events: auto !important;
+    cursor: pointer !important;
+  }
+
+  .main-menu .dropdown > .drop-link::before,
+  .main-menu .dropdown > .drop-link::after {
+    position: static !important;
+    inset: auto !important;
+    display: none !important;
+    flex: none !important;
+    width: auto !important;
+    height: auto !important;
+    margin: 0 !important;
+    background: transparent !important;
+    opacity: 1 !important;
+  }
+
+  .main-menu .dropdown > .drop-link .menu-chevron {
+    display: block !important;
+    width: 16px;
+    height: 16px;
+    color: #00215D !important;
+    transform: none;
+  }
+
+  .main-menu .dropdown.is-open > .drop-link {
+    background: #eef6fa !important;
+  }
+
+  .main-menu .dropdown.is-open > .drop-link .menu-chevron {
+    transform: rotate(180deg);
+  }
+
+  .main-menu .dropdown-rich-menu {
+    display: block !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    margin: 6px 0 10px !important;
+    padding: 10px !important;
+    border: 1px solid #00215D !important;
+    border-radius: 16px !important;
+    background: #ffffff !important;
+    box-shadow: none !important;
+  }
+
+  .solutions-menu-groups {
+    display: block;
+  }
+
+  .menu-group {
+    border-bottom: 1px solid rgba(0, 33, 93, 0.18);
+  }
+
+  .menu-group:last-child {
+    border-bottom: 0;
+  }
+
+  .menu-group-title {
+    padding: 13px 5px;
+    border-bottom: 0;
+    color: #00215D;
+    font-size: 0.72rem;
+  }
+
+  .menu-group-chevron {
+    display: block;
+    color: #00215D;
+    transition: transform 0.2s ease;
+  }
+
+  .menu-group.is-expanded .menu-group-chevron {
+    transform: rotate(180deg);
+  }
+
+  .menu-group-description {
+    display: none;
+  }
+
+  .menu-group-items {
+    max-height: 0;
+    padding: 0 4px;
+    overflow: hidden;
+    transition: max-height 0.25s ease, padding 0.25s ease;
+  }
+
+  .menu-group.is-expanded .menu-group-items {
+    max-height: 620px;
+    padding-bottom: 10px;
+  }
+
+  .dropdown-rich-menu .menu-service-item,
+  .dropdown-rich-menu .menu-service-item:hover {
+    min-height: 44px;
+    border-color: transparent !important;
+    background: transparent !important;
+    color: #00215D !important;
+  }
+
+  .dropdown-rich-menu .menu-service-item:hover {
+    border-color: rgba(0, 33, 93, 0.18) !important;
+    background: #eef6fa !important;
+  }
+
+  .site-header--light-hero .dropdown-rich-menu .menu-service-item .dropdown-item-text,
+  .site-header--light-hero .dropdown-rich-menu .menu-service-item:hover .dropdown-item-text {
+    color: #00215D !important;
+  }
+
+  .dropdown-rich-menu .menu-service-item .dropdown-item-logo {
+    width: 27px;
+    height: 27px;
+    flex-basis: 27px;
+    border-color: #00215D;
+    background: #ffffff;
+    color: #00215D;
+  }
+
+  .solutions-menu-aside {
+    min-height: 0;
+    margin-top: 14px;
+    padding: 18px;
+  }
+
+  .solutions-menu-aside p {
+    margin-bottom: 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .menu-group-chevron,
+  .menu-group-items {
+    transition: none !important;
+  }
+}
+

@@ -82,3 +82,16 @@ test('keeps the service header readable after removing the dark hero', () => {
   assert.match(standardStyles, /\.sn-page-wrapper \.site-header \.main-menu\s*\{[\s\S]*?color:\s*#00215D;/i);
   assert.match(standardStyles, /\.sn-page-wrapper \.site-header \.menu-toggle span\s*\{[\s\S]*?background:\s*#00215D;/i);
 });
+
+test('service pages override desktop constraints at mobile breakpoints', () => {
+  const responsiveBlock = styles.slice(styles.lastIndexOf('RESPONSIVE SERVICE LAYOUT'));
+
+  assert.match(responsiveBlock, /@media\s*\(max-width:\s*900px\)[\s\S]*?\.sn-page-wrapper \.svc-solution-section:has\(\.svc-duo-photo-wrapper\) \.svc-solution-main-grid[\s\S]*?grid-template-columns:\s*1fr\s*!important;/i);
+  assert.match(responsiveBlock, /grid-template-areas:\s*"content"\s*"media"\s*!important;/i);
+  assert.match(responsiveBlock, /\.sn-page-wrapper \.svc-solution-paragraphs\s+p,[\s\S]*?\.sn-page-wrapper \.sn-history-description[\s\S]*?text-align:\s*left\s*!important;[\s\S]*?text-justify:\s*auto;[\s\S]*?word-spacing:\s*normal;/i);
+  assert.match(responsiveBlock, /\.sn-page-wrapper \.svc-solution-container,[\s\S]*?width:\s*min\(100%\s*-\s*32px,\s*680px\);/i);
+  assert.match(responsiveBlock, /\.sn-page-wrapper \.bento-expanding-wrapper[\s\S]*?grid-template-columns:\s*1fr\s*!important;/i);
+  assert.match(responsiveBlock, /@media\s*\(max-width:\s*600px\)[\s\S]*?\.sn-page-wrapper \.sn-process-track-zone[\s\S]*?grid-template-columns:\s*1fr\s*!important;/i);
+  assert.match(responsiveBlock, /\.sn-page-wrapper \.sn-commitment-grid[\s\S]*?grid-template-columns:\s*1fr\s*!important;/i);
+  assert.match(responsiveBlock, /\.sn-page-wrapper \.endo-acc-full-wrapper[\s\S]*?max-width:\s*calc\(100%\s*-\s*32px\);/i);
+});

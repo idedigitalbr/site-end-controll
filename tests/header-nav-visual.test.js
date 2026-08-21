@@ -8,13 +8,13 @@ const styles = fs.readFileSync(path.join(root, 'src', 'css', 'header.css'), 'utf
 const home = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
 const menu = home.match(/<div class="dropdown-rich-menu"[\s\S]*?<\/div>\s*<\/div>/i)?.[0] || '';
 
-test('uses a white solutions menu with navy item hover and no visible icons', () => {
+test('uses a white grouped solutions menu with navy item hover and visible icons', () => {
   assert.match(styles, /\.dropdown-rich-menu\s*\{[\s\S]*?background:\s*#ffffff\s*!important/i);
   assert.match(styles, /\.dropdown-item-rich\s*\{[\s\S]*?color:\s*#00215d\s*!important/i);
   assert.match(styles, /\.dropdown-item-rich:hover\s*\{[\s\S]*?background:\s*#00215d\s*!important[\s\S]*?color:\s*#ffffff\s*!important/i);
-  assert.match(styles, /\.dropdown-rich-menu \.dropdown-item-logo,[\s\S]*?display:\s*none\s*!important/i);
-  assert.match(styles, /\.dropdown-rich-menu \.sub-chevron,[\s\S]*?display:\s*none\s*!important/i);
-  assert.match(styles, /\.dropdown-rich-menu \.submenuzinho-bullet\s*\{[\s\S]*?display:\s*none\s*!important/i);
+  assert.match(styles, /\.dropdown-rich-menu \.menu-service-item \.dropdown-item-logo\s*\{[\s\S]*?display:\s*flex\s*!important/i);
+  assert.match(styles, /\.solutions-menu-groups\s*\{[\s\S]*?grid-template-columns:\s*repeat\(3/i);
+  assert.match(styles, /\.solutions-menu-aside\s*\{[\s\S]*?background:\s*#00215d/i);
   assert.doesNotMatch(menu, /dropdown-item-text">\s*\d+\./i);
 });
 

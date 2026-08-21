@@ -11,7 +11,7 @@ test('service 1 page follows the approved sequential section order', () => {
     'class="site-header site-header--light-hero"',
     'class="sn-hero-section"',
     'class="svc-solution-section"',
-    'class="ffs-section',
+    'class="svc-bento-section ffs-bento-section',
     'class="svc-methodology-section"',
     'class="section segmentos-secao',
     'class="sn-process-section"',
@@ -49,13 +49,16 @@ test('4. S2 uses standard primary button pattern (.btn.btn-primary)', () => {
   assert.ok(service1Html.includes('Fale com um especialista'));
 });
 
-test('5. S3 (Radar FFS) contains required texts, single sweep and radar container', () => {
-  assert.ok(service1Html.includes('Abordagem FFS'));
+test('5. S3 (Abordagem FFS) uses the shared sidebar and descriptive mechanism cards', () => {
+  assert.match(service1Html, /Abordagem FFS/i);
   assert.ok(service1Html.includes('Mecanismos de dano avaliados na abordagem'));
   assert.ok(service1Html.includes('Fitness-For-Service'));
-  assert.ok(service1Html.includes('id="ffsRadarWrapper"'));
-  assert.ok(service1Html.includes('id="ffsRadarSweep"'));
-  assert.ok(service1Html.includes('id="ffsCenterCore"'));
+  assert.ok(service1Html.includes('class="ec-bento-sidebar"'));
+  assert.ok(service1Html.includes('class="bento-expanding-wrapper ffs-mechanisms-grid"'));
+  assert.equal((service1Html.match(/class="ec-card-white ffs-mechanism-card/g) || []).length, 12);
+  assert.ok(!service1Html.includes('id="ffsRadarWrapper"'));
+  assert.ok(!service1Html.includes('id="ffsRadarSweep"'));
+  assert.ok(!service1Html.includes('id="ffsCenterCore"'));
 });
 
 test('6. S5 (Quando Aplicar) uses the full-width Accordion widget from Home / Print 2', () => {

@@ -20,38 +20,228 @@
     });
   }
 
+  function enhanceSolutionsMenu() {
+    const dropdown = document.querySelector('.main-menu .dropdown');
+    const panel = dropdown && dropdown.querySelector('.dropdown-rich-menu');
+    if (!dropdown || !panel || panel.dataset.enhanced === 'true') return;
+
+    const trigger = dropdown.querySelector('.drop-link');
+    if (trigger && trigger.tagName.toLowerCase() === 'a') {
+      const accessibleTrigger = document.createElement('button');
+      accessibleTrigger.type = 'button';
+      accessibleTrigger.className = trigger.className;
+      accessibleTrigger.textContent = 'Nossas Soluções';
+      accessibleTrigger.setAttribute('aria-haspopup', 'true');
+      accessibleTrigger.setAttribute('aria-expanded', 'false');
+      accessibleTrigger.setAttribute('aria-controls', 'solutions-menu');
+      trigger.replaceWith(accessibleTrigger);
+    }
+
+    const enhancedTrigger = dropdown.querySelector('.drop-link');
+    if (enhancedTrigger && !enhancedTrigger.querySelector('.menu-chevron')) {
+      const chevron = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      chevron.setAttribute('class', 'menu-chevron');
+      chevron.setAttribute('viewBox', '0 0 24 24');
+      chevron.setAttribute('width', '16');
+      chevron.setAttribute('height', '16');
+      chevron.setAttribute('fill', 'none');
+      chevron.setAttribute('stroke', 'currentColor');
+      chevron.setAttribute('stroke-width', '2.5');
+      chevron.setAttribute('stroke-linecap', 'round');
+      chevron.setAttribute('stroke-linejoin', 'round');
+      chevron.setAttribute('aria-hidden', 'true');
+      const chevronLine = document.createElementNS('http://www.w3.org/2000/svg', 'polyline');
+      chevronLine.setAttribute('points', '6 9 12 15 18 9');
+      chevron.appendChild(chevronLine);
+      enhancedTrigger.appendChild(chevron);
+      enhancedTrigger.setAttribute('aria-haspopup', 'true');
+      enhancedTrigger.setAttribute('aria-expanded', 'false');
+      enhancedTrigger.setAttribute('aria-controls', 'solutions-menu');
+    }
+
+    panel.id = 'solutions-menu';
+    panel.setAttribute('role', 'region');
+    panel.setAttribute('aria-label', 'Nossas soluções por categoria');
+
+    const itemsById = new Map();
+    Array.from(panel.children).forEach(function (child) {
+      if (child.classList.contains('dropdown-item-rich') && child.dataset.serviceId) {
+        itemsById.set(child.dataset.serviceId, child);
+      }
+      if (child.classList.contains('item-with-submenu')) {
+        child.querySelectorAll('.submenuzinho-item[data-service-id]').forEach(function (item) {
+          itemsById.set(item.dataset.serviceId, item);
+        });
+      }
+    });
+
+    const groups = [
+      {
+        title: 'Engenharia e Integridade',
+        description: 'Confiabilidade para ativos críticos e operações industriais.',
+        ids: ['0', '3', '10']
+      },
+      {
+        title: 'Inspeção e Conformidade',
+        description: 'Controle técnico, segurança e adequação às normas.',
+        ids: ['1', '2', '8', '9']
+      },
+      {
+        title: 'Projetos e Tecnologia',
+        description: 'Soluções sob medida para cada desafio de engenharia.',
+        ids: ['4', '5', '6', '11', '12']
+      }
+    ];
+
+    const serviceIcons = {
+      '2': '<i class="menu-lucide-icon" data-lucide="scan-line" aria-hidden="true"></i>',
+      '4': '<i class="menu-lucide-icon" data-lucide="clipboard-check" aria-hidden="true"></i>',
+      '5': '<i class="menu-lucide-icon" data-lucide="box" aria-hidden="true"></i>'
+    };
+
+    const groupsWrapper = document.createElement('div');
+    groupsWrapper.className = 'solutions-menu-groups';
+
+    groups.forEach(function (group, groupIndex) {
+      const groupElement = document.createElement('section');
+      groupElement.className = 'menu-group' + (groupIndex === 0 ? ' is-expanded' : '');
+
+      const titleId = 'solutions-group-title-' + groupIndex;
+      const contentId = 'solutions-group-items-' + groupIndex;
+      const title = document.createElement('button');
+      title.type = 'button';
+      title.className = 'menu-group-title';
+      title.id = titleId;
+      title.setAttribute('aria-expanded', String(groupIndex === 0));
+      title.setAttribute('aria-controls', contentId);
+      title.innerHTML = '<span>' + group.title + '</span><svg class="menu-group-chevron" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>';
+
+      const description = document.createElement('p');
+      description.className = 'menu-group-description';
+      description.textContent = group.description;
+
+      const items = document.createElement('div');
+      items.className = 'menu-group-items';
+      items.id = contentId;
+      items.setAttribute('role', 'list');
+      items.setAttribute('aria-labelledby', titleId);
+
+      group.ids.forEach(function (id) {
+        const item = itemsById.get(id);
+        if (!item) return;
+        item.classList.add('menu-service-item');
+        item.setAttribute('role', 'listitem');
+        let icon = item.querySelector('.dropdown-item-logo');
+        if (!icon) {
+          const fallbackIcon = document.createElement('span');
+          fallbackIcon.className = 'dropdown-item-logo';
+          fallbackIcon.setAttribute('aria-hidden', 'true');
+          icon = fallbackIcon;
+          item.insertBefore(fallbackIcon, item.firstChild);
+        } else {
+          icon.setAttribute('aria-hidden', 'true');
+        }
+        item.querySelectorAll('.submenuzinho-bullet').forEach(function (bullet) {
+          bullet.remove();
+        });
+        if (serviceIcons[id]) icon.innerHTML = serviceIcons[id];
+        items.appendChild(item);
+      });
+
+      title.addEventListener('click', function () {
+        const isExpanded = groupElement.classList.toggle('is-expanded');
+        title.setAttribute('aria-expanded', String(isExpanded));
+      });
+
+      groupElement.appendChild(title);
+      groupElement.appendChild(description);
+      groupElement.appendChild(items);
+      groupsWrapper.appendChild(groupElement);
+    });
+
+    const menuAside = document.createElement('aside');
+    menuAside.className = 'solutions-menu-aside';
+    menuAside.innerHTML = [
+      '<span class="solutions-menu-kicker">ENCONTRE A SOLUÇÃO CERTA</span>',
+      '<strong>Seu desafio técnico começa com uma conversa.</strong>',
+      '<p>Conte com a equipe Endcontrol para avaliar o seu ativo e indicar o melhor caminho.</p>',
+      '<a class="solutions-menu-cta" href="https://wa.me/5591984040710" target="_blank" rel="noopener noreferrer">Fale com um especialista <span aria-hidden="true">→</span></a>'
+    ].join('');
+
+    while (panel.firstChild) panel.removeChild(panel.firstChild);
+    panel.appendChild(groupsWrapper);
+    panel.appendChild(menuAside);
+
+    function refreshMenuIcons() {
+      panel.querySelectorAll('.menu-service-item').forEach(function (item) {
+        const serviceId = String(item.dataset.serviceId || '').trim();
+        if (!serviceIcons[serviceId]) return;
+        let icon = item.querySelector('.dropdown-item-logo');
+        if (!icon) {
+          icon = document.createElement('span');
+          icon.className = 'dropdown-item-logo';
+          icon.setAttribute('aria-hidden', 'true');
+          item.insertBefore(icon, item.firstChild);
+        }
+        icon.innerHTML = serviceIcons[serviceId];
+      });
+
+      if (typeof lucide !== 'undefined' && typeof lucide.createIcons === 'function') {
+        lucide.createIcons();
+      }
+    }
+
+    refreshMenuIcons();
+
+    panel.dataset.enhanced = 'true';
+    window.setTimeout(refreshMenuIcons, 0);
+  }
+
   function initMenu() {
+    enhanceSolutionsMenu();
+
     const menuToggle = document.querySelector('.menu-toggle');
     const menu = document.querySelector('#main-menu');
     const allDropdowns = document.querySelectorAll('.dropdown');
+    const solutionsDropdown = document.querySelector('.main-menu .dropdown');
+    const solutionsTrigger = solutionsDropdown && solutionsDropdown.querySelector('.drop-link');
+
+    function setDropdownState(dropdown, isOpen) {
+      if (!dropdown) return;
+      dropdown.classList.toggle('is-open', isOpen);
+      const trigger = dropdown.querySelector('.drop-link');
+      if (trigger) trigger.setAttribute('aria-expanded', String(isOpen));
+    }
 
     function closeAllDropdowns(except) {
-      allDropdowns.forEach(function (d) {
-        if (d !== except) {
-          d.classList.remove('is-open');
-        }
+      allDropdowns.forEach(function (dropdown) {
+        if (dropdown !== except) setDropdownState(dropdown, false);
       });
     }
 
-    if (menuToggle && menu) {
+    if (menuToggle && menu && menuToggle.dataset.initialized !== 'true') {
+      menuToggle.dataset.initialized = 'true';
       menuToggle.addEventListener('click', function () {
         const isOpen = menu.classList.toggle('open');
         menuToggle.setAttribute('aria-expanded', String(isOpen));
+        menuToggle.setAttribute('aria-label', isOpen ? 'Fechar menu' : 'Abrir menu');
+        document.body.classList.toggle('menu-is-open', isOpen);
       });
       menu.querySelectorAll('a').forEach(function (link) {
-        link.addEventListener('click', function (e) {
-          if (link.classList.contains('drop-link')) {
-            if (window.innerWidth <= 980) {
-              e.preventDefault();
-              return;
-            }
-          }
-          if (link.classList.contains('item-has-children')) {
-            return;
-          }
+        link.addEventListener('click', function () {
           menu.classList.remove('open');
           menuToggle.setAttribute('aria-expanded', 'false');
+          menuToggle.setAttribute('aria-label', 'Abrir menu');
+          document.body.classList.remove('menu-is-open');
         });
+      });
+    }
+
+    if (solutionsDropdown && solutionsTrigger) {
+      solutionsTrigger.addEventListener('click', function () {
+        const isOpen = solutionsDropdown.classList.contains('is-open');
+        closeAllDropdowns();
+        setDropdownState(solutionsDropdown, !isOpen);
       });
     }
 
@@ -60,38 +250,42 @@
       dropdown.addEventListener('mouseenter', function () {
         clearTimeout(dropdownTimer);
         closeAllDropdowns(dropdown);
-        dropdown.classList.add('is-open');
+        setDropdownState(dropdown, true);
       });
       dropdown.addEventListener('mouseleave', function () {
         dropdownTimer = setTimeout(function () {
-          dropdown.classList.remove('is-open');
+          setDropdownState(dropdown, false);
         }, 200);
       });
       dropdown.addEventListener('focusin', function () {
         clearTimeout(dropdownTimer);
         closeAllDropdowns(dropdown);
-        dropdown.classList.add('is-open');
+        setDropdownState(dropdown, true);
       });
-      dropdown.addEventListener('focusout', function (e) {
-        if (dropdown.contains(e.relatedTarget)) return;
+      dropdown.addEventListener('focusout', function (event) {
+        if (dropdown.contains(event.relatedTarget)) return;
         dropdownTimer = setTimeout(function () {
-          dropdown.classList.remove('is-open');
+          setDropdownState(dropdown, false);
         }, 200);
       });
     });
 
-    // Toggle para o agrupador Projetos (Gerenciamento e Elaboração de Projetos Mecânicos)
-    const itemsWithSubmenu = document.querySelectorAll('.item-with-submenu');
-    itemsWithSubmenu.forEach(function (itemWithSubmenu) {
-      const trigger = itemWithSubmenu.querySelector('.item-has-children');
-      if (trigger) {
-        trigger.addEventListener('click', function (e) {
-          e.preventDefault();
-          e.stopPropagation();
-          const isOpen = itemWithSubmenu.classList.toggle('is-open');
-          trigger.setAttribute('aria-expanded', String(isOpen));
-        });
+    document.addEventListener('click', function (event) {
+      if (solutionsDropdown && !solutionsDropdown.contains(event.target)) {
+        closeAllDropdowns();
       }
+    });
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key !== 'Escape') return;
+      closeAllDropdowns();
+      if (menu) menu.classList.remove('open');
+      if (menuToggle) {
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.setAttribute('aria-label', 'Abrir menu');
+      }
+      document.body.classList.remove('menu-is-open');
+      if (solutionsTrigger) solutionsTrigger.focus();
     });
   }
 

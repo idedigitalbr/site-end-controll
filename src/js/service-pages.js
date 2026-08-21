@@ -6,6 +6,8 @@
 (function () {
   'use strict';
 
+  if (typeof window !== 'undefined') window.__serviceWhenApplyAccordion = true;
+
   const operationalPhotoPool = [
     './assets/Fotografias/originais-16-9/endcontrol-integridade-estrutural-aquisicao-dados-planta-industrial.webp',
     './assets/Fotografias/originais-16-9/endcontrol-ultrassom-phased-array-inspecao-solda-dutos-tubulacoes.webp',
@@ -99,6 +101,141 @@
     });
   }
 
+  function initWhenApplyAccordion() {
+    document.querySelectorAll('#quando-aplicar').forEach(function (section) {
+      const row = section.querySelector('.endo-acc-row');
+      const panels = Array.prototype.slice.call(section.querySelectorAll('.endo-acc-panel'));
+      const previousButton = section.querySelector('#btnPrevAcc');
+      const nextButton = section.querySelector('#btnNextAcc');
+      const dotsHost = section.querySelector('#accDotsIndex');
+
+      if (!row || !panels.length || row.dataset.accordionReady === 'true') return;
+
+      row.dataset.accordionReady = 'true';
+
+      let activeIndex = panels.findIndex(function (panel) {
+        return panel.classList.contains('is-active');
+      });
+
+      if (activeIndex < 0) activeIndex = 0;
+
+      function panelLabel(panel, index) {
+        const title = panel.querySelector('.endo-acc-card__title');
+        return (title && title.textContent.trim()) || ('item ' + (index + 1));
+      }
+
+      function scrollToPanel(panel) {
+        const isNarrowViewport = typeof window !== 'undefined'
+          && typeof window.matchMedia === 'function'
+          && window.matchMedia('(max-width: 860px)').matches;
+
+        if (!isNarrowViewport || !panel || typeof panel.scrollIntoView !== 'function') return;
+
+        panel.scrollIntoView({
+          behavior: 'smooth',
+          block: 'nearest',
+          inline: 'center'
+        });
+      }
+
+      function updateDots() {
+        if (!dotsHost) return;
+
+        dotsHost.innerHTML = '';
+
+        panels.forEach(function (panel, index) {
+          const dot = document.createElement('button');
+          dot.type = 'button';
+          dot.className = 'endo-acc-dot';
+          dot.setAttribute('aria-label', 'Ir para ' + panelLabel(panel, index));
+          dot.classList.toggle('is-active', index === activeIndex);
+          dot.setAttribute('aria-current', index === activeIndex ? 'true' : 'false');
+          dot.addEventListener('click', function () {
+            setActive(index, true);
+          });
+          dotsHost.appendChild(dot);
+        });
+      }
+
+      function setActive(index, shouldScroll) {
+        activeIndex = (index + panels.length) % panels.length;
+
+        panels.forEach(function (panel, panelIndex) {
+          const isActive = panelIndex === activeIndex;
+          panel.classList.toggle('is-active', isActive);
+          panel.setAttribute('aria-expanded', isActive ? 'true' : 'false');
+        });
+
+        row.dataset.activeIndex = String(activeIndex);
+
+        if (dotsHost) {
+          dotsHost.querySelectorAll('.endo-acc-dot').forEach(function (dot, dotIndex) {
+            dot.classList.toggle('is-active', dotIndex === activeIndex);
+            dot.setAttribute('aria-current', dotIndex === activeIndex ? 'true' : 'false');
+          });
+        }
+
+        if (shouldScroll) scrollToPanel(panels[activeIndex]);
+      }
+
+      function moveActive(delta) {
+        setActive(activeIndex + delta, true);
+      }
+
+      panels.forEach(function (panel, index) {
+        panel.setAttribute('role', 'button');
+        panel.setAttribute('aria-expanded', index === activeIndex ? 'true' : 'false');
+
+        panel.addEventListener('click', function () {
+          setActive(index, true);
+        });
+
+        panel.addEventListener('keydown', function (event) {
+          if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            setActive(index, true);
+            return;
+          }
+
+          if (event.key === 'ArrowRight' || event.key === 'ArrowDown') {
+            event.preventDefault();
+            moveActive(1);
+          }
+
+          if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
+            event.preventDefault();
+            moveActive(-1);
+          }
+
+          if (event.key === 'Home') {
+            event.preventDefault();
+            setActive(0, true);
+          }
+
+          if (event.key === 'End') {
+            event.preventDefault();
+            setActive(panels.length - 1, true);
+          }
+        });
+      });
+
+      if (previousButton) {
+        previousButton.addEventListener('click', function () {
+          moveActive(-1);
+        });
+      }
+
+      if (nextButton) {
+        nextButton.addEventListener('click', function () {
+          moveActive(1);
+        });
+      }
+
+      updateDots();
+      setActive(activeIndex, false);
+    });
+  }
+
   function createLucideIcons() {
     if (typeof lucide !== 'undefined' && typeof lucide.createIcons === 'function') {
       lucide.createIcons();
@@ -110,6 +247,7 @@
 
     applyOperationalPhotos();
     normalizeWhenApplyIcons();
+    initWhenApplyAccordion();
     normalizeProcessIcons();
     normalizeCommitmentIcons();
     normalizeCtaIcons();
