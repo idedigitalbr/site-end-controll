@@ -330,9 +330,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const circleCenterX = circleRect.left + circleRect.width / 2;
     const circleCenterY = circleRect.top + circleRect.height / 2;
     const circleRadius = Math.min(circleRect.width, circleRect.height) / 2;
-    const angleRad = (servicesData[index].angle * Math.PI) / 180;
-    const circlePointX = circleCenterX + circleRadius * Math.cos(angleRad);
-    const circlePointY = circleCenterY + circleRadius * Math.sin(angleRad);
+    // O conector é estrutural e permanece fixo; somente o conteúdo do card muda.
+    const circlePointX = circleCenterX + circleRadius;
+    const circlePointY = circleCenterY;
     const cardIsRight = cardRect.left >= circlePointX;
     const startX = circlePointX - containerRect.left;
     const endX = (cardIsRight ? cardRect.left : cardRect.right) - containerRect.left;

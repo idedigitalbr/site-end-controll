@@ -1487,7 +1487,6 @@
 .solucoes-section .scan-line,
 .solucoes-section .particle,
 .solucoes-section .radar-sweep,
-.solucoes-section .radar-trail-svg,
 .solucoes-section .orbital-center-glow {
   display: none !important;
 }
@@ -1587,11 +1586,16 @@
   filter: none !important;
 }
 
-.solucoes-section .service-node.is-active[data-tooltip]::after,
-.solucoes-section .service-node.is-selected[data-tooltip]::after {
+.solucoes-section .service-node.is-active[data-tooltip]::after {
   opacity: 1;
   visibility: visible;
   transform: translate(-50%, 0);
+}
+
+/* O radar usa apenas o conector fixo círculo externo → card. */
+.solucoes-section .radar-trail-svg,
+.solucoes-section .radar-connection {
+  display: none !important;
 }
 
 @media (min-width: 1441px) {

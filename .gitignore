@@ -6,7 +6,8 @@ Thumbs.db
 *.log
 
 # Dependências futuras
-node_modules/
+node_modules
+/vendor
 
 # Builds futuros
 dist/
@@ -19,6 +20,21 @@ build/
 # Pastas locais pesadas ignoradas
 assets-nao-usados/
 bckp/
+/storage
+/public/uploads
 backup.ps1
 desktop.ini
 Desktop.ini
+
+# Artefatos sensíveis e backups
+/composer.phar
+*.sql
+*.sqlite
+*.sqlite3
+*.dump
+*.bak
+*.backup
+*.zip
+*.tar
+*.tar.gz
+*.7z

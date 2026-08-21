@@ -54,11 +54,20 @@ test('uses the standard navy across the solution card structure', () => {
 
 test('centers the radar-card composition and renders a connector for the selected service', () => {
   assert.match(home, /<svg class="radar-card-connector" id="radarCardConnector"[\s\S]*?id="radarCardConnectorPath"/i);
+  assert.equal((home.match(/class="radar-card-connector"/g) || []).length, 1);
+  assert.doesNotMatch(home, /radar-card-connector-(?:point|line)/i);
   assert.match(styles, /\.solucoes-main-content\s*\{[\s\S]*?justify-content:\s*center/i);
   assert.match(styles, /\.radar-card-connector\s*\{[\s\S]*?position:\s*absolute[\s\S]*?pointer-events:\s*none/i);
   assert.match(styles, /\.radar-card-connector\.is-visible\s*\{[\s\S]*?opacity:\s*1/i);
+  assert.match(styles, /\.solucoes-section \.radar-trail-svg,\s*\.solucoes-section \.radar-connection\s*\{[\s\S]*?display:\s*none\s*!important/i);
   assert.match(solutionsScript, /function updateRadarCardConnector\s*\(/);
   assert.match(solutionsScript, /querySelector\('\.radar-circle-outer'\)/);
+  const connectorStart = solutionsScript.indexOf('function updateRadarCardConnector');
+  const connectorEnd = solutionsScript.indexOf('\n  const labelPlacementClasses', connectorStart);
+  const connectorFunction = solutionsScript.slice(connectorStart, connectorEnd);
+  assert.match(connectorFunction, /const circlePointX = circleCenterX \+ circleRadius/);
+  assert.match(connectorFunction, /const circlePointY = circleCenterY/);
+  assert.doesNotMatch(connectorFunction, /servicesData\[index\]\.angle/);
   assert.match(solutionsScript, /radarCardConnectorPath\.setAttribute\(\s*'d',\s*`M[\s\S]*?L \$\{/);
 });
 
@@ -69,5 +78,6 @@ test('previews the selected service immediately and keeps its tooltip visible', 
   assert.match(solutionsScript, /updateCard\(index,\s*true\)/);
   assert.match(solutionsScript, /classList\.toggle\('is-selected'/);
   assert.match(styles, /\.service-node\.is-selected \.service-node-icon\s*\{[\s\S]*?background:\s*#00215D\s*!important/i);
-  assert.match(styles, /\.service-node\.is-active\[data-tooltip\]::after[\s\S]*?\.service-node\.is-selected\[data-tooltip\]::after/i);
+  assert.match(styles, /\.service-node\.is-active\[data-tooltip\]::after\s*\{/i);
+  assert.doesNotMatch(styles, /\.service-node\.is-selected\[data-tooltip\]::after/i);
 });
