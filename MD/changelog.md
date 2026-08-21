@@ -1,6 +1,16 @@
 # Changelog — ENDCONTROL Engenharia
 
-## [2026-08-21] - Redesign Corporativo Minimalista das Seções Como Trabalhamos e Nosso Compromisso (Sobre Nós)
+## [2026-08-21] - Estilização Dark Navy da Faixa de Indicadores na Página Sobre Nós
+
+- **Arquivos:** `sobre-nos.html`, `tests/about-eyebrow-color.test.js`, `MD/changelog.md`
+
+### Enhanced & Styled
+- **Faixa de Indicadores de Autoridade (`.about-values-banner`) em `sobre-nos.html`:**
+  - Aplicado fundo preenchido na cor oficial Azul Marinho (`#00215d`), idêntico ao padrão da faixa de benefícios do Hero.
+  - Adicionada borda com acabamento ciano translúcido (`rgba(0, 194, 255, 0.45)`), cantos arredondados (`18px`) e divisores verticais de itens.
+  - Tipografia de números/títulos (`h3`) e descrições (`p`) atualizada para branco puro (`#ffffff`) para garantir alto contraste e legibilidade.
+  - Círculos de ícones ajustados com background azul tecnológico suave, borda ciano e ícone Lucide ciano (`#00C2FF`) com hover iluminado.
+  - Testes automatizados (125/125) atualizados e validados com 100% de sucesso.
 
 - **Arquivos:** `sobre-nos.html`, `src/css/sobre-nos.css`, `MD/changelog.md`
 
