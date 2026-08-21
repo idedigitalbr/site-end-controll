@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "targets": {
+    "/": {
+      "targetKind": "existing-ui",
+      "projectId": "de652e71-e2b0-48ed-bed0-e09f2dc60094",
+      "baselineDraftId": "614e9f43-f1c4-4467-bfb6-b1bdf5a51407",
+      "activeDraftId": "614e9f43-f1c4-4467-bfb6-b1bdf5a51407",
+      "designSystemPath": ".superdesign/design-system.md",
+      "referenceIds": [
+        "37aedeeb-0912-4535-b2b8-571d1476e0b4",
+        "assets-logos-logo-endcontrol-horizontal-negativo.png"
+      ],
+      "brandAssets": {
+        "logo": {
+          "assetKey": "assets-logos-logo-endcontrol-horizontal-negativo.png",
+          "url": "https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/projects/de652e71-e2b0-48ed-bed0-e09f2dc60094/brand-assets/assets-logos-logo-endcontrol-horizontal-negativo.png/logo-endcontrol-horizontal-negativo.png",
+          "sourcePath": "assets/Logos/logo-endcontrol-horizontal-negativo.png"
+        }
+      },
+      "contextFiles": [
+        ".superdesign/design-system.md",
+        "index.html:300:445",
+        "src/css/hero.css",
+        "src/css/header.css",
+        "src/css/tokens.css"
+      ],
+      "fingerprints": {
+        ".superdesign/design-system.md": "29d04850e50c14d74bf1223e0dafb02000098fd9146dd3567554c2591cd40062",
+        "index.html": "7ea48b452dbfb117f31948afb93bf20e9d97d8d5b615db60713d0a90371fcc37",
+        "src/css/hero.css": "ee5f1f88e10bd64041e7be75ed58ff7124a533cfe3648bbe660ae8b46aaaf66c",
+        "src/css/header.css": "f50eab298b23f0c95db31c7ec05d1bd7d090b1f148ec3935c9b107b26eb786d8",
+        "src/css/tokens.css": "ab889c39cdf0e811eee3f0806b05c6a7740b6c1882f837de9c27815e72b45c2e"
+      },
+      "components": [],
+      "drafts": {
+        "614e9f43-f1c4-4467-bfb6-b1bdf5a51407": {
+      "title": "EndControl Engenharia — Hero Editorial Clean",
+          "visualDirection": "light hero surface with navy typography and restrained cyan accents",
+          "currentVersion": 3
+        }
+      },
+      "updatedAt": "2026-08-21T01:35:42-03:00"
+    }
+  }
+}

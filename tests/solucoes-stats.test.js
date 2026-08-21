@@ -4,13 +4,15 @@ const path = require('node:path');
 const test = require('node:test');
 
 const html = fs.readFileSync(path.join(__dirname, '..', 'index.html'), 'utf8');
+const solutionsSection = html.match(/<section class="solucoes-section[\s\S]*?<\/section>/)?.[0] || '';
 
-test('shows national coverage and projects in the left statistics block', () => {
-  const stats = html.match(/<div class="solucoes-stats-left">([\s\S]*?)<!--[\s\S]*?COL CENTRAL/);
-
-  assert.ok(stats, 'o bloco de estatísticas da seção de soluções precisa existir');
-  assert.match(stats[0], /100%[\s\S]*?território nacional/);
-  assert.match(stats[0], /\+1\.250[\s\S]*?projetos entregues/);
+test('removes the four indicators from the Soluções section', () => {
+  assert.ok(solutionsSection, 'a seção de soluções precisa existir');
+  assert.doesNotMatch(solutionsSection, /class="solucoes-stats-left"/);
+  assert.doesNotMatch(solutionsSection, /\+18[\s\S]*?de experiência/);
+  assert.doesNotMatch(solutionsSection, /\+300[\s\S]*?especialistas/);
+  assert.doesNotMatch(solutionsSection, /100%[\s\S]*?território nacional/);
+  assert.doesNotMatch(solutionsSection, /\+1\.250[\s\S]*?projetos entregues/);
 });
 
 test('removes the duplicated bottom statistics bar', () => {
@@ -23,5 +25,5 @@ test('keeps the automatic radar advance on a fixed two-second cadence', () => {
 
   assert.match(solucoes, /autoAdvanceInterval:\s*2000/);
   assert.match(solucoes, /autoAdvanceInterval\s*-\s*RADAR_CONFIG\.transitionDuration/);
-  assert.match(html, /src="\.\/src\/js\/solucoes\.js\?v=59\.0"/);
+  assert.match(html, /src="\.\/src\/js\/solucoes\.js\?v=61\.0"/);
 });

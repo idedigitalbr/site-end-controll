@@ -10,7 +10,7 @@
   padding: 108px 0 80px;
   overflow: hidden;
   font-family: var(--font-primary);
-  border-top: 1px solid rgba(104, 161, 175, 0.15);
+  border-top: 1px solid rgba(0, 33, 93, 0.15);
 }
 
 .container-presenca {
@@ -37,7 +37,7 @@
   font-family: var(--font-primary);
   font-size: 0.85rem;
   font-weight: 700;
-  color: var(--color-logo-slate); /* brand slate color from logo */
+  color: #00215D;
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
@@ -53,7 +53,7 @@
 }
 
 .presenca-heading .highlight {
-  color: #0056b3;
+  color: #00215D;
 }
 
 .presenca-paragraph {
@@ -74,10 +74,10 @@
 .stat-mini-card {
   flex: 1;
   background: #ffffff;
-  border: 1px solid rgba(104, 161, 175, 0.15);
+  border: 1px solid rgba(0, 33, 93, 0.15);
   border-radius: 12px;
   padding: 14px 10px;
-  box-shadow: 0 4px 12px rgba(104, 161, 175, 0.02);
+  box-shadow: 0 4px 12px rgba(0, 33, 93, 0.02);
   display: flex;
   flex-direction: column;
   gap: 4px;
@@ -87,14 +87,14 @@
 
 .stat-mini-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(104, 161, 175, 0.06);
-  border-color: rgba(104, 161, 175, 0.35);
+  box-shadow: 0 10px 25px rgba(0, 33, 93, 0.06);
+  border-color: rgba(0, 33, 93, 0.35);
 }
 
 .stat-mini-card .stat-value {
   font-size: 1.6rem;
   font-weight: 800;
-  color: #0056b3;
+  color: #00215D;
   font-family: var(--font-primary);
   line-height: 1;
 }
@@ -165,8 +165,8 @@
   width: 36px; /* Tamanho menor para não poluir o mapa */
   height: 36px;
   border-radius: 50%;
-  border: 1px solid #00d2ff; /* Linha mais fina e discreta */
-  box-shadow: 0 0 4px rgba(0, 210, 255, 0.3); /* Brilho suave */
+  border: 1px solid #00215D;
+  box-shadow: 0 0 4px rgba(0, 33, 93, 0.3);
   opacity: 0;
   transform: scale(0.2);
   pointer-events: none;
@@ -204,8 +204,8 @@
 .map-anchor.active::after,
 .map-anchor:hover::before,
 .map-anchor:hover::after {
-  border-color: #00d2ff;
-  box-shadow: 0 0 6px rgba(0, 210, 255, 0.5);
+  border-color: #00215D;
+  box-shadow: 0 0 6px rgba(0, 33, 93, 0.5);
   animation-duration: 1.8s;
 }
 
@@ -240,7 +240,7 @@
   opacity: 0;
   z-index: 3;
   transition: opacity 0.4s ease;
-  background-image: radial-gradient(circle 110px at var(--spotlight-x, 50%) var(--spotlight-y, 50%), rgba(0, 210, 255, 0.4) 0%, rgba(0, 86, 179, 0.18) 50%, transparent 80%);
+  background-image: radial-gradient(circle 110px at var(--spotlight-x, 50%) var(--spotlight-y, 50%), rgba(0, 33, 93, 0.4) 0%, rgba(0, 33, 93, 0.18) 50%, transparent 80%);
   mix-blend-mode: screen;
 }
 
@@ -261,17 +261,17 @@
 }
 
 .connection-line {
-  stroke: rgba(0, 86, 179, 0.12);
+  stroke: rgba(0, 33, 93, 0.12);
   stroke-width: 1px;
   fill: none;
   transition: stroke 0.4s ease, stroke-width 0.4s ease, filter 0.4s ease;
 }
 
 .connection-line.active {
-  stroke: #0056b3;
+  stroke: #00215D;
   stroke-width: 2.2px;
   fill: none;
-  filter: drop-shadow(0 0 3px rgba(0, 136, 255, 0.7));
+  filter: drop-shadow(0 0 3px rgba(0, 33, 93, 0.7));
 }
 
 /* Coluna dos Cards de Informações */
@@ -285,10 +285,10 @@
 
 .info-card-panel {
   background: #ffffff;
-  border: 1px solid rgba(104, 161, 175, 0.15);
+  border: 1px solid rgba(0, 33, 93, 0.15);
   border-radius: 20px;
   padding: 28px 24px;
-  box-shadow: 0 6px 20px rgba(104, 161, 175, 0.03);
+  box-shadow: 0 6px 20px rgba(0, 33, 93, 0.03);
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -296,15 +296,15 @@
 }
 
 .info-card-panel:hover {
-  box-shadow: 0 14px 40px rgba(104, 161, 175, 0.06);
-  border-color: rgba(104, 161, 175, 0.3);
+  box-shadow: 0 14px 40px rgba(0, 33, 93, 0.06);
+  border-color: rgba(0, 33, 93, 0.3);
 }
 
 .panel-card-title {
   font-family: var(--font-primary);
   font-size: 0.82rem;
   font-weight: 800;
-  color: var(--color-logo-slate);
+  color: #00215D;
   letter-spacing: 0.1em;
   margin: 0;
   text-transform: uppercase;
@@ -334,14 +334,14 @@
 }
 
 .panel-card-list li:hover {
-  background: rgba(0, 86, 179, 0.03);
+  background: rgba(0, 33, 93, 0.03);
   transform: translateX(4px);
 }
 
 .panel-card-list li.active {
-  background: rgba(0, 86, 179, 0.06);
-  border-color: rgba(0, 86, 179, 0.15);
-  box-shadow: 0 4px 15px rgba(0, 86, 179, 0.08), 0 0 10px rgba(0, 136, 255, 0.15);
+  background: rgba(0, 33, 93, 0.06);
+  border-color: rgba(0, 33, 93, 0.15);
+  box-shadow: 0 4px 15px rgba(0, 33, 93, 0.08), 0 0 10px rgba(0, 33, 93, 0.15);
   transform: translateX(4px);
 }
 
@@ -355,7 +355,7 @@
 }
 
 .panel-card-list li.active strong {
-  color: #0056b3;
+  color: #00215D;
 }
 
 .panel-card-list li span {
@@ -368,7 +368,7 @@
 .region-marker {
   width: 14px;
   height: 14px;
-  border: 1.5px solid #0056b3;
+  border: 1.5px solid #00215D;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -384,7 +384,7 @@
   content: "";
   width: 6px;
   height: 6px;
-  background-color: #0056b3;
+  background-color: #00215D;
   border-radius: 50%;
   transition: all 0.25s ease;
 }
@@ -412,7 +412,7 @@
 .sector-icon-svg {
   width: 22px;
   height: 22px;
-  stroke: #0056b3;
+  stroke: #00215D;
   stroke-width: 1.8;
   flex-shrink: 0;
 }
@@ -690,20 +690,20 @@
 /* Setas Minimalistas Acima e Abaixo da Lista (Fora do Viewport, Sem Sobreposição) */
 .sectors-arrow-btn {
   background: #edf4ff;
-  border: 1px solid rgba(0, 86, 179, 0.18);
+  border: 1px solid rgba(0, 33, 93, 0.18);
   border-radius: 6px;
   width: 32px;
   height: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #0056b3;
+  color: #00215D;
   cursor: pointer;
   padding: 0;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.25s ease, background 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
-  box-shadow: 0 2px 6px rgba(0, 86, 179, 0.08);
+  box-shadow: 0 2px 6px rgba(0, 33, 93, 0.08);
   flex-shrink: 0;
 }
 
@@ -714,9 +714,9 @@
 }
 
 .sectors-arrow-btn:hover {
-  background: #0056b3;
+  background: #00215D;
   color: #ffffff;
-  border-color: #0056b3;
+  border-color: #00215D;
 }
 
 .sectors-arrow-btn--top:hover {
@@ -767,13 +767,13 @@
 }
 
 .sectors-marquee-track li:hover {
-  background: rgba(0, 86, 179, 0.06);
-  color: #0056b3;
+  background: rgba(0, 33, 93, 0.06);
+  color: #00215D;
   transform: translateX(4px);
 }
 
 .sector-bullet-dash {
-  color: #0056b3;
+  color: #00215D;
   font-weight: 800;
   font-size: 0.95rem;
   line-height: 1;

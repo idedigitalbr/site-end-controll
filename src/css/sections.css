@@ -38,7 +38,7 @@ body {
   margin-top: -48px !important;
   margin-bottom: -48px !important;
   border-radius: 28px !important;
-  box-shadow: 0 24px 60px rgba(7, 20, 41, 0.16) !important;
+  box-shadow: 0 12px 30px rgba(7, 20, 41, 0.10) !important;
 }
 
 #segmentos-secao + #oportunidades {
@@ -149,6 +149,13 @@ body {
   width: 100% !important;
   max-width: 100% !important;
   z-index: 3 !important;
+}
+.testimonials-section-premium[hidden] {
+  display: none !important;
+}
+
+.oportunidades-section[hidden] {
+  display: none !important;
 }
 @media (min-width: 768px) {
   .testimonials-section-premium {
@@ -1305,11 +1312,16 @@ p {
 }
 
 .faq-v2-eyebrow {
-  display: block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.14em;
-  color: #0062e3;
+  color: #ffffff;
+  background: #00215D;
+  border-radius: 999px;
+  padding: 8px 16px;
   text-transform: uppercase;
   margin-bottom: 12px;
 }
@@ -1323,7 +1335,7 @@ p {
 }
 
 .faq-v2-highlight {
-  color: #0062e3;
+  color: #00215D;
 }
 
 /* Grid de 2 colunas */
@@ -1335,16 +1347,16 @@ p {
 
 .faq-v2-item {
   background: #ffffff;
-  border: 1px solid rgba(0, 98, 227, 0.08);
+  border: 1px solid rgba(0, 33, 93, 0.08);
   border-radius: 14px;
   overflow: hidden;
-  box-shadow: 0 2px 12px rgba(0, 98, 227, 0.04);
+  box-shadow: 0 2px 12px rgba(0, 33, 93, 0.04);
   transition: box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
 .faq-v2-item:hover {
-  box-shadow: 0 6px 24px rgba(0, 98, 227, 0.10);
-  border-color: rgba(0, 98, 227, 0.2);
+  box-shadow: 0 6px 24px rgba(0, 33, 93, 0.10);
+  border-color: rgba(0, 33, 93, 0.2);
 }
 
 .faq-v2-question {
@@ -1365,7 +1377,7 @@ p {
 }
 
 .faq-v2-question:hover {
-  color: #0062e3;
+  color: #00215D;
 }
 
 .faq-v2-question::after {
@@ -1378,17 +1390,17 @@ p {
   justify-content: center;
   font-size: 1.3rem;
   font-weight: 300;
-  color: #0062e3;
+  color: #00215D;
   transition: transform 0.25s ease;
   line-height: 1;
 }
 
 .faq-v2-item.active {
-  border-color: rgba(0, 98, 227, 0.3);
+  border-color: rgba(0, 33, 93, 0.3);
 }
 
 .faq-v2-item.active .faq-v2-question {
-  color: #0062e3;
+  color: #00215D;
 }
 
 .faq-v2-item.active .faq-v2-question::after {
@@ -1407,7 +1419,7 @@ p {
   font-size: 0.88rem;
   line-height: 1.65;
   color: #6b7280;
-  border-top: 1px solid rgba(0, 98, 227, 0.07);
+  border-top: 1px solid rgba(0, 33, 93, 0.07);
   padding-top: 14px;
 }
 
@@ -2297,7 +2309,10 @@ textarea.form-control {
   font-size: 0.82rem;
   font-weight: 700;
   letter-spacing: 0.12em;
-  color: #00215D;
+  color: #ffffff;
+  background: #00215D;
+  border-radius: 999px;
+  padding: 8px 16px;
   text-transform: uppercase;
   margin-bottom: 16px;
   position: relative;
@@ -2307,10 +2322,9 @@ textarea.form-control {
 
 .about-eyebrow::after {
   content: '';
-  display: inline-block;
-  width: 40px;
-  height: 1.5px;
-  background: #00215D;
+  display: none;
+  width: 0;
+  height: 0;
   margin-left: 12px;
   opacity: 1;
 }
@@ -2368,37 +2382,19 @@ textarea.form-control {
   gap: 12px;
   min-height: 46px;
   height: 46px;
-  padding: 0 8px 0 20px;
+  padding: 0 20px;
   border-radius: 12px;
-  border: 1.5px solid var(--blue-primary);
+  border: 1.5px solid #00215D;
   font-family: var(--font-primary), sans-serif;
   font-weight: 700;
   font-size: 15px;
-  color: var(--blue-primary);
+  color: #00215D;
   background: var(--bg-white);
   text-decoration: none;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
   box-shadow: 0 4px 14px rgba(0, 91, 255, 0.06);
   position: relative;
-}
-
-.btn-about-icon-circle {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background: rgba(0, 91, 255, 0.08);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--blue-primary);
-  order: -1;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.btn-about-icon-circle svg {
-  width: 12px;
-  height: 12px;
 }
 
 .btn-about-text {
@@ -2408,23 +2404,17 @@ textarea.form-control {
 }
 
 .btn-about-arrow-right {
-  color: var(--blue-primary);
-  margin-right: 8px;
+  color: #00215D;
+  margin-right: 0;
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .btn-about-outline-premium:hover {
   color: #ffffff;
-  background: var(--blue-primary);
-  border-color: var(--blue-primary);
+  background: #00215D;
+  border-color: #00215D;
   transform: translateY(-2px) !important;
   box-shadow: 0 6px 20px rgba(0, 91, 255, 0.18), 0 0 12px rgba(0, 213, 255, 0.12);
-}
-
-.btn-about-outline-premium:hover .btn-about-icon-circle {
-  background: rgba(255, 255, 255, 0.2);
-  color: #ffffff;
-  transform: rotate(360deg);
 }
 
 .btn-about-outline-premium:hover .btn-about-arrow-right {
@@ -2592,9 +2582,9 @@ textarea.form-control {
   background: rgba(255, 255, 255, 0.78);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(105, 156, 168, 0.2);
+  border: 1px solid rgba(0, 33, 93, 0.14);
   border-radius: 20px;
-  box-shadow: 0 15px 35px rgba(0, 91, 255, 0.03), 0 4px 12px rgba(7, 21, 47, 0.02);
+  box-shadow: 0 15px 35px rgba(0, 33, 93, 0.05), 0 4px 12px rgba(7, 21, 47, 0.03);
   padding: 20px 10px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -2623,7 +2613,7 @@ textarea.form-control {
   top: 25%;
   height: 50%;
   width: 1px;
-  background: linear-gradient(to bottom, transparent, rgba(105, 156, 168, 0.25), transparent);
+  background: linear-gradient(to bottom, transparent, rgba(0, 33, 93, 0.25), transparent);
 }
 
 .about-value-icon-wrapper {
@@ -2641,7 +2631,7 @@ textarea.form-control {
   width: 38px;
   height: 38px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(0, 213, 255, 0.35) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(0, 33, 93, 0.24) 0%, transparent 70%);
   filter: blur(6px);
   z-index: 1;
   opacity: 0.6;
@@ -2654,21 +2644,27 @@ textarea.form-control {
   height: 48px;
   border-radius: 50%;
   background: var(--bg-white);
-  border: 1.5px solid rgba(0, 91, 255, 0.14);
-  color: var(--blue-primary);
+  border: 1.5px solid #00215D;
+  color: #00215D;
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 2;
-  box-shadow: 0 4px 10px rgba(0, 91, 255, 0.04);
+  box-shadow: 0 4px 10px rgba(0, 33, 93, 0.1);
   transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
+.about-value-icon-circle svg {
+  width: 22px;
+  height: 22px;
+  stroke-width: 2.2;
+}
+
 .about-value-item:hover .about-value-icon-circle {
-  background: var(--blue-primary);
+  background: #00215D;
   color: var(--bg-white);
-  border-color: var(--blue-primary);
-  box-shadow: 0 8px 18px rgba(0, 91, 255, 0.25);
+  border-color: #00215D;
+  box-shadow: 0 8px 18px rgba(0, 33, 93, 0.3);
 }
 
 .about-value-item:hover .about-value-icon-glow {
@@ -2740,7 +2736,7 @@ textarea.form-control {
   }
   
   .about-value-item:not(:last-child) {
-    border-bottom: 1px solid rgba(0, 91, 255, 0.06);
+    border-bottom: 1px solid rgba(0, 33, 93, 0.12);
   }
   
   .about-value-item::after {
@@ -3623,8 +3619,7 @@ textarea.form-control {
   border-radius: 50%;
   pointer-events: none;
   z-index: 1;
-  filter: blur(50px);
-  opacity: 0.85;
+  display: none;
 }
 
 .oportunidades-bg-glow.glow-tr {
@@ -3656,7 +3651,7 @@ textarea.form-control {
   background-size: 24px 24px, 120px 120px, 120px 120px;
   pointer-events: none;
   z-index: 1;
-  opacity: 0.95;
+  opacity: 0.38;
 }
 
 /* Radar Decorativo (Anexo 2) */
@@ -3664,6 +3659,7 @@ textarea.form-control {
   position: absolute;
   pointer-events: none;
   z-index: 1;
+  opacity: 0.42;
 }
 
 .oportunidades-decor-radar.radar-top-right {
@@ -3699,7 +3695,7 @@ textarea.form-control {
     transparent 80deg,
     transparent 360deg
   );
-  animation: radarBeamRotate 14s linear infinite;
+  display: none;
   mask-image: radial-gradient(circle, #000 62%, transparent 70%);
   -webkit-mask-image: radial-gradient(circle, #000 62%, transparent 70%);
 }
@@ -3723,8 +3719,8 @@ textarea.form-control {
   width: 5px;
   height: 5px;
   border-radius: 50%;
-  background: #00abe3;
-  box-shadow: 0 0 8px rgba(0, 171, 227, 0.85);
+  background: rgba(0, 171, 227, 0.72);
+  box-shadow: none;
 }
 
 .line-h-tr {
@@ -3785,7 +3781,7 @@ textarea.form-control {
   background: linear-gradient(90deg, transparent 0%, rgba(0, 171, 227, 0.32) 50%, transparent 100%);
   pointer-events: none;
   z-index: 1;
-  animation: oportunidadesScan 12s ease-in-out infinite;
+  display: none;
 }
 
 @keyframes oportunidadesScan {
@@ -3798,7 +3794,7 @@ textarea.form-control {
   position: absolute;
   pointer-events: none;
   z-index: 1;
-  opacity: 0.85;
+  opacity: 0.38;
 }
 
 .grid-top-center {
@@ -3818,7 +3814,7 @@ textarea.form-control {
   height: 22px;
   pointer-events: none;
   z-index: 1;
-  border-color: rgba(0, 171, 227, 0.65);
+  border-color: rgba(0, 171, 227, 0.38);
   border-style: solid;
 }
 
@@ -3872,20 +3868,15 @@ textarea.form-control {
   overflow: hidden;
   min-height: 320px;
   background: #071429;
-  border: 1.5px solid #67a8b8;
-  box-shadow: 
-    0 14px 40px rgba(7, 20, 41, 0.18),
-    inset 0 0 12px rgba(103, 168, 184, 0.15);
+  border: 1px solid rgba(103, 168, 184, 0.78);
+  box-shadow: 0 10px 24px rgba(7, 20, 41, 0.14);
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease, box-shadow 0.4s ease;
 }
 
 .oportunidades-card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-3px);
   border-color: #0056b3;
-  box-shadow: 
-    0 0 25px rgba(7, 20, 41, 0.35),
-    inset 0 0 15px rgba(103, 168, 184, 0.25),
-    0 20px 45px rgba(7, 20, 41, 0.25);
+  box-shadow: 0 14px 28px rgba(7, 20, 41, 0.18);
 }
 
 /* Photo background */
@@ -3900,7 +3891,7 @@ textarea.form-control {
 }
 
 .oportunidades-card:hover .oportunidades-card-img {
-  transform: scale(1.03);
+  transform: scale(1.01);
 }
 
 /* Horizontal dark gradient overlay */
@@ -3910,10 +3901,10 @@ textarea.form-control {
   z-index: 1;
   background: linear-gradient(
     to right,
-    rgba(7, 20, 41, 0.98) 0%,
-    rgba(7, 20, 41, 0.94) 35%,
-    rgba(7, 20, 41, 0.82) 60%,
-    rgba(7, 20, 41, 0.35) 82%,
+    rgba(7, 20, 41, 0.92) 0%,
+    rgba(7, 20, 41, 0.86) 35%,
+    rgba(7, 20, 41, 0.68) 60%,
+    rgba(7, 20, 41, 0.30) 82%,
     rgba(7, 20, 41, 0.12) 100%
   );
   pointer-events: none;
@@ -3947,15 +3938,13 @@ textarea.form-control {
   width: 56px;
   height: 56px;
   border-radius: 50%;
-  background: rgba(6, 18, 38, 0.9);
-  border: 1.5px solid rgba(0, 194, 255, 0.45);
+  background: rgba(6, 18, 38, 0.76);
+  border: 1px solid rgba(0, 194, 255, 0.38);
   color: #00c2ff;
   flex-shrink: 0;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  box-shadow: 
-    0 4px 18px rgba(0, 0, 0, 0.45),
-    inset 0 0 10px rgba(0, 194, 255, 0.08);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.22);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -3963,23 +3952,20 @@ textarea.form-control {
   width: 26px;
   height: 26px;
   stroke: #00c2ff;
-  filter: drop-shadow(0 0 4px rgba(0, 194, 255, 0.4));
+  filter: none;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .oportunidades-card:hover .oportunidades-card-icon-wrapper {
-  transform: scale(1.08);
-  background: rgba(0, 156, 255, 0.18);
-  border-color: #00c2ff;
-  box-shadow: 
-    0 0 28px rgba(0, 194, 255, 0.75), 
-    0 0 12px rgba(0, 194, 255, 0.45),
-    inset 0 0 14px rgba(0, 194, 255, 0.25);
+  transform: scale(1.03);
+  background: rgba(0, 33, 93, 0.32);
+  border-color: rgba(0, 194, 255, 0.72);
+  box-shadow: 0 6px 16px rgba(0, 33, 93, 0.20);
 }
 
 .oportunidades-card:hover .oportunidades-card-icon-wrapper svg {
   stroke: #00c2ff;
-  filter: drop-shadow(0 0 8px rgba(0, 194, 255, 0.9));
+  filter: none;
 }
 
 /* Card Title */
@@ -3991,11 +3977,11 @@ textarea.form-control {
   letter-spacing: -0.02em;
   color: #fff;
   margin: 0;
-  transition: text-shadow 0.3s ease;
+  transition: color 0.3s ease;
 }
 
 .oportunidades-card:hover .oportunidades-card-title {
-  text-shadow: 0 0 12px rgba(0, 171, 227, 0.6); /* Modern neon glow effect on title */
+  text-shadow: none;
 }
 
 /* Card description */
@@ -4029,9 +4015,9 @@ textarea.form-control {
 .oportunidades-card-checklist li svg.check-icon {
   width: 20px;
   height: 20px;
-  stroke: #00abe3; /* Neon cyan checkmark */
+  stroke: #00abe3;
   flex-shrink: 0;
-  filter: drop-shadow(0 0 6px rgba(0, 171, 227, 0.7)); /* Intense neon glowing checkmark */
+  filter: none;
 }
 
 /* CTA Buttons */
@@ -4049,11 +4035,9 @@ textarea.form-control {
   margin-top: auto; /* Push to the bottom */
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   color: #fff;
-  background: rgba(0, 98, 227, 0.05);
-  border: 1.5px solid #005ae0; /* Neon blue border */
-  box-shadow: 
-    0 0 10px rgba(0, 98, 227, 0.2),
-    inset 0 0 8px rgba(0, 98, 227, 0.1);
+  background: rgba(0, 98, 227, 0.04);
+  border: 1px solid rgba(0, 90, 224, 0.78);
+  box-shadow: 0 2px 8px rgba(0, 33, 93, 0.14);
 }
 
 .oportunidades-card-btn svg {
@@ -4063,11 +4047,9 @@ textarea.form-control {
 }
 
 .oportunidades-card-btn:hover {
-  background: rgba(0, 171, 227, 0.15); /* Sleek translucent neon cyan background */
-  border-color: #00abe3; /* Vibrant neon cyan outline */
-  box-shadow: 
-    0 0 25px rgba(0, 171, 227, 0.65),
-    inset 0 0 12px rgba(0, 171, 227, 0.3);
+  background: rgba(0, 171, 227, 0.12);
+  border-color: #00abe3;
+  box-shadow: 0 4px 12px rgba(0, 33, 93, 0.18);
   color: #ffffff;
 }
 

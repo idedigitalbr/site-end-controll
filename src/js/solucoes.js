@@ -220,6 +220,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     return {
       ...sourceService,
+      iconName: ['shield', 'landmark', 'scan-line', 'flame', 'clipboard-list', 'share-2', 'file-text', 'gauge', 'crosshair', 'award', 'message-square', 'settings'][stepIndex],
       id: stepIndex,
       title: `${stepIndex + 1}. ${title}`,
       shortTitle: `${stepIndex + 1}. ${shortTitle}`,
@@ -252,6 +253,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const cardCta = document.getElementById('cardCta');
   const highlightCard = document.getElementById('highlightCard');
   const cardProgress = document.getElementById('cardProgress');
+  const solutionsMainContent = document.querySelector('.solucoes-main-content');
+  const radarCardConnector = document.getElementById('radarCardConnector');
+  const radarCardConnectorPath = document.getElementById('radarCardConnectorPath');
   const radarNodesLayer = document.getElementById('radarNodesLayer');
   const radarConnectionsLayer = document.getElementById('radarConnectionsLayer');
   const orbitalDiagram = document.getElementById('orbitalDiagram');
@@ -269,8 +273,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   servicesData.forEach((s, index) => {
     const nodeEl = document.createElement('div');
-    // Outer radius 49.5%, Inner radius 30.5% (Wide icon separation & 19% ring-to-ring gap)
-    const ringRadiusPercent = s.ringIndex === 0 ? 49.5 : 30.5;
+    // Compact radar geometry: smaller rings keep the card and diagram balanced.
+    const ringRadiusPercent = s.ringIndex === 0 ? 45 : 26;
     const angleRad = (s.angle * Math.PI) / 180;
     const leftPercent = 50 + ringRadiusPercent * Math.cos(angleRad);
     const topPercent = 50 + ringRadiusPercent * Math.sin(angleRad);
@@ -283,6 +287,11 @@ document.addEventListener('DOMContentLoaded', () => {
     nodeEl.dataset.step = String(index + 1);
     nodeEl.dataset.angle = String(s.angle);
     nodeEl.dataset.ring = s.ring;
+    nodeEl.dataset.tooltip = s.title;
+    nodeEl.title = s.title;
+    nodeEl.setAttribute('role', 'button');
+    nodeEl.setAttribute('tabindex', '0');
+    nodeEl.setAttribute('aria-label', s.title);
     nodeEl.style.left = `${leftPercent}%`;
     nodeEl.style.top = `${topPercent}%`;
 
@@ -290,7 +299,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     nodeEl.innerHTML = `
       <div class="service-node-icon">
-        ${s.iconSvg}
+        <i class="service-node-lucide" data-lucide="${s.iconName}" aria-hidden="true"></i>
       </div>
       <span class="service-node-label">${labelLines}</span>
     `;
@@ -299,6 +308,47 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   const serviceNodes = document.querySelectorAll('.service-node');
+
+  function updateRadarCardConnector(index = selectedIndex) {
+    if (!radarCardConnector || !radarCardConnectorPath || !solutionsMainContent) return;
+
+    if (window.innerWidth < 992) {
+      radarCardConnector.classList.remove('is-visible');
+      return;
+    }
+
+    const outerCircle = orbitalDiagram.querySelector('.radar-circle-outer');
+    const card = document.getElementById('highlightCard');
+    if (!outerCircle || !card || !servicesData[index]) {
+      radarCardConnector.classList.remove('is-visible');
+      return;
+    }
+
+    const containerRect = solutionsMainContent.getBoundingClientRect();
+    const circleRect = outerCircle.getBoundingClientRect();
+    const cardRect = card.getBoundingClientRect();
+    const circleCenterX = circleRect.left + circleRect.width / 2;
+    const circleCenterY = circleRect.top + circleRect.height / 2;
+    const circleRadius = Math.min(circleRect.width, circleRect.height) / 2;
+    const angleRad = (servicesData[index].angle * Math.PI) / 180;
+    const circlePointX = circleCenterX + circleRadius * Math.cos(angleRad);
+    const circlePointY = circleCenterY + circleRadius * Math.sin(angleRad);
+    const cardIsRight = cardRect.left >= circlePointX;
+    const startX = circlePointX - containerRect.left;
+    const endX = (cardIsRight ? cardRect.left : cardRect.right) - containerRect.left;
+    const startY = circlePointY - containerRect.top;
+    const endY = cardRect.top + cardRect.height / 2 - containerRect.top;
+    const width = Math.max(containerRect.width, 1);
+    const height = Math.max(containerRect.height, 1);
+
+    radarCardConnector.setAttribute('viewBox', `0 0 ${width} ${height}`);
+    radarCardConnectorPath.setAttribute(
+      'd',
+      `M ${startX.toFixed(2)} ${startY.toFixed(2)} L ${endX.toFixed(2)} ${endY.toFixed(2)}`
+    );
+
+    radarCardConnector.classList.toggle('is-visible', endX > startX + 8);
+  }
 
   const labelPlacementClasses = [
     'label-pos-left',
@@ -326,7 +376,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let measuredAngles = servicesData.map(service => RadarProgress.normalizeAngle(service.angle + 90));
   let measuredRadii = servicesData.map(service => {
     if (service.angle === -90 && service.ringIndex === 0) return 146;
-    return service.ringIndex === 0 ? 208.5 : 125;
+    return service.ringIndex === 0 ? 190 : 110;
   });
 
   function measureRadarMetrics() {
@@ -339,7 +389,7 @@ document.addEventListener('DOMContentLoaded', () => {
       y: (centerRect.top && centerRect.bottom) ? (centerRect.top + centerRect.height / 2) : (diagramRect.top + height / 2)
     };
     const centerLogoRadius = Math.max(centerRect.width || 140, centerRect.height || 140) / 2;
-    const maxRadius = Math.min(width, height) * 0.495;
+    const maxRadius = Math.min(width, height) * 0.45;
 
     measuredAngles = [];
     measuredRadii = [];
@@ -368,7 +418,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // The beam must NEVER cross or pass behind the label / title
       const service = servicesData[index];
       if (service.angle === -90 && service.ringIndex === 0) {
-        const theoreticalMax = Math.min(width, height) * 0.295;
+        const theoreticalMax = Math.min(width, height) * 0.28;
         if (!safeRadius || safeRadius > theoreticalMax || !Number.isFinite(safeRadius)) {
           safeRadius = theoreticalMax;
         }
@@ -391,7 +441,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function polarPoint(service) {
-    const radiusPercent = service.ringIndex === 0 ? 49.5 : 30.5;
+    const radiusPercent = service.ringIndex === 0 ? 45 : 26;
     const radius = radiusPercent * 5;
     const angleRad = (service.angle * Math.PI) / 180;
 
@@ -521,6 +571,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Default active index = 0 ("1. Engenharia de Integridade Estrutural")
   let activeIndex = 0;
+  let selectedIndex = activeIndex;
   let cycleTimer = null;
   let resumeTimer = null;
   let approachTimer = null;
@@ -536,9 +587,9 @@ document.addEventListener('DOMContentLoaded', () => {
   let isHovered = false;
   let manualPauseUntil = 0;
 
-  function updateRadarStates() {
-    const progressState = RadarProgress.getProgressState(servicesData, activeIndex);
-    orbitalDiagram.dataset.currentStep = String(activeIndex + 1);
+  function updateRadarStates(displayIndex = activeIndex) {
+    const progressState = RadarProgress.getProgressState(servicesData, displayIndex);
+    orbitalDiagram.dataset.currentStep = String(displayIndex + 1);
 
     serviceNodes.forEach((node, index) => {
       const state = progressState.nodes[index].state;
@@ -550,15 +601,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (state === 'active') {
         node.setAttribute('aria-current', 'true');
+        node.setAttribute('aria-pressed', 'true');
       } else {
         node.removeAttribute('aria-current');
+        node.setAttribute('aria-pressed', 'false');
       }
     });
 
     connectionElements.forEach((connection, index) => {
       const state = RadarProgress.getConnectionVisualState(
         progressState.connections[index],
-        activeIndex
+        displayIndex
       );
       connection.path.classList.toggle('is-completed', state === 'completed');
       connection.path.classList.toggle('is-current', state === 'current');
@@ -588,6 +641,7 @@ document.addEventListener('DOMContentLoaded', () => {
         cardList.innerHTML = data.topics.map(t => `<li>${checkSvg} ${t}</li>`).join('');
         cardCta.innerHTML = `${data.ctaText} ${arrowSvg}`;
         cardCta.href = data.url || '1-solucao-engenharia-de-integridade-estrutural.html';
+        window.requestAnimationFrame(() => updateRadarCardConnector(index));
         const onReady = () => {
           cardImage.style.opacity = '1';
           setTimeout(() => {
@@ -606,7 +660,21 @@ document.addEventListener('DOMContentLoaded', () => {
       cardList.innerHTML = data.topics.map(t => `<li>${checkSvg} ${t}</li>`).join('');
       cardCta.innerHTML = `${data.ctaText} ${arrowSvg}`;
       cardCta.href = data.url || '1-solucao-engenharia-de-integridade-estrutural.html';
+      window.requestAnimationFrame(() => updateRadarCardConnector(index));
     }
+  }
+
+  function previewService(index) {
+    if (!Number.isInteger(index) || index < 0 || index >= servicesData.length) return;
+
+    selectedIndex = index;
+    serviceNodes.forEach((node, nodeIndex) => {
+      node.classList.toggle('is-selected', nodeIndex === index);
+    });
+    updateRadarStates(index);
+    updatePagination(index);
+    updateCard(index, true);
+    window.requestAnimationFrame(() => updateRadarCardConnector(index));
   }
 
   function clearTransientNodeStates() {
@@ -652,6 +720,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function commitService(index) {
     activeIndex = index;
+    selectedIndex = index;
     sweepTargetIndex = null;
     clearTimeout(approachTimer);
     clearTransientNodeStates();
@@ -661,6 +730,7 @@ document.addEventListener('DOMContentLoaded', () => {
     updateRadarStates();
     updatePagination(activeIndex);
     updateCard(activeIndex, true);
+    window.requestAnimationFrame(() => updateRadarCardConnector(activeIndex));
 
     if (autoPlayEnabled && !isHovered && performance.now() >= manualPauseUntil && !reducedMotionQuery.matches) {
       scheduleNextSweep();
@@ -724,19 +794,21 @@ document.addEventListener('DOMContentLoaded', () => {
     };
   }
 
-  function goToService(index) {
-    moveSweepTo(index);
+  function goToService(index, direction = 'nearest') {
+    if (!Number.isInteger(index) || index < 0 || index >= servicesData.length) return;
+    previewService(index);
+    moveSweepTo(index, direction);
   }
 
   const prevService = () => {
     const nextIdx = (activeIndex - 1 + servicesData.length) % servicesData.length;
-    moveSweepTo(nextIdx, 'backward');
+    goToService(nextIdx, 'backward');
     handleManualInteraction();
   };
 
   const nextService = () => {
     const nextIdx = (activeIndex + 1) % servicesData.length;
-    moveSweepTo(nextIdx, 'forward');
+    goToService(nextIdx, 'forward');
     handleManualInteraction();
   };
 
@@ -845,6 +917,12 @@ document.addEventListener('DOMContentLoaded', () => {
       goToService(parseInt(node.dataset.index, 10));
       handleManualInteraction();
     });
+    node.addEventListener('keydown', event => {
+      if (event.key !== 'Enter' && event.key !== ' ') return;
+      event.preventDefault();
+      goToService(parseInt(node.dataset.index, 10));
+      handleManualInteraction();
+    });
     node.addEventListener('mouseenter', handleHoverEnter);
     node.addEventListener('mouseleave', handleHoverLeave);
   });
@@ -866,6 +944,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (measuredRadii[activeIndex] > 0) {
       setSweepRadius(measuredRadii[activeIndex]);
     }
+    updateRadarCardConnector(selectedIndex);
 
     if (wasAutoPlaying && !isHovered && performance.now() >= manualPauseUntil && !reducedMotionQuery.matches) {
       autoPlayEnabled = true;
@@ -898,6 +977,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (measuredRadii[activeIndex] > 0) {
         setSweepRadius(measuredRadii[activeIndex]);
       }
+      updateRadarCardConnector(selectedIndex);
       return;
     }
     startAutoPlay();
@@ -912,6 +992,8 @@ document.addEventListener('DOMContentLoaded', () => {
   updateRadarStates();
   updatePagination(activeIndex);
   updateCard(activeIndex, false);
+  serviceNodes[activeIndex]?.classList.add('is-selected');
+  window.requestAnimationFrame(() => updateRadarCardConnector(activeIndex));
   startAutoPlay();
 
   window.RadarSweepController = Object.freeze({

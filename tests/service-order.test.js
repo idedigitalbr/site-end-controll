@@ -8,18 +8,18 @@ const solutionsScript = fs.readFileSync(path.join(root, 'src/js/solucoes.js'), '
 const indexHtml = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
 
 const approvedTitles = [
-  '1. Engenharia de Integridade Estrutural',
-  '2. Inspeção em Obras de Artes Especiais',
-  '3. Ensaios Não Destrutivos (ENDs)',
-  '4. Engenharia de Soldagem',
-  '5. Gerenciamento de Projetos',
-  '6. Elaboração de Projetos Mecânicos',
-  '7. Soluções Tecnológicas Integradas',
-  '8. Inspeção e Adequação Normativa',
-  '9. Calibração de Instrumentos',
-  '10. Trepanação (Hot Tapping)',
-  '11. Certificação de Matéria-Prima',
-  '12. Consultoria e Assessoria Técnica'
+  'Engenharia de Integridade Estrutural',
+  'Inspeção em Obras de Artes Especiais',
+  'Ensaios Não Destrutivos (ENDs)',
+  'Engenharia de Soldagem',
+  'Gerenciamento de Projetos',
+  'Elaboração de Projetos Mecânicos',
+  'Soluções Tecnológicas Integradas',
+  'Inspeção e Adequação Normativa',
+  'Calibração de Instrumentos',
+  'Trepanação (Hot Tapping)',
+  'Certificação de Matéria-Prima',
+  'Consultoria e Assessoria Técnica'
 ];
 
 test('keeps the approved service order in the radar data', () => {
@@ -48,8 +48,8 @@ test('renders Projetos as an unnumbered menu group for services 5 and 6', () => 
 
   assert.ok(trigger, 'Projetos precisa ter um gatilho expansível');
   assert.doesNotMatch(trigger[0], /data-service-id="\d+"/);
-  assert.match(projectsGroup[0], /data-service-id="4"[\s\S]*?5\. Gerenciamento de Projetos/);
-  assert.match(projectsGroup[0], /data-service-id="5"[\s\S]*?6\. Elaboração de Projetos Mecânicos/);
+  assert.match(projectsGroup[0], /data-service-id="4"[\s\S]*?Gerenciamento de Projetos/);
+  assert.match(projectsGroup[0], /data-service-id="5"[\s\S]*?Elaboração de Projetos Mecânicos/);
 });
 
 test('keeps the approved order in the visible menu', () => {
