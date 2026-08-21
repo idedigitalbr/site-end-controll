@@ -558,9 +558,11 @@ document.addEventListener('DOMContentLoaded', () => {
   // Build card progress dots
   cardProgress.innerHTML = '';
   servicesData.forEach((_, i) => {
-    const dot = document.createElement('div');
+    const dot = document.createElement('button');
     dot.className = 'card-progress-dot';
     dot.dataset.index = i;
+    dot.setAttribute('type', 'button');
+    dot.setAttribute('aria-label', `Selecionar solução ${i + 1}`);
     dot.addEventListener('click', () => { goToService(i); handleManualInteraction(); });
     cardProgress.appendChild(dot);
   });
@@ -622,7 +624,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function updatePagination(index) {
     progressDots.forEach((d, i) => {
-      d.classList.toggle('active', i === index);
+      const isCurrent = i === index;
+      d.classList.toggle('active', isCurrent);
+      if (isCurrent) {
+        d.setAttribute('aria-current', 'true');
+      } else {
+        d.removeAttribute('aria-current');
+      }
     });
   }
 

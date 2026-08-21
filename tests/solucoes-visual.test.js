@@ -71,6 +71,24 @@ test('centers the radar-card composition and renders a connector for the selecte
   assert.match(solutionsScript, /radarCardConnectorPath\.setAttribute\(\s*'d',\s*`M[\s\S]*?L \$\{/);
 });
 
+test('prioritizes the radar over the solution card on desktop', () => {
+  assert.match(styles, /@media \(min-width: 1441px\)\s*\{[\s\S]*?grid-template-columns:\s*minmax\(0,\s*860px\)\s+300px[\s\S]*?gap:\s*32px[\s\S]*?\}/i);
+  assert.match(styles, /@media \(min-width: 1441px\)\s*\{[\s\S]*?\.solucoes-center-area\s*\{[\s\S]*?max-width:\s*min\(860px,\s*82vh\)[\s\S]*?\}/i);
+  assert.match(styles, /@media \(min-width: 1441px\)\s*\{[\s\S]*?\.highlight-card(?:-wrapper)?\s*\{[\s\S]*?max-width:\s*300px[\s\S]*?\}/i);
+  assert.match(styles, /@media \(min-width: 1201px\) and \(max-width: 1440px\)\s*\{[\s\S]*?grid-template-columns:\s*minmax\(0,\s*740px\)\s+280px[\s\S]*?\}/i);
+});
+
+test('torna a navegação do card acessível por teclado e leitura assistiva', () => {
+  assert.match(home, /<button type="button" class="card-side-arrow prev" id="cardSidePrev" aria-label="Solução anterior"/i);
+  assert.match(home, /<button type="button" class="card-side-arrow next" id="cardSideNext" aria-label="Próxima solução"/i);
+  assert.match(home, /<div class="highlight-card-body" id="cardBody" role="region" aria-live="polite"/i);
+  assert.match(solutionsScript, /createElement\('button'\)/i);
+  assert.match(solutionsScript, /setAttribute\('type',\s*'button'\)/i);
+  assert.match(solutionsScript, /setAttribute\('aria-label',\s*`Selecionar solução \$\{i \+ 1\}`\)/i);
+  assert.match(solutionsScript, /setAttribute\('aria-current',\s*'true'\)/i);
+  assert.match(styles, /\.card-progress-dot:focus-visible\s*\{[\s\S]*?outline:/i);
+});
+
 test('previews the selected service immediately and keeps its tooltip visible', () => {
   assert.match(solutionsScript, /let selectedIndex\s*=\s*activeIndex/);
   assert.match(solutionsScript, /function previewService\s*\(/);

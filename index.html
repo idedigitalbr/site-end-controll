@@ -65,7 +65,7 @@
   <link rel="stylesheet" href="./src/css/base.css?v=32.0" />
   <link rel="stylesheet" href="./src/css/header.css?v=99.0" />
   <link rel="stylesheet" href="./src/css/hero.css?v=36.0" />
-  <link rel="stylesheet" href="./src/css/solucoes.css?v=68.0" />
+  <link rel="stylesheet" href="./src/css/solucoes.css?v=69.0" />
   <link rel="stylesheet" href="./src/css/sections.css?v=54.0" />
   <link rel="stylesheet" href="./src/css/work-units-footer.css?v=37.0" />
   <link rel="stylesheet" href="./src/css/presenca-nacional.css?v=32.0" />
@@ -593,10 +593,10 @@
         <div class="solucoes-right-col">
           <div class="highlight-card-wrapper">
             <!-- Minimalist Vertical-Center Arrow Controls -->
-            <button class="card-side-arrow prev" id="cardSidePrev" aria-label="Serviço anterior">
+            <button type="button" class="card-side-arrow prev" id="cardSidePrev" aria-label="Solução anterior">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
             </button>
-            <button class="card-side-arrow next" id="cardSideNext" aria-label="Próximo serviço">
+            <button type="button" class="card-side-arrow next" id="cardSideNext" aria-label="Próxima solução">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
             </button>
 
@@ -605,7 +605,7 @@
                 <img id="cardImage" src="./assets/Fotografias/editadas/operacional-inspecao-ultrassom-casco-estrutura-edit.webp" alt="Engenharia de Integridade Estrutural" />
                 <div class="highlight-card-image-overlay"></div>
               </div>
-              <div class="highlight-card-body" id="cardBody">
+              <div class="highlight-card-body" id="cardBody" role="region" aria-live="polite" aria-labelledby="cardTitle">
                 <h3 class="highlight-card-title" id="cardTitle">Engenharia de Integridade Estrutural</h3>
                 <p class="highlight-card-desc" id="cardDesc">Gestão completa de empreendimentos industriais com foco em prazos, custos e padrões de qualidade.</p>
                 <ul class="highlight-card-list" id="cardList">
@@ -785,7 +785,7 @@
 
             <!-- PAINEL 1: Aeroespacial -->
             <li class="endo-acc-panel is-active" data-index="0" tabindex="0">
-                <img class="endo-acc-card__img" src="assets/Paginas Imgs/HOME/CARDS-AREAS-ATUACAO/Aeroespacial.webp" alt="Área Aeroespacial" loading="eager">
+                <img class="endo-acc-card__img" src="assets/Paginas Imgs/HOME/CARDS-AREAS-ATUACAO/FORMATO/Aeroespacial.png" alt="Área Aeroespacial" loading="eager">
                 <div class="endo-acc-card__overlay"></div>
                 <div class="endo-acc-card__content">
                     <i class="endo-acc-icon" data-lucide="plane" aria-hidden="true"></i>
@@ -811,7 +811,7 @@
 
             <!-- PAINEL 3: Ambiental -->
             <li class="endo-acc-panel" data-index="2" tabindex="0">
-                <img class="endo-acc-card__img" src="assets/Paginas Imgs/HOME/CARDS-AREAS-ATUACAO/Ambiental.webp" alt="Área Ambiental" loading="lazy">
+                <img class="endo-acc-card__img" src="assets/Paginas Imgs/HOME/CARDS-AREAS-ATUACAO/FORMATO/Ambiental.png" alt="Área Ambiental" loading="lazy">
                 <div class="endo-acc-card__overlay"></div>
                 <div class="endo-acc-card__content">
                     <i class="endo-acc-icon" data-lucide="leaf" aria-hidden="true"></i>
@@ -824,7 +824,7 @@
 
             <!-- PAINEL 4: Energia -->
             <li class="endo-acc-panel" data-index="3" tabindex="0">
-                <img class="endo-acc-card__img" src="assets/Paginas Imgs/HOME/CARDS-AREAS-ATUACAO/Energia.webp" alt="Área de Energia" loading="lazy">
+                <img class="endo-acc-card__img" src="assets/Paginas Imgs/HOME/CARDS-AREAS-ATUACAO/FORMATO/Energia.png" alt="Área de Energia" loading="lazy">
                 <div class="endo-acc-card__overlay"></div>
                 <div class="endo-acc-card__content">
                     <i class="endo-acc-icon" data-lucide="zap" aria-hidden="true"></i>
@@ -837,7 +837,7 @@
 
             <!-- PAINEL 5: Ferroviário -->
             <li class="endo-acc-panel" data-index="4" tabindex="0">
-                <img class="endo-acc-card__img" src="assets/Paginas Imgs/HOME/CARDS-AREAS-ATUACAO/Ferroviario.webp" alt="Área Ferroviária" loading="lazy">
+                <img class="endo-acc-card__img" src="assets/Paginas Imgs/HOME/CARDS-AREAS-ATUACAO/FORMATO/Ferroviario.png" alt="Área Ferroviária" loading="lazy">
                 <div class="endo-acc-card__overlay"></div>
                 <div class="endo-acc-card__content">
                     <i class="endo-acc-icon" data-lucide="train" aria-hidden="true"></i>
@@ -863,7 +863,7 @@
 
             <!-- PAINEL 7: Naval -->
             <li class="endo-acc-panel" data-index="6" tabindex="0">
-                <img class="endo-acc-card__img" src="assets/Paginas Imgs/HOME/CARDS-AREAS-ATUACAO/Naval.webp" alt="Área Naval" loading="lazy">
+                <img class="endo-acc-card__img" src="assets/Paginas Imgs/HOME/CARDS-AREAS-ATUACAO/FORMATO/Naval.png" alt="Área Naval" loading="lazy">
                 <div class="endo-acc-card__overlay"></div>
                 <div class="endo-acc-card__content">
                     <i class="endo-acc-icon" data-lucide="ship" aria-hidden="true"></i>
@@ -876,7 +876,7 @@
 
             <!-- PAINEL 8: Óleo e Gás -->
             <li class="endo-acc-panel" data-index="7" tabindex="0">
-                <img class="endo-acc-card__img" src="assets/Paginas Imgs/HOME/CARDS-AREAS-ATUACAO/Oleo-Gas.webp" alt="Área de Óleo e Gás" loading="lazy">
+                <img class="endo-acc-card__img" src="assets/Paginas Imgs/HOME/CARDS-AREAS-ATUACAO/FORMATO/Oleo-Gas.png" alt="Área de Óleo e Gás" loading="lazy">
                 <div class="endo-acc-card__overlay"></div>
                 <div class="endo-acc-card__content">
                     <i class="endo-acc-icon" data-lucide="flame" aria-hidden="true"></i>
@@ -889,7 +889,7 @@
 
             <!-- PAINEL 9: Papel e Celulose -->
             <li class="endo-acc-panel" data-index="8" tabindex="0">
-                <img class="endo-acc-card__img" src="assets/Paginas Imgs/HOME/CARDS-AREAS-ATUACAO/Papel-Celulose.webp" alt="Área de Papel e Celulose" loading="lazy">
+                <img class="endo-acc-card__img" src="assets/Paginas Imgs/HOME/CARDS-AREAS-ATUACAO/FORMATO/Papel-Celulose.png" alt="Área de Papel e Celulose" loading="lazy">
                 <div class="endo-acc-card__overlay"></div>
                 <div class="endo-acc-card__content">
                     <i class="endo-acc-icon" data-lucide="file-text" aria-hidden="true"></i>
@@ -902,7 +902,7 @@
 
             <!-- PAINEL 10: Químico e Petroquímico -->
             <li class="endo-acc-panel" data-index="9" tabindex="0">
-                <img class="endo-acc-card__img" src="assets/Paginas Imgs/HOME/CARDS-AREAS-ATUACAO/Quimico-Petroquimico.webp" alt="Área Química e Petroquímica" loading="lazy">
+                <img class="endo-acc-card__img" src="assets/Paginas Imgs/HOME/CARDS-AREAS-ATUACAO/FORMATO/Quimico-Petroquimico.png" alt="Área Química e Petroquímica" loading="lazy">
                 <div class="endo-acc-card__overlay"></div>
                 <div class="endo-acc-card__content">
                     <i class="endo-acc-icon" data-lucide="flask-conical" aria-hidden="true"></i>
@@ -1453,7 +1453,7 @@
 
   <script src="./src/js/main.js?v=25.0" defer></script>
   <script src="./src/js/radar-progress.js?v=6.1" defer></script>
-  <script src="./src/js/solucoes.js?v=63.0" defer></script>
+      <script src="./src/js/solucoes.js?v=64.0" defer></script>
   <!-- Lucide Icons CDN -->
   <script src="https://unpkg.com/lucide@0.321.0" defer></script>
   <script src="./src/js/presenca-nacional.js" defer></script>
