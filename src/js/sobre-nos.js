@@ -203,82 +203,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  // 3. LIGHTBOX DA GALERIA 3X3 DE FOTOS
-  const galleryCards = document.querySelectorAll('.sn-gallery-card');
-  const lightbox = document.getElementById('snLightbox');
-  const lightboxImg = document.getElementById('snLightboxImg');
-  const lightboxCaption = document.getElementById('snLightboxCaption');
-  const lightboxClose = document.getElementById('snLightboxClose');
-  const lightboxPrev = document.getElementById('snLightboxPrev');
-  const lightboxNext = document.getElementById('snLightboxNext');
-
-  let currentGalleryIndex = 0;
-  const galleryData = [];
-
-  galleryCards.forEach(function (card, index) {
-    const img = card.querySelector('.sn-gallery-img');
-    const caption = card.querySelector('.sn-gallery-caption');
-    const src = img ? img.getAttribute('src') : '';
-    const text = caption ? caption.textContent.trim() : '';
-
-    galleryData.push({ src: src, caption: text });
-
-    card.addEventListener('click', function () {
-      openLightbox(index);
-    });
-  });
-
-  function openLightbox(index) {
-    if (!lightbox || !galleryData[index]) return;
-    currentGalleryIndex = index;
-    updateLightboxContent();
-    lightbox.classList.add('open');
-    document.body.classList.add('modal-open');
-  }
-
-  function updateLightboxContent() {
-    const data = galleryData[currentGalleryIndex];
-    if (!data) return;
-    if (lightboxImg) lightboxImg.src = data.src;
-    if (lightboxCaption) lightboxCaption.textContent = data.caption;
-  }
-
-  function closeLightbox() {
-    if (!lightbox) return;
-    lightbox.classList.remove('open');
-    document.body.classList.remove('modal-open');
-  }
-
-  function nextLightbox() {
-    currentGalleryIndex = (currentGalleryIndex + 1) % galleryData.length;
-    updateLightboxContent();
-  }
-
-  function prevLightbox() {
-    currentGalleryIndex = (currentGalleryIndex - 1 + galleryData.length) % galleryData.length;
-    updateLightboxContent();
-  }
-
-  if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
-  if (lightboxNext) lightboxNext.addEventListener('click', nextLightbox);
-  if (lightboxPrev) lightboxPrev.addEventListener('click', prevLightbox);
-
-  if (lightbox) {
-    lightbox.addEventListener('click', function (e) {
-      if (e.target === lightbox) {
-        closeLightbox();
-      }
-    });
-  }
-
-  document.addEventListener('keydown', function (e) {
-    if (!lightbox || !lightbox.classList.contains('open')) return;
-    if (e.key === 'Escape') closeLightbox();
-    if (e.key === 'ArrowRight') nextLightbox();
-    if (e.key === 'ArrowLeft') prevLightbox();
-  });
-
-  // 4. INTERATIVIDADE DA TIMELINE (CLIQUE NOS NÓS)
+  // 3. INTERATIVIDADE DA TIMELINE (CLIQUE NOS NÓS)
   const timelineItems = document.querySelectorAll('.sn-timeline-item');
   timelineItems.forEach(function (item) {
     item.addEventListener('click', function () {
@@ -287,10 +212,10 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  // 5. ANIMAÇÕES SUAVES DE ENTRADA (INTERSECTION OBSERVER)
+  // 4. ANIMAÇÕES SUAVES DE ENTRADA (INTERSECTION OBSERVER)
   if ('IntersectionObserver' in window) {
     const revealElements = document.querySelectorAll(
-      '.sn-essence-card, .sn-indicator-item, .sn-process-step-item, .sn-gallery-card, .sn-commitment-card'
+      '.sn-essence-card, .sn-indicator-item, .sn-process-step-item, .sn-commitment-card'
     );
 
     const observer = new IntersectionObserver(

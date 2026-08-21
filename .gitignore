@@ -19,6 +19,7 @@ build/
 
 # Pastas locais pesadas ignoradas
 assets-nao-usados/
+assets/FOTOS ORIGINAIS ENDCONTROL/
 bckp/
 /storage
 /public/uploads

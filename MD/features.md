@@ -1,6 +1,12 @@
 # Features — ENDCONTROL Engenharia
 
-## Fundo Branco e Alto Contraste na Seção Nossas Soluções (Radar Orbital)
+## Remoção Completa da Seção Álbum de Fotos em Sobre Nós
+
+- Status: Concluída
+- Data: 2026-08-21
+- **Arquivos:** `sobre-nos.html`, `src/css/sobre-nos.css`, `src/js/sobre-nos.js`, `MD/changelog.md`
+- **Limpeza e Otimização:** Seção S5 (Álbum de Fotos / Galeria 3x3) e o Lightbox interativo removidos completamente de `sobre-nos.html`, garantindo fluxo visual direto entre Metodologia (*Como Trabalhamos*) e *Nosso Compromisso*. Código CSS e JS limpos de regras obsoletas, com versionamento de cache atualizado.
+
 
 - Status: Concluída
 - Data: 2026-08-20

@@ -34,6 +34,12 @@
   text-shadow: none;
 }
 
+.site-header--light-hero .main-menu > a.active,
+.site-header--light-hero .drop-link.active {
+  color: #0066ff;
+  font-weight: 700;
+}
+
 .site-header--light-hero .main-menu > a::before,
 .site-header--light-hero .drop-link::before {
   display: none;

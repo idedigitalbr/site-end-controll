@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8" />
@@ -33,7 +33,7 @@
   <link rel="stylesheet" href="./src/css/header.css?v=80.0" />
   <link rel="stylesheet" href="./src/css/components.css?v=80.0" />
   <link rel="stylesheet" href="./src/css/work-units-footer.css?v=80.0" />
-  <link rel="stylesheet" href="./src/css/sobre-nos.css?v=125.0" />
+  <link rel="stylesheet" href="./src/css/sobre-nos.css?v=126.0" />
 
   <!-- Script de Fallback Automático de Imagens e Vídeos -->
   <script>
@@ -121,7 +121,7 @@
   <!-- =========================================================================
        HEADER GLOBAL (REAPROVEITADO DA HOME COM ATIVO EM SOBRE NÓS)
        ========================================================================= -->
-  <header class="site-header" id="topo">
+  <header class="site-header site-header--light-hero" id="topo">
     <div class="brand-group">
       <a class="brand-main" href="index.html#home" aria-label="ENDCONTROL Engenharia">
         <img src="./assets/Logos/logo-principal-original-horizontal-endcontrol.png" alt="Logo ENDCONTROL" width="468" height="54" />
@@ -134,7 +134,8 @@
 
     <nav class="main-menu" id="main-menu">
       <a href="index.html#home">Home</a>
-      <a href="sobre-nos.html" style="color: var(--color-cyan); text-shadow: 0 0 10px rgba(0, 194, 255, 0.6);">Sobre Nós</a>
+      <a href="sobre-nos.html" class="active">Sobre Nós</a>
+      <a href="sobre-nos-2.html" id="menu-link-sobre-2">Sobre Nós 2</a>
       <div class="dropdown">
         <a class="drop-link" href="index.html#solucoes" aria-haspopup="true">Nossas Soluções</a>
         <div class="drop-panel dropdown-rich-menu" aria-label="Submenu Nossas Soluções">
@@ -227,99 +228,7 @@
 
   <main>
     <!-- =========================================================================
-         SEÇÃO 01 — HERO (SOBRE A ENDCONTROL)
-         ========================================================================= -->
-    <section class="sn-hero-section" id="hero-sobre" aria-label="Apresentação Institucional EndControl">
-      <div class="sn-hero-overlay"></div>
-    </section>
-
-    <!-- =========================================================================
-         SEÇÃO 02 — INDICADORES FLUTUANTES (FLOATING METRICS)
-         ========================================================================= -->
-    <div class="sn-indicators-wrapper" aria-label="Indicadores Institucionais">
-      <div class="sn-indicators-card">
-        
-        <!-- Indicador 1: Experiência -->
-        <div class="sn-indicator-item">
-          <div class="sn-indicator-icon-box">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
-              <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
-            </svg>
-          </div>
-          <div class="sn-indicator-text-box">
-            <span class="sn-indicator-value">+18 anos</span>
-            <span class="sn-indicator-label">de experiência</span>
-          </div>
-        </div>
-
-        <!-- Indicador 2: Projetos -->
-        <div class="sn-indicator-item">
-          <div class="sn-indicator-icon-box">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-              <polyline points="14 2 14 8 20 8"></polyline>
-              <line x1="16" y1="13" x2="8" y2="13"></line>
-              <line x1="16" y1="17" x2="8" y2="17"></line>
-              <polyline points="10 9 9 9 8 9"></polyline>
-            </svg>
-          </div>
-          <div class="sn-indicator-text-box">
-            <span class="sn-indicator-value">+300</span>
-            <span class="sn-indicator-label">projetos realizados</span>
-          </div>
-        </div>
-
-        <!-- Indicador 3: Ativos -->
-        <div class="sn-indicator-item">
-          <div class="sn-indicator-icon-box">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-              <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
-              <path d="m9 14 2 2 4-4"></path>
-            </svg>
-          </div>
-          <div class="sn-indicator-text-box">
-            <span class="sn-indicator-value">+1.250</span>
-            <span class="sn-indicator-label">ativos avaliados</span>
-          </div>
-        </div>
-
-        <!-- Indicador 4: Segurança -->
-        <div class="sn-indicator-item">
-          <div class="sn-indicator-icon-box">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-              <path d="m9 12 2 2 4-4"></path>
-            </svg>
-          </div>
-          <div class="sn-indicator-text-box">
-            <span class="sn-indicator-value">100%</span>
-            <span class="sn-indicator-label">compromisso com segurança</span>
-          </div>
-        </div>
-
-        <!-- Indicador 5: Clientes -->
-        <div class="sn-indicator-item">
-          <div class="sn-indicator-icon-box">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-              <circle cx="9" cy="7" r="4"></circle>
-              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-            </svg>
-          </div>
-          <div class="sn-indicator-text-box">
-            <span class="sn-indicator-value">+120</span>
-            <span class="sn-indicator-label">clientes atendidos</span>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- =========================================================================
-         SEÇÃO 03 — NOSSA HISTÓRIA (BACKGROUND CLARO COM TOPO ARREDONDADO + VÍDEO + TIMELINE)
+         SEÇÃO 01 — NOSSA HISTÓRIA (BACKGROUND CLARO + VÍDEO + INDICADORES)
          ========================================================================= -->
     <section class="sn-history-section" id="historia">
       <div class="sn-dot-matrix left" aria-hidden="true"></div>
@@ -403,68 +312,84 @@
         </div>
 
         <!-- =========================================================================
-             SEÇÃO 04 — TIMELINE ENDCONTROL (2006 A 2023+)
+             INDICADORES INSTITUCIONAIS (ABAIXO DO VÍDEO)
              ========================================================================= -->
-        <div class="sn-timeline-box" aria-label="Linha do Tempo da EndControl">
-          <div class="sn-timeline-track">
+        <div class="sn-indicators-wrapper" aria-label="Indicadores Institucionais">
+          <div class="sn-indicators-card">
             
-            <!-- Marco 1: 2006 -->
-            <div class="sn-timeline-item">
-              <div class="sn-timeline-dot-wrapper">
-                <div class="sn-timeline-dot-inner"></div>
+            <!-- Indicador 1: Experiência -->
+            <div class="sn-indicator-item">
+              <div class="sn-indicator-icon-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                  <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                </svg>
               </div>
-              <div class="sn-timeline-content-mob">
-                <div class="sn-timeline-year">2006</div>
-                <h3 class="sn-timeline-title">Início da Jornada</h3>
-                <p class="sn-timeline-desc">Fundação da EndControl com foco em inspeções e serviços técnicos especializados.</p>
-              </div>
-            </div>
-
-            <!-- Marco 2: 2010 -->
-            <div class="sn-timeline-item">
-              <div class="sn-timeline-dot-wrapper">
-                <div class="sn-timeline-dot-inner"></div>
-              </div>
-              <div class="sn-timeline-content-mob">
-                <div class="sn-timeline-year">2010</div>
-                <h3 class="sn-timeline-title">Expansão Técnica</h3>
-                <p class="sn-timeline-desc">Ampliação do portfólio de serviços e das equipes especializadas em campo.</p>
+              <div class="sn-indicator-text-box">
+                <span class="sn-indicator-value">+18 anos</span>
+                <span class="sn-indicator-label">de experiência</span>
               </div>
             </div>
 
-            <!-- Marco 3: 2014 -->
-            <div class="sn-timeline-item">
-              <div class="sn-timeline-dot-wrapper">
-                <div class="sn-timeline-dot-inner"></div>
+            <!-- Indicador 2: Projetos -->
+            <div class="sn-indicator-item">
+              <div class="sn-indicator-icon-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="16" y1="13" x2="8" y2="13"></line>
+                  <line x1="16" y1="17" x2="8" y2="17"></line>
+                  <polyline points="10 9 9 9 8 9"></polyline>
+                </svg>
               </div>
-              <div class="sn-timeline-content-mob">
-                <div class="sn-timeline-year">2014</div>
-                <h3 class="sn-timeline-title">Novas Tecnologias</h3>
-                <p class="sn-timeline-desc">Investimento em tecnologia e inovação para diagnósticos cada vez mais precisos.</p>
-              </div>
-            </div>
-
-            <!-- Marco 4: 2018 -->
-            <div class="sn-timeline-item">
-              <div class="sn-timeline-dot-wrapper">
-                <div class="sn-timeline-dot-inner"></div>
-              </div>
-              <div class="sn-timeline-content-mob">
-                <div class="sn-timeline-year">2018</div>
-                <h3 class="sn-timeline-title">Atuação Nacional</h3>
-                <p class="sn-timeline-desc">Consolidação de presença em diferentes estados e segmentos industriais.</p>
+              <div class="sn-indicator-text-box">
+                <span class="sn-indicator-value">+300</span>
+                <span class="sn-indicator-label">projetos realizados</span>
               </div>
             </div>
 
-            <!-- Marco 5: 2023+ -->
-            <div class="sn-timeline-item">
-              <div class="sn-timeline-dot-wrapper">
-                <div class="sn-timeline-dot-inner"></div>
+            <!-- Indicador 3: Ativos -->
+            <div class="sn-indicator-item">
+              <div class="sn-indicator-icon-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+                  <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+                  <path d="m9 14 2 2 4-4"></path>
+                </svg>
               </div>
-              <div class="sn-timeline-content-mob">
-                <div class="sn-timeline-year">2023+</div>
-                <h3 class="sn-timeline-title">O Futuro</h3>
-                <p class="sn-timeline-desc">Novos capítulos e compromisso com as próximas gerações.</p>
+              <div class="sn-indicator-text-box">
+                <span class="sn-indicator-value">+1.250</span>
+                <span class="sn-indicator-label">ativos avaliados</span>
+              </div>
+            </div>
+
+            <!-- Indicador 4: Segurança -->
+            <div class="sn-indicator-item">
+              <div class="sn-indicator-icon-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                  <path d="m9 12 2 2 4-4"></path>
+                </svg>
+              </div>
+              <div class="sn-indicator-text-box">
+                <span class="sn-indicator-value">100%</span>
+                <span class="sn-indicator-label">compromisso com segurança</span>
+              </div>
+            </div>
+
+            <!-- Indicador 5: Clientes -->
+            <div class="sn-indicator-item">
+              <div class="sn-indicator-icon-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+              </div>
+              <div class="sn-indicator-text-box">
+                <span class="sn-indicator-value">+120</span>
+                <span class="sn-indicator-label">clientes atendidos</span>
               </div>
             </div>
 
@@ -682,99 +607,7 @@
       </div>
     </section>
 
-    <!-- =========================================================================
-         SEÇÃO 07 — NOSSAS FOTOS (GALERIA GRID 3X3)
-         ========================================================================= -->
-    <section class="sn-gallery-section" id="fotos">
-      <div class="sn-dot-matrix left" aria-hidden="true"></div>
-      <div class="sn-dot-matrix right" aria-hidden="true"></div>
 
-      <div class="sn-gallery-container">
-        
-        <div class="sn-eyebrow-line light-mode">NOSSAS FOTOS</div>
-        <h2 class="sn-gallery-headline">
-          Momentos que mostram<br>
-          quem <span class="sn-highlight-blue">somos</span> e o que <span class="sn-highlight-blue">fazemos.</span>
-        </h2>
-
-        <div class="sn-gallery-grid">
-          
-          <!-- Foto 1: Inspeção Noturna em Refinaria -->
-          <div class="sn-gallery-card">
-            <img src="./assets/Fotografias/editadas/operacional-tecnico-refinaria-noite-edit.webp" alt="Técnico realizando inspeção em refinaria industrial" class="sn-gallery-img" loading="lazy" />
-            <div class="sn-gallery-overlay">
-              <p class="sn-gallery-caption">Inspeção operacional em campo de refinaria</p>
-            </div>
-          </div>
-
-          <!-- Foto 2: Discussão Técnica de Projetos em Telas -->
-          <div class="sn-gallery-card">
-            <img src="./assets/Fotografias/editadas/operacional-discussao-engenheiros-tela-edit.webp" alt="Discussão técnica entre engenheiros e análise de projetos" class="sn-gallery-img" loading="lazy" />
-            <div class="sn-gallery-overlay">
-              <p class="sn-gallery-caption">Alinhamento e planejamento estratégico de integridade</p>
-            </div>
-          </div>
-
-          <!-- Foto 3: Inspeção em Solda de Tubulação -->
-          <div class="sn-gallery-card">
-            <img src="./assets/Fotografias/editadas/operacional-ultrassom-solda-tubulacao-edit-final.webp" alt="Inspeção por ultrassom em juntas soldadas de tubulações" class="sn-gallery-img" loading="lazy" />
-            <div class="sn-gallery-overlay">
-              <p class="sn-gallery-caption">Controle e validação de qualidade de soldagem</p>
-            </div>
-          </div>
-
-          <!-- Foto 4: Alpinismo Industrial e Inspeção em Altura -->
-          <div class="sn-gallery-card">
-            <img src="./assets/Fotografias/editadas/operacional-alpinismo-industrial-escada-tanque-edit.webp" alt="Alpinismo industrial e acesso por cordas em estruturas industriais" class="sn-gallery-img" loading="lazy" />
-            <div class="sn-gallery-overlay">
-              <p class="sn-gallery-caption">Acesso por cordas e inspeção em estruturas críticas e tanques</p>
-            </div>
-          </div>
-
-          <!-- Foto 5: Equipe Técnica com Sistema Raptor Scan -->
-          <div class="sn-gallery-card">
-            <img src="./assets/Fotografias/editadas/ultrassom-raptor-scan-tecnicos-reunidos-campo-edit.webp" alt="Técnicos reunidos em campo com equipamento Raptor Scan" class="sn-gallery-img" loading="lazy" />
-            <div class="sn-gallery-overlay">
-              <p class="sn-gallery-caption">Equipe multidisciplinar com tecnologia de ponta</p>
-            </div>
-          </div>
-
-          <!-- Foto 6: Laboratório e Diagnóstico Eletrônico -->
-          <div class="sn-gallery-card">
-            <img src="./assets/Fotografias/editadas/laboratorio-analise-placa-eletronica-edit.webp" alt="Análise técnica em laboratório de placas eletrônicas e instrumentação" class="sn-gallery-img" loading="lazy" />
-            <div class="sn-gallery-overlay">
-              <p class="sn-gallery-caption">Diagnósticos avançados de instrumentação</p>
-            </div>
-          </div>
-
-          <!-- Foto 7: Inspeção por Ultrassom em Estrutura -->
-          <div class="sn-gallery-card">
-            <img src="./assets/Fotografias/editadas/operacional-inspecao-ultrassom-casco-estrutura-edit.webp" alt="Inspeção técnica por ultrassom em estrutura metálica industrial" class="sn-gallery-img" loading="lazy" />
-            <div class="sn-gallery-overlay">
-              <p class="sn-gallery-caption">Ensaios não destrutivos e inspeção técnica em estruturas de grande porte</p>
-            </div>
-          </div>
-
-          <!-- Foto 8: Sistema Raptor Scan Crawler em Operação -->
-          <div class="sn-gallery-card">
-            <img src="./assets/Fotografias/editadas/ultrassom-raptor-scan-crawler-operacao-edit.webp" alt="Operação do crawler Raptor Scan em tubulações" class="sn-gallery-img" loading="lazy" />
-            <div class="sn-gallery-overlay">
-              <p class="sn-gallery-caption">Inspeção automatizada de integridade em dutos</p>
-            </div>
-          </div>
-
-          <!-- Foto 9: Engenheiros Inspecionando Bomba Industrial -->
-          <div class="sn-gallery-card">
-            <img src="./assets/Fotografias/editadas/operacional-engenheiros-inspecao-bomba-edit.webp" alt="Engenheiros realizando inspeção mecânica em bomba industrial" class="sn-gallery-img" loading="lazy" />
-            <div class="sn-gallery-overlay">
-              <p class="sn-gallery-caption">Avaliação técnica e confiabilidade de máquinas industriais</p>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
 
     <!-- =========================================================================
          SEÇÃO 08 — NOSSO COMPROMISSO (4 PILARES + FOTO TÉCNICA)
@@ -976,19 +809,8 @@
     </div>
   </div>
 
-  <!-- Lightbox da Galeria 3x3 -->
-  <div class="sn-lightbox" id="snLightbox" role="dialog" aria-modal="true" aria-label="Galeria de Fotos Ampliada">
-    <button class="sn-lightbox-close-btn" id="snLightboxClose" aria-label="Fechar galeria">&times;</button>
-    <button class="sn-lightbox-nav-btn prev" id="snLightboxPrev" aria-label="Foto anterior">&#10094;</button>
-    <button class="sn-lightbox-nav-btn next" id="snLightboxNext" aria-label="Próxima foto">&#10095;</button>
-    <div class="sn-lightbox-img-wrapper">
-      <img id="snLightboxImg" src="" alt="Foto ampliada da EndControl" class="sn-lightbox-img" />
-      <div id="snLightboxCaption" class="sn-lightbox-caption"></div>
-    </div>
-  </div>
-
   <!-- Scripts -->
   <script src="https://unpkg.com/lucide@0.321.0" defer></script>
-  <script src="./src/js/sobre-nos.js?v=65.0" defer></script>
+  <script src="./src/js/sobre-nos.js?v=66.0" defer></script>
 </body>
 </html>

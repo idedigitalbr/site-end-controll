@@ -155,10 +155,11 @@
    -------------------------------------------------------------------------- */
 .sn-indicators-wrapper {
   position: relative;
-  z-index: 30;
-  margin-top: -55px;
+  z-index: 5;
+  margin-top: 48px;
   margin-bottom: 0;
-  padding: 0 20px;
+  padding: 0;
+  width: 100%;
 }
 
 .sn-indicators-card {
@@ -183,9 +184,9 @@
   position: relative;
   background: #f4f8fb;
   color: #0c1a30;
-  border-radius: 36px;
-  margin-top: -55px;
-  padding: 110px 0 110px;
+  border-radius: 0 0 36px 36px;
+  margin-top: 0;
+  padding: 130px 0 100px;
   z-index: 5;
   overflow: hidden;
   box-shadow: 0 12px 40px rgba(0, 20, 60, 0.06);
@@ -565,7 +566,7 @@
    -------------------------------------------------------------------------- */
 .sn-essence-section {
   position: relative;
-  background: url('../../assets/Paginas Imgs/SOBRE NOS/REF-SOBRE-NOS/bgs/BG-aco-inox-claro-fundo.webp') center center / cover no-repeat, #f8fafd;
+  background: #F0F5F7;
   color: #0c1a30;
   border-radius: 36px;
   margin-top: -36px;
@@ -1076,114 +1077,16 @@
 }
 
 /* --------------------------------------------------------------------------
-   7. SEÇÃO NOSSAS FOTOS (GALERIA 3X3 — LIGHT THEME)
-   -------------------------------------------------------------------------- */
-.sn-gallery-section {
-  position: relative;
-  background: #ffffff;
-  color: #0c1a30;
-  border-radius: 36px;
-  margin-top: -36px;
-  padding: 110px 0 115px;
-  z-index: 8;
-  overflow: hidden;
-  box-shadow: 0 -14px 35px rgba(0, 20, 60, 0.08), 0 14px 40px rgba(0, 20, 60, 0.05);
-}
-
-.sn-gallery-container {
-  max-width: 1220px;
-  margin: 0 auto;
-  padding: 0 24px;
-  position: relative;
-  z-index: 2;
-  text-align: center;
-}
-
-.sn-gallery-headline {
-  font-family: var(--font-primary);
-  font-size: clamp(2rem, 3.8vw, 2.9rem);
-  font-weight: 800;
-  line-height: 1.18;
-  letter-spacing: -0.03em;
-  color: #0c1a30;
-  margin-bottom: 50px;
-}
-
-.sn-gallery-headline .sn-highlight-blue {
-  color: #0066ff;
-}
-
-.sn-gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-}
-
-.sn-gallery-card {
-  position: relative;
-  border-radius: 14px;
-  overflow: hidden;
-  aspect-ratio: 16 / 10;
-  background: #0c1a30;
-  box-shadow: 0 8px 25px rgba(0, 20, 60, 0.08);
-  cursor: pointer;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.sn-gallery-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 18px 45px rgba(0, 30, 80, 0.16),
-              0 0 0 2px #0066ff;
-}
-
-.sn-gallery-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease;
-}
-
-.sn-gallery-card:hover .sn-gallery-img {
-  transform: scale(1.06);
-}
-
-.sn-gallery-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, transparent 40%, rgba(7, 20, 41, 0.88) 100%);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  display: flex;
-  align-items: flex-end;
-  padding: 20px;
-  text-align: left;
-}
-
-.sn-gallery-card:hover .sn-gallery-overlay {
-  opacity: 1;
-}
-
-.sn-gallery-caption {
-  font-family: var(--font-primary);
-  font-size: 0.88rem;
-  font-weight: 700;
-  color: #ffffff;
-  margin: 0;
-  line-height: 1.3;
-}
-
-/* --------------------------------------------------------------------------
-   8. SEÇÃO NOSSO COMPROMISSO (4 PILARES + FOTO TÉCNICA)
+   7. SEÇÃO NOSSO COMPROMISSO (4 PILARES + FOTO TÉCNICA)
    -------------------------------------------------------------------------- */
 .sn-commitment-section {
   position: relative;
   background: #f8fafd;
   color: #0c1a30;
-  border-radius: 36px;
-  margin-top: -36px;
+  border-radius: 48px;
+  margin-top: -48px;
   padding: 110px 0 115px;
-  z-index: 9;
+  z-index: 22;
   overflow: hidden;
   box-shadow: 0 -12px 35px rgba(0, 20, 60, 0.06), 0 14px 40px rgba(0, 20, 60, 0.05);
 }
@@ -1521,111 +1424,7 @@
 }
 
 /* --------------------------------------------------------------------------
-   10. MODAL DE VÍDEO & LIGHTBOX INTEGRADOS
-   -------------------------------------------------------------------------- */
-.sn-lightbox {
-  position: fixed;
-  inset: 0;
-  z-index: 10020;
-  background: rgba(2, 11, 24, 0.94);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.3s ease;
-  padding: 40px 20px;
-}
-
-.sn-lightbox.open {
-  opacity: 1;
-  visibility: visible;
-}
-
-.sn-lightbox-img-wrapper {
-  position: relative;
-  max-width: 1000px;
-  max-height: 85vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.sn-lightbox-img {
-  max-width: 100%;
-  max-height: 75vh;
-  object-fit: contain;
-  border-radius: 16px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8),
-              0 0 0 1px rgba(0, 194, 255, 0.4);
-}
-
-.sn-lightbox-caption {
-  margin-top: 16px;
-  color: #ffffff;
-  font-size: 1rem;
-  font-weight: 600;
-  text-align: center;
-}
-
-.sn-lightbox-close-btn {
-  position: absolute;
-  top: 24px;
-  right: 28px;
-  background: none;
-  border: none;
-  color: #ffffff;
-  font-size: 2.4rem;
-  cursor: pointer;
-  transition: color 0.2s ease, transform 0.2s ease;
-  line-height: 1;
-  z-index: 10;
-}
-
-.sn-lightbox-close-btn:hover {
-  color: var(--color-cyan);
-  transform: scale(1.15);
-}
-
-.sn-lightbox-nav-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(7, 20, 41, 0.75);
-  border: 1px solid rgba(0, 194, 255, 0.4);
-  color: #ffffff;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.25s ease;
-  z-index: 10;
-}
-
-.sn-lightbox-nav-btn:hover {
-  background: var(--color-cyan);
-  color: #040c18;
-  transform: translateY(-50%) scale(1.1);
-}
-
-.sn-lightbox-nav-btn.prev {
-  left: 24px;
-}
-
-.sn-lightbox-nav-btn.next {
-  right: 24px;
-}
-
-/* --------------------------------------------------------------------------
-   11. RESPONSIVIDADE E BREAKPOINTS
-   -------------------------------------------------------------------------- */
-/* --------------------------------------------------------------------------
-   11. RESPONSIVIDADE E BREAKPOINTS
+   8. RESPONSIVIDADE E BREAKPOINTS
    -------------------------------------------------------------------------- */
 @media (max-width: 1600px) {
   .sn-process-widescreen-container {
@@ -1903,10 +1702,6 @@
     -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 90%);
   }
 
-  .sn-gallery-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
   .sn-process-section {
     padding: 85px 0 95px;
     min-height: auto;
@@ -2000,7 +1795,7 @@
   }
 
   .sn-indicators-wrapper {
-    margin-top: -45px;
+    margin-top: 24px;
     margin-bottom: 0;
   }
 
@@ -2012,9 +1807,9 @@
   }
 
   .sn-history-section {
-    border-radius: 24px;
-    margin-top: -45px;
-    padding: 85px 0 70px;
+    border-radius: 0 0 24px 24px;
+    margin-top: 0;
+    padding: 100px 0 60px;
   }
 
   .sn-essence-section {
@@ -2027,12 +1822,6 @@
     border-radius: 24px;
     margin-top: -26px;
     padding: 80px 0 85px;
-  }
-
-  .sn-gallery-section {
-    border-radius: 24px;
-    margin-top: -26px;
-    padding: 80px 0;
   }
 
   .sn-commitment-section {
@@ -2147,11 +1936,6 @@
     max-width: 320px;
   }
 
-  .sn-gallery-grid {
-    grid-template-columns: 1fr;
-    gap: 18px;
-  }
-
   .sn-cta-buttons-row {
     flex-direction: column;
     width: 100%;
@@ -2165,7 +1949,6 @@
 @media (max-width: 480px) {
   .sn-history-headline,
   .sn-essence-headline,
-  .sn-gallery-headline,
   .sn-commitment-headline,
   .sn-cta-headline {
     font-size: 1.75rem;
@@ -2286,7 +2069,7 @@
    3. NOSSA ESSÊNCIA LIGHT (MISSÃO, VISÃO, VALORES — FUNDO ICE-BLUE #94b5c6)
    -------------------------------------------------------------------------- */
 .sn-page-wrapper.light-theme .sn-essence-section {
-  background: #94b5c6;
+  background: #F0F5F7;
   color: #08182e;
   border-top: 1px solid rgba(255, 255, 255, 0.4);
   border-bottom: 1px solid rgba(0, 82, 204, 0.12);

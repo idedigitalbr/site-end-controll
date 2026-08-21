@@ -1,8 +1,17 @@
 # Changelog — ENDCONTROL Engenharia
 
+## [2026-08-21] - Remoção Completa da Seção Álbum de Fotos (S5) em Sobre Nós
 
+- **Arquivos:** `sobre-nos.html`, `src/css/sobre-nos.css`, `src/js/sobre-nos.js`, `MD/changelog.md`, `MD/features.md`
 
-## [2026-08-20] - Alteração do Fundo da Seção de Soluções (Radar) para Branco (v=58.0)
+### Removed & Cleaned
+- **Remoção da Seção Álbum de Fotos (Galeria 3x3):**
+  - Removido completamente o bloco `<section class="sn-gallery-section" id="fotos">` e todo o grid de fotos operacionais da página `sobre-nos.html`.
+  - Removido o modal/overlay de Lightbox (`.sn-lightbox`) do HTML e suas respectivas regras de estilo de `src/css/sobre-nos.css`.
+  - Removidos os scripts de controle de abertura, navegação anterior/próxima e fechamento por tecla ESC do lightbox em `src/js/sobre-nos.js`.
+  - Ajustada a transição e sobreposição entre a seção anterior (*Como Trabalhamos*) e a seção seguinte (*Nosso Compromisso*), mantendo a elevação, raio de curvatura (`48px`) e fluxo contínuo.
+  - Invalidação de cache aplicada com sucesso (`sobre-nos.css?v=126.0`, `sobre-nos.js?v=66.0`).
+
 
 - **Arquivos:** `src/css/solucoes.css`, `src/js/solucoes.js`, `index.html`, `tests/site-integrity.ps1`, `MD/changelog.md`
 
