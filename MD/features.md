@@ -1,5 +1,17 @@
 # Features — ENDCONTROL Engenharia
 
+## Consolidação da Página Sobre Nós e Identidade Visual Unificada
+
+- Status: Concluída
+- Data: 2026-08-21
+- **Arquivos:** `sobre-nos.html`, `src/css/sobre-nos.css`, `index.html`, páginas de soluções 1 a 12, `MD/changelog.md`, `MD/features.md`
+- **Layout Premium Consolidado:** Integradas as 4 seções principais na página oficial `sobre-nos.html`:
+  1. *Sobre a EndControl / Nossa História* (`#sobre`) com vídeo institucional HUD customizado e banner de 5 indicadores de autoridade.
+  2. *Nossa Identidade Corporativa* (`#essencia`) com fundo `#EFFAFF`, cápsula azul marinho e cards de Missão, Visão e Valores alinhados à identidade visual da Home.
+  3. *Como Trabalhamos* (`#metodologia`) com foto técnica panorâmica e 4 etapas metodológicas.
+  4. *Nosso Compromisso* (`#compromisso`) com os 4 pilares de responsabilidade e botão de contato direto.
+- **Limpeza:** Arquivo temporário `sobre-nos-2.html` excluído e links no menu global devidamente limpos e padronizados.
+
 ## Remoção Completa da Seção Álbum de Fotos em Sobre Nós
 
 - Status: Concluída
