@@ -1,5 +1,15 @@
 # Histórico de sincronização — DB_IDE
 
+## 2026-08-21 - Consolidação da Página Sobre Nós e Identidade Visual Oficial
+
+- Projeto: site-end-controll
+- Tarefa: Consolidação completa do layout de Sobre Nós na página oficial (`sobre-nos.html`), com vídeo institucional HUD customizado, banner de 5 indicadores de autoridade, identidade corporativa (Missão, Visão e Valores em fundo `#EFFAFF` com cápsula marinho e cards no padrão Home), metodologia panorâmica de 4 etapas e seção de compromisso com 4 pilares técnicos. Exclusão de `sobre-nos-2.html` e limpeza de menus de navegação global.
+- Status local: Concluída.
+- Commit: `1b7adf3` / `f53b922`.
+- Deploy VPS: Concluído via Docker / GitHub Actions (`https://endcontrol.suporteide.digital/sobre-nos.html`).
+- Sincronização Notion: Atualizadas as sub-tarefas `Changelogs` e `Check WhatsApp` no banco `DB_IDE`.
+- Observação: Memória persistente no Obsidian (`MD/`) e changelog sincronizados.
+
 ## 2026-08-20 - Calibração Ultra-Wide / 1920px de Margens e Espaçamento em Áreas de Atuação
 
 - Projeto: site-end-controll
