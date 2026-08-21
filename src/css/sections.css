@@ -2310,9 +2310,9 @@ textarea.form-control {
   display: inline-block;
   width: 40px;
   height: 1.5px;
-  background: var(--blue-primary);
+  background: #00215D;
   margin-left: 12px;
-  opacity: 0.7;
+  opacity: 1;
 }
 
 /* Headline */
@@ -2326,10 +2326,9 @@ textarea.form-control {
 }
 
 .about-premium-section .highlight-blue-gradient {
-  background: linear-gradient(135deg, var(--blue-primary) 0%, var(--cyan) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #00215D;
+  background: none;
+  -webkit-text-fill-color: #00215D;
   font-weight: 800;
   text-shadow: 0 0 30px rgba(0, 213, 255, 0.12);
   display: inline;
