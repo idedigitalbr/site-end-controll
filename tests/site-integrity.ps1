@@ -66,7 +66,7 @@ Assert-Condition ($solucoesCss -match '(?s)\.service-node\.is-active \.service-n
 Assert-Condition ($solucoesCss -match '(?s)\.service-node\.is-inactive \.service-node-icon\s*\{[^}]*opacity:\s*1;') 'o circulo e o preenchimento do no inativo precisam permanecer opacos.'
 Assert-Condition ($solucoesCss -match '(?s)\.service-node\.is-inactive \.service-node-icon svg\s*\{[^}]*opacity:\s*0\.55;') 'somente o simbolo interno do no inativo deve usar opacidade reduzida.'
 Assert-Condition ($solucoesCss -match '(?s)\.solucoes-section\s*\{.*?padding:\s*(?:[7-9][0-9]|[1-9][0-9]{2})px\s+0\s+(?:[1-9]|[1-9][0-9])px\s*;') 'solucoes-section precisa manter respiro superior e padding inferior compacto após a barra de status.'
-Assert-Condition ($solucoesCss -match '(?s)@media \(max-width: 1440px\) and \(min-width: 1201px\).*?\.solucoes-main-content\s*\{.*?padding:\s*40px\s+0\s+80px\s+0\s*;') 'grid desktop precisa de espaço inferior adicional entre o radar e a barra inferior.'
+Assert-Condition ($solucoesCss -match '(?s)@media \(max-width: 1440px\) and \(min-width: 1201px\).*?\.solucoes-main-content\s*\{.*?padding:\s*40px\s+0\s+var\(--section-space-desktop\)\s+0\s*;') 'grid desktop precisa de espaço inferior adicional entre o radar e a barra inferior.'
 
 foreach ($file in $activeDataFiles) {
   $content = Get-Content -Raw $file

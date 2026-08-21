@@ -16,5 +16,5 @@ test('uses the standard navy in the FAQ section accents and states', () => {
   assert.match(styles, /\.faq-v2-item\s*\{[\s\S]*?border:\s*1px\s+solid\s+rgba\(0,\s*33,\s*93/i);
   assert.match(home, /DÚVIDAS FREQUENTES/);
   assert.match(home, /<span class="faq-v2-highlight">principais dúvidas\.<\/span>/);
-  assert.match(home, /sections\.css\?v=51\.0/);
+  assert.match(home, /sections\.css\?v=52\.0/);
 });

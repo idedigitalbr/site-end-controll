@@ -13,6 +13,9 @@ body {
   display: flex;
   flex-direction: column;
   gap: 0;
+  --section-space-desktop: 64px;
+  --section-space-tablet: 52px;
+  --section-space-mobile: 40px;
 }
 
 /* Todas as seções da página usam o mesmo raio da seção de depoimentos. */
@@ -51,7 +54,7 @@ body {
   position: relative !important;
   z-index: 1 !important;
   margin-top: 0 !important;
-  padding-top: 72px !important;
+  padding-top: var(--section-space-desktop) !important;
 }
 
 /* Hero e Sobre: topo reto e sem sobreposição entre os dois blocos. */
@@ -80,7 +83,7 @@ body {
 
   #oportunidades + #faq-secao,
   #oportunidades + .faq-v2 {
-    padding-top: 64px !important;
+    padding-top: var(--section-space-tablet) !important;
   }
 
   #home.hero-static-container + #sobre.about-premium-section {
@@ -98,7 +101,7 @@ body {
 
   #oportunidades + #faq-secao,
   #oportunidades + .faq-v2 {
-    padding-top: 52px !important;
+    padding-top: var(--section-space-mobile) !important;
   }
 
   #home.hero-static-container + #sobre.about-premium-section {
