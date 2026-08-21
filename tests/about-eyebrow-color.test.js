@@ -20,6 +20,6 @@ test('uses the requested navy color for the Sobre a EndControl eyebrow', () => {
   assert.match(lineRule[1], /opacity:\s*1\s*;/i);
   assert.match(highlightRule[1], /color:\s*#00215D\s*;/i);
   assert.match(highlightRule[1], /background:\s*none\s*;/i);
-  assert.match(home, /sections\.css\?v=40\.0/);
+  assert.match(home, /sections\.css\?v=41\.0/);
   assert.match(home, /<span class="highlight-blue-gradient">confiança<br>e resultado<\/span>/);
 });
