@@ -1,6 +1,6 @@
 /* ==========================================================================
    ENDCONTROL ENGENHARIA — INDEX2 CUSTOM STYLES
-   Design System Compliance: Inter Font, Dark Navy (#071429), Electric Cyan (#00C2FF)
+   Design System Compliance: Inter Font, Dark Navy (#071429), Electric Cyan (#00215D)
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
@@ -24,7 +24,7 @@
   padding: 12px 20px;
   border-radius: 50px;
   background: rgba(7, 20, 41, 0.88);
-  border: 1px solid rgba(0, 194, 255, 0.4);
+  border: 1px solid rgba(0, 33, 93, 0.4);
   color: var(--color-text-primary, #F5F7FB);
   font-family: 'Inter', sans-serif;
   font-size: 14px;
@@ -38,10 +38,10 @@
 
 .floating-action-btn:hover {
   transform: translateY(-3px) scale(1.03);
-  border-color: #00C2FF;
+  border-color: #00215D;
   background: rgba(10, 27, 51, 0.95);
-  box-shadow: 0 14px 35px rgba(0, 194, 255, 0.35);
-  color: #00C2FF;
+  box-shadow: 0 14px 35px rgba(0, 33, 93, 0.35);
+  color: #00215D;
 }
 
 .floating-action-btn.whatsapp-btn {
@@ -70,7 +70,7 @@
 .dropdown-item-group-v2 {
   position: relative;
   background: rgba(10, 27, 51, 0.75);
-  border: 1px solid rgba(0, 194, 255, 0.28);
+  border: 1px solid rgba(0, 33, 93, 0.28);
   border-radius: 14px;
   margin-bottom: 10px;
   padding: 12px 14px;
@@ -80,8 +80,8 @@
 
 .dropdown-item-group-v2:hover {
   background: rgba(10, 27, 51, 0.95);
-  border-color: #00C2FF;
-  box-shadow: 0 8px 25px rgba(0, 194, 255, 0.18);
+  border-color: #00215D;
+  box-shadow: 0 8px 25px rgba(0, 33, 93, 0.18);
 }
 
 .item-main-header {
@@ -99,13 +99,13 @@
   font-family: 'Inter', sans-serif;
   font-size: 14px;
   font-weight: 800;
-  color: #00C2FF;
+  color: #00215D;
 }
 
 .sub-expand-icon {
   width: 16px;
   height: 16px;
-  color: #00C2FF;
+  color: #00215D;
   transition: transform 0.3s ease;
 }
 
@@ -124,7 +124,7 @@
   gap: 6px;
   margin-top: 0;
   padding-left: 12px;
-  border-left: 2px solid rgba(0, 194, 255, 0.3);
+  border-left: 2px solid rgba(0, 33, 93, 0.3);
 }
 
 .dropdown-item-group-v2:hover .item-sub-accordion,
@@ -133,7 +133,7 @@
   opacity: 1;
   margin-top: 10px;
   padding-top: 6px;
-  border-left-color: #00C2FF;
+  border-left-color: #00215D;
 }
 
 .sub-link-inline {
@@ -143,14 +143,14 @@
   padding: 8px 12px;
   border-radius: 8px;
   background: rgba(7, 20, 41, 0.65);
-  border: 1px solid rgba(0, 194, 255, 0.15);
+  border: 1px solid rgba(0, 33, 93, 0.15);
   text-decoration: none;
   transition: all 0.25s ease;
 }
 
 .sub-link-inline:hover {
-  background: rgba(0, 194, 255, 0.15);
-  border-color: #00C2FF;
+  background: rgba(0, 33, 93, 0.15);
+  border-color: #00215D;
   transform: translateX(4px);
 }
 
@@ -163,7 +163,7 @@
 }
 
 .sub-link-inline:hover .sub-link-text strong {
-  color: #00C2FF;
+  color: #00215D;
 }
 
 .sub-link-text small {
@@ -201,7 +201,7 @@
   padding: 16px 20px 16px 52px;
   border-radius: 14px;
   background: rgba(7, 20, 41, 0.75);
-  border: 1px solid rgba(0, 194, 255, 0.3);
+  border: 1px solid rgba(0, 33, 93, 0.3);
   color: #FFFFFF;
   font-family: 'Inter', sans-serif;
   font-size: 16px;
@@ -210,8 +210,8 @@
 }
 
 .hub-search-input:focus {
-  border-color: #00C2FF;
-  box-shadow: 0 0 20px rgba(0, 194, 255, 0.25);
+  border-color: #00215D;
+  box-shadow: 0 0 20px rgba(0, 33, 93, 0.25);
   background: rgba(10, 27, 51, 0.9);
 }
 
@@ -220,7 +220,7 @@
   left: 18px;
   top: 50%;
   transform: translateY(-50%);
-  color: #00C2FF;
+  color: #00215D;
   width: 20px;
   height: 20px;
   pointer-events: none;
@@ -238,7 +238,7 @@
   padding: 10px 18px;
   border-radius: 30px;
   background: rgba(10, 27, 51, 0.6);
-  border: 1px solid rgba(0, 194, 255, 0.25);
+  border: 1px solid rgba(0, 33, 93, 0.25);
   color: #C7D0DE;
   font-family: 'Inter', sans-serif;
   font-size: 13.5px;
@@ -249,9 +249,9 @@
 
 .filter-pill:hover,
 .filter-pill.active {
-  background: rgba(0, 194, 255, 0.15);
-  border-color: #00C2FF;
-  color: #00C2FF;
+  background: rgba(0, 33, 93, 0.15);
+  border-color: #00215D;
+  color: #00215D;
   font-weight: 700;
   transform: translateY(-2px);
 }
@@ -277,7 +277,7 @@
 
 .service-card-v2 {
   background: rgba(7, 20, 41, 0.75);
-  border: 1px solid rgba(0, 194, 255, 0.25);
+  border: 1px solid rgba(0, 33, 93, 0.25);
   border-radius: 20px;
   padding: 32px;
   backdrop-filter: blur(16px);
@@ -296,14 +296,14 @@
   left: 0;
   width: 100%;
   height: 3px;
-  background: linear-gradient(90deg, #009CFF, #00C2FF);
+  background: linear-gradient(90deg, #009CFF, #00215D);
   opacity: 0;
   transition: opacity 0.3s ease;
 }
 
 .service-card-v2:hover {
   transform: translateY(-6px);
-  border-color: rgba(0, 194, 255, 0.6);
+  border-color: rgba(0, 33, 93, 0.6);
   background: rgba(10, 27, 51, 0.9);
   box-shadow: 0 20px 50px rgba(0, 156, 255, 0.18);
 }
@@ -325,11 +325,11 @@
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #00C2FF;
+  color: #00215D;
   padding: 4px 10px;
   border-radius: 6px;
-  background: rgba(0, 194, 255, 0.1);
-  border: 1px solid rgba(0, 194, 255, 0.25);
+  background: rgba(0, 33, 93, 0.1);
+  border: 1px solid rgba(0, 33, 93, 0.25);
 }
 
 .service-v2-icon {
@@ -341,7 +341,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #00C2FF;
+  color: #00215D;
 }
 
 .service-v2-title {
@@ -381,7 +381,7 @@
 
 .service-v2-item::before {
   content: '✓';
-  color: #00C2FF;
+  color: #00215D;
   font-weight: 700;
 }
 
@@ -397,7 +397,7 @@
   border-radius: 10px;
   background: rgba(0, 156, 255, 0.1);
   border: 1px solid rgba(0, 156, 255, 0.35);
-  color: #00C2FF;
+  color: #00215D;
   font-family: 'Inter', sans-serif;
   font-size: 14px;
   font-weight: 600;
@@ -422,13 +422,13 @@
 .quote-simulator-section {
   padding: 90px 0;
   background: rgba(7, 20, 41, 0.95);
-  border-top: 1px solid rgba(0, 194, 255, 0.2);
-  border-bottom: 1px solid rgba(0, 194, 255, 0.2);
+  border-top: 1px solid rgba(0, 33, 93, 0.2);
+  border-bottom: 1px solid rgba(0, 33, 93, 0.2);
 }
 
 .simulator-card {
   background: linear-gradient(145deg, rgba(10, 27, 51, 0.9), rgba(7, 20, 41, 0.85));
-  border: 1px solid rgba(0, 194, 255, 0.35);
+  border: 1px solid rgba(0, 33, 93, 0.35);
   border-radius: 24px;
   padding: 48px;
   backdrop-filter: blur(20px);
@@ -464,7 +464,7 @@
   font-family: 'Inter', sans-serif;
   font-size: 14px;
   font-weight: 700;
-  color: #00C2FF;
+  color: #00215D;
   letter-spacing: 0.05em;
   text-transform: uppercase;
 }
@@ -475,7 +475,7 @@
   padding: 14px 18px;
   border-radius: 10px;
   background: rgba(7, 20, 41, 0.8);
-  border: 1px solid rgba(0, 194, 255, 0.3);
+  border: 1px solid rgba(0, 33, 93, 0.3);
   color: #FFFFFF;
   font-family: 'Inter', sans-serif;
   font-size: 15px;
@@ -485,16 +485,16 @@
 
 .sim-select:focus,
 .sim-input:focus {
-  border-color: #00C2FF;
-  box-shadow: 0 0 15px rgba(0, 194, 255, 0.25);
+  border-color: #00215D;
+  box-shadow: 0 0 15px rgba(0, 33, 93, 0.25);
 }
 
 .sim-result-box {
   margin-top: 24px;
   padding: 24px;
   border-radius: 14px;
-  background: rgba(0, 194, 255, 0.06);
-  border: 1px dashed rgba(0, 194, 255, 0.4);
+  background: rgba(0, 33, 93, 0.06);
+  border: 1px dashed rgba(0, 33, 93, 0.4);
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -538,7 +538,7 @@
 
 .modal-content-box {
   background: #0B1B31;
-  border: 1px solid rgba(0, 194, 255, 0.4);
+  border: 1px solid rgba(0, 33, 93, 0.4);
   border-radius: 24px;
   width: 100%;
   max-width: 520px;
@@ -566,7 +566,7 @@
 }
 
 .modal-close-btn:hover {
-  color: #00C2FF;
+  color: #00215D;
 }
 
 /* --------------------------------------------------------------------------
@@ -605,7 +605,7 @@
 
 .pillar-card {
   background: rgba(10, 27, 51, 0.7);
-  border: 1px solid rgba(0, 194, 255, 0.25);
+  border: 1px solid rgba(0, 33, 93, 0.25);
   border-radius: 16px;
   padding: 24px 20px;
   text-align: center;
@@ -614,16 +614,16 @@
 
 .pillar-card:hover {
   transform: translateY(-5px);
-  border-color: #00C2FF;
-  background: rgba(0, 194, 255, 0.08);
-  box-shadow: 0 12px 30px rgba(0, 194, 255, 0.15);
+  border-color: #00215D;
+  background: rgba(0, 33, 93, 0.08);
+  box-shadow: 0 12px 30px rgba(0, 33, 93, 0.15);
 }
 
 .pillar-num {
   font-family: 'Inter', sans-serif;
   font-size: 13px;
   font-weight: 800;
-  color: #00C2FF;
+  color: #00215D;
   letter-spacing: 0.1em;
   margin-bottom: 8px;
 }

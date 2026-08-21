@@ -440,8 +440,8 @@ document.addEventListener('DOMContentLoaded', () => {
       dot.setAttribute('cx', coord.x);
       dot.setAttribute('cy', coord.y);
       dot.setAttribute('r', '2.5');
-      dot.setAttribute('fill', '#00C2FF');
-      dot.setAttribute('filter', 'drop-shadow(0 0 3px #00C2FF)');
+      dot.setAttribute('fill', '#00215D');
+      dot.setAttribute('filter', 'drop-shadow(0 0 3px #00215D)');
       dot.setAttribute('opacity', '0.7');
       ffsConnectionsLayer.appendChild(dot);
 

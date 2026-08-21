@@ -10,7 +10,7 @@
   --color-primary: #009CFF;
   --color-primary-strong: #007BFF;
   --color-primary-light: #18B7FF;
-  --color-cyan: #00C2FF;
+  --color-cyan: #00215D;
 
   --color-text-primary: #F5F7FB;
   --color-text-secondary: #C7D0DE;
@@ -50,7 +50,7 @@
   --black: var(--color-bg-deep);
   --graphite: var(--color-bg-secondary);
   --yellow: var(--color-primary);
-  --red: var(--color-cyan);
+  --red: #00215D;
 
   /* Neutros de interface remapeados para visual escuro premium */
   --ink: var(--color-text-primary);
@@ -66,13 +66,13 @@
   --orange: var(--color-industrial-orange);
 
   /* Estilização Premium e Glassmorphism */
-  --gold-gradient: linear-gradient(135deg, var(--color-primary-strong), var(--color-cyan));
+  --gold-gradient: linear-gradient(135deg, var(--color-primary-strong), #00215D);
   --bg-gradient: radial-gradient(circle at 12% 0%, rgba(0, 156, 255, 0.12), transparent 38%), 
-                 radial-gradient(circle at 88% 14%, rgba(0, 194, 255, 0.08), transparent 28%), 
+                 radial-gradient(circle at 88% 14%, rgba(0, 33, 93, 0.08), transparent 28%), 
                  var(--color-bg-primary);
   --glass-surface: var(--color-card-bg);
   --glass-border: var(--color-border-blue);
-  --glass-border-glow: rgba(0, 194, 255, 0.35);
+  --glass-border-glow: rgba(0, 33, 93, 0.35);
 
   --radius: var(--radius-lg);
   --shadow: var(--shadow-card);

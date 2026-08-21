@@ -126,7 +126,7 @@ body.links-page-body {
   transform: scale(1.12) translateY(-2px);
   background: var(--yellow);
   color: #000000;
-  box-shadow: 0 6px 16px rgba(0, 98, 227, 0.45);
+  box-shadow: 0 6px 16px rgba(0, 33, 93, 0.45);
 }
 
 .social-icon-btn svg {
@@ -173,15 +173,15 @@ body.links-page-body {
 /* Botão Vazado (Anexo 1) */
 .btn-link.black-btn {
   background: transparent !important;
-  border: 1.5px solid var(--color-cyan) !important;
+  border: 1.5px solid #00215D !important;
   color: #ffffff !important;
-  box-shadow: 0 0 10px rgba(0, 194, 255, 0.35), inset 0 0 6px rgba(0, 194, 255, 0.15) !important;
+  box-shadow: 0 0 10px rgba(0, 33, 93, 0.35), inset 0 0 6px rgba(0, 33, 93, 0.15) !important;
 }
 
 .btn-link.black-btn:hover {
-  background: rgba(0, 194, 255, 0.08) !important;
+  background: rgba(0, 33, 93, 0.08) !important;
   border-color: var(--color-primary-light) !important;
-  box-shadow: 0 0 18px rgba(0, 194, 255, 0.65), inset 0 0 10px rgba(0, 194, 255, 0.3) !important;
+  box-shadow: 0 0 18px rgba(0, 33, 93, 0.65), inset 0 0 10px rgba(0, 33, 93, 0.3) !important;
   transform: translateY(-2px) !important;
   color: #ffffff !important;
 }
@@ -285,17 +285,17 @@ body.links-page-body {
 
 /* Efeitos de Hover Temáticos Glow das Marcas */
 .brand-item.brand-super:hover {
-  background: rgba(0, 171, 227, 0.12);
-  border-color: #00abe3;
+  background: rgba(0, 33, 93, 0.12);
+  border-color: #00215D;
   color: #ffffff;
-  box-shadow: 0 0 16px rgba(0, 171, 227, 0.45);
+  box-shadow: 0 0 16px rgba(0, 33, 93, 0.45);
 }
 
 .brand-item.brand-farma:hover {
-  background: rgba(0, 171, 227, 0.12);
-  border-color: #00abe3;
+  background: rgba(0, 33, 93, 0.12);
+  border-color: #00215D;
   color: #ffffff;
-  box-shadow: 0 0 16px rgba(0, 171, 227, 0.45);
+  box-shadow: 0 0 16px rgba(0, 33, 93, 0.45);
 }
 
 .brand-item.brand-plaza:hover {

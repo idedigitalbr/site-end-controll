@@ -9,7 +9,7 @@
   --wf-border-dashed: #cbd5e1;
   --wf-text-main: #1e293b;
   --wf-text-muted: #94a3b8;
-  --wf-accent: var(--yellow, #0062e3);
+  --wf-accent: var(--yellow, #00215D);
   --wf-accent-light: #f8fafc;
 }
 
@@ -44,7 +44,7 @@
   max-height: 85vh;
   background: linear-gradient(135deg, #070b13 0%, #0d1421 100%);
   color: #ffffff;
-  border: 1px solid rgba(0, 98, 227, 0.18);
+  border: 1px solid rgba(0, 33, 93, 0.18);
   border-radius: 28px;
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.75);
   z-index: 10009;
@@ -76,7 +76,7 @@
 }
 
 .wf-modal-close:hover {
-  color: var(--yellow, #0062e3);
+  color: var(--yellow, #00215D);
   transform: scale(1.1);
 }
 
@@ -92,7 +92,7 @@
   border-radius: 10px;
 }
 .wf-modal::-webkit-scrollbar-thumb:hover {
-  background: var(--yellow, #0062e3);
+  background: var(--yellow, #00215D);
 }
 
 .wf-modal .form-control {
@@ -107,8 +107,8 @@
 
 .wf-modal .form-control:focus {
   background: rgba(255, 255, 255, 0.06) !important;
-  border-color: var(--yellow, #0062e3) !important;
-  box-shadow: 0 0 0 4px rgba(0, 98, 227, 0.2) !important;
+  border-color: var(--yellow, #00215D) !important;
+  box-shadow: 0 0 0 4px rgba(0, 33, 93, 0.2) !important;
 }
 
 .wf-modal label {
@@ -173,14 +173,14 @@
 }
 .wf-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 30px rgba(0, 98, 227, 0.15);
+  box-shadow: 0 12px 30px rgba(0, 33, 93, 0.15);
   border-color: var(--yellow);
 }
 
 .wf-meta-badge {
   display: inline-block;
   padding: 6px 12px;
-  background-color: rgba(0, 98, 227, 0.1);
+  background-color: rgba(0, 33, 93, 0.1);
   color: var(--yellow);
   font-size: 0.78rem;
   font-weight: 800;
@@ -239,7 +239,7 @@
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background-color: var(--yellow, #0062e3);
+  background-color: var(--yellow, #00215D);
   border: 4px solid #070b13;
   box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1);
 }
@@ -247,7 +247,7 @@
 .wf-timeline-year {
   font-size: 1.3rem;
   font-weight: 900;
-  color: var(--yellow, #0062e3);
+  color: var(--yellow, #00215D);
   margin-bottom: 4px;
 }
 
@@ -310,8 +310,8 @@
 .section-badge.tag-light-blue {
   color: #ffffff !important;
   background: rgba(0, 156, 255, 0.18) !important;
-  border: 1px solid rgba(0, 194, 255, 0.5) !important;
-  box-shadow: 0 0 10px rgba(0, 194, 255, 0.2) !important;
+  border: 1px solid rgba(0, 33, 93, 0.5) !important;
+  box-shadow: 0 0 10px rgba(0, 33, 93, 0.2) !important;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
 }

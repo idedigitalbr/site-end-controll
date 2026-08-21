@@ -117,7 +117,7 @@ body.theme-holding #linha-tempo.trajetoria-section {
   align-items: center;
   gap: 8px;
   align-self: flex-start;
-  background: linear-gradient(135deg, #0062e3 0%, #0046a3 100%) !important;
+  background: linear-gradient(135deg, #00215D 0%, #0046a3 100%) !important;
   border: none !important;
   border-radius: 999px;
   padding: 5px 16px 5px 6px;
@@ -139,7 +139,7 @@ body.theme-holding #linha-tempo.trajetoria-section {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #0062e3 !important;
+  color: #00215D !important;
   box-shadow: none;
 }
 
@@ -268,7 +268,7 @@ body.theme-holding #linha-tempo.trajetoria-section {
   cursor: pointer;
   outline: none;
   transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  box-shadow: 0 4px 12px rgba(0, 171, 227, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 33, 93, 0.2);
 }
 
 .trajetoria-prev-btn {
@@ -536,7 +536,7 @@ body.theme-holding #linha-tempo.trajetoria-section {
     width: 36px !important;
     height: 36px !important;
     top: 26px !important; /* Shifted down to match dot center on mobile */
-    box-shadow: 0 3px 8px rgba(0, 171, 227, 0.15) !important;
+    box-shadow: 0 3px 8px rgba(0, 33, 93, 0.15) !important;
   }
 
   .trajetoria-prev-btn {

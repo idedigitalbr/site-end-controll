@@ -174,7 +174,7 @@
   width: 50%;
   height: 100%;
   opacity: 0.18;
-  stroke: var(--color-cyan);
+  stroke: #00215D;
   stroke-width: 1.2;
   filter: none;
   animation: none;
@@ -192,7 +192,7 @@
 
 @keyframes pulseNode {
   0% { r: 3px; opacity: 0.6; }
-  100% { r: 6px; opacity: 1; filter: drop-shadow(0 0 8px var(--color-cyan)); }
+  100% { r: 6px; opacity: 1; filter: drop-shadow(0 0 8px #00215D); }
 }
 
 /* Grid de pontos HUD */
@@ -202,7 +202,7 @@
   top: 25%;
   width: 120px;
   height: 120px;
-  background-image: radial-gradient(rgba(0, 194, 255, 0.25) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(0, 33, 93, 0.25) 1px, transparent 1px);
   background-size: 14px 14px;
   opacity: 0.18;
 }
@@ -263,13 +263,13 @@
 .hero-badge-text {
   font-size: 11px;
   font-weight: 700;
-  color: var(--color-cyan);
+  color: #00215D;
   letter-spacing: 0.18em;
   text-transform: uppercase;
 }
 
 .hero-badge-dot {
-  color: rgba(0, 194, 255, 0.5);
+  color: rgba(0, 33, 93, 0.5);
   font-size: 8px;
 }
 
@@ -327,10 +327,10 @@
   left: 10px;
   width: 6px;
   height: 6px;
-  background: var(--color-cyan);
+  background: #00215D;
   border-radius: 50%;
   transform: translateY(-50%);
-  box-shadow: 0 0 10px var(--color-cyan), 0 0 20px var(--color-cyan);
+  box-shadow: 0 0 10px #00215D, 0 0 20px #00215D;
   animation: pulseDot 2s infinite alternate;
 }
 
@@ -341,10 +341,10 @@
   left: 40%;
   width: 6px;
   height: 6px;
-  background: var(--color-cyan);
+  background: #00215D;
   border-radius: 50%;
   transform: translateY(-50%);
-  box-shadow: 0 0 10px var(--color-cyan), 0 0 20px var(--color-cyan);
+  box-shadow: 0 0 10px #00215D, 0 0 20px #00215D;
   animation: pulseDot 2s infinite alternate 0.5s;
 }
 
@@ -417,7 +417,7 @@
   margin: -32px auto 32px;
   z-index: 10;
   background: #00215d;
-  border: 1px solid rgba(0, 194, 255, 0.45);
+  border: 1px solid rgba(0, 33, 93, 0.45);
   border-radius: 18px;
   padding: 14px 8px;
   box-shadow: 0 8px 20px rgba(0, 33, 93, 0.08);
@@ -443,7 +443,7 @@
 }
 
 .benefit-item:not(:last-child) {
-  border-right: 1px solid rgba(0, 194, 255, 0.35);
+  border-right: 1px solid rgba(0, 33, 93, 0.35);
 }
 
 /* Hover nos itens da barra de benefícios */
@@ -489,7 +489,7 @@
 .accent-line-glow {
   width: 180px;
   height: 2px;
-  background: linear-gradient(90deg, transparent, var(--color-cyan), transparent);
+  background: linear-gradient(90deg, transparent, #00215D, transparent);
 }
 
 .accent-dot-glow {
@@ -497,8 +497,8 @@
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: var(--color-cyan);
-  box-shadow: 0 0 10px var(--color-cyan), 0 0 20px var(--color-cyan);
+  background: #00215D;
+  box-shadow: 0 0 10px #00215D, 0 0 20px #00215D;
 }
 
 /* ==========================================================================

@@ -43,8 +43,8 @@ document.addEventListener('DOMContentLoaded', function() {
       html: `
         <div class="custom-pin-wrapper" title="${unit.name}">
           <svg class="custom-pin-svg" viewBox="0 0 36 46" xmlns="http://www.w3.org/2000/svg">
-            <path d="M18 0C8.06 0 0 8.06 0 18c0 12.42 16.2 26.78 16.88 27.38a1.5 1.5 0 0 0 2.24 0C19.8 44.78 36 30.42 36 18 36 8.06 27.94 0 18 0z" fill="#00abe3" />
-            <circle cx="18" cy="18" r="12" fill="#080c14" stroke="#00abe3" stroke-width="1.5" />
+            <path d="M18 0C8.06 0 0 8.06 0 18c0 12.42 16.2 26.78 16.88 27.38a1.5 1.5 0 0 0 2.24 0C19.8 44.78 36 30.42 36 18 36 8.06 27.94 0 18 0z" fill="#00215D" />
+            <circle cx="18" cy="18" r="12" fill="#080c14" stroke="#00215D" stroke-width="1.5" />
           </svg>
           <div class="pin-logo-container" style="top:7px; left:7px; width:22px; height:22px; position:absolute; display:flex; align-items:center; justify-content:center;">
             <img src="${defaultPinLogo}" alt="${unit.name}" style="max-width:18px; max-height:18px; object-fit:contain;" />
@@ -97,9 +97,9 @@ document.addEventListener('DOMContentLoaded', function() {
       // Popup simples
       const popupContent = `
         <div class="map-popup-card">
-          <strong style="color:#00abe3; font-size:14px;">${unit.shortName}</strong>
+          <strong style="color:#00215D; font-size:14px;">${unit.shortName}</strong>
           <p style="margin:4px 0; font-size:12px; color:#ccc;">${unit.address}</p>
-          <a href="javascript:void(0)" onclick="window.selectUnitFromMap('${unit.id}')" style="color:#00abe3; font-size:12px; text-decoration:underline; font-weight:bold;">Ver Detalhes da Base &rarr;</a>
+          <a href="javascript:void(0)" onclick="window.selectUnitFromMap('${unit.id}')" style="color:#00215D; font-size:12px; text-decoration:underline; font-weight:bold;">Ver Detalhes da Base &rarr;</a>
         </div>
       `;
       marker.bindPopup(popupContent);
@@ -143,7 +143,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="teaser-store-card ${isSelected ? 'active' : ''}" data-id="${unit.id}">
           <div class="store-card-header">
             <h4 class="store-title">${unit.name}</h4>
-            <span class="store-rating"><svg width="12" height="12" viewBox="0 0 24 24" fill="#00abe3"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> ${unit.rating}</span>
+            <span class="store-rating"><svg width="12" height="12" viewBox="0 0 24 24" fill="#00215D"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> ${unit.rating}</span>
           </div>
           <p class="store-address">${unit.address}</p>
           <div class="store-contact-row">
@@ -211,7 +211,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let albumHTML = '';
     if (unit.images && unit.images.album) {
       albumHTML = unit.images.album.map((img, idx) => `
-        <div class="album-thumb" onclick="window.openAlbumLightbox('${unit.id}', ${idx})" style="cursor:pointer; position:relative; border-radius:6px; overflow:hidden; border:1px solid rgba(0,171,227,0.2);">
+        <div class="album-thumb" onclick="window.openAlbumLightbox('${unit.id}', ${idx})" style="cursor:pointer; position:relative; border-radius:6px; overflow:hidden; border:1px solid rgba(0, 33, 93, 0.2);">
           <img src="${img.url}" alt="${img.title}" style="width:100%; height:70px; object-fit:cover; display:block;" />
           <span style="position:absolute; bottom:0; left:0; right:0; background:rgba(0,0,0,0.7); font-size:10px; padding:2px 4px; color:#fff; text-align:center;">${img.title}</span>
         </div>
@@ -220,26 +220,26 @@ document.addEventListener('DOMContentLoaded', function() {
 
     modalDetailCardContent.innerHTML = `
       <div class="unit-detail-wrapper" style="padding:16px; color:#fff;">
-        <h3 style="color:#00abe3; font-size:18px; margin-bottom:8px;">${unit.name}</h3>
+        <h3 style="color:#00215D; font-size:18px; margin-bottom:8px;">${unit.name}</h3>
         <p style="font-size:13px; color:#aaa; margin-bottom:12px;">${unit.address}</p>
         <p style="font-size:13px; line-height:1.5; color:#ddd; margin-bottom:16px;">${unit.aboutText}</p>
 
-        <h4 style="font-size:14px; color:#00abe3; margin-bottom:8px; text-transform:uppercase; letter-spacing:0.05em;">Capacidades Técnicas & Serviços</h4>
+        <h4 style="font-size:14px; color:#00215D; margin-bottom:8px; text-transform:uppercase; letter-spacing:0.05em;">Capacidades Técnicas & Serviços</h4>
         <ul style="list-style:none; padding:0; margin-bottom:16px;">
           ${servicesHTML}
         </ul>
 
         ${albumHTML ? `
-          <h4 style="font-size:14px; color:#00abe3; margin-bottom:8px; text-transform:uppercase; letter-spacing:0.05em;">Registros de Operações & Inspeções</h4>
+          <h4 style="font-size:14px; color:#00215D; margin-bottom:8px; text-transform:uppercase; letter-spacing:0.05em;">Registros de Operações & Inspeções</h4>
           <div class="unit-album-grid" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(100px, 1fr)); gap:8px; margin-bottom:16px;">
             ${albumHTML}
           </div>
         ` : ''}
 
-        <div class="unit-contact-box" style="background:rgba(22,31,44,0.8); padding:12px; border-radius:8px; border:1px solid rgba(0,171,227,0.2);">
+        <div class="unit-contact-box" style="background:rgba(22,31,44,0.8); padding:12px; border-radius:8px; border:1px solid rgba(0, 33, 93, 0.2);">
           <p style="font-size:13px; margin:0 0 6px 0;"><strong>Contato Operacional:</strong> ${unit.phone}</p>
           <p style="font-size:13px; margin:0 0 8px 0;"><strong>E-mail:</strong> ${unit.email}</p>
-          <a href="${unit.googleMapsUrl}" target="_blank" rel="noopener" style="display:inline-block; background:#00abe3; color:#080c14; padding:6px 12px; border-radius:4px; font-weight:bold; font-size:12px; text-decoration:none;">Abrir no Google Maps &rarr;</a>
+          <a href="${unit.googleMapsUrl}" target="_blank" rel="noopener" style="display:inline-block; background:#00215D; color:#080c14; padding:6px 12px; border-radius:4px; font-weight:bold; font-size:12px; text-decoration:none;">Abrir no Google Maps &rarr;</a>
         </div>
       </div>
     `;

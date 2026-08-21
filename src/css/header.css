@@ -170,13 +170,13 @@
 }
 
 .sub-logo-link[href*="supermercados"]:hover {
-  box-shadow: 0 0 15px rgba(0, 171, 227, 0.8), inset 0 0 0 2px #00abe3;
-  border-color: #00abe3;
+  box-shadow: 0 0 15px rgba(0, 33, 93, 0.8), inset 0 0 0 2px #00215D;
+  border-color: #00215D;
 }
 
 .sub-logo-link[href*="farma"]:hover {
-  box-shadow: 0 0 15px rgba(0, 171, 227, 0.8), inset 0 0 0 2px #00abe3;
-  border-color: #00abe3;
+  box-shadow: 0 0 15px rgba(0, 33, 93, 0.8), inset 0 0 0 2px #00215D;
+  border-color: #00215D;
 }
 
 .sub-logo-link[href*="villa-plaza"]:hover {
@@ -234,7 +234,7 @@
   position: absolute;
   inset: 0;
   border-radius: 999px;
-  background: radial-gradient(ellipse at center, rgba(0, 98, 227, 0.25) 0%, rgba(0, 98, 227, 0.05) 55%, rgba(0, 98, 227, 0) 100%);
+  background: radial-gradient(ellipse at center, rgba(0, 33, 93, 0.25) 0%, rgba(0, 33, 93, 0.05) 55%, rgba(0, 33, 93, 0) 100%);
   opacity: 0;
   transition: opacity 0.3s ease;
   pointer-events: none;
@@ -248,7 +248,7 @@
 .main-menu > a:hover,
 .drop-link:hover {
   color: var(--yellow);
-  text-shadow: 0 0 8px rgba(0, 98, 227, 0.6), 0 0 15px rgba(0, 98, 227, 0.3);
+  text-shadow: 0 0 8px rgba(0, 33, 93, 0.6), 0 0 15px rgba(0, 33, 93, 0.3);
 }
 
 /* Botão CTA Contatos */
@@ -364,7 +364,7 @@
   border-radius: 4px;
 }
 .dropdown-rich-menu::-webkit-scrollbar-thumb {
-  background: #00abe3;
+  background: #00215D;
   border-radius: 4px;
 }
 
@@ -404,8 +404,8 @@
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background: rgba(0, 171, 227, 0.12);
-  color: #00abe3;
+  background: rgba(0, 33, 93, 0.12);
+  color: #00215D;
   padding: 3px;
   flex-shrink: 0;
   box-shadow: 0 2px 8px rgba(0,0,0,0.2);
@@ -413,7 +413,7 @@
 }
 
 .dropdown-item-rich:hover .dropdown-item-logo {
-  background: rgba(0, 171, 227, 0.25);
+  background: rgba(0, 33, 93, 0.25);
   transform: scale(1.08);
 }
 
@@ -430,17 +430,17 @@
 
 /* Efeito Glow Temático de Hover por marca */
 .dropdown-item-rich.brand-super:hover {
-  background: rgba(0, 171, 227, 0.12) !important;
-  border-color: #00abe3 !important;
+  background: rgba(0, 33, 93, 0.12) !important;
+  border-color: #00215D !important;
   color: #ffffff !important;
-  box-shadow: 0 0 15px rgba(0, 171, 227, 0.45) !important;
+  box-shadow: 0 0 15px rgba(0, 33, 93, 0.45) !important;
 }
 
 .dropdown-item-rich.brand-farma:hover {
-  background: rgba(0, 171, 227, 0.12) !important;
-  border-color: #00abe3 !important;
+  background: rgba(0, 33, 93, 0.12) !important;
+  border-color: #00215D !important;
   color: #ffffff !important;
-  box-shadow: 0 0 15px rgba(0, 171, 227, 0.45) !important;
+  box-shadow: 0 0 15px rgba(0, 33, 93, 0.45) !important;
 }
 
 .dropdown-item-rich.brand-plaza:hover {
@@ -479,7 +479,7 @@
 
 .sub-chevron {
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-  color: #00abe3;
+  color: #00215D;
   margin-left: 8px;
   flex-shrink: 0;
 }
@@ -510,7 +510,7 @@
   top: 0;
   bottom: 20px;
   width: 2px;
-  background: rgba(0, 171, 227, 0.35);
+  background: rgba(0, 33, 93, 0.35);
   border-bottom-left-radius: 4px;
 }
 
@@ -548,7 +548,7 @@
   top: 50%;
   width: 18px;
   height: 2px;
-  background: rgba(0, 171, 227, 0.35);
+  background: rgba(0, 33, 93, 0.35);
 }
 
 .submenuzinho-item:hover {
@@ -560,7 +560,7 @@
 }
 
 .submenuzinho-bullet {
-  color: #00abe3;
+  color: #00215D;
   font-size: 1.1rem;
   line-height: 1;
 }

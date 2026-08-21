@@ -358,7 +358,7 @@ document.addEventListener('DOMContentLoaded', () => {
     stops.forEach(([offset, opacity]) => {
       const stop = document.createElementNS('http://www.w3.org/2000/svg', 'stop');
       stop.setAttribute('offset', offset);
-      stop.setAttribute('stop-color', '#00c2ff');
+      stop.setAttribute('stop-color', '#00215D');
       stop.setAttribute('stop-opacity', opacity);
       gradient.appendChild(stop);
     });

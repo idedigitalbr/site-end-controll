@@ -32,7 +32,7 @@ body.theme-villa-plaza {
    -------------------------------------------------------------------------- */
 body.theme-the-wine {
   background: radial-gradient(circle at 12% 0%, rgba(10, 17, 40, 0.22), transparent 40%), 
-              radial-gradient(circle at 88% 14%, rgba(0, 98, 227, 0.06), transparent 30%), 
+              radial-gradient(circle at 88% 14%, rgba(0, 33, 93, 0.06), transparent 30%), 
               #0a1128;
 }
 body.theme-the-wine h1, 
@@ -45,7 +45,7 @@ body.theme-the-wine .serif-font {
 .theme-the-wine .btn.primary {
   background: var(--wine);
   color: #ffffff;
-  border: 1px solid rgba(0, 98, 227, 0.4);
+  border: 1px solid rgba(0, 33, 93, 0.4);
   box-shadow: 0 10px 25px rgba(10, 17, 40, 0.35);
 }
 .theme-the-wine .btn.primary:hover {
@@ -65,18 +65,18 @@ body.theme-the-wine .serif-font {
    3. Theme: +B Farma (Vermelho)
    -------------------------------------------------------------------------- */
 body.theme-farma {
-  background: radial-gradient(circle at 12% 0%, rgba(0, 171, 227, 0.12), transparent 40%), 
+  background: radial-gradient(circle at 12% 0%, rgba(0, 33, 93, 0.12), transparent 40%), 
               radial-gradient(circle at 88% 14%, rgba(255, 255, 255, 0.04), transparent 30%), 
               #0a1128;
 }
 .theme-farma .btn.primary {
   background: var(--red);
   color: #ffffff;
-  box-shadow: 0 10px 25px rgba(0, 171, 227, 0.18);
+  box-shadow: 0 10px 25px rgba(0, 33, 93, 0.18);
 }
 .theme-farma .btn.primary:hover {
   background: #d10a14;
-  box-shadow: 0 12px 30px rgba(0, 171, 227, 0.3);
+  box-shadow: 0 12px 30px rgba(0, 33, 93, 0.3);
   transform: translateY(-2px);
 }
 .theme-farma .eyebrow {
@@ -364,8 +364,8 @@ body.theme-holding .dark-section .menu-card {
 }
 
 body.theme-holding .dark-section .menu-card:hover {
-  border-color: rgba(0, 98, 227, 0.25) !important;
-  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 98, 227, 0.06) !important;
+  border-color: rgba(0, 33, 93, 0.25) !important;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 33, 93, 0.06) !important;
 }
 
 body.theme-holding .dark-section .menu-card p {
@@ -399,7 +399,7 @@ body.theme-holding .light-section .menu-card {
 }
 
 body.theme-holding .light-section .menu-card:hover {
-  border-color: rgba(0, 98, 227, 0.45) !important;
+  border-color: rgba(0, 33, 93, 0.45) !important;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08) !important;
 }
 
@@ -427,7 +427,7 @@ body.theme-holding .light-section .partner-row-block {
 }
 
 body.theme-holding .light-section .partner-row-block:hover {
-  border-color: rgba(0, 98, 227, 0.4) !important;
+  border-color: rgba(0, 33, 93, 0.4) !important;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08) !important;
 }
 
@@ -463,11 +463,11 @@ body.theme-holding .light-section .infographic-label {
 
 /* 3. Seções Amarelas da Identidade (+B Holding/Supermercados) */
 body.theme-holding .brand-yellow-section {
-  background: linear-gradient(135deg, #0062e3 0%, #008bb8 100%) !important;
+  background: linear-gradient(135deg, #00215D 0%, #008bb8 100%) !important;
   border-top: 1px solid rgba(0, 0, 0, 0.05) !important;
   border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
   color: #0b0b0b !important;
-  box-shadow: 0 10px 30px rgba(0, 98, 227, 0.08) !important;
+  box-shadow: 0 10px 30px rgba(0, 33, 93, 0.08) !important;
 }
 
 body.theme-holding .brand-yellow-section h2,
@@ -521,7 +521,7 @@ body.theme-holding .brand-yellow-section .menu-card ul li::marker {
 
 /* 4. Seções Vermelhas da Identidade (+B Farma) */
 body.theme-holding .brand-red-section {
-  background: linear-gradient(135deg, #00abe3 0%, #00769c 100%) !important;
+  background: linear-gradient(135deg, #00215D 0%, #00769c 100%) !important;
   border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
   color: #ffffff !important;
@@ -546,11 +546,11 @@ body.theme-holding .brand-red-section ul li strong {
 }
 
 body.theme-holding .brand-red-section .eyebrow {
-  color: #0062e3 !important;
+  color: #00215D !important;
 }
 
 body.theme-holding .brand-red-section .eyebrow::before {
-  background: #0062e3 !important;
+  background: #00215D !important;
 }
 
 /* Cards em Seções Vermelhas */
@@ -565,7 +565,7 @@ body.theme-holding .brand-red-section .menu-card {
 
 body.theme-holding .brand-red-section .menu-card:hover {
   background: rgba(255, 255, 255, 0.15) !important;
-  border-color: #0062e3 !important;
+  border-color: #00215D !important;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25) !important;
 }
 
@@ -582,7 +582,7 @@ body.theme-holding .brand-red-section .menu-card ul {
 }
 
 body.theme-holding .brand-red-section .menu-card ul li::marker {
-  color: #0062e3 !important;
+  color: #00215D !important;
 }
 
 
@@ -609,34 +609,34 @@ body.theme-holding .brand-red-section .menu-card ul li::marker {
 
 /* Variação Neon 1: Gold / Amarelo (Holding, Supermercado, Missão) */
 .neon-icon-wrapper.neon-gold {
-  color: #0062e3;
-  background: rgba(0, 98, 227, 0.03);
-  border-color: rgba(0, 98, 227, 0.15);
-  box-shadow: 0 0 15px rgba(0, 98, 227, 0.05), inset 0 0 8px rgba(0, 98, 227, 0.02);
+  color: #00215D;
+  background: rgba(0, 33, 93, 0.03);
+  border-color: rgba(0, 33, 93, 0.15);
+  box-shadow: 0 0 15px rgba(0, 33, 93, 0.05), inset 0 0 8px rgba(0, 33, 93, 0.02);
 }
 .neon-icon-wrapper.neon-gold svg {
-  filter: drop-shadow(0 0 6px rgba(0, 98, 227, 0.7));
+  filter: drop-shadow(0 0 6px rgba(0, 33, 93, 0.7));
 }
 .neon-icon-wrapper.neon-gold:hover {
-  background: rgba(0, 98, 227, 0.08);
-  border-color: rgba(0, 98, 227, 0.45);
-  box-shadow: 0 0 25px rgba(0, 98, 227, 0.25), inset 0 0 10px rgba(0, 98, 227, 0.05);
+  background: rgba(0, 33, 93, 0.08);
+  border-color: rgba(0, 33, 93, 0.45);
+  box-shadow: 0 0 25px rgba(0, 33, 93, 0.25), inset 0 0 10px rgba(0, 33, 93, 0.05);
 }
 
 /* Variação Neon 2: Red / Vermelho (Farma) */
 .neon-icon-wrapper.neon-red {
-  color: #00abe3;
-  background: rgba(0, 171, 227, 0.03);
-  border-color: rgba(0, 171, 227, 0.15);
-  box-shadow: 0 0 15px rgba(0, 171, 227, 0.05), inset 0 0 8px rgba(0, 171, 227, 0.02);
+  color: #00215D;
+  background: rgba(0, 33, 93, 0.03);
+  border-color: rgba(0, 33, 93, 0.15);
+  box-shadow: 0 0 15px rgba(0, 33, 93, 0.05), inset 0 0 8px rgba(0, 33, 93, 0.02);
 }
 .neon-icon-wrapper.neon-red svg {
-  filter: drop-shadow(0 0 6px rgba(0, 171, 227, 0.7));
+  filter: drop-shadow(0 0 6px rgba(0, 33, 93, 0.7));
 }
 .neon-icon-wrapper.neon-red:hover {
-  background: rgba(0, 171, 227, 0.08);
-  border-color: rgba(0, 171, 227, 0.45);
-  box-shadow: 0 0 25px rgba(0, 171, 227, 0.25), inset 0 0 10px rgba(0, 171, 227, 0.05);
+  background: rgba(0, 33, 93, 0.08);
+  border-color: rgba(0, 33, 93, 0.45);
+  box-shadow: 0 0 25px rgba(0, 33, 93, 0.25), inset 0 0 10px rgba(0, 33, 93, 0.05);
 }
 
 /* Variação Neon 3: Orange / Laranja (Vila Plaza) */
@@ -709,14 +709,14 @@ body.theme-holding .brand-red-section .menu-card ul li::marker {
   background: var(--yellow) !important;
   color: var(--black) !important;
   border: 1px solid var(--yellow) !important;
-  box-shadow: 0 10px 25px rgba(0, 98, 227, 0.2) !important;
+  box-shadow: 0 10px 25px rgba(0, 33, 93, 0.2) !important;
 }
 
 .theme-holding .btn.primary:hover {
   background: var(--red) !important;
   border-color: var(--red) !important;
   color: #ffffff !important;
-  box-shadow: 0 12px 30px rgba(0, 171, 227, 0.4) !important;
+  box-shadow: 0 12px 30px rgba(0, 33, 93, 0.4) !important;
   transform: translateY(-2px);
 }
 
@@ -786,7 +786,7 @@ body.theme-holding .dark-section .eyebrow::before {
     top: 0;
     bottom: 0;
     width: 2px;
-    background: linear-gradient(to bottom, var(--yellow), rgba(0, 98, 227, 0.15) 80%, transparent) !important;
+    background: linear-gradient(to bottom, var(--yellow), rgba(0, 33, 93, 0.15) 80%, transparent) !important;
     transform: translateX(-50%);
   }
   
@@ -845,7 +845,7 @@ body.theme-holding .dark-section .eyebrow::before {
   }
   
   .wf-timeline-content:hover {
-    border-color: rgba(0, 98, 227, 0.25) !important;
+    border-color: rgba(0, 33, 93, 0.25) !important;
     transform: translateY(-4px);
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.45) !important;
   }
@@ -853,7 +853,7 @@ body.theme-holding .dark-section .eyebrow::before {
 
 @media (max-width: 768px) {
   .wf-timeline {
-    border-left: 2px solid rgba(0, 98, 227, 0.2) !important;
+    border-left: 2px solid rgba(0, 33, 93, 0.2) !important;
     padding-left: 24px !important;
   }
   
@@ -912,9 +912,9 @@ body.theme-holding .diretrizes-neon-section .diretrizes-section-bg {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 60% 50% at 20% 50%, rgba(0, 98, 227, 0.04) 0%, transparent 60%),
-    radial-gradient(ellipse 50% 60% at 50% 40%, rgba(0, 171, 227, 0.03) 0%, transparent 50%),
-    radial-gradient(ellipse 60% 50% at 80% 50%, rgba(0, 98, 227, 0.04) 0%, transparent 60%);
+    radial-gradient(ellipse 60% 50% at 20% 50%, rgba(0, 33, 93, 0.04) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 60% at 50% 40%, rgba(0, 33, 93, 0.03) 0%, transparent 50%),
+    radial-gradient(ellipse 60% 50% at 80% 50%, rgba(0, 33, 93, 0.04) 0%, transparent 60%);
   pointer-events: none;
   z-index: 1;
   border-bottom-left-radius: 100px !important;
@@ -931,9 +931,9 @@ body.theme-holding .diretrizes-neon-section::before {
   width: 100%;
   height: 100%;
   background:
-    radial-gradient(circle at 16% 50%, rgba(0, 98, 227, 0.06) 0%, transparent 40%),
-    radial-gradient(circle at 50% 50%, rgba(0, 171, 227, 0.04) 0%, transparent 40%),
-    radial-gradient(circle at 84% 50%, rgba(0, 98, 227, 0.06) 0%, transparent 40%);
+    radial-gradient(circle at 16% 50%, rgba(0, 33, 93, 0.06) 0%, transparent 40%),
+    radial-gradient(circle at 50% 50%, rgba(0, 33, 93, 0.04) 0%, transparent 40%),
+    radial-gradient(circle at 84% 50%, rgba(0, 33, 93, 0.06) 0%, transparent 40%);
   pointer-events: none;
   z-index: 1;
   border-bottom-left-radius: 100px !important;
@@ -1104,25 +1104,25 @@ body.theme-holding .diretrizes-neon-section::before {
 
 /* ===== TEMA NEON GOLD / AMARELO (Missão, Valores) ===== */
 .neon-card.theme-gold {
-  border: 2px solid rgba(0, 98, 227, 0.5);
+  border: 2px solid rgba(0, 33, 93, 0.5);
   box-shadow:
-    0 0 18px rgba(0, 98, 227, 0.15),
-    0 0 40px rgba(0, 98, 227, 0.06),
-    inset 0 0 18px rgba(0, 98, 227, 0.04),
+    0 0 18px rgba(0, 33, 93, 0.15),
+    0 0 40px rgba(0, 33, 93, 0.06),
+    inset 0 0 18px rgba(0, 33, 93, 0.04),
     0 8px 32px rgba(0, 0, 0, 0.5);
 }
 
 .neon-card.theme-gold .card-icon-neon {
-  color: #0062e3;
-  filter: drop-shadow(0 0 12px rgba(0, 98, 227, 0.6));
+  color: #00215D;
+  filter: drop-shadow(0 0 12px rgba(0, 33, 93, 0.6));
 }
 
 .neon-card.theme-gold ul li::before {
   content: '•';
   position: absolute;
   left: 0;
-  color: #0062e3;
-  text-shadow: 0 0 6px rgba(0, 98, 227, 0.9);
+  color: #00215D;
+  text-shadow: 0 0 6px rgba(0, 33, 93, 0.9);
   font-size: 1.3rem;
   top: -2px;
 }
@@ -1130,61 +1130,61 @@ body.theme-holding .diretrizes-neon-section::before {
 /* Hover Gold / Active Gold */
 .neon-card.theme-gold:hover,
 .neon-card.theme-gold.active {
-  border-color: rgba(0, 98, 227, 0.9);
+  border-color: rgba(0, 33, 93, 0.9);
   box-shadow:
-    0 0 30px rgba(0, 98, 227, 0.35),
-    0 0 60px rgba(0, 98, 227, 0.15),
-    0 0 100px rgba(0, 98, 227, 0.06),
-    inset 0 0 30px rgba(0, 98, 227, 0.08),
+    0 0 30px rgba(0, 33, 93, 0.35),
+    0 0 60px rgba(0, 33, 93, 0.15),
+    0 0 100px rgba(0, 33, 93, 0.06),
+    inset 0 0 30px rgba(0, 33, 93, 0.08),
     0 16px 48px rgba(0, 0, 0, 0.6);
 }
 
 .neon-card.theme-gold:hover .card-icon-neon,
 .neon-card.theme-gold.active .card-icon-neon {
-  filter: drop-shadow(0 0 20px rgba(0, 98, 227, 0.9));
+  filter: drop-shadow(0 0 20px rgba(0, 33, 93, 0.9));
 }
 
 /* ===== TEMA NEON RED / VERMELHO (Visão) ===== */
 .neon-card.theme-red {
-  border: 2px solid rgba(0, 171, 227, 0.5);
+  border: 2px solid rgba(0, 33, 93, 0.5);
   box-shadow:
-    0 0 18px rgba(0, 171, 227, 0.15),
-    0 0 40px rgba(0, 171, 227, 0.06),
-    inset 0 0 18px rgba(0, 171, 227, 0.04),
+    0 0 18px rgba(0, 33, 93, 0.15),
+    0 0 40px rgba(0, 33, 93, 0.06),
+    inset 0 0 18px rgba(0, 33, 93, 0.04),
     0 8px 32px rgba(0, 0, 0, 0.5);
 }
 
 .neon-card.theme-red .card-icon-neon {
-  color: #00abe3;
-  filter: drop-shadow(0 0 12px rgba(0, 171, 227, 0.6));
+  color: #00215D;
+  filter: drop-shadow(0 0 12px rgba(0, 33, 93, 0.6));
 }
 
 /* Hover Red / Active Red */
 .neon-card.theme-red:hover,
 .neon-card.theme-red.active {
-  border-color: rgba(0, 171, 227, 0.9);
+  border-color: rgba(0, 33, 93, 0.9);
   box-shadow:
-    0 0 30px rgba(0, 171, 227, 0.35),
-    0 0 60px rgba(0, 171, 227, 0.15),
-    0 0 100px rgba(0, 171, 227, 0.06),
-    inset 0 0 30px rgba(0, 171, 227, 0.08),
+    0 0 30px rgba(0, 33, 93, 0.35),
+    0 0 60px rgba(0, 33, 93, 0.15),
+    0 0 100px rgba(0, 33, 93, 0.06),
+    inset 0 0 30px rgba(0, 33, 93, 0.08),
     0 16px 48px rgba(0, 0, 0, 0.6);
 }
 
 .neon-card.theme-red:hover .card-icon-neon,
 .neon-card.theme-red.active .card-icon-neon {
-  filter: drop-shadow(0 0 20px rgba(0, 171, 227, 0.9));
+  filter: drop-shadow(0 0 20px rgba(0, 33, 93, 0.9));
 }
 
 /* ===== Neon pulse animation on borders ===== */
 @keyframes neonPulseGold {
-  0%, 100% { box-shadow: 0 0 18px rgba(0, 98, 227, 0.15), 0 0 40px rgba(0, 98, 227, 0.06), inset 0 0 18px rgba(0, 98, 227, 0.04), 0 8px 32px rgba(0, 0, 0, 0.5); }
-  50% { box-shadow: 0 0 24px rgba(0, 98, 227, 0.22), 0 0 50px rgba(0, 98, 227, 0.1), inset 0 0 22px rgba(0, 98, 227, 0.06), 0 8px 32px rgba(0, 0, 0, 0.5); }
+  0%, 100% { box-shadow: 0 0 18px rgba(0, 33, 93, 0.15), 0 0 40px rgba(0, 33, 93, 0.06), inset 0 0 18px rgba(0, 33, 93, 0.04), 0 8px 32px rgba(0, 0, 0, 0.5); }
+  50% { box-shadow: 0 0 24px rgba(0, 33, 93, 0.22), 0 0 50px rgba(0, 33, 93, 0.1), inset 0 0 22px rgba(0, 33, 93, 0.06), 0 8px 32px rgba(0, 0, 0, 0.5); }
 }
 
 @keyframes neonPulseRed {
-  0%, 100% { box-shadow: 0 0 18px rgba(0, 171, 227, 0.15), 0 0 40px rgba(0, 171, 227, 0.06), inset 0 0 18px rgba(0, 171, 227, 0.04), 0 8px 32px rgba(0, 0, 0, 0.5); }
-  50% { box-shadow: 0 0 24px rgba(0, 171, 227, 0.22), 0 0 50px rgba(0, 171, 227, 0.1), inset 0 0 22px rgba(0, 171, 227, 0.06), 0 8px 32px rgba(0, 0, 0, 0.5); }
+  0%, 100% { box-shadow: 0 0 18px rgba(0, 33, 93, 0.15), 0 0 40px rgba(0, 33, 93, 0.06), inset 0 0 18px rgba(0, 33, 93, 0.04), 0 8px 32px rgba(0, 0, 0, 0.5); }
+  50% { box-shadow: 0 0 24px rgba(0, 33, 93, 0.22), 0 0 50px rgba(0, 33, 93, 0.1), inset 0 0 22px rgba(0, 33, 93, 0.06), 0 8px 32px rgba(0, 0, 0, 0.5); }
 }
 
 /* Infinite pulse animations removed to resolve layout repaints and lock scrolling at 60FPS+ */

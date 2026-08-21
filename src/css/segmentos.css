@@ -74,15 +74,15 @@
   border-radius: 50%;
   background: rgba(10, 17, 40, 0.88);
   backdrop-filter: blur(8px);
-  border: 2px solid #00abe3;
-  color: #00abe3;
+  border: 2px solid #00215D;
+  color: #00215D;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   z-index: 30;
   transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6), 0 0 18px rgba(0, 171, 227, 0.35);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6), 0 0 18px rgba(0, 33, 93, 0.35);
   outline: none;
   user-select: none;
 }
@@ -91,10 +91,10 @@
 .endo-acc-nav--next { right: 15px; }
 
 .endo-acc-nav:hover {
-  background: #00abe3;
+  background: #00215D;
   color: #FFFFFF;
   transform: translateY(-50%) scale(1.12);
-  box-shadow: 0 12px 30px rgba(0, 171, 227, 0.6);
+  box-shadow: 0 12px 30px rgba(0, 33, 93, 0.6);
 }
 
 .endo-acc-nav:active {
@@ -238,7 +238,7 @@
   height: 40px;
   min-width: 40px;
   min-height: 40px;
-  color: #00abe3;
+  color: #00215D;
   margin-bottom: 10px;
   flex-shrink: 0;
   stroke-width: 1.8px;
@@ -250,7 +250,7 @@
 .endo-acc-panel:focus-within .endo-acc-icon,
 .endo-acc-panel.is-active .endo-acc-icon {
   transform: scale(1.1);
-  color: #00abe3;
+  color: #00215D;
   filter: none;
 }
 
@@ -346,10 +346,10 @@
 }
 
 .endo-acc-dot.is-active {
-  background: #00abe3;
+  background: #00215D;
   width: 28px;
   border-radius: 12px;
-  box-shadow: 0 0 12px rgba(0, 171, 227, 0.5);
+  box-shadow: 0 0 12px rgba(0, 33, 93, 0.5);
 }
 
 @media (max-width: 1400px) {

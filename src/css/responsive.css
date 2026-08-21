@@ -40,7 +40,7 @@
     display: block !important;
     flex: 1 !important;
     height: 1px !important;
-    background: rgba(0, 98, 227, 0.25) !important;
+    background: rgba(0, 33, 93, 0.25) !important;
     margin: 0 15px !important;
     position: static !important;
     inset: auto !important;
@@ -51,16 +51,16 @@
 
   /* 2. Brand items permanent hover active state */
   .main-menu .dropdown-item-rich.brand-super {
-    background: rgba(0, 171, 227, 0.12) !important;
-    border-color: #00abe3 !important;
+    background: rgba(0, 33, 93, 0.12) !important;
+    border-color: #00215D !important;
     color: #ffffff !important;
-    box-shadow: 0 0 15px rgba(0, 171, 227, 0.45) !important;
+    box-shadow: 0 0 15px rgba(0, 33, 93, 0.45) !important;
   }
   .main-menu .dropdown-item-rich.brand-farma {
-    background: rgba(0, 171, 227, 0.12) !important;
-    border-color: #00abe3 !important;
+    background: rgba(0, 33, 93, 0.12) !important;
+    border-color: #00215D !important;
     color: #ffffff !important;
-    box-shadow: 0 0 15px rgba(0, 171, 227, 0.45) !important;
+    box-shadow: 0 0 15px rgba(0, 33, 93, 0.45) !important;
   }
   .main-menu .dropdown-item-rich.brand-plaza {
     background: rgba(255, 138, 0, 0.12) !important;
@@ -116,7 +116,7 @@
     position: absolute !important;
     inset: 0 !important;
     border-radius: 999px !important;
-    background: radial-gradient(ellipse at center, rgba(0, 98, 227, 0.25) 0%, rgba(0, 98, 227, 0.05) 55%, rgba(0, 98, 227, 0) 100%) !important;
+    background: radial-gradient(ellipse at center, rgba(0, 33, 93, 0.25) 0%, rgba(0, 33, 93, 0.05) 55%, rgba(0, 33, 93, 0) 100%) !important;
     opacity: 0 !important;
     transition: opacity 0.3s ease !important;
     pointer-events: none !important;
@@ -128,7 +128,7 @@
 
   .main-menu .contacts-dropdown .drop-panel a:hover {
     color: var(--yellow) !important;
-    text-shadow: 0 0 8px rgba(0, 98, 227, 0.6), 0 0 15px rgba(0, 98, 227, 0.3) !important;
+    text-shadow: 0 0 8px rgba(0, 33, 93, 0.6), 0 0 15px rgba(0, 33, 93, 0.3) !important;
   }
 
   /* CTA style for 'Nossos Links' on mobile */
@@ -138,7 +138,7 @@
     justify-content: center !important;
     font-weight: 800 !important;
     margin-top: 10px !important;
-    box-shadow: 0 4px 12px rgba(0, 98, 227, 0.3) !important;
+    box-shadow: 0 4px 12px rgba(0, 33, 93, 0.3) !important;
     border-radius: 999px !important;
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
   }
@@ -150,7 +150,7 @@
   .main-menu .contacts-dropdown .drop-panel a#menu-link-links:hover {
     background: var(--red) !important;
     color: #ffffff !important;
-    box-shadow: 0 0 15px rgba(0, 171, 227, 0.5) !important;
+    box-shadow: 0 0 15px rgba(0, 33, 93, 0.5) !important;
     text-shadow: none !important;
   }
 }

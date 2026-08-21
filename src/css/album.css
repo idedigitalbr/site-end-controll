@@ -146,22 +146,22 @@
 .album-filter-btn[data-filter="grupo-b"]:hover,
 .album-filter-btn[data-filter="grupo-b"].active {
     background-color: #2b2106 !important;
-    border-color: #0062e3 !important;
-    color: #0062e3 !important;
+    border-color: #00215D !important;
+    color: #00215D !important;
 }
 
 .album-filter-btn[data-filter="supermercados-b"]:hover,
 .album-filter-btn[data-filter="supermercados-b"].active {
     background-color: #2b0609 !important;
-    border-color: #00abe3 !important;
-    color: #00abe3 !important;
+    border-color: #00215D !important;
+    color: #00215D !important;
 }
 
 .album-filter-btn[data-filter="farma-b"]:hover,
 .album-filter-btn[data-filter="farma-b"].active {
     background-color: #2b0609 !important;
-    border-color: #00abe3 !important;
-    color: #00abe3 !important;
+    border-color: #00215D !important;
+    color: #00215D !important;
 }
 
 .album-filter-btn[data-filter="villa-plaza"]:hover,
@@ -278,16 +278,16 @@
 /* Soft active (enfraquecendo a cor da pílula ativa) por marca */
 .album-unit-btn.active.unit-theme-all,
 .album-unit-btn.active.unit-theme-grupo-b {
-    background-color: rgba(0, 98, 227, 0.12) !important; /* amarelo suave */
-    border-color: rgba(0, 98, 227, 0.3) !important;
+    background-color: rgba(0, 33, 93, 0.12) !important; /* amarelo suave */
+    border-color: rgba(0, 33, 93, 0.3) !important;
     color: #b58b00 !important; /* amarelo escuro legível */
 }
 
 .album-unit-btn.active.unit-theme-supermercados-b,
 .album-unit-btn.active.unit-theme-farma-b {
-    background-color: rgba(0, 171, 227, 0.08) !important; /* vermelho suave */
-    border-color: rgba(0, 171, 227, 0.25) !important;
-    color: #00abe3 !important;
+    background-color: rgba(0, 33, 93, 0.08) !important; /* vermelho suave */
+    border-color: rgba(0, 33, 93, 0.25) !important;
+    color: #00215D !important;
 }
 
 .album-unit-btn.active.unit-theme-villa-plaza {
@@ -337,16 +337,16 @@
 /* Temas específicos para botões ativos dos filtros filhos (Soft Active) */
 .album-child-filter-btn.active-theme-supermercados-b:hover,
 .album-child-filter-btn.active-theme-supermercados-b.active {
-    background-color: rgba(0, 171, 227, 0.08) !important;
-    border-color: rgba(0, 171, 227, 0.25) !important;
-    color: #00abe3 !important;
+    background-color: rgba(0, 33, 93, 0.08) !important;
+    border-color: rgba(0, 33, 93, 0.25) !important;
+    color: #00215D !important;
 }
 
 .album-child-filter-btn.active-theme-farma-b:hover,
 .album-child-filter-btn.active-theme-farma-b.active {
-    background-color: rgba(0, 171, 227, 0.08) !important;
-    border-color: rgba(0, 171, 227, 0.25) !important;
-    color: #00abe3 !important;
+    background-color: rgba(0, 33, 93, 0.08) !important;
+    border-color: rgba(0, 33, 93, 0.25) !important;
+    color: #00215D !important;
 }
 
 .album-child-filter-btn.active-theme-villa-plaza:hover,
@@ -372,8 +372,8 @@
 
 .album-child-filter-btn.active-theme-grupo-b:hover,
 .album-child-filter-btn.active-theme-grupo-b.active {
-    background-color: rgba(0, 98, 227, 0.12) !important;
-    border-color: rgba(0, 98, 227, 0.3) !important;
+    background-color: rgba(0, 33, 93, 0.12) !important;
+    border-color: rgba(0, 33, 93, 0.3) !important;
     color: #b58b00 !important;
 }
 
@@ -481,36 +481,36 @@
 
 /* Efeitos Neon por Marca */
 .album-card[data-category="grupo-b"]:hover {
-    box-shadow: 0 8px 24px rgba(0, 98, 227, 0.25), 0 0 25px rgba(0, 98, 227, 0.45) !important;
+    box-shadow: 0 8px 24px rgba(0, 33, 93, 0.25), 0 0 25px rgba(0, 33, 93, 0.45) !important;
 }
 .album-card[data-category="grupo-b"]:hover::after {
-    border: 3px solid #0062e3 !important;
+    border: 3px solid #00215D !important;
 }
 .album-card[data-category="grupo-b"] .album-zoom-icon svg {
-    stroke: #0062e3 !important;
-    filter: drop-shadow(0 0 6px rgba(0, 98, 227, 0.8)) !important;
+    stroke: #00215D !important;
+    filter: drop-shadow(0 0 6px rgba(0, 33, 93, 0.8)) !important;
 }
 
 .album-card[data-category="supermercados-b"]:hover {
-    box-shadow: 0 8px 24px rgba(0, 171, 227, 0.25), 0 0 25px rgba(0, 171, 227, 0.45) !important;
+    box-shadow: 0 8px 24px rgba(0, 33, 93, 0.25), 0 0 25px rgba(0, 33, 93, 0.45) !important;
 }
 .album-card[data-category="supermercados-b"]:hover::after {
-    border: 3px solid #00abe3 !important;
+    border: 3px solid #00215D !important;
 }
 .album-card[data-category="supermercados-b"] .album-zoom-icon svg {
-    stroke: #00abe3 !important;
-    filter: drop-shadow(0 0 6px rgba(0, 171, 227, 0.8)) !important;
+    stroke: #00215D !important;
+    filter: drop-shadow(0 0 6px rgba(0, 33, 93, 0.8)) !important;
 }
 
 .album-card[data-category="farma-b"]:hover {
-    box-shadow: 0 8px 24px rgba(0, 171, 227, 0.25), 0 0 25px rgba(0, 171, 227, 0.45) !important;
+    box-shadow: 0 8px 24px rgba(0, 33, 93, 0.25), 0 0 25px rgba(0, 33, 93, 0.45) !important;
 }
 .album-card[data-category="farma-b"]:hover::after {
-    border: 3px solid #00abe3 !important;
+    border: 3px solid #00215D !important;
 }
 .album-card[data-category="farma-b"] .album-zoom-icon svg {
-    stroke: #00abe3 !important;
-    filter: drop-shadow(0 0 6px rgba(0, 171, 227, 0.8)) !important;
+    stroke: #00215D !important;
+    filter: drop-shadow(0 0 6px rgba(0, 33, 93, 0.8)) !important;
 }
 
 .album-card[data-category="villa-plaza"]:hover {
@@ -550,9 +550,9 @@
 .album-card.visited::after {
     border-width: 3px !important;
 }
-.album-card[data-category="grupo-b"].visited::after { border-color: #0062e3 !important; }
-.album-card[data-category="supermercados-b"].visited::after { border-color: #00abe3 !important; }
-.album-card[data-category="farma-b"].visited::after { border-color: #00abe3 !important; }
+.album-card[data-category="grupo-b"].visited::after { border-color: #00215D !important; }
+.album-card[data-category="supermercados-b"].visited::after { border-color: #00215D !important; }
+.album-card[data-category="farma-b"].visited::after { border-color: #00215D !important; }
 .album-card[data-category="villa-plaza"].visited::after { border-color: #ff8a00 !important; }
 .album-card[data-category="villa-plaza-park"].visited::after { border-color: #16a34a !important; }
 .album-card[data-category="the-wine"].visited::after { border-color: #a31d3f !important; }
@@ -678,15 +678,15 @@
 
 /* Badges de Unidade Soft (Enfraquecendo a cor da pílula) */
 .badge-grupo-b-soft {
-    background-color: rgba(0, 98, 227, 0.15) !important; /* amarelo suave */
-    border: 1px solid rgba(0, 98, 227, 0.3) !important;
+    background-color: rgba(0, 33, 93, 0.15) !important; /* amarelo suave */
+    border: 1px solid rgba(0, 33, 93, 0.3) !important;
     color: #ffca18 !important;
 }
 
 .badge-supermercados-b-soft,
 .badge-farma-b-soft {
-    background-color: rgba(0, 171, 227, 0.15) !important; /* vermelho suave */
-    border: 1px solid rgba(0, 171, 227, 0.3) !important;
+    background-color: rgba(0, 33, 93, 0.15) !important; /* vermelho suave */
+    border: 1px solid rgba(0, 33, 93, 0.3) !important;
     color: #ff4a54 !important;
 }
 
@@ -710,15 +710,15 @@
 
 /* Badges de Subcategoria Softest (Mais suave ainda) */
 .badge-grupo-b-softest {
-    background-color: rgba(0, 98, 227, 0.08) !important;
-    border: 1.5px dashed rgba(0, 98, 227, 0.25) !important;
+    background-color: rgba(0, 33, 93, 0.08) !important;
+    border: 1.5px dashed rgba(0, 33, 93, 0.25) !important;
     color: rgba(255, 202, 24, 0.8) !important;
 }
 
 .badge-supermercados-b-softest,
 .badge-farma-b-softest {
-    background-color: rgba(0, 171, 227, 0.08) !important;
-    border: 1.5px dashed rgba(0, 171, 227, 0.22) !important;
+    background-color: rgba(0, 33, 93, 0.08) !important;
+    border: 1.5px dashed rgba(0, 33, 93, 0.22) !important;
     color: rgba(255, 74, 84, 0.85) !important;
 }
 
@@ -744,20 +744,20 @@
 
 .badge-grupo-b {
     background-color: rgba(45, 38, 0, 0.4) !important;
-    border: 1px solid rgba(0, 98, 227, 0.35) !important;
-    color: #0062e3 !important;
+    border: 1px solid rgba(0, 33, 93, 0.35) !important;
+    color: #00215D !important;
 }
 
 .badge-supermercados-b {
     background-color: rgba(45, 6, 8, 0.4) !important;
-    border: 1px solid rgba(0, 171, 227, 0.35) !important;
-    color: #00abe3 !important;
+    border: 1px solid rgba(0, 33, 93, 0.35) !important;
+    color: #00215D !important;
 }
 
 .badge-farma-b {
     background-color: rgba(45, 6, 8, 0.4) !important;
-    border: 1px solid rgba(0, 171, 227, 0.35) !important;
-    color: #00abe3 !important;
+    border: 1px solid rgba(0, 33, 93, 0.35) !important;
+    color: #00215D !important;
 }
 
 .badge-villa-plaza {
@@ -832,13 +832,13 @@
 
 /* Efeitos Neon Leves na Setinha por Categoria */
 .album-card[data-category="grupo-b"] .album-hover-hint svg {
-    stroke: #0062e3 !important;
-    filter: drop-shadow(0 0 3px rgba(0, 98, 227, 0.8)) !important;
+    stroke: #00215D !important;
+    filter: drop-shadow(0 0 3px rgba(0, 33, 93, 0.8)) !important;
 }
 .album-card[data-category="supermercados-b"] .album-hover-hint svg,
 .album-card[data-category="farma-b"] .album-hover-hint svg {
-    stroke: #00abe3 !important;
-    filter: drop-shadow(0 0 3px rgba(0, 171, 227, 0.8)) !important;
+    stroke: #00215D !important;
+    filter: drop-shadow(0 0 3px rgba(0, 33, 93, 0.8)) !important;
 }
 .album-card[data-category="villa-plaza"] .album-hover-hint svg {
     stroke: #ff8a00 !important;
@@ -857,7 +857,7 @@
 .album-photo-desc {
     font-size: 0.72rem;
     font-weight: 500;
-    color: #0062e3;
+    color: #00215D;
     line-height: 1.3;
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -963,7 +963,7 @@
 .album-load-more-btn.theme-supermercados-b {
     background: var(--yellow) !important;
     color: #000000 !important;
-    box-shadow: 0 10px 25px rgba(0, 98, 227, 0.18) !important;
+    box-shadow: 0 10px 25px rgba(0, 33, 93, 0.18) !important;
 }
 .album-load-more-btn.theme-all:hover,
 .album-load-more-btn.theme-grupo-b:hover,
@@ -971,20 +971,20 @@
     background: var(--red) !important;
     color: #ffffff !important;
     transform: translateY(-2px) !important;
-    box-shadow: 0 12px 30px rgba(0, 171, 227, 0.4) !important;
+    box-shadow: 0 12px 30px rgba(0, 33, 93, 0.4) !important;
 }
 
 /* +B Farma (Vermelho) */
 .album-load-more-btn.theme-farma-b {
     background: var(--red) !important;
     color: #ffffff !important;
-    box-shadow: 0 10px 25px rgba(0, 171, 227, 0.18) !important;
+    box-shadow: 0 10px 25px rgba(0, 33, 93, 0.18) !important;
 }
 .album-load-more-btn.theme-farma-b:hover {
     background: #00769c !important;
     color: #ffffff !important;
     transform: translateY(-2px) !important;
-    box-shadow: 0 12px 30px rgba(0, 171, 227, 0.35) !important;
+    box-shadow: 0 12px 30px rgba(0, 33, 93, 0.35) !important;
 }
 
 /* Villa Plaza (Laranja) */
@@ -1189,7 +1189,7 @@
     position: absolute !important;
     top: 16px !important;
     right: -22px !important;
-    background: #0062e3 !important; /* Fallback amarelo */
+    background: #00215D !important; /* Fallback amarelo */
     color: #000000 !important;
     font-size: 1.7rem !important;
     font-weight: 800 !important;
@@ -1214,18 +1214,18 @@
 /* Cores do Botão Fechar (X) por Categoria do Card */
 .album-lightbox[data-category="grupo-b"] .album-lightbox-close {
     background: #2b2106 !important;
-    color: #0062e3 !important;
-    box-shadow: 0 4px 12px rgba(0, 98, 227, 0.4) !important;
+    color: #00215D !important;
+    box-shadow: 0 4px 12px rgba(0, 33, 93, 0.4) !important;
 }
 .album-lightbox[data-category="supermercados-b"] .album-lightbox-close {
     background: #2b0609 !important;
-    color: #00abe3 !important;
-    box-shadow: 0 4px 12px rgba(0, 171, 227, 0.4) !important;
+    color: #00215D !important;
+    box-shadow: 0 4px 12px rgba(0, 33, 93, 0.4) !important;
 }
 .album-lightbox[data-category="farma-b"] .album-lightbox-close {
     background: #2b0609 !important;
-    color: #00abe3 !important;
-    box-shadow: 0 4px 12px rgba(0, 171, 227, 0.4) !important;
+    color: #00215D !important;
+    box-shadow: 0 4px 12px rgba(0, 33, 93, 0.4) !important;
 }
 .album-lightbox[data-category="villa-plaza"] .album-lightbox-close {
     background: #2a1703 !important;
@@ -1428,9 +1428,9 @@
 }
 
 /* Cores ativas das setas baseadas na marca ao dar hover */
-.album-lightbox[data-category="grupo-b"] .album-lightbox-nav:hover { color: #0062e3 !important; border-color: #0062e3 !important; }
-.album-lightbox[data-category="supermercados-b"] .album-lightbox-nav:hover { color: #00abe3 !important; border-color: #00abe3 !important; }
-.album-lightbox[data-category="farma-b"] .album-lightbox-nav:hover { color: #00abe3 !important; border-color: #00abe3 !important; }
+.album-lightbox[data-category="grupo-b"] .album-lightbox-nav:hover { color: #00215D !important; border-color: #00215D !important; }
+.album-lightbox[data-category="supermercados-b"] .album-lightbox-nav:hover { color: #00215D !important; border-color: #00215D !important; }
+.album-lightbox[data-category="farma-b"] .album-lightbox-nav:hover { color: #00215D !important; border-color: #00215D !important; }
 .album-lightbox[data-category="villa-plaza"] .album-lightbox-nav:hover { color: #ff8a00 !important; border-color: #ff8a00 !important; }
 .album-lightbox[data-category="villa-plaza-park"] .album-lightbox-nav:hover { color: #16a34a !important; border-color: #16a34a !important; }
 .album-lightbox[data-category="the-wine"] .album-lightbox-nav:hover { color: #ff5c82 !important; border-color: #ff5c82 !important; }
@@ -1466,9 +1466,9 @@
 }
 
 /* Cores dos dots ativos por submarca */
-.album-lightbox[data-category="grupo-b"] .album-lightbox-dot.active { background-color: #0062e3 !important; }
-.album-lightbox[data-category="supermercados-b"] .album-lightbox-dot.active { background-color: #00abe3 !important; }
-.album-lightbox[data-category="farma-b"] .album-lightbox-dot.active { background-color: #00abe3 !important; }
+.album-lightbox[data-category="grupo-b"] .album-lightbox-dot.active { background-color: #00215D !important; }
+.album-lightbox[data-category="supermercados-b"] .album-lightbox-dot.active { background-color: #00215D !important; }
+.album-lightbox[data-category="farma-b"] .album-lightbox-dot.active { background-color: #00215D !important; }
 .album-lightbox[data-category="villa-plaza"] .album-lightbox-dot.active { background-color: #ff8a00 !important; }
 .album-lightbox[data-category="villa-plaza-park"] .album-lightbox-dot.active { background-color: #16a34a !important; }
 .album-lightbox[data-category="the-wine"] .album-lightbox-dot.active { background-color: #ff5c82 !important; }
