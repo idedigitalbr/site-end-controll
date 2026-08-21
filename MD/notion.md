@@ -1,5 +1,15 @@
 # Histórico de sincronização — DB_IDE
 
+## 2026-08-21 - Redesign Minimalista de Como Trabalhamos e Nosso Compromisso (Sobre Nós)
+
+- Projeto: site-end-controll
+- Tarefa: Redesign corporativo minimalista da seção Como Trabalhamos (`#metodologia` com fundo branco `#ffffff`, matriz de pontinhos técnicos e 4 passos horizontais) e da seção Nosso Compromisso (`#compromisso` com banner único consolidado de 4 valores com ícones no topo e botão CTA `Fale com nossos especialistas`). Padronização total de ícones via Lucide Icons.
+- Status local: Concluída.
+- Commit: `a2c5792`.
+- Deploy VPS: Concluído via Docker / GitHub Actions (`https://endcontrol.suporteide.digital/sobre-nos.html`).
+- Sincronização Notion: Atualizadas as sub-tarefas `Changelogs` e `Check WhatsApp` no banco `DB_IDE`.
+- Observação: Memória persistente no Obsidian (`MD/`) e changelog sincronizados.
+
 ## 2026-08-21 - Consolidação da Página Sobre Nós e Identidade Visual Oficial
 
 - Projeto: site-end-controll
