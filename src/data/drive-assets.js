@@ -9,6 +9,6 @@ window.driveAssets = {
   },
   photos: {
     heroStaticBg: './assets/Fotografias/originais-16-9/endcontrol-integridade-estrutural-aquisicao-dados-planta-industrial.webp',
-    sobreNosCover: './assets/Fotografias/originais-16-9/foto-end-control-cta-footer.webp'
+    sobreNosCover: './assets/Fotografias/originais-16-9/foto-cta-footer-final.webp'
   }
 };
