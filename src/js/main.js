@@ -929,31 +929,31 @@
         year: "2015",
         title: "Fundação da ENDCONTROL Engenharia",
         desc: "Fundação em Belém (PA), focada em integridade mecânica, ensaios não destrutivos (ENDs) e inspeções de vasos sob pressão e caldeiras (NR-13).",
-        img: "./assets/Fotografias/editadas/operacional-engenheiros-inspecao-bomba-edit.webp"
+        img: "./assets/Fotografias/originais-16-9/endcontrol-institucional-lideranca-gestao-projetos-escritorio.webp"
       },
       {
         year: "2017",
         title: "Expansão para Mineração & Siderurgia",
         desc: "Parcerias estratégicas e consolidação em grandes complexos minerários e de alumina no Pará (Marabá, Paragominas e Carajás).",
-        img: "./assets/Fotografias/editadas/ultrassom-raptor-scan-tecnicos-reunidos-campo-edit.webp"
+        img: "./assets/Fotografias/originais-16-9/endcontrol-ultrassom-phased-array-inspecao-solda-dutos-tubulacoes.webp"
       },
       {
         year: "2019",
         title: "Pioneirismo em RBI e Acesso por Cordas",
         desc: "Implementação da metodologia de Inspeção Baseada em Risco (RBI) e certificação em Acesso por Cordas para auditorias em estruturas de grande altura.",
-        img: "./assets/Fotografias/editadas/operacional-alpinismo-inspecao-vaso-pressao-edit.webp"
+        img: "./assets/Fotografias/originais-16-9/endcontrol-inspecao-altura-nr35-escada-tanque-industrial.webp"
       },
       {
         year: "2021",
         title: "Consolidação Offshore & Petroquímica",
         desc: "Expansão da atuação para o setor de Óleo & Gás na Bacia de Campos (RJ) e indústrias petroquímicas no Polo de Camaçari (BA).",
-        img: "./assets/Fotografias/editadas/operacional-inspecao-ultrassom-casco-estrutura-edit.webp"
+        img: "./assets/Fotografias/originais-16-9/endcontrol-ensaios-nao-destrutivos-ultrassom-medicao-espessura-naval.webp"
       },
       {
         year: "2024",
         title: "Inteligência Artificial & Diagnósticos Preditivos",
         desc: "Integração de modelos de IA e simulação 3D para previsibilidade de integridade, ultrapassando 1.300 equipamentos inspecionados e 800+ projetos concluídos.",
-        img: "./assets/Fotografias/editadas/ultrassom-raptor-scan-crawler-operacao-edit.webp"
+        img: "./assets/Fotografias/originais-16-9/endcontrol-integridade-estrutural-aquisicao-dados-planta-industrial.webp"
       }
     ];
 

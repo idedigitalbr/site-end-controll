@@ -1,14 +1,40 @@
 # Changelog — ENDCONTROL Engenharia
 
-## [2026-08-21] - Simplificação Visual da Seção Nosso Compromisso (Sobre Nós)
+## [2026-08-21] - Substituição Completa das Fotografias por Acervo Oficial 16:9 (`originais-16-9`) e Exclusão Total de `editadas`
+
+- **Arquivos:** `assets/Fotografias/originais-16-9/` (novo acervo de 12 fotos 16:9), `assets/Fotografias/editadas/` (excluída completamente), `index.html`, `sobre-nos.html`, `10-solucao-trepanacao-hot-tapping.html`, `12-solucao-consultoria-e-assessoria-tecnica.html`, `2-solucao-inspecao-em-obras-de-artes-especiais.html`, `3-solucao-ensaios-nao-destrutivos-ends.html`, `9-solucao-calibracao-de-instrumentos.html`, `componentes-cards-.html`, `identidade-visual.html`, `src/data/drive-assets.js`, `src/data/units.js`, `src/js/album.js`, `src/js/main.js`, `src/js/service-pages.js`, `src/js/solucoes-integridade.js`, `src/js/solucoes.js`, `src/css/brand-pages.css`, `tests/about-media.test.js`, `tests/service-visual-standard.test.js`, `.dockerignore`, `.superdesign/init/pages.md`, `MD/implementation_plan-SOBRE-NOS.md`, `MD/changelog.md`.
+
+### Removed & Purged
+- **Exclusão Completa da Pasta `assets/Fotografias/editadas`:**
+  - Removidos física e definitivamente todos os 8 arquivos rejeitados (`operacional-alpinismo-industrial-escada-tanque-edit.webp`, `operacional-alpinismo-inspecao-vaso-pressao-edit.webp`, `operacional-discussao-engenheiros-tela-original.png`, `operacional-engenheiros-inspecao-bomba-edit.webp`, `operacional-inspecao-ultrassom-casco-estrutura-edit.webp`, `operacional-ultrassom-solda-tubulacao-edit-final.webp`, `ultrassom-raptor-scan-crawler-operacao-edit.webp`, `ultrassom-raptor-scan-tecnicos-reunidos-campo-edit.webp`).
+  - Nenhuma referência restante no código fonte, HTML, JS, CSS, testes ou configurações.
+
+### Added & Replaced
+- **Adoção Exclusiva do Acervo `assets/Fotografias/originais-16-9` (12 Fotografias de Alta Resolução):**
+  1. `endcontrol-inspecao-altura-nr35-escada-tanque-industrial.webp` (Trabalho em altura / NR-35 / Tanques industriais)
+  2. `endcontrol-laboratorio-ensaio-dureza-digimess-certificacao-materiais.webp` (Ensaio de dureza Digimess / Laboratório / Certificação)
+  3. `endcontrol-ensaios-nao-destrutivos-ultrassom-medicao-espessura-naval.webp` (Ultrassom / Medição de espessura / Setor naval e offshore)
+  4. `endcontrol-integridade-estrutural-aquisicao-dados-planta-industrial.webp` (Engenharia de integridade / Diagnóstico e aquisição de dados)
+  5. `endcontrol-ultrassom-phased-array-inspecao-solda-dutos-tubulacoes.webp` (Ultrassom Phased Array em junta soldada de dutos)
+  6. `endcontrol-calibracao-medicao-vazao-ultrassonica-duto-industrial.webp` (Medição de vazão não intrusiva / Calibração em tubulação)
+  7. `endcontrol-inspecao-integridade-dutos-adutoras-sensores-campo.webp` (Inspeção de integridade em linhas e adutoras / Sensores de campo)
+  8. `endcontrol-calibracao-manometros-pressao-em-campo-nr13.webp` (Calibração de manômetros e instrumentos de pressão em campo NR-13)
+  9. `endcontrol-engenharia-soldagem-qualificacao-soldadores-eps-rqps.webp` (Qualificação de soldadores / EPS / RQPS / Engenharia de soldagem)
+  10. `endcontrol-institucional-lideranca-gestao-projetos-escritorio.webp` (Institucional / Liderança executiva / Gestão de projetos)
+  11. `endcontrol-equipe-escritorio-projetos-mecanicos-engenharia.webp` (Escritório de projetos de engenharia / Equipe técnica)
+  12. `endcontrol-consultoria-tecnica-demonstracao-scanner-ultrassom-tubos.webp` (Consultoria técnica / Demonstração de scanner de ultrassom)
+
+### Tested & Validated
+- 125/125 testes unitários e de integração (`tests/*.test.js`) aprovados com 100% de sucesso.
+- Script de integridade estrutural (`site-integrity.ps1`) com status `PASS`.
+
 
 - **Arquivos:** `sobre-nos.html`, `src/css/sobre-nos.css`, `MD/changelog.md`
 
 ### Cleaned & Refined
 - **Seção Nosso Compromisso (`#compromisso` em `sobre-nos.html`):**
-  - Removido o container de card branco (borda, sombra, cantos arredondados e divisores) e os ícones circulares dos 4 pilares.
-  - Mantida apenas a tipografia limpa e direta em grade horizontal (Segurança, Confiabilidade, Eficiência, Sustentabilidade) com seus respectivos títulos e descrições.
-  - Design responsivo ajustado para 4 colunas em desktop, 2 colunas em tablet e 1 coluna em dispositivos móveis.
+  - Removido completamente o bloco intermediário de valores/cards (Segurança, Confiabilidade, Eficiência, Sustentabilidade), alinhando 100% com o layout executivo (Print 1).
+  - Mantidos exclusivamente a cápsula badge (`NOSSO COMPROMISSO`), a headline de impacto (`Excelência técnica começa com responsabilidade.`) e o botão de ação imediata (`Fale com nossos especialistas →`) sobre a foto técnica panorâmica.
   - 125/125 testes automatizados validados com 100% de aprovação.
 
 ## [2026-08-21] - Faixa de Indicadores Minimalista e Sóbria na Página Sobre Nós (100% Padrão Hero)

@@ -1,11 +1,19 @@
 # Features — ENDCONTROL Engenharia
 
-## Simplificação Visual dos Pilares na Seção Nosso Compromisso (Sobre Nós)
+## Adoção do Acervo Oficial 16:9 (`originais-16-9`) e Purga Total de Imagens Rejeitadas
+
+- Status: Concluída
+- Data: 2026-08-21
+- **Arquivos:** `assets/Fotografias/originais-16-9/`, `index.html`, `sobre-nos.html`, `10-solucao-trepanacao-hot-tapping.html`, `12-solucao-consultoria-e-assessoria-tecnica.html`, `2-solucao-inspecao-em-obras-de-artes-especiais.html`, `3-solucao-ensaios-nao-destrutivos-ends.html`, `9-solucao-calibracao-de-instrumentos.html`, `componentes-cards-.html`, `identidade-visual.html`, `src/data/drive-assets.js`, `src/data/units.js`, `src/js/album.js`, `src/js/main.js`, `src/js/service-pages.js`, `src/js/solucoes-integridade.js`, `src/js/solucoes.js`, `src/css/brand-pages.css`, `tests/about-media.test.js`, `tests/service-visual-standard.test.js`.
+- **Acervo Oficial 16:9:** Substituídas 100% das imagens rejeitadas pelo novo lote de 12 fotografias técnicas de alta qualidade devidamente categorizadas por técnica e aplicação industrial.
+- **Purga Total:** Exclusão física de `assets/Fotografias/editadas` e limpeza de todas as referências em código, scripts, templates, testes e configurações.
+
+## Layout Direto e Limpo na Seção Nosso Compromisso (Sobre Nós)
 
 - Status: Concluída
 - Data: 2026-08-21
 - **Arquivos:** `sobre-nos.html`, `src/css/sobre-nos.css`, `MD/changelog.md`, `MD/features.md`
-- **Tipografia Direta e Minimalismo:** Removido o container de card branco (borda, sombra, cantos arredondados e divisores) e os ícones circulares da penúltima seção (`#compromisso`), mantendo apenas os títulos e descrições dos 4 pilares (Segurança, Confiabilidade, Eficiência e Sustentabilidade) em grid horizontal limpo.
+- **Padrão Oficial 1:1 (Print 1):** Removido totalmente o bloco de itens (Segurança, Confiabilidade, Eficiência, Sustentabilidade), deixando a seção estritamente com a cápsula badge `NOSSO COMPROMISSO`, a headline `Excelência técnica começa com responsabilidade.` e o botão de ação `Fale com nossos especialistas →` diretamente integrado sobre a foto técnica.
 
 ## Consolidação da Página Sobre Nós e Identidade Visual Unificada
 

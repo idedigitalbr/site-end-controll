@@ -20,7 +20,7 @@ Implementação da nova página institucional **Sobre Nós** da **EndControl Eng
   - Footer oficial com 3 colunas com divisores verticais de glow, logo central, redes sociais e dados de contato.
   - Modais institucionais e overlays de vídeo.
 - **Acervo Fotográfico Identificado:**
-  - Fotografias operacionais reais de alta qualidade em `assets/Fotografias/editadas/` (ensaios de ultrassom phased array, calibração, inspeção de bombas, reuniões técnicas, técnicos em refinaria, alpinismo industrial).
+  - Fotografias operacionais reais de alta qualidade em `assets/Fotografias/originais-16-9/` (ensaios de ultrassom phased array, calibração, inspeção de bombas, reuniões técnicas, técnicos em refinaria, alpinismo industrial).
   - Imagens setoriais em `assets/Paginas Imgs/HOME/S_SEGMENTOS/` e `assets/Paginas Imgs/HOME/CARDS-AREAS-ATUACAO/`.
   - Logotipos vetorizados e webp em `assets/Logos/`.
 

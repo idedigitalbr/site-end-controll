@@ -1,4 +1,4 @@
-﻿// Central de assets locais (offline) da ENDCONTROL Engenharia.
+// Central de assets locais (offline) da ENDCONTROL Engenharia.
 // Regra do projeto: manter imagens locais na pasta assets.
 
 window.driveAssets = {
@@ -8,7 +8,7 @@ window.driveAssets = {
     icon: './assets/Logos/icon-endcontrol.webp'
   },
   photos: {
-    heroStaticBg: './assets/Paginas Imgs/HOME/S1 TOPO/topo-f (1).webp',
-    sobreNosCover: './assets/Fotografias/editadas/operacional-engenheiros-inspecao-bomba-edit.webp'
+    heroStaticBg: './assets/Fotografias/originais-16-9/endcontrol-integridade-estrutural-aquisicao-dados-planta-industrial.webp',
+    sobreNosCover: './assets/Fotografias/originais-16-9/endcontrol-inspecao-integridade-dutos-adutoras-sensores-campo.webp'
   }
 };

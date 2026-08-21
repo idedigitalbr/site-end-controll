@@ -36,8 +36,8 @@ test('the shared service runtime normalizes icons and operational imagery', () =
   assert.match(serviceRuntime, /endo-acc-icon/);
   assert.match(serviceRuntime, /sn-step-node/);
   assert.match(serviceRuntime, /sn-commitment-icon/);
-  assert.match(serviceRuntime, /assets\/Fotografias\/editadas/);
-  assert.match(serviceRuntime, /operacional-/);
+  assert.match(serviceRuntime, /assets\/Fotografias\/originais-16-9/);
+  assert.match(serviceRuntime, /endcontrol-/);
   assert.doesNotMatch(serviceRuntime, /circle-check/);
   assert.doesNotMatch(serviceRuntime, /monitor-cog/);
 });

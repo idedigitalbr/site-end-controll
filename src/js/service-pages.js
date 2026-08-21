@@ -7,14 +7,18 @@
   'use strict';
 
   const operationalPhotoPool = [
-    './assets/Fotografias/editadas/operacional-inspecao-ultrassom-casco-estrutura-edit.webp',
-    './assets/Fotografias/editadas/operacional-ultrassom-solda-tubulacao-edit-final.webp',
-    './assets/Fotografias/editadas/operacional-engenheiros-inspecao-bomba-edit.webp',
-    './assets/Fotografias/editadas/operacional-alpinismo-inspecao-vaso-pressao-edit.webp',
-    './assets/Fotografias/editadas/operacional-alpinismo-industrial-escada-tanque-edit.webp',
-    './assets/Fotografias/editadas/ultrassom-raptor-scan-crawler-operacao-edit.webp',
-    './assets/Fotografias/editadas/ultrassom-raptor-scan-tecnicos-reunidos-campo-edit.webp',
-    './assets/Fotografias/editadas/operacional-discussao-engenheiros-tela-original.png'
+    './assets/Fotografias/originais-16-9/endcontrol-integridade-estrutural-aquisicao-dados-planta-industrial.webp',
+    './assets/Fotografias/originais-16-9/endcontrol-ultrassom-phased-array-inspecao-solda-dutos-tubulacoes.webp',
+    './assets/Fotografias/originais-16-9/endcontrol-inspecao-altura-nr35-escada-tanque-industrial.webp',
+    './assets/Fotografias/originais-16-9/endcontrol-ensaios-nao-destrutivos-ultrassom-medicao-espessura-naval.webp',
+    './assets/Fotografias/originais-16-9/endcontrol-calibracao-manometros-pressao-em-campo-nr13.webp',
+    './assets/Fotografias/originais-16-9/endcontrol-engenharia-soldagem-qualificacao-soldadores-eps-rqps.webp',
+    './assets/Fotografias/originais-16-9/endcontrol-inspecao-integridade-dutos-adutoras-sensores-campo.webp',
+    './assets/Fotografias/originais-16-9/endcontrol-consultoria-tecnica-demonstracao-scanner-ultrassom-tubos.webp',
+    './assets/Fotografias/originais-16-9/endcontrol-laboratorio-ensaio-dureza-digimess-certificacao-materiais.webp',
+    './assets/Fotografias/originais-16-9/endcontrol-calibracao-medicao-vazao-ultrassonica-duto-industrial.webp',
+    './assets/Fotografias/originais-16-9/endcontrol-equipe-escritorio-projetos-mecanicos-engenharia.webp',
+    './assets/Fotografias/originais-16-9/endcontrol-institucional-lideranca-gestao-projetos-escritorio.webp'
   ];
 
   const iconByTitle = [

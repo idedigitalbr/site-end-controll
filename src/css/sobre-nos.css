@@ -698,7 +698,7 @@
 
 .sn-essence-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 24px 50px rgba(0, 30, 80, 0.28), 0 0 20px rgba(0, 102, 255, 0.18);
+  box-shadow: 0 24px 50px rgba(0, 30, 80, 0.28), 0 0 20px rgba(0, 33, 93, 0.18);
 }
 
 /* Aba azul no topo esquerdo de cada card */
@@ -708,7 +708,7 @@
   left: 20px;
   width: 52px;
   height: 5px;
-  background: linear-gradient(90deg, #0088ff, #0052cc);
+  background: #00215D;
   border-radius: 0 0 4px 4px;
 }
 
@@ -727,21 +727,21 @@
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  background: #eaf2fd;
-  border: 1.5px solid rgba(0, 102, 255, 0.2);
+  background: rgba(0, 33, 93, 0.06);
+  border: 1.5px solid rgba(0, 33, 93, 0.2);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #0066ff;
+  color: #00215D;
   flex-shrink: 0;
-  box-shadow: 0 4px 14px rgba(0, 80, 200, 0.08);
+  box-shadow: 0 4px 14px rgba(0, 33, 93, 0.08);
   transition: all 0.3s ease;
 }
 
 .sn-essence-card:hover .sn-essence-icon-badge {
   transform: scale(1.06);
-  background: #deedfe;
-  border-color: #0066ff;
+  background: rgba(0, 33, 93, 0.12);
+  border-color: #00215D;
 }
 
 .sn-essence-icon-badge svg,
@@ -771,7 +771,7 @@
 .sn-essence-title-line {
   width: 28px;
   height: 2.5px;
-  background: #0066ff;
+  background: #00215D;
   border-radius: 2px;
   margin-top: 5px;
 }
@@ -812,7 +812,7 @@
   position: absolute;
   left: 0;
   top: -1px;
-  color: #0066ff;
+  color: #00215D;
   font-size: 1.2rem;
   font-weight: 800;
 }
@@ -854,7 +854,7 @@
   left: 20px;
   width: 140px;
   height: 220px;
-  background-image: radial-gradient(rgba(0, 102, 255, 0.18) 1.5px, transparent 1.5px);
+  background-image: radial-gradient(rgba(0, 33, 93, 0.18) 1.5px, transparent 1.5px);
   background-size: 18px 18px;
   opacity: 0.65;
   mask-image: radial-gradient(circle at center, black 40%, transparent 85%);
@@ -877,7 +877,7 @@
   position: absolute;
   inset: 120px;
   border-radius: 50%;
-  border: 1px dashed rgba(0, 102, 255, 0.08);
+  border: 1px dashed rgba(0, 33, 93, 0.08);
 }
 
 .sn-process-tech-arcs::after {
@@ -931,7 +931,7 @@
 .sn-process-headline .sn-highlight-blue {
   font-style: italic;
   font-weight: 400;
-  color: #0066ff;
+  color: #00215D;
 }
 
 .sn-process-description {
@@ -974,7 +974,7 @@
   font-family: var(--font-primary, sans-serif);
   font-size: 15px;
   font-weight: 700;
-  color: #0066ff;
+  color: #00215D;
   letter-spacing: 0.04em;
   margin-bottom: 12px;
   line-height: 1;
@@ -1006,8 +1006,8 @@
 }
 
 .sn-step-unit:hover .sn-step-node:not(.sn-step-node-filled) {
-  border-color: #0066ff;
-  color: #0066ff;
+  border-color: #00215D;
+  color: #00215D;
   transform: translateY(-3px);
 }
 
@@ -1030,7 +1030,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #0066ff;
+  color: #00215D;
   margin-top: 54px; /* Alinhado geometricamente ao centro do círculo */
   flex-shrink: 0;
   padding: 0 2px;
@@ -1043,7 +1043,7 @@
   display: block;
   width: 20px;
   height: 20px;
-  stroke: #0066ff;
+  stroke: #00215D;
   stroke-width: 2;
 }
 
@@ -1110,7 +1110,7 @@
   bottom: 0;
   width: 50%;
   background-image: 
-    radial-gradient(rgba(0, 102, 255, 0.15) 1.5px, transparent 1.5px);
+    radial-gradient(rgba(0, 33, 93, 0.15) 1.5px, transparent 1.5px);
   background-size: 20px 20px;
   opacity: 0.4;
   pointer-events: none;
@@ -1166,50 +1166,6 @@
   font-style: italic;
   font-weight: 400;
   color: #00215D;
-}
-
-/* Valores do Nosso Compromisso (Texto Puro sem cards e sem ícones) */
-.sn-commitment-values,
-.sn-commitment-banner {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 36px;
-  align-items: flex-start;
-  position: relative;
-  z-index: 3;
-  max-width: 980px;
-  margin-bottom: 38px;
-}
-
-.sn-commitment-item {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-  padding: 0;
-  position: relative;
-}
-
-.sn-commitment-item h3,
-.sn-commitment-item-text h3 {
-  font-family: var(--font-primary, sans-serif);
-  font-size: 1.25rem;
-  font-weight: 800;
-  color: #0b192c;
-  margin: 0 0 8px 0;
-  letter-spacing: -0.015em;
-  text-align: left;
-}
-
-.sn-commitment-item p,
-.sn-commitment-item-text p {
-  font-family: var(--font-primary, sans-serif);
-  font-size: 0.88rem;
-  line-height: 1.5;
-  color: #556880;
-  margin: 0;
-  max-width: 220px;
-  text-align: left;
 }
 
 .sn-commitment-cta {
@@ -1350,10 +1306,10 @@
 }
 
 .sn-cta-btn-primary {
-  background: linear-gradient(135deg, #0088ff 0%, #0052cc 100%) !important;
+  background: #00215D !important;
   border: none !important;
   color: #ffffff !important;
-  box-shadow: 0 8px 30px rgba(0, 110, 255, 0.55), 0 0 20px rgba(0, 194, 255, 0.4) !important;
+  box-shadow: 0 8px 30px rgba(0, 33, 93, 0.45) !important;
   border-radius: 12px !important;
   padding: 16px 36px !important;
   font-weight: 700 !important;
@@ -1362,7 +1318,7 @@
 
 .sn-cta-btn-primary:hover {
   transform: translateY(-2px) scale(1.02) !important;
-  box-shadow: 0 12px 40px rgba(0, 110, 255, 0.75), 0 0 30px rgba(0, 194, 255, 0.7) !important;
+  box-shadow: 0 12px 40px rgba(0, 33, 93, 0.65) !important;
 }
 
 .sn-cta-btn-secondary {
@@ -1662,13 +1618,6 @@
     gap: 24px;
   }
 
-  .sn-commitment-values,
-  .sn-commitment-banner {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px 20px;
-    max-width: 640px;
-  }
-
   .sn-commitment-bg-photo {
     width: 100%;
     opacity: 0.18;
@@ -1890,36 +1839,9 @@
     margin-right: auto;
   }
 
-  .sn-commitment-values,
-  .sn-commitment-banner {
-    grid-template-columns: 1fr;
-    gap: 20px;
-    padding: 0;
-    max-width: 360px;
-    margin: 0 auto 24px;
-  }
-
-  .sn-commitment-item {
-    align-items: center;
-    text-align: center;
-    padding: 0;
-  }
-
-  .sn-commitment-item h3,
-  .sn-commitment-item-text h3 {
-    text-align: center;
-  }
-
-  .sn-commitment-item p,
-  .sn-commitment-item-text p {
-    text-align: center;
-    max-width: 320px;
-    margin: 0 auto;
-  }
-
   .sn-commitment-cta {
     justify-content: center;
-    margin-top: 20px;
+    margin-top: 24px;
   }
 
   .sn-commitment-cta .sn-commitment-btn {
@@ -1999,15 +1921,15 @@
 
 .sn-page-wrapper.light-theme .theme-switch-btn {
   background: #ffffff;
-  color: #0052cc;
-  border-color: rgba(0, 82, 204, 0.25);
+  color: #00215D;
+  border-color: rgba(0, 33, 93, 0.25);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 .sn-page-wrapper.light-theme .theme-switch-btn:hover {
-  background: #0052cc;
+  background: #00215D;
   color: #ffffff;
-  box-shadow: 0 4px 16px rgba(0, 82, 204, 0.3);
+  box-shadow: 0 4px 16px rgba(0, 33, 93, 0.3);
 }
 
 /* Header scrolled na versão Light */
@@ -2015,7 +1937,7 @@
   background: rgba(255, 255, 255, 0.94);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(0, 82, 204, 0.12);
+  border-bottom: 1px solid rgba(0, 33, 93, 0.12);
   box-shadow: 0 10px 30px rgba(0, 30, 80, 0.08);
   color: #08182e;
 }
@@ -2029,7 +1951,7 @@
    -------------------------------------------------------------------------- */
 .sn-page-wrapper.light-theme .sn-hero-section {
   background: linear-gradient(180deg, #8cb2c5 0%, #99bac9 60%, #b0cbd8 100%);
-  border-bottom: 1px solid rgba(0, 82, 204, 0.15);
+  border-bottom: 1px solid rgba(0, 33, 93, 0.15);
 }
 
 .sn-page-wrapper.light-theme .sn-hero-overlay {
@@ -2043,7 +1965,7 @@
   border-radius: 999px;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
   font-weight: 800;
-  border: 1px solid rgba(0, 82, 204, 0.15);
+  border: 1px solid rgba(0, 33, 93, 0.15);
   display: inline-flex;
 }
 
@@ -2063,13 +1985,13 @@
   background: #EFFAFF;
   color: #071429;
   border-top: 1px solid rgba(255, 255, 255, 0.4);
-  border-bottom: 1px solid rgba(0, 82, 204, 0.12);
+  border-bottom: 1px solid rgba(0, 33, 93, 0.12);
 }
 
 .sn-page-wrapper.light-theme .sn-essence-hud-bg {
   background-image: 
     radial-gradient(circle at 10% 50%, rgba(255, 255, 255, 0.3) 0%, transparent 50%),
-    radial-gradient(circle at 90% 50%, rgba(0, 82, 204, 0.1) 0%, transparent 50%);
+    radial-gradient(circle at 90% 50%, rgba(0, 33, 93, 0.1) 0%, transparent 50%);
 }
 
 .sn-page-wrapper.light-theme .sn-essence-badge {
@@ -2106,8 +2028,8 @@
 .sn-page-wrapper.light-theme .sn-essence-card:hover {
   background: #ffffff;
   transform: translateY(-6px);
-  border-color: #0052cc;
-  box-shadow: 0 24px 50px rgba(0, 82, 204, 0.18);
+  border-color: #00215D;
+  box-shadow: 0 24px 50px rgba(0, 33, 93, 0.18);
 }
 
 .sn-page-wrapper.light-theme .sn-essence-card-title {
@@ -2123,19 +2045,19 @@
 }
 
 .sn-page-wrapper.light-theme .sn-values-list li::before {
-  color: #0052cc;
+  color: #00215D;
   background: transparent;
 }
 
 .sn-page-wrapper.light-theme .sn-essence-icon-badge {
-  background: rgba(0, 82, 204, 0.08);
-  border-color: #0052cc;
-  color: #0052cc;
-  box-shadow: 0 4px 12px rgba(0, 82, 204, 0.15);
+  background: rgba(0, 33, 93, 0.08);
+  border-color: #00215D;
+  color: #00215D;
+  box-shadow: 0 4px 12px rgba(0, 33, 93, 0.15);
 }
 
 .sn-page-wrapper.light-theme .sn-circuit-corner svg {
-  stroke: rgba(0, 82, 204, 0.25);
+  stroke: rgba(0, 33, 93, 0.25);
 }
 
 /* --------------------------------------------------------------------------
@@ -2153,7 +2075,7 @@
 }
 
 .sn-page-wrapper.light-theme .sn-process-headline .sn-highlight-blue {
-  color: #0066ff;
+  color: #00215D;
 }
 
 .sn-page-wrapper.light-theme .sn-process-description {
@@ -2161,7 +2083,7 @@
 }
 
 .sn-page-wrapper.light-theme .sn-step-number {
-  color: #0066ff;
+  color: #00215D;
 }
 
 .sn-page-wrapper.light-theme .sn-step-title {
@@ -2179,7 +2101,7 @@
   background: #94b5c6;
   color: #08182e;
   border-top: 1px solid rgba(255, 255, 255, 0.4);
-  border-bottom: 1px solid rgba(0, 82, 204, 0.12);
+  border-bottom: 1px solid rgba(0, 33, 93, 0.12);
 }
 
 .sn-page-wrapper.light-theme .sn-commitment-bg-photo {
@@ -2207,32 +2129,6 @@
   color: #00215D;
 }
 
-.sn-page-wrapper.light-theme .sn-commitment-card {
-  background: rgba(255, 255, 255, 0.92);
-  border: 1px solid rgba(255, 255, 255, 0.9);
-  border-bottom: 3px solid #0052cc;
-  box-shadow: 0 14px 35px rgba(8, 24, 46, 0.08);
-}
-
-.sn-page-wrapper.light-theme .sn-commitment-card:hover {
-  background: #ffffff;
-  transform: translateY(-5px);
-  box-shadow: 0 20px 45px rgba(0, 82, 204, 0.18);
-}
-
-.sn-page-wrapper.light-theme .sn-commitment-card-title {
-  color: #08182e;
-}
-
-.sn-page-wrapper.light-theme .sn-commitment-card-text {
-  color: #2b3e55;
-}
-
-.sn-page-wrapper.light-theme .sn-commitment-icon {
-  background: rgba(0, 82, 204, 0.08);
-  color: #0052cc;
-}
-
 /* --------------------------------------------------------------------------
    6. CTA FINAL LIGHT
    -------------------------------------------------------------------------- */
@@ -2251,7 +2147,7 @@
 }
 
 .sn-page-wrapper.light-theme .sn-cta-headline .sn-highlight-blue {
-  color: #0052cc;
+  color: #00215D;
 }
 
 .sn-page-wrapper.light-theme .sn-cta-description {
@@ -2259,22 +2155,22 @@
 }
 
 .sn-page-wrapper.light-theme .sn-cta-buttons-row .btn-primary {
-  background: #0052cc;
+  background: #00215D;
   color: #ffffff;
-  border-color: #0052cc;
-  box-shadow: 0 8px 24px rgba(0, 82, 204, 0.3);
+  border-color: #00215D;
+  box-shadow: 0 8px 24px rgba(0, 33, 93, 0.3);
 }
 
 .sn-page-wrapper.light-theme .sn-cta-buttons-row .btn-secondary {
   background: #ffffff;
   color: #08182e;
-  border-color: rgba(0, 82, 204, 0.25);
+  border-color: rgba(0, 33, 93, 0.25);
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
 }
 
 .sn-page-wrapper.light-theme .sn-cta-buttons-row .btn-secondary:hover {
-  background: #0052cc;
+  background: #00215D;
   color: #ffffff;
-  border-color: #0052cc;
+  border-color: #00215D;
 }
 

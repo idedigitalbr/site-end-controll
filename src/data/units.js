@@ -30,11 +30,11 @@ window.units = [
     ],
     aboutText: "A Matriz Belém é o centro de inteligência e governança técnica da ENDCONTROL Engenharia no Norte do Brasil. Equipada com laboratório de ensaios avançados e centro de gestão de dados operacionais, coordena grandes contratos industriais na região amazônica e operações offshore/onshore.",
     images: {
-      cover: "./assets/Paginas Imgs/HOME/S1 TOPO/topo-f (1).webp",
+      cover: "./assets/Fotografias/originais-16-9/endcontrol-integridade-estrutural-aquisicao-dados-planta-industrial.webp",
       album: [
-        { title: "Centro Tecnológico e Operacional", url: "./assets/Paginas Imgs/HOME/S1 TOPO/topo-f (1).webp" },
-        { title: "Equipe Técnica e Engenharia de Integridade", url: "./assets/Fotografias/editadas/operacional-engenheiros-inspecao-bomba-edit.webp" },
-        { title: "Inspeção de Tubulações Críticas", url: "./assets/Fotografias/editadas/operacional-inspecao-ultrassom-casco-estrutura-edit.webp" }
+        { title: "Centro Tecnológico e Operacional", url: "./assets/Fotografias/originais-16-9/endcontrol-integridade-estrutural-aquisicao-dados-planta-industrial.webp" },
+        { title: "Equipe Técnica e Engenharia de Integridade", url: "./assets/Fotografias/originais-16-9/endcontrol-equipe-escritorio-projetos-mecanicos-engenharia.webp" },
+        { title: "Inspeção de Tubulações Críticas", url: "./assets/Fotografias/originais-16-9/endcontrol-inspecao-integridade-dutos-adutoras-sensores-campo.webp" }
       ]
     },
     googleReviews: [
@@ -69,10 +69,10 @@ window.units = [
     ],
     aboutText: "Base móvel e fixa especializada no atendimento direto aos grandes complexos minerários e de alumina no Pará (Hydro, Vale). Equipes especializadas prontas para atendimento imediato em paradas de fábrica e auditorias de segurança.",
     images: {
-      cover: "./assets/Fotografias/editadas/operacional-alpinismo-industrial-escada-tanque-edit.webp",
+      cover: "./assets/Fotografias/originais-16-9/endcontrol-inspecao-altura-nr35-escada-tanque-industrial.webp",
       album: [
-        { title: "Inspeção e Acesso em Mineração", url: "./assets/Fotografias/editadas/operacional-alpinismo-industrial-escada-tanque-edit.webp" },
-        { title: "Ensaios em Minerodutos", url: "./assets/Fotografias/editadas/operacional-ultrassom-solda-tubulacao-edit-final.webp" }
+        { title: "Inspeção e Acesso em Mineração", url: "./assets/Fotografias/originais-16-9/endcontrol-inspecao-altura-nr35-escada-tanque-industrial.webp" },
+        { title: "Ensaios em Minerodutos", url: "./assets/Fotografias/originais-16-9/endcontrol-ultrassom-phased-array-inspecao-solda-dutos-tubulacoes.webp" }
       ]
     },
     googleReviews: [
@@ -105,9 +105,9 @@ window.units = [
     ],
     aboutText: "Representação estratégica e polo de inovação em São Paulo. Desenvolve algoritmos de IA e modelos de simulação computacional aplicados à previsão de vida útil de equipamentos e gestão de ativos de grandes indústrias químicas, alimentícias e energéticas.",
     images: {
-      cover: "./assets/Fotografias/editadas/ultrassom-raptor-scan-crawler-operacao-edit.webp",
+      cover: "./assets/Fotografias/originais-16-9/endcontrol-integridade-estrutural-aquisicao-dados-planta-industrial.webp",
       album: [
-        { title: "Hub Tecnológico e Simulação Computacional", url: "./assets/Fotografias/editadas/ultrassom-raptor-scan-crawler-operacao-edit.webp" }
+        { title: "Hub Tecnológico e Simulação Computacional", url: "./assets/Fotografias/originais-16-9/endcontrol-integridade-estrutural-aquisicao-dados-planta-industrial.webp" }
       ]
     },
     googleReviews: [
@@ -140,9 +140,9 @@ window.units = [
     ],
     aboutText: "Especializada no setor de Óleo & Gás e Naval. Presta serviços de engenharia de confiabilidade e inspeção técnica para operadoras de E&P na Bacia de Campos e Santos.",
     images: {
-      cover: "./assets/Fotografias/editadas/operacional-inspecao-ultrassom-casco-estrutura-edit.webp",
+      cover: "./assets/Fotografias/originais-16-9/endcontrol-ensaios-nao-destrutivos-ultrassom-medicao-espessura-naval.webp",
       album: [
-        { title: "Inspeções em Plataformas e Navios", url: "./assets/Fotografias/editadas/operacional-inspecao-ultrassom-casco-estrutura-edit.webp" }
+        { title: "Inspeções em Plataformas e Navios", url: "./assets/Fotografias/originais-16-9/endcontrol-ensaios-nao-destrutivos-ultrassom-medicao-espessura-naval.webp" }
       ]
     },
     googleReviews: [
@@ -175,9 +175,9 @@ window.units = [
     ],
     aboutText: "Suporte especializado para indústrias petroquímicas, químicas e siderúrgicas no Polo de Camaçari e região metropolitana de Salvador.",
     images: {
-      cover: "./assets/Fotografias/editadas/operacional-inspecao-ultrassom-casco-estrutura-edit.webp",
+      cover: "./assets/Fotografias/originais-16-9/endcontrol-ultrassom-phased-array-inspecao-solda-dutos-tubulacoes.webp",
       album: [
-        { title: "Inspeções no Polo Petroquímico", url: "./assets/Fotografias/editadas/operacional-inspecao-ultrassom-casco-estrutura-edit.webp" }
+        { title: "Inspeções no Polo Petroquímico", url: "./assets/Fotografias/originais-16-9/endcontrol-ultrassom-phased-array-inspecao-solda-dutos-tubulacoes.webp" }
       ]
     },
     googleReviews: [
@@ -209,9 +209,9 @@ window.units = [
     ],
     aboutText: "Atendimento focado em energia renovável (eólica/solar), infraestrutura portuária no Pecém e indústrias farmacêuticas e alimentícias no Ceará.",
     images: {
-      cover: "./assets/Fotografias/editadas/ultrassom-raptor-scan-crawler-operacao-edit.webp",
+      cover: "./assets/Fotografias/originais-16-9/endcontrol-consultoria-tecnica-demonstracao-scanner-ultrassom-tubos.webp",
       album: [
-        { title: "Inspeção em Parques Eólicos e Estruturas", url: "./assets/Fotografias/editadas/ultrassom-raptor-scan-crawler-operacao-edit.webp" }
+        { title: "Inspeção em Parques Eólicos e Estruturas", url: "./assets/Fotografias/originais-16-9/endcontrol-consultoria-tecnica-demonstracao-scanner-ultrassom-tubos.webp" }
       ]
     },
     googleReviews: [
@@ -243,9 +243,9 @@ window.units = [
     ],
     aboutText: "Base estratégica cobrindo o sudoeste da Amazônia, atendendo usinas hidrelétricas (Santo Antônio, Jirau), distribuidores de combustíveis e agroindústrias.",
     images: {
-      cover: "./assets/Fotografias/editadas/operacional-engenheiros-inspecao-bomba-edit.webp",
+      cover: "./assets/Fotografias/originais-16-9/endcontrol-calibracao-manometros-pressao-em-campo-nr13.webp",
       album: [
-        { title: "Inspeção em Tanques e Hidrelétricas", url: "./assets/Fotografias/editadas/operacional-engenheiros-inspecao-bomba-edit.webp" }
+        { title: "Inspeção em Tanques e Hidrelétricas", url: "./assets/Fotografias/originais-16-9/endcontrol-calibracao-manometros-pressao-em-campo-nr13.webp" }
       ]
     },
     googleReviews: [

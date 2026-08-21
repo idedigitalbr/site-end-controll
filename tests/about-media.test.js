@@ -6,7 +6,7 @@ const test = require('node:test');
 const root = path.resolve(__dirname, '..');
 const html = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
 const styles = fs.readFileSync(path.join(root, 'src', 'css', 'sections.css'), 'utf8');
-const originalImage = './assets/Fotografias/editadas/operacional-discussao-engenheiros-tela-original.png';
+const originalImage = './assets/Fotografias/originais-16-9/endcontrol-equipe-escritorio-projetos-mecanicos-engenharia.webp';
 const aboutStart = html.indexOf('<section class="section about-premium-section');
 const aboutEnd = html.indexOf('</section>', aboutStart) + '</section>'.length;
 const aboutSection = html.slice(aboutStart, aboutEnd);

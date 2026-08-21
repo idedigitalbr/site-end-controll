@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'Avaliação da integridade contra pressão interna',
         'Avaliação conforme API 579-1 / ASME FFS-1 Parte 6'
       ],
-      image: './assets/Fotografias/editadas/operacional-inspecao-ultrassom-casco-estrutura-edit.webp',
+      image: './assets/Fotografias/originais-16-9/endcontrol-ensaios-nao-destrutivos-ultrassom-medicao-espessura-naval.webp',
       ctaText: 'Falar com Especialista',
       iconSvg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/><circle cx="12" cy="14" r="2"/></svg>`
     },
@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'Análise de fragilização em equipamentos sob alta pressão/H₂S',
         'Avaliação conforme API 579-1 / ASME FFS-1 Parte 7'
       ],
-      image: './assets/Fotografias/editadas/operacional-ultrassom-solda-tubulacao-edit-final.webp',
+      image: './assets/Fotografias/originais-16-9/endcontrol-ultrassom-phased-array-inspecao-solda-dutos-tubulacoes.webp',
       ctaText: 'Falar com Especialista',
       iconSvg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6v12M12 6v12M6 12h6"/><path d="M17 14h3c.6 0 1 .4 1 1v1c0 .6-.4 1-1 1h-3v2h4"/></svg>`
     },
@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'Monitoramento de taxas de deformação permanente',
         'Avaliação conforme API 579-1 / ASME FFS-1 Parte 10'
       ],
-      image: './assets/Fotografias/editadas/operacional-inspecao-ultrassom-casco-estrutura-edit.webp',
+      image: './assets/Fotografias/originais-16-9/endcontrol-laboratorio-ensaio-dureza-digimess-certificacao-materiais.webp',
       ctaText: 'Falar com Especialista',
       iconSvg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><line x1="8" y1="15" x2="16" y2="15"/><path d="M9 12a3 3 0 0 1 6 0"/><line x1="12" y1="7" x2="12" y2="9"/></svg>`
     },
@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'Análise de taxa de propagação de trincas por fadiga (Lei de Paris)',
         'Avaliação conforme API 579-1 / ASME FFS-1 Parte 14'
       ],
-      image: './assets/Fotografias/editadas/ultrassom-raptor-scan-crawler-operacao-edit.webp',
+      image: './assets/Fotografias/originais-16-9/endcontrol-consultoria-tecnica-demonstracao-scanner-ultrassom-tubos.webp',
       ctaText: 'Falar com Especialista',
       iconSvg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h4l3-8 4 16 3-8h6"/></svg>`
     },
@@ -136,7 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'Análise de severidade combinada mossa + perda de metal',
         'Avaliação conforme API 579-1 / ASME FFS-1 Parte 12'
       ],
-      image: './assets/Fotografias/editadas/operacional-alpinismo-industrial-escada-tanque-edit.webp',
+      image: './assets/Fotografias/originais-16-9/endcontrol-inspecao-altura-nr35-escada-tanque-industrial.webp',
       ctaText: 'Falar com Especialista',
       iconSvg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M7 10c2.5 4 7.5 4 10 0"/></svg>`
     },
@@ -155,7 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'Inspeção dimensional de empenamentos e deformação plástica',
         'Avaliação conforme API 579-1 / ASME FFS-1 Parte 11'
       ],
-      image: './assets/Fotografias/editadas/operacional-engenheiros-inspecao-bomba-edit.webp',
+      image: './assets/Fotografias/originais-16-9/endcontrol-calibracao-manometros-pressao-em-campo-nr13.webp',
       ctaText: 'Falar com Especialista',
       iconSvg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 3z"/></svg>`
     }

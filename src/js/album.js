@@ -11,14 +11,14 @@ document.addEventListener('DOMContentLoaded', () => {
             "role": "Análise visual e dimensional de componentes mecânicos e suporte de carga.",
             "category": "integridade",
             "subcategory": "Estruturas",
-            "photo": "./assets/Fotografias/editadas/operacional-engenheiros-inspecao-bomba-edit.webp"
+            "photo": "./assets/Fotografias/originais-16-9/endcontrol-integridade-estrutural-aquisicao-dados-planta-industrial.webp"
         },
         {
             "name": "Engenharia de Integridade em Plantas Industriais",
             "role": "Avaliação técnica de integridade mecânica em tubulações e dutos.",
             "category": "integridade",
             "subcategory": "Tubulações",
-            "photo": "./assets/Fotografias/editadas/operacional-inspecao-ultrassom-casco-estrutura-edit.webp"
+            "photo": "./assets/Fotografias/originais-16-9/endcontrol-inspecao-integridade-dutos-adutoras-sensores-campo.webp"
         },
 
         // Inspeção de Ativos Críticos
@@ -27,14 +27,14 @@ document.addEventListener('DOMContentLoaded', () => {
             "role": "Medição de espessura por ultrassom e verificação de taxas de corrosão em campo.",
             "category": "ativos",
             "subcategory": "Vasos de Pressão",
-            "photo": "./assets/Fotografias/editadas/operacional-alpinismo-industrial-escada-tanque-edit.webp"
+            "photo": "./assets/Fotografias/originais-16-9/endcontrol-inspecao-altura-nr35-escada-tanque-industrial.webp"
         },
         {
             "name": "Inspeção Interna de Tanques de Armazenamento",
             "role": "Vistoria técnica detalhada para identificação de deformações e desgaste.",
             "category": "ativos",
             "subcategory": "Tanques",
-            "photo": "./assets/Fotografias/editadas/operacional-ultrassom-solda-tubulacao-edit-final.webp"
+            "photo": "./assets/Fotografias/originais-16-9/endcontrol-ultrassom-phased-array-inspecao-solda-dutos-tubulacoes.webp"
         },
 
         // Ensaios Não Destrutivos (ENDs)
@@ -43,14 +43,14 @@ document.addEventListener('DOMContentLoaded', () => {
             "role": "Mapeamento volumétrico de soldas de alta responsabilidade.",
             "category": "ensaios",
             "subcategory": "Ultrassom Avançado",
-            "photo": "./assets/Fotografias/editadas/ultrassom-raptor-scan-crawler-operacao-edit.webp"
+            "photo": "./assets/Fotografias/originais-16-9/endcontrol-ensaios-nao-destrutivos-ultrassom-medicao-espessura-naval.webp"
         },
         {
             "name": "Partículas Magnéticas & Líquido Penetrante",
             "role": "Detecção de trincas e descontinuidades superficiais em juntas soldadas.",
             "category": "ensaios",
             "subcategory": "Superficiais",
-            "photo": "./assets/Fotografias/editadas/operacional-alpinismo-inspecao-vaso-pressao-edit.webp"
+            "photo": "./assets/Fotografias/originais-16-9/endcontrol-consultoria-tecnica-demonstracao-scanner-ultrassom-tubos.webp"
         },
 
         // Adequação Normativa (NRs)
@@ -59,14 +59,14 @@ document.addEventListener('DOMContentLoaded', () => {
             "role": "Laudo técnico de conformidade e implementação de proteções físicas e lógicas.",
             "category": "normativa",
             "subcategory": "NR-12",
-            "photo": "./assets/Fotografias/editadas/operacional-inspecao-ultrassom-casco-estrutura-edit.webp"
+            "photo": "./assets/Fotografias/originais-16-9/endcontrol-laboratorio-ensaio-dureza-digimess-certificacao-materiais.webp"
         },
         {
             "name": "Inspeção de Válvulas de Segurança (PSVs)",
             "role": "Teste de abertura, calibração e estanqueidade de válvulas de alívio.",
             "category": "normativa",
             "subcategory": "NR-13",
-            "photo": "./assets/Fotografias/editadas/ultrassom-raptor-scan-crawler-operacao-edit.webp"
+            "photo": "./assets/Fotografias/originais-16-9/endcontrol-calibracao-manometros-pressao-em-campo-nr13.webp"
         },
 
         // Tecnologia & Consultoria
@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "role": "Algoritmos preditivos para gestão do ciclo de vida dos ativos industriais.",
             "category": "tecnologia",
             "subcategory": "Consultoria Preditiva",
-            "photo": "./assets/Paginas Imgs/HOME/S1 TOPO/topo-f (1).webp"
+            "photo": "./assets/Fotografias/originais-16-9/endcontrol-equipe-escritorio-projetos-mecanicos-engenharia.webp"
         }
     ];
 

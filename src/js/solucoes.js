@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'Supervisão técnica de campo',
         'Garantia de qualidade (QA/QC)'
       ],
-      image: './assets/Fotografias/editadas/ultrassom-raptor-scan-tecnicos-reunidos-campo-edit.webp',
+      image: './assets/Fotografias/originais-16-9/endcontrol-institucional-lideranca-gestao-projetos-escritorio.webp',
       ctaText: 'Saiba Mais',
       iconSvg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4"/><path d="M12 16h4"/><path d="M8 11h.01"/><path d="M8 16h.01"/></svg>`
     },
@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'Relatórios técnicos e pareceres',
         'Suporte à gestão de ativos'
       ],
-      image: './assets/Fotografias/editadas/operacional-alpinismo-industrial-escada-tanque-edit.webp',
+      image: './assets/Fotografias/originais-16-9/endcontrol-inspecao-altura-nr35-escada-tanque-industrial.webp',
       url: '2-solucao-inspecao-em-obras-de-artes-especiais.html',
       ctaText: 'Saiba Mais',
       iconSvg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20"/><path d="M4 20v-4"/><path d="M8 20v-8"/><path d="M12 20V8"/><path d="M16 20v-8"/><path d="M20 20v-4"/><path d="M4 16l4-4 4 0 4 0 4 4"/><path d="M8 12l4-4 4 4"/></svg>`
@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'Radiografia e gamagrafia industrial',
         'Emissão acústica e TOFD'
       ],
-      image: './assets/Fotografias/editadas/operacional-ultrassom-solda-tubulacao-edit-final.webp',
+      image: './assets/Fotografias/originais-16-9/endcontrol-ultrassom-phased-array-inspecao-solda-dutos-tubulacoes.webp',
       url: '3-solucao-ensaios-nao-destrutivos-ends.html',
       ctaText: 'Saiba Mais',
       iconSvg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="3" width="12" height="18" rx="2"/><circle cx="12" cy="15" r="2"/><path d="M9 8h6"/><path d="M9 5.5h6"/></svg>`
@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'Laudos de integridade estrutural',
         'Monitoramento de deformações'
       ],
-      image: './assets/Fotografias/editadas/operacional-inspecao-ultrassom-casco-estrutura-edit.webp',
+      image: './assets/Fotografias/originais-16-9/endcontrol-integridade-estrutural-aquisicao-dados-planta-industrial.webp',
       url: '1-solucao-engenharia-de-integridade-estrutural.html',
       ctaText: 'Saiba Mais',
       iconSvg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`
@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'Software de gestão de ativos',
         'Digitalização e modelagem 3D'
       ],
-      image: './assets/Fotografias/editadas/ultrassom-raptor-scan-crawler-operacao-edit.webp',
+      image: './assets/Fotografias/originais-16-9/endcontrol-consultoria-tecnica-demonstracao-scanner-ultrassom-tubos.webp',
       ctaText: 'Saiba Mais',
       iconSvg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>`
     },
@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'Cálculo de pressão máxima de trabalho (PMTA)',
         'Recomendações para adequação normativa'
       ],
-      image: './assets/Fotografias/editadas/operacional-engenheiros-inspecao-bomba-edit.webp',
+      image: './assets/Fotografias/originais-16-9/endcontrol-inspecao-altura-nr35-escada-tanque-industrial.webp',
       ctaText: 'Saiba Mais',
       iconSvg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg>`
     },
@@ -136,7 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'Ajuste e manutenção preventiva de medidores',
         'Atendimento in-loco e laboratório'
       ],
-      image: './assets/Fotografias/editadas/operacional-engenheiros-inspecao-bomba-edit.webp',
+      image: './assets/Fotografias/originais-16-9/endcontrol-calibracao-manometros-pressao-em-campo-nr13.webp',
       ctaText: 'Saiba Mais',
       iconSvg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 12l3-3"/><path d="M8 16a5 5 0 0 1 0-7"/></svg>`
     },
@@ -153,7 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'Soldagem de sapatas e trepanos',
         'Procedimentos operacionais de alta segurança'
       ],
-      image: './assets/Fotografias/editadas/operacional-alpinismo-inspecao-vaso-pressao-edit.webp',
+      image: './assets/Fotografias/originais-16-9/endcontrol-calibracao-medicao-vazao-ultrassonica-duto-industrial.webp',
       ctaText: 'Saiba Mais',
       iconSvg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="3" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="21"/><line x1="3" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="21" y2="12"/></svg>`
     },
@@ -170,7 +170,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'Análise metalográfica e caracterização de microestrutura',
         'Emissão de laudos de conformidade com normas'
       ],
-      image: './assets/Fotografias/editadas/operacional-inspecao-ultrassom-casco-estrutura-edit.webp',
+      image: './assets/Fotografias/originais-16-9/endcontrol-laboratorio-ensaio-dureza-digimess-certificacao-materiais.webp',
       ctaText: 'Saiba Mais',
       iconSvg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>`
     },
@@ -187,7 +187,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'Auditorias de processos e fornecedores',
         'Treinamentos e capacitação técnica'
       ],
-      image: './assets/Fotografias/editadas/ultrassom-raptor-scan-tecnicos-reunidos-campo-edit.webp',
+      image: './assets/Fotografias/originais-16-9/endcontrol-consultoria-tecnica-demonstracao-scanner-ultrassom-tubos.webp',
       ctaText: 'Saiba Mais',
       iconSvg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>`
     },
