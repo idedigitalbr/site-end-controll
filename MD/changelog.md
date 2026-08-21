@@ -1,6 +1,15 @@
 # Changelog — ENDCONTROL Engenharia
 
-## [2026-08-21] - Substituição Completa das Fotografias por Acervo Oficial 16:9 (`originais-16-9`) e Exclusão Total de `editadas`
+## [2026-08-21] - Padronização da Cor dos Ícones de Áreas de Atuação na Home para Ciano (`#00a9df`)
+
+- **Arquivos:** `src/css/segmentos.css`, `index.html`, `MD/changelog.md`.
+
+### Enhanced & Standardized
+- **Seção Áreas de Atuação (`.segmentos-secao` em `index.html`):**
+  - Atualizada a cor dos 10 ícones da sanfona vertical de segmentos (`.endo-acc-icon`) de azul-marinho escuro para o tom ciano oficial (`#00a9df`), garantindo alto contraste e visibilidade idêntica à seção correspondente das páginas de soluções (*Situações em que este serviço agrega valor*).
+  - Versionamento de cache atualizado para `segmentos.css?v=39.0`.
+  - 125/125 testes aprovados e deploy na VPS com 100% de sucesso.
+
 
 - **Arquivos:** `assets/Fotografias/originais-16-9/` (novo acervo de 12 fotos 16:9), `assets/Fotografias/editadas/` (excluída completamente), `index.html`, `sobre-nos.html`, `10-solucao-trepanacao-hot-tapping.html`, `12-solucao-consultoria-e-assessoria-tecnica.html`, `2-solucao-inspecao-em-obras-de-artes-especiais.html`, `3-solucao-ensaios-nao-destrutivos-ends.html`, `9-solucao-calibracao-de-instrumentos.html`, `componentes-cards-.html`, `identidade-visual.html`, `src/data/drive-assets.js`, `src/data/units.js`, `src/js/album.js`, `src/js/main.js`, `src/js/service-pages.js`, `src/js/solucoes-integridade.js`, `src/js/solucoes.js`, `src/css/brand-pages.css`, `tests/about-media.test.js`, `tests/service-visual-standard.test.js`, `.dockerignore`, `.superdesign/init/pages.md`, `MD/implementation_plan-SOBRE-NOS.md`, `MD/changelog.md`.
 
