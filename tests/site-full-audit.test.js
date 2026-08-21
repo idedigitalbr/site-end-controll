@@ -3,7 +3,7 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
 
-const rootDir = 'g:\\Meu Drive\\.PROJETOS\\Sites Institucionais\\site-end-controll';
+const rootDir = path.resolve(__dirname, '..');
 
 const solutionPages = [
   '1-solucao-engenharia-de-integridade-estrutural.html',

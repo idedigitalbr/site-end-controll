@@ -10,3 +10,17 @@ assets-nao-usados
 backup.ps1
 README.md
 relatorio-fotos-editadas.md
+
+# Conteúdo interno que não deve ser publicado pelo Nginx
+MD/
+docs/
+tests/
+*.md
+*.docx
+*.pdf
+*.txt
+*.ps1
+backup-secao-cta-final.html
+componentes-cards-.html
+identidade-visual.html
+.codegraph/

@@ -18,6 +18,18 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Run automated tests
+        run: node --test tests/*.test.js
+
+      - name: Run site integrity checks
+        shell: pwsh
+        run: ./tests/site-integrity.ps1
+
       - name: Configure SSH and Deploy to VPS
         env:
           VPS_SSH_KEY: ${{ secrets.VPS_SSH_KEY }}
