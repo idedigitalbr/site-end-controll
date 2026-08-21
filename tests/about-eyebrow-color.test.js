@@ -21,7 +21,7 @@ test('uses the requested navy color for the Sobre a EndControl eyebrow', () => {
   assert.match(lineRule[1], /display:\s*none\s*;/i);
   assert.match(highlightRule[1], /color:\s*#00215D\s*;/i);
   assert.match(highlightRule[1], /background:\s*none\s*;/i);
-  assert.match(home, /sections\.css\?v=52\.0/);
+  assert.match(home, /sections\.css\?v=53\.0/);
   assert.match(home, /<span class="highlight-blue-gradient">confiança<br>e resultado<\/span>/);
 });
 
@@ -37,7 +37,7 @@ test('styles the Sobre a EndControl CTA with the requested navy treatment', () =
   assert.match(buttonHoverRule[1], /border-color:\s+#00215D\s*;/i);
   assert.doesNotMatch(home, /<span class="btn-about-icon-circle">/i);
   assert.match(home, /<svg class="btn-about-arrow-right"/i);
-  assert.match(home, /sections\.css\?v=52\.0/);
+  assert.match(home, /sections\.css\?v=53\.0/);
 });
 
 test('uses the project Lucide icon standard and navy hover treatment in the values banner', () => {
@@ -55,5 +55,5 @@ test('uses the project Lucide icon standard and navy hover treatment in the valu
   assert.match(home, /class="about-value-lucide" data-lucide="shield-check"/);
   assert.match(home, /class="about-value-lucide" data-lucide="activity"/);
   assert.match(home, /class="about-value-lucide" data-lucide="leaf"/);
-  assert.match(home, /sections\.css\?v=52\.0/);
+  assert.match(home, /sections\.css\?v=53\.0/);
 });
