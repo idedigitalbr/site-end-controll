@@ -1,5 +1,16 @@
 # Changelog — ENDCONTROL Engenharia
 
+## [2026-08-21] - Simplificação Visual da Seção Nosso Compromisso (Sobre Nós)
+
+- **Arquivos:** `sobre-nos.html`, `src/css/sobre-nos.css`, `MD/changelog.md`
+
+### Cleaned & Refined
+- **Seção Nosso Compromisso (`#compromisso` em `sobre-nos.html`):**
+  - Removido o container de card branco (borda, sombra, cantos arredondados e divisores) e os ícones circulares dos 4 pilares.
+  - Mantida apenas a tipografia limpa e direta em grade horizontal (Segurança, Confiabilidade, Eficiência, Sustentabilidade) com seus respectivos títulos e descrições.
+  - Design responsivo ajustado para 4 colunas em desktop, 2 colunas em tablet e 1 coluna em dispositivos móveis.
+  - 125/125 testes automatizados validados com 100% de aprovação.
+
 ## [2026-08-21] - Faixa de Indicadores Minimalista e Sóbria na Página Sobre Nós (100% Padrão Hero)
 
 - **Arquivos:** `sobre-nos.html`, `MD/guia-identidade-endcontrol-antigravity.md`, `tests/about-eyebrow-color.test.js`, `MD/changelog.md`

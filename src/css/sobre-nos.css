@@ -1168,113 +1168,48 @@
   color: #00215D;
 }
 
-/* Banner Consolidado Horizontal de Valores (Anexo 2: Ícones no Topo) */
+/* Valores do Nosso Compromisso (Texto Puro sem cards e sem ícones) */
+.sn-commitment-values,
 .sn-commitment-banner {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(0, 33, 93, 0.12);
-  border-radius: 20px;
-  box-shadow: 0 16px 45px rgba(0, 20, 60, 0.08), 0 2px 8px rgba(7, 21, 47, 0.03);
-  padding: 32px 16px 28px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  align-items: stretch;
+  gap: 36px;
+  align-items: flex-start;
   position: relative;
   z-index: 3;
-  max-width: 960px;
-  margin-bottom: 30px;
+  max-width: 980px;
+  margin-bottom: 38px;
 }
 
 .sn-commitment-item {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 4px 14px;
+  align-items: flex-start;
+  text-align: left;
+  padding: 0;
   position: relative;
-  transition: transform 0.25s ease;
 }
 
-.sn-commitment-item:hover {
-  transform: translateY(-3px);
-}
-
-.sn-commitment-item:not(:last-child)::after {
-  content: '';
-  position: absolute;
-  right: 0;
-  top: 8%;
-  height: 84%;
-  width: 1px;
-  background: linear-gradient(to bottom, transparent, rgba(0, 33, 93, 0.15), transparent);
-}
-
-.sn-commitment-item-icon {
-  position: relative;
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  background: #ffffff;
-  border: 1.5px solid #00215D;
-  color: #00215D;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  margin-bottom: 16px;
-  box-shadow: 0 4px 12px rgba(0, 33, 93, 0.08);
-  transition: all 0.3s ease;
-}
-
-.sn-commitment-item:hover .sn-commitment-item-icon {
-  background: #00215D;
-  color: #ffffff;
-  box-shadow: 0 6px 18px rgba(0, 33, 93, 0.28);
-  transform: scale(1.05);
-}
-
-.sn-commitment-item-icon svg,
-.sn-commitment-item-icon [data-lucide],
-.sn-commitment-item-icon .lucide {
-  width: 24px;
-  height: 24px;
-  stroke: #00215D;
-  stroke-width: 2;
-  transition: stroke 0.3s ease;
-}
-
-.sn-commitment-item:hover .sn-commitment-item-icon svg,
-.sn-commitment-item:hover .sn-commitment-item-icon [data-lucide],
-.sn-commitment-item:hover .sn-commitment-item-icon .lucide {
-  stroke: #ffffff;
-}
-
-.sn-commitment-item-text {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
+.sn-commitment-item h3,
 .sn-commitment-item-text h3 {
   font-family: var(--font-primary, sans-serif);
-  font-size: 1.15rem;
+  font-size: 1.25rem;
   font-weight: 800;
   color: #0b192c;
-  margin: 0 0 6px 0;
+  margin: 0 0 8px 0;
   letter-spacing: -0.015em;
-  text-align: center;
+  text-align: left;
 }
 
+.sn-commitment-item p,
 .sn-commitment-item-text p {
   font-family: var(--font-primary, sans-serif);
-  font-size: 0.82rem;
-  line-height: 1.45;
+  font-size: 0.88rem;
+  line-height: 1.5;
   color: #556880;
   margin: 0;
-  max-width: 175px;
-  text-align: center;
+  max-width: 220px;
+  text-align: left;
 }
 
 .sn-commitment-cta {
@@ -1727,14 +1662,11 @@
     gap: 24px;
   }
 
+  .sn-commitment-values,
   .sn-commitment-banner {
     grid-template-columns: repeat(2, 1fr);
-    gap: 16px 0;
+    gap: 24px 20px;
     max-width: 640px;
-  }
-
-  .sn-commitment-item:nth-child(2)::after {
-    display: none;
   }
 
   .sn-commitment-bg-photo {
@@ -1958,20 +1890,31 @@
     margin-right: auto;
   }
 
+  .sn-commitment-values,
   .sn-commitment-banner {
     grid-template-columns: 1fr;
-    gap: 16px;
-    padding: 20px 16px;
+    gap: 20px;
+    padding: 0;
     max-width: 360px;
     margin: 0 auto 24px;
   }
 
   .sn-commitment-item {
-    padding: 6px 0;
+    align-items: center;
+    text-align: center;
+    padding: 0;
   }
 
-  .sn-commitment-item:not(:last-child)::after {
-    display: none;
+  .sn-commitment-item h3,
+  .sn-commitment-item-text h3 {
+    text-align: center;
+  }
+
+  .sn-commitment-item p,
+  .sn-commitment-item-text p {
+    text-align: center;
+    max-width: 320px;
+    margin: 0 auto;
   }
 
   .sn-commitment-cta {

@@ -1,5 +1,12 @@
 # Features — ENDCONTROL Engenharia
 
+## Simplificação Visual dos Pilares na Seção Nosso Compromisso (Sobre Nós)
+
+- Status: Concluída
+- Data: 2026-08-21
+- **Arquivos:** `sobre-nos.html`, `src/css/sobre-nos.css`, `MD/changelog.md`, `MD/features.md`
+- **Tipografia Direta e Minimalismo:** Removido o container de card branco (borda, sombra, cantos arredondados e divisores) e os ícones circulares da penúltima seção (`#compromisso`), mantendo apenas os títulos e descrições dos 4 pilares (Segurança, Confiabilidade, Eficiência e Sustentabilidade) em grid horizontal limpo.
+
 ## Consolidação da Página Sobre Nós e Identidade Visual Unificada
 
 - Status: Concluída
