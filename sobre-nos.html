@@ -4,7 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sobre Nós | ENDCONTROL Engenharia - Inteligência em Integridade Industrial</title>
-  <meta name="description" content="Conheça a história, valores, metodologia e compromisso da EndControl Engenharia. Mais de 18 anos de excelência técnica e integridade em ativos industriais." />
+  <meta name="description" content="A Endcontrol Engenharia é referência nacional em integridade industrial, inspeções, ensaios não destrutivos e consultoria técnica." />
+  <!-- SEO Meta Tags -->
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://endcontrol.suporteide.digital/sobre-nos.html" />
 
@@ -12,28 +13,266 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://endcontrol.suporteide.digital/sobre-nos.html" />
   <meta property="og:title" content="Sobre Nós | ENDCONTROL Engenharia" />
-  <meta property="og:description" content="Conheça a história, essência e soluções de engenharia de alta confiabilidade da EndControl." />
+  <meta property="og:description" content="Excelência técnica que gera confiança e resultado. Engenharia de alta confiabilidade para ativos críticos." />
   <meta property="og:image" content="https://endcontrol.suporteide.digital/assets/Logos/logo-principal-original-horizontal-endcontrol.png" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://endcontrol.suporteide.digital/sobre-nos.html" />
   <meta name="twitter:title" content="Sobre Nós | ENDCONTROL Engenharia" />
-  <meta name="twitter:description" content="Conheça a história, essência e soluções de engenharia de alta confiabilidade da EndControl." />
+  <meta name="twitter:description" content="Excelência técnica que gera confiança e resultado. Engenharia de alta confiabilidade para ativos críticos." />
   <meta name="twitter:image" content="https://endcontrol.suporteide.digital/assets/Logos/logo-principal-original-horizontal-endcontrol.png" />
 
-  <!-- Favicon & Fonts -->
+  <!-- Schema.org JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "ENDCONTROL Engenharia",
+    "url": "https://endcontrol.suporteide.digital",
+    "logo": "https://endcontrol.suporteide.digital/assets/Logos/logo-principal-original-horizontal-endcontrol.png",
+    "image": "https://endcontrol.suporteide.digital/assets/Logos/logo-principal-original-horizontal-endcontrol.png",
+    "description": "Engenharia industrial de alta confiabilidade especializada em integridade estrutural, inspeção de ativos críticos, ensaios não destrutivos (ENDs) e conformidade normativa (NR-13, NR-12, NR-11).",
+    "foundingDate": "2015",
+    "telephone": "+55-91-3200-1000",
+    "email": "contato@endcontrol.com.br",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Av. Alcindo Cacela, 2120",
+      "addressLocality": "Belém",
+      "addressRegion": "PA",
+      "postalCode": "66040-020",
+      "addressCountry": "BR"
+    },
+    "areaServed": ["PA", "SP", "RJ", "BA", "CE", "RO", "AC"],
+    "knowsAbout": [
+      "Integridade Mecânica",
+      "Inspeção NR-13",
+      "Ensaios Não Destrutivos (END/NDT)",
+      "Inspeção Baseada em Risco (RBI)",
+      "Adequação NR-12",
+      "Acesso por Cordas"
+    ]
+  }
+  </script>
+
   <link rel="icon" type="image/webp" href="./assets/Logos/icon-endcontrol.webp" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-  
+  <link rel="preload" href="./assets/Logos/logo-principal-original-horizontal-endcontrol.png" as="image" />
   <!-- CSS Stylesheets -->
   <link rel="stylesheet" href="./src/css/tokens.css?v=80.0" />
   <link rel="stylesheet" href="./src/css/base.css?v=80.0" />
   <link rel="stylesheet" href="./src/css/header.css?v=82.0" />
+  <link rel="stylesheet" href="./src/css/sections.css?v=50.0" />
   <link rel="stylesheet" href="./src/css/components.css?v=80.0" />
   <link rel="stylesheet" href="./src/css/work-units-footer.css?v=80.0" />
-  <link rel="stylesheet" href="./src/css/sobre-nos.css?v=126.0" />
+  <link rel="stylesheet" href="./src/css/responsive.css?v=80.0" />
+  <link rel="stylesheet" href="./src/css/sobre-nos.css?v=130.0" />
+
+  <style>
+    /* Ajuste de respiro para a seção Sobre ficar perfeita logo abaixo do cabeçalho */
+    #sobre.about-premium-section {
+      padding-top: 140px !important;
+      padding-bottom: 120px !important;
+      min-height: calc(100vh - 420px);
+    }
+
+    /* Player de Vídeo Institucional Customizado */
+    .sn-video-box {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 20px;
+      overflow: hidden;
+      background: #000000;
+      box-shadow: 0 20px 50px rgba(0, 33, 93, 0.18),
+                  0 0 0 1px rgba(0, 156, 255, 0.25);
+      cursor: pointer;
+    }
+
+    .sn-video-inline-player {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
+      filter: brightness(0.92);
+    }
+
+    .sn-video-box:hover .sn-video-inline-player {
+      transform: scale(1.015);
+      filter: brightness(1);
+    }
+
+    .sn-player-controls-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 30px 20px 14px 20px;
+      background: linear-gradient(0deg, rgba(2, 8, 19, 0.94) 0%, rgba(2, 8, 19, 0.7) 50%, rgba(2, 8, 19, 0.2) 80%, transparent 100%);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      z-index: 10;
+      opacity: 1;
+      visibility: visible;
+      transition: opacity 0.45s ease, visibility 0.45s ease, transform 0.45s ease;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    .sn-video-box.sn-player-idle .sn-player-controls-overlay {
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(12px);
+      pointer-events: none;
+    }
+
+    .sn-player-progress-container {
+      width: 100%;
+      height: 6px;
+      background: rgba(255, 255, 255, 0.24);
+      border-radius: 999px;
+      cursor: pointer;
+      position: relative;
+      transition: height 0.2s ease, background 0.2s ease;
+      display: flex;
+      align-items: center;
+    }
+
+    .sn-player-progress-container:hover {
+      height: 9px;
+      background: rgba(255, 255, 255, 0.35);
+    }
+
+    .sn-player-progress-bar {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #007bff, #00d5ff);
+      border-radius: 999px;
+      position: relative;
+      box-shadow: 0 0 10px rgba(0, 194, 255, 0.6);
+      transition: width 0.08s linear;
+    }
+
+    .sn-player-progress-handle {
+      position: absolute;
+      right: -5px;
+      top: 50%;
+      transform: translateY(-50%) scale(0);
+      width: 13px;
+      height: 13px;
+      background: #ffffff;
+      border-radius: 50%;
+      box-shadow: 0 0 10px rgba(0, 194, 255, 0.9), 0 2px 5px rgba(0,0,0,0.5);
+      transition: transform 0.2s ease;
+    }
+
+    .sn-player-progress-container:hover .sn-player-progress-handle {
+      transform: translateY(-50%) scale(1);
+    }
+
+    .sn-player-controls-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding: 0 4px;
+    }
+
+    .sn-player-left-group,
+    .sn-player-right-group {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .sn-player-ctrl-btn {
+      background: transparent;
+      border: none;
+      color: #ffffff;
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: color 0.2s ease, transform 0.2s ease, background 0.2s ease;
+      padding: 0;
+    }
+
+    .sn-player-ctrl-btn:hover {
+      color: #00d5ff;
+      background: rgba(0, 194, 255, 0.12);
+      transform: scale(1.12);
+    }
+
+    .sn-player-ctrl-btn svg {
+      transition: transform 0.2s ease;
+    }
+
+    .sn-player-time-display {
+      font-family: inherit, monospace;
+      font-size: 0.86rem;
+      font-weight: 600;
+      color: #e6edf5;
+      letter-spacing: 0.04em;
+      user-select: none;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+    }
+
+    /* Banner de Indicadores Institucionais (5 Colunas) */
+    .about-values-banner {
+      grid-template-columns: repeat(5, 1fr) !important;
+      padding: 16px 8px !important;
+      gap: 0 !important;
+    }
+
+    .about-value-item {
+      padding: 12px 16px !important;
+      gap: 12px !important;
+    }
+
+    .about-value-text h3 {
+      font-size: 1.25rem !important;
+      font-weight: 800 !important;
+      color: #00215D !important;
+      margin: 0 0 2px 0 !important;
+      letter-spacing: -0.02em !important;
+      white-space: nowrap;
+    }
+
+    .about-value-text p {
+      font-size: 0.82rem !important;
+      line-height: 1.35 !important;
+      color: var(--text-muted) !important;
+      margin: 0 !important;
+    }
+
+    @media (max-width: 1100px) {
+      .about-values-banner {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 16px !important;
+      }
+      .about-value-item:nth-child(3)::after {
+        display: none !important;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .about-values-banner {
+        grid-template-columns: 1fr !important;
+        gap: 12px !important;
+      }
+      .about-value-item::after {
+        display: none !important;
+      }
+    }
+  </style>
 
   <!-- Script de Fallback Automático de Imagens e Vídeos -->
   <script>
@@ -57,9 +296,10 @@
           return;
         }
         
+        // Priorizar o caminho local (./assets) para carregar offline da própria pasta do projeto
         const fallbacks = [
-          './' + assetPath,
-          'https://endcontrol.suporteide.digital/' + assetPath
+          './' + assetPath,                      // 1º Fallback: Local relativo
+          'https://endcontrol.suporteide.digital/' + assetPath // 2º Fallback: Servidor de produção online
         ];
         
         if (fallbackCount < fallbacks.length) {
@@ -80,7 +320,7 @@
             if (tagName === 'video') {
               element.load();
               if (element.hasAttribute('autoplay')) {
-                videoParent.play().catch(function() {});
+                element.play().catch(function() {});
               }
             }
           }
@@ -88,6 +328,7 @@
       }
     }, true);
 
+    // Corrigir Background Images do CSS quando aberto localmente
     window.addEventListener('DOMContentLoaded', function() {
       if (window.location.protocol === 'file:') {
         for (let i = 0; i < document.styleSheets.length; i++) {
@@ -110,17 +351,15 @@
                 }
               }
             }
-          } catch (e) {}
+          } catch (e) {
+            // Ignorar erros de cross-origin
+          }
         }
       }
     });
   </script>
 </head>
-<body class="sn-page-wrapper">
-
-  <!-- =========================================================================
-       HEADER GLOBAL (REAPROVEITADO DA HOME COM ATIVO EM SOBRE NÓS)
-       ========================================================================= -->
+<body>
   <header class="site-header site-header--light-hero" id="topo">
     <div class="brand-group">
       <a class="brand-main" href="index.html#home" aria-label="ENDCONTROL Engenharia">
@@ -135,34 +374,33 @@
     <nav class="main-menu" id="main-menu">
       <a href="index.html#home">Home</a>
       <a href="sobre-nos.html" class="active">Sobre Nós</a>
-      <a href="sobre-nos-2.html" id="menu-link-sobre-2">Sobre Nós 2</a>
       <div class="dropdown">
-        <a class="drop-link" href="index.html#solucoes" aria-haspopup="true">Nossas Soluções</a>
+        <a class="drop-link" aria-haspopup="true">Nossas Soluções</a>
         <div class="drop-panel dropdown-rich-menu" aria-label="Submenu Nossas Soluções">
           <a class="dropdown-item-rich" href="1-solucao-engenharia-de-integridade-estrutural.html" data-service-id="0">
             <span class="dropdown-item-logo">
               <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
             </span>
-            <span class="dropdown-item-text">1. Engenharia de Integridade Estrutural</span>
+            <span class="dropdown-item-text">Engenharia de Integridade Estrutural</span>
           </a>
 
           <a class="dropdown-item-rich" href="2-solucao-inspecao-em-obras-de-artes-especiais.html" data-service-id="1">
             <span class="dropdown-item-logo">
               <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M3 18l3-12h12l3 12M9 18v-6h6v6"/></svg>
             </span>
-            <span class="dropdown-item-text">2. Inspeção em Obras de Artes Especiais</span>
+            <span class="dropdown-item-text">Inspeção em Obras de Artes Especiais</span>
           </a>
           <a class="dropdown-item-rich" href="3-solucao-ensaios-nao-destrutivos-ends.html" data-service-id="2">
             <span class="dropdown-item-logo">
               <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20M12 2v20M4.93 4.93l14.14 14.14M4.93 19.07L19.07 4.93"/></svg>
             </span>
-            <span class="dropdown-item-text">3. Ensaios Não Destrutivos (ENDs)</span>
+            <span class="dropdown-item-text">Ensaios Não Destrutivos (ENDs)</span>
           </a>
           <a class="dropdown-item-rich" href="4-solucao-engenharia-de-soldagem.html" data-service-id="3">
             <span class="dropdown-item-logo">
               <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 3z"/></svg>
             </span>
-            <span class="dropdown-item-text">4. Engenharia de Soldagem</span>
+            <span class="dropdown-item-text">Engenharia de Soldagem</span>
           </a>
           <div class="item-with-submenu">
             <a class="dropdown-item-rich item-has-children" href="index.html#solucoes" aria-expanded="false">
@@ -175,11 +413,11 @@
             <div class="submenuzinho">
               <a href="5-solucao-gerenciamento-de-projetos.html" class="submenuzinho-item" data-service-id="4">
                 <span class="submenuzinho-bullet">•</span>
-                <span>5. Gerenciamento de Projetos</span>
+                <span>Gerenciamento de Projetos</span>
               </a>
               <a href="6-solucao-elaboracao-de-projetos-mecanicos.html" class="submenuzinho-item" data-service-id="5">
                 <span class="submenuzinho-bullet">•</span>
-                <span>6. Elaboração de Projetos Mecânicos</span>
+                <span>Elaboração de Projetos Mecânicos</span>
               </a>
             </div>
           </div>
@@ -187,37 +425,37 @@
             <span class="dropdown-item-logo">
               <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
             </span>
-            <span class="dropdown-item-text">7. Soluções Tecnológicas Integradas</span>
+            <span class="dropdown-item-text">Soluções Tecnológicas Integradas</span>
           </a>
           <a class="dropdown-item-rich" href="8-solucao-inspecao-e-adequacao-normativa.html" data-service-id="8">
             <span class="dropdown-item-logo">
               <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
             </span>
-            <span class="dropdown-item-text">8. Inspeção e Adequação Normativa</span>
+            <span class="dropdown-item-text">Inspeção e Adequação Normativa</span>
           </a>
           <a class="dropdown-item-rich" href="9-solucao-calibracao-de-instrumentos.html" data-service-id="9">
             <span class="dropdown-item-logo">
               <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
             </span>
-            <span class="dropdown-item-text">9. Calibração de Instrumentos</span>
+            <span class="dropdown-item-text">Calibração de Instrumentos</span>
           </a>
           <a class="dropdown-item-rich" href="10-solucao-trepanacao-hot-tapping.html" data-service-id="10">
             <span class="dropdown-item-logo">
               <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="9"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="3" x2="12" y2="9"/></svg>
             </span>
-            <span class="dropdown-item-text">10. Trepanação (Hot Tapping)</span>
+            <span class="dropdown-item-text">Trepanação (Hot Tapping)</span>
           </a>
           <a class="dropdown-item-rich" href="11-solucao-certificacao-de-materia-prima.html" data-service-id="11">
             <span class="dropdown-item-logo">
               <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
             </span>
-            <span class="dropdown-item-text">11. Certificação de Matéria-Prima</span>
+            <span class="dropdown-item-text">Certificação de Matéria-Prima</span>
           </a>
           <a class="dropdown-item-rich" href="12-solucao-consultoria-e-assessoria-tecnica.html" data-service-id="12">
             <span class="dropdown-item-logo">
               <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
             </span>
-            <span class="dropdown-item-text">12. Consultoria e Assessoria Técnica</span>
+            <span class="dropdown-item-text">Consultoria e Assessoria Técnica</span>
           </a>
         </div>
       </div>
@@ -226,192 +464,204 @@
     </nav>
   </header>
 
-  <main>
-    <!-- =========================================================================
-         SEÇÃO 01 — NOSSA HISTÓRIA (BACKGROUND CLARO + VÍDEO + INDICADORES)
-         ========================================================================= -->
-    <section class="sn-history-section" id="historia">
-      <div class="sn-dot-matrix left" aria-hidden="true"></div>
-      <div class="sn-dot-matrix right" aria-hidden="true"></div>
+  <main id="wf-main-content" data-wf-version="5.0">
 
-      <div class="sn-history-container">
-        
-        <!-- Eyebrow Tag -->
-        <div class="sn-eyebrow-line light-mode">NOSSA HISTÓRIA</div>
+    <section class="section about-premium-section wf-section section-full-width" id="sobre" data-wf-label="SEÇÃO SOBRE A ENDCONTROL - LAYOUT PREMIUM">
+      <!-- Ambient Lights / Background Tech Glows & Grid -->
+      <div class="about-bg-glow glow-top-left"></div>
+      <div class="about-bg-glow glow-bottom-right"></div>
+      <div class="about-tech-pattern"></div>
+      <div class="about-tech-radar radar-top-left"></div>
+      <div class="about-tech-radar radar-bottom-right-slow"></div>
+      <div class="about-tech-line line-horizontal-top"></div>
+      <div class="about-tech-line line-vertical-right"></div>
+      <div class="about-tech-line line-sliding-middle"></div>
+      <div class="about-tech-dots dots-top-right"></div>
+      <div class="about-tech-dots dots-bottom-left"></div>
 
-        <!-- Headline Principal -->
-        <h1 class="sn-history-headline">
-          Uma trajetória construída<br>
-          com <span class="sn-highlight-blue">propósito e proximidade.</span>
-        </h1>
+      <div class="container about-container">
+        <!-- Main Top Row (2 Columns: Content Left, Photo Right) -->
+        <div class="about-main-grid">
+          
+          <!-- Left Column: Content -->
+          <div class="about-content-col reveal">
+            <!-- Top Tag / Eyebrow -->
+            <span class="about-eyebrow">NOSSA HISTÓRIA</span>
 
-        <!-- Texto Descritivo -->
-        <p class="sn-history-description">
-          Desde o início, nosso compromisso é claro: entregar soluções técnicas que aumentam a segurança, a confiabilidade e a eficiência de ativos industriais. Crescemos lado a lado com a indústria brasileira, evoluindo continuamente para atender desafios cada vez mais complexos.
-        </p>
+            <!-- Headline -->
+            <h2 class="about-headline">
+              Uma trajetória construída<br>
+              com <span class="highlight-blue-gradient">propósito e proximidade.</span>
+            </h2>
 
-        <!-- Frame de Vídeo Institucional com Player Personalizado & Autoplay -->
-        <div class="sn-video-box" id="snVideoBox" tabindex="0" aria-label="Vídeo Institucional da EndControl">
-          <video class="sn-video-inline-player" id="snInlineVideoPlayer" autoplay muted loop playsinline poster="./assets/Paginas Imgs/HOME/S_SEGMENTOS/quimico_petroquimico.webp" src="./assets/Videos/VIDEO-ENDCONTROL-INSTITUCIONAL.mp4">
-            <source src="./assets/Videos/VIDEO-ENDCONTROL-INSTITUCIONAL.mp4" type="video/mp4">
-            Seu navegador não suporta a reprodução de vídeo.
-          </video>
-
-          <!-- Barra de Controles Customizada (Estilo Premium / YouTube) -->
-          <div class="sn-player-controls-overlay" id="snPlayerControls">
-            <!-- Barra de Progresso Interativa -->
-            <div class="sn-player-progress-container" id="snProgressContainer">
-              <div class="sn-player-progress-bar" id="snProgressBar">
-                <span class="sn-player-progress-handle"></span>
-              </div>
+            <!-- Body Paragraphs -->
+            <div class="about-paragraphs">
+              <p>Desde o início, nosso compromisso é claro: entregar soluções técnicas que aumentam a <strong>segurança</strong>, a <strong>confiabilidade</strong> e a <strong>eficiência</strong> de ativos industriais. Crescemos lado a lado com a indústria brasileira, evoluindo continuamente para atender desafios cada vez mais complexos.</p>
             </div>
+          </div>
 
-            <!-- Linha de Botões e Status -->
-            <div class="sn-player-controls-row">
-              <!-- Esquerda: Play/Pause e Contador de Tempo -->
-              <div class="sn-player-left-group">
-                <button class="sn-player-ctrl-btn" id="snBtnPlayPause" aria-label="Pausar / Reproduzir">
-                  <!-- Ícone Pause (Padrão ao iniciar em autoplay) -->
-                  <svg class="icon-pause" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><rect x="6" y="4" width="4" height="16" rx="1"></rect><rect x="14" y="4" width="4" height="16" rx="1"></rect></svg>
-                  <!-- Ícone Play -->
-                  <svg class="icon-play" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" style="display:none;"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
-                </button>
-                <div class="sn-player-time-display" id="snTimeDisplay">0:00 / 0:00</div>
-              </div>
+          <!-- Right Column: Video Institucional com Efeitos HUD -->
+          <div class="about-photo-col reveal delay-1">
+            <div class="about-media-bloom"></div>
+            <div class="about-media-wrapper">
+              <div class="about-media-glow"></div>
+              <div class="about-hud-frame"></div>
+              <span class="about-hud-corner corner-tl"></span>
+              <span class="about-hud-corner corner-tr"></span>
+              <span class="about-hud-corner corner-bl"></span>
+              <span class="about-hud-corner corner-br"></span>
+              <div class="about-media-scan-line"></div>
 
-              <!-- Direita: Mudo/Volume, Fullscreen e Expandir -->
-              <div class="sn-player-right-group">
-                <!-- Botão Mute / Unmute -->
-                <button class="sn-player-ctrl-btn" id="snBtnMute" aria-label="Ativar / Desativar Som">
-                  <!-- Ícone Muted (Padrão) -->
-                  <svg class="icon-muted" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="1" y1="1" x2="23" y2="23"></line>
-                    <path d="M9 9v3a3 3 0 0 0 5.12 2.12M15 9.34V4a3 3 0 0 0-5.94-.6"></path>
-                    <path d="M17 16.95A7 7 0 0 1 5 12v-2m14 0v2a7 7 0 0 1-.11 1.23"></path>
-                    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" fill="currentColor"></polygon>
-                    <line x1="23" y1="9" x2="17" y2="15"></line>
-                    <line x1="17" y1="9" x2="23" y2="15"></line>
-                  </svg>
-                  <!-- Ícone Unmuted -->
-                  <svg class="icon-unmuted" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
-                    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-                    <path d="M15.54 8.46a5 5 0 0 1 0 7.07" fill="none" stroke-width="2.2"></path>
-                    <path d="M19.07 4.93a10 10 0 0 1 0 14.14" fill="none" stroke-width="2.2"></path>
-                  </svg>
-                </button>
+              <div class="sn-video-box" id="snVideoBox" tabindex="0" aria-label="Vídeo Institucional da EndControl">
+                <video class="sn-video-inline-player" id="snInlineVideoPlayer" autoplay muted loop playsinline poster="./assets/Paginas Imgs/HOME/S_SEGMENTOS/quimico_petroquimico.webp" src="./assets/Videos/VIDEO-ENDCONTROL-INSTITUCIONAL.mp4">
+                  <source src="./assets/Videos/VIDEO-ENDCONTROL-INSTITUCIONAL.mp4" type="video/mp4">
+                  Seu navegador não suporta a reprodução de vídeo.
+                </video>
 
-                <!-- Botão Tela Cheia (Fullscreen) -->
-                <button class="sn-player-ctrl-btn" id="snBtnFullscreen" aria-label="Tela Cheia">
-                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
-                  </svg>
-                </button>
+                <!-- Barra de Controles Customizada (Estilo Premium / YouTube) -->
+                <div class="sn-player-controls-overlay" id="snPlayerControls">
+                  <!-- Barra de Progresso Interativa -->
+                  <div class="sn-player-progress-container" id="snProgressContainer">
+                    <div class="sn-player-progress-bar" id="snProgressBar">
+                      <span class="sn-player-progress-handle"></span>
+                    </div>
+                  </div>
+
+                  <!-- Linha de Botões e Status -->
+                  <div class="sn-player-controls-row">
+                    <!-- Esquerda: Play/Pause e Contador de Tempo -->
+                    <div class="sn-player-left-group">
+                      <button class="sn-player-ctrl-btn" id="snBtnPlayPause" aria-label="Pausar / Reproduzir">
+                        <!-- Ícone Pause -->
+                        <svg class="icon-pause" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><rect x="6" y="4" width="4" height="16" rx="1"></rect><rect x="14" y="4" width="4" height="16" rx="1"></rect></svg>
+                        <!-- Ícone Play -->
+                        <svg class="icon-play" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" style="display:none;"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+                      </button>
+                      <div class="sn-player-time-display" id="snTimeDisplay">0:00 / 0:00</div>
+                    </div>
+
+                    <!-- Direita: Mudo/Volume e Fullscreen -->
+                    <div class="sn-player-right-group">
+                      <!-- Botão Mute / Unmute -->
+                      <button class="sn-player-ctrl-btn" id="snBtnMute" aria-label="Ativar / Desativar Som">
+                        <!-- Ícone Muted (Padrão) -->
+                        <svg class="icon-muted" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                          <line x1="1" y1="1" x2="23" y2="23"></line>
+                          <path d="M9 9v3a3 3 0 0 0 5.12 2.12M15 9.34V4a3 3 0 0 0-5.94-.6"></path>
+                          <path d="M17 16.95A7 7 0 0 1 5 12v-2m14 0v2a7 7 0 0 1-.11 1.23"></path>
+                          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" fill="currentColor"></polygon>
+                          <line x1="23" y1="9" x2="17" y2="15"></line>
+                          <line x1="17" y1="9" x2="23" y2="15"></line>
+                        </svg>
+                        <!-- Ícone Unmuted -->
+                        <svg class="icon-unmuted" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+                          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                          <path d="M15.54 8.46a5 5 0 0 1 0 7.07" fill="none" stroke-width="2.2"></path>
+                          <path d="M19.07 4.93a10 10 0 0 1 0 14.14" fill="none" stroke-width="2.2"></path>
+                        </svg>
+                      </button>
+
+                      <!-- Botão Tela Cheia (Fullscreen) -->
+                      <button class="sn-player-ctrl-btn" id="snBtnFullscreen" aria-label="Tela Cheia">
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- =========================================================================
-             INDICADORES INSTITUCIONAIS (ABAIXO DO VÍDEO)
-             ========================================================================= -->
-        <div class="sn-indicators-wrapper" aria-label="Indicadores Institucionais">
-          <div class="sn-indicators-card">
-            
-            <!-- Indicador 1: Experiência -->
-            <div class="sn-indicator-item">
-              <div class="sn-indicator-icon-box">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
-                  <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
-                </svg>
-              </div>
-              <div class="sn-indicator-text-box">
-                <span class="sn-indicator-value">+18 anos</span>
-                <span class="sn-indicator-label">de experiência</span>
+        <!-- Bottom Row: Consolidated Indicators Banner (5 Indicadores) -->
+        <div class="about-values-banner reveal">
+          <!-- Indicador 1: Experiência -->
+          <div class="about-value-item">
+            <div class="about-value-icon-wrapper">
+              <div class="about-value-icon-glow"></div>
+              <div class="about-value-icon-circle">
+                <i class="about-value-lucide" data-lucide="award" aria-hidden="true"></i>
               </div>
             </div>
+            <div class="about-value-text">
+              <h3>+18 anos</h3>
+              <p>de experiência</p>
+            </div>
+          </div>
 
-            <!-- Indicador 2: Projetos -->
-            <div class="sn-indicator-item">
-              <div class="sn-indicator-icon-box">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                  <polyline points="14 2 14 8 20 8"></polyline>
-                  <line x1="16" y1="13" x2="8" y2="13"></line>
-                  <line x1="16" y1="17" x2="8" y2="17"></line>
-                  <polyline points="10 9 9 9 8 9"></polyline>
-                </svg>
-              </div>
-              <div class="sn-indicator-text-box">
-                <span class="sn-indicator-value">+300</span>
-                <span class="sn-indicator-label">projetos realizados</span>
+          <!-- Indicador 2: Projetos -->
+          <div class="about-value-item">
+            <div class="about-value-icon-wrapper">
+              <div class="about-value-icon-glow"></div>
+              <div class="about-value-icon-circle">
+                <i class="about-value-lucide" data-lucide="clipboard-check" aria-hidden="true"></i>
               </div>
             </div>
+            <div class="about-value-text">
+              <h3>+300</h3>
+              <p>projetos realizados</p>
+            </div>
+          </div>
 
-            <!-- Indicador 3: Ativos -->
-            <div class="sn-indicator-item">
-              <div class="sn-indicator-icon-box">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-                  <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
-                  <path d="m9 14 2 2 4-4"></path>
-                </svg>
-              </div>
-              <div class="sn-indicator-text-box">
-                <span class="sn-indicator-value">+1.250</span>
-                <span class="sn-indicator-label">ativos avaliados</span>
+          <!-- Indicador 3: Ativos Avaliados -->
+          <div class="about-value-item">
+            <div class="about-value-icon-wrapper">
+              <div class="about-value-icon-glow"></div>
+              <div class="about-value-icon-circle">
+                <i class="about-value-lucide" data-lucide="layers" aria-hidden="true"></i>
               </div>
             </div>
+            <div class="about-value-text">
+              <h3>+1.250</h3>
+              <p>ativos avaliados</p>
+            </div>
+          </div>
 
-            <!-- Indicador 4: Segurança -->
-            <div class="sn-indicator-item">
-              <div class="sn-indicator-icon-box">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                  <path d="m9 12 2 2 4-4"></path>
-                </svg>
-              </div>
-              <div class="sn-indicator-text-box">
-                <span class="sn-indicator-value">100%</span>
-                <span class="sn-indicator-label">compromisso com segurança</span>
+          <!-- Indicador 4: Compromisso com Segurança -->
+          <div class="about-value-item">
+            <div class="about-value-icon-wrapper">
+              <div class="about-value-icon-glow"></div>
+              <div class="about-value-icon-circle">
+                <i class="about-value-lucide" data-lucide="shield-check" aria-hidden="true"></i>
               </div>
             </div>
+            <div class="about-value-text">
+              <h3>100%</h3>
+              <p>compromisso com segurança</p>
+            </div>
+          </div>
 
-            <!-- Indicador 5: Clientes -->
-            <div class="sn-indicator-item">
-              <div class="sn-indicator-icon-box">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                  <circle cx="9" cy="7" r="4"></circle>
-                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                </svg>
-              </div>
-              <div class="sn-indicator-text-box">
-                <span class="sn-indicator-value">+120</span>
-                <span class="sn-indicator-label">clientes atendidos</span>
+          <!-- Indicador 5: Clientes Atendidos -->
+          <div class="about-value-item">
+            <div class="about-value-icon-wrapper">
+              <div class="about-value-icon-glow"></div>
+              <div class="about-value-icon-circle">
+                <i class="about-value-lucide" data-lucide="users" aria-hidden="true"></i>
               </div>
             </div>
-
+            <div class="about-value-text">
+              <h3>+120</h3>
+              <p>clientes atendidos</p>
+            </div>
           </div>
         </div>
-
       </div>
     </section>
-
+    
     <!-- =========================================================================
          SEÇÃO 05 — NOSSA IDENTIDADE CORPORATIVA (MISSÃO, VISÃO E VALORES)
          ========================================================================= -->
     <section class="sn-essence-section" id="essencia">
       <div class="sn-essence-container">
         
-        <div class="sn-eyebrow-line light-mode">NOSSA IDENTIDADE CORPORATIVA</div>
+        <div class="sn-essence-badge"><span class="sn-essence-badge-text">NOSSA IDENTIDADE CORPORATIVA</span></div>
         <h2 class="sn-essence-headline">
-          Princípios que orientam cada <span class="sn-highlight-blue">decisão</span>
+          Princípios que orientam cada <em>decisão.</em>
         </h2>
         <p class="sn-essence-subheadline">
-          Princípios que orientam nossas escolhas,<br>
-          guiam nossas ações e constroem nosso futuro.
+          Princípios que orientam nossas escolhas, guiam nossas ações e constroem nosso futuro.
         </p>
 
         <div class="sn-essence-grid">
@@ -506,10 +756,10 @@
 
         <!-- ZONA 2: Bloco de Conteúdo (27% da largura) -->
         <div class="sn-process-info-zone">
-          <span class="sn-process-eyebrow">COMO TRABALHAMOS</span>
+          <div class="sn-process-badge"><span class="sn-process-badge-text">COMO TRABALHAMOS</span></div>
           <h2 class="sn-process-headline">
             Método, conhecimento<br>
-            e precisão em <span class="sn-highlight-blue">cada etapa.</span>
+            e precisão em <em>cada etapa.</em>
           </h2>
           <p class="sn-process-description">
             Uma abordagem estruturada que garante clareza, controle e resultados consistentes em ambientes industriais complexos.
@@ -607,8 +857,6 @@
       </div>
     </section>
 
-
-
     <!-- =========================================================================
          SEÇÃO 08 — NOSSO COMPROMISSO (4 PILARES + FOTO TÉCNICA)
          ========================================================================= -->
@@ -619,10 +867,10 @@
       <div class="sn-commitment-container">
         
         <div class="sn-commitment-header">
-          <span class="sn-eyebrow-left light-mode">NOSSO COMPROMISSO</span>
+          <div class="sn-commitment-badge"><span class="sn-commitment-badge-text">NOSSO COMPROMISSO</span></div>
           <h2 class="sn-commitment-headline">
             Excelência técnica começa<br>
-            com <span class="sn-highlight-blue">responsabilidade.</span>
+            com <em>responsabilidade.</em>
           </h2>
         </div>
 
@@ -696,13 +944,9 @@
 
       </div>
     </section>
-
   </main>
 
-  <!-- =========================================================================
-       SEÇÃO 10 — FOOTER OFICIAL (REAPROVEITADO DA HOME)
-       ========================================================================= -->
-  <footer class="footer-minimal-glow-section">
+  <footer class="footer-minimal-glow-section" id="contato">
     <div class="footer-minimal-container">
       
       <!-- Top Grid: 3 Colunas Separadas por Divisores Verticais Glow -->
@@ -711,7 +955,7 @@
         <!-- Coluna 1: Localização -->
         <div class="footer-col-location">
           <div class="footer-col-header">
-                <svg class="footer-header-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg class="footer-header-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
               <circle cx="12" cy="10" r="3"></circle>
             </svg>
@@ -759,13 +1003,13 @@
           </div>
           <a href="https://api.whatsapp.com/send?phone=5591984040710" target="_blank" rel="noopener" class="footer-whatsapp-row">
             <svg class="footer-whatsapp-icon" viewBox="0 0 24 24" width="32" height="32" fill="none">
-                  <path d="M20.5 11.5a8.5 8.5 0 0 1-12.8 7.3L3 20l1.3-4.6A8.5 8.5 0 1 1 20.5 11.5z" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-                  <path d="M16.5 14.2c-.25-.13-1.47-.73-1.7-.81-.23-.08-.39-.13-.56.13-.16.25-.64.81-.79.98-.14.16-.29.19-.54.06-.25-.13-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.38-1.72-.14-.25-.01-.38.11-.51.11-.11.25-.29.38-.44.13-.14.17-.25.25-.41.08-.16.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.84-.2-.48-.41-.42-.56-.43h-.48c-.16 0-.44.06-.67.31-.23.25-.87.85-.87 2.08s.89 2.41 1.01 2.58c.13.16 1.75 2.67 4.24 3.75.59.26 1.05.41 1.41.53.6.19 1.14.16 1.57.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.21-.16-.46-.29z" fill="#ffffff"/>
+              <path d="M20.5 11.5a8.5 8.5 0 0 1-12.8 7.3L3 20l1.3-4.6A8.5 8.5 0 1 1 20.5 11.5z" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              <path d="M16.5 14.2c-.25-.13-1.47-.73-1.7-.81-.23-.08-.39-.13-.56.13-.16.25-.64.81-.79.98-.14.16-.29.19-.54.06-.25-.13-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.38-1.72-.14-.25-.01-.38.11-.51.11-.11.25-.29.38-.44.13-.14.17-.25.25-.41.08-.16.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.84-.2-.48-.41-.42-.56-.43h-.48c-.16 0-.44.06-.67.31-.23.25-.87.85-.87 2.08s.89 2.41 1.01 2.58c.13.16 1.75 2.67 4.24 3.75.59.26 1.05.41 1.41.53.6.19 1.14.16 1.57.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.21-.16-.46-.29z" fill="#ffffff"/>
             </svg>
             <span class="footer-phone-number">(91) 9.8404-0710</span>
           </a>
           <a href="mailto:contato@endcontrol.com.br" class="footer-email-row">
-                <svg class="footer-email-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <svg class="footer-email-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
               <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
               <polyline points="22,6 12,13 2,6"></polyline>
             </svg>
@@ -793,24 +1037,181 @@
     </div>
   </footer>
 
-  <!-- =========================================================================
-       MODAIS E LIGHTBOX
-       ========================================================================= -->
-  <div class="wf-modal-overlay" id="wf-modal-overlay"></div>
-
-  <!-- Modal Vídeo Institucional -->
-  <div class="wf-modal" id="snVideoModal" style="padding: 0 !important; overflow: hidden !important; background: #000 !important; border: 1px solid var(--color-cyan) !important; max-width: 900px;">
-    <button class="wf-modal-close" id="snVideoModalClose" aria-label="Fechar modal" style="color: #fff !important; font-size: 2.2rem; top: 16px; right: 20px;">&times;</button>
-    <div style="padding: 0; background: #000;">
-      <video id="snModalVideoElement" controls playsinline poster="./assets/Paginas Imgs/HOME/S_SEGMENTOS/quimico_petroquimico.webp" src="./assets/Videos/VIDEO-ENDCONTROL-INSTITUCIONAL.mp4" style="width: 100%; max-height: 80vh; display: block; border-radius: 20px;">
-        <source src="./assets/Videos/VIDEO-ENDCONTROL-INSTITUCIONAL.mp4" type="video/mp4">
-        Seu navegador não suporta reprodução de vídeo.
-      </video>
-    </div>
-  </div>
-
   <!-- Scripts -->
+  <script src="./src/js/main.js?v=23.0" defer></script>
+  <!-- Lucide Icons CDN -->
   <script src="https://unpkg.com/lucide@0.321.0" defer></script>
-  <script src="./src/js/sobre-nos.js?v=67.0" defer></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      }
+
+      // PLAYER DE VÍDEO INSTITUCIONAL CUSTOMIZADO
+      const videoBox = document.getElementById('snVideoBox');
+      const inlinePlayer = document.getElementById('snInlineVideoPlayer');
+      const btnPlayPause = document.getElementById('snBtnPlayPause');
+      const btnMute = document.getElementById('snBtnMute');
+      const btnFullscreen = document.getElementById('snBtnFullscreen');
+      const timeDisplay = document.getElementById('snTimeDisplay');
+      const progressContainer = document.getElementById('snProgressContainer');
+      const progressBar = document.getElementById('snProgressBar');
+
+      let idleTimer = null;
+
+      function formatTime(seconds) {
+        if (isNaN(seconds) || seconds < 0) return '0:00';
+        const mins = Math.floor(seconds / 60);
+        const secs = Math.floor(seconds % 60);
+        return mins + ':' + (secs < 10 ? '0' : '') + secs;
+      }
+
+      function updatePlayPauseIcons() {
+        if (!inlinePlayer || !btnPlayPause) return;
+        const iconPause = btnPlayPause.querySelector('.icon-pause');
+        const iconPlay = btnPlayPause.querySelector('.icon-play');
+        if (inlinePlayer.paused) {
+          if (iconPause) iconPause.style.display = 'none';
+          if (iconPlay) iconPlay.style.display = 'block';
+        } else {
+          if (iconPause) iconPause.style.display = 'block';
+          if (iconPlay) iconPlay.style.display = 'none';
+        }
+      }
+
+      function updateMuteIcons() {
+        if (!inlinePlayer || !btnMute) return;
+        const iconMuted = btnMute.querySelector('.icon-muted');
+        const iconUnmuted = btnMute.querySelector('.icon-unmuted');
+        if (inlinePlayer.muted || inlinePlayer.volume === 0) {
+          if (iconMuted) iconMuted.style.display = 'block';
+          if (iconUnmuted) iconUnmuted.style.display = 'none';
+        } else {
+          if (iconMuted) iconMuted.style.display = 'none';
+          if (iconUnmuted) iconUnmuted.style.display = 'block';
+        }
+      }
+
+      function showControlsTemporarily() {
+        if (!videoBox) return;
+        videoBox.classList.remove('sn-player-idle');
+        clearTimeout(idleTimer);
+
+        if (inlinePlayer && inlinePlayer.paused) return;
+
+        idleTimer = setTimeout(function () {
+          videoBox.classList.add('sn-player-idle');
+        }, 2500);
+      }
+
+      if (inlinePlayer && videoBox) {
+        inlinePlayer.play().then(function() {
+          updatePlayPauseIcons();
+          showControlsTemporarily();
+        }).catch(function() {
+          updatePlayPauseIcons();
+        });
+
+        videoBox.addEventListener('mousemove', showControlsTemporarily);
+        videoBox.addEventListener('mouseenter', showControlsTemporarily);
+        videoBox.addEventListener('touchstart', showControlsTemporarily, { passive: true });
+        videoBox.addEventListener('mouseleave', function () {
+          if (inlinePlayer && !inlinePlayer.paused) {
+            videoBox.classList.add('sn-player-idle');
+          }
+        });
+
+        if (btnPlayPause) {
+          btnPlayPause.addEventListener('click', function (e) {
+            e.stopPropagation();
+            if (inlinePlayer.paused) {
+              inlinePlayer.play();
+            } else {
+              inlinePlayer.pause();
+            }
+            updatePlayPauseIcons();
+            showControlsTemporarily();
+          });
+        }
+
+        inlinePlayer.addEventListener('click', function () {
+          if (inlinePlayer.paused) {
+            inlinePlayer.play();
+          } else {
+            inlinePlayer.pause();
+          }
+          updatePlayPauseIcons();
+          showControlsTemporarily();
+        });
+
+        inlinePlayer.addEventListener('play', updatePlayPauseIcons);
+        inlinePlayer.addEventListener('pause', updatePlayPauseIcons);
+
+        if (btnMute) {
+          btnMute.addEventListener('click', function (e) {
+            e.stopPropagation();
+            inlinePlayer.muted = !inlinePlayer.muted;
+            if (!inlinePlayer.muted && inlinePlayer.volume === 0) {
+              inlinePlayer.volume = 1;
+            }
+            updateMuteIcons();
+            showControlsTemporarily();
+          });
+        }
+
+        inlinePlayer.addEventListener('timeupdate', function () {
+          if (!isNaN(inlinePlayer.duration) && inlinePlayer.duration > 0) {
+            const percent = (inlinePlayer.currentTime / inlinePlayer.duration) * 100;
+            if (progressBar) progressBar.style.width = percent + '%';
+            if (timeDisplay) {
+              timeDisplay.textContent = formatTime(inlinePlayer.currentTime) + ' / ' + formatTime(inlinePlayer.duration);
+            }
+          }
+        });
+
+        inlinePlayer.addEventListener('loadedmetadata', function () {
+          if (timeDisplay && inlinePlayer.duration) {
+            timeDisplay.textContent = formatTime(inlinePlayer.currentTime) + ' / ' + formatTime(inlinePlayer.duration);
+          }
+        });
+
+        if (progressContainer) {
+          progressContainer.addEventListener('click', function (e) {
+            e.stopPropagation();
+            const rect = progressContainer.getBoundingClientRect();
+            const clickX = e.clientX - rect.left;
+            const width = rect.width;
+            if (width > 0 && !isNaN(inlinePlayer.duration)) {
+              const seekTime = (clickX / width) * inlinePlayer.duration;
+              inlinePlayer.currentTime = seekTime;
+              showControlsTemporarily();
+            }
+          });
+        }
+
+        if (btnFullscreen) {
+          btnFullscreen.addEventListener('click', function (e) {
+            e.stopPropagation();
+            if (!document.fullscreenElement) {
+              if (videoBox.requestFullscreen) {
+                videoBox.requestFullscreen();
+              } else if (videoBox.webkitRequestFullscreen) {
+                videoBox.webkitRequestFullscreen();
+              } else if (inlinePlayer.webkitEnterFullscreen) {
+                inlinePlayer.webkitEnterFullscreen();
+              }
+            } else {
+              if (document.exitFullscreen) {
+                document.exitFullscreen();
+              } else if (document.webkitExitFullscreen) {
+                document.webkitExitFullscreen();
+              }
+            }
+            showControlsTemporarily();
+          });
+        }
+      }
+    });
+  </script>
 </body>
 </html>

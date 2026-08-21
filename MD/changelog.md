@@ -1,5 +1,20 @@
 # Changelog — ENDCONTROL Engenharia
 
+## [2026-08-21] - Consolidação da Página Sobre Nós e Remoção de Versão Temporária
+
+- **Arquivos:** `sobre-nos.html`, `sobre-nos-2.html` (removido), `index.html`, páginas de soluções 1 a 12, `src/css/sobre-nos.css`, `MD/changelog.md`
+
+### Changed & Consolidated
+- **Unificação do Layout Oficial em `sobre-nos.html`:**
+  - A página `sobre-nos.html` foi atualizada com a estrutura premium completa:
+    1. Seção Sobre a EndControl / Nossa História (`#sobre` com player de vídeo HUD e banner de 5 indicadores de autoridade).
+    2. Seção Nossa Identidade Corporativa (`#essencia` com fundo `#EFFAFF`, cápsula marinho e cards de Missão, Visão e Valores).
+    3. Seção Como Trabalhamos (`#metodologia` com foto técnica panorâmica e 4 etapas sequenciais).
+    4. Seção Nosso Compromisso (`#compromisso` com 4 pilares e botão CTA de contato).
+  - Removido o arquivo temporário `sobre-nos-2.html`.
+  - Limpos os links temporários de navegação "Sobre Nós 2" em todos os menus do site.
+  - Testes automatizados (87/87) passando com 100% de conformidade.
+
 ## [2026-08-21] - Remoção Definitiva e Substituição de 4 Fotografias Operacionais/Laboratório
 
 - **Arquivos:** `index.html`, `sobre-nos-2.html`, `12-solucao-consultoria-e-assessoria-tecnica.html`, `9-solucao-calibracao-de-instrumentos.html`, `2-solucao-inspecao-em-obras-de-artes-especiais.html`, `componentes-cards-.html`, `identidade-visual.html`, `src/data/units.js`, `src/js/album.js`, `src/js/main.js`, `src/js/solucoes.js`, `src/js/solucoes-integridade.js`, `MD/changelog.md`, `MD/features.md`
