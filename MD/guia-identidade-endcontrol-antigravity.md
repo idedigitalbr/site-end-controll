@@ -1,5 +1,11 @@
 # Guia de Identidade Visual — Site EndControl Engenharia
 
+> [!CAUTION]
+> ### 🛑 REGRA DE OURO MANDATÓRIA — ZERO NEON, ZERO BLUR E ZERO GLOW
+> 1. **NUNCA UTILIZAR CORES NEON NO PROJETO:** Proibido usar a cor azul claro neon `#00C2FF` em fundos, bordas, ícones, textos ou gradientes.
+> 2. **NUNCA UTILIZAR EFEITOS DE BLUR, GLOW OU SOMBRAS EXAGERADAS:** Manter o design 100% corporativo, sóbrio, limpo e industrial.
+> 3. **FAIXAS DE INDICADORES / MÉTRICAS:** Seguir estritamente o layout minimalista da Home (fundo azul-marinho `#00215d`, números grandes no topo, legendas abaixo centralizadas, divisores finos verticais e **SEM NENHUM ÍCONE**).
+
 Use este arquivo como referência principal para aplicar a identidade visual da EndControl Engenharia em todo o site.
 
 A referência visual é o banner hero enviado: visual escuro, premium, tecnológico, corporativo e industrial, com forte presença de azul/ciano, fotografia técnica real, elementos gráficos digitais sutis e acabamento sofisticado.

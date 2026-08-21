@@ -58,11 +58,17 @@ test('uses the project Lucide icon standard and navy hover treatment in the valu
   assert.match(home, /sections\.css\?v=54\.0/);
 });
 
-test('styles the Sobre Nós indicators banner with the dark navy background and white text matching Hero indicators', () => {
+test('styles the Sobre Nós indicators banner with the minimalist text-only dark navy layout matching Hero indicators', () => {
   const aboutHtml = fs.readFileSync(path.join(root, 'sobre-nos.html'), 'utf8');
 
   assert.match(aboutHtml, /\.about-values-banner\s*\{[\s\S]*?background:\s*#00215d\s*!important/i);
-  assert.match(aboutHtml, /\.about-values-banner\s*\{[\s\S]*?border:\s*1px solid rgba\(0,\s*194,\s*255,\s*0\.45\)\s*!important/i);
+  assert.match(aboutHtml, /\.about-values-banner\s*\{[\s\S]*?border:\s*1px solid rgba\(255,\s*255,\s*255,\s*0\.12\)\s*!important/i);
   assert.match(aboutHtml, /\.about-value-text h3\s*\{[\s\S]*?color:\s*#ffffff\s*!important/i);
   assert.match(aboutHtml, /\.about-value-text p\s*\{[\s\S]*?color:\s*#ffffff\s*!important/i);
+  
+  // Ensure the Sobre Nós indicators banner is text-only without icons
+  const bannerMatch = aboutHtml.match(/<div class="about-values-banner reveal">([\s\S]*?)<\/div>\s*<\/div>\s*<\/section>/i);
+  assert.ok(bannerMatch, 'banner de indicadores precisa existir');
+  assert.doesNotMatch(bannerMatch[1], /about-value-icon-circle|about-value-icon-wrapper|about-value-icon-glow|about-value-lucide/i);
+  assert.doesNotMatch(bannerMatch[1], /<svg|<i\b/i);
 });

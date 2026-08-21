@@ -1,15 +1,14 @@
 # Changelog — ENDCONTROL Engenharia
 
-## [2026-08-21] - Estilização Dark Navy da Faixa de Indicadores na Página Sobre Nós
+## [2026-08-21] - Faixa de Indicadores Minimalista e Sóbria na Página Sobre Nós (100% Padrão Hero)
 
-- **Arquivos:** `sobre-nos.html`, `tests/about-eyebrow-color.test.js`, `MD/changelog.md`
+- **Arquivos:** `sobre-nos.html`, `MD/guia-identidade-endcontrol-antigravity.md`, `tests/about-eyebrow-color.test.js`, `MD/changelog.md`
 
-### Enhanced & Styled
+### Enhanced & Standardized
 - **Faixa de Indicadores de Autoridade (`.about-values-banner`) em `sobre-nos.html`:**
-  - Aplicado fundo preenchido na cor oficial Azul Marinho (`#00215d`), idêntico ao padrão da faixa de benefícios do Hero.
-  - Adicionada borda com acabamento ciano translúcido (`rgba(0, 194, 255, 0.45)`), cantos arredondados (`18px`) e divisores verticais de itens.
-  - Tipografia de números/títulos (`h3`) e descrições (`p`) atualizada para branco puro (`#ffffff`) para garantir alto contraste e legibilidade.
-  - Círculos de ícones ajustados com background azul tecnológico suave, borda ciano e ícone Lucide ciano (`#00C2FF`) com hover iluminado.
+  - Removidos todos os ícones circulares, efeitos de blur, sombras neon e cores azul claro (#00C2FF).
+  - Aplicado layout estritamente minimalista idêntico ao da Home (Anexo 1): fundo azul-marinho sólido (`#00215d`), números grandes no topo (`+18 anos`, `+300`, `+1.250`, `100%`, `+120`), legendas explicativas centralizadas abaixo e divisores verticais sutis.
+  - Registrada regra de ouro no Guia de Identidade proibindo cores neon, blur e glow no projeto.
   - Testes automatizados (125/125) atualizados e validados com 100% de sucesso.
 
 - **Arquivos:** `sobre-nos.html`, `src/css/sobre-nos.css`, `MD/changelog.md`

@@ -225,68 +225,78 @@
       text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
     }
 
-    /* Banner de Indicadores Institucionais (5 Colunas) — Estilo Dark Navy idêntico ao Hero */
+    /* Banner de Indicadores Institucionais (5 Colunas) — Minimalista Exato do Hero */
     .about-values-banner {
+      display: grid !important;
       grid-template-columns: repeat(5, 1fr) !important;
-      padding: 16px 8px !important;
+      align-items: center !important;
+      padding: 14px 8px !important;
       gap: 0 !important;
       background: #00215d !important;
-      border: 1px solid rgba(0, 194, 255, 0.45) !important;
+      border: 1px solid rgba(255, 255, 255, 0.12) !important;
       border-radius: 18px !important;
-      box-shadow: 0 8px 25px rgba(0, 33, 93, 0.15) !important;
+      box-shadow: 0 8px 20px rgba(0, 33, 93, 0.08) !important;
       backdrop-filter: none !important;
       -webkit-backdrop-filter: none !important;
     }
 
     .about-value-item {
-      padding: 12px 16px !important;
-      gap: 12px !important;
+      display: flex !important;
+      flex-direction: column !important;
       align-items: center !important;
+      justify-content: center !important;
+      text-align: center !important;
+      padding: 0 16px !important;
+      gap: 0 !important;
+      position: relative !important;
+      transition: transform 0.3s ease !important;
     }
 
     .about-value-item:not(:last-child)::after {
-      background: rgba(0, 194, 255, 0.35) !important;
+      content: '' !important;
+      position: absolute !important;
+      right: 0 !important;
+      top: 15% !important;
+      height: 70% !important;
+      width: 1px !important;
+      background: rgba(255, 255, 255, 0.15) !important;
     }
 
-    .about-value-icon-circle {
-      background: rgba(0, 194, 255, 0.12) !important;
-      border: 1.5px solid rgba(0, 194, 255, 0.45) !important;
-      color: #00C2FF !important;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2) !important;
+    .about-value-item:hover {
+      transform: translateY(-2px) !important;
     }
 
-    .about-value-icon-glow {
-      background: radial-gradient(circle, rgba(0, 194, 255, 0.35) 0%, transparent 70%) !important;
-    }
-
-    .about-value-item:hover .about-value-icon-circle {
-      background: #00C2FF !important;
-      color: #00215D !important;
-      border-color: #00C2FF !important;
-      box-shadow: 0 0 16px rgba(0, 194, 255, 0.6) !important;
+    .about-value-text {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      gap: 3px !important;
+      text-align: center !important;
     }
 
     .about-value-text h3 {
-      font-size: 1.25rem !important;
-      font-weight: 800 !important;
+      font-size: 1.95rem !important;
+      font-weight: 700 !important;
       color: #ffffff !important;
-      margin: 0 0 2px 0 !important;
-      letter-spacing: -0.02em !important;
+      margin: 0 !important;
+      line-height: 1.2 !important;
+      letter-spacing: -0.01em !important;
+      text-align: center !important;
       white-space: nowrap;
     }
 
     .about-value-text p {
-      font-size: 0.82rem !important;
+      font-size: 0.78rem !important;
       line-height: 1.35 !important;
       color: #ffffff !important;
-      opacity: 0.92 !important;
       margin: 0 !important;
+      text-align: center !important;
     }
 
     @media (max-width: 1100px) {
       .about-values-banner {
         grid-template-columns: repeat(3, 1fr) !important;
-        gap: 16px !important;
+        gap: 16px 0 !important;
       }
       .about-value-item:nth-child(3)::after {
         display: none !important;
@@ -296,9 +306,10 @@
     @media (max-width: 768px) {
       .about-values-banner {
         grid-template-columns: 1fr !important;
-        gap: 12px !important;
+        gap: 16px !important;
+        padding: 20px 16px !important;
       }
-      .about-value-item::after {
+      .about-value-item:not(:last-child)::after {
         display: none !important;
       }
     }
@@ -605,16 +616,10 @@
           </div>
         </div>
 
-        <!-- Bottom Row: Consolidated Indicators Banner (5 Indicadores) -->
+        <!-- Bottom Row: Consolidated Indicators Banner (5 Indicadores Minimalistas sem Ícones) -->
         <div class="about-values-banner reveal">
           <!-- Indicador 1: Experiência -->
           <div class="about-value-item">
-            <div class="about-value-icon-wrapper">
-              <div class="about-value-icon-glow"></div>
-              <div class="about-value-icon-circle">
-                <i class="about-value-lucide" data-lucide="award" aria-hidden="true"></i>
-              </div>
-            </div>
             <div class="about-value-text">
               <h3>+18 anos</h3>
               <p>de experiência</p>
@@ -623,12 +628,6 @@
 
           <!-- Indicador 2: Projetos -->
           <div class="about-value-item">
-            <div class="about-value-icon-wrapper">
-              <div class="about-value-icon-glow"></div>
-              <div class="about-value-icon-circle">
-                <i class="about-value-lucide" data-lucide="clipboard-check" aria-hidden="true"></i>
-              </div>
-            </div>
             <div class="about-value-text">
               <h3>+300</h3>
               <p>projetos realizados</p>
@@ -637,12 +636,6 @@
 
           <!-- Indicador 3: Ativos Avaliados -->
           <div class="about-value-item">
-            <div class="about-value-icon-wrapper">
-              <div class="about-value-icon-glow"></div>
-              <div class="about-value-icon-circle">
-                <i class="about-value-lucide" data-lucide="layers" aria-hidden="true"></i>
-              </div>
-            </div>
             <div class="about-value-text">
               <h3>+1.250</h3>
               <p>ativos avaliados</p>
@@ -651,12 +644,6 @@
 
           <!-- Indicador 4: Compromisso com Segurança -->
           <div class="about-value-item">
-            <div class="about-value-icon-wrapper">
-              <div class="about-value-icon-glow"></div>
-              <div class="about-value-icon-circle">
-                <i class="about-value-lucide" data-lucide="shield-check" aria-hidden="true"></i>
-              </div>
-            </div>
             <div class="about-value-text">
               <h3>100%</h3>
               <p>compromisso com segurança</p>
@@ -665,12 +652,6 @@
 
           <!-- Indicador 5: Clientes Atendidos -->
           <div class="about-value-item">
-            <div class="about-value-icon-wrapper">
-              <div class="about-value-icon-glow"></div>
-              <div class="about-value-icon-circle">
-                <i class="about-value-lucide" data-lucide="users" aria-hidden="true"></i>
-              </div>
-            </div>
             <div class="about-value-text">
               <h3>+120</h3>
               <p>clientes atendidos</p>
