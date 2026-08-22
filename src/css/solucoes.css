@@ -191,7 +191,7 @@
   box-shadow: none;
 }
 .solucoes-badge-text {
-  font-size: 0.72rem;
+  font-size: var(--font-size-eyebrow, 12px);
   font-weight: 700;
   color: #ffffff;
   letter-spacing: 0.14em;
@@ -201,9 +201,9 @@
 .solucoes-heading {
   width: 100%;
   max-width: 1200px;
-  font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+  font-size: clamp(28px, 3.8vw, var(--font-size-headline, 38px));
   font-weight: 800;
-  line-height: 1.2;
+  line-height: 1.18;
   color: #071429;
   letter-spacing: -0.02em;
   margin: 0 0 14px 0;
@@ -216,8 +216,8 @@
 }
 .solucoes-description {
   max-width: 1100px;
-  font-size: 1.05rem;
-  line-height: 1.5;
+  font-size: var(--font-size-body, 16px);
+  line-height: 1.6;
   color: #475569;
   margin: 0 auto 22px;
   animation: fadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) both 0.2s;
@@ -1003,14 +1003,14 @@
   transition: opacity 0.25s ease, transform 0.25s ease;
 }
 .highlight-card-title {
-  font-size: 1.15rem;
+  font-size: var(--font-size-icon-title, 18px);
   font-weight: 800;
   color: #071429;
   margin: 0 0 6px 0;
-  line-height: 1.2;
+  line-height: 1.25;
 }
 .highlight-card-desc {
-  font-size: 0.74rem;
+  font-size: var(--font-size-icon-text, 16px);
   line-height: 1.5;
   color: #475569;
   margin: 0 0 10px 0;
@@ -1027,13 +1027,13 @@
   display: flex;
   align-items: center;
   gap: 7px;
-  font-size: 0.72rem;
+  font-size: var(--font-size-icon-text, 16px);
   color: #334155;
-  line-height: 1.35;
+  line-height: 1.45;
 }
 .highlight-card-list li svg {
-  width: 13px;
-  height: 13px;
+  width: 14px;
+  height: 14px;
   color: #00215D;
   flex-shrink: 0;
 }
@@ -1046,7 +1046,7 @@
   border: none;
   border-radius: 10px;
   color: #fff;
-  font-size: 0.7rem;
+  font-size: var(--font-size-button, 15px);
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;

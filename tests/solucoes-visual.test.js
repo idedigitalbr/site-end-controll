@@ -23,8 +23,8 @@ test('uses the standard navy in the Soluções section visual elements', () => {
 test('keeps the Soluções copy in the section header order', () => {
   assert.match(home, /<div class="solucoes-section-header">[\s\S]*?<div class="solucoes-badge">[\s\S]*?Soluções Integradas[\s\S]*?<h2 class="solucoes-heading">Soluções <em>integradas<\/em> para cada desafio industrial\.<\/h2>[\s\S]*?<p class="solucoes-description">Atuamos de forma completa e integrada para aumentar a confiabilidade, a segurança e a performance dos seus ativos industriais\.<\/p>[\s\S]*?<\/div>[\s\S]*?<div class="solucoes-main-content">/i);
   assert.match(styles, /\.solucoes-section-header\s*\{[\s\S]*?width:\s*min\(1280px/);
-  assert.match(styles, /\.solucoes-heading\s*\{[\s\S]*?max-width:\s*1200px[\s\S]*?font-size:\s*clamp\(1\.8rem,\s*3\.5vw,\s*2\.4rem\)/);
-  assert.match(styles, /\.solucoes-description\s*\{[\s\S]*?font-size:\s*1\.05rem/);
+  assert.match(styles, /\.solucoes-heading\s*\{[\s\S]*?max-width:\s*1200px[\s\S]*?font-size:\s*clamp\(28px,\s*3\.8vw,\s*var\(--font-size-headline,\s*38px\)\)/);
+  assert.match(styles, /\.solucoes-description\s*\{[\s\S]*?font-size:\s*var\(--font-size-body,\s*16px\)/);
   assert.doesNotMatch(home, /<div class="solucoes-main-content">[\s\S]*?class="solucoes-left-col"/i);
 });
 

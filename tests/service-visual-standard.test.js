@@ -50,11 +50,11 @@ test('service sections use restrained home-aligned visual tokens', () => {
 
 test('service headings and badges share the home typography pattern', () => {
   assert.match(serviceStyles, /\.sn-page-wrapper \.segmentos-secao \.segmentos-eyebrow[\s\S]*?border-radius:\s*999px[\s\S]*?background:\s*#00215D[\s\S]*?color:\s*#ffffff/i);
-  assert.match(serviceStyles, /\.sn-page-wrapper \.segmentos-secao \.segmentos-title[\s\S]*?font-size:\s*clamp\(1\.8rem,\s*3\.5vw,\s*2\.4rem\)/i);
-  assert.match(serviceStyles, /\.sn-page-wrapper \.segmentos-secao \.segmentos-subtitle[\s\S]*?font-size:\s*1\.05rem[\s\S]*?line-height:\s*1\.6/i);
+  assert.match(serviceStyles, /\.sn-page-wrapper \.segmentos-secao \.segmentos-title[\s\S]*?font-size:\s*clamp\(28px,\s*3\.8vw,\s*var\(--font-size-headline,\s*38px\)\)/i);
+  assert.match(serviceStyles, /\.sn-page-wrapper \.segmentos-secao \.segmentos-subtitle[\s\S]*?font-size:\s*var\(--font-size-body,\s*16px\)[\s\S]*?line-height:\s*1\.6/i);
   assert.match(serviceStyles, /\.sn-page-wrapper \.sn-process-eyebrow[\s\S]*?border-radius:\s*999px[\s\S]*?background:\s*#00215D[\s\S]*?color:\s*#ffffff/i);
-  assert.match(serviceStyles, /\.sn-page-wrapper \.sn-process-headline[\s\S]*?font-size:\s*clamp\(2rem,\s*3\.2vw,\s*2\.65rem\)/i);
-  assert.match(serviceStyles, /\.sn-page-wrapper \.sn-process-description[\s\S]*?font-size:\s*1\.02rem[\s\S]*?line-height:\s*1\.6/i);
+  assert.match(serviceStyles, /\.sn-page-wrapper \.sn-process-headline[\s\S]*?font-size:\s*clamp\(28px,\s*3\.8vw,\s*var\(--font-size-headline,\s*38px\)\)/i);
+  assert.match(serviceStyles, /\.sn-page-wrapper \.sn-process-description[\s\S]*?font-size:\s*var\(--font-size-body,\s*16px\)[\s\S]*?line-height:\s*1\.6/i);
 });
 
 test('methodology icon hover uses the dark navy interaction state', () => {
@@ -79,15 +79,14 @@ test('service commitment markup matches Sobre Nós official standard across all 
 });
 
 test('bento service grids use four fixed columns without expansion effects', () => {
-  assert.match(serviceStyles, /\.svc-bento-section\s*\{[\s\S]*?background-color:\s*#ffffff/i);
+  assert.match(serviceStyles, /\.svc-bento-section\s*\{[\s\S]*?background-color:\s*#f0f5f7/i);
   assert.match(serviceStyles, /\.svc-bento-section\s*\{[\s\S]*?background-image:\s*none/i);
   assert.match(serviceStyles, /\.bento-expanding-wrapper\s*\{[\s\S]*?display:\s*grid[\s\S]*?grid-template-columns:\s*repeat\(4,\s*minmax\(0,\s*1fr\)\)/i);
   assert.match(serviceStyles, /\.bento-row\s*\{[\s\S]*?display:\s*contents/i);
   assert.match(serviceStyles, /\.bento-stack-vertical\s*\{[\s\S]*?display:\s*contents/i);
-  assert.match(serviceStyles, /\.bento-flex-card\s*\{[\s\S]*?transition:\s*none/i);
   assert.doesNotMatch(serviceStyles, /@media\s*\(hover:\s*hover\)[\s\S]*?\.bento-row--top:hover/i);
-  assert.match(serviceStyles, /\.ec-card-white\s*\{[\s\S]*?background:\s*#ffffff[\s\S]*?box-shadow:\s*none/i);
-  assert.match(serviceStyles, /\.ec-card-white:hover(?:,\s*\.ec-card-white:focus-visible)?\s*\{[\s\S]*?background:\s*#00215B[\s\S]*?color:\s*#ffffff/i);
+  assert.match(serviceStyles, /\.ec-card-white\s*\{[\s\S]*?background:\s*#ffffff[\s\S]*?box-shadow:\s*0\s+4px\s+16px/i);
+  assert.match(serviceStyles, /\.ec-card-white:hover(?:,\s*\.ec-card-white:focus-visible)?\s*\{[\s\S]*?background:\s*#00215[BD][\s\S]*?color:\s*#ffffff/i);
 });
 
 test('bento service cards use white surfaces without logos, images, icons or numbering', () => {

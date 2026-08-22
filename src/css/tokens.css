@@ -2,6 +2,14 @@
   /* Fonte padrão */
   --font-primary: "Inter", sans-serif;
 
+  /* Tipografia Padrão Oficial ENDCONTROL */
+  --font-size-headline: 38px;
+  --font-size-body: 16px;
+  --font-size-icon-title: 18px;
+  --font-size-icon-text: 16px;
+  --font-size-eyebrow: 12px;
+  --font-size-button: 15px;
+
   /* Paleta oficial ENDCONTROL */
   --color-bg-primary: #071429;
   --color-bg-secondary: #0A1B33;

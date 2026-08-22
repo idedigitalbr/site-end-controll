@@ -1,5 +1,78 @@
 # Changelog — ENDCONTROL Engenharia
 
+## [2026-08-22] - Padronização Global de Tipografia (Headlines: 38px, Textos: 16px, Títulos de Ícones/Cards: 18px, Textos de Ícones/Cards: 16px)
+
+- **Arquivos:** `src/css/tokens.css`, `src/css/hero.css`, `src/css/sections.css`, `src/css/solucoes.css`, `src/css/segmentos.css`, `src/css/presenca-nacional.css`, `src/css/sobre-nos.css`, `src/css/servico-integridade.css`, `src/css/radar-ffs.css`, `tests/service-visual-standard.test.js`, `MD/changelog.md`.
+
+### UI & Typography Standardization
+- **Criação de Tokens Globais de Tipografia (`tokens.css`):**
+  - Definidos tokens CSS custom properties para uso em toda a plataforma:
+    - `--font-size-headline: 38px;` (Headlines H1, H2, títulos principais de seção)
+    - `--font-size-body: 16px;` (Textos gerais, parágrafos, subtítulos e descrições)
+    - `--font-size-icon-title: 18px;` (Títulos de cards, pilares, passos da metodologia, perguntas de FAQ, destaques de radar)
+    - `--font-size-icon-text: 16px;` (Textos e listas internas de cards, pilares, passos e acordions)
+    - `--font-size-eyebrow: 12px;` (Badges e tags em formato de pílula)
+    - `--font-size-button: 15px;` (Botões de ação e CTAs)
+- **Aplicação e Unificação em Todas as Seções e Páginas:**
+  - **Hero (Home & Global):** Title padronizado para `clamp(28px, 3.8vw, var(--font-size-headline, 38px))` com line-height 1.18; lead description para `var(--font-size-body, 16px)`.
+  - **Sobre a EndControl (Home & Soluções S2):** Headline padronizada para 38px fluida; parágrafos para 16px; títulos dos cards de valores/benefícios para 18px e textos/listas para 16px.
+  - **Nossas Soluções (Radar Orbital):** Heading padronizado para 38px; descrição para 16px; título do highlight card para 18px; descrições e lista de itens para 16px; botão para 15px.
+  - **Áreas de Atuação (Accordion de Segmentos):** Título padronizado para 38px; subtítulo para 16px; títulos dos painéis para 18px; descrições para 16px.
+  - **Presença Nacional & Setores:** Heading padronizado para 38px; parágrafo para 16px; títulos dos cards e regiões para 18px; itens de setores para 16px.
+  - **FAQ (Perguntas Frequentes):** Título padronizado para 38px; perguntas do accordion para 18px; respostas abertas para 16px.
+  - **Oportunidades & Carreiras:** Títulos de cards padronizados para 18px; descrições e itens de checklist para 16px; botões para 15px.
+  - **Página Sobre Nós:**
+    - História: Headline 38px, descrição 16px.
+    - Nossa Essência: Headline 38px, subtítulo 16px, títulos dos cards (Missão, Visão, Valores) 18px, textos e listas 16px.
+    - Como Trabalhamos: Headline 38px, descrição 16px, títulos dos 4 passos 18px, textos descritivos 16px.
+    - Nosso Compromisso: Headline 38px, descrição 16px, botão WhatsApp 15px.
+    - CTA Pré-Footer: Headline 38px, descrição 16px.
+  - **Páginas de Serviços 1 a 12 (`servico-integridade.css`):**
+    - S2 Sobre a Solução: Headline 38px, subtítulo e parágrafos 16px.
+    - S4 Metodologia: Headline 38px, títulos dos 4 passos 18px, descrições 16px.
+    - Escopo Técnico / Bento Grid: Headline da sidebar 38px, texto da sidebar 16px, títulos dos pilares e cards brancos/escuros 18px, textos técnicos e checklists 16px.
+    - Mecanismos FFS (Solução 1): Heading 38px, descrição 16px, benefícios 16px, títulos dos cards 18px.
+- **Validação Automatizada:**
+  - Suíte de testes automatizados `tests/service-visual-standard.test.js` atualizada e aprovada com 100% de sucesso (11/11 testes passing).
+
+## [2026-08-22] - Reposicionamento do Botão CTA para a Coluna Esquerda Abaixo do Texto e Estilização em Azul Marinho Sólido (Anexo 2) com Ícone do WhatsApp
+
+- **Arquivos:** `sobre-nos.html`, `1-solucao-engenharia-de-integridade-estrutural.html` a `12-solucao-consultoria-e-assessoria-tecnica.html`, `src/css/sobre-nos.css`, `MD/changelog.md`.
+
+### UI Polish & Layout Refinement
+- **Reposicionamento do Botão CTA (`.sn-commitment-wsp-float-btn`):**
+  - O botão CTA de contato via WhatsApp foi movido de cima da imagem na coluna direita para a coluna esquerda, posicionado diretamente abaixo do texto descritivo institucional.
+  - A fotografia com moldura HUD e linha de scanner na coluna direita agora permanece limpa e desobstruída.
+- **Estilização Visual Aderente ao Padrão (Anexo 2):**
+  - Fundo em azul marinho sólido (`#00215D`) com cantos arredondados retangulares (`border-radius: 12px`).
+  - Tipografia em branco com peso forte (`font-weight: 700`), sombra suave (`box-shadow: 0 6px 20px rgba(0, 33, 93, 0.22)`).
+  - Ícone vetorial oficial do WhatsApp em branco posicionado à esquerda do texto `Chamar no WhatsApp`.
+  - Efeito hover refinado com transição de fundo para `#00358e`, elevação suave (`transform: translateY(-2px)`) e sombra acentuada.
+- **Responsividade e Versões:**
+  - Breakpoints de 768px e 480px atualizados com espaçamentos proporcionais e largura total no mobile para máxima usabilidade.
+  - Cache-buster atualizado para `sobre-nos.css?v=171.0` em todas as 13 páginas.
+- **Testes & Qualidade:**
+  - 157/157 testes automatizados executados e 100% aprovados.
+
+## [2026-08-22] - Ajuste Visual das Seções Bento Grid: Fundo #f0f5f7, Sombra Suave nos Cards Brancos, Padronização dos Títulos e Justificação de Textos
+
+- **Arquivos:** `src/css/servico-integridade.css`, `tests/service-visual-standard.test.js`, `MD/changelog.md`.
+
+### UI Polish & Standardization
+- **Fundo da Seção Bento Grid (`.svc-bento-section`):**
+  - Fundo atualizado para `#f0f5f7` em todas as seções de escopo técnico / mecanismos FFS das páginas de serviços.
+- **Sombra Suave e Destaque nos Cards Brancos (`.ec-card-white`):**
+  - Aplicada sombra sutil e moderna (`box-shadow: 0 4px 16px -2px rgba(0, 33, 93, 0.06), 0 2px 6px -1px rgba(0, 33, 93, 0.04)`) com borda suave (`1px solid rgba(0, 33, 93, 0.08)`) para destacar os cards brancos da superfície `#f0f5f7`.
+  - Sidebar institucional (`.ec-bento-sidebar`) também recebeu elevação suave (`box-shadow: 0 10px 30px -5px rgba(0, 33, 93, 0.18)`).
+  - Adicionado hover refinado com leve elevação (`transform: translateY(-2px)`) e sombra suave.
+- **Padronização Universal do Tamanho dos Títulos dos Cards:**
+  - Todos os títulos de cards (`.ec-card-white-title`, `.ec-card-dark-title`, `.bento-stack-item .ec-card-white-title`, `.ffs-mechanism-card .ec-card-white-title`) foram rigorosamente unificados para a dimensão padrão de "Elaboração de EPS" (`clamp(15px, 1.1vw, 18px)` com `font-weight: 700` e `line-height: 1.25`), eliminando variações de tamanho entre cards de diferentes linhas ou colunas.
+- **Alinhamento e Justificação de Textos:**
+  - Aplicado alinhamento justificado (`text-align: justify; text-justify: inter-word; hyphens: auto;`) em todos os textos de parágrafos da sidebar (`.sidebar-paragraph`), descrições dos pilares (`.sidebar-pillar-desc`), descrições de cards (`.ec-card-white-text`, `.ec-card-dark-text`) e itens de checklists (`.ec-card-white-checklist li`, `.ec-card-dark-checklist li`), garantindo uniformidade e simetria técnica.
+- **Testes & Qualidade:**
+  - Suite de testes atualizada em `tests/service-visual-standard.test.js`.
+  - 157/157 testes automatizados executados e 100% aprovados.
+
 ## [2026-08-22] - Correção e Contextualização de Todos os Ícones Lucide na Seção "Quando Aplicar" (Sanfona de 8 Cards) em Todas as 12 Páginas de Soluções
 
 - **Arquivos:** `1-solucao-engenharia-de-integridade-estrutural.html` a `12-solucao-consultoria-e-assessoria-tecnica.html`, `src/js/service-pages.js`, `tests/service-accordion.test.js`, `MD/changelog.md`.

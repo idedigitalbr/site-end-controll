@@ -1,5 +1,25 @@
 # Features — ENDCONTROL Engenharia
 
+## Padronização Tipográfica Global (Headlines 38px, Textos 16px, Títulos 18px)
+
+- Status: Concluída
+- Data: 2026-08-22
+- **Arquivos:** `src/css/tokens.css`, `src/css/hero.css`, `src/css/sections.css`, `src/css/solucoes.css`, `src/css/segmentos.css`, `src/css/presenca-nacional.css`, `src/css/sobre-nos.css`, `src/css/servico-integridade.css`, `src/css/radar-ffs.css`, `tests/*.test.js`, `MD/changelog.md`, `MD/features.md`.
+- **Padronização Visual da Escala Tipográfica:**
+  - Headlines (H1, H2) unificadas em `38px` (`clamp(28px, 3.8vw, var(--font-size-headline, 38px))`).
+  - Textos, parágrafos, subtítulos e descrições unificados em `16px` (`var(--font-size-body, 16px)`).
+  - Títulos de ícones, cards, 4 passos de metodologia, perguntas FAQ e pilares unificados em `18px` (`var(--font-size-icon-title, 18px)`).
+  - Textos internos de cards, checklists, listas e descrições unificados em `16px` (`var(--font-size-icon-text, 16px)`).
+  - Badges / Eyebrows unificados em `12px` (`var(--font-size-eyebrow, 12px)`).
+  - Botões CTA unificados em `15px` (`var(--font-size-button, 15px)`).
+
+## Reposicionamento e Estilização do Botão CTA na Seção "Nosso Compromisso"
+
+- Status: Concluída
+- Data: 2026-08-22
+- **Arquivos:** `sobre-nos.html`, `1-solucao-engenharia-de-integridade-estrutural.html` a `12-solucao-consultoria-e-assessoria-tecnica.html`, `src/css/sobre-nos.css`, `MD/changelog.md`, `MD/features.md`.
+- **Botão CTA na Coluna Esquerda:** O botão de contato via WhatsApp foi reposicionado para a coluna esquerda abaixo do texto institucional com estilo azul marinho sólido (`#00215D`), cantos arredondados (`12px`), texto e ícone em branco (`#ffffff`), deixando a imagem com HUD limpa e o fluxo de leitura natural.
+
 ## Padronização da Seção "Nosso Compromisso" em Todas as 12 Páginas de Soluções
 
 - Status: Concluída

@@ -1,5 +1,21 @@
 # Histórico de sincronização — DB_IDE
 
+## 2026-08-22 - Padronização Global de Tipografia (Headlines 38px, Textos 16px, Títulos 18px)
+
+- Projeto: site-end-controll
+- Tarefa: Padronização completa da escala tipográfica em 100% das seções e páginas do site (Home, Sobre Nós e as 12 páginas de Soluções/Serviços), definindo tokens CSS `:root` (`--font-size-headline: 38px`, `--font-size-body: 16px`, `--font-size-icon-title: 18px`, `--font-size-icon-text: 16px`, `--font-size-eyebrow: 12px`, `--font-size-button: 15px`).
+- Status local: Concluída.
+- Testes: 157/157 testes aprovados com 100% de sucesso.
+- Observação: Memória persistente no Obsidian (`MD/`) e changelog sincronizados.
+
+## 2026-08-22 - Reposicionamento e Estilização do Botão CTA na Seção "Nosso Compromisso"
+
+- Projeto: site-end-controll
+- Tarefa: Reposicionamento do botão CTA de contato para a coluna esquerda abaixo do texto institucional com estilo azul marinho sólido (`#00215D`, Anexo 2), cantos arredondados (`12px`) e ícone vetorial do WhatsApp em branco em `sobre-nos.html` e nas 12 páginas de soluções.
+- Status local: Concluída.
+- Testes: 157/157 testes aprovados com 100% de sucesso.
+- Observação: Memória persistente no Obsidian (`MD/`) e changelog sincronizados.
+
 ## 2026-08-22 - Remoção da Faixa de Benefícios em Engenharia de Integridade Estrutural
 
 - Projeto: site-end-controll

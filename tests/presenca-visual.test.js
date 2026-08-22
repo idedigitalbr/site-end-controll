@@ -24,10 +24,10 @@ test('uses the standard navy across the national presence section accents', () =
 test('matches the Sobre a EndControl badge and headline typography', () => {
   assert.match(
     styles,
-    /\.presenca-eyebrow\s*\{[\s\S]*?font-size:\s*0\.72rem\s*;[\s\S]*?font-weight:\s*700\s*;[\s\S]*?color:\s*#ffffff\s*;[\s\S]*?background:\s*#00215D\s*;[\s\S]*?border-radius:\s*999px\s*;[\s\S]*?padding:\s*8px\s+14px\s*;/i,
+    /\.presenca-eyebrow\s*\{[\s\S]*?font-size:\s*var\(--font-size-eyebrow,\s*12px\)\s*;[\s\S]*?font-weight:\s*700\s*;[\s\S]*?color:\s*#ffffff\s*;[\s\S]*?background:\s*#00215D\s*;[\s\S]*?border-radius:\s*999px\s*;[\s\S]*?padding:\s*8px\s+14px\s*;/i,
   );
   assert.match(
     styles,
-    /\.presenca-heading\s*\{[\s\S]*?font-size:\s*clamp\(1\.8rem,\s*3\.5vw,\s*2\.4rem\)\s*;[\s\S]*?font-weight:\s*800\s*;[\s\S]*?line-height:\s*1\.2\s*;[\s\S]*?color:\s*#071429\s*;/i,
+    /\.presenca-heading\s*\{[\s\S]*?font-size:\s*clamp\(28px,\s*3\.8vw,\s*var\(--font-size-headline,\s*38px\)\)\s*;[\s\S]*?font-weight:\s*800\s*;[\s\S]*?line-height:\s*1\.18\s*;[\s\S]*?color:\s*#071429\s*;/i,
   );
 });

@@ -1333,22 +1333,22 @@ p {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.72rem;
+  font-size: var(--font-size-eyebrow, 12px);
   font-weight: 700;
-  letter-spacing: 0.14em;
   color: #ffffff;
   background: #00215D;
   border-radius: 999px;
   padding: 8px 14px;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   margin-bottom: 12px;
 }
 
 .faq-v2-title {
-  font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+  font-size: clamp(28px, 3.8vw, var(--font-size-headline, 38px));
   font-weight: 800;
   color: #071429;
-  line-height: 1.2;
+  line-height: 1.18;
   letter-spacing: -0.02em;
   margin: 0 0 14px;
 }
@@ -1388,12 +1388,12 @@ p {
   justify-content: space-between;
   align-items: center;
   gap: 16px;
-  padding: 22px 24px;
+  padding: 20px 24px;
   background: none;
   border: 0;
   text-align: left;
-  font-size: 0.9rem;
-  font-weight: 600;
+  font-size: var(--font-size-icon-title, 18px);
+  font-weight: 700;
   color: #0d1b2a;
   cursor: pointer;
   transition: color 0.2s ease;
@@ -1439,8 +1439,8 @@ p {
 
 .faq-v2-answer-inner {
   padding: 0 24px 20px;
-  font-size: 0.88rem;
-  line-height: 1.65;
+  font-size: var(--font-size-body, 16px);
+  line-height: 1.6;
   color: #6b7280;
   border-top: 1px solid rgba(0, 33, 93, 0.07);
   padding-top: 14px;
@@ -2329,7 +2329,7 @@ textarea.form-control {
 }
 
 .about-eyebrow {
-  font-size: 0.72rem;
+  font-size: var(--font-size-eyebrow, 12px);
   font-weight: 700;
   letter-spacing: 0.14em;
   color: #ffffff;
@@ -2354,9 +2354,9 @@ textarea.form-control {
 
 /* Headline */
 .about-headline {
-  font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+  font-size: clamp(28px, 3.8vw, var(--font-size-headline, 38px));
   font-weight: 800;
-  line-height: 1.2;
+  line-height: 1.18;
   color: #071429;
   letter-spacing: -0.02em;
   margin-bottom: 14px;
@@ -2379,8 +2379,8 @@ textarea.form-control {
 }
 
 .about-paragraphs p {
-  font-size: 1.05rem;
-  line-height: 1.5;
+  font-size: var(--font-size-body, 16px);
+  line-height: 1.6;
   color: #475569;
   text-align: justify;
   margin-bottom: 16px;
@@ -2412,7 +2412,7 @@ textarea.form-control {
   border: 1.5px solid #00215D;
   font-family: var(--font-primary), sans-serif;
   font-weight: 700;
-  font-size: 15px;
+  font-size: var(--font-size-button, 15px);
   color: #00215D;
   background: var(--bg-white);
   text-decoration: none;
@@ -2685,15 +2685,16 @@ textarea.form-control {
 }
 
 .about-value-text h3 {
-  font-size: 1.1rem;
+  font-size: var(--font-size-icon-title, 18px);
   font-weight: 700;
+  line-height: 1.25;
   color: var(--text-dark);
   margin: 0 0 6px 0;
 }
 
 .about-value-text p {
-  font-size: 0.88rem;
-  line-height: 1.45;
+  font-size: var(--font-size-icon-text, 16px);
+  line-height: 1.5;
   color: var(--text-muted);
   margin: 0;
 }
@@ -3968,10 +3969,10 @@ textarea.form-control {
 
 /* Card Title */
 .oportunidades-card-title {
-  font-family: 'DM Sans', sans-serif;
-  font-size: clamp(1.4rem, 2.5vw, 1.75rem);
+  font-family: var(--font-primary, "Inter", sans-serif);
+  font-size: var(--font-size-icon-title, 18px);
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 1.25;
   letter-spacing: -0.02em;
   color: #fff;
   margin: 0;
@@ -3984,8 +3985,8 @@ textarea.form-control {
 
 /* Card description */
 .oportunidades-card-text {
-  font-size: 0.95rem;
-  line-height: 1.6;
+  font-size: var(--font-size-icon-text, 16px);
+  line-height: 1.5;
   color: rgba(255, 255, 255, 0.85);
   margin: 0;
   max-width: 310px;
@@ -4005,9 +4006,9 @@ textarea.form-control {
   display: flex;
   align-items: center;
   gap: 12px;
-  font-size: 0.95rem;
+  font-size: var(--font-size-icon-text, 16px);
   color: rgba(255, 255, 255, 0.95);
-  line-height: 1.4;
+  line-height: 1.45;
 }
 
 .oportunidades-card-checklist li svg.check-icon {
@@ -4025,8 +4026,8 @@ textarea.form-control {
   gap: 10px;
   padding: 12px 28px;
   border-radius: 12px;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 0.95rem;
+  font-family: var(--font-primary, "Inter", sans-serif);
+  font-size: var(--font-size-button, 15px);
   font-weight: 600;
   text-decoration: none;
   width: fit-content;
@@ -4140,15 +4141,15 @@ textarea.form-control {
   }
 
   .oportunidades-card-title {
-    font-size: 1.35rem;
+    font-size: var(--font-size-icon-title, 18px);
   }
 
   .oportunidades-card-text {
-    font-size: 0.9rem;
+    font-size: var(--font-size-icon-text, 16px);
   }
 
   .oportunidades-card-checklist li {
-    font-size: 0.9rem;
+    font-size: var(--font-size-icon-text, 16px);
   }
 
   .oportunidades-container {
