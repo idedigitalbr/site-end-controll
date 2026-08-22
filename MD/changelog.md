@@ -1,8 +1,88 @@
 # Changelog — ENDCONTROL Engenharia
 
-## [2026-08-22] - Remoção da Faixa de Benefícios da Solução em Engenharia de Integridade Estrutural
+## [2026-08-22] - Correção e Contextualização de Todos os Ícones Lucide na Seção "Quando Aplicar" (Sanfona de 8 Cards) em Todas as 12 Páginas de Soluções
 
-- **Arquivos:** `1-solucao-engenharia-de-integridade-estrutural.html`, `MD/changelog.md`.
+- **Arquivos:** `1-solucao-engenharia-de-integridade-estrutural.html` a `12-solucao-consultoria-e-assessoria-tecnica.html`, `src/js/service-pages.js`, `tests/service-accordion.test.js`, `MD/changelog.md`.
+
+### UI & Consistency Fix
+- **Contextualização Total dos Ícones nos 8 Cards de Cada uma das 12 Páginas de Soluções (96 cards no total):**
+  - Eliminado o comportamento onde múltiplos cards exibiam ícones de check idênticos (`check-circle-2` / genéricos) por falta de correspondência contextual.
+  - Cada card da seção *"Quando Aplicar"* (`#quando-aplicar .endo-acc-panel`) agora utiliza diretamente elementos `<i class="endo-acc-icon" data-lucide="..." aria-hidden="true"></i>` com ícones oficiais Lucide 100% aderentes ao tema e significado técnico de cada card:
+    - **Solução 1 (Integridade Estrutural):** `shield-alert` (Corrosão), `gauge` (Perda de espessura), `activity` (Trincas), `move-diagonal` (Distorções), `flame` (Danos térmicos), `atom` (Hidrogênio), `repeat` (Fadiga), `shield-check` (Continuidade operacional).
+    - **Solução 2 (Obras de Artes Especiais):** `shield-alert` (Corrosão), `ruler` (Perda de espessura), `activity` (Trincas e Fissuras), `move-diagonal` (Distorções e Recalques), `cloud-rain` (Danos Ambientais), `layers` (Armaduras e Apoios), `truck` (Fadiga e Carga Dinâmica), `shield-check` (Continuidade Operacional).
+    - **Solução 3 (ENDs):** `shield-alert` (Corrosão), `gauge` (Perda de espessura), `search` (Trincas e Descontinuidades), `maximize-2` (Distorções), `flame` (Danos térmicos), `atom` (Hidrogênio), `repeat` (Fadiga), `shield-check` (Continuidade Operacional).
+    - **Solução 4 (Soldagem):** `award` (Qualificação RQPS), `user-check` (Qualificação de Soldadores), `alert-triangle` (Trincas e Descontinuidades), `wrench` (Reparos em Operação), `layers` (Revestimentos e Cladding), `thermometer` (Controle Térmico e PWHT), `clipboard-check` (Auditorias e PIT), `shield-check` (Continuidade Operacional).
+    - **Solução 5 (Gerenciamento de Projetos):** `clock` (Paradas de Manutenção), `building-2` (Fiscalização de CAPEX), `folder-check` (Gestão Documental), `badge-check` (Qualificação Técnica), `users` (Mão de Obra Técnica), `search` (Diagnóstico de Falhas), `shield-alert` (POPs e Emergência), `trending-up` (Monitoramento de KPIs).
+    - **Solução 6 (Projetos Mecânicos):** `plus-circle` (Novos Empreendimentos), `refresh-cw` (Retrofit & Revamp), `drafting-compass` (Reconstituição As-Built), `cpu` (Simulação Numérica FEA), `file-check-2` (Adequação Normativa), `git-commit` (Isométricos de Tubulação), `settings-2` (Alteração de Processo), `layout-grid` (Otimização de Espaço).
+    - **Solução 7 (Soluções Tecnológicas Integradas):** `bot` (RPA & Automação), `plane` (Inspeção com Drones), `scan` (Escaneamento Laser 3D), `brain` (Inteligência Artificial), `radio` (IoT & Telemetria), `view` (Tour Virtual 360°), `activity` (Simulações Preditivas), `layout-dashboard` (Plataformas de Gestão).
+    - **Solução 8 (Inspeção e Adequação Normativa):** `gauge` (NR-13 Caldeiras & Vasos), `shield-alert` (NR-12 Máquinas & Riscos), `anchor` (NR-11 Cargas & Pontes), `flame` (NR-20 Inflamáveis & Ex), `link` (NR-35 Linha de Vida), `ship` (NR-34 Setor Naval), `container` (NR-29 Setor Portuário), `graduation-cap` (Capacitação Técnica).
+    - **Solução 9 (Calibração de Instrumentos):** `shield` (Calibração de PSV), `activity` (Calibração On-Line), `wind` (Válvulas Quebra-Vácuo), `gauge` (Manômetros Industriais), `toggle-right` (Pressostatos de Segurança), `scan` (Vacuômetros & Sensores), `droplets` (Estanqueidade API 527), `file-check-2` (Adequação NR-13).
+    - **Solução 10 (Trepanação Hot Tapping):** `git-merge` (Derivações Tie-Ins), `thermometer` (Instalação de Sensores), `corner-down-right` (Linhas de Bypass), `coins` (Zero Lucros Cessantes), `droplets` (Diversos Fluidos), `cog` (Locação de Máquinas), `flame` (Soldagem In-Service), `user-check` (Supervisão Técnica).
+    - **Solução 11 (Certificação de Matéria-Prima):** `package-check` (Recebimento de Lotes), `search` (Sem Rastreabilidade), `move-horizontal` (Ensaio de Tração), `hammer` (Impacto Charpy), `shield` (Ensaios de Dureza), `microscope` (Metalografia & Fases), `flask-conical` (Química & PMI), `file-badge-2` (Certificados 3.1/3.2).
+    - **Solução 12 (Consultoria e Assessoria Técnica):** `search-check` (Engenharia Forense RCA), `alert-triangle` (Riscos HAZOP & APR), `target` (Inspeção por Risco RBI), `scale` (Perícias & Sinistros), `calendar-check` (Planos PMP & RCM), `globe` (Códigos Internacionais), `building-2` (Due Diligence de Ativos), `file-signature` (Pareceres com ART).
+- **Runtime Resiliente (`src/js/service-pages.js`):**
+  - Atualizada a função `normalizeWhenApplyIcons()` para preservar atributos `data-lucide` explícitos.
+  - Expandido o dicionário `iconByTitle` cobrindo todas as palavras-chave industriais e substituído o fallback genérico por `shield-check`.
+- **Testes Automatizados:**
+  - Novo teste adicionado em `tests/service-accordion.test.js` para garantir integridade e variedade contextual de todos os 96 cards.
+  - 157/157 testes automatizados 100% aprovados.
+
+## [2026-08-22] - Padronização da Seção "Nosso Compromisso" (Sobre Nós Card + Efeitos HUD + WhatsApp Flutuante) em Todas as 12 Páginas de Soluções
+
+- **Arquivos:** `1-solucao-engenharia-de-integridade-estrutural.html` a `12-solucao-consultoria-e-assessoria-tecnica.html`, `tests/service-1-structure.test.js`, `tests/service-visual-standard.test.js`, `MD/changelog.md`.
+
+### UI Enhancement & Consistency
+- **Rollout do Padrão Oficial "Nosso Compromisso" (Sobre Nós) para Todas as Páginas de Soluções:**
+  - Substituído o formato anterior em todas as 12 páginas de soluções pelo card flutuante premium com efeitos HUD e identidade visual refinada vinda de `sobre-nos.html`:
+    - **Card Flutuante (`.sn-commitment-card`):** Fundo branco com cantos arredondados (`40px`), sombra suave em elevação (`0 16px 45px rgba(0, 25, 60, 0.06)`).
+    - **Coluna Esquerda:** Badge em pílula azul-marinho `NOSSO COMPROMISSO`, headline hierárquica `Excelência técnica começa` + `com responsabilidade.` (em itálico institucional), e texto descritivo oficial de 18 anos de engenharia.
+    - **Coluna Direita:** Fotografia oficial dos especialistas (`foto-pro-roda-pe.webp`), moldura HUD com 4 cantoneiras ciano (`.sn-commitment-hud-corner`), linha de scanner laser animada (`.sn-commitment-scan-line`) e botão CTA flutuante em pílula `[Ícone WhatsApp] Chamar no WhatsApp`.
+    - **Matriz de Pontos HUD (`.sn-commitment-hud-dots`):** Posicionada nas extremidades do container para acabamento visual tecnológico e moderno.
+- **Testes & Validação:**
+  - Atualizadas as suites de testes automatizados (`tests/service-1-structure.test.js` e `tests/service-visual-standard.test.js`).
+  - 156/156 testes automatizados executados e 100% aprovados.
+  - Script `tests/site-integrity.ps1` executado e aprovado com sucesso.
+
+## [2026-08-22] - Estilização Visual com Imagem de Fundo e Filtro Azul no Card do Mega Menu Hero (Header)
+
+- **Arquivos:** `src/css/header.css`, `src/css/responsive.css`, `tests/header-nav-visual.test.js`, `MD/changelog.md`.
+
+### UI Enhancement & Polish
+- **Card Lateral de Soluções (`.solutions-menu-aside`):**
+  - Aplicada a imagem de fundo `assets/Fotografias/originais-16-9/megamenu-foto.webp` com enquadramento em alta resolução (`center bottom / cover`).
+  - Adicionado filtro com gradiente corporativo multicamadas (`linear-gradient(180deg, rgba(0, 33, 93, 0.96) 0%, rgba(0, 33, 93, 0.86) 38%, rgba(0, 33, 93, 0.45) 68%, rgba(0, 24, 69, 0.78) 100%)`), garantindo contraste legível para os textos no topo e visibilidade estilizada do especialista com capacete e tablet na parte inferior.
+  - **Kicker (`.solutions-menu-kicker`):** Destaque em ciano/azul celeste vibrante (`#38bdf8`), caixa alta e espaçamento entre letras.
+  - **Título (`strong`) & Descrição (`p`):** Tipografia nítida em branco (`#ffffff` / `rgba(255, 255, 255, 0.88)`), com peso 800 e entrelinhamento calibrado.
+  - **Botão CTA (`.solutions-menu-cta`):** Efeito glassmorphic com borda translúcida refinada (`1px solid rgba(255, 255, 255, 0.45)`), `backdrop-filter: blur(8px)`, cantos arredondados (`12px`) e hover dinâmico com elevação suave.
+  - **Mobile e Tablets (`responsive.css`):** Mantida a consistência visual no menu sanfona responsivo.
+- **Testes & Qualidade:**
+  - 156/156 testes automatizados executados e 100% aprovados.
+
+## [2026-08-22] - Recriação da Seção "Nosso Compromisso" na Página Sobre Nós (Card Flutuante 2 Colunas + Efeitos HUD)
+
+- **Arquivos:** `sobre-nos.html`, `src/css/sobre-nos.css`, `MD/changelog.md`.
+
+### Redesign & UI Enhancement
+- **Transformação Visual de Banner Vazado em Card Flutuante Premium com HUD (Anexo 1 & Anexo HUD):**
+  - Recriada a seção `#compromisso` (`.sn-commitment-section`) em `sobre-nos.html` para adotar o design do **Anexo 1**, substituindo o formato de banner vazado (Anexo 2).
+  - **Card Flutuante (`.sn-commitment-card`):** Fundo branco puro com cantos arredondados (`40px`), sombra suave e refinada (`box-shadow: 0 16px 45px rgba(0, 25, 60, 0.06)`), flutuando sobre o canvas claro da página.
+  - **Coluna Esquerda (Conteúdo & Identidade):**
+    - Badge em pílula azul-marinho: `NOSSO COMPROMISSO` com texto em caixa alta e tracking.
+    - Removido o ícone swirl da marca para layout mais limpo e direto.
+    - Título hierárquico à prova de quebras em zoom (`80%`, `75%`, etc.): `Excelência técnica começa` em linha única (`white-space: nowrap` em desktop) e `com responsabilidade.` em itálico azul (`#00215D`).
+    - Texto descritivo: *"Há mais de 18 anos, entregando soluções de engenharia com segurança precisão e conformidade."*
+  - **Coluna Direita (Mídia, Moldura HUD & Botão Flutuante):**
+    - Moldura tecnológica HUD (`.sn-commitment-hud-frame`) com 4 cantoneiras ciano (`.sn-commitment-hud-corner`).
+    - Linha de scanner laser animada (`.sn-commitment-scan-line`) percorrendo a fotografia verticalmente com brilho ciano neon.
+    - Matriz de pontos blueprint tecnológicos (`.sn-commitment-hud-dots`) nos cantos da seção.
+    - Imagem dos especialistas com cantos arredondados (`28px`) e recorte perfeito (`foto-pro-roda-pe.webp`).
+    - Botão CTA flutuante em pílula branca com sombra: `[Ícone WhatsApp] Chamar no WhatsApp`, sobreposto de forma elegante na parte inferior da foto.
+- **Responsividade Total & Resolução de Zoom:**
+  - Grid flexível (`minmax(0, 1.18fr) minmax(0, 1fr)`) com remoção de limites rígidos de largura, eliminando quebras de palavras em qualquer nível de zoom (ex: 80%) ou telas widescreen.
+  - Transição suave para coluna única em tablets/mobile (`<= 1024px`, `<= 768px`, `<= 480px`).
+  - Atualização do cache-buster para `sobre-nos.css?v=143.0`.
+- **Testes & Qualidade:**
+  - 156/156 testes automatizados aprovados com 100% de sucesso.
 
 ### Refactored & Cleaned
 - **Remoção de Elemento Redundante (`.about-values-banner`):**

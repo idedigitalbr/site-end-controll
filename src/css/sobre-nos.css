@@ -1144,70 +1144,52 @@
 }
 
 /* --------------------------------------------------------------------------
-   7. SEÇÃO NOSSO COMPROMISSO (EXCELÊNCIA & RESPONSABILIDADE)
+   7. SEÇÃO NOSSO COMPROMISSO (CARD FLUTUANTE 2 COLUNAS — PADRÃO PREMIUM)
    -------------------------------------------------------------------------- */
 .sn-commitment-section {
   position: relative;
-  background: #ffffff;
-  color: #0c1a30;
-  border-radius: 0 0 48px 48px;
-  margin-top: -48px;
-  padding: 110px 0 115px;
+  background: transparent;
+  padding: 50px 0 90px;
   z-index: 10 !important;
-  overflow: hidden;
-  box-shadow: 0 14px 40px rgba(0, 20, 60, 0.05);
-}
-
-.sn-commitment-bg-photo {
-  position: absolute;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  width: 52%;
-  max-width: 950px;
-  height: 100%;
-  object-fit: cover;
-  object-position: right 25%;
-  opacity: 1;
-  mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.4) 14%, rgba(0, 0, 0, 0.92) 34%, black 100%);
-  -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.4) 14%, rgba(0, 0, 0, 0.92) 34%, black 100%);
-  pointer-events: none;
-  z-index: 1;
-}
-
-.sn-commitment-blueprint-bg {
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 50%;
-  background-image: 
-    radial-gradient(rgba(0, 33, 93, 0.15) 1.5px, transparent 1.5px);
-  background-size: 20px 20px;
-  opacity: 0.4;
-  pointer-events: none;
-  z-index: 1;
+  overflow: visible;
 }
 
 .sn-commitment-container {
-  max-width: 1360px;
+  max-width: 1320px;
   margin: 0 auto;
-  padding: 0 clamp(20px, 3.5vw, 48px);
+  padding: 0 clamp(20px, 3.5vw, 40px);
   position: relative;
   z-index: 2;
 }
 
-.sn-commitment-header {
-  max-width: 680px;
-  margin-bottom: 32px;
+.sn-commitment-card {
+  background: #ffffff;
+  border-radius: 40px;
+  padding: clamp(36px, 3.5vw, 48px) clamp(36px, 4vw, 54px);
+  display: grid;
+  grid-template-columns: minmax(0, 1.18fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(32px, 3.5vw, 52px);
+  box-shadow: 0 16px 45px rgba(0, 25, 60, 0.06), 0 2px 10px rgba(0, 25, 60, 0.03);
+  border: 1px solid rgba(0, 33, 93, 0.05);
+  box-sizing: border-box;
+}
+
+/* Coluna Esquerda: Informações & Tipografia */
+.sn-commitment-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 100%;
 }
 
 .sn-commitment-badge {
   display: inline-flex;
   align-items: center;
   width: fit-content;
-  padding: 8px 18px;
-  margin-bottom: 16px;
+  padding: 6px 18px;
+  margin-bottom: 20px;
   border-radius: 999px;
   background: #00215D;
   box-shadow: none;
@@ -1215,80 +1197,230 @@
 
 .sn-commitment-badge-text {
   font-family: var(--font-primary, sans-serif);
-  font-size: 0.78rem;
+  font-size: 0.75rem;
   font-weight: 800;
   color: #ffffff;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.06em;
   line-height: 1.2;
   text-transform: uppercase;
 }
 
 .sn-commitment-headline {
   font-family: var(--font-primary, sans-serif);
-  font-size: clamp(2rem, 3.4vw, 2.75rem);
+  font-size: clamp(1.85rem, 2.25vw, 2.45rem);
   font-weight: 800;
-  line-height: 1.16;
+  line-height: 1.2;
   letter-spacing: -0.025em;
   color: #0b192c;
-  margin-bottom: 0;
+  margin-bottom: 18px;
+  width: 100%;
+}
+
+.sn-commitment-line-1 {
+  display: block;
+  white-space: nowrap;
+}
+
+.sn-commitment-line-2 {
+  display: block;
 }
 
 .sn-commitment-headline em,
 .sn-commitment-headline .sn-highlight-blue {
   font-style: italic;
-  font-weight: 400;
+  font-weight: 500;
   color: #00215D;
+  display: inline-block;
 }
 
-.sn-commitment-cta {
-  display: flex;
+.sn-commitment-desc {
+  font-family: var(--font-primary, sans-serif);
+  font-size: 0.96rem;
+  font-weight: 400;
+  line-height: 1.55;
+  color: #556987;
+  margin: 0;
+  max-width: 460px;
+}
+
+/* --------------------------------------------------------------------------
+   HUD & ELEMENTOS TECNOLÓGICOS — SEÇÃO NOSSO COMPROMISSO
+   -------------------------------------------------------------------------- */
+.sn-commitment-hud-dots {
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  background-image: radial-gradient(rgba(0, 33, 93, 0.16) 1.5px, transparent 1.5px);
+  background-size: 16px 16px;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.6;
+}
+
+.sn-commitment-hud-dots.dots-tr {
+  top: 20px;
+  right: clamp(15px, 4vw, 50px);
+}
+
+.sn-commitment-hud-dots.dots-bl {
+  bottom: 25px;
+  left: clamp(15px, 4vw, 50px);
+}
+
+/* Coluna Direita: Mídia e Moldura HUD */
+.sn-commitment-media-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 350px;
+  border-radius: 28px;
+  overflow: visible;
+  box-sizing: border-box;
+}
+
+/* Moldura Externa HUD (Dual Border com Cantoneiras) */
+.sn-commitment-hud-frame {
+  position: absolute;
+  inset: -6px;
+  border: 1.5px solid rgba(0, 180, 216, 0.28);
+  border-radius: 34px;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.sn-commitment-hud-corner {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  border-color: #00b4d8;
+  border-style: solid;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.sn-commitment-hud-corner.corner-tl {
+  top: -7px;
+  left: -7px;
+  border-width: 2.5px 0 0 2.5px;
+  border-top-left-radius: 7px;
+}
+
+.sn-commitment-hud-corner.corner-tr {
+  top: -7px;
+  right: -7px;
+  border-width: 2.5px 2.5px 0 0;
+  border-top-right-radius: 7px;
+}
+
+.sn-commitment-hud-corner.corner-bl {
+  bottom: -7px;
+  left: -7px;
+  border-width: 0 0 2.5px 2.5px;
+  border-bottom-left-radius: 7px;
+}
+
+.sn-commitment-hud-corner.corner-br {
+  bottom: -7px;
+  right: -7px;
+  border-width: 0 2.5px 2.5px 0;
+  border-bottom-right-radius: 7px;
+}
+
+/* Container Interno da Mídia com Linha de Scanner */
+.sn-commitment-media-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 350px;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 14px 36px rgba(0, 20, 50, 0.1), 0 0 25px rgba(0, 180, 216, 0.06);
+}
+
+.sn-commitment-media-img {
+  width: 100%;
+  height: 100%;
+  min-height: 350px;
+  object-fit: cover;
+  object-position: right 25%;
+  display: block;
+}
+
+/* Linha de Scanner Laser HUD */
+.sn-commitment-scan-line {
+  position: absolute;
+  left: 15px;
+  right: 15px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(0, 213, 255, 0.9), transparent);
+  box-shadow: 0 0 8px rgba(0, 213, 255, 0.8), 0 0 4px #00d5ff;
+  z-index: 3;
+  pointer-events: none;
+  animation: snCommitmentScanMove 4.5s ease-in-out infinite;
+  opacity: 0.65;
+}
+
+@keyframes snCommitmentScanMove {
+  0% {
+    top: 15px;
+    opacity: 0.15;
+  }
+  15% {
+    opacity: 0.7;
+  }
+  50% {
+    top: calc(100% - 30px);
+    opacity: 0.75;
+  }
+  85% {
+    opacity: 0.7;
+  }
+  100% {
+    top: 15px;
+    opacity: 0.15;
+  }
+}
+
+.sn-commitment-wsp-float-btn {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: inline-flex;
   align-items: center;
-  justify-content: flex-start;
+  gap: 10px;
+  padding: 12px 26px;
+  background: #ffffff;
+  color: #00215D;
+  border-radius: 999px;
+  font-family: var(--font-primary, sans-serif);
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 10px 25px rgba(0, 15, 40, 0.2), 0 2px 6px rgba(0, 0, 0, 0.08);
+  white-space: nowrap;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  z-index: 5;
+  cursor: pointer;
 }
 
-.sn-commitment-btn {
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  gap: 12px !important;
-  min-height: 48px !important;
-  height: 48px !important;
-  padding: 0 28px !important;
-  border-radius: 10px !important;
-  background: #00215D !important;
-  border: none !important;
-  color: #ffffff !important;
-  font-family: var(--font-primary, sans-serif) !important;
-  font-size: 15px !important;
-  font-weight: 700 !important;
-  text-decoration: none !important;
-  box-shadow: 0 6px 20px rgba(0, 33, 93, 0.25) !important;
-  transition: all 0.3s ease !important;
-  cursor: pointer !important;
+.sn-commitment-wsp-float-btn:hover {
+  transform: translateX(-50%) translateY(-2px);
+  box-shadow: 0 14px 32px rgba(0, 15, 40, 0.28), 0 4px 10px rgba(0, 0, 0, 0.12);
+  color: #00215D;
+  background: #ffffff;
 }
 
-.sn-commitment-btn:hover {
-  background: #0B192C !important;
-  transform: translateY(-2px) !important;
-  box-shadow: 0 10px 28px rgba(0, 33, 93, 0.35) !important;
-  color: #ffffff !important;
-}
-
-.sn-commitment-btn svg,
-.sn-commitment-btn [data-lucide],
-.sn-commitment-btn .lucide {
-  width: 18px;
-  height: 18px;
-  stroke: #ffffff;
-  stroke-width: 2.5;
-  transition: transform 0.25s ease;
+.sn-wsp-float-icon {
+  width: 20px;
+  height: 20px;
   flex-shrink: 0;
+  stroke: #00215D;
+  transition: transform 0.25s ease;
 }
 
-.sn-commitment-btn:hover svg,
-.sn-commitment-btn:hover [data-lucide],
-.sn-commitment-btn:hover .lucide {
-  transform: translateX(4px);
+.sn-commitment-wsp-float-btn:hover .sn-wsp-float-icon {
+  transform: scale(1.08);
 }
 
 /* --------------------------------------------------------------------------
@@ -1689,11 +1821,21 @@
     gap: 24px;
   }
 
-  .sn-commitment-bg-photo {
-    width: 100%;
-    opacity: 0.18;
-    mask-image: radial-gradient(circle at center, black 40%, transparent 90%);
-    -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 90%);
+  .sn-commitment-card {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    padding: 36px 32px;
+    border-radius: 32px;
+  }
+
+  .sn-commitment-content {
+    max-width: 100%;
+  }
+
+  .sn-commitment-media-wrapper,
+  .sn-commitment-media-inner {
+    min-height: 300px;
+    height: 320px;
   }
 
   .sn-process-section {
@@ -1809,12 +1951,6 @@
     padding: 80px 0 85px;
   }
 
-  .sn-commitment-section {
-    border-radius: 24px;
-    margin-top: -26px;
-    padding: 80px 0;
-  }
-
   .sn-cta-section {
     border-radius: 24px;
     margin-top: -26px;
@@ -1902,28 +2038,30 @@
   }
 
   .sn-commitment-section {
-    padding: 70px 0 75px;
+    padding: 40px 0 60px;
   }
 
-  .sn-commitment-header {
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
+  .sn-commitment-card {
+    padding: 30px 22px;
+    border-radius: 26px;
+    gap: 28px;
   }
 
-  .sn-commitment-badge {
-    margin-left: auto;
-    margin-right: auto;
+  .sn-commitment-media-wrapper,
+  .sn-commitment-media-inner {
+    min-height: 260px;
+    height: 270px;
+    border-radius: 20px;
   }
 
-  .sn-commitment-cta {
-    justify-content: center;
-    margin-top: 24px;
+  .sn-commitment-hud-frame {
+    border-radius: 26px;
   }
 
-  .sn-commitment-cta .sn-commitment-btn {
-    width: 100% !important;
-    max-width: 340px;
+  .sn-commitment-wsp-float-btn {
+    padding: 10px 20px;
+    font-size: 14px;
+    bottom: 16px;
   }
 
   .sn-cta-buttons-row {
@@ -1936,12 +2074,46 @@
   }
 }
 
+@media (max-width: 640px) {
+  .sn-commitment-line-1 {
+    white-space: normal;
+  }
+}
+
 @media (max-width: 480px) {
   .sn-history-headline,
   .sn-essence-headline,
   .sn-commitment-headline,
   .sn-cta-headline {
     font-size: 1.75rem;
+  }
+
+  .sn-commitment-card {
+    padding: 24px 16px;
+    border-radius: 20px;
+    gap: 24px;
+  }
+
+  .sn-commitment-desc {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .sn-commitment-media-wrapper,
+  .sn-commitment-media-inner {
+    min-height: 220px;
+    height: 230px;
+    border-radius: 16px;
+  }
+
+  .sn-commitment-hud-frame {
+    border-radius: 22px;
+  }
+
+  .sn-commitment-wsp-float-btn {
+    padding: 9px 18px;
+    font-size: 13.5px;
+    gap: 8px;
   }
 
   .sn-video-play-btn {
@@ -2193,16 +2365,13 @@
    5. NOSSO COMPROMISSO LIGHT (4 PILARES — FUNDO ICE-BLUE #94b5c6)
    -------------------------------------------------------------------------- */
 .sn-page-wrapper.light-theme .sn-commitment-section {
-  background: #94b5c6;
+  background: transparent;
   color: #08182e;
-  border-top: 1px solid rgba(255, 255, 255, 0.4);
-  border-bottom: 1px solid rgba(0, 33, 93, 0.12);
 }
 
-.sn-page-wrapper.light-theme .sn-commitment-bg-photo {
-  opacity: 0.15;
-  filter: contrast(1) brightness(1);
-  mix-blend-mode: multiply;
+.sn-page-wrapper.light-theme .sn-commitment-card {
+  background: #ffffff;
+  border-color: rgba(0, 33, 93, 0.08);
 }
 
 .sn-page-wrapper.light-theme .sn-commitment-badge {
@@ -2220,8 +2389,12 @@
 .sn-page-wrapper.light-theme .sn-commitment-headline em,
 .sn-page-wrapper.light-theme .sn-commitment-headline .sn-highlight-blue {
   font-style: italic;
-  font-weight: 300;
+  font-weight: 500;
   color: #00215D;
+}
+
+.sn-page-wrapper.light-theme .sn-commitment-desc {
+  color: #556987;
 }
 
 /* --------------------------------------------------------------------------

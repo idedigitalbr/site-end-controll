@@ -71,9 +71,10 @@ test('service commitment markup matches Sobre Nós official standard across all 
     assert.ok(section, `${filename} should contain the commitment section`);
     assert.ok(section.includes('class="sn-commitment-badge"'), `${filename} should contain commitment badge`);
     assert.ok(section.includes('class="sn-commitment-headline"'), `${filename} should contain commitment headline`);
-    assert.ok(section.includes('class="sn-commitment-btn"'), `${filename} should contain commitment CTA button`);
+    assert.ok(section.includes('class="sn-commitment-card"'), `${filename} should contain commitment card`);
+    assert.ok(section.includes('class="sn-commitment-wsp-float-btn"'), `${filename} should contain commitment WhatsApp button`);
     assert.ok(section.includes('foto-pro-roda-pe.webp'), `${filename} should contain the official photo`);
-    assert.ok(section.includes('class="sn-commitment-blueprint-bg"'), `${filename} should contain the blueprint bg`);
+    assert.ok(section.includes('class="sn-commitment-hud-dots'), `${filename} should contain HUD dots`);
   }
 });
 

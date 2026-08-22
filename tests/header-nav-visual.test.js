@@ -14,7 +14,8 @@ test('uses a white grouped solutions menu with navy item hover and visible icons
   assert.match(styles, /\.dropdown-item-rich:hover\s*\{[\s\S]*?background:\s*#00215d\s*!important[\s\S]*?color:\s*#ffffff\s*!important/i);
   assert.match(styles, /\.dropdown-rich-menu \.menu-service-item \.dropdown-item-logo\s*\{[\s\S]*?display:\s*flex\s*!important/i);
   assert.match(styles, /\.solutions-menu-groups\s*\{[\s\S]*?grid-template-columns:\s*repeat\(3/i);
-  assert.match(styles, /\.solutions-menu-aside\s*\{[\s\S]*?background:\s*#00215d/i);
+  assert.match(styles, /\.solutions-menu-aside\s*\{[\s\S]*?background(-color)?:\s*#00215d/i);
+  assert.match(styles, /\.solutions-menu-aside\s*\{[\s\S]*?megamenu-foto\.webp/i);
   assert.doesNotMatch(menu, /dropdown-item-text">\s*\d+\./i);
 });
 

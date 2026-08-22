@@ -9,18 +9,61 @@
   if (typeof window !== 'undefined') window.__serviceWhenApplyAccordion = true;
 
   const iconByTitle = [
-    [/corros|fissur|trinca|descontinu/i, 'shield-alert'],
-    [/espessura|dimens|geometr|recalque|desalinh/i, 'scan-line'],
-    [/dano|ambient|térmic|termic|fadiga|carga/i, 'activity'],
-    [/hidrog|armadur|apoio|soldad|qualifica/i, 'flame'],
-    [/continuidade|disponib|operação|operacional/i, 'refresh-cw'],
-    [/dreno|água|agua|vazamento|pressão|pressao/i, 'droplets'],
-    [/projeto|desenho|document|relatório|relatorio/i, 'file-check-2'],
-    [/auditoria|conform|norma|regul|certifica/i, 'badge-check'],
-    [/telemetria|iot|dados|digital|plataforma|software/i, 'monitor'],
-    [/intelig|predit|simula|laser|3d/i, 'scan-search'],
-    [/reparo|revest|cladding|manutenção|manutencao|tapping/i, 'wrench'],
-    [/parceria|cliente|consult|assess/i, 'users']
+    [/tie-in|derivaç|conexão|ramal/i, 'git-merge'],
+    [/bypass|desvio/i, 'corner-down-right'],
+    [/sensor|poço|manômetro|termométr|vacuômetro/i, 'thermometer'],
+    [/lucro|cessante|economia|custo|financeir/i, 'coins'],
+    [/fluido|água|agua|vapor|dreno|vazamento|estanqueidade/i, 'droplets'],
+    [/máquina|maquina|locação|equipamento/i, 'cog'],
+    [/in-service|solda|soldad|soldag|pwht|térmic|termic|fogo|calor/i, 'flame'],
+    [/supervisão|supervisao|especialista|art|crea/i, 'user-check'],
+    [/drone|aéreo|aereo/i, 'plane'],
+    [/laser|nuvem|scan|varredura/i, 'scan'],
+    [/inteligência|ia|machine|neural/i, 'brain'],
+    [/rpa|robô|robo|automação|automacao/i, 'bot'],
+    [/iot|telemetria|rádio|radio/i, 'radio'],
+    [/tour|virtual|360/i, 'view'],
+    [/dashboard|plataforma|gestão|gestao/i, 'layout-dashboard'],
+    [/nr-?13|vaso|caldeira/i, 'gauge'],
+    [/nr-?12|risco|proteção|protecao/i, 'shield-alert'],
+    [/nr-?11|ponte|talha|içamento|icamento|guindaste/i, 'anchor'],
+    [/nr-?20|inflamável|inflamavel|explosiv/i, 'flame'],
+    [/nr-?35|linha de vida|ancoragem|altura/i, 'link'],
+    [/nr-?34|naval|estaleiro/i, 'ship'],
+    [/nr-?29|portuário|portuario|terminal/i, 'container'],
+    [/capacitação|capacitacao|treinamento|formação|formacao/i, 'graduation-cap'],
+    [/psv|alívio|alivio/i, 'shield'],
+    [/quebra-vácuo|respiro/i, 'wind'],
+    [/pressostato/i, 'toggle-right'],
+    [/corros|fissur|trinca|descontinu|alerta|pop|emergência/i, 'shield-alert'],
+    [/espessura|dimens|geometr|recalque|desalinh|tração|tracao/i, 'move-horizontal'],
+    [/dano|ambient|chuva|intempérie/i, 'cloud-rain'],
+    [/fadiga|repet|ciclo|dinâmic/i, 'repeat'],
+    [/hidrog|átomo|atomo/i, 'atom'],
+    [/charpy|impacto/i, 'hammer'],
+    [/dureza|brinell|rockwell|vickers/i, 'shield'],
+    [/metalografia|grão|grao|fase|microscópio/i, 'microscope'],
+    [/química|quimica|pmi|xrf|espectro/i, 'flask-conical'],
+    [/3\.1|3\.2|laudo|parecer|assinatura/i, 'file-badge-2'],
+    [/rca|forense|causa-raiz/i, 'search-check'],
+    [/hazop|apr|fmea/i, 'alert-triangle'],
+    [/rbi|risco|alvo/i, 'target'],
+    [/perícia|pericia|sinistro|judicial/i, 'scale'],
+    [/pmp|rcm|cronograma|parada/i, 'calendar-check'],
+    [/internacional|código|codigo|norma|globo/i, 'globe'],
+    [/due diligence|capex|empreendimento|planta/i, 'building-2'],
+    [/retro|revamp|reengenharia/i, 'refresh-cw'],
+    [/as-built|desenho|compasso/i, 'drafting-compass'],
+    [/fea|simulação|simulacao|numéric/i, 'cpu'],
+    [/isométrico|isometrico|tubulação|tubulacao/i, 'git-commit'],
+    [/processo|parâmetro|parametro/i, 'settings-2'],
+    [/layout|espaço|espaco|arranjo/i, 'layout-grid'],
+    [/kpi|produtividade|indicador/i, 'trending-up'],
+    [/document|prontuário|prontuario|data book/i, 'folder-check'],
+    [/qualifica|auditoria|pit|conform/i, 'badge-check'],
+    [/mão de obra|residente|equipe|inspetor/i, 'users'],
+    [/reparo|revest|cladding|manutenção|manutencao/i, 'wrench'],
+    [/continuidade|disponib|operação|operacional|segurança/i, 'shield-check']
   ];
 
   function replaceSvgWithLucide(svg, name, className) {
@@ -36,14 +79,17 @@
   function iconForTitle(title) {
     const text = (title || '').trim();
     const entry = iconByTitle.find(function (item) { return item[0].test(text); });
-    return entry ? entry[1] : 'check-circle-2';
+    return entry ? entry[1] : 'shield-check';
   }
 
   function normalizeWhenApplyIcons() {
     document.querySelectorAll('#quando-aplicar .endo-acc-panel').forEach(function (panel) {
       const title = panel.querySelector('.endo-acc-card__title');
-      const svg = panel.querySelector('.endo-acc-icon');
-      if (svg) replaceSvgWithLucide(svg, iconForTitle(title && title.textContent), 'endo-acc-icon');
+      const iconEl = panel.querySelector('.endo-acc-icon');
+      if (!iconEl) return;
+      if (iconEl.tagName && iconEl.tagName.toLowerCase() === 'svg') {
+        replaceSvgWithLucide(iconEl, iconForTitle(title && title.textContent), 'endo-acc-icon');
+      }
     });
   }
 

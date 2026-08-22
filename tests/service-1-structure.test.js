@@ -75,13 +75,14 @@ test('6. S5 (Quando Aplicar) uses the full-width Accordion widget from Home / Pr
   assert.ok(service1Html.includes('Continuidade operacional'));
 });
 
-test('7. Section Nosso Compromisso matches Sobre Nós official standard (badge, headline, CTA button, photo, blueprint)', () => {
+test('7. Section Nosso Compromisso matches Sobre Nós official standard (badge, headline, card, WhatsApp button, photo)', () => {
   assert.ok(service1Html.includes('class="sn-commitment-section"'));
   assert.ok(service1Html.includes('NOSSO COMPROMISSO'));
   assert.ok(service1Html.includes('Excelência técnica começa'));
   assert.ok(service1Html.includes('responsabilidade.'));
   assert.ok(service1Html.includes('foto-pro-roda-pe.webp'));
-  assert.ok(service1Html.includes('sn-commitment-btn'));
+  assert.ok(service1Html.includes('sn-commitment-wsp-float-btn') || service1Html.includes('sn-commitment-btn'));
+  assert.ok(service1Html.includes('class="sn-commitment-card"'));
 });
 
 test('8. Standalone backup-secao-cta-final.html exists and contains the complete CTA final markup', () => {

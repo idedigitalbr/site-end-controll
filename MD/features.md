@@ -1,5 +1,12 @@
 # Features — ENDCONTROL Engenharia
 
+## Padronização da Seção "Nosso Compromisso" em Todas as 12 Páginas de Soluções
+
+- Status: Concluída
+- Data: 2026-08-22
+- **Arquivos:** `1-solucao-engenharia-de-integridade-estrutural.html` a `12-solucao-consultoria-e-assessoria-tecnica.html`, `src/css/sobre-nos.css`, `tests/service-1-structure.test.js`, `tests/service-visual-standard.test.js`, `MD/changelog.md`, `MD/features.md`.
+- **Card Flutuante 2 Colunas + HUD + WhatsApp Flutuante:** Replicado o padrão oficial 1:1 da página Sobre Nós (`sobre-nos.html`) para todas as 12 páginas de soluções, unificando a experiência visual e a chamada de conversão imediata para o WhatsApp corporativo.
+
 ## Remoção da Faixa de Benefícios da Solução (Página 01 - Integridade Estrutural)
 
 - Status: Concluída

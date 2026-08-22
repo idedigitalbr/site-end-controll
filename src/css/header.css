@@ -734,33 +734,46 @@
 }
 
 .solutions-menu-aside {
+  position: relative;
   display: flex;
   min-height: 100%;
   flex-direction: column;
-  justify-content: center;
-  padding: 20px;
+  justify-content: flex-start;
+  padding: 24px 20px 20px;
   border-radius: 18px;
-  background: #00215d;
+  background-color: #00215d;
+  background-image: linear-gradient(180deg, rgba(0, 33, 93, 0.96) 0%, rgba(0, 33, 93, 0.86) 38%, rgba(0, 33, 93, 0.45) 68%, rgba(0, 24, 69, 0.78) 100%), url('../../assets/Fotografias/originais-16-9/megamenu-foto.webp');
+  background-position: center top, center bottom;
+  background-size: cover, cover;
+  background-repeat: no-repeat, no-repeat;
   color: #ffffff;
+  overflow: hidden;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
 }
 
 .solutions-menu-kicker {
+  display: block;
   margin-bottom: 12px;
-  color: #8edfff;
-  font-size: 0.62rem;
+  color: #38bdf8;
+  font-size: 0.65rem;
   font-weight: 800;
-  letter-spacing: 0.13em;
+  letter-spacing: 0.12em;
   line-height: 1.4;
+  text-transform: uppercase;
 }
 
 .solutions-menu-aside strong {
-  font-size: 1rem;
-  line-height: 1.25;
+  display: block;
+  font-size: 1.05rem;
+  font-weight: 800;
+  line-height: 1.28;
+  color: #ffffff;
+  letter-spacing: -0.01em;
 }
 
 .solutions-menu-aside p {
-  margin: 10px 0 18px;
-  color: rgba(255, 255, 255, 0.74);
+  margin: 10px 0 20px;
+  color: rgba(255, 255, 255, 0.88);
   font-size: 0.76rem;
   line-height: 1.5;
 }
@@ -771,19 +784,25 @@
   justify-content: space-between;
   gap: 10px;
   margin-top: auto;
-  padding: 10px 12px;
-  border: 1px solid rgba(142, 223, 255, 0.5);
-  border-radius: 10px;
+  padding: 11px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 12px;
+  background: rgba(0, 33, 93, 0.4);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   color: #ffffff;
-  font-size: 0.74rem;
-  font-weight: 800;
-  transition: background 0.2s ease, border-color 0.2s ease;
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .dropdown-rich-menu .solutions-menu-cta:hover {
-  border-color: #8edfff;
-  background: rgba(142, 223, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.18);
   color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 @media (prefers-reduced-motion: reduce) {
