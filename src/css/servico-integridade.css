@@ -3141,3 +3141,33 @@
     box-shadow: none;
   }
 }
+
+/* ==========================================================================
+   Garantia de contraste e cores oficiais dos ícones dos benefícios
+   ========================================================================== */
+.svc-solution-section .about-value-icon-circle {
+  background: #ffffff;
+  border: 1.5px solid #00215D;
+  color: #00215D;
+}
+
+.svc-solution-section .about-value-icon-circle svg,
+.svc-solution-section .about-value-icon-circle i,
+.svc-solution-section .about-value-lucide {
+  color: #00215D;
+  stroke: #00215D;
+}
+
+.svc-solution-section .about-value-item:hover .about-value-icon-circle {
+  background: #00215D !important;
+  border-color: #00215D !important;
+  color: #ffffff !important;
+}
+
+.svc-solution-section .about-value-item:hover .about-value-icon-circle svg,
+.svc-solution-section .about-value-item:hover .about-value-icon-circle i,
+.svc-solution-section .about-value-item:hover .about-value-lucide {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
+}
+

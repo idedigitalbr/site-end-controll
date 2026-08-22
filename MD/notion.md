@@ -1,5 +1,13 @@
 # Histórico de sincronização — DB_IDE
 
+## 2026-08-21 - Padronização Minimalista dos Indicadores nas Páginas de Soluções
+
+- Projeto: site-end-controll
+- Tarefa: Padronização estritamente minimalista da faixa de indicadores da primeira dobra (`.sn-indicators-card`) nas 5 páginas de soluções com métricas (`3-solucao-...`, `6-solucao-...`, `8-solucao-...`, `10-solucao-...`, `12-solucao-...`), com fundo azul-marinho sólido `#00215d`, remoção de ícones e caixas azul-claro, tipografia branca em dois níveis e divisores verticais sutis (Anexo 2).
+- Status local: Concluída.
+- Testes: 156/156 testes aprovados com 100% de sucesso.
+- Observação: Memória persistente no Obsidian (`MD/`) e changelog sincronizados.
+
 ## 2026-08-21 - Redesign Minimalista de Como Trabalhamos e Nosso Compromisso (Sobre Nós)
 
 - Projeto: site-end-controll

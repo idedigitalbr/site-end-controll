@@ -47,6 +47,10 @@
   --color-cinza-fraco: #cce6ed;
 
   /* Mapeamento de compatibilidade com variáveis antigas */
+  --bg-white: #FFFFFF;
+  --bg-light: #F7FAFF;
+  --text-dark: #07152F;
+  --text-muted: #52627A;
   --black: var(--color-bg-deep);
   --graphite: var(--color-bg-secondary);
   --yellow: var(--color-primary);

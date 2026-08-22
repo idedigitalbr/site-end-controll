@@ -2643,7 +2643,7 @@ textarea.form-control {
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  background: var(--bg-white);
+  background: var(--bg-white, #FFFFFF);
   border: 1.5px solid #00215D;
   color: #00215D;
   display: flex;
@@ -2654,17 +2654,29 @@ textarea.form-control {
   transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-.about-value-icon-circle svg {
+.about-value-icon-circle svg,
+.about-value-icon-circle i,
+.about-value-icon-circle .about-value-lucide {
   width: 22px;
   height: 22px;
   stroke-width: 2.2;
+  color: #00215D;
+  stroke: #00215D;
+  transition: color 0.4s cubic-bezier(0.25, 1, 0.5, 1), stroke 0.4s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .about-value-item:hover .about-value-icon-circle {
   background: #00215D;
-  color: var(--bg-white);
+  color: #ffffff;
   border-color: #00215D;
   box-shadow: 0 8px 18px rgba(0, 33, 93, 0.3);
+}
+
+.about-value-item:hover .about-value-icon-circle svg,
+.about-value-item:hover .about-value-icon-circle i,
+.about-value-item:hover .about-value-icon-circle .about-value-lucide {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
 }
 
 .about-value-item:hover .about-value-icon-glow {

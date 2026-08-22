@@ -1,5 +1,33 @@
 # Changelog — ENDCONTROL Engenharia
 
+## [2026-08-21] - Correção e Padronização de Contraste dos Ícones de Soluções (Normal e Hover)
+
+- **Arquivos:** `src/css/tokens.css`, `src/css/sections.css`, `src/css/servico-integridade.css`, `MD/changelog.md`.
+
+### Fixed & Standardized
+- **Contraste e Cores dos Ícones Circulares de Benefícios (`.about-value-icon-circle`):**
+  - Corrigida a variável `--bg-white` adicionando-a aos tokens globais (`:root`) em `tokens.css` com fallback `#FFFFFF`.
+  - **Estado Normal (Anexo 3):** Círculo com fundo branco (`#ffffff`), borda azul-marinho (`1.5px solid #00215D`) e ícone interno em azul-marinho (`color: #00215D; stroke: #00215D;`).
+  - **Estado Hover (Anexo 2):** Círculo preenchido em azul-marinho (`#00215D`) e ícone interno em branco puro (`color: #ffffff !important; stroke: #ffffff !important;`), eliminando o bug de ícone preto/escuro ilegível sobre fundo escuro.
+- **Testes & Qualidade:**
+  - 156/156 testes automatizados aprovados com 100% de sucesso.
+
+## [2026-08-21] - Padronização Minimalista dos Indicadores da Primeira Dobra nas Páginas de Soluções
+
+- **Arquivos:** `src/css/sobre-nos.css`, `3-solucao-ensaios-nao-destrutivos-ends.html`, `6-solucao-elaboracao-de-projetos-mecanicos.html`, `8-solucao-inspecao-e-adequacao-normativa.html`, `10-solucao-trepanacao-hot-tapping.html`, `12-solucao-consultoria-e-assessoria-tecnica.html`, `tests/solution-indicators-minimal.test.js`, `MD/changelog.md`, `MD/features.md`, `MD/notion.md`.
+
+### Standardized & Polished
+- **Identidade Visual Minimalista nos Indicadores de Autoridade (`.sn-indicators-card`):**
+  - Padronizada a faixa flutuante de métricas/indicadores da primeira dobra nas 5 páginas de soluções que possuem o bloco de métricas.
+  - Removidos todos os ícones e caixas azul-claro (`.sn-indicator-icon-box`), aplicando layout estritamente minimalista com foco nas métricas e legendas, idêntico ao **Anexo 2** e ao padrão institucional do Hero/Sobre Nós.
+  - Fundo em azul-marinho sólido (`#00215d`), borda sutil `1px solid rgba(255, 255, 255, 0.12)`, cantos arredondados (`18px`) e divisores verticais translúcidos (`rgba(255, 255, 255, 0.15)`).
+  - Tipografia padronizada em branco puro: valores numéricos em destaque (`1.95rem`, peso 700) e legendas explicativas centralizadas abaixo (`0.78rem`).
+  - Responsividade refinada com quebra limpa em 3 colunas em telas de até 1100px e coluna única vertical em telas de até 768px.
+  - Cache invalidado com versionamento atualizado (`sobre-nos.css?v=131.0`).
+- **Testes & Qualidade:**
+  - Criada suíte de testes dedicados `tests/solution-indicators-minimal.test.js` cobrindo as 5 páginas e o CSS compartilhado.
+  - 156/156 testes automatizados aprovados com 100% de sucesso.
+
 ## [2026-08-21] - Inversão de Layout da Seção Metodologia em Sobre Nós (Passos à Esquerda, Texto à Direita)
 
 - **Arquivos:** `sobre-nos.html`, `src/css/sobre-nos.css`, `MD/changelog.md`.

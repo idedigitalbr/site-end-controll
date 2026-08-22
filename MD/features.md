@@ -1,5 +1,12 @@
 # Features — ENDCONTROL Engenharia
 
+## Padronização Minimalista dos Indicadores nas Páginas de Soluções
+
+- Status: Concluída
+- Data: 2026-08-21
+- **Arquivos:** `src/css/sobre-nos.css`, `3-solucao-ensaios-nao-destrutivos-ends.html`, `6-solucao-elaboracao-de-projetos-mecanicos.html`, `8-solucao-inspecao-e-adequacao-normativa.html`, `10-solucao-trepanacao-hot-tapping.html`, `12-solucao-consultoria-e-assessoria-tecnica.html`, `tests/solution-indicators-minimal.test.js`, `MD/changelog.md`, `MD/features.md`, `MD/notion.md`.
+- **Faixa de Indicadores Minimalista:** Substituído o design anterior com ícones e caixas azul-claro pelo padrão minimalista dark navy (`#00215d`) sem ícones, idêntico ao **Anexo 2**, com tipografia branca de alto contraste, divisores verticais sutis e responsividade otimizada para todas as telas.
+
 ## Adoção do Acervo Oficial 16:9 (`originais-16-9`) e Purga Total de Imagens Rejeitadas
 
 - Status: Concluída
