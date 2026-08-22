@@ -1,5 +1,13 @@
 # Histórico de sincronização — DB_IDE
 
+## 2026-08-22 - Ajuste do Título da Sidebar Bento (26px) e Remoção do Texto Explicativo
+
+- Projeto: site-end-controll
+- Tarefa: Ajuste do tamanho da tipografia do título do painel lateral Bento (`.sidebar-headline`) de 38px para 26px (`clamp(22px, 2.4vw, 26px)`) e remoção do parágrafo descritivo (`.sidebar-paragraph`) em todas as 12 páginas de soluções e no catálogo de componentes.
+- Status local: Concluída.
+- Testes: 164/164 testes aprovados com 100% de sucesso.
+- Observação: Memória persistente no Obsidian (`MD/`) e changelog sincronizados.
+
 ## 2026-08-22 - Padronização Global de Tipografia (Headlines 38px, Textos 16px, Títulos 18px)
 
 - Projeto: site-end-controll

@@ -62,7 +62,7 @@ test('all headlines (H1, H2) use 38px clamp with 800 weight across all sections 
 
   // Service pages headlines
   assert.match(servicoCss.match(/\.sn-page-wrapper \.section-headline,[\s\S]*?\.sn-page-wrapper \.svc-solution-headline,[\s\S]*?\.sn-page-wrapper \.sn-history-headline\s*\{([\s\S]*?)\}/i)?.[1] || '', headlineClamp);
-  assert.match(servicoCss.match(/\.sidebar-headline\s*\{([\s\S]*?)\}/i)?.[1] || '', headlineClamp);
+  assert.match(servicoCss.match(/\.sidebar-headline\s*\{([\s\S]*?)\}/i)?.[1] || '', /font-size:\s*clamp\(22px,\s*2\.4vw,\s*26px\)/);
   assert.match(servicoCss.match(/\.svc-methodology-headline\s*\{([\s\S]*?)\}/i)?.[1] || '', headlineClamp);
   assert.match(radarFfsCss.match(/\.ffs-heading\s*\{([\s\S]*?)\}/i)?.[1] || '', headlineClamp);
 });

@@ -1,5 +1,18 @@
 # Changelog — ENDCONTROL Engenharia
 
+## [2026-08-22] - Ajuste do Título da Sidebar Bento para 26px e Remoção do Texto/Parágrafo Explicativo
+
+- **Arquivos:** `src/css/servico-integridade.css`, `componentes-cards-.html`, `1-solucao-engenharia-de-integridade-estrutural.html` a `12-solucao-consultoria-e-assessoria-tecnica.html`, `tests/global-typography-audit.test.js`, `MD/changelog.md`, `MD/features.md`, `MD/notion.md`.
+
+### UI & Typography Refinement
+- **Título da Sidebar Bento (`.sidebar-headline`):**
+  - Ajustado o tamanho da fonte de 38px (`clamp(28px, 3.8vw, var(--font-size-headline, 38px))`) para **26px** (`clamp(22px, 2.4vw, 26px)`) com line-height 1.25, tornando a composição do painel lateral esquerdo muito mais harmoniosa e equilibrada com a grade de cards à direita.
+- **Remoção do Texto Abaixo do Título (`.sidebar-paragraph`):**
+  - Removido o parágrafo descritivo (`<p class="sidebar-paragraph">`) em todas as 12 páginas de soluções e no catálogo de componentes (`componentes-cards-.html`), eliminando redundância textual e conferindo destaque imediato aos pilares técnicos com ícones.
+- **Testes & Qualidade:**
+  - Atualizada a suíte `tests/global-typography-audit.test.js`.
+  - 164/164 testes automatizados executados e 100% aprovados.
+
 ## [2026-08-22] - Padronização Global Estrita de Tipografia em 100% das Páginas (Headlines: 38px, Títulos de Ícones/Cards: 18px, Textos: 16px, Badges: 12px, Botões: 15px)
 
 - **Arquivos:** `src/css/tokens.css`, `src/css/hero.css`, `src/css/sections.css`, `src/css/solucoes.css`, `src/css/segmentos.css`, `src/css/presenca-nacional.css`, `src/css/sobre-nos.css`, `src/css/servico-integridade.css`, `src/css/radar-ffs.css`, `tests/global-typography-audit.test.js`, `tests/service-pages-layout.test.js`, `tests/service-visual-standard.test.js`, `MD/changelog.md`, `MD/features.md`.

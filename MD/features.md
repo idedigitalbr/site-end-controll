@@ -1,5 +1,15 @@
 # Features — ENDCONTROL Engenharia
 
+## Ajuste do Título da Sidebar Bento (26px) e Remoção do Texto Explicativo
+
+- Status: Concluída
+- Data: 2026-08-22
+- **Arquivos:** `src/css/servico-integridade.css`, `componentes-cards-.html`, `1-solucao-engenharia-de-integridade-estrutural.html` a `12-solucao-consultoria-e-assessoria-tecnica.html`, `tests/global-typography-audit.test.js`, `MD/changelog.md`, `MD/features.md`, `MD/notion.md`.
+- **Refinamento Visual da Sidebar Bento:**
+  - Redução do título `.sidebar-headline` de 38px para 26px (`clamp(22px, 2.4vw, 26px)`), garantindo proporção e hierarquia visual refinada no painel lateral escuro fixo.
+  - Remoção do parágrafo explicativo (`.sidebar-paragraph`) em todas as 12 páginas de soluções e no catálogo de componentes, deixando a sidebar mais limpa e direcionando a atenção para os pilares com ícones.
+  - 100% dos 164 testes automatizados aprovados.
+
 ## Padronização Tipográfica Global (Headlines 38px, Títulos 18px, Textos 16px, Badges 12px, Botões 15px)
 
 - Status: Concluída
