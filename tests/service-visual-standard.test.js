@@ -34,6 +34,8 @@ test('all service pages load the shared Lucide runtime', () => {
 
 test('the shared service runtime normalizes icons and maintains structure', () => {
   assert.match(serviceRuntime, /lucide\.createIcons\(\)/);
+  assert.match(serviceRuntime, /function normalizeMethodologyIcons\(\)[\s\S]*?database[\s\S]*?settings-2[\s\S]*?file-text[\s\S]*?clipboard-check/);
+  assert.match(serviceRuntime, /querySelector\('\.svc-method-icon-box svg'\)/);
   assert.match(serviceRuntime, /endo-acc-icon/);
   assert.match(serviceRuntime, /sn-step-node/);
   assert.match(serviceRuntime, /sn-commitment-icon/);

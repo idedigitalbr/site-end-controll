@@ -584,14 +584,14 @@
    -------------------------------------------------------------------------- */
 .svc-methodology-section {
   position: relative;
-  background: url('../../assets/Paginas Imgs/SOBRE NOS/REF-SOBRE-NOS/bgs/BG-aco-inox-claro-fundo.webp') center center / cover no-repeat, #eaf0f5;
+  background: #eaf0f5;
   color: #0c1a30;
-  border-radius: 48px;
-  margin-top: -75px;
-  padding: 105px 0 110px;
+  border-radius: 40px;
+  margin-top: -48px;
+  padding: 96px 0 104px;
   z-index: 10;
   overflow: hidden;
-  box-shadow: 0 -18px 45px rgba(0, 20, 60, 0.25), 0 14px 40px rgba(0, 20, 60, 0.08);
+  box-shadow: 0 -12px 28px rgba(0, 33, 93, 0.06);
 }
 
 .svc-methodology-container {
@@ -607,113 +607,109 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 16px;
+  width: fit-content;
+  padding: 8px 14px;
+  border-radius: 999px;
   font-family: var(--font-primary, "Inter", sans-serif);
-  font-size: 0.78rem;
-  font-weight: 800;
-  letter-spacing: 0.22em;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #0066ff;
-  margin-bottom: 14px;
+  color: #ffffff;
+  background: #00215D;
+  margin: 0 0 16px;
 }
 
 .svc-methodology-eyebrow::before,
 .svc-methodology-eyebrow::after {
-  content: "";
-  display: inline-block;
-  width: 40px;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, #0066ff);
+  display: none;
 }
 
 .svc-methodology-eyebrow::after {
-  background: linear-gradient(90deg, #0066ff, transparent);
+  display: none;
 }
 
 .svc-methodology-headline {
   font-family: var(--font-primary, "Inter", sans-serif);
-  font-size: clamp(2rem, 3.4vw, 2.75rem);
+  font-size: clamp(1.8rem, 3.5vw, 2.4rem);
   font-weight: 800;
   line-height: 1.2;
-  letter-spacing: -0.03em;
-  color: #0c1a30;
-  margin-bottom: 54px;
+  letter-spacing: -0.025em;
+  color: #071429;
+  margin: 0 0 14px;
 }
 
-.svc-methodology-headline .highlight-blue {
-  color: #0066ff;
+.svc-methodology-headline em {
+  font-style: italic;
+  font-weight: 300;
+  color: #00215D;
 }
 
 .svc-methodology-flow {
   display: flex;
   align-items: stretch;
   justify-content: space-between;
-  gap: 12px;
+  gap: 18px;
   position: relative;
+  margin-top: 50px;
 }
 
 .svc-method-card {
   position: relative;
   flex: 1 1 0;
   background: #ffffff;
-  border: 1px solid rgba(0, 102, 255, 0.16);
+  border: 1px solid rgba(0, 33, 93, 0.14);
   border-radius: 24px;
-  padding: 36px 20px 30px;
+  padding: 36px 28px 30px;
+  min-height: 340px;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  box-shadow: 0 16px 40px rgba(0, 20, 60, 0.07);
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 12px 28px rgba(0, 33, 93, 0.06);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
   overflow: hidden;
 }
 
 .svc-method-card:hover {
-  transform: translateY(-6px);
-  border-color: #0066ff;
-  box-shadow: 0 24px 50px rgba(0, 50, 120, 0.12), 0 0 20px rgba(0, 102, 255, 0.15);
+  transform: translateY(-4px);
+  border-color: #00215D;
+  box-shadow: 0 14px 28px rgba(0, 33, 93, 0.12);
 }
 
 .svc-method-icon-box {
   width: 68px;
   height: 68px;
   border-radius: 50%;
-  background: radial-gradient(circle at 35% 35%, #ffffff 0%, #edf4fc 70%, #d8e8f8 100%);
-  border: 2px solid rgba(0, 102, 255, 0.3);
+  background: #ffffff;
+  border: 2px solid rgba(0, 33, 93, 0.35);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #0066ff;
-  box-shadow: 0 8px 20px rgba(0, 80, 200, 0.12);
+  color: #00215D;
+  box-shadow: 0 6px 16px rgba(0, 33, 93, 0.08);
   margin-bottom: 18px;
   transition: all 0.3s ease;
 }
 
 .svc-method-card:hover .svc-method-icon-box {
-  transform: scale(1.08);
-  border-color: #0066ff;
-  box-shadow: 0 10px 24px rgba(0, 102, 255, 0.28);
+  transform: scale(1.05);
+  border-color: #00215D;
+  background: #00215D;
+  color: #ffffff;
+  box-shadow: 0 8px 18px rgba(0, 33, 93, 0.14);
 }
 
-.svc-method-icon-box svg {
+.svc-method-icon-box svg,
+.svc-method-icon-box [data-lucide],
+.svc-method-icon-box .lucide {
   width: 30px;
   height: 30px;
+  stroke: currentColor;
 }
 
 .svc-method-badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: #0066ff;
-  color: #ffffff;
-  font-family: var(--font-primary, "Inter", sans-serif);
-  font-size: 0.85rem;
-  font-weight: 800;
-  box-shadow: 0 4px 10px rgba(0, 102, 255, 0.35);
-  margin-bottom: 14px;
+  display: none;
 }
 
 .svc-method-title {
@@ -727,10 +723,12 @@
 
 .svc-method-desc {
   font-family: var(--font-primary, "Inter", sans-serif);
-  font-size: 0.86rem;
-  line-height: 1.55;
-  color: #556880;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  color: #475569;
   margin: 0;
+  text-align: justify;
+  hyphens: auto;
 }
 
 .svc-method-arrow-connector {
@@ -738,13 +736,14 @@
   align-items: center;
   justify-content: center;
   flex: 0 0 20px;
-  color: #0066ff;
-  opacity: 0.6;
+  color: #00215D;
+  opacity: 0.72;
 }
 
 .svc-method-arrow-connector svg {
   width: 20px;
   height: 20px;
+  stroke: currentColor;
 }
 
 .svc-methodology-quote {
@@ -817,12 +816,18 @@
 
   .svc-methodology-flow {
     flex-direction: column;
-    gap: 20px;
+    gap: 16px;
+    margin-top: 36px;
   }
 
   .svc-method-arrow-connector {
-    transform: rotate(90deg);
-    padding: 6px 0;
+    display: none;
+  }
+
+  .svc-method-card {
+    width: 100%;
+    min-height: 0;
+    box-sizing: border-box;
   }
 
   .segmentos-secao {
@@ -852,6 +857,18 @@
     height: 260px;
   }
 
+  .svc-methodology-container {
+    padding-inline: 16px;
+  }
+
+  .svc-methodology-headline {
+    margin-bottom: 12px;
+  }
+
+  .svc-method-desc {
+    text-align: justify;
+  }
+
   .svc-solution-benefits-bar {
     grid-template-columns: 1fr;
     gap: 12px;
@@ -866,7 +883,7 @@
 @media (max-width: 480px) {
   .svc-solution-headline,
   .svc-methodology-headline {
-    font-size: 1.65rem;
+    font-size: 1.8rem;
   }
 }
 
@@ -1914,9 +1931,9 @@
 .svc-methodology-section {
   position: relative;
   z-index: 10;
-  margin-top: -75px;
-  border-radius: 48px;
-  box-shadow: 0 -18px 45px rgba(0, 20, 60, 0.25), 0 14px 40px rgba(0, 20, 60, 0.08);
+  margin-top: -48px;
+  border-radius: 40px;
+  box-shadow: 0 -12px 28px rgba(0, 33, 93, 0.06);
 }
 
 .sn-page-wrapper .segmentos-secao,
@@ -2238,6 +2255,78 @@
 /* ============================================================================
    PADRÃO VISUAL DE SERVIÇOS — COMPONENTES COMPARTILHADOS COM A HOME
    ============================================================================ */
+
+/* Topo das páginas: mesma escala tipográfica da Home, com um único destaque semântico. */
+.sn-page-wrapper .section-badge,
+.sn-page-wrapper .svc-solution-eyebrow,
+.sn-page-wrapper .sn-eyebrow-line.light-mode {
+  display: inline-flex !important;
+  align-items: center !important;
+  width: fit-content !important;
+  padding: 8px 14px !important;
+  margin: 0 0 16px !important;
+  border-radius: 999px !important;
+  background: #00215D !important;
+  color: #ffffff !important;
+  font-size: 0.72rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.14em !important;
+  line-height: 1.2 !important;
+  text-transform: uppercase;
+}
+
+.sn-page-wrapper .section-headline,
+.sn-page-wrapper .svc-solution-headline,
+.sn-page-wrapper .sn-history-headline {
+  font-size: clamp(1.8rem, 3.5vw, 2.4rem) !important;
+  font-weight: 800 !important;
+  line-height: 1.2 !important;
+  letter-spacing: -0.025em;
+  color: #071429;
+  margin: 0 0 14px !important;
+}
+
+.sn-page-wrapper .section-headline em,
+.sn-page-wrapper .svc-solution-headline em,
+.sn-page-wrapper .sn-history-headline em,
+.sn-page-wrapper .service-top-highlight {
+  font-size: inherit;
+  font-style: italic;
+  font-weight: 300;
+  color: #00215D !important;
+}
+
+.sn-page-wrapper .section-description,
+.sn-page-wrapper .svc-solution-subtitle,
+.sn-page-wrapper .svc-solution-paragraphs p,
+.sn-page-wrapper .sn-history-description {
+  font-size: 1.05rem !important;
+  line-height: 1.5 !important;
+}
+
+.sn-page-wrapper .svc-solution-subtitle {
+  color: #00215D !important;
+  margin-bottom: 22px !important;
+}
+
+.sn-page-wrapper .svc-solution-paragraphs {
+  margin-bottom: 22px;
+}
+
+.sn-page-wrapper .svc-solution-paragraphs p,
+.sn-page-wrapper .sn-history-description {
+  color: #475569 !important;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.sn-page-wrapper .svc-solution-paragraphs p {
+  margin-bottom: 0 !important;
+}
+
+.sn-page-wrapper .sn-history-description {
+  margin-bottom: 22px !important;
+}
 
 .sn-page-wrapper .segmentos-secao {
   margin-top: -24px !important;
@@ -2562,7 +2651,26 @@
 }
 
 .sn-page-wrapper .svc-methodology-headline {
-  font-size: clamp(2rem, 3.2vw, 2.65rem);
+  font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 14px;
+}
+
+.sn-page-wrapper .svc-methodology-headline em {
+  font-style: italic;
+  font-weight: 300;
+  color: #00215D;
+}
+
+.sn-page-wrapper .svc-methodology-eyebrow {
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: #00215D;
+  color: #ffffff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
 }
 
 .sn-page-wrapper .svc-method-card {

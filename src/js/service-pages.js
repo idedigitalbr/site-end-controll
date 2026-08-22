@@ -130,6 +130,19 @@
     });
   }
 
+  function normalizeMethodologyIcons() {
+    const stepIcons = ['database', 'settings-2', 'file-text', 'clipboard-check'];
+
+    document.querySelectorAll('.svc-methodology-section .svc-method-card').forEach(function (card, index) {
+      const svg = card.querySelector('.svc-method-icon-box svg');
+      if (svg) replaceSvgWithLucide(svg, stepIcons[index] || 'check-circle-2', 'svc-method-lucide');
+    });
+
+    document.querySelectorAll('.svc-methodology-section .svc-method-arrow-connector svg').forEach(function (svg) {
+      replaceSvgWithLucide(svg, 'chevron-right', 'svc-method-connector-lucide');
+    });
+  }
+
   function normalizeCommitmentIcons() {
     document.querySelectorAll('.sn-commitment-card').forEach(function (card) {
       const title = card.querySelector('.sn-commitment-card-title');
@@ -294,6 +307,7 @@
     initWhenApplyAccordion();
     normalizeProcessIcons();
     initProcessInteractions();
+    normalizeMethodologyIcons();
     normalizeCommitmentIcons();
     normalizeCtaIcons();
     createLucideIcons();

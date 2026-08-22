@@ -93,3 +93,43 @@ test('service pages override desktop constraints at mobile breakpoints', () => {
   assert.match(responsiveBlock, /@media\s*\(max-width:\s*600px\)[\s\S]*?\.sn-page-wrapper \.sn-process-track-zone[\s\S]*?grid-template-columns:\s*1fr\s*!important;/i);
   assert.match(responsiveBlock, /\.sn-page-wrapper \.endo-acc-full-wrapper[\s\S]*?max-width:\s*calc\(100%\s*-\s*32px\);/i);
 });
+
+test('methodology sections use the shared badge, headline, copy and card pattern', () => {
+  assert.match(styles, /\.svc-methodology-eyebrow\s*\{[\s\S]*?font-size:\s*0\.72rem;[\s\S]*?font-weight:\s*700;[\s\S]*?letter-spacing:\s*0\.14em;[\s\S]*?padding:\s*8px\s+14px;/i);
+  assert.match(styles, /\.svc-methodology-headline\s*\{[\s\S]*?font-size:\s*clamp\(1\.8rem,\s*3\.5vw,\s*2\.4rem\);[\s\S]*?font-weight:\s*800;[\s\S]*?line-height:\s*1\.2;[\s\S]*?margin-bottom:\s*14px;/i);
+  assert.match(styles, /\.svc-methodology-headline\s+em\s*\{[\s\S]*?font-style:\s*italic;[\s\S]*?font-weight:\s*300;[\s\S]*?color:\s*#00215D;/i);
+  assert.match(styles, /\.svc-method-desc\s*\{[\s\S]*?font-size:\s*1\.05rem;[\s\S]*?line-height:\s*1\.5;[\s\S]*?color:\s*#475569;[\s\S]*?text-align:\s*justify;/i);
+  assert.match(styles, /\.svc-methodology-flow\s*\{[\s\S]*?display:\s*flex;[\s\S]*?gap:\s*18px;/i);
+  assert.match(styles, /@media\s*\(max-width:\s*1100px\)[\s\S]*?\.svc-methodology-flow\s*\{[\s\S]*?flex-direction:\s*column;[\s\S]*?\.svc-method-arrow-connector\s*\{[\s\S]*?display:\s*none;/i);
+
+  for (const filename of servicePages) {
+    const html = fs.readFileSync(path.join(root, filename), 'utf8');
+    const section = html.match(/<section class="svc-methodology-section"[\s\S]*?<\/section>/i)?.[0] || '';
+
+    assert.ok(section, `${filename} should contain the methodology section`);
+    assert.match(section, /class="svc-methodology-eyebrow">NOSSA METODOLOGIA<\/div>/i);
+    assert.equal((section.match(/<h2 class="svc-methodology-headline">/g) || []).length, 1, `${filename} should have one methodology headline`);
+    assert.equal((section.match(/<em class="methodology-highlight">/g) || []).length, 1, `${filename} should highlight one headline word`);
+    assert.match(section, /\bem<br>/i, `${filename} should break the methodology headline after “em”`);
+    assert.equal((section.match(/class="svc-method-card"/g) || []).length, 4, `${filename} should preserve four methodology cards`);
+    assert.equal((section.match(/class="svc-method-badge"/g) || []).length, 0, `${filename} should not render numbered methodology badges`);
+    assert.equal((section.match(/class="svc-method-desc"/g) || []).length, 4, `${filename} should preserve all methodology descriptions`);
+  }
+});
+
+test('service top sections use the shared home typography pattern with one italic highlight', () => {
+  assert.match(styles, /\.sn-page-wrapper \.section-badge,[\s\S]*?padding:\s*8px\s+14px\s*!important[\s\S]*?font-size:\s*0\.72rem\s*!important[\s\S]*?font-weight:\s*700\s*!important[\s\S]*?letter-spacing:\s*0\.14em\s*!important/i);
+  assert.match(styles, /\.sn-page-wrapper \.section-headline,[\s\S]*?font-size:\s*clamp\(1\.8rem,\s*3\.5vw,\s*2\.4rem\)\s*!important[\s\S]*?font-weight:\s*800\s*!important[\s\S]*?line-height:\s*1\.2\s*!important[\s\S]*?margin:\s*0\s+0\s+14px\s*!important/i);
+  assert.match(styles, /\.sn-page-wrapper \.service-top-highlight[\s\S]*?font-style:\s*italic;[\s\S]*?font-weight:\s*300;[\s\S]*?color:\s*#00215D\s*!important/i);
+  assert.match(styles, /\.sn-page-wrapper \.section-description,[\s\S]*?font-size:\s*1\.05rem\s*!important[\s\S]*?line-height:\s*1\.5\s*!important/i);
+
+  for (const filename of servicePages) {
+    const html = fs.readFileSync(path.join(root, filename), 'utf8');
+    const section = html.match(/<section class="svc-solution-section[^"]*"[\s\S]*?<\/section>/i)?.[0] || '';
+
+    assert.ok(section, `${filename} should contain the top service section`);
+    assert.match(section, /class="[^"]*(?:section-badge)[^"]*"[^>]*>SOBRE O SERVIÇO|class="[^"]*section-badge[^"]*"[^>]*>SOBRE O SERVIÇO/i);
+    assert.match(section, /<h1 class="[^"]*(?:section-headline)[^"]*">/i);
+    assert.equal((section.match(/class="service-top-highlight"/g) || []).length, 1, `${filename} should highlight one top headline word`);
+  }
+});
