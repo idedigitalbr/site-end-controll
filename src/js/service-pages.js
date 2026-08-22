@@ -8,21 +8,6 @@
 
   if (typeof window !== 'undefined') window.__serviceWhenApplyAccordion = true;
 
-  const operationalPhotoPool = [
-    './assets/Fotografias/originais-16-9/endcontrol-integridade-estrutural-aquisicao-dados-planta-industrial.webp',
-    './assets/Fotografias/originais-16-9/endcontrol-ultrassom-phased-array-inspecao-solda-dutos-tubulacoes.webp',
-    './assets/Fotografias/originais-16-9/endcontrol-inspecao-altura-nr35-escada-tanque-industrial.webp',
-    './assets/Fotografias/originais-16-9/endcontrol-ensaios-nao-destrutivos-ultrassom-medicao-espessura-naval.webp',
-    './assets/Fotografias/originais-16-9/endcontrol-calibracao-manometros-pressao-em-campo-nr13.webp',
-    './assets/Fotografias/originais-16-9/endcontrol-engenharia-soldagem-qualificacao-soldadores-eps-rqps.webp',
-    './assets/Fotografias/originais-16-9/endcontrol-inspecao-integridade-dutos-adutoras-sensores-campo.webp',
-    './assets/Fotografias/originais-16-9/endcontrol-consultoria-tecnica-demonstracao-scanner-ultrassom-tubos.webp',
-    './assets/Fotografias/originais-16-9/endcontrol-laboratorio-ensaio-dureza-digimess-certificacao-materiais.webp',
-    './assets/Fotografias/originais-16-9/endcontrol-calibracao-medicao-vazao-ultrassonica-duto-industrial.webp',
-    './assets/Fotografias/originais-16-9/endcontrol-equipe-escritorio-projetos-mecanicos-engenharia.webp',
-    './assets/Fotografias/originais-16-9/endcontrol-institucional-lideranca-gestao-projetos-escritorio.webp'
-  ];
-
   const iconByTitle = [
     [/corros|fissur|trinca|descontinu/i, 'shield-alert'],
     [/espessura|dimens|geometr|recalque|desalinh/i, 'scan-line'],
@@ -74,6 +59,77 @@
     });
   }
 
+  function initProcessInteractions() {
+    document.querySelectorAll('.sn-process-track-zone').forEach(function (track) {
+      const units = Array.prototype.slice.call(track.querySelectorAll('.sn-step-unit'));
+      if (!units.length) return;
+
+      const firstUnit = units[0];
+      const firstNode = firstUnit.querySelector('.sn-step-node');
+      let resetTimer = null;
+      const RESET_DELAY = 1600; // Retorna suavemente para o passo 01 após 1.6s
+
+      function clearResetTimer() {
+        if (resetTimer) {
+          clearTimeout(resetTimer);
+          resetTimer = null;
+        }
+      }
+
+      function scheduleReset() {
+        clearResetTimer();
+        resetTimer = setTimeout(function () {
+          units.forEach(function (u) {
+            u.classList.remove('is-active');
+          });
+          track.classList.remove('has-other-hover');
+          if (firstNode) firstNode.classList.add('sn-step-node-filled');
+        }, RESET_DELAY);
+      }
+
+      function activateUnit(index) {
+        clearResetTimer();
+        units.forEach(function (u, i) {
+          if (i === index) {
+            u.classList.add('is-active');
+          } else {
+            u.classList.remove('is-active');
+          }
+        });
+
+        if (index > 0) {
+          track.classList.add('has-other-hover');
+          if (firstNode) firstNode.classList.remove('sn-step-node-filled');
+        } else {
+          track.classList.remove('has-other-hover');
+          if (firstNode) firstNode.classList.add('sn-step-node-filled');
+        }
+      }
+
+      units.forEach(function (unit, index) {
+        unit.addEventListener('mouseenter', function () {
+          activateUnit(index);
+        });
+
+        unit.addEventListener('focusin', function () {
+          activateUnit(index);
+        });
+
+        unit.addEventListener('mouseleave', function () {
+          scheduleReset();
+        });
+
+        unit.addEventListener('focusout', function () {
+          scheduleReset();
+        });
+      });
+
+      track.addEventListener('mouseleave', function () {
+        scheduleReset();
+      });
+    });
+  }
+
   function normalizeCommitmentIcons() {
     document.querySelectorAll('.sn-commitment-card').forEach(function (card) {
       const title = card.querySelector('.sn-commitment-card-title');
@@ -87,17 +143,6 @@
       '.sn-page-wrapper .svc-cyan-cta-btn svg, .sn-page-wrapper .svc-solution-section .btn.btn-primary svg, .sn-page-wrapper .sn-commitment-btn svg'
     ).forEach(function (svg) {
       replaceSvgWithLucide(svg, 'arrow-right');
-    });
-  }
-
-  function applyOperationalPhotos() {
-    document.querySelectorAll('#quando-aplicar .endo-acc-card__img').forEach(function (image, index) {
-      const source = operationalPhotoPool[index % operationalPhotoPool.length];
-      if (!source) return;
-
-      image.dataset.originalSrc = image.getAttribute('src') || '';
-      image.src = source;
-      image.removeAttribute('srcset');
     });
   }
 
@@ -245,10 +290,10 @@
   function init() {
     if (!document.body || !document.body.classList.contains('sn-page-wrapper')) return;
 
-    applyOperationalPhotos();
     normalizeWhenApplyIcons();
     initWhenApplyAccordion();
     normalizeProcessIcons();
+    initProcessInteractions();
     normalizeCommitmentIcons();
     normalizeCtaIcons();
     createLucideIcons();

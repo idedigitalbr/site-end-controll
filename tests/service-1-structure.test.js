@@ -75,15 +75,13 @@ test('6. S5 (Quando Aplicar) uses the full-width Accordion widget from Home / Pr
   assert.ok(service1Html.includes('Continuidade operacional'));
 });
 
-test('7. Section Nosso Compromisso contains the 4 pillars (Segurança, Confiabilidade, Eficiência, Parceria)', () => {
+test('7. Section Nosso Compromisso matches Sobre Nós official standard (badge, headline, CTA button, photo, blueprint)', () => {
   assert.ok(service1Html.includes('class="sn-commitment-section"'));
   assert.ok(service1Html.includes('NOSSO COMPROMISSO'));
   assert.ok(service1Html.includes('Excelência técnica começa'));
   assert.ok(service1Html.includes('responsabilidade.'));
-  assert.ok(service1Html.includes('Segurança'));
-  assert.ok(service1Html.includes('Confiabilidade'));
-  assert.ok(service1Html.includes('Eficiência'));
-  assert.ok(service1Html.includes('Parceria'));
+  assert.ok(service1Html.includes('foto-pro-roda-pe.webp'));
+  assert.ok(service1Html.includes('sn-commitment-btn'));
 });
 
 test('8. Standalone backup-secao-cta-final.html exists and contains the complete CTA final markup', () => {

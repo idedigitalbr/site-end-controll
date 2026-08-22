@@ -1938,12 +1938,6 @@
   box-shadow: 0 -20px 50px rgba(4, 21, 59, 0.65), 0 24px 60px rgba(4, 21, 59, 0.55) !important;
 }
 
-.sn-commitment-section {
-  position: relative;
-  z-index: 5;
-  margin-top: -60px;
-  border-radius: 48px;
-}
 
 /* ==========================================================================
    PADRÃO ÚNICO DAS PÁGINAS DE SERVIÇO — COPY À ESQUERDA / MÍDIA À DIREITA
@@ -2082,8 +2076,7 @@
 }
 
 .sn-page-wrapper .svc-solution-section .svc-cyan-cta-btn,
-.sn-page-wrapper .svc-solution-section .btn.btn-primary,
-.sn-page-wrapper .sn-commitment-btn {
+.sn-page-wrapper .svc-solution-section .btn.btn-primary {
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
@@ -2104,8 +2097,7 @@
 }
 
 .sn-page-wrapper .svc-solution-section .svc-cyan-cta-btn:hover,
-.sn-page-wrapper .svc-solution-section .btn.btn-primary:hover,
-.sn-page-wrapper .sn-commitment-btn:hover {
+.sn-page-wrapper .svc-solution-section .btn.btn-primary:hover {
   background: #00215D !important;
   border-color: #00215D !important;
   color: #ffffff !important;
@@ -2114,8 +2106,7 @@
 }
 
 .sn-page-wrapper .svc-solution-section .svc-cyan-cta-btn:hover svg,
-.sn-page-wrapper .svc-solution-section .btn.btn-primary:hover svg,
-.sn-page-wrapper .sn-commitment-btn:hover svg {
+.sn-page-wrapper .svc-solution-section .btn.btn-primary:hover svg {
   color: #ffffff !important;
   stroke: #ffffff !important;
   transform: translateX(4px);
@@ -2374,14 +2365,24 @@
   width: 64px;
   height: 64px;
   margin-bottom: 14px;
-  border-color: #00215D;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1.5px solid #00215D;
   color: #00215D;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: transform 0.45s cubic-bezier(0.25, 0.8, 0.25, 1), background 0.45s cubic-bezier(0.25, 0.8, 0.25, 1), border-color 0.45s cubic-bezier(0.25, 0.8, 0.25, 1), color 0.45s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.45s cubic-bezier(0.25, 0.8, 0.25, 1);
+  flex-shrink: 0;
+  box-sizing: border-box;
 }
 
 .sn-page-wrapper .sn-step-unit:first-child .sn-step-node,
 .sn-page-wrapper .sn-step-node.sn-step-node-filled {
   background: #00215D;
   border-color: #00215D;
+  color: #ffffff;
 }
 
 .sn-page-wrapper .sn-step-node svg,
@@ -2389,23 +2390,32 @@
 .sn-page-wrapper .sn-step-node .lucide {
   width: 26px;
   height: 26px;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  transition: stroke 0.45s cubic-bezier(0.25, 0.8, 0.25, 1), color 0.45s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-.sn-page-wrapper .sn-step-line-connector {
+.sn-page-wrapper .sn-step-line-connector,
+.sn-page-wrapper .sn-step-arrow {
   flex: 0 0 18px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 72px;
+  margin-top: 50px;
   color: #00215D;
 }
 
-.sn-page-wrapper .sn-step-line-connector .sn-connector-stem {
+.sn-page-wrapper .sn-step-line-connector .sn-connector-stem,
+.sn-page-wrapper .sn-step-arrow .sn-connector-stem {
   display: none;
 }
 
 .sn-page-wrapper .sn-step-line-connector .sn-connector-head,
-.sn-page-wrapper .sn-step-line-connector [data-lucide] {
+.sn-page-wrapper .sn-step-line-connector [data-lucide],
+.sn-page-wrapper .sn-step-line-connector .lucide,
+.sn-page-wrapper .sn-step-arrow .sn-connector-head,
+.sn-page-wrapper .sn-step-arrow [data-lucide],
+.sn-page-wrapper .sn-step-arrow .lucide {
   width: 18px;
   height: 18px;
   color: #00215D;
@@ -2423,134 +2433,7 @@
   font-size: 12px;
 }
 
-.sn-page-wrapper .sn-commitment-section {
-  margin-top: -24px !important;
-  padding: 76px 0 84px;
-  border-radius: 32px;
-  background: #f7faff;
-  box-shadow: 0 12px 28px rgba(0, 33, 93, 0.06) !important;
-}
 
-.sn-page-wrapper .sn-commitment-blueprint-bg,
-.sn-page-wrapper .sn-commitment-bg-photo {
-  display: none !important;
-}
-
-.sn-page-wrapper .sn-commitment-container {
-  max-width: 1200px;
-}
-
-.sn-page-wrapper .sn-commitment-header {
-  max-width: 760px;
-  margin: 0 auto 28px;
-  text-align: center;
-}
-
-.sn-page-wrapper .sn-commitment-header .sn-eyebrow-left,
-.sn-page-wrapper .sn-commitment-header .sn-commitment-badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: fit-content;
-  padding: 7px 16px;
-  margin: 0 0 14px;
-  border-radius: 999px;
-  background: #00215D;
-  color: #ffffff;
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 0.16em;
-}
-
-.sn-page-wrapper .sn-commitment-header .sn-eyebrow-left::before,
-.sn-page-wrapper .sn-commitment-header .sn-eyebrow-left::after {
-  display: none;
-}
-
-.sn-page-wrapper .sn-commitment-headline {
-  font-size: clamp(2rem, 3.2vw, 2.75rem);
-  color: #0b192c;
-}
-
-.sn-page-wrapper .sn-commitment-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  align-items: stretch;
-  gap: 0;
-  max-width: 1080px;
-  margin: 0 auto 28px;
-  padding: 24px 12px;
-  background: #ffffff;
-  border: 1px solid rgba(0, 33, 93, 0.12);
-  border-radius: 20px;
-  box-shadow: 0 8px 22px rgba(0, 33, 93, 0.05);
-}
-
-.sn-page-wrapper .sn-commitment-card {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: 144px;
-  padding: 4px 18px;
-  text-align: center;
-  opacity: 1 !important;
-  transform: none !important;
-}
-
-.sn-page-wrapper .sn-commitment-card:not(:last-child)::after {
-  content: '';
-  position: absolute;
-  top: 8%;
-  right: 0;
-  width: 1px;
-  height: 84%;
-  background: rgba(0, 33, 93, 0.14);
-}
-
-.sn-page-wrapper .sn-commitment-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 52px;
-  height: 52px;
-  margin-bottom: 14px;
-  border: 1.5px solid #00215D;
-  border-radius: 50%;
-  background: #ffffff;
-  color: #00215D;
-  box-shadow: 0 4px 12px rgba(0, 33, 93, 0.08);
-}
-
-.sn-page-wrapper .sn-commitment-icon svg,
-.sn-page-wrapper .sn-commitment-icon [data-lucide],
-.sn-page-wrapper .sn-commitment-icon .lucide {
-  width: 24px !important;
-  height: 24px !important;
-  max-width: 24px !important;
-  max-height: 24px !important;
-  stroke: currentColor;
-  stroke-width: 2;
-}
-
-.sn-page-wrapper .sn-commitment-card-title {
-  margin: 0 0 6px;
-  color: #0b192c;
-  font-size: 1.1rem;
-  font-weight: 800;
-}
-
-.sn-page-wrapper .sn-commitment-card-text {
-  max-width: 190px;
-  margin: 0;
-  color: #556880;
-  font-size: 0.82rem;
-  line-height: 1.45;
-}
-
-.sn-page-wrapper .sn-commitment-cta {
-  justify-content: center;
-}
 
 @media (max-width: 900px) {
   .sn-page-wrapper .sn-process-widescreen-container {
@@ -2569,21 +2452,13 @@
     gap: 28px 20px;
   }
 
-  .sn-page-wrapper .sn-step-line-connector {
+  .sn-page-wrapper .sn-step-line-connector,
+  .sn-page-wrapper .sn-step-arrow {
     display: none;
   }
 
   .sn-page-wrapper .sn-step-desc {
     max-width: 220px;
-  }
-
-  .sn-page-wrapper .sn-commitment-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 20px 0;
-  }
-
-  .sn-page-wrapper .sn-commitment-card:nth-child(2)::after {
-    display: none;
   }
 }
 
@@ -2599,31 +2474,13 @@
     border-radius: 20px;
   }
 
-  .sn-page-wrapper .sn-process-section,
-  .sn-page-wrapper .sn-commitment-section {
+  .sn-page-wrapper .sn-process-section {
     padding: 64px 0 72px;
     border-radius: 24px !important;
   }
 
   .sn-page-wrapper .sn-process-widescreen-container {
     width: calc(100% - 32px);
-  }
-
-  .sn-page-wrapper .sn-commitment-grid {
-    grid-template-columns: 1fr;
-    margin-inline: 16px;
-  }
-
-  .sn-page-wrapper .sn-commitment-card:not(:last-child)::after {
-    top: auto;
-    right: 10%;
-    bottom: -10px;
-    width: 80%;
-    height: 1px;
-  }
-
-  .sn-page-wrapper .sn-commitment-card:nth-child(2)::after {
-    display: block;
   }
 }
 
@@ -2745,19 +2602,53 @@
   color: #00215D;
 }
 
+.sn-page-wrapper .sn-step-unit.is-active .sn-step-node,
 .sn-page-wrapper .sn-step-unit:hover .sn-step-node,
 .sn-page-wrapper .sn-step-unit:focus-within .sn-step-node {
   background: #00215D;
   border-color: #00215D;
   color: #ffffff;
+  transform: translateY(-3px);
 }
 
+.sn-page-wrapper .sn-step-unit.is-active .sn-step-node svg,
+.sn-page-wrapper .sn-step-unit.is-active .sn-step-node [data-lucide],
+.sn-page-wrapper .sn-step-unit.is-active .sn-step-node .lucide,
 .sn-page-wrapper .sn-step-unit:hover .sn-step-node svg,
+.sn-page-wrapper .sn-step-unit:hover .sn-step-node [data-lucide],
 .sn-page-wrapper .sn-step-unit:hover .sn-step-node .lucide,
 .sn-page-wrapper .sn-step-unit:focus-within .sn-step-node svg,
+.sn-page-wrapper .sn-step-unit:focus-within .sn-step-node [data-lucide],
 .sn-page-wrapper .sn-step-unit:focus-within .sn-step-node .lucide {
   color: #ffffff;
   stroke: #ffffff;
+}
+
+/* Quando houver hover/foco em qualquer outra etapa (02, 03 ou 04), a primeira etapa (01) desativa o estado ativo */
+.sn-page-wrapper .sn-process-track-zone:has(.sn-step-unit:not(:first-child):hover) .sn-step-unit:first-child .sn-step-node:not(:hover),
+.sn-page-wrapper .sn-process-track-zone:has(.sn-step-unit:not(:first-child):focus-within) .sn-step-unit:first-child .sn-step-node:not(:focus-within),
+.sn-page-wrapper .sn-process-track-zone.has-other-hover .sn-step-unit:first-child .sn-step-node:not(:hover),
+.sn-page-wrapper .sn-process-track-zone.has-other-hover .sn-step-unit:first-child .sn-step-node:not(:focus-within) {
+  background: #ffffff;
+  border-color: #00215D;
+  color: #00215D;
+  transform: none;
+}
+
+.sn-page-wrapper .sn-process-track-zone:has(.sn-step-unit:not(:first-child):hover) .sn-step-unit:first-child .sn-step-node:not(:hover) svg,
+.sn-page-wrapper .sn-process-track-zone:has(.sn-step-unit:not(:first-child):hover) .sn-step-unit:first-child .sn-step-node:not(:hover) [data-lucide],
+.sn-page-wrapper .sn-process-track-zone:has(.sn-step-unit:not(:first-child):hover) .sn-step-unit:first-child .sn-step-node:not(:hover) .lucide,
+.sn-page-wrapper .sn-process-track-zone:has(.sn-step-unit:not(:first-child):focus-within) .sn-step-unit:first-child .sn-step-node:not(:focus-within) svg,
+.sn-page-wrapper .sn-process-track-zone:has(.sn-step-unit:not(:first-child):focus-within) .sn-step-unit:first-child .sn-step-node:not(:focus-within) [data-lucide],
+.sn-page-wrapper .sn-process-track-zone:has(.sn-step-unit:not(:first-child):focus-within) .sn-step-unit:first-child .sn-step-node:not(:focus-within) .lucide,
+.sn-page-wrapper .sn-process-track-zone.has-other-hover .sn-step-unit:first-child .sn-step-node:not(:hover) svg,
+.sn-page-wrapper .sn-process-track-zone.has-other-hover .sn-step-unit:first-child .sn-step-node:not(:hover) [data-lucide],
+.sn-page-wrapper .sn-process-track-zone.has-other-hover .sn-step-unit:first-child .sn-step-node:not(:hover) .lucide,
+.sn-page-wrapper .sn-process-track-zone.has-other-hover .sn-step-unit:first-child .sn-step-node:not(:focus-within) svg,
+.sn-page-wrapper .sn-process-track-zone.has-other-hover .sn-step-unit:first-child .sn-step-node:not(:focus-within) [data-lucide],
+.sn-page-wrapper .sn-process-track-zone.has-other-hover .sn-step-unit:first-child .sn-step-node:not(:focus-within) .lucide {
+  color: #00215D;
+  stroke: #00215D;
 }
 
 @media (max-width: 900px) {
@@ -3027,33 +2918,14 @@
     gap: 24px;
   }
 
-  .sn-page-wrapper .sn-step-line-connector {
+  .sn-page-wrapper .sn-step-line-connector,
+  .sn-page-wrapper .sn-step-arrow {
     display: none;
   }
 
   .sn-page-wrapper .sn-step-desc {
     max-width: 100%;
     font-size: 0.9rem;
-  }
-
-  .sn-page-wrapper .sn-commitment-grid {
-    grid-template-columns: 1fr !important;
-    width: 100%;
-    margin-inline: 0;
-    padding: 20px 12px;
-  }
-
-  .sn-page-wrapper .sn-commitment-card {
-    min-height: 0;
-    padding: 8px 12px 24px;
-  }
-
-  .sn-page-wrapper .sn-commitment-card:not(:last-child)::after {
-    top: auto;
-    right: 10%;
-    bottom: 0;
-    width: 80%;
-    height: 1px;
   }
 }
 

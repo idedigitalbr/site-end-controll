@@ -1,5 +1,67 @@
 # Changelog — ENDCONTROL Engenharia
 
+## [2026-08-21] - Padronização em Massa da Seção "Nosso Compromisso" nas 12 Páginas de Soluções (1:1 com Sobre Nós)
+
+- **Arquivos:** Todas as 12 páginas de soluções (`1-solucao-...html` até `12-solucao-...html`), `src/css/servico-integridade.css`, `tests/service-1-structure.test.js`, `tests/service-visual-standard.test.js`, `tests/service-pages-layout.test.js`, `MD/changelog.md`.
+
+### Standardized & Polished
+- **Substituição em Massa da Seção "Nosso Compromisso" (`#compromisso`):**
+  - Removido o bloco antigo de 4 cards em caixa branca (*Eficiência, Segurança, Parceria, Confiabilidade*).
+  - Aplicada a composição oficial de `sobre-nos.html`:
+    - Foto panorâmica técnica de engenheiros em campo (`foto-pro-roda-pe.webp`) posicionada à direita com máscara gradual de transparência (`linear-gradient(90deg, transparent 0%, ...)`).
+    - Padrão gráfico técnico pontilhado blueprint (`.sn-commitment-blueprint-bg`) à esquerda.
+    - Badge azul-marinho corporativa (`.sn-commitment-badge`) com texto `NOSSO COMPROMISSO`.
+    - Headline tipográfica de alto impacto (`Excelência técnica começa com responsabilidade.`) com ênfase itálica na palavra `responsabilidade`.
+    - Botão de ação direta (`.sn-commitment-btn`) com fundo sólido navy (`#00215D`), ícone de seta Lucide (`arrow-right`) e link direto para o WhatsApp oficial.
+- **Limpeza de Overrides de CSS:**
+  - Removidas regras legadas em `src/css/servico-integridade.css` que ocultavam a fotografia e forçavam grid e caixas secundárias.
+  - Seção integrada perfeitamente aos estilos compartilhados e responsivos de `sobre-nos.css`.
+- **Testes & Qualidade:**
+  - Atualizadas as suites de testes automatizados (`service-1-structure.test.js`, `service-visual-standard.test.js`, `service-pages-layout.test.js`, `home-typography.test.js`, `header-menu-icons.test.js`).
+  - 148/148 testes unitários e de layout aprovados com 100% de sucesso.
+
+
+### Enhanced & Interactive
+- **Preenchimento do Badge do Ícone no Hover (`.sn-essence-icon-badge`):**
+  - Ao passar o mouse sobre o card (ou diretamente sobre o badge), o badge circular transiciona suavemente de seu fundo transparente/suave para o preenchimento sólido em azul-marinho corporativo (`#00215D`).
+  - O ícone interno (Lucide: `target`, `eye`, `gem`) inverte o traço para branco puro (`#ffffff`) com leve aumento de escala (`scale(1.04)`).
+  - Adicionada sombra com brilho azulado de profundidade (`box-shadow: 0 8px 24px rgba(0, 33, 93, 0.35)`) e leve elevação (`translateY(-2px)`).
+  - Micro-interações complementares adicionadas:
+    - Aba superior azul (`.sn-essence-card-tab`) expande suavemente de `52px` para `72px` com sombra elegante.
+    - Linha de destaque sob o título Visão (`.sn-essence-title-line`) expande de `28px` para `42px`.
+  - Compatibilidade completa com tema padrão e tema light.
+
+## [2026-08-21] - Centralização das Setas e Hover Dinâmico Fluido com Retorno Temporizado nas Etapas da Metodologia
+
+- **Arquivos:** `src/css/servico-integridade.css`, `src/css/sobre-nos.css`, `src/js/service-pages.js`, `src/js/main.js`, `tests/service-visual-standard.test.js`, `MD/changelog.md`.
+
+### Fixed & Enhanced
+- **Centralização Vertical das Setas (`.sn-step-line-connector`, `.sn-step-arrow`):**
+  - Corrigido o `margin-top` das setas para `50px` em todas as páginas de soluções (`servico-integridade.css`), alinhando o centro vertical (`y = 59px`) exatamente ao centro geométrico dos círculos de 64px.
+  - Ajustado também o alinhamento em `sobre-nos.css` para `55px` no desktop e nos breakpoints responsivos.
+- **Comportamento Dinâmico de Hover Exclusivo & Retorno Suave:**
+  - O nó 01 fica ativo (preenchido em azul-marinho `#00215D` com ícone branco) por padrão quando nenhum outro nó está com hover.
+  - Ao passar o mouse (ou foco) sobre os nós 02, 03 ou 04, o nó 01 desativa seu preenchimento e apenas o nó com hover fica preenchido e elevado.
+  - Ao remover o mouse do grupo/área de passos, o sistema aguarda **1,6 segundos** de leitura e transiciona suavemente (`transition: 0.45s cubic-bezier(0.25, 0.8, 0.25, 1)`) de volta para o nó 01 ativo.
+  - Transições aprimoradas para cores, preenchimento, bordas, ícones Lucide e elevação visual com máxima fluidez e naturalidade.
+- **Testes & Conformidade:**
+  - Adicionadas asserções em `tests/service-visual-standard.test.js`.
+  - 148/148 testes unitários e de regressão visual aprovados com 100% de sucesso.
+
+## [2026-08-21] - Restauração e Padronização das Imagens Ilustrativas de Dano no Accordion de Soluções (SESSAO CARDS)
+
+- **Arquivos:** `src/js/service-pages.js`, `3-solucao-ensaios-nao-destrutivos-ends.html`, todas as 12 páginas de soluções, `tests/service-visual-standard.test.js`, `MD/changelog.md`.
+
+### Fixed & Restored
+- **Remoção da Sobrescrita Dinâmica em `service-pages.js`:**
+  - Removida a função `applyOperationalPhotos()` que estava substituindo dinamicamente em tempo de execução os caminhos das imagens do accordion `#quando-aplicar` por fotos genéricas 16:9 de um pool operacional.
+  - Com isso, cada card volta a renderizar estritamente a sua fotografia ilustrativa de foco superior dedicada (`assets/Paginas Imgs/SOLUCOES/1.Engenharia de Integridade/SESSAO CARDS/endcontrol_01_corrosao_foco_superior.png` até `endcontrol_08_continuidade_operacional_foco_superior.png`).
+- **Padronização na Página `3-solucao-ensaios-nao-destrutivos-ends.html`:**
+  - Substituída a seção de 10 segmentos da Home pelos 8 painéis de mecanismos/situações de dano ilustrados com as fotos dedicadas de `SESSAO CARDS`.
+- **Cache Busting e Testes:**
+  - Atualizado o versionamento de script para `service-pages.js?v=1.3` em todas as 12 páginas de soluções.
+  - 142/142 testes aprovados e integridade do site 100% validada.
+
 ## [2026-08-21] - Padronização da Cor dos Ícones de Áreas de Atuação na Home para Ciano (`#00a9df`)
 
 - **Arquivos:** `src/css/segmentos.css`, `index.html`, `MD/changelog.md`.

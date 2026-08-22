@@ -44,11 +44,10 @@ test('service solution copy follows the home visual standard', () => {
   assert.match(standardStyles, /font-weight:\s*700\s*!important;/i);
   assert.match(standardStyles, /letter-spacing:\s*0\.18em\s*!important;/i);
   assert.match(standardStyles, /\.sn-page-wrapper \.svc-solution-headline,[\s\S]*?font-size:\s*clamp\(2rem,\s*3\.2vw,\s*2\.85rem\);/i);
-  assert.match(standardStyles, /\.sn-page-wrapper \.svc-solution-paragraphs\s+p,[\s\S]*?text-align:\s*justify;/i);
-  assert.match(standardStyles, /\.sn-page-wrapper \.svc-solution-section \.svc-cyan-cta-btn,[\s\S]*?\.sn-page-wrapper \.sn-commitment-btn\s*\{/i);
+  assert.match(standardStyles, /\.sn-page-wrapper \.svc-solution-section \.svc-cyan-cta-btn,[\s\S]*?\.sn-page-wrapper \.svc-solution-section \.btn\.btn-primary\s*\{/i);
   assert.match(standardStyles, /background:\s*#ffffff\s*!important;/i);
   assert.match(standardStyles, /border:[^;]*#00215D\s*!important;/i);
-  assert.match(standardStyles, /\.sn-page-wrapper \.svc-solution-section \.svc-cyan-cta-btn:hover,[\s\S]*?\.sn-page-wrapper \.sn-commitment-btn:hover\s*\{/i);
+  assert.match(standardStyles, /\.sn-page-wrapper \.svc-solution-section \.svc-cyan-cta-btn:hover,[\s\S]*?\.sn-page-wrapper \.svc-solution-section \.btn\.btn-primary:hover\s*\{/i);
   assert.match(standardStyles, /background:\s*#00215D\s*!important;/i);
   assert.match(standardStyles, /color:\s*#ffffff\s*!important;/i);
 });
@@ -92,6 +91,5 @@ test('service pages override desktop constraints at mobile breakpoints', () => {
   assert.match(responsiveBlock, /\.sn-page-wrapper \.svc-solution-container,[\s\S]*?width:\s*min\(100%\s*-\s*32px,\s*680px\);/i);
   assert.match(responsiveBlock, /\.sn-page-wrapper \.bento-expanding-wrapper[\s\S]*?grid-template-columns:\s*1fr\s*!important;/i);
   assert.match(responsiveBlock, /@media\s*\(max-width:\s*600px\)[\s\S]*?\.sn-page-wrapper \.sn-process-track-zone[\s\S]*?grid-template-columns:\s*1fr\s*!important;/i);
-  assert.match(responsiveBlock, /\.sn-page-wrapper \.sn-commitment-grid[\s\S]*?grid-template-columns:\s*1fr\s*!important;/i);
   assert.match(responsiveBlock, /\.sn-page-wrapper \.endo-acc-full-wrapper[\s\S]*?max-width:\s*calc\(100%\s*-\s*32px\);/i);
 });

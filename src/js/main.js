@@ -1615,6 +1615,77 @@
     }
   }
 
+  function initProcessInteractions() {
+    document.querySelectorAll('.sn-process-track-zone').forEach(function (track) {
+      const units = Array.prototype.slice.call(track.querySelectorAll('.sn-step-unit'));
+      if (!units.length) return;
+
+      const firstUnit = units[0];
+      const firstNode = firstUnit.querySelector('.sn-step-node');
+      let resetTimer = null;
+      const RESET_DELAY = 1600; // Retorna suavemente para o passo 01 após 1.6s
+
+      function clearResetTimer() {
+        if (resetTimer) {
+          clearTimeout(resetTimer);
+          resetTimer = null;
+        }
+      }
+
+      function scheduleReset() {
+        clearResetTimer();
+        resetTimer = setTimeout(function () {
+          units.forEach(function (u) {
+            u.classList.remove('is-active');
+          });
+          track.classList.remove('has-other-hover');
+          if (firstNode) firstNode.classList.add('sn-step-node-filled');
+        }, RESET_DELAY);
+      }
+
+      function activateUnit(index) {
+        clearResetTimer();
+        units.forEach(function (u, i) {
+          if (i === index) {
+            u.classList.add('is-active');
+          } else {
+            u.classList.remove('is-active');
+          }
+        });
+
+        if (index > 0) {
+          track.classList.add('has-other-hover');
+          if (firstNode) firstNode.classList.remove('sn-step-node-filled');
+        } else {
+          track.classList.remove('has-other-hover');
+          if (firstNode) firstNode.classList.add('sn-step-node-filled');
+        }
+      }
+
+      units.forEach(function (unit, index) {
+        unit.addEventListener('mouseenter', function () {
+          activateUnit(index);
+        });
+
+        unit.addEventListener('focusin', function () {
+          activateUnit(index);
+        });
+
+        unit.addEventListener('mouseleave', function () {
+          scheduleReset();
+        });
+
+        unit.addEventListener('focusout', function () {
+          scheduleReset();
+        });
+      });
+
+      track.addEventListener('mouseleave', function () {
+        scheduleReset();
+      });
+    });
+  }
+
   /* ===================================================================
      Bootstrap
      =================================================================== */
@@ -1633,5 +1704,6 @@
     initMobileScrollHighlights();
     initHeroSlider();
     initSectorsMarquee();
+    initProcessInteractions();
   });
 })();

@@ -710,6 +710,12 @@
   height: 5px;
   background: #00215D;
   border-radius: 0 0 4px 4px;
+  transition: width 0.35s cubic-bezier(0.25, 0.8, 0.25, 1), background 0.35s ease, box-shadow 0.35s ease;
+}
+
+.sn-essence-card:hover .sn-essence-card-tab {
+  width: 72px;
+  box-shadow: 0 2px 8px rgba(0, 33, 93, 0.35);
 }
 
 /* Header em linha: Ícone à esquerda + Título à direita */
@@ -735,13 +741,12 @@
   color: #00215D;
   flex-shrink: 0;
   box-shadow: 0 4px 14px rgba(0, 33, 93, 0.08);
-  transition: all 0.3s ease;
-}
-
-.sn-essence-card:hover .sn-essence-icon-badge {
-  transform: scale(1.06);
-  background: rgba(0, 33, 93, 0.12);
-  border-color: #00215D;
+  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
+              background 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
+              border-color 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
+              color 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
+              box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-sizing: border-box;
 }
 
 .sn-essence-icon-badge svg,
@@ -749,7 +754,31 @@
 .sn-essence-icon-badge .lucide {
   width: 28px;
   height: 28px;
+  stroke: currentColor;
   stroke-width: 2.2;
+  transition: stroke 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
+              color 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
+              transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.sn-essence-card:hover .sn-essence-icon-badge,
+.sn-essence-icon-badge:hover {
+  transform: scale(1.08) translateY(-2px);
+  background: #00215D;
+  border-color: #00215D;
+  color: #ffffff;
+  box-shadow: 0 8px 24px rgba(0, 33, 93, 0.35);
+}
+
+.sn-essence-card:hover .sn-essence-icon-badge svg,
+.sn-essence-card:hover .sn-essence-icon-badge [data-lucide],
+.sn-essence-card:hover .sn-essence-icon-badge .lucide,
+.sn-essence-icon-badge:hover svg,
+.sn-essence-icon-badge:hover [data-lucide],
+.sn-essence-icon-badge:hover .lucide {
+  color: #ffffff;
+  stroke: #ffffff;
+  transform: scale(1.04);
 }
 
 .sn-essence-card-title {
@@ -774,6 +803,11 @@
   background: #00215D;
   border-radius: 2px;
   margin-top: 5px;
+  transition: width 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.sn-essence-card:hover .sn-essence-title-line {
+  width: 42px;
 }
 
 .sn-essence-card-body {
@@ -986,33 +1020,33 @@
   height: 76px;
   border-radius: 50%;
   background: #ffffff;
-  border: 1.5px solid #0b192c;
+  border: 1.5px solid #00215D;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #0b192c;
+  color: #00215D;
   margin-bottom: 16px;
   position: relative;
-  transition: transform 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+  transition: transform 0.45s cubic-bezier(0.25, 0.8, 0.25, 1), background 0.45s cubic-bezier(0.25, 0.8, 0.25, 1), border-color 0.45s cubic-bezier(0.25, 0.8, 0.25, 1), color 0.45s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.45s cubic-bezier(0.25, 0.8, 0.25, 1);
   flex-shrink: 0;
   box-sizing: border-box;
 }
 
 .sn-step-node.sn-step-node-filled,
 .sn-step-unit:first-child .sn-step-node {
-  background: #0b192c;
-  border-color: #0b192c;
+  background: #00215D;
+  border-color: #00215D;
   color: #ffffff;
 }
 
-.sn-step-unit:hover .sn-step-node:not(.sn-step-node-filled) {
-  border-color: #00215D;
-  color: #00215D;
-  transform: translateY(-3px);
-}
-
-.sn-step-unit:hover .sn-step-node.sn-step-node-filled {
-  transform: translateY(-3px);
+.sn-step-node.sn-step-node-filled svg,
+.sn-step-node.sn-step-node-filled [data-lucide],
+.sn-step-node.sn-step-node-filled .lucide,
+.sn-step-unit:first-child .sn-step-node svg,
+.sn-step-unit:first-child .sn-step-node [data-lucide],
+.sn-step-unit:first-child .sn-step-node .lucide {
+  color: #ffffff;
+  stroke: #ffffff;
 }
 
 .sn-step-node svg,
@@ -1022,7 +1056,56 @@
   height: 28px;
   stroke: currentColor;
   stroke-width: 1.8;
-  transition: stroke 0.25s ease;
+  transition: stroke 0.45s cubic-bezier(0.25, 0.8, 0.25, 1), color 0.45s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Quando houver hover/foco em qualquer outra etapa (02, 03 ou 04), a primeira etapa (01) desativa seu preenchimento */
+.sn-process-track-zone:has(.sn-step-unit:not(:first-child):hover) .sn-step-unit:first-child .sn-step-node:not(:hover),
+.sn-process-track-zone:has(.sn-step-unit:not(:first-child):focus-within) .sn-step-unit:first-child .sn-step-node:not(:focus-within),
+.sn-process-track-zone.has-other-hover .sn-step-unit:first-child .sn-step-node:not(:hover),
+.sn-process-track-zone.has-other-hover .sn-step-unit:first-child .sn-step-node:not(:focus-within) {
+  background: #ffffff;
+  border-color: #00215D;
+  color: #00215D;
+  transform: none;
+}
+
+.sn-process-track-zone:has(.sn-step-unit:not(:first-child):hover) .sn-step-unit:first-child .sn-step-node:not(:hover) svg,
+.sn-process-track-zone:has(.sn-step-unit:not(:first-child):hover) .sn-step-unit:first-child .sn-step-node:not(:hover) [data-lucide],
+.sn-process-track-zone:has(.sn-step-unit:not(:first-child):hover) .sn-step-unit:first-child .sn-step-node:not(:hover) .lucide,
+.sn-process-track-zone:has(.sn-step-unit:not(:first-child):focus-within) .sn-step-unit:first-child .sn-step-node:not(:focus-within) svg,
+.sn-process-track-zone:has(.sn-step-unit:not(:first-child):focus-within) .sn-step-unit:first-child .sn-step-node:not(:focus-within) [data-lucide],
+.sn-process-track-zone:has(.sn-step-unit:not(:first-child):focus-within) .sn-step-unit:first-child .sn-step-node:not(:focus-within) .lucide,
+.sn-process-track-zone.has-other-hover .sn-step-unit:first-child .sn-step-node:not(:hover) svg,
+.sn-process-track-zone.has-other-hover .sn-step-unit:first-child .sn-step-node:not(:hover) [data-lucide],
+.sn-process-track-zone.has-other-hover .sn-step-unit:first-child .sn-step-node:not(:hover) .lucide,
+.sn-process-track-zone.has-other-hover .sn-step-unit:first-child .sn-step-node:not(:focus-within) svg,
+.sn-process-track-zone.has-other-hover .sn-step-unit:first-child .sn-step-node:not(:focus-within) [data-lucide],
+.sn-process-track-zone.has-other-hover .sn-step-unit:first-child .sn-step-node:not(:focus-within) .lucide {
+  color: #00215D;
+  stroke: #00215D;
+}
+
+.sn-step-unit.is-active .sn-step-node,
+.sn-step-unit:hover .sn-step-node,
+.sn-step-unit:focus-within .sn-step-node {
+  background: #00215D;
+  border-color: #00215D;
+  color: #ffffff;
+  transform: translateY(-3px);
+}
+
+.sn-step-unit.is-active .sn-step-node svg,
+.sn-step-unit.is-active .sn-step-node [data-lucide],
+.sn-step-unit.is-active .sn-step-node .lucide,
+.sn-step-unit:hover .sn-step-node svg,
+.sn-step-unit:hover .sn-step-node [data-lucide],
+.sn-step-unit:hover .sn-step-node .lucide,
+.sn-step-unit:focus-within .sn-step-node svg,
+.sn-step-unit:focus-within .sn-step-node [data-lucide],
+.sn-step-unit:focus-within .sn-step-node .lucide {
+  color: #ffffff;
+  stroke: #ffffff;
 }
 
 /* Setas Conectoras Minimalistas */
@@ -1031,7 +1114,7 @@
   align-items: center;
   justify-content: center;
   color: #00215D;
-  margin-top: 54px; /* Alinhado geometricamente ao centro do círculo */
+  margin-top: 55px; /* Alinhado geometricamente ao centro do círculo */
   flex-shrink: 0;
   padding: 0 2px;
   transition: transform 0.2s ease;
@@ -1497,7 +1580,7 @@
   }
 
   .sn-step-arrow {
-    margin-top: 46px;
+    margin-top: 47px;
   }
 
   .sn-step-arrow svg {
@@ -1590,7 +1673,7 @@
   }
 
   .sn-step-arrow {
-    margin-top: 42px;
+    margin-top: 43px;
   }
 
   .sn-step-arrow svg {
@@ -2051,9 +2134,27 @@
 
 .sn-page-wrapper.light-theme .sn-essence-icon-badge {
   background: rgba(0, 33, 93, 0.08);
-  border-color: #00215D;
+  border-color: rgba(0, 33, 93, 0.2);
   color: #00215D;
   box-shadow: 0 4px 12px rgba(0, 33, 93, 0.15);
+}
+
+.sn-page-wrapper.light-theme .sn-essence-card:hover .sn-essence-icon-badge,
+.sn-page-wrapper.light-theme .sn-essence-icon-badge:hover {
+  background: #00215D;
+  border-color: #00215D;
+  color: #ffffff;
+  box-shadow: 0 8px 24px rgba(0, 33, 93, 0.35);
+}
+
+.sn-page-wrapper.light-theme .sn-essence-card:hover .sn-essence-icon-badge svg,
+.sn-page-wrapper.light-theme .sn-essence-card:hover .sn-essence-icon-badge [data-lucide],
+.sn-page-wrapper.light-theme .sn-essence-card:hover .sn-essence-icon-badge .lucide,
+.sn-page-wrapper.light-theme .sn-essence-icon-badge:hover svg,
+.sn-page-wrapper.light-theme .sn-essence-icon-badge:hover [data-lucide],
+.sn-page-wrapper.light-theme .sn-essence-icon-badge:hover .lucide {
+  color: #ffffff;
+  stroke: #ffffff;
 }
 
 .sn-page-wrapper.light-theme .sn-circuit-corner svg {
