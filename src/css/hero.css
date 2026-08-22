@@ -440,11 +440,18 @@
   gap: 0;
   padding: 0 20px;
   text-align: center;
+  position: relative;
   transition: all 0.3s ease;
 }
 
-.benefit-item:not(:last-child) {
-  border-right: 1px solid rgba(0, 33, 93, 0.35);
+.benefit-item:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 15%;
+  height: 70%;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.15);
 }
 
 /* Hover nos itens da barra de benefícios */
@@ -545,8 +552,9 @@
     gap: 24px;
   }
   
-  .benefit-item:nth-child(2) {
-    border-right: none;
+  .benefit-item:nth-child(2)::after,
+  .benefit-item:last-child::after {
+    display: none;
   }
 
   .benefit-item {
@@ -602,8 +610,11 @@
   }
 
   .benefit-item {
-    border-right: none !important;
     padding: 0 10px;
+  }
+
+  .benefit-item:not(:last-child)::after {
+    display: none !important;
   }
 
   }
