@@ -43,9 +43,9 @@
   gap: 16px;
   margin-bottom: 20px;
   font-family: var(--font-primary);
-  font-size: 0.76rem;
+  font-size: var(--font-size-eyebrow, 12px);
   font-weight: 800;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: #00215D;
 }
@@ -80,9 +80,9 @@
 .sn-eyebrow-left {
   display: inline-block;
   font-family: var(--font-primary);
-  font-size: 0.76rem;
+  font-size: var(--font-size-eyebrow, 12px);
   font-weight: 800;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: #00215D;
   margin-bottom: 16px;

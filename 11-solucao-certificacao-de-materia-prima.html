@@ -36,7 +36,7 @@
   <link rel="stylesheet" href="./src/css/solucoes.css?v=95.0" />
   <link rel="stylesheet" href="./src/css/segmentos.css?v=96.0" />
   <link rel="stylesheet" href="./src/css/sobre-nos.css?v=171.0" />
-  <link rel="stylesheet" href="./src/css/servico-integridade.css?v=170.0" />
+  <link rel="stylesheet" href="./src/css/servico-integridade.css?v=171.0" />
   <link rel="stylesheet" href="./src/css/work-units-footer.css?v=97.0" />
   <link rel="stylesheet" href="./src/css/responsive.css?v=96.0" />
 
@@ -599,49 +599,16 @@
           <!-- COLUNA ESQUERDA: PAINEL LATERAL COM ARTE VETORIAL METALÚRGICA -->
           <aside class="ec-bento-sidebar">
             
-            <!-- Arte Vetorial de Ensaio de Tração e Rede Cristalina -->
-            <div class="ec-bento-sidebar-bridge-art" aria-hidden="true">
-              <svg viewBox="0 0 420 860" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMaxYMid meet">
-                <defs>
-                  <linearGradient id="metalGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.8"/>
-                    <stop offset="30%" stop-color="#ffffff" stop-opacity="0.6"/>
-                    <stop offset="100%" stop-color="#0055AA" stop-opacity="0.15"/>
-                  </linearGradient>
-                  <linearGradient id="crystalGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stop-color="#ffffff" stop-opacity="0.7"/>
-                    <stop offset="100%" stop-color="#ffffff" stop-opacity="0.05"/>
-                  </linearGradient>
-                </defs>
-
-                <!-- Corpo de Prova de Tração Esquemático -->
-                <path d="M170 120 L250 120 L250 200 L230 240 L230 380 L250 420 L250 500 L170 500 L170 420 L190 380 L190 240 L170 200 Z" stroke="url(#crystalGrad)" stroke-width="2.5" fill="rgba(0, 33, 93, 0.05)"/>
-                
-                <!-- Forças de Tração Opostas -->
-                <line x1="210" y1="60" x2="210" y2="110" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
-                <polygon points="210,50 200,70 220,70" fill="#ffffff"/>
-                
-                <line x1="210" y1="510" x2="210" y2="560" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
-                <polygon points="210,570 200,550 220,550" fill="#ffffff"/>
-
-                <!-- Curva Tensão x Deformação (Gráfico) -->
-                <g stroke="url(#metalGrad)" stroke-width="2">
-                  <path d="M120 720 L120 580 M120 720 L300 720" stroke-width="1.5" opacity="0.6"/>
-                  <path d="M120 720 Q160 620 200 600 T260 610 T280 650" fill="none" stroke="#ffffff" stroke-width="2.5"/>
-                  <circle cx="200" cy="600" r="4" fill="#FFFFFF"/>
-                  <circle cx="280" cy="650" r="4" fill="#ffffff"/>
-                </g>
-              </svg>
+            <!-- Foto de fundo com overlay degradê no rodapé do painel -->
+            <div class="ec-bento-sidebar-photo-wrap" aria-hidden="true">
+              <img src="./assets/Fotografias/originais-16-9/endcontrol-laboratorio-ensaio-dureza-digimess-certificacao-materiais.webp" alt="Certificação de Matéria-Prima EndControl" class="ec-bento-sidebar-photo" loading="lazy" />
+              <div class="ec-bento-sidebar-photo-fade"></div>
             </div>
-
-            <!-- Fade Suave para Leitura dos Textos -->
-            <div class="ec-bento-sidebar-fade" aria-hidden="true"></div>
 
             <!-- Conteúdo Principal do Painel -->
             <div class="ec-bento-sidebar-content">
               
-              <!-- Logo Oficial -->
-<!-- Eyebrow Tag -->
+              <!-- Eyebrow Tag -->
               <span class="sidebar-eyebrow">METALURGIA &amp; ENSAIOS</span>
 
               <!-- Headline Principal -->
@@ -649,18 +616,22 @@
                 Escopo técnico completo em <span class="highlight-cyan">ensaios mecânicos, químicos e metalográficos.</span>
               </h2>
 
-              <!-- Barra Ciano -->
-              <div class="sidebar-divider" aria-hidden="true"></div>
-
               <!-- Parágrafo Explicativo -->
               <p class="sidebar-paragraph">
                 Laboratório de ensaios mecânicos destrutivos, análise química e metalografia para homologação e garantia de materiais.
               </p>
 
-              <!-- 4 Pilares de Excelência -->
+              <!-- 4 Pilares de Excelência com Ícones Circulares -->
               <div class="sidebar-pillars-list">
                 
                 <div class="sidebar-pillar-item">
+                  <div class="sidebar-pillar-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                      <polyline points="14 2 14 8 20 8"/>
+                      <path d="m9 15 2 2 4-4"/>
+                    </svg>
+                  </div>
                   <div class="sidebar-pillar-info">
                     <h4 class="sidebar-pillar-title">Padrão EN 10204</h4>
                     <p class="sidebar-pillar-desc">Certificados de inspeção oficiais tipos 3.1 e 3.2.</p>
@@ -668,6 +639,13 @@
                 </div>
 
                 <div class="sidebar-pillar-item">
+                  <div class="sidebar-pillar-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+                      <polyline points="2 17 12 22 22 17"/>
+                      <polyline points="2 12 12 17 22 12"/>
+                    </svg>
+                  </div>
                   <div class="sidebar-pillar-info">
                     <h4 class="sidebar-pillar-title">Charpy até -196°C</h4>
                     <p class="sidebar-pillar-desc">Ensaios criogênicos com nitrogênio líquido.</p>
@@ -675,6 +653,12 @@
                 </div>
 
                 <div class="sidebar-pillar-item">
+                  <div class="sidebar-pillar-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="10"/>
+                      <polyline points="12 6 12 12 16 14"/>
+                    </svg>
+                  </div>
                   <div class="sidebar-pillar-info">
                     <h4 class="sidebar-pillar-title">Espectrometria Óptica</h4>
                     <p class="sidebar-pillar-desc">Quantificação elementar e cálculo de Carbono Eq.</p>
@@ -682,6 +666,12 @@
                 </div>
 
                 <div class="sidebar-pillar-item">
+                  <div class="sidebar-pillar-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                      <path d="m9 12 2 2 4-4"/>
+                    </svg>
+                  </div>
                   <div class="sidebar-pillar-info">
                     <h4 class="sidebar-pillar-title">Emissão de ART</h4>
                     <p class="sidebar-pillar-desc">Responsabilidade formal por Engenheiro Metalurgista.</p>
@@ -696,19 +686,27 @@
           <!-- COLUNA DIREITA: O EXPANDING BENTO GRID COM OS 7 SERVIÇOS OFICIAIS -->
           <div class="bento-expanding-wrapper">
 
-            <!-- LINHA 1 (1. Tração & Dobramento + 2. Dureza + Stack: 3. Charpy & 4. Química/PMI) -->
+            <!-- LINHA 1 (1. Tração & Dobramento + 2. Dureza + 3. Charpy + 4. Química/PMI) -->
             <div class="bento-row bento-row--top">
               
               <!-- 1. ENSAIOS DE TRAÇÃO, DOBRAMENTO E CISALHAMENTO -->
               <article class="ec-card-white bento-flex-card bento-card--hero" tabindex="0">
-<div class="ec-card-white-content ec-card-white-content">
-                  <div class="ec-card-white-head-row">
+                <div class="ec-card-white-content">
+                  <div class="ec-card-white-head">
+                    <div class="ec-card-white-top-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+                        <polyline points="2 17 12 22 22 17"/>
+                        <polyline points="2 12 12 17 22 12"/>
+                      </svg>
+                    </div>
+                    <span class="ec-card-tag">MECÂNICA</span>
                     <h3 class="ec-card-white-title">Tração, Dobramento &amp; Achatamento</h3>
                   </div>
                   <ul class="ec-card-white-checklist">
-                    <li>Determinação de Limite de Escoamento (YS), Resistência (UTS) e Alongamento</li>
-                    <li>Dobramento guiado de face, raiz e lateral para qualificação de solda</li>
-                    <li>Conformidade estrita com normas ASTM A370, ASTM E8 e ISO 6892</li>
+                    <li><span class="card-chevron" aria-hidden="true">&gt;</span>Determinação de Limite de Escoamento (YS), Resistência (UTS) e Alongamento</li>
+                    <li><span class="card-chevron" aria-hidden="true">&gt;</span>Dobramento guiado de face, raiz e lateral para qualificação de solda</li>
+                    <li><span class="card-chevron" aria-hidden="true">&gt;</span>Conformidade estrita com normas ASTM A370, ASTM E8 e ISO 6892</li>
                   </ul>
                 </div>
               </article>
@@ -716,46 +714,64 @@
               <!-- 2. ENSAIOS DE DUREZA E MICRODUREZA -->
               <article class="ec-card-white bento-flex-card bento-card--ends" tabindex="0">
                 <div class="ec-card-white-content">
-                  <div class="ec-card-white-head-row">
+                  <div class="ec-card-white-head">
+                    <div class="ec-card-white-top-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="3"/>
+                        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+                      </svg>
+                    </div>
+                    <span class="ec-card-tag">DUREZA</span>
                     <h3 class="ec-card-white-title">Dureza HB, HRC &amp; HV</h3>
                   </div>
                   <ul class="ec-card-white-checklist">
-                    <li>Dureza Brinell (ASTM E10) e Rockwell B/C (ASTM E18)</li>
-                    <li>Microdureza Vickers (ASTM E384) para perfis em ZTA e solda</li>
+                    <li><span class="card-chevron" aria-hidden="true">&gt;</span>Dureza Brinell (ASTM E10) e Rockwell B/C (ASTM E18)</li>
+                    <li><span class="card-chevron" aria-hidden="true">&gt;</span>Microdureza Vickers (ASTM E384) para perfis em ZTA e solda</li>
                   </ul>
                 </div>
               </article>
 
-              <!-- STACK VERTICAL: 3. Charpy & 4. Química/PMI -->
-              <div class="bento-stack-vertical bento-card--stack">
-                
-                <!-- 3. IMPACTO CHARPY V-NOTCH -->
-                <article class="ec-card-white bento-stack-item bento-card--geotecnia" tabindex="0">
-                  <div class="ec-card-white-content">
-                    <div class="ec-card-white-head-row">
-                      <h3 class="ec-card-white-title">Impacto Charpy V-Notch</h3>
+              <!-- 3. IMPACTO CHARPY V-NOTCH -->
+              <article class="ec-card-white bento-flex-card bento-card--geotecnia" tabindex="0">
+                <div class="ec-card-white-content">
+                  <div class="ec-card-white-head">
+                    <div class="ec-card-white-top-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                      </svg>
                     </div>
-                    <ul class="ec-card-white-checklist">
-                      <li>Tenacidade ao impacto até -196°C com N2 líquido</li>
-                      <li>Determinação de fratura dúctil/frágil (ASTM E23)</li>
-                    </ul>
+                    <span class="ec-card-tag">TENACIDADE</span>
+                    <h3 class="ec-card-white-title">Impacto Charpy V-Notch</h3>
                   </div>
-                </article>
+                  <ul class="ec-card-white-checklist">
+                    <li><span class="card-chevron" aria-hidden="true">&gt;</span>Tenacidade ao impacto até -196°C com N2 líquido</li>
+                    <li><span class="card-chevron" aria-hidden="true">&gt;</span>Determinação de fratura dúctil/frágil (ASTM E23)</li>
+                  </ul>
+                </div>
+              </article>
 
-                <!-- 4. ESPECTROMETRIA E PMI -->
-                <article class="ec-card-white bento-stack-item bento-card--monitoramento" tabindex="0">
-                  <div class="ec-card-white-content">
-                    <div class="ec-card-white-head-row">
-                      <h3 class="ec-card-white-title">Composição Química &amp; PMI</h3>
+              <!-- 4. ESPECTROMETRIA E PMI -->
+              <article class="ec-card-white bento-flex-card bento-card--monitoramento" tabindex="0">
+                <div class="ec-card-white-content">
+                  <div class="ec-card-white-head">
+                    <div class="ec-card-white-top-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/>
+                        <line x1="22" y1="12" x2="18" y2="12"/>
+                        <line x1="6" y1="12" x2="2" y2="12"/>
+                        <line x1="12" y1="6" x2="12" y2="2"/>
+                        <line x1="12" y1="22" x2="12" y2="18"/>
+                      </svg>
                     </div>
-                    <ul class="ec-card-white-checklist">
-                      <li>Espectrometria de emissão óptica quantitativa</li>
-                      <li>Cálculo de Carbono Equivalente (CE) e PMI in loco</li>
-                    </ul>
+                    <span class="ec-card-tag">QUÍMICA</span>
+                    <h3 class="ec-card-white-title">Composição Química &amp; PMI</h3>
                   </div>
-                </article>
-
-              </div>
+                  <ul class="ec-card-white-checklist">
+                    <li><span class="card-chevron" aria-hidden="true">&gt;</span>Espectrometria de emissão óptica quantitativa</li>
+                    <li><span class="card-chevron" aria-hidden="true">&gt;</span>Cálculo de Carbono Equivalente (CE) e PMI in loco</li>
+                  </ul>
+                </div>
+              </article>
 
             </div>
 
@@ -765,12 +781,19 @@
               <!-- 5. ANÁLISE METALOGRÁFICA E MACROGRAFIA -->
               <article class="ec-card-white bento-flex-card bento-card--inspecao" tabindex="0">
                 <div class="ec-card-white-content">
-                  <div class="ec-card-white-head-row">
+                  <div class="ec-card-white-head">
+                    <div class="ec-card-white-top-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"/>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                      </svg>
+                    </div>
+                    <span class="ec-card-tag">METALOGRAFIA</span>
                     <h3 class="ec-card-white-title">Metalografia &amp; Macrografia</h3>
                   </div>
                   <ul class="ec-card-white-checklist">
-                    <li>Tamanho de grão ferrítico e austenítico (ASTM E112)</li>
-                    <li>Contagem de inclusões não metálicas (ASTM E45)</li>
+                    <li><span class="card-chevron" aria-hidden="true">&gt;</span>Tamanho de grão ferrítico e austenítico (ASTM E112)</li>
+                    <li><span class="card-chevron" aria-hidden="true">&gt;</span>Contagem de inclusões não metálicas (ASTM E45)</li>
                   </ul>
                 </div>
               </article>
@@ -778,25 +801,40 @@
               <!-- 6. CERTIFICADOS EN 10204 -->
               <article class="ec-card-white bento-flex-card bento-card--integridade" tabindex="0">
                 <div class="ec-card-white-content">
-                  <div class="ec-card-white-head-row">
+                  <div class="ec-card-white-head">
+                    <div class="ec-card-white-top-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                        <polyline points="14 2 14 8 20 8"/>
+                        <path d="m9 15 2 2 4-4"/>
+                      </svg>
+                    </div>
+                    <span class="ec-card-tag">CONFORMIDADE</span>
                     <h3 class="ec-card-white-title">Certificados 3.1 &amp; 3.2</h3>
                   </div>
                   <ul class="ec-card-white-checklist">
-                    <li>Certificado tipo 3.1 com rastreabilidade metrológica</li>
-                    <li>Certificação 3.2 com testemunho de terceira parte</li>
+                    <li><span class="card-chevron" aria-hidden="true">&gt;</span>Certificado tipo 3.1 com rastreabilidade metrológica</li>
+                    <li><span class="card-chevron" aria-hidden="true">&gt;</span>Certificação 3.2 com testemunho de terceira parte</li>
                   </ul>
                 </div>
               </article>
 
               <!-- 7. LAUDO COM ART OFICIAL -->
               <article class="ec-card-white bento-flex-card bento-card--geometria" tabindex="0">
-<div class="ec-card-white-content">
-                  <div class="ec-card-white-head-row">
+                <div class="ec-card-white-content">
+                  <div class="ec-card-white-head">
+                    <div class="ec-card-white-top-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        <path d="m9 12 2 2 4-4"/>
+                      </svg>
+                    </div>
+                    <span class="ec-card-tag">LAUDO TÉCNICO</span>
                     <h3 class="ec-card-white-title">Laudo com ART Oficial</h3>
                   </div>
                   <ul class="ec-card-white-checklist">
-                    <li>Laudo conclusivo emitido por Engenheiro Metalurgista</li>
-                    <li>Anotação de Responsabilidade Técnica (ART) oficial</li>
+                    <li><span class="card-chevron" aria-hidden="true">&gt;</span>Laudo conclusivo emitido por Engenheiro Metalurgista</li>
+                    <li><span class="card-chevron" aria-hidden="true">&gt;</span>Anotação de Responsabilidade Técnica (ART) oficial</li>
                   </ul>
                 </div>
               </article>
@@ -808,6 +846,7 @@
         </div>
       </div>
     </section>
+
 
     <!-- =========================================================================
          5. NOSSA METODOLOGIA (FLUXO HORIZONTAL DE 4 ETAPAS)

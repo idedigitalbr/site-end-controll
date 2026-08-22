@@ -36,7 +36,7 @@
   <link rel="stylesheet" href="./src/css/solucoes.css?v=95.0" />
   <link rel="stylesheet" href="./src/css/segmentos.css?v=96.0" />
   <link rel="stylesheet" href="./src/css/sobre-nos.css?v=171.0" />
-  <link rel="stylesheet" href="./src/css/servico-integridade.css?v=170.0" />
+  <link rel="stylesheet" href="./src/css/servico-integridade.css?v=171.0" />
   <link rel="stylesheet" href="./src/css/work-units-footer.css?v=97.0" />
   <link rel="stylesheet" href="./src/css/responsive.css?v=96.0" />
 
@@ -618,102 +618,20 @@
         <div class="bento-master-layout">
           
           <!-- ==================================================================
-               COLUNA ESQUERDA: PAINEL LATERAL INSTITUCIONAL (COM ARTE DE ULTRASSOM)
+               COLUNA ESQUERDA: PAINEL LATERAL INSTITUCIONAL
                ================================================================== -->
           <aside class="ec-bento-sidebar">
             
-            <!-- Arte Vetorial de Transdutor Ultrassônico & Feixe Acústico Phased Array -->
-            <div class="ec-bento-sidebar-bridge-art" aria-hidden="true">
-              <svg viewBox="0 0 420 860" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMaxYMid meet">
-                <defs>
-                  <linearGradient id="utBeamGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.8"/>
-                    <stop offset="25%" stop-color="#00C2FF" stop-opacity="0.6"/>
-                    <stop offset="100%" stop-color="#0055AA" stop-opacity="0.1"/>
-                  </linearGradient>
-                  <linearGradient id="waveGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stop-color="#00C2FF" stop-opacity="0.65"/>
-                    <stop offset="70%" stop-color="#00C2FF" stop-opacity="0.2"/>
-                    <stop offset="100%" stop-color="#00C2FF" stop-opacity="0.02"/>
-                  </linearGradient>
-                  <filter id="utFlareGlow" x="-50%" y="-50%" width="200%" height="200%">
-                    <feGaussianBlur stdDeviation="6" result="blur1"/>
-                    <feGaussianBlur stdDeviation="15" result="blur2"/>
-                    <feMerge>
-                      <feMergeNode in="blur2"/>
-                      <feMergeNode in="blur1"/>
-                      <feMergeNode in="SourceGraphic"/>
-                    </feMerge>
-                  </filter>
-                </defs>
-
-                <!-- Sapata Acústica (Wedge) & Cabeçote Phased Array -->
-                <polygon points="270,120 390,120 350,220 230,220" fill="#031A38" stroke="url(#utBeamGrad)" stroke-width="2" fill-opacity="0.7"/>
-                <line x1="280" y1="120" x2="250" y2="220" stroke="#00C2FF" stroke-width="1.2" stroke-opacity="0.5"/>
-                <line x1="310" y1="120" x2="280" y2="220" stroke="#00C2FF" stroke-width="1.2" stroke-opacity="0.5"/>
-                <line x1="340" y1="120" x2="310" y2="220" stroke="#00C2FF" stroke-width="1.2" stroke-opacity="0.5"/>
-                <line x1="370" y1="120" x2="340" y2="220" stroke="#00C2FF" stroke-width="1.2" stroke-opacity="0.5"/>
-
-                <!-- Cristais Piezoelétricos (Array Elements) -->
-                <rect x="275" y="114" width="12" height="6" fill="#00C2FF" opacity="0.8"/>
-                <rect x="295" y="114" width="12" height="6" fill="#00C2FF" opacity="0.8"/>
-                <rect x="315" y="114" width="12" height="6" fill="#00C2FF" opacity="0.8"/>
-                <rect x="335" y="114" width="12" height="6" fill="#00C2FF" opacity="0.8"/>
-                <rect x="355" y="114" width="12" height="6" fill="#00C2FF" opacity="0.8"/>
-                <rect x="375" y="114" width="12" height="6" fill="#00C2FF" opacity="0.8"/>
-
-                <!-- Feixes Acústicos Setoriais (Sectorial Scanning Beams) -->
-                <line x1="290" y1="220" x2="30" y2="760" stroke="url(#waveGrad)" stroke-width="1.5"/>
-                <line x1="290" y1="220" x2="70" y2="760" stroke="url(#waveGrad)" stroke-width="1.2"/>
-                <line x1="290" y1="220" x2="110" y2="760" stroke="url(#waveGrad)" stroke-width="1.2"/>
-                <line x1="290" y1="220" x2="160" y2="760" stroke="url(#waveGrad)" stroke-width="1.2"/>
-                <line x1="290" y1="220" x2="210" y2="760" stroke="url(#waveGrad)" stroke-width="1.2"/>
-                <line x1="290" y1="220" x2="270" y2="760" stroke="url(#waveGrad)" stroke-width="1.2"/>
-                <line x1="290" y1="220" x2="330" y2="760" stroke="url(#waveGrad)" stroke-width="1.2"/>
-                <line x1="290" y1="220" x2="390" y2="760" stroke="url(#waveGrad)" stroke-width="1.2"/>
-                <line x1="290" y1="220" x2="450" y2="760" stroke="url(#waveGrad)" stroke-width="1.5"/>
-
-                <!-- Arcos de Frentes de Onda Acústica (Wavefronts) -->
-                <path d="M 230,340 A 130,130 0 0,1 360,340" fill="none" stroke="#00C2FF" stroke-width="1.2" stroke-opacity="0.6"/>
-                <path d="M 180,450 A 240,240 0 0,1 410,450" fill="none" stroke="#00C2FF" stroke-width="1.2" stroke-opacity="0.5"/>
-                <path d="M 120,570 A 370,370 0 0,1 470,570" fill="none" stroke="#00C2FF" stroke-width="1.5" stroke-opacity="0.4"/>
-                <path d="M 50,700 A 510,510 0 0,1 520,700" fill="none" stroke="#00C2FF" stroke-width="1.8" stroke-opacity="0.3"/>
-
-                <!-- Superfície de Ensaio / Peça Inspecionada -->
-                <line x1="10" y1="760" x2="480" y2="760" stroke="#00C2FF" stroke-width="2.5" stroke-opacity="0.8"/>
-                <line x1="10" y1="785" x2="480" y2="785" stroke="#00C2FF" stroke-width="1.5" stroke-opacity="0.5"/>
-                <line x1="10" y1="810" x2="480" y2="810" stroke="#00C2FF" stroke-width="1" stroke-opacity="0.3"/>
-
-                <!-- Grade de Rastreamento (Calibration Grid) -->
-                <line x1="60" y1="760" x2="60" y2="785" stroke="#00C2FF" stroke-width="1" stroke-opacity="0.5"/>
-                <line x1="110" y1="760" x2="110" y2="785" stroke="#00C2FF" stroke-width="1" stroke-opacity="0.5"/>
-                <line x1="160" y1="760" x2="160" y2="785" stroke="#00C2FF" stroke-width="1" stroke-opacity="0.5"/>
-                <line x1="210" y1="760" x2="210" y2="785" stroke="#00C2FF" stroke-width="1" stroke-opacity="0.5"/>
-                <line x1="260" y1="760" x2="260" y2="785" stroke="#00C2FF" stroke-width="1" stroke-opacity="0.5"/>
-                <line x1="310" y1="760" x2="310" y2="785" stroke="#00C2FF" stroke-width="1" stroke-opacity="0.5"/>
-                <line x1="360" y1="760" x2="360" y2="785" stroke="#00C2FF" stroke-width="1" stroke-opacity="0.5"/>
-
-                <!-- Flare Estelar no Ponto de Emissão Acústica -->
-                <g filter="url(#utFlareGlow)">
-                  <circle cx="290" cy="220" r="16" fill="#00C2FF" fill-opacity="0.35"/>
-                  <circle cx="290" cy="220" r="7" fill="#00C2FF" fill-opacity="0.8"/>
-                  <circle cx="290" cy="220" r="3" fill="#FFFFFF"/>
-                  <line x1="265" y1="220" x2="315" y2="220" stroke="#FFFFFF" stroke-width="1.5" stroke-opacity="0.9"/>
-                  <line x1="290" y1="195" x2="290" y2="245" stroke="#FFFFFF" stroke-width="1.5" stroke-opacity="0.9"/>
-                  <line x1="272" y1="202" x2="308" y2="238" stroke="#00C2FF" stroke-width="1" stroke-opacity="0.7"/>
-                  <line x1="272" y1="238" x2="308" y2="202" stroke="#00C2FF" stroke-width="1" stroke-opacity="0.7"/>
-                </g>
-              </svg>
+            <!-- Foto de fundo com overlay degradê no rodapé do painel -->
+            <div class="ec-bento-sidebar-photo-wrap" aria-hidden="true">
+              <img src="./assets/Fotografias/originais-16-9/endcontrol-ensaios-nao-destrutivos-ultrassom-medicao-espessura-naval.webp" alt="Ensaios Não Destrutivos EndControl" class="ec-bento-sidebar-photo" loading="lazy" />
+              <div class="ec-bento-sidebar-photo-fade"></div>
             </div>
-
-            <!-- Fade Suave para Leitura dos Textos -->
-            <div class="ec-bento-sidebar-fade" aria-hidden="true"></div>
 
             <!-- Conteúdo Principal do Painel -->
             <div class="ec-bento-sidebar-content">
               
-              <!-- Logo Oficial -->
-<!-- Eyebrow Tag -->
+              <!-- Eyebrow Tag -->
               <span class="sidebar-eyebrow">MÉTODOS NÃO DESTRUTIVOS</span>
 
               <!-- Headline Principal -->
@@ -721,19 +639,22 @@
                 Tecnologias convencionais e avançadas para <span class="highlight-cyan">inspeção e integridade de ativos.</span>
               </h2>
 
-              <!-- Barra Ciano -->
-              <div class="sidebar-divider" aria-hidden="true"></div>
-
               <!-- Parágrafo Explicativo -->
               <p class="sidebar-paragraph">
                 Detectamos descontinuidades e falhas potenciais sem danificar os componentes, assegurando máxima confiabilidade operacional e conformidade normativa.
               </p>
 
-              <!-- 4 Pilares de Excelência (Logo Abaixo do Texto) -->
+              <!-- 3 Pilares com Ícones Circulares -->
               <div class="sidebar-pillars-list">
                 
                 <!-- Pilar 1: Preservação -->
                 <div class="sidebar-pillar-item">
+                  <div class="sidebar-pillar-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                      <path d="m9 12 2 2 4-4"/>
+                    </svg>
+                  </div>
                   <div class="sidebar-pillar-info">
                     <h4 class="sidebar-pillar-title">Preservação do ativo</h4>
                     <p class="sidebar-pillar-desc">Inspeção 100% não destrutiva sem alterar características.</p>
@@ -742,6 +663,14 @@
 
                 <!-- Pilar 2: Detecção Precoce -->
                 <div class="sidebar-pillar-item">
+                  <div class="sidebar-pillar-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="11" cy="11" r="8"/>
+                      <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                      <line x1="11" y1="8" x2="11" y2="14"/>
+                      <line x1="8" y1="11" x2="14" y2="11"/>
+                    </svg>
+                  </div>
                   <div class="sidebar-pillar-info">
                     <h4 class="sidebar-pillar-title">Detecção precoce</h4>
                     <p class="sidebar-pillar-desc">Identificação precisa de trincas, vazios e inclusões.</p>
@@ -750,17 +679,18 @@
 
                 <!-- Pilar 3: Alta Tecnologia -->
                 <div class="sidebar-pillar-item">
+                  <div class="sidebar-pillar-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="18" cy="5" r="3"/>
+                      <circle cx="6" cy="12" r="3"/>
+                      <circle cx="18" cy="19" r="3"/>
+                      <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+                      <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+                    </svg>
+                  </div>
                   <div class="sidebar-pillar-info">
                     <h4 class="sidebar-pillar-title">Alta tecnologia</h4>
                     <p class="sidebar-pillar-desc">Ultrassom Phased Array, TOFD e Radiografia Digital.</p>
-                  </div>
-                </div>
-
-                <!-- Pilar 4: Qualificação -->
-                <div class="sidebar-pillar-item">
-                  <div class="sidebar-pillar-info">
-                    <h4 class="sidebar-pillar-title">Qualificação e rigor</h4>
-                    <p class="sidebar-pillar-desc">Inspetores certificados SNQC, ASNT e normas ISO.</p>
                   </div>
                 </div>
 
@@ -774,70 +704,90 @@
                ================================================================== -->
           <div class="bento-expanding-wrapper">
 
-            <!-- LINHA 1 (1. PAUT/TOFD + 2. Visual & Videoscopia + Stack: 3. LP & 4. PM) -->
+            <!-- LINHA 1 (1. PAUT/TOFD + 2. Visual & Videoscopia + 3. LP + 4. PM) -->
             <div class="bento-row bento-row--top">
               
               <!-- 1. ULTRASSOM PHASED ARRAY & TOFD -->
               <article class="ec-card-white bento-flex-card bento-card--hero" tabindex="0">
-                <span class="ec-card-badge ec-card-badge--avancado">Avançado</span>
-<div class="ec-card-white-content ec-card-white-content">
-                  <div class="ec-card-white-head-row">
+                <div class="ec-card-white-content">
+                  <div class="ec-card-white-head">
+                    <div class="ec-card-white-top-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+                        <polyline points="2 17 12 22 22 17"/>
+                        <polyline points="2 12 12 17 22 12"/>
+                      </svg>
+                    </div>
+                    <span class="ec-card-tag">AVANÇADO</span>
                     <h3 class="ec-card-white-title">Phased Array & TOFD</h3>
                   </div>
                   <ul class="ec-card-white-checklist">
-                    <li>Varredura setorial e focalização eletrônica</li>
-                    <li>Mapeamento volumétrico com múltiplos ângulos em tempo real</li>
-                    <li>Dimensionamento preciso de altura e comprimento de trincas</li>
+                    <li><span class="card-chevron" aria-hidden="true">&gt;</span>Varredura setorial e focalização eletrônica</li>
+                    <li><span class="card-chevron" aria-hidden="true">&gt;</span>Mapeamento volumétrico com múltiplos ângulos em tempo real</li>
+                    <li><span class="card-chevron" aria-hidden="true">&gt;</span>Dimensionamento preciso de altura e comprimento de trincas</li>
                   </ul>
                 </div>
               </article>
 
               <!-- 2. INSPEÇÃO VISUAL & VIDEOSCOPIA -->
               <article class="ec-card-white bento-flex-card bento-card--ends" tabindex="0">
-                <span class="ec-card-badge ec-card-badge--convencional">Convencional</span>
                 <div class="ec-card-white-content">
-                  <div class="ec-card-white-head-row">
+                  <div class="ec-card-white-head">
+                    <div class="ec-card-white-top-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/>
+                        <circle cx="12" cy="12" r="3"/>
+                      </svg>
+                    </div>
+                    <span class="ec-card-tag">CONVENCIONAL</span>
                     <h3 class="ec-card-white-title">Inspeção Visual (EV & EVI)</h3>
                   </div>
                   <ul class="ec-card-white-checklist">
-                    <li>Avaliação dimensional e superficial detalhada</li>
-                    <li>Videoscopia remota em tubulações e cavidades internas</li>
+                    <li><span class="card-chevron" aria-hidden="true">&gt;</span>Avaliação dimensional e superficial detalhada</li>
+                    <li><span class="card-chevron" aria-hidden="true">&gt;</span>Videoscopia remota em tubulações e cavidades internas</li>
                   </ul>
                 </div>
               </article>
 
-              <!-- STACK VERTICAL: 3. Líquido Penetrante & 4. Partículas Magnéticas -->
-              <div class="bento-stack-vertical bento-card--stack">
-                
-                <!-- 3. LÍQUIDO PENETRANTE -->
-                <article class="ec-card-white bento-stack-item bento-card--geotecnia" tabindex="0">
-                  <span class="ec-card-badge ec-card-badge--convencional">Convencional</span>
-<div class="ec-card-white-content">
-                    <div class="ec-card-white-head-row">
-                      <h3 class="ec-card-white-title">Líquido Penetrante (LP)</h3>
+              <!-- 3. LÍQUIDO PENETRANTE -->
+              <article class="ec-card-white bento-flex-card bento-card--geotecnia" tabindex="0">
+                <div class="ec-card-white-content">
+                  <div class="ec-card-white-head">
+                    <div class="ec-card-white-top-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
+                      </svg>
                     </div>
-                    <ul class="ec-card-white-checklist">
-                      <li>Detecção de descontinuidades abertas à superfície</li>
-                      <li>Alta sensibilidade em materiais não porosos</li>
-                    </ul>
+                    <span class="ec-card-tag">CONVENCIONAL</span>
+                    <h3 class="ec-card-white-title">Líquido Penetrante (LP)</h3>
                   </div>
-                </article>
+                  <ul class="ec-card-white-checklist">
+                    <li><span class="card-chevron" aria-hidden="true">&gt;</span>Detecção de descontinuidades abertas à superfície</li>
+                    <li><span class="card-chevron" aria-hidden="true">&gt;</span>Alta sensibilidade em materiais não porosos</li>
+                  </ul>
+                </div>
+              </article>
 
-                <!-- 4. PARTÍCULAS MAGNÉTICAS -->
-                <article class="ec-card-white bento-stack-item bento-card--monitoramento" tabindex="0">
-                  <span class="ec-card-badge ec-card-badge--convencional">Convencional</span>
-<div class="ec-card-white-content">
-                    <div class="ec-card-white-head-row">
-                      <h3 class="ec-card-white-title">Partículas Magnéticas (PM)</h3>
+              <!-- 4. PARTÍCULAS MAGNÉTICAS -->
+              <article class="ec-card-white bento-flex-card bento-card--monitoramento" tabindex="0">
+                <div class="ec-card-white-content">
+                  <div class="ec-card-white-head">
+                    <div class="ec-card-white-top-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m6 15-4-4 6.75-6.77a7.79 7.79 0 0 1 11 11L13 22l-4-4 6.35-6.35a2.85 2.85 0 0 0-4-4.03L6 15Z"/>
+                        <path d="m5 8 4 4"/>
+                        <path d="m12 15 4 4"/>
+                      </svg>
                     </div>
-                    <ul class="ec-card-white-checklist">
-                      <li>Revelação de trincas superficiais e subsuperficiais</li>
-                      <li>Método ágil para materiais ferromagnéticos</li>
-                    </ul>
+                    <span class="ec-card-tag">CONVENCIONAL</span>
+                    <h3 class="ec-card-white-title">Partículas Magnéticas (PM)</h3>
                   </div>
-                </article>
-
-              </div>
+                  <ul class="ec-card-white-checklist">
+                    <li><span class="card-chevron" aria-hidden="true">&gt;</span>Revelação de trincas superficiais e subsuperficiais</li>
+                    <li><span class="card-chevron" aria-hidden="true">&gt;</span>Método ágil para materiais ferromagnéticos</li>
+                  </ul>
+                </div>
+              </article>
 
             </div>
 
@@ -846,54 +796,84 @@
 
               <!-- 5. ULTRASSOM CONVENCIONAL -->
               <article class="ec-card-white bento-flex-card bento-card--inspecao" tabindex="0">
-                <span class="ec-card-badge ec-card-badge--convencional">Convencional</span>
                 <div class="ec-card-white-content">
-                  <div class="ec-card-white-head-row">
+                  <div class="ec-card-white-head">
+                    <div class="ec-card-white-top-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4.9 19.1C1 15.2 1 8.8 4.9 4.9"/>
+                        <path d="M7.8 16.2c-2.3-2.3-2.3-6.1 0-8.5"/>
+                        <circle cx="12" cy="12" r="2"/>
+                        <path d="M16.2 7.8c2.3 2.3 2.3 6.1 0 8.5"/>
+                        <path d="M19.1 4.9C23 8.8 23 15.1 19.1 19.1"/>
+                      </svg>
+                    </div>
+                    <span class="ec-card-tag">CONVENCIONAL</span>
                     <h3 class="ec-card-white-title">Ultrassom Convencional (US)</h3>
                   </div>
                   <ul class="ec-card-white-checklist">
-                    <li>Medição de espessura e descontinuidades</li>
-                    <li>Avaliação volumétrica de soldas e fundidos</li>
+                    <li><span class="card-chevron" aria-hidden="true">&gt;</span>Medição de espessura e descontinuidades</li>
+                    <li><span class="card-chevron" aria-hidden="true">&gt;</span>Avaliação volumétrica de soldas e fundidos</li>
                   </ul>
                 </div>
               </article>
 
               <!-- 6. RADIOGRAFIA INDUSTRIAL & DIGITAL -->
               <article class="ec-card-white bento-flex-card bento-card--materiais" tabindex="0">
-                <span class="ec-card-badge ec-card-badge--avancado">Avançado</span>
                 <div class="ec-card-white-content">
-                  <div class="ec-card-white-head-row">
+                  <div class="ec-card-white-head">
+                    <div class="ec-card-white-top-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="3" width="18" height="18" rx="2"/>
+                        <path d="M12 8v8"/>
+                        <path d="M8 12h8"/>
+                      </svg>
+                    </div>
+                    <span class="ec-card-tag">AVANÇADO</span>
                     <h3 class="ec-card-white-title">Radiografia (RI & DR)</h3>
                   </div>
                   <ul class="ec-card-white-checklist">
-                    <li>Mapeamento interno de juntas soldadas</li>
-                    <li>Radiografia Digital (DR/CR) imediata</li>
+                    <li><span class="card-chevron" aria-hidden="true">&gt;</span>Mapeamento interno de juntas soldadas</li>
+                    <li><span class="card-chevron" aria-hidden="true">&gt;</span>Radiografia Digital (DR/CR) imediata</li>
                   </ul>
                 </div>
               </article>
 
               <!-- 7. ESTANQUEIDADE -->
               <article class="ec-card-white bento-flex-card bento-card--integridade" tabindex="0">
-                <span class="ec-card-badge ec-card-badge--convencional">Convencional</span>
                 <div class="ec-card-white-content">
-                  <h3 class="ec-card-white-title">Estanqueidade (LT)</h3>
+                  <div class="ec-card-white-head">
+                    <div class="ec-card-white-top-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M12 6v6l4 2"/>
+                      </svg>
+                    </div>
+                    <span class="ec-card-tag">CONVENCIONAL</span>
+                    <h3 class="ec-card-white-title">Estanqueidade (LT)</h3>
+                  </div>
                   <ul class="ec-card-white-checklist">
-                    <li>Detecção de vazamentos por pressão e vácuo</li>
-                    <li>Garantia de vedação em tanques e vasos</li>
+                    <li><span class="card-chevron" aria-hidden="true">&gt;</span>Detecção de vazamentos por pressão e vácuo</li>
+                    <li><span class="card-chevron" aria-hidden="true">&gt;</span>Garantia de vedação em tanques e vasos</li>
                   </ul>
                 </div>
               </article>
 
               <!-- 8. RÉPLICAS METALOGRÁFICAS -->
               <article class="ec-card-white bento-flex-card bento-card--geometria" tabindex="0">
-                <span class="ec-card-badge ec-card-badge--avancado">Avançado</span>
-<div class="ec-card-white-content">
-                  <div class="ec-card-white-head-row">
+                <div class="ec-card-white-content">
+                  <div class="ec-card-white-head">
+                    <div class="ec-card-white-top-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"/>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                      </svg>
+                    </div>
+                    <span class="ec-card-tag">AVANÇADO</span>
                     <h3 class="ec-card-white-title">Réplicas Metalográficas</h3>
                   </div>
                   <ul class="ec-card-white-checklist">
-                    <li>Caracterização microestrutural in-situ</li>
-                    <li>Avaliação de danos por fluência térmica</li>
+                    <li><span class="card-chevron" aria-hidden="true">&gt;</span>Caracterização microestrutural in-situ</li>
+                    <li><span class="card-chevron" aria-hidden="true">&gt;</span>Avaliação de danos por fluência térmica</li>
                   </ul>
                 </div>
               </article>
@@ -905,42 +885,61 @@
 
               <!-- 9. ONDAS GUIADAS & EMAT -->
               <article class="ec-card-white bento-flex-card bento-card--topografia" tabindex="0">
-                <span class="ec-card-badge ec-card-badge--avancado">Avançado</span>
-<div class="ec-card-white-content">
-                  <div class="ec-card-white-head-row">
+                <div class="ec-card-white-content">
+                  <div class="ec-card-white-head">
+                    <div class="ec-card-white-top-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M2 12h20"/>
+                        <path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-6"/>
+                        <path d="M12 2v10"/>
+                      </svg>
+                    </div>
+                    <span class="ec-card-tag">AVANÇADO</span>
                     <h3 class="ec-card-white-title">Ondas Guiadas & EMAT</h3>
                   </div>
                   <ul class="ec-card-white-checklist">
-                    <li>Inspeção de tubulações de longo alcance</li>
-                    <li>Acoplamento sem necessidade de gel</li>
+                    <li><span class="card-chevron" aria-hidden="true">&gt;</span>Inspeção de tubulações de longo alcance</li>
+                    <li><span class="card-chevron" aria-hidden="true">&gt;</span>Acoplamento sem necessidade de gel</li>
                   </ul>
                 </div>
               </article>
 
               <!-- 10. CORRENTES PARASITAS & ACFM -->
               <article class="ec-card-white bento-flex-card bento-card--gpr" tabindex="0">
-                <span class="ec-card-badge ec-card-badge--avancado">Avançado</span>
-<div class="ec-card-white-content">
-                  <div class="ec-card-white-head-row">
+                <div class="ec-card-white-content">
+                  <div class="ec-card-white-head">
+                    <div class="ec-card-white-top-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/>
+                        <path d="M2 12h20"/>
+                      </svg>
+                    </div>
+                    <span class="ec-card-tag">AVANÇADO</span>
                     <h3 class="ec-card-white-title">Correntes Parasitas & ACFM</h3>
                   </div>
                   <ul class="ec-card-white-checklist">
-                    <li>Detecção de trincas sob revestimentos</li>
-                    <li>Inspeção em tubos de trocadores de calor</li>
+                    <li><span class="card-chevron" aria-hidden="true">&gt;</span>Detecção de trincas sob revestimentos</li>
+                    <li><span class="card-chevron" aria-hidden="true">&gt;</span>Inspeção em tubos de trocadores de calor</li>
                   </ul>
                 </div>
               </article>
 
               <!-- 11. TERMOGRAFIA INFRAVERMELHA -->
               <article class="ec-card-white bento-flex-card bento-card--analise" tabindex="0">
-                <span class="ec-card-badge ec-card-badge--convencional">Convencional</span>
                 <div class="ec-card-white-content">
-                  <div class="ec-card-white-head-row">
+                  <div class="ec-card-white-head">
+                    <div class="ec-card-white-top-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/>
+                      </svg>
+                    </div>
+                    <span class="ec-card-tag">CONVENCIONAL</span>
                     <h3 class="ec-card-white-title">Termografia Infravermelha</h3>
                   </div>
                   <ul class="ec-card-white-checklist">
-                    <li>Mapeamento térmico de perdas e refratários</li>
-                    <li>Detecção de sobreaquecimento elétrico</li>
+                    <li><span class="card-chevron" aria-hidden="true">&gt;</span>Mapeamento térmico de perdas e refratários</li>
+                    <li><span class="card-chevron" aria-hidden="true">&gt;</span>Detecção de sobreaquecimento elétrico</li>
                   </ul>
                 </div>
               </article>
@@ -952,42 +951,63 @@
 
               <!-- 12. EMISSÃO ACÚSTICA -->
               <article class="ec-card-white bento-flex-card bento-card--stack" tabindex="0">
-                <span class="ec-card-badge ec-card-badge--avancado">Avançado</span>
                 <div class="ec-card-white-content">
-                  <div class="ec-card-white-head-row">
+                  <div class="ec-card-white-head">
+                    <div class="ec-card-white-top-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                      </svg>
+                    </div>
+                    <span class="ec-card-tag">AVANÇADO</span>
                     <h3 class="ec-card-white-title">Emissão Acústica (EA)</h3>
                   </div>
                   <ul class="ec-card-white-checklist">
-                    <li>Monitoramento dinâmico de trincas</li>
-                    <li>Teste hidrostático monitorado em vasos</li>
+                    <li><span class="card-chevron" aria-hidden="true">&gt;</span>Monitoramento dinâmico de trincas</li>
+                    <li><span class="card-chevron" aria-hidden="true">&gt;</span>Teste hidrostático monitorado em vasos</li>
                   </ul>
                 </div>
               </article>
 
               <!-- 13. DRONES & INSPEÇÃO REMOTA -->
               <article class="ec-card-white bento-flex-card bento-card--documentacao" tabindex="0">
-                <span class="ec-card-badge ec-card-badge--avancado">Avançado</span>
-<div class="ec-card-white-content">
-                  <div class="ec-card-white-head-row">
+                <div class="ec-card-white-content">
+                  <div class="ec-card-white-head">
+                    <div class="ec-card-white-top-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2v20"/>
+                        <path d="m17 5 4 4"/>
+                        <path d="m7 5-4 4"/>
+                        <path d="m17 19 4-4"/>
+                        <path d="m7 19-4-4"/>
+                      </svg>
+                    </div>
+                    <span class="ec-card-tag">AVANÇADO</span>
                     <h3 class="ec-card-white-title">Inspeção com Drones</h3>
                   </div>
                   <ul class="ec-card-white-checklist">
-                    <li>Acesso seguro em tochas (flare) e chaminés</li>
-                    <li>Imagens de alta resolução e termografia aérea</li>
+                    <li><span class="card-chevron" aria-hidden="true">&gt;</span>Acesso seguro em tochas (flare) e chaminés</li>
+                    <li><span class="card-chevron" aria-hidden="true">&gt;</span>Imagens de alta resolução e termografia aérea</li>
                   </ul>
                 </div>
               </article>
 
               <!-- 14. LAUDOS E PROCEDIMENTOS TÉCNICOS -->
               <article class="ec-card-white bento-flex-card bento-card--consultoria" tabindex="0">
-                <span class="ec-card-badge ec-card-badge--convencional">Convencional</span>
-<div class="ec-card-white-content">
-                  <div class="ec-card-white-head-row">
+                <div class="ec-card-white-content">
+                  <div class="ec-card-white-head">
+                    <div class="ec-card-white-top-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                        <polyline points="14 2 14 8 20 8"/>
+                        <path d="m9 15 2 2 4-4"/>
+                      </svg>
+                    </div>
+                    <span class="ec-card-tag">DOCUMENTAÇÃO</span>
                     <h3 class="ec-card-white-title">Laudos Normativos</h3>
                   </div>
                   <ul class="ec-card-white-checklist">
-                    <li>Qualificação de procedimentos e rastreabilidade</li>
-                    <li>Laudos conclusivos conforme ASME, AWS e ISO</li>
+                    <li><span class="card-chevron" aria-hidden="true">&gt;</span>Qualificação de procedimentos e rastreabilidade</li>
+                    <li><span class="card-chevron" aria-hidden="true">&gt;</span>Laudos conclusivos conforme ASME, AWS e ISO</li>
                   </ul>
                 </div>
               </article>

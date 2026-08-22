@@ -36,7 +36,7 @@
   <link rel="stylesheet" href="./src/css/solucoes.css?v=95.0" />
   <link rel="stylesheet" href="./src/css/segmentos.css?v=96.0" />
   <link rel="stylesheet" href="./src/css/sobre-nos.css?v=171.0" />
-  <link rel="stylesheet" href="./src/css/servico-integridade.css?v=170.0" />
+  <link rel="stylesheet" href="./src/css/servico-integridade.css?v=171.0" />
   <link rel="stylesheet" href="./src/css/work-units-footer.css?v=97.0" />
   <link rel="stylesheet" href="./src/css/responsive.css?v=96.0" />
 
@@ -601,67 +601,19 @@
         
         <div class="bento-master-layout">
           
-          <!-- COLUNA ESQUERDA: PAINEL LATERAL INSTITUCIONAL COM ARTE VETORIAL -->
+          <!-- COLUNA ESQUERDA: PAINEL LATERAL INSTITUCIONAL -->
           <aside class="ec-bento-sidebar">
             
-            <!-- Arte Vetorial de Gestão e Engenharia de Projetos -->
-            <div class="ec-bento-sidebar-bridge-art" aria-hidden="true">
-              <svg viewBox="0 0 420 860" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMaxYMid meet">
-                <defs>
-                  <linearGradient id="projGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.75"/>
-                    <stop offset="30%" stop-color="#ffffff" stop-opacity="0.6"/>
-                    <stop offset="100%" stop-color="#0055AA" stop-opacity="0.15"/>
-                  </linearGradient>
-                  <linearGradient id="gridGradProj" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stop-color="#ffffff" stop-opacity="0.7"/>
-                    <stop offset="70%" stop-color="#ffffff" stop-opacity="0.25"/>
-                    <stop offset="100%" stop-color="#ffffff" stop-opacity="0.05"/>
-                  </linearGradient>
-                </defs>
-
-                <!-- Grid de Cronograma e Matriz de Controle -->
-                <g stroke="url(#gridGradProj)" stroke-width="1.2" stroke-dasharray="4 4">
-                  <line x1="40" y1="120" x2="380" y2="120"/>
-                  <line x1="40" y1="200" x2="380" y2="200"/>
-                  <line x1="40" y1="280" x2="380" y2="280"/>
-                  <line x1="40" y1="360" x2="380" y2="360"/>
-                  <line x1="40" y1="440" x2="380" y2="440"/>
-                  <line x1="40" y1="520" x2="380" y2="520"/>
-                  <line x1="40" y1="600" x2="380" y2="600"/>
-                  <line x1="100" y1="80" x2="100" y2="680"/>
-                  <line x1="200" y1="80" x2="200" y2="680"/>
-                  <line x1="300" y1="80" x2="300" y2="680"/>
-                </g>
-
-                <!-- Prancheta / Diagrama de Fluxo Central -->
-                <rect x="70" y="160" width="280" height="420" rx="16" stroke="url(#projGrad)" stroke-width="2" fill="rgba(0, 33, 93, 0.04)"/>
-                <rect x="150" y="140" width="120" height="40" rx="8" stroke="#ffffff" stroke-width="2" fill="#0c1a30"/>
-                <circle cx="210" cy="160" r="6" fill="#ffffff"/>
-
-                <!-- Linhas de Indicadores e Barras de Progresso -->
-                <rect x="100" y="230" width="180" height="12" rx="6" fill="#ffffff" opacity="0.8"/>
-                <rect x="100" y="270" width="220" height="12" rx="6" fill="#ffffff" opacity="0.6"/>
-                <rect x="100" y="310" width="150" height="12" rx="6" fill="#ffffff" opacity="0.9"/>
-                <rect x="100" y="350" width="200" height="12" rx="6" fill="#ffffff" opacity="0.7"/>
-                
-                <!-- Nós de Inspeção e Auditoria -->
-                <circle cx="290" cy="430" r="18" stroke="#ffffff" stroke-width="2" fill="rgba(0, 33, 93, 0.2)"/>
-                <path d="M282 430l6 6 12-12" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                
-                <circle cx="150" cy="490" r="18" stroke="#ffffff" stroke-width="2" fill="rgba(0, 33, 93, 0.2)"/>
-                <path d="M142 490l6 6 12-12" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
+            <!-- Foto de fundo com overlay degradê no rodapé do painel -->
+            <div class="ec-bento-sidebar-photo-wrap" aria-hidden="true">
+              <img src="./assets/Fotografias/originais-16-9/endcontrol-institucional-lideranca-gestao-projetos-escritorio.webp" alt="Gerenciamento de Projetos EndControl" class="ec-bento-sidebar-photo" loading="lazy" />
+              <div class="ec-bento-sidebar-photo-fade"></div>
             </div>
-
-            <!-- Fade Suave para Leitura dos Textos -->
-            <div class="ec-bento-sidebar-fade" aria-hidden="true"></div>
 
             <!-- Conteúdo Principal do Painel -->
             <div class="ec-bento-sidebar-content">
               
-              <!-- Logo Oficial -->
-<!-- Eyebrow Tag -->
+              <!-- Eyebrow Tag -->
               <span class="sidebar-eyebrow">GERENCIAMENTO &amp; FISCALIZAÇÃO</span>
 
               <!-- Headline Principal -->
@@ -669,18 +621,21 @@
                 Escopo técnico completo para <span class="highlight-cyan">governança e controle de obras industriais.</span>
               </h2>
 
-              <!-- Barra Ciano -->
-              <div class="sidebar-divider" aria-hidden="true"></div>
-
               <!-- Parágrafo Explicativo -->
               <p class="sidebar-paragraph">
                 Engenharia de fiscalização e auditoria técnica que assegura total conformidade com projetos executivos, normas regulamentadoras e padrões de qualidade.
               </p>
 
-              <!-- 4 Pilares de Excelência -->
+              <!-- 4 Pilares de Excelência com Ícones Circulares -->
               <div class="sidebar-pillars-list">
                 
                 <div class="sidebar-pillar-item">
+                  <div class="sidebar-pillar-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                      <path d="m9 12 2 2 4-4"/>
+                    </svg>
+                  </div>
                   <div class="sidebar-pillar-info">
                     <h4 class="sidebar-pillar-title">Rigor Normativo</h4>
                     <p class="sidebar-pillar-desc">Conformidade estrita com normas ABNT, ASME, AWS e API.</p>
@@ -688,6 +643,12 @@
                 </div>
 
                 <div class="sidebar-pillar-item">
+                  <div class="sidebar-pillar-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="10"/>
+                      <polyline points="12 6 12 12 16 14"/>
+                    </svg>
+                  </div>
                   <div class="sidebar-pillar-info">
                     <h4 class="sidebar-pillar-title">Previsibilidade Total</h4>
                     <p class="sidebar-pillar-desc">Controle rigoroso de prazos, custos e avanço físico.</p>
@@ -695,6 +656,13 @@
                 </div>
 
                 <div class="sidebar-pillar-item">
+                  <div class="sidebar-pillar-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                      <polyline points="14 2 14 8 20 8"/>
+                      <path d="m9 15 2 2 4-4"/>
+                    </svg>
+                  </div>
                   <div class="sidebar-pillar-info">
                     <h4 class="sidebar-pillar-title">Gestão Documental</h4>
                     <p class="sidebar-pillar-desc">Data Books consolidados e rastreabilidade total.</p>
@@ -702,6 +670,14 @@
                 </div>
 
                 <div class="sidebar-pillar-item">
+                  <div class="sidebar-pillar-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                      <circle cx="9" cy="7" r="4"/>
+                      <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+                      <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                    </svg>
+                  </div>
                   <div class="sidebar-pillar-info">
                     <h4 class="sidebar-pillar-title">Corpo Técnico Residente</h4>
                     <p class="sidebar-pillar-desc">Engenheiros e inspetores qualificados in loco.</p>
@@ -716,19 +692,27 @@
           <!-- COLUNA DIREITA: O EXPANDING BENTO GRID COM OS 7 SERVIÇOS OFICIAIS -->
           <div class="bento-expanding-wrapper">
 
-            <!-- LINHA 1 (1. Fiscalização CAPEX + 2. Gestão Documental + Stack: 3. Auditorias & 4. Locação) -->
+            <!-- LINHA 1 (1. Fiscalização CAPEX + 2. Gestão Documental + 3. Auditorias + 4. Locação) -->
             <div class="bento-row bento-row--top">
               
               <!-- 1. FISCALIZAÇÃO E SUPERVISÃO DE OBRAS -->
               <article class="ec-card-white bento-flex-card bento-card--hero" tabindex="0">
-<div class="ec-card-white-content ec-card-white-content">
-                  <div class="ec-card-white-head-row">
+                <div class="ec-card-white-content">
+                  <div class="ec-card-white-head">
+                    <div class="ec-card-white-top-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+                        <polyline points="2 17 12 22 22 17"/>
+                        <polyline points="2 12 12 17 22 12"/>
+                      </svg>
+                    </div>
+                    <span class="ec-card-tag">FISCALIZAÇÃO</span>
                     <h3 class="ec-card-white-title">Fiscalização e Supervisão de Obras</h3>
                   </div>
                   <ul class="ec-card-white-checklist">
-                    <li>Supervisão de montagem mecânica, tubulações e caldeiraria</li>
-                    <li>Fiscalização rigorosa de PIT e critérios de aceitação</li>
-                    <li>Emissão diária de Relatórios Diários de Obra (RDO)</li>
+                    <li><span class="card-chevron" aria-hidden="true">&gt;</span>Supervisão de montagem mecânica, tubulações e caldeiraria</li>
+                    <li><span class="card-chevron" aria-hidden="true">&gt;</span>Fiscalização rigorosa de PIT e critérios de aceitação</li>
+                    <li><span class="card-chevron" aria-hidden="true">&gt;</span>Emissão diária de Relatórios Diários de Obra (RDO)</li>
                   </ul>
                 </div>
               </article>
@@ -736,46 +720,66 @@
               <!-- 2. GESTÃO DE DOCUMENTAÇÃO TÉCNICA -->
               <article class="ec-card-white bento-flex-card bento-card--ends" tabindex="0">
                 <div class="ec-card-white-content">
-                  <div class="ec-card-white-head-row">
+                  <div class="ec-card-white-head">
+                    <div class="ec-card-white-top-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                        <polyline points="14 2 14 8 20 8"/>
+                        <path d="m9 15 2 2 4-4"/>
+                      </svg>
+                    </div>
+                    <span class="ec-card-tag">DOCUMENTAÇÃO</span>
                     <h3 class="ec-card-white-title">Gestão de Documentação Técnica</h3>
                   </div>
                   <ul class="ec-card-white-checklist">
-                    <li>Montagem e auditoria de Data Books de fabricação e montagem</li>
-                    <li>Gestão e reconstituição de prontuários NR-13 e memórias de cálculo</li>
+                    <li><span class="card-chevron" aria-hidden="true">&gt;</span>Montagem e auditoria de Data Books de fabricação e montagem</li>
+                    <li><span class="card-chevron" aria-hidden="true">&gt;</span>Gestão e reconstituição de prontuários NR-13 e memórias de cálculo</li>
                   </ul>
                 </div>
               </article>
 
-              <!-- STACK VERTICAL: 3. Auditorias Técnicas & 4. Locação de Mão de Obra -->
-              <div class="bento-stack-vertical bento-card--stack">
-                
-                <!-- 3. AUDITORIAS TÉCNICAS -->
-                <article class="ec-card-white bento-stack-item bento-card--geotecnia" tabindex="0">
-                  <div class="ec-card-white-content">
-                    <div class="ec-card-white-head-row">
-                      <h3 class="ec-card-white-title">Auditorias Técnicas</h3>
+              <!-- 3. AUDITORIAS TÉCNICAS -->
+              <article class="ec-card-white bento-flex-card bento-card--geotecnia" tabindex="0">
+                <div class="ec-card-white-content">
+                  <div class="ec-card-white-head">
+                    <div class="ec-card-white-top-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"/>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                        <path d="m9 11 2 2 4-4"/>
+                      </svg>
                     </div>
-                    <ul class="ec-card-white-checklist">
-                      <li>Auditorias em processos construtivos e fornecedores</li>
-                      <li>Tratamento e encerramento de RNCs</li>
-                    </ul>
+                    <span class="ec-card-tag">AUDITORIA</span>
+                    <h3 class="ec-card-white-title">Auditorias Técnicas</h3>
                   </div>
-                </article>
+                  <ul class="ec-card-white-checklist">
+                    <li><span class="card-chevron" aria-hidden="true">&gt;</span>Auditorias em processos construtivos e fornecedores</li>
+                    <li><span class="card-chevron" aria-hidden="true">&gt;</span>Tratamento e encerramento de RNCs</li>
+                  </ul>
+                </div>
+              </article>
 
-                <!-- 4. LOCAÇÃO DE MÃO DE OBRA -->
-                <article class="ec-card-white bento-stack-item bento-card--monitoramento" tabindex="0">
-                  <div class="ec-card-white-content">
-                    <div class="ec-card-white-head-row">
-                      <h3 class="ec-card-white-title">Locação de Mão de Obra</h3>
+              <!-- 4. LOCAÇÃO DE MÃO DE OBRA -->
+              <article class="ec-card-white bento-flex-card bento-card--monitoramento" tabindex="0">
+                <div class="ec-card-white-content">
+                  <div class="ec-card-white-head">
+                    <div class="ec-card-white-top-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                        <circle cx="9" cy="7" r="4"/>
+                        <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                      </svg>
                     </div>
-                    <ul class="ec-card-white-checklist">
-                      <li>Engenheiros e inspetores residentes certificados</li>
-                      <li>Supervisores de planejamento in loco</li>
-                    </ul>
+                    <span class="ec-card-tag">RESIDENTE</span>
+                    <h3 class="ec-card-white-title">Locação de Mão de Obra</h3>
                   </div>
-                </article>
-
-              </div>
+                  <ul class="ec-card-white-checklist">
+                    <li><span class="card-chevron" aria-hidden="true">&gt;</span>Engenheiros e inspetores residentes certificados</li>
+                    <li><span class="card-chevron" aria-hidden="true">&gt;</span>Supervisores de planejamento in loco</li>
+                  </ul>
+                </div>
+              </article>
 
             </div>
 
@@ -785,12 +789,21 @@
               <!-- 5. PLANOS DE MANUTENÇÃO & POPS -->
               <article class="ec-card-white bento-flex-card bento-card--inspecao" tabindex="0">
                 <div class="ec-card-white-content">
-                  <div class="ec-card-white-head-row">
+                  <div class="ec-card-white-head">
+                    <div class="ec-card-white-top-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                        <line x1="16" y1="2" x2="16" y2="6"/>
+                        <line x1="8" y1="2" x2="8" y2="6"/>
+                        <line x1="3" y1="10" x2="21" y2="10"/>
+                      </svg>
+                    </div>
+                    <span class="ec-card-tag">CONFIABILIDADE</span>
                     <h3 class="ec-card-white-title">Planos de Manutenção &amp; POPs</h3>
                   </div>
                   <ul class="ec-card-white-checklist">
-                    <li>Planos de manutenção centrados em confiabilidade (RCM)</li>
-                    <li>Procedimentos Operacionais Padrão e planos de emergência</li>
+                    <li><span class="card-chevron" aria-hidden="true">&gt;</span>Planos de manutenção centrados em confiabilidade (RCM)</li>
+                    <li><span class="card-chevron" aria-hidden="true">&gt;</span>Procedimentos Operacionais Padrão e planos de emergência</li>
                   </ul>
                 </div>
               </article>
@@ -798,25 +811,39 @@
               <!-- 6. QUALIFICAÇÃO DE FORNECEDORES -->
               <article class="ec-card-white bento-flex-card bento-card--integridade" tabindex="0">
                 <div class="ec-card-white-content">
-                  <div class="ec-card-white-head-row">
+                  <div class="ec-card-white-head">
+                    <div class="ec-card-white-top-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        <path d="m9 12 2 2 4-4"/>
+                      </svg>
+                    </div>
+                    <span class="ec-card-tag">QUALIFICAÇÃO</span>
                     <h3 class="ec-card-white-title">Qualificação de Fornecedores</h3>
                   </div>
                   <ul class="ec-card-white-checklist">
-                    <li>Homologação técnica de subcontratados e fabricantes</li>
-                    <li>Auditorias em fábrica de processos de soldagem e usinagem</li>
+                    <li><span class="card-chevron" aria-hidden="true">&gt;</span>Homologação técnica de subcontratados e fabricantes</li>
+                    <li><span class="card-chevron" aria-hidden="true">&gt;</span>Auditorias em fábrica de processos de soldagem e usinagem</li>
                   </ul>
                 </div>
               </article>
 
               <!-- 7. GESTÃO DE PARADAS INDUSTRIAIS -->
               <article class="ec-card-white bento-flex-card bento-card--geometria" tabindex="0">
-<div class="ec-card-white-content">
-                  <div class="ec-card-white-head-row">
+                <div class="ec-card-white-content">
+                  <div class="ec-card-white-head">
+                    <div class="ec-card-white-top-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/>
+                        <polyline points="12 6 12 12 16 14"/>
+                      </svg>
+                    </div>
+                    <span class="ec-card-tag">PLANEJAMENTO</span>
                     <h3 class="ec-card-white-title">Gestão de Paradas Industriais</h3>
                   </div>
                   <ul class="ec-card-white-checklist">
-                    <li>Coordenação e controle de cronograma 24/7 em paradas</li>
-                    <li>Minimização de prazos e mitigação de perdas de produção</li>
+                    <li><span class="card-chevron" aria-hidden="true">&gt;</span>Coordenação e controle de cronograma 24/7 em paradas</li>
+                    <li><span class="card-chevron" aria-hidden="true">&gt;</span>Minimização de prazos e mitigação de perdas de produção</li>
                   </ul>
                 </div>
               </article>

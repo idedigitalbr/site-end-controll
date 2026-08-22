@@ -1,39 +1,20 @@
 # Changelog — ENDCONTROL Engenharia
 
-## [2026-08-22] - Padronização Global de Tipografia (Headlines: 38px, Textos: 16px, Títulos de Ícones/Cards: 18px, Textos de Ícones/Cards: 16px)
+## [2026-08-22] - Padronização Global Estrita de Tipografia em 100% das Páginas (Headlines: 38px, Títulos de Ícones/Cards: 18px, Textos: 16px, Badges: 12px, Botões: 15px)
 
-- **Arquivos:** `src/css/tokens.css`, `src/css/hero.css`, `src/css/sections.css`, `src/css/solucoes.css`, `src/css/segmentos.css`, `src/css/presenca-nacional.css`, `src/css/sobre-nos.css`, `src/css/servico-integridade.css`, `src/css/radar-ffs.css`, `tests/service-visual-standard.test.js`, `MD/changelog.md`.
+- **Arquivos:** `src/css/tokens.css`, `src/css/hero.css`, `src/css/sections.css`, `src/css/solucoes.css`, `src/css/segmentos.css`, `src/css/presenca-nacional.css`, `src/css/sobre-nos.css`, `src/css/servico-integridade.css`, `src/css/radar-ffs.css`, `tests/global-typography-audit.test.js`, `tests/service-pages-layout.test.js`, `tests/service-visual-standard.test.js`, `MD/changelog.md`, `MD/features.md`.
 
 ### UI & Typography Standardization
-- **Criação de Tokens Globais de Tipografia (`tokens.css`):**
-  - Definidos tokens CSS custom properties para uso em toda a plataforma:
-    - `--font-size-headline: 38px;` (Headlines H1, H2, títulos principais de seção)
-    - `--font-size-body: 16px;` (Textos gerais, parágrafos, subtítulos e descrições)
-    - `--font-size-icon-title: 18px;` (Títulos de cards, pilares, passos da metodologia, perguntas de FAQ, destaques de radar)
-    - `--font-size-icon-text: 16px;` (Textos e listas internas de cards, pilares, passos e acordions)
-    - `--font-size-eyebrow: 12px;` (Badges e tags em formato de pílula)
-    - `--font-size-button: 15px;` (Botões de ação e CTAs)
-- **Aplicação e Unificação em Todas as Seções e Páginas:**
-  - **Hero (Home & Global):** Title padronizado para `clamp(28px, 3.8vw, var(--font-size-headline, 38px))` com line-height 1.18; lead description para `var(--font-size-body, 16px)`.
-  - **Sobre a EndControl (Home & Soluções S2):** Headline padronizada para 38px fluida; parágrafos para 16px; títulos dos cards de valores/benefícios para 18px e textos/listas para 16px.
-  - **Nossas Soluções (Radar Orbital):** Heading padronizado para 38px; descrição para 16px; título do highlight card para 18px; descrições e lista de itens para 16px; botão para 15px.
-  - **Áreas de Atuação (Accordion de Segmentos):** Título padronizado para 38px; subtítulo para 16px; títulos dos painéis para 18px; descrições para 16px.
-  - **Presença Nacional & Setores:** Heading padronizado para 38px; parágrafo para 16px; títulos dos cards e regiões para 18px; itens de setores para 16px.
-  - **FAQ (Perguntas Frequentes):** Título padronizado para 38px; perguntas do accordion para 18px; respostas abertas para 16px.
-  - **Oportunidades & Carreiras:** Títulos de cards padronizados para 18px; descrições e itens de checklist para 16px; botões para 15px.
-  - **Página Sobre Nós:**
-    - História: Headline 38px, descrição 16px.
-    - Nossa Essência: Headline 38px, subtítulo 16px, títulos dos cards (Missão, Visão, Valores) 18px, textos e listas 16px.
-    - Como Trabalhamos: Headline 38px, descrição 16px, títulos dos 4 passos 18px, textos descritivos 16px.
-    - Nosso Compromisso: Headline 38px, descrição 16px, botão WhatsApp 15px.
-    - CTA Pré-Footer: Headline 38px, descrição 16px.
-  - **Páginas de Serviços 1 a 12 (`servico-integridade.css`):**
-    - S2 Sobre a Solução: Headline 38px, subtítulo e parágrafos 16px.
-    - S4 Metodologia: Headline 38px, títulos dos 4 passos 18px, descrições 16px.
-    - Escopo Técnico / Bento Grid: Headline da sidebar 38px, texto da sidebar 16px, títulos dos pilares e cards brancos/escuros 18px, textos técnicos e checklists 16px.
-    - Mecanismos FFS (Solução 1): Heading 38px, descrição 16px, benefícios 16px, títulos dos cards 18px.
-- **Validação Automatizada:**
-  - Suíte de testes automatizados `tests/service-visual-standard.test.js` atualizada e aprovada com 100% de sucesso (11/11 testes passing).
+- **Correção e Unificação Estrita em Todas as 14 Páginas:**
+  - Identificadas e neutralizadas regras legadas com valores estáticos em `px` e `rem` que sobrepunham as variáveis globais em páginas de serviços (4 a 12), Bento grids, sidebars e etapas de processo.
+  - **Headlines (H1, H2 de todas as seções):** Padronizadas para `clamp(28px, 3.8vw, var(--font-size-headline, 38px))` com peso 800 e line-height 1.18 em todas as seções (Hero, Sobre a Solução, Quando Aplicar, Bento Grids, Metodologia, Presença Nacional, FAQ e Compromisso).
+  - **Títulos de Ícones, Cards, Pilares, Accordions e Passos (H3, H4):** Padronizados rigorosamente para `var(--font-size-icon-title, 18px)` com peso 700/800 e line-height 1.25. Corrigido `.sn-page-wrapper .sn-step-title` de 14px para 18px e `.sidebar-pillar-title` de 14px-16px para 18px.
+  - **Textos Corridos, Parágrafos, Descrições e Checklists:** Padronizados para `var(--font-size-body, 16px)` ou `var(--font-size-icon-text, 16px)` com line-height 1.5–1.6. Corrigido `.sn-page-wrapper .sn-step-desc` de 12px para 16px, `.sidebar-paragraph` de 15px para 16px, `.sidebar-pillar-desc` de 13.5px para 16px e `.ec-card-white-checklist li` de 13.5px para 16px.
+  - **Badges / Eyebrows:** Padronizados para `var(--font-size-eyebrow, 12px)` com peso 700/800, padding 8px 14px e letter-spacing 0.14em.
+  - **Botões e CTAs:** Padronizados para `var(--font-size-button, 15px)` com peso 700.
+- **Auditoria Automatizada Completa:**
+  - Criada nova suíte de testes dedicados `tests/global-typography-audit.test.js` auditando todas as 14 páginas HTML e folhas de estilo CSS.
+  - 100% dos 164 testes automatizados do projeto aprovados com sucesso.
 
 ## [2026-08-22] - Reposicionamento do Botão CTA para a Coluna Esquerda Abaixo do Texto e Estilização em Azul Marinho Sólido (Anexo 2) com Ícone do WhatsApp
 

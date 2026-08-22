@@ -39,11 +39,11 @@ test('service solution copy follows the home visual standard', () => {
   assert.match(standardStyles, /background:\s*#00215D;/i);
   assert.match(standardStyles, /color:\s*#ffffff\s*!important;/i);
   assert.match(standardStyles, /border-radius:\s*999px;/i);
-  assert.match(standardStyles, /padding:\s*6px\s+16px\s*!important;/i);
-  assert.match(standardStyles, /font-size:\s*11px\s*!important;/i);
+  assert.match(standardStyles, /padding:\s*8px\s+14px\s*!important;/i);
+  assert.match(standardStyles, /font-size:\s*var\(--font-size-eyebrow,\s*12px\)\s*!important;/i);
   assert.match(standardStyles, /font-weight:\s*700\s*!important;/i);
-  assert.match(standardStyles, /letter-spacing:\s*0\.18em\s*!important;/i);
-  assert.match(standardStyles, /\.sn-page-wrapper \.svc-solution-headline,[\s\S]*?font-size:\s*clamp\(2rem,\s*3\.2vw,\s*2\.85rem\);/i);
+  assert.match(standardStyles, /letter-spacing:\s*0\.14em\s*!important;/i);
+  assert.match(standardStyles, /\.sn-page-wrapper \.svc-solution-headline,[\s\S]*?font-size:\s*clamp\(28px,\s*3\.8vw,\s*var\(--font-size-headline,\s*38px\)\);/i);
   assert.match(standardStyles, /\.sn-page-wrapper \.svc-solution-section \.svc-cyan-cta-btn,[\s\S]*?\.sn-page-wrapper \.svc-solution-section \.btn\.btn-primary\s*\{/i);
   assert.match(standardStyles, /background:\s*#ffffff\s*!important;/i);
   assert.match(standardStyles, /border:[^;]*#00215D\s*!important;/i);

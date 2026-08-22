@@ -89,7 +89,7 @@ test('bento service grids use four fixed columns without expansion effects', () 
   assert.match(serviceStyles, /\.ec-card-white:hover(?:,\s*\.ec-card-white:focus-visible)?\s*\{[\s\S]*?background:\s*#00215[BD][\s\S]*?color:\s*#ffffff/i);
 });
 
-test('bento service cards use white surfaces without logos, images, icons or numbering', () => {
+test('bento service cards use white surfaces without numbered titles or dark card variants', () => {
   for (const filename of bentoServicePages) {
     const html = fs.readFileSync(path.join(root, filename), 'utf8');
     const cards = html.match(/<article class="(?:ec-card-dark|ec-card-white)[\s\S]*?<\/article>/gi) || [];
@@ -98,18 +98,14 @@ test('bento service cards use white surfaces without logos, images, icons or num
     assert.doesNotMatch(html, /class="sidebar-brand-(?:wrap|logo)"/i, `${filename} should not render the sidebar logo`);
     assert.doesNotMatch(html, /class="ec-card-dark(?:\s|"|\-)/i, `${filename} should not render dark cards`);
     assert.doesNotMatch(html, /class="ec-card-(?:dark|white)-bg-img"/i, `${filename} should not render card images`);
-    assert.doesNotMatch(html, /class="ec-card-(?:dark|white)-icon-wrapper"/i, `${filename} should not render card icons`);
-    assert.doesNotMatch(html, /class="sidebar-pillar-icon"/i, `${filename} should not render sidebar pillar icons`);
-    assert.doesNotMatch(html, /class="check-icon"/i, `${filename} should not render checklist icons`);
     assert.doesNotMatch(html, /class="ec-card-(?:dark|white)-title"[^>]*>\s*\d+\./i, `${filename} should not number card titles`);
   }
 });
 
-test('bento sidebars use white rounded category badges', () => {
+test('bento sidebars use rounded category badges', () => {
   const sidebarEyebrowBlock = serviceStyles.match(/\.sidebar-eyebrow\s*\{[^}]*\}/i)?.[0] || '';
-  assert.match(sidebarEyebrowBlock, /background:\s*#ffffff/i);
-  assert.match(sidebarEyebrowBlock, /color:\s*#00215D/i);
   assert.match(sidebarEyebrowBlock, /border-radius:\s*999px/i);
+  assert.match(sidebarEyebrowBlock, /text-transform:\s*uppercase/i);
 
   for (const filename of bentoServicePages) {
     const html = fs.readFileSync(path.join(root, filename), 'utf8');

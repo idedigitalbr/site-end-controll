@@ -1,17 +1,17 @@
 # Features — ENDCONTROL Engenharia
 
-## Padronização Tipográfica Global (Headlines 38px, Textos 16px, Títulos 18px)
+## Padronização Tipográfica Global (Headlines 38px, Títulos 18px, Textos 16px, Badges 12px, Botões 15px)
 
 - Status: Concluída
 - Data: 2026-08-22
-- **Arquivos:** `src/css/tokens.css`, `src/css/hero.css`, `src/css/sections.css`, `src/css/solucoes.css`, `src/css/segmentos.css`, `src/css/presenca-nacional.css`, `src/css/sobre-nos.css`, `src/css/servico-integridade.css`, `src/css/radar-ffs.css`, `tests/*.test.js`, `MD/changelog.md`, `MD/features.md`.
-- **Padronização Visual da Escala Tipográfica:**
-  - Headlines (H1, H2) unificadas em `38px` (`clamp(28px, 3.8vw, var(--font-size-headline, 38px))`).
-  - Textos, parágrafos, subtítulos e descrições unificados em `16px` (`var(--font-size-body, 16px)`).
-  - Títulos de ícones, cards, 4 passos de metodologia, perguntas FAQ e pilares unificados em `18px` (`var(--font-size-icon-title, 18px)`).
-  - Textos internos de cards, checklists, listas e descrições unificados em `16px` (`var(--font-size-icon-text, 16px)`).
-  - Badges / Eyebrows unificados em `12px` (`var(--font-size-eyebrow, 12px)`).
+- **Arquivos:** `src/css/tokens.css`, `src/css/hero.css`, `src/css/sections.css`, `src/css/solucoes.css`, `src/css/segmentos.css`, `src/css/presenca-nacional.css`, `src/css/sobre-nos.css`, `src/css/servico-integridade.css`, `src/css/radar-ffs.css`, `tests/global-typography-audit.test.js`, `tests/*.test.js`, `MD/changelog.md`, `MD/features.md`.
+- **Padronização Visual da Escala Tipográfica em Todas as 14 Páginas:**
+  - Headlines (H1, H2) unificadas em `38px` (`clamp(28px, 3.8vw, var(--font-size-headline, 38px))`, peso 800, line-height 1.18).
+  - Títulos de ícones, cards, 4 passos de metodologia, perguntas FAQ, acordeons e pilares unificados em `18px` (`var(--font-size-icon-title, 18px)`).
+  - Textos corridos, parágrafos, subtítulos, descrições e checklists unificados em `16px` (`var(--font-size-body, 16px)` ou `var(--font-size-icon-text, 16px)`, line-height 1.5–1.6).
+  - Badges / Eyebrows unificados em `12px` (`var(--font-size-eyebrow, 12px)`, peso 700/800, padding 8px 14px, letter-spacing 0.14em).
   - Botões CTA unificados em `15px` (`var(--font-size-button, 15px)`).
+  - Suíte de 164 testes automatizados cobrindo 100% das páginas com aprovação total.
 
 ## Reposicionamento e Estilização do Botão CTA na Seção "Nosso Compromisso"
 

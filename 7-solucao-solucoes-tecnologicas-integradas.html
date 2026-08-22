@@ -36,7 +36,7 @@
   <link rel="stylesheet" href="./src/css/solucoes.css?v=95.0" />
   <link rel="stylesheet" href="./src/css/segmentos.css?v=96.0" />
   <link rel="stylesheet" href="./src/css/sobre-nos.css?v=171.0" />
-  <link rel="stylesheet" href="./src/css/servico-integridade.css?v=170.0" />
+  <link rel="stylesheet" href="./src/css/servico-integridade.css?v=171.0" />
   <link rel="stylesheet" href="./src/css/work-units-footer.css?v=97.0" />
   <link rel="stylesheet" href="./src/css/responsive.css?v=96.0" />
 
@@ -603,56 +603,19 @@
         
         <div class="bento-master-layout">
           
-          <!-- COLUNA ESQUERDA: PAINEL LATERAL INSTITUCIONAL COM ARTE VETORIAL TECH -->
+          <!-- COLUNA ESQUERDA: PAINEL LATERAL INSTITUCIONAL -->
           <aside class="ec-bento-sidebar">
             
-            <!-- Arte Vetorial de Escaneamento Laser e Redes Neurais -->
-            <div class="ec-bento-sidebar-bridge-art" aria-hidden="true">
-              <svg viewBox="0 0 420 860" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMaxYMid meet">
-                <defs>
-                  <linearGradient id="techGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.8"/>
-                    <stop offset="30%" stop-color="#ffffff" stop-opacity="0.6"/>
-                    <stop offset="100%" stop-color="#0055AA" stop-opacity="0.15"/>
-                  </linearGradient>
-                  <linearGradient id="radarTech" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stop-color="#ffffff" stop-opacity="0.7"/>
-                    <stop offset="100%" stop-color="#ffffff" stop-opacity="0.05"/>
-                  </linearGradient>
-                </defs>
-
-                <!-- Circuito e Pulsos de Rede Neural -->
-                <circle cx="210" cy="220" r="120" stroke="url(#radarTech)" stroke-width="1.5" stroke-dasharray="6 6"/>
-                <circle cx="210" cy="220" r="80" stroke="url(#radarTech)" stroke-width="1.5"/>
-                <circle cx="210" cy="220" r="40" stroke="url(#techGrad)" stroke-width="2"/>
-                <circle cx="210" cy="220" r="8" fill="#ffffff"/>
-
-                <!-- Feixes de Varredura Laser 3D -->
-                <path d="M210 220 L100 420 M210 220 L320 420 M210 220 L210 460" stroke="#ffffff" stroke-width="1.8" opacity="0.6"/>
-                <polygon points="100,420 320,420 210,460" fill="rgba(0, 33, 93, 0.12)" stroke="#ffffff" stroke-width="1"/>
-
-                <!-- Nódulos de Conexão IoT e IA -->
-                <g stroke="#ffffff" stroke-width="1.5">
-                  <line x1="210" y1="460" x2="130" y2="580"/>
-                  <line x1="210" y1="460" x2="290" y2="580"/>
-                  <line x1="130" y1="580" x2="210" y2="680"/>
-                  <line x1="290" y1="580" x2="210" y2="680"/>
-                  
-                  <circle cx="130" cy="580" r="14" fill="#0c1a30" stroke="#ffffff"/>
-                  <circle cx="290" cy="580" r="14" fill="#0c1a30" stroke="#ffffff"/>
-                  <circle cx="210" cy="680" r="16" fill="#0c1a30" stroke="#ffffff"/>
-                </g>
-              </svg>
+            <!-- Foto de fundo com overlay degradê no rodapé do painel -->
+            <div class="ec-bento-sidebar-photo-wrap" aria-hidden="true">
+              <img src="./assets/Fotografias/originais-16-9/endcontrol-consultoria-tecnica-demonstracao-scanner-ultrassom-tubos.webp" alt="Soluções Tecnológicas EndControl" class="ec-bento-sidebar-photo" loading="lazy" />
+              <div class="ec-bento-sidebar-photo-fade"></div>
             </div>
-
-            <!-- Fade Suave para Leitura dos Textos -->
-            <div class="ec-bento-sidebar-fade" aria-hidden="true"></div>
 
             <!-- Conteúdo Principal do Painel -->
             <div class="ec-bento-sidebar-content">
               
-              <!-- Logo Oficial -->
-<!-- Eyebrow Tag -->
+              <!-- Eyebrow Tag -->
               <span class="sidebar-eyebrow">P&amp;D&amp;I + INDÚSTRIA 4.0</span>
 
               <!-- Headline Principal -->
@@ -660,18 +623,24 @@
                 Escopo técnico completo em <span class="highlight-cyan">gêmeos digitais, escaneamento 3D e IA.</span>
               </h2>
 
-              <!-- Barra Ciano -->
-              <div class="sidebar-divider" aria-hidden="true"></div>
-
               <!-- Parágrafo Explicativo -->
               <p class="sidebar-paragraph">
                 Inovação tecnológica que conecta captura de realidade, IoT e algoritmos avançados para transformar dados brutos em decisões de alto impacto.
               </p>
 
-              <!-- 4 Pilares de Excelência -->
+              <!-- 4 Pilares de Excelência com Ícones Circulares -->
               <div class="sidebar-pillars-list">
                 
                 <div class="sidebar-pillar-item">
+                  <div class="sidebar-pillar-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="18" cy="5" r="3"/>
+                      <circle cx="6" cy="12" r="3"/>
+                      <circle cx="18" cy="19" r="3"/>
+                      <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+                      <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+                    </svg>
+                  </div>
                   <div class="sidebar-pillar-info">
                     <h4 class="sidebar-pillar-title">1º no Brasil em IA</h4>
                     <p class="sidebar-pillar-desc">Pioneirismo em inteligência artificial aplicada à integridade.</p>
@@ -679,6 +648,13 @@
                 </div>
 
                 <div class="sidebar-pillar-item">
+                  <div class="sidebar-pillar-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+                      <polyline points="2 17 12 22 22 17"/>
+                      <polyline points="2 12 12 17 22 12"/>
+                    </svg>
+                  </div>
                   <div class="sidebar-pillar-info">
                     <h4 class="sidebar-pillar-title">LiDAR Submilimétrico</h4>
                     <p class="sidebar-pillar-desc">Nuvens de pontos densas para engenharia reversa e BIM.</p>
@@ -686,6 +662,15 @@
                 </div>
 
                 <div class="sidebar-pillar-item">
+                  <div class="sidebar-pillar-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M4.9 19.1C1 15.2 1 8.8 4.9 4.9"/>
+                      <path d="M7.8 16.2c-2.3-2.3-2.3-6.1 0-8.5"/>
+                      <circle cx="12" cy="12" r="2"/>
+                      <path d="M16.2 7.8c2.3 2.3 2.3 6.1 0 8.5"/>
+                      <path d="M19.1 4.9C23 8.8 23 15.1 19.1 19.1"/>
+                    </svg>
+                  </div>
                   <div class="sidebar-pillar-info">
                     <h4 class="sidebar-pillar-title">Telemetria 24/7</h4>
                     <p class="sidebar-pillar-desc">Monitoramento remoto contínuo via sensores IoT.</p>
@@ -693,6 +678,13 @@
                 </div>
 
                 <div class="sidebar-pillar-item">
+                  <div class="sidebar-pillar-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="10"/>
+                      <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/>
+                      <path d="M2 12h20"/>
+                    </svg>
+                  </div>
                   <div class="sidebar-pillar-info">
                     <h4 class="sidebar-pillar-title">Tour Virtual 360°</h4>
                     <p class="sidebar-pillar-desc">Visitação imersiva e gestão documental unificada.</p>
@@ -707,19 +699,29 @@
           <!-- COLUNA DIREITA: O EXPANDING BENTO GRID COM OS 7 SERVIÇOS OFICIAIS -->
           <div class="bento-expanding-wrapper">
 
-            <!-- LINHA 1 (1. P&D e IA + 2. LiDAR 3D + Stack: 3. Drones & 4. Gêmeos Digitais) -->
+            <!-- LINHA 1 (1. P&D e IA + 2. LiDAR 3D + 3. Drones + 4. Gêmeos Digitais) -->
             <div class="bento-row bento-row--top">
               
               <!-- 1. P&D E INTELIGÊNCIA ARTIFICIAL -->
               <article class="ec-card-white bento-flex-card bento-card--hero" tabindex="0">
-<div class="ec-card-white-content ec-card-white-content">
-                  <div class="ec-card-white-head-row">
+                <div class="ec-card-white-content">
+                  <div class="ec-card-white-head">
+                    <div class="ec-card-white-top-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="18" cy="5" r="3"/>
+                        <circle cx="6" cy="12" r="3"/>
+                        <circle cx="18" cy="19" r="3"/>
+                        <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+                        <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+                      </svg>
+                    </div>
+                    <span class="ec-card-tag">INOVAÇÃO</span>
                     <h3 class="ec-card-white-title">P&amp;D e Inteligência Artificial</h3>
                   </div>
                   <ul class="ec-card-white-checklist">
-                    <li>Modelos de aprendizado de máquina para classificação de descontinuidades</li>
-                    <li>Estimativa automatizada de taxa de corrosão residual por visão computacional</li>
-                    <li>Desenvolvimento de metodologias preditivas sob medida</li>
+                    <li><span class="card-chevron" aria-hidden="true">&gt;</span>Modelos de aprendizado de máquina para classificação de descontinuidades</li>
+                    <li><span class="card-chevron" aria-hidden="true">&gt;</span>Estimativa automatizada de taxa de corrosão residual por visão computacional</li>
+                    <li><span class="card-chevron" aria-hidden="true">&gt;</span>Desenvolvimento de metodologias preditivas sob medida</li>
                   </ul>
                 </div>
               </article>
@@ -727,46 +729,67 @@
               <!-- 2. ESCANEAMENTO A LASER 3D (LIDAR) -->
               <article class="ec-card-white bento-flex-card bento-card--ends" tabindex="0">
                 <div class="ec-card-white-content">
-                  <div class="ec-card-white-head-row">
+                  <div class="ec-card-white-head">
+                    <div class="ec-card-white-top-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+                        <polyline points="2 17 12 22 22 17"/>
+                        <polyline points="2 12 12 17 22 12"/>
+                      </svg>
+                    </div>
+                    <span class="ec-card-tag">LIDAR 3D</span>
                     <h3 class="ec-card-white-title">Escaneamento Laser 3D (LiDAR)</h3>
                   </div>
                   <ul class="ec-card-white-checklist">
-                    <li>Detecção de interferências espaciais (Clash Detection) e As-Built</li>
-                    <li>Análise de verticalidade, ovalização e recalques em tanques</li>
+                    <li><span class="card-chevron" aria-hidden="true">&gt;</span>Detecção de interferências espaciais (Clash Detection) e As-Built</li>
+                    <li><span class="card-chevron" aria-hidden="true">&gt;</span>Análise de verticalidade, ovalização e recalques em tanques</li>
                   </ul>
                 </div>
               </article>
 
-              <!-- STACK VERTICAL: 3. Fotogrametria Drones & 4. Gêmeos Digitais -->
-              <div class="bento-stack-vertical bento-card--stack">
-                
-                <!-- 3. FOTOGRAMETRIA E DRONES -->
-                <article class="ec-card-white bento-stack-item bento-card--geotecnia" tabindex="0">
-                  <div class="ec-card-white-content">
-                    <div class="ec-card-white-head-row">
-                      <h3 class="ec-card-white-title">Fotogrametria com Drones</h3>
+              <!-- 3. FOTOGRAMETRIA E DRONES -->
+              <article class="ec-card-white bento-flex-card bento-card--geotecnia" tabindex="0">
+                <div class="ec-card-white-content">
+                  <div class="ec-card-white-head">
+                    <div class="ec-card-white-top-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2v20"/>
+                        <path d="m17 5 4 4"/>
+                        <path d="m7 5-4 4"/>
+                        <path d="m17 19 4-4"/>
+                        <path d="m7 19-4-4"/>
+                      </svg>
                     </div>
-                    <ul class="ec-card-white-checklist">
-                      <li>Inspeção visual e termográfica em altura</li>
-                      <li>Mapeamento de flares, tanques e chaminés</li>
-                    </ul>
+                    <span class="ec-card-tag">DRONES</span>
+                    <h3 class="ec-card-white-title">Fotogrametria com Drones</h3>
                   </div>
-                </article>
+                  <ul class="ec-card-white-checklist">
+                    <li><span class="card-chevron" aria-hidden="true">&gt;</span>Inspeção visual e termográfica em altura</li>
+                    <li><span class="card-chevron" aria-hidden="true">&gt;</span>Mapeamento de flares, tanques e chaminés</li>
+                  </ul>
+                </div>
+              </article>
 
-                <!-- 4. GÊMEOS DIGITAIS -->
-                <article class="ec-card-white bento-stack-item bento-card--monitoramento" tabindex="0">
-                  <div class="ec-card-white-content">
-                    <div class="ec-card-white-head-row">
-                      <h3 class="ec-card-white-title">Gêmeos Digitais 3D</h3>
+              <!-- 4. GÊMEOS DIGITAIS -->
+              <article class="ec-card-white bento-flex-card bento-card--monitoramento" tabindex="0">
+                <div class="ec-card-white-content">
+                  <div class="ec-card-white-head">
+                    <div class="ec-card-white-top-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="3" width="18" height="18" rx="2"/>
+                        <path d="M3 9h18"/>
+                        <path d="M9 21V9"/>
+                      </svg>
                     </div>
-                    <ul class="ec-card-white-checklist">
-                      <li>Associação de espessuras na geometria 3D</li>
-                      <li>Simulação dinâmica de desgaste e vida residual</li>
-                    </ul>
+                    <span class="ec-card-tag">GÊMEOS DIGITAIS</span>
+                    <h3 class="ec-card-white-title">Gêmeos Digitais 3D</h3>
                   </div>
-                </article>
-
-              </div>
+                  <ul class="ec-card-white-checklist">
+                    <li><span class="card-chevron" aria-hidden="true">&gt;</span>Associação de espessuras na geometria 3D</li>
+                    <li><span class="card-chevron" aria-hidden="true">&gt;</span>Simulação dinâmica de desgaste e vida residual</li>
+                  </ul>
+                </div>
+              </article>
 
             </div>
 
@@ -776,12 +799,22 @@
               <!-- 5. IOT INDUSTRIAL E TELEMETRIA -->
               <article class="ec-card-white bento-flex-card bento-card--inspecao" tabindex="0">
                 <div class="ec-card-white-content">
-                  <div class="ec-card-white-head-row">
+                  <div class="ec-card-white-head">
+                    <div class="ec-card-white-top-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4.9 19.1C1 15.2 1 8.8 4.9 4.9"/>
+                        <path d="M7.8 16.2c-2.3-2.3-2.3-6.1 0-8.5"/>
+                        <circle cx="12" cy="12" r="2"/>
+                        <path d="M16.2 7.8c2.3 2.3 2.3 6.1 0 8.5"/>
+                        <path d="M19.1 4.9C23 8.8 23 15.1 19.1 19.1"/>
+                      </svg>
+                    </div>
+                    <span class="ec-card-tag">TELEMETRIA</span>
                     <h3 class="ec-card-white-title">IoT &amp; Telemetria Industrial</h3>
                   </div>
                   <ul class="ec-card-white-checklist">
-                    <li>Sensores sem fio de vibração, temperatura e pressão</li>
-                    <li>Monitoramento contínuo de taxa de corrosão online</li>
+                    <li><span class="card-chevron" aria-hidden="true">&gt;</span>Sensores sem fio de vibração, temperatura e pressão</li>
+                    <li><span class="card-chevron" aria-hidden="true">&gt;</span>Monitoramento contínuo de taxa de corrosão online</li>
                   </ul>
                 </div>
               </article>
@@ -789,25 +822,41 @@
               <!-- 6. TOUR VIRTUAL 360° -->
               <article class="ec-card-white bento-flex-card bento-card--integridade" tabindex="0">
                 <div class="ec-card-white-content">
-                  <div class="ec-card-white-head-row">
+                  <div class="ec-card-white-head">
+                    <div class="ec-card-white-top-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/>
+                        <path d="M2 12h20"/>
+                      </svg>
+                    </div>
+                    <span class="ec-card-tag">REALIDADE VIRTUAL</span>
                     <h3 class="ec-card-white-title">Tour Virtual 360°</h3>
                   </div>
                   <ul class="ec-card-white-checklist">
-                    <li>Visitação imersiva com tags técnicas e pontos de inspeção</li>
-                    <li>Ambientes em Realidade Aumentada (AR) para campo</li>
+                    <li><span class="card-chevron" aria-hidden="true">&gt;</span>Visitação imersiva com tags técnicas e pontos de inspeção</li>
+                    <li><span class="card-chevron" aria-hidden="true">&gt;</span>Ambientes em Realidade Aumentada (AR) para campo</li>
                   </ul>
                 </div>
               </article>
 
               <!-- 7. PLATAFORMAS INTEGRADAS DE GESTÃO -->
               <article class="ec-card-white bento-flex-card bento-card--geometria" tabindex="0">
-<div class="ec-card-white-content">
-                  <div class="ec-card-white-head-row">
+                <div class="ec-card-white-content">
+                  <div class="ec-card-white-head">
+                    <div class="ec-card-white-top-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                        <polyline points="14 2 14 8 20 8"/>
+                        <path d="m9 15 2 2 4-4"/>
+                      </svg>
+                    </div>
+                    <span class="ec-card-tag">PLATAFORMAS</span>
                     <h3 class="ec-card-white-title">Plataforma de Gestão</h3>
                   </div>
                   <ul class="ec-card-white-checklist">
-                    <li>Unificação de laudos, dados de campo e dashboards online</li>
-                    <li>Acesso seguro em tempo real com controle hierárquico</li>
+                    <li><span class="card-chevron" aria-hidden="true">&gt;</span>Unificação de laudos, dados de campo e dashboards online</li>
+                    <li><span class="card-chevron" aria-hidden="true">&gt;</span>Acesso seguro em tempo real com controle hierárquico</li>
                   </ul>
                 </div>
               </article>
