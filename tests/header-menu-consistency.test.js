@@ -17,5 +17,5 @@ test('all pages load the same cache-busted shared menu runtime', () => {
     return match[1];
   });
 
-  assert.deepEqual([...new Set(versions)], ['32.0']);
+  assert.deepEqual([...new Set(versions)], ['33.0']);
 });

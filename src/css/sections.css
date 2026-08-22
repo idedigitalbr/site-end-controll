@@ -1339,21 +1339,25 @@ p {
   color: #ffffff;
   background: #00215D;
   border-radius: 999px;
-  padding: 8px 16px;
+  padding: 8px 14px;
   text-transform: uppercase;
   margin-bottom: 12px;
 }
 
 .faq-v2-title {
-  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-size: clamp(1.8rem, 3.5vw, 2.4rem);
   font-weight: 800;
-  color: #0d1b2a;
+  color: #071429;
   line-height: 1.2;
-  margin: 0;
+  letter-spacing: -0.02em;
+  margin: 0 0 14px;
 }
 
 .faq-v2-highlight {
   color: #00215D;
+  font-style: italic;
+  font-weight: 300;
+  text-shadow: none;
 }
 
 /* Grid de 2 colunas */
@@ -2325,13 +2329,13 @@ textarea.form-control {
 }
 
 .about-eyebrow {
-  font-size: 0.82rem;
+  font-size: 0.72rem;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   color: #ffffff;
   background: #00215D;
   border-radius: 999px;
-  padding: 8px 16px;
+  padding: 8px 14px;
   text-transform: uppercase;
   margin-bottom: 16px;
   position: relative;
@@ -2350,33 +2354,35 @@ textarea.form-control {
 
 /* Headline */
 .about-headline {
-  font-size: clamp(2rem, 3.2vw, 2.85rem);
+  font-size: clamp(1.8rem, 3.5vw, 2.4rem);
   font-weight: 800;
-  line-height: 1.15;
-  color: var(--text-dark);
+  line-height: 1.2;
+  color: #071429;
   letter-spacing: -0.02em;
-  margin-bottom: 24px;
+  margin-bottom: 14px;
 }
 
 .about-premium-section .highlight-blue-gradient {
   color: #00215D;
   background: none;
   -webkit-text-fill-color: #00215D;
-  font-weight: 800;
-  text-shadow: 0 0 30px rgba(0, 213, 255, 0.12);
+  font-style: italic;
+  font-weight: 300;
+  text-shadow: none;
   display: inline;
 }
 
 /* Parágrafos de Texto */
 .about-paragraphs {
-  margin-bottom: 32px;
+  margin-bottom: 22px;
   max-width: 580px;
 }
 
 .about-paragraphs p {
   font-size: 1.05rem;
-  line-height: 1.65;
-  color: var(--text-muted);
+  line-height: 1.5;
+  color: #475569;
+  text-align: justify;
   margin-bottom: 16px;
 }
 

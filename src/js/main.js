@@ -94,9 +94,18 @@
     ];
 
     const serviceIcons = {
+      '0': '<i class="menu-lucide-icon" data-lucide="shield-check" aria-hidden="true"></i>',
+      '1': '<i class="menu-lucide-icon" data-lucide="landmark" aria-hidden="true"></i>',
       '2': '<i class="menu-lucide-icon" data-lucide="scan-line" aria-hidden="true"></i>',
+      '3': '<i class="menu-lucide-icon" data-lucide="flame" aria-hidden="true"></i>',
       '4': '<i class="menu-lucide-icon" data-lucide="clipboard-check" aria-hidden="true"></i>',
-      '5': '<i class="menu-lucide-icon" data-lucide="box" aria-hidden="true"></i>'
+      '5': '<i class="menu-lucide-icon" data-lucide="box" aria-hidden="true"></i>',
+      '6': '<i class="menu-lucide-icon" data-lucide="share-2" aria-hidden="true"></i>',
+      '8': '<i class="menu-lucide-icon" data-lucide="file-check-2" aria-hidden="true"></i>',
+      '9': '<i class="menu-lucide-icon" data-lucide="clock-3" aria-hidden="true"></i>',
+      '10': '<i class="menu-lucide-icon" data-lucide="circle-dot" aria-hidden="true"></i>',
+      '11': '<i class="menu-lucide-icon" data-lucide="award" aria-hidden="true"></i>',
+      '12': '<i class="menu-lucide-icon" data-lucide="message-square" aria-hidden="true"></i>'
     };
 
     const groupsWrapper = document.createElement('div');

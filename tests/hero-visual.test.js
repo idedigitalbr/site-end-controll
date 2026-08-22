@@ -23,7 +23,7 @@ test('keeps only the primary Hero CTA', () => {
 });
 
 test('removes excessive neon glow and shadow effects from the hero banner', () => {
-  assert.match(styles, /\.hero-title-main \.highlight-cyan\s*\{[\s\S]*?color:\s*#00215d[\s\S]*?background:\s*none\s*;/i);
+  assert.match(styles, /\.hero-title-main \.hero-title-highlight\s*\{[\s\S]*?color:\s*#00215d[\s\S]*?font-style:\s*italic\s*;[\s\S]*?font-weight:\s*300\s*;/i);
   assert.match(styles, /\.hero-arrow-btn:hover\s*\{[\s\S]*?filter:\s*none\s*;/i);
   assert.match(styles, /\.hud-circuit-svg\s*\{[\s\S]*?filter:\s*none\s*;[\s\S]*?animation:\s*none\s*;/i);
   assert.match(styles, /\.hud-blur-glow\s*\{[\s\S]*?display:\s*none\s*;/i);
@@ -52,8 +52,8 @@ test('uses the light navy hero reference and the requested indicator copy', () =
   assert.match(home, />\+1\.250<\/h3>/i);
   assert.match(home, />projetos entregues<\/p>/i);
   assert.match(styles, /\.hero-static-container\s*\{[\s\S]*?background:\s*#f4f9fc\s*;/i);
-  assert.match(styles, /\.hero-title-main\s*\{[\s\S]*?color:\s*#00215d\s*;/i);
-  assert.match(styles, /\.hero-lead-desc\s*\{[\s\S]*?color:\s*#36527a\s*;/i);
+  assert.match(styles, /\.hero-title-main\s*\{[\s\S]*?color:\s*#071429\s*;/i);
+  assert.match(styles, /\.hero-lead-desc\s*\{[\s\S]*?color:\s*#475569\s*;/i);
   assert.match(styles, /\.hero-overlay-blue-tint\s*\{[\s\S]*?display:\s*none\s*;/i);
   assert.match(styles, /\.hero-benefits-bar\s*\{[\s\S]*?background:\s*#00215d\s*;/i);
 });
@@ -63,8 +63,14 @@ test('uses a navy background and white copy in the Hero badge', () => {
   assert.match(home, /<div class="hero-badge-pill">Engenharia - Inspeção - Integridade<\/div>/i);
 });
 
-test('breaks the Hero headline after integridade', () => {
-  assert.match(home, /Engenharia de integridade\s*<br>\s*para ativos que sustentam\s*<br>/i);
+test('breaks the Hero headline after the italic integridade highlight', () => {
+  assert.match(home, /Engenharia de\s*<span class="hero-title-highlight">integridade<\/span>\s*<br>\s*para ativos que sustentam\s*<br>/i);
+  assert.match(styles, /\.hero-title-main \.hero-title-highlight\s*\{[\s\S]*?font-style:\s*italic\s*;[\s\S]*?font-weight:\s*300\s*;/i);
+});
+
+test('uses the shared semantic italic highlight for grandes operações', () => {
+  assert.match(home, /<em class="hero-title-highlight">grandes operações<\/em>/i);
+  assert.match(styles, /\.hero-title-main \.hero-title-highlight\s*\{[\s\S]*?color:\s*#00215d\s*;[\s\S]*?font-style:\s*italic\s*;[\s\S]*?font-weight:\s*300\s*;/i);
 });
 
 test('adds breathing room before the primary Hero CTA', () => {

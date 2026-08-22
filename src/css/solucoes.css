@@ -191,12 +191,12 @@
   box-shadow: none;
 }
 .solucoes-badge-text {
-  font-size: 0.78rem;
+  font-size: 0.72rem;
   font-weight: 700;
   color: #ffffff;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.14em;
   line-height: 1.2;
-  text-transform: none;
+  text-transform: uppercase;
 }
 .solucoes-heading {
   width: 100%;

@@ -12,7 +12,7 @@ test('uses the standard navy in the Soluções section visual elements', () => {
   assert.match(styles, /\.solucoes-section-header\s*\{[\s\S]*?align-items:\s*center[\s\S]*?text-align:\s*center/i);
   assert.match(styles, /\.solucoes-main-content\s*\{[\s\S]*?grid-template-areas:\s*"center right"/i);
   assert.match(styles, /\.solucoes-badge\s*\{[\s\S]*?border-radius:\s*999px[\s\S]*?background:\s*#00215d/i);
-  assert.match(styles, /\.solucoes-badge-text\s*\{[\s\S]*?color:\s*#ffffff[\s\S]*?text-transform:\s*none/i);
+  assert.match(styles, /\.solucoes-badge-text\s*\{[\s\S]*?color:\s*#ffffff[\s\S]*?text-transform:\s*uppercase/i);
   assert.match(styles, /\.service-node-icon\s*\{[\s\S]*?border:\s*1\.5px\s+solid\s+#00215D\s*;/i);
   assert.match(styles, /\.service-node\.is-active \.service-node-icon\s*\{[\s\S]*?background:\s+#00215D\s*!important;/i);
   assert.match(styles, /\.radar-circle-outer\s*\{[\s\S]*?rgba\(0,\s*33,\s*93/i);
