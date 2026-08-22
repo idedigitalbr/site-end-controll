@@ -1,5 +1,22 @@
 # Changelog — ENDCONTROL Engenharia
 
+## [2026-08-21] - Inversão de Layout da Seção Metodologia em Sobre Nós (Passos à Esquerda, Texto à Direita)
+
+- **Arquivos:** `sobre-nos.html`, `src/css/sobre-nos.css`, `MD/changelog.md`.
+
+### Layout & Usability
+- **Inversão de Posição das Colunas na Seção Metodologia (`#metodologia`):**
+  - Coluna Esquerda: Passos interativos da metodologia (`.sn-process-track-zone`) com os 4 nós circulares conectados por setas direcionais.
+  - Coluna Direita: Bloco institucional (`.sn-process-info-zone`) com o título de impacto e descrição conceitual.
+  - Detalhes tecnológicos decorativos reposicionados em harmonia:
+    - Arcos concêntricos circulares (`.sn-process-tech-arcs`) alinhados ao lado esquerdo (`left: -100px;`) atrás dos círculos de metodologia.
+    - Pontilhado tecnológico (`.sn-process-tech-dots`) reposicionado ao lado direito (`right: 20px;`).
+- **Responsividade & Mobile:**
+  - Em telas mobile/tablet (`<= 1024px`), preservada a ordem natural de leitura (`order: 1` para o título/introdução e `order: 2` para a grade de etapas).
+  - Atualizada a tag de versão para invalidação de cache (`sobre-nos.css?v=140.0`).
+- **Testes & Qualidade:**
+  - 148/148 testes automatizados aprovados com 100% de sucesso.
+
 ## [2026-08-21] - Padronização em Massa da Seção "Nosso Compromisso" nas 12 Páginas de Soluções (1:1 com Sobre Nós)
 
 - **Arquivos:** Todas as 12 páginas de soluções (`1-solucao-...html` até `12-solucao-...html`), `src/css/servico-integridade.css`, `tests/service-1-structure.test.js`, `tests/service-visual-standard.test.js`, `tests/service-pages-layout.test.js`, `MD/changelog.md`.

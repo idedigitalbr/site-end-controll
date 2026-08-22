@@ -873,7 +873,7 @@
   justify-content: center;
 }
 
-/* Detalhes Tecnológicos Sutis (Pontilhado Discreto à Esquerda & Arcos Concêntricos à Direita) */
+/* Detalhes Tecnológicos Sutis (Pontilhado Discreto à Direita & Arcos Concêntricos à Esquerda) */
 .sn-process-tech-decor {
   position: absolute;
   inset: 0;
@@ -885,7 +885,8 @@
 .sn-process-tech-dots {
   position: absolute;
   top: 40px;
-  left: 20px;
+  right: 20px;
+  left: auto;
   width: 140px;
   height: 220px;
   background-image: radial-gradient(rgba(0, 33, 93, 0.18) 1.5px, transparent 1.5px);
@@ -898,7 +899,8 @@
 .sn-process-tech-arcs {
   position: absolute;
   top: -120px;
-  right: -100px;
+  left: -100px;
+  right: auto;
   width: 800px;
   height: 800px;
   border-radius: 50%;
@@ -922,7 +924,7 @@
   border: 1px solid rgba(11, 25, 44, 0.03);
 }
 
-/* Container Panorâmico Centralizado Widescreen 2 Colunas */
+/* Container Panorâmico Centralizado Widescreen 2 Colunas (Passos à Esquerda, Info à Direita) */
 .sn-process-widescreen-container {
   position: relative;
   z-index: 2;
@@ -932,13 +934,13 @@
   padding: 0 clamp(20px, 3vw, 40px);
   box-sizing: border-box;
   display: grid;
-  grid-template-columns: minmax(360px, 490px) minmax(540px, 780px);
+  grid-template-columns: minmax(540px, 780px) minmax(360px, 490px);
   align-items: center;
   justify-content: space-between;
   column-gap: clamp(32px, 4vw, 64px);
 }
 
-/* Coluna Esquerda: Bloco de Informação Institucional */
+/* Coluna Direita: Bloco de Informação Institucional */
 .sn-process-info-zone {
   display: flex;
   flex-direction: column;
@@ -978,7 +980,7 @@
   max-width: 380px;
 }
 
-/* Coluna Direita: Metodologia - 4 Passos Conectados em Linha */
+/* Coluna Esquerda: Metodologia - 4 Passos Conectados em Linha */
 .sn-process-track-zone {
   display: flex;
   align-items: flex-start;
@@ -1466,7 +1468,7 @@
   .sn-process-widescreen-container {
     width: min(1280px, calc(100% - 100px));
     max-width: 1280px;
-    grid-template-columns: minmax(300px, 360px) minmax(480px, 680px);
+    grid-template-columns: minmax(480px, 680px) minmax(300px, 360px);
     column-gap: clamp(28px, 3.5vw, 60px);
     padding: 0 20px;
   }
@@ -1530,7 +1532,7 @@
   .sn-process-widescreen-container {
     width: min(1200px, calc(100% - 80px));
     max-width: 1200px;
-    grid-template-columns: minmax(280px, 360px) minmax(500px, 680px);
+    grid-template-columns: minmax(500px, 680px) minmax(280px, 360px);
     column-gap: clamp(24px, 3.5vw, 50px);
     padding: 0 16px;
   }
@@ -1624,7 +1626,7 @@
   .sn-process-widescreen-container {
     width: min(1100px, calc(100% - 40px));
     max-width: 1100px;
-    grid-template-columns: minmax(320px, 420px) minmax(460px, 620px);
+    grid-template-columns: minmax(460px, 620px) minmax(320px, 420px);
     column-gap: 20px;
     padding: 0 12px;
   }
@@ -1720,6 +1722,7 @@
   }
 
   .sn-process-info-zone {
+    order: 1;
     max-width: 580px;
     margin: 0 auto;
     text-align: center;
@@ -1737,6 +1740,7 @@
   }
 
   .sn-process-track-zone {
+    order: 2;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 32px 24px;
