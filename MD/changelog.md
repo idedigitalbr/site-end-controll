@@ -1,5 +1,16 @@
 # Changelog — ENDCONTROL Engenharia
 
+## [2026-08-22] - Remoção da Faixa de Benefícios da Solução em Engenharia de Integridade Estrutural
+
+- **Arquivos:** `1-solucao-engenharia-de-integridade-estrutural.html`, `MD/changelog.md`.
+
+### Refactored & Cleaned
+- **Remoção de Elemento Redundante (`.about-values-banner`):**
+  - Removida a faixa horizontal inferior de 4 cards de benefícios (*Segurança, Confiabilidade, Vida útil e Decisão técnica*) da primeira dobra da página de Engenharia de Integridade Estrutural (`1-solucao-engenharia-de-integridade-estrutural.html`).
+  - Layout da primeira dobra simplificado, destacando a fotografia em moldura única e mantendo o fluxo direto para a seção seguinte (Abordagem FFS).
+- **Testes & Qualidade:**
+  - 156/156 testes automatizados executados e 100% aprovados.
+
 ## [2026-08-21] - Correção e Padronização de Contraste dos Ícones de Soluções (Normal e Hover)
 
 - **Arquivos:** `src/css/tokens.css`, `src/css/sections.css`, `src/css/servico-integridade.css`, `MD/changelog.md`.

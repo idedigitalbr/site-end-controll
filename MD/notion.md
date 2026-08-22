@@ -1,5 +1,13 @@
 # Histórico de sincronização — DB_IDE
 
+## 2026-08-22 - Remoção da Faixa de Benefícios em Engenharia de Integridade Estrutural
+
+- Projeto: site-end-controll
+- Tarefa: Remoção da faixa horizontal com 4 cards de benefícios (*Segurança, Confiabilidade, Vida útil e Decisão técnica*) da primeira dobra de `1-solucao-engenharia-de-integridade-estrutural.html`, mantendo o design limpo e direto conforme solicitado pelo cliente.
+- Status local: Concluída.
+- Testes: 156/156 testes aprovados com 100% de sucesso.
+- Observação: Memória persistente no Obsidian (`MD/`) e changelog sincronizados.
+
 ## 2026-08-21 - Padronização Minimalista dos Indicadores nas Páginas de Soluções
 
 - Projeto: site-end-controll

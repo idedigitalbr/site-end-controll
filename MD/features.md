@@ -1,5 +1,12 @@
 # Features — ENDCONTROL Engenharia
 
+## Remoção da Faixa de Benefícios da Solução (Página 01 - Integridade Estrutural)
+
+- Status: Concluída
+- Data: 2026-08-22
+- **Arquivos:** `1-solucao-engenharia-de-integridade-estrutural.html`, `MD/changelog.md`, `MD/features.md`, `MD/notion.md`.
+- **Limpeza Visual na Primeira Dobra:** Removida a faixa horizontal com 4 cards de benefícios (*Segurança, Confiabilidade, Vida útil e Decisão técnica*), simplificando a composição da primeira dobra da página de Engenharia de Integridade Estrutural e garantindo foco na fotografia técnica e no CTA principal.
+
 ## Padronização Minimalista dos Indicadores nas Páginas de Soluções
 
 - Status: Concluída
