@@ -59,7 +59,7 @@ test('uses the light navy hero reference and the requested indicator copy', () =
 });
 
 test('uses a navy background and white copy in the Hero badge', () => {
-  assert.match(styles, /\.hero-badge-pill\s*\{[\s\S]*?background:\s*#00215d\s*;[\s\S]*?color:\s*#ffffff\s*;/i);
+  assert.match(styles, /\.hero-badge-pill\s*\{[\s\S]*?background:\s*#00215d\s*;[\s\S]*?color:\s*#ffffff\s*;[\s\S]*?text-transform:\s*uppercase/i);
   assert.match(home, /<div class="hero-badge-pill">Engenharia - Inspeção - Integridade<\/div>/i);
 });
 

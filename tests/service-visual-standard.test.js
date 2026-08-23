@@ -49,12 +49,12 @@ test('service sections use restrained home-aligned visual tokens', () => {
 });
 
 test('service headings and badges share the home typography pattern', () => {
-  assert.match(serviceStyles, /\.sn-page-wrapper \.segmentos-secao \.segmentos-eyebrow[\s\S]*?border-radius:\s*999px[\s\S]*?background:\s*#00215D[\s\S]*?color:\s*#ffffff/i);
+  assert.match(serviceStyles, /\.sn-page-wrapper \.segmentos-secao \.segmentos-eyebrow[\s\S]*?padding:\s*8px\s+14px[\s\S]*?border-radius:\s*999px[\s\S]*?background:\s*#00215D[\s\S]*?color:\s*#ffffff[\s\S]*?font-size:\s*var\(--font-size-eyebrow,\s*12px\)[\s\S]*?font-weight:\s*700[\s\S]*?text-transform:\s*uppercase/i);
   assert.match(serviceStyles, /\.sn-page-wrapper \.segmentos-secao \.segmentos-title[\s\S]*?font-size:\s*clamp\(28px,\s*3\.8vw,\s*var\(--font-size-headline,\s*38px\)\)/i);
   assert.match(serviceStyles, /\.sn-page-wrapper \.segmentos-secao \.segmentos-subtitle[\s\S]*?font-size:\s*var\(--font-size-body,\s*16px\)[\s\S]*?line-height:\s*1\.6/i);
-  assert.match(serviceStyles, /\.sn-page-wrapper \.sn-process-eyebrow[\s\S]*?border-radius:\s*999px[\s\S]*?background:\s*#00215D[\s\S]*?color:\s*#ffffff/i);
+  assert.match(serviceStyles, /\.sn-page-wrapper \.sn-process-eyebrow[\s\S]*?padding:\s*8px\s+14px[\s\S]*?border-radius:\s*999px[\s\S]*?background:\s*#00215D[\s\S]*?color:\s*#ffffff[\s\S]*?font-size:\s*var\(--font-size-eyebrow,\s*12px\)[\s\S]*?font-weight:\s*700[\s\S]*?text-transform:\s*uppercase/i);
   assert.match(serviceStyles, /\.sn-page-wrapper \.sn-process-headline[\s\S]*?font-size:\s*clamp\(28px,\s*3\.8vw,\s*var\(--font-size-headline,\s*38px\)\)/i);
-  assert.match(serviceStyles, /\.sn-page-wrapper \.sn-process-description[\s\S]*?font-size:\s*var\(--font-size-body,\s*16px\)[\s\S]*?line-height:\s*1\.6/i);
+  assert.match(serviceStyles, /\.sn-page-wrapper \.sn-process-description[\s\S]*?font-size:\s*var\(--font-size-body,\s*16px\)[\s\S]*?line-height:\s*1\.6[\s\S]*?text-align:\s*justify/i);
 });
 
 test('methodology icon hover uses the dark navy interaction state', () => {

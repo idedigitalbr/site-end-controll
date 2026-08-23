@@ -47,9 +47,15 @@ test('uses the standard navy across the solution card structure', () => {
   assert.match(styles, /\.card-side-arrow\s*\{[\s\S]*?border:\s*1\.5px\s+solid\s+#00215D\s*;[\s\S]*?color:\s+#00215D\s*;/i);
   assert.match(styles, /\.card-side-arrow:hover\s*\{[\s\S]*?background:\s+#00215D\s*;[\s\S]*?border-color:\s+#00215D\s*;/i);
   assert.match(styles, /\.highlight-card-list li svg\s*\{[\s\S]*?color:\s+#00215D\s*;/i);
-  assert.match(styles, /\.highlight-card-cta\s*\{[\s\S]*?background:\s+#00215D\s*;/i);
+  assert.match(styles, /\.highlight-card-cta\s*\{[\s\S]*?background:\s+#00215D\s*;[\s\S]*?justify-content:\s*center/i);
+  assert.match(styles, /\.highlight-card-cta svg\s*\{[\s\S]*?position:\s*absolute[\s\S]*?right:\s*14px/i);
   assert.match(styles, /\.card-progress-dot\.active\s*\{[\s\S]*?background:\s+#00215D\s*;/i);
   assert.match(styles, /\.card-footer-btn\s*\{[\s\S]*?border:\s*1px\s+solid\s+#00215D\s*;/i);
+});
+
+test('justifies all dynamic solution card descriptions', () => {
+  assert.match(styles, /\.highlight-card-desc\s*\{[\s\S]*?text-align:\s*justify[\s\S]*?text-justify:\s*inter-word[\s\S]*?hyphens:\s*auto/i);
+  assert.match(home, /<p class="highlight-card-desc" id="cardDesc">/i);
 });
 
 test('centers the radar-card composition and renders a connector for the selected service', () => {

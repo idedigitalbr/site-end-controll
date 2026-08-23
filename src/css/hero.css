@@ -259,6 +259,7 @@
   font-size: var(--font-size-eyebrow, 12px);
   font-weight: 700;
   letter-spacing: 0.14em;
+  text-transform: uppercase;
   color: #ffffff;
   animation: fadeInDown 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
 }

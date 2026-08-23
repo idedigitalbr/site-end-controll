@@ -614,6 +614,7 @@
   font-size: var(--font-size-eyebrow, 12px);
   font-weight: 700;
   letter-spacing: 0.14em;
+  line-height: 1.2;
   text-transform: uppercase;
   color: #ffffff;
   background: #00215D;
@@ -2711,13 +2712,13 @@
   align-items: center;
   justify-content: center;
   width: fit-content;
-  padding: 8px 16px;
+  padding: 8px 14px;
   margin: 0 0 16px;
   border-radius: 999px;
   background: #00215D;
   color: #ffffff;
   font-size: var(--font-size-eyebrow, 12px);
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: 0.14em;
   line-height: 1.2;
   text-transform: uppercase;
@@ -2770,6 +2771,9 @@
   font-size: var(--font-size-body, 16px);
   font-weight: 400;
   line-height: 1.6;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
 }
 
 .sn-page-wrapper .svc-methodology-headline {

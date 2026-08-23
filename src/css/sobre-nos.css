@@ -803,7 +803,9 @@
   line-height: 1.55;
   color: #2b3e55;
   margin: 0;
-  text-align: left;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
 }
 
 /* Lista de Valores com bullets azuis alinhados à esquerda */
@@ -1137,7 +1139,9 @@
   font-size: var(--font-size-icon-text, 16px);
   line-height: 1.5;
   color: #64748b;
-  text-align: center;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
   max-width: 150px;
   margin: 0 auto;
   word-break: break-word;
