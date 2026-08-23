@@ -20,10 +20,10 @@ test('removes the duplicated bottom statistics bar', () => {
   assert.doesNotMatch(html, /<div class="bottom-bar-feed">/);
 });
 
-test('keeps the automatic radar advance on a fixed ten-second cadence', () => {
+test('keeps the automatic radar advance on a fixed five-second cadence', () => {
   const solucoes = fs.readFileSync(path.join(__dirname, '..', 'src', 'js', 'solucoes.js'), 'utf8');
 
-  assert.match(solucoes, /autoAdvanceInterval:\s*10000/);
+  assert.match(solucoes, /autoAdvanceInterval:\s*5000/);
   assert.match(solucoes, /autoAdvanceInterval\s*-\s*RADAR_CONFIG\.transitionDuration/);
-  assert.match(html, /src="\.\/src\/js\/solucoes\.js\?v=64\.0"/);
+  assert.match(html, /src="\.\/src\/js\/solucoes\.js\?v=67\.0"/);
 });
