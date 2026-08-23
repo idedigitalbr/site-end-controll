@@ -967,6 +967,9 @@
   color: #475569;
   margin-bottom: 0;
   max-width: 380px;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
 }
 
 /* Coluna Esquerda: Metodologia - 4 Passos Conectados em Linha */

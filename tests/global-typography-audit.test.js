@@ -105,7 +105,7 @@ test('all body texts, subtitles, descriptions, checklists, and paragraphs use 16
   assert.match(sobreNosCss, /\.sn-essence-subheadline\s*\{[\s\S]*?font-size:\s*var\(--font-size-body,\s*16px\)/i);
   assert.match(sobreNosCss, /\.sn-essence-card-body\s*\{[\s\S]*?font-size:\s*var\(--font-size-icon-text,\s*16px\)[\s\S]*?text-align:\s*justify/i);
   assert.match(sobreNosCss, /\.sn-values-list li\s*\{[\s\S]*?font-size:\s*var\(--font-size-icon-text,\s*16px\)/i);
-  assert.match(sobreNosCss, /\.sn-process-description\s*\{[\s\S]*?font-size:\s*var\(--font-size-body,\s*16px\)/i);
+  assert.match(sobreNosCss, /\.sn-process-description\s*\{[\s\S]*?font-size:\s*var\(--font-size-body,\s*16px\)[\s\S]*?text-align:\s*justify/i);
   assert.match(sobreNosCss, /\.sn-step-desc\s*\{[\s\S]*?font-size:\s*var\(--font-size-icon-text,\s*16px\)[\s\S]*?text-align:\s*justify/i);
   assert.match(sobreNosCss, /\.sn-commitment-desc\s*\{[\s\S]*?font-size:\s*var\(--font-size-body,\s*16px\)/i);
 
