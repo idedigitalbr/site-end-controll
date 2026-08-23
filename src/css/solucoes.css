@@ -1089,6 +1089,7 @@
 .card-progress {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 5px;
   padding: 0 18px 12px 18px;
 }
@@ -1103,10 +1104,28 @@
   cursor: pointer;
 }
 .card-progress-dot.active {
-  background: #00215D;
-  box-shadow: 0 0 8px rgba(0, 33, 93, 0.4);
-  width: 18px;
+  position: relative;
+  overflow: hidden;
+  background: rgba(0, 33, 93, 0.18);
+  box-shadow: 0 0 8px rgba(0, 33, 93, 0.18);
+  width: 36px;
   border-radius: 3px;
+}
+.card-progress-dot.active::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: #00215D;
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+#cardProgress.is-auto-playing .card-progress-dot.active::after {
+  animation: card-auto-progress var(--card-auto-duration, 8400ms) linear forwards;
+}
+@keyframes card-auto-progress {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
 }
 .card-progress-dot:hover {
   background: rgba(0, 33, 93, 0.45);
@@ -1633,7 +1652,7 @@
 
   .highlight-card-wrapper,
   .highlight-card {
-    max-width: 300px;
+    max-width: 280px;
   }
 }
 
@@ -1655,7 +1674,7 @@
 
   .highlight-card-wrapper,
   .highlight-card {
-    max-width: 280px;
+    max-width: 260px;
   }
 }
 
@@ -1675,5 +1694,60 @@
 @media (max-width: 991px) {
   .radar-card-connector {
     display: none;
+  }
+}
+
+@media (min-width: 992px) {
+  .highlight-card-image {
+    height: 168px;
+  }
+
+  .highlight-card-body {
+    padding: 15px 17px 17px;
+    min-height: 257px;
+  }
+
+  .highlight-card-title {
+    font-size: 17px;
+  }
+
+  .highlight-card-desc {
+    font-size: 15px;
+  }
+
+  .highlight-card-list li {
+    font-size: 14px;
+  }
+
+  .highlight-card-list {
+    gap: 5px;
+    margin-bottom: 13px;
+  }
+
+  .highlight-card-cta {
+    padding: 9px 17px;
+    font-size: 14px;
+  }
+
+  .highlight-card-cta svg {
+    right: 13px;
+  }
+
+  .card-side-arrow {
+    width: 34px;
+    height: 34px;
+  }
+
+  .card-side-arrow.prev {
+    left: -17px;
+  }
+
+  .card-side-arrow.next {
+    right: -17px;
+  }
+
+  .card-progress {
+    gap: 5px;
+    padding: 0 17px 11px;
   }
 }

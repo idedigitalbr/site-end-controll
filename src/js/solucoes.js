@@ -233,7 +233,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const RADAR_CONFIG = Object.freeze({
     transitionDuration: 1600,
-    autoAdvanceInterval: 10000,
+    autoAdvanceInterval: 5000,
     hoverResumeDelay: 2000,
     manualResumeDelay: 10000,
     approachStartRatio: 0.56,
@@ -567,6 +567,10 @@ document.addEventListener('DOMContentLoaded', () => {
     cardProgress.appendChild(dot);
   });
   const progressDots = document.querySelectorAll('.card-progress-dot');
+  cardProgress.style.setProperty(
+    '--card-auto-duration',
+    `${Math.max(0, RADAR_CONFIG.autoAdvanceInterval - RADAR_CONFIG.transitionDuration)}ms`
+  );
 
   const checkSvg = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>`;
   const arrowSvg = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>`;
@@ -634,6 +638,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  function updateSelectedNode(index) {
+    serviceNodes.forEach((node, nodeIndex) => {
+      node.classList.toggle('is-selected', nodeIndex === index);
+    });
+  }
+
   function updateCard(index, animate = true) {
     const data = servicesData[index];
     if (animate && !isTransitioning) {
@@ -676,9 +686,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!Number.isInteger(index) || index < 0 || index >= servicesData.length) return;
 
     selectedIndex = index;
-    serviceNodes.forEach((node, nodeIndex) => {
-      node.classList.toggle('is-selected', nodeIndex === index);
-    });
+    updateSelectedNode(index);
     updateRadarStates(index);
     updatePagination(index);
     updateCard(index, true);
@@ -729,6 +737,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function commitService(index) {
     activeIndex = index;
     selectedIndex = index;
+    updateSelectedNode(index);
     sweepTargetIndex = null;
     clearTimeout(approachTimer);
     clearTransientNodeStates();
@@ -851,6 +860,7 @@ document.addEventListener('DOMContentLoaded', () => {
     autoPlayEnabled = false;
     clearTimeout(cycleTimer);
     cycleTimer = null;
+    cardProgress.classList.remove('is-auto-playing');
   }
 
   function scheduleNextSweep(
@@ -858,6 +868,10 @@ document.addEventListener('DOMContentLoaded', () => {
   ) {
     clearTimeout(cycleTimer);
     if (!autoPlayEnabled || reducedMotionQuery.matches || sweepAnimation || isHovered) return;
+
+    cardProgress.classList.remove('is-auto-playing');
+    void cardProgress.offsetWidth;
+    cardProgress.classList.add('is-auto-playing');
 
     cycleTimer = window.setTimeout(() => {
       moveSweepTo((activeIndex + 1) % servicesData.length, 'forward');

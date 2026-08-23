@@ -49,7 +49,14 @@ test('uses the standard navy across the solution card structure', () => {
   assert.match(styles, /\.highlight-card-list li svg\s*\{[\s\S]*?color:\s+#00215D\s*;/i);
   assert.match(styles, /\.highlight-card-cta\s*\{[\s\S]*?background:\s+#00215D\s*;[\s\S]*?justify-content:\s*center/i);
   assert.match(styles, /\.highlight-card-cta svg\s*\{[\s\S]*?position:\s*absolute[\s\S]*?right:\s*14px/i);
-  assert.match(styles, /\.card-progress-dot\.active\s*\{[\s\S]*?background:\s+#00215D\s*;/i);
+  assert.match(styles, /\.card-progress-dot\.active\s*\{[\s\S]*?background:\s*rgba\(0,\s*33,\s*93,\s*0\.18\)\s*;/i);
+  assert.match(styles, /\.card-progress-dot\.active::after\s*\{[\s\S]*?transform-origin:\s*left center/i);
+  assert.match(styles, /#cardProgress\.is-auto-playing \.card-progress-dot\.active::after\s*\{[\s\S]*?animation:\s*card-auto-progress/i);
+  assert.match(styles, /\.card-progress\s*\{[\s\S]*?justify-content:\s*center/i);
+  assert.match(solutionsScript, /cardProgress\.style\.setProperty\([\s\S]*?--card-auto-duration/i);
+  assert.match(solutionsScript, /autoAdvanceInterval:\s*5000/i);
+  assert.match(solutionsScript, /cardProgress\.classList\.add\('is-auto-playing'\)/i);
+  assert.match(solutionsScript, /cardProgress\.classList\.remove\('is-auto-playing'\)/i);
   assert.match(styles, /\.card-footer-btn\s*\{[\s\S]*?border:\s*1px\s+solid\s+#00215D\s*;/i);
 });
 
@@ -80,7 +87,10 @@ test('centers the radar-card composition and renders a connector for the selecte
 test('prioritizes the radar over the solution card on desktop', () => {
   assert.match(styles, /@media \(min-width: 1441px\)\s*\{[\s\S]*?grid-template-columns:\s*minmax\(0,\s*860px\)\s+300px[\s\S]*?gap:\s*32px[\s\S]*?\}/i);
   assert.match(styles, /@media \(min-width: 1441px\)\s*\{[\s\S]*?\.solucoes-center-area\s*\{[\s\S]*?max-width:\s*min\(860px,\s*82vh\)[\s\S]*?\}/i);
-  assert.match(styles, /@media \(min-width: 1441px\)\s*\{[\s\S]*?\.highlight-card(?:-wrapper)?\s*\{[\s\S]*?max-width:\s*300px[\s\S]*?\}/i);
+  assert.match(styles, /@media \(min-width: 1441px\)\s*\{[\s\S]*?\.highlight-card(?:-wrapper)?\s*\{[\s\S]*?max-width:\s*280px[\s\S]*?\}/i);
+  assert.match(styles, /@media \(min-width: 1201px\) and \(max-width: 1440px\)\s*\{[\s\S]*?\.highlight-card(?:-wrapper)?\s*\{[\s\S]*?max-width:\s*260px[\s\S]*?\}/i);
+  assert.match(styles, /@media \(min-width: 992px\)\s*\{[\s\S]*?\.highlight-card-image\s*\{[\s\S]*?height:\s*168px[\s\S]*?\}[\s\S]*?\.highlight-card-title\s*\{[\s\S]*?font-size:\s*17px[\s\S]*?\}/i);
+  assert.match(styles, /@media \(min-width: 992px\)\s*\{[\s\S]*?\.highlight-card-list li\s*\{[\s\S]*?font-size:\s*14px[\s\S]*?\}/i);
   assert.match(styles, /@media \(min-width: 1201px\) and \(max-width: 1440px\)\s*\{[\s\S]*?grid-template-columns:\s*minmax\(0,\s*740px\)\s+280px[\s\S]*?\}/i);
 });
 
@@ -104,4 +114,9 @@ test('previews the selected service immediately and keeps its tooltip visible', 
   assert.match(styles, /\.service-node\.is-selected \.service-node-icon\s*\{[\s\S]*?background:\s*#00215D\s*!important/i);
   assert.match(styles, /\.service-node\.is-active\[data-tooltip\]::after\s*\{/i);
   assert.doesNotMatch(styles, /\.service-node\.is-selected\[data-tooltip\]::after/i);
+});
+
+test('keeps the selected node synchronized after automatic card advances', () => {
+  assert.match(solutionsScript, /function updateSelectedNode\(index\)[\s\S]*?classList\.toggle\('is-selected'/i);
+  assert.match(solutionsScript, /function commitService\(index\)[\s\S]*?updateSelectedNode\(index\)/i);
 });
