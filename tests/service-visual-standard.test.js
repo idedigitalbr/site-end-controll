@@ -32,6 +32,26 @@ test('all service pages load the shared Lucide runtime', () => {
   }
 });
 
+test('service sidebar headlines do not end with a period', () => {
+  for (const filename of servicePages) {
+    const html = fs.readFileSync(path.join(root, filename), 'utf8');
+    const headline = html.match(/<h2 class="sidebar-headline">[\s\S]*?<\/h2>/i)?.[0] || '';
+
+    assert.ok(headline, `${filename} should contain a sidebar headline`);
+    assert.doesNotMatch(headline, /[.!?]\s*<\/span>\s*<\/h2>/i, `${filename} should not end the sidebar headline with punctuation`);
+  }
+});
+
+test('service methodology headlines do not end with a period', () => {
+  for (const filename of servicePages) {
+    const html = fs.readFileSync(path.join(root, filename), 'utf8');
+    const headline = html.match(/<h2 class="sn-process-headline">[\s\S]*?<\/h2>/i)?.[0] || '';
+
+    assert.ok(headline, `${filename} should contain a methodology headline`);
+    assert.doesNotMatch(headline, /[.!?]\s*<\/span>\s*<\/h2>/i, `${filename} should not end the methodology headline with punctuation`);
+  }
+});
+
 test('the shared service runtime normalizes icons and maintains structure', () => {
   assert.match(serviceRuntime, /lucide\.createIcons\(\)/);
   assert.match(serviceRuntime, /function normalizeMethodologyIcons\(\)[\s\S]*?database[\s\S]*?settings-2[\s\S]*?file-text[\s\S]*?clipboard-check/);
