@@ -2639,6 +2639,9 @@
   font-family: var(--font-primary, sans-serif);
   font-size: var(--font-size-icon-text, 16px);
   line-height: 1.5;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
 }
 
 
