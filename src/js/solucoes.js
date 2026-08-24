@@ -227,7 +227,7 @@ document.addEventListener('DOMContentLoaded', () => {
       ring: ringIndex === 0 ? 'outer' : 'inner',
       angle: ringIndex === 0
         ? -90 + stepIndex * 60
-        : -60 + (stepIndex - RING_SIZE) * 60
+        : -90 + (stepIndex - RING_SIZE) * 60
     };
   });
 
@@ -478,9 +478,9 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function getRadarArcGeometry(from, to) {
-    const insetDegrees = getConnectionInsetDegrees(from);
+    // Conecta o traçado ao centro dos ícones; a camada dos ícones cobre a ponta.
     const angles = RadarProgress.getSafeArcAngles(from.angle, to.angle, {
-      insetDegrees
+      insetDegrees: 0
     });
     const start = polarPointAt(from, angles.startAngle);
     const end = polarPointAt(to, angles.endAngle);
@@ -555,6 +555,42 @@ document.addEventListener('DOMContentLoaded', () => {
     };
   });
 
+  function getConnectionForTarget(index) {
+    const incomingConnection = connectionElements.find(connection =>
+      connection.toStepIndex === index && !connection.isClosing
+    );
+
+    if (incomingConnection) return incomingConnection;
+
+    return connectionElements.find(connection =>
+      connection.isClosing && connection.fromStepIndex === activeIndex
+    ) || null;
+  }
+
+  function clearConnectionLoading() {
+    connectionElements.forEach(connection => {
+      connection.path.classList.remove('is-loading');
+      connection.path.style.removeProperty('--radar-loading-duration');
+    });
+    delete orbitalDiagram.dataset.loadingStep;
+  }
+
+  function setConnectionLoading(index, duration = RADAR_CONFIG.autoAdvanceInterval) {
+    clearConnectionLoading();
+
+    const loadingConnection = getConnectionForTarget(index);
+    if (!loadingConnection) return false;
+
+    loadingConnection.path.style.setProperty('--radar-loading-duration', `${Math.max(0, duration)}ms`);
+    loadingConnection.path.classList.add('is-loading');
+    orbitalDiagram.dataset.loadingStep = String(index + 1);
+    return true;
+  }
+
+  function setNextConnectionLoading(duration = RADAR_CONFIG.autoAdvanceInterval) {
+    return setConnectionLoading((activeIndex + 1) % servicesData.length, duration);
+  }
+
   // Build card progress dots
   cardProgress.innerHTML = '';
   servicesData.forEach((_, i) => {
@@ -567,10 +603,6 @@ document.addEventListener('DOMContentLoaded', () => {
     cardProgress.appendChild(dot);
   });
   const progressDots = document.querySelectorAll('.card-progress-dot');
-  cardProgress.style.setProperty(
-    '--card-auto-duration',
-    `${Math.max(0, RADAR_CONFIG.autoAdvanceInterval - RADAR_CONFIG.transitionDuration)}ms`
-  );
 
   const checkSvg = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>`;
   const arrowSvg = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>`;
@@ -693,10 +725,13 @@ document.addEventListener('DOMContentLoaded', () => {
     window.requestAnimationFrame(() => updateRadarCardConnector(index));
   }
 
-  function clearTransientNodeStates() {
+  function clearTransientNodeStates(preserveConnectionLoading = false) {
     serviceNodes.forEach(node => {
       node.classList.remove('is-departing', 'is-approaching');
     });
+    if (!preserveConnectionLoading) {
+      clearConnectionLoading();
+    }
     delete orbitalDiagram.dataset.targetStep;
   }
 
@@ -754,7 +789,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  function moveSweepTo(index, direction = 'nearest') {
+  function moveSweepTo(index, direction = 'nearest', isAutomatic = false) {
     if (!Number.isInteger(index) || index < 0 || index >= servicesData.length) return;
     if (index === activeIndex && sweepTargetIndex === null) return;
     if (index === sweepTargetIndex) return;
@@ -762,7 +797,10 @@ document.addEventListener('DOMContentLoaded', () => {
     clearTimeout(cycleTimer);
     clearTimeout(approachTimer);
     stopSweepAtCurrentPosition();
-    clearTransientNodeStates();
+    const keepScheduledLoading = isAutomatic && Boolean(
+      getConnectionForTarget(index)?.path.classList.contains('is-loading')
+    );
+    clearTransientNodeStates(keepScheduledLoading);
 
     const targetRadius = measuredRadii[index];
     if (targetRadius > 0) {
@@ -773,6 +811,10 @@ document.addEventListener('DOMContentLoaded', () => {
       setSweepAngle(measuredAngles[index]);
       commitService(index);
       return;
+    }
+
+    if (!keepScheduledLoading) {
+      setConnectionLoading(index, RADAR_CONFIG.transitionDuration);
     }
 
     sweepTargetIndex = index;
@@ -860,7 +902,7 @@ document.addEventListener('DOMContentLoaded', () => {
     autoPlayEnabled = false;
     clearTimeout(cycleTimer);
     cycleTimer = null;
-    cardProgress.classList.remove('is-auto-playing');
+    clearConnectionLoading();
   }
 
   function scheduleNextSweep(
@@ -869,12 +911,10 @@ document.addEventListener('DOMContentLoaded', () => {
     clearTimeout(cycleTimer);
     if (!autoPlayEnabled || reducedMotionQuery.matches || sweepAnimation || isHovered) return;
 
-    cardProgress.classList.remove('is-auto-playing');
-    void cardProgress.offsetWidth;
-    cardProgress.classList.add('is-auto-playing');
+    setNextConnectionLoading(RADAR_CONFIG.autoAdvanceInterval);
 
     cycleTimer = window.setTimeout(() => {
-      moveSweepTo((activeIndex + 1) % servicesData.length, 'forward');
+      moveSweepTo((activeIndex + 1) % servicesData.length, 'forward', true);
     }, delay);
   }
 

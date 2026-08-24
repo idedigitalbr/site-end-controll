@@ -23,7 +23,7 @@ const services = Array.from({ length: 12 }, (_, stepIndex) => ({
   stepIndex,
   ringIndex: stepIndex < 6 ? 0 : 1,
   positionInRing: stepIndex % 6,
-  angle: stepIndex < 6 ? -90 + stepIndex * 60 : -60 + (stepIndex - 6) * 60
+  angle: stepIndex < 6 ? -90 + stepIndex * 60 : -90 + (stepIndex - 6) * 60
 }));
 
 test('selecting item 2 activates only the 1 to 2 segment and marks item 3 as next', () => {
@@ -301,6 +301,18 @@ test('solucoes.js pauses on hover, resumes after 2s, and keeps manual resume at 
   assert.ok(solucoesJs.includes('highlightCard.addEventListener(\'mouseenter\', handleHoverEnter)'));
   assert.ok(solucoesJs.includes('highlightCard.addEventListener(\'mouseleave\', handleHoverLeave)'));
   assert.match(solucoesJs, /node\.addEventListener\('mouseenter', \(\) => \{[\s\S]*?goToService\(parseInt\(node\.dataset\.index, 10\)\)/);
+});
+
+test('solucoes.js configures the radar loading duration to match the 5 second autoplay interval', () => {
+  const fs = require('node:fs');
+  const path = require('node:path');
+  const rootDir = path.resolve(__dirname, '..');
+  const solucoesJs = fs.readFileSync(path.join(rootDir, 'src/js/solucoes.js'), 'utf8');
+  const solucoesCss = fs.readFileSync(path.join(rootDir, 'src/css/solucoes.css'), 'utf8');
+
+  assert.match(solucoesJs, /autoAdvanceInterval:\s*5000/);
+  assert.match(solucoesJs, /setNextConnectionLoading\s*\(/);
+  assert.match(solucoesCss, /\.radar-connection\.is-loading[\s\S]*?stroke-width:\s*1\.8[\s\S]*?stroke-dashoffset:\s*1/);
 });
 
 test('pause state prioritization logic enforces 10s cooldown priority over 2s hover resume', () => {

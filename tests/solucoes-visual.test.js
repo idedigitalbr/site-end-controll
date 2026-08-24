@@ -52,13 +52,11 @@ test('uses the standard navy across the solution card structure', () => {
   assert.match(styles, /\.highlight-card-cta\s*\{[\s\S]*?margin-top:\s*auto/i);
   assert.match(styles, /\.highlight-card-cta svg\s*\{[\s\S]*?position:\s*absolute[\s\S]*?right:\s*14px/i);
   assert.match(styles, /\.card-progress-dot\.active\s*\{[\s\S]*?background:\s*rgba\(0,\s*33,\s*93,\s*0\.18\)\s*;/i);
-  assert.match(styles, /\.card-progress-dot\.active::after\s*\{[\s\S]*?transform-origin:\s*left center/i);
-  assert.match(styles, /#cardProgress\.is-auto-playing \.card-progress-dot\.active::after\s*\{[\s\S]*?animation:\s*card-auto-progress/i);
+  assert.match(styles, /\.card-progress-dot\.active\s*\{[\s\S]*?background:\s*#00215D/i);
+  assert.doesNotMatch(styles, /card-auto-progress/);
   assert.match(styles, /\.card-progress\s*\{[\s\S]*?justify-content:\s*center/i);
-  assert.match(solutionsScript, /cardProgress\.style\.setProperty\([\s\S]*?--card-auto-duration/i);
   assert.match(solutionsScript, /autoAdvanceInterval:\s*5000/i);
-  assert.match(solutionsScript, /cardProgress\.classList\.add\('is-auto-playing'\)/i);
-  assert.match(solutionsScript, /cardProgress\.classList\.remove\('is-auto-playing'\)/i);
+  assert.doesNotMatch(solutionsScript, /is-auto-playing/);
   assert.match(styles, /\.card-footer-btn\s*\{[\s\S]*?border:\s*1px\s+solid\s+#00215D\s*;/i);
 });
 
@@ -74,7 +72,16 @@ test('centers the radar-card composition and renders a connector for the selecte
   assert.match(styles, /\.solucoes-main-content\s*\{[\s\S]*?justify-content:\s*center/i);
   assert.match(styles, /\.radar-card-connector\s*\{[\s\S]*?position:\s*absolute[\s\S]*?pointer-events:\s*none/i);
   assert.match(styles, /\.radar-card-connector\.is-visible\s*\{[\s\S]*?opacity:\s*1/i);
-  assert.match(styles, /\.solucoes-section \.radar-trail-svg,\s*\.solucoes-section \.radar-connection\s*\{[\s\S]*?display:\s*none\s*!important/i);
+  assert.match(styles, /\.radar-connection\.is-loading\s*\{[\s\S]*?stroke-width:\s*1\.8[\s\S]*?stroke-dasharray:\s*1[\s\S]*?animation:\s*radar-connection-load/i);
+  assert.match(styles, /\.radar-connection\.is-current\s*\{[\s\S]*?stroke:\s*#00215D\s*!important[\s\S]*?stroke-width:\s*1\.8/i);
+  assert.match(styles, /@keyframes\s+radar-connection-load[\s\S]*?stroke-dashoffset:\s*0/i);
+  assert.match(styles, /\.solucoes-section \.radar-trail-svg\s*\{[\s\S]*?display:\s*block/i);
+  assert.match(solutionsScript, /function clearConnectionLoading\s*\(/i);
+  assert.match(solutionsScript, /function setConnectionLoading\s*\(/i);
+  assert.match(solutionsScript, /setNextConnectionLoading\s*\(/i);
+  assert.match(solutionsScript, /connection\.isClosing\s*&&\s*connection\.fromStepIndex\s*===\s*activeIndex/i);
+  assert.match(solutionsScript, /autoAdvanceInterval:\s*5000/i);
+  assert.match(solutionsScript, /getSafeArcAngles\(from\.angle,\s*to\.angle,\s*\{\s*insetDegrees:\s*0\s*\}/i);
   assert.match(solutionsScript, /function updateRadarCardConnector\s*\(/);
   assert.match(solutionsScript, /querySelector\('\.radar-circle-outer'\)/);
   const connectorStart = solutionsScript.indexOf('function updateRadarCardConnector');

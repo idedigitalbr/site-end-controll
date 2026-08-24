@@ -427,14 +427,32 @@
 
 .radar-connection.is-completed {
   opacity: var(--radar-line-completed-opacity);
-  stroke-width: 1.7;
+  stroke: #00215D !important;
+  stroke-width: 1.8;
   filter: drop-shadow(var(--radar-line-completed-glow));
 }
 
 .radar-connection.is-current {
   opacity: var(--radar-line-current-opacity);
-  stroke-width: 2;
+  stroke: #00215D !important;
+  stroke-width: 1.8;
   filter: drop-shadow(var(--radar-line-current-glow));
+}
+
+.radar-connection.is-loading {
+  opacity: 1;
+  stroke: #00215D !important;
+  stroke-width: 1.8;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  filter: drop-shadow(0 0 5px rgba(0, 33, 93, 0.48));
+  animation: radar-connection-load var(--radar-loading-duration, 5000ms) linear forwards;
+}
+
+@keyframes radar-connection-load {
+  to {
+    stroke-dashoffset: 0;
+  }
 }
 
 .radar-circle {
@@ -1105,28 +1123,8 @@
   cursor: pointer;
 }
 .card-progress-dot.active {
-  position: relative;
-  overflow: hidden;
-  background: rgba(0, 33, 93, 0.18);
-  box-shadow: 0 0 8px rgba(0, 33, 93, 0.18);
-  width: 36px;
-  border-radius: 3px;
-}
-.card-progress-dot.active::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
   background: #00215D;
-  transform: scaleX(0);
-  transform-origin: left center;
-}
-#cardProgress.is-auto-playing .card-progress-dot.active::after {
-  animation: card-auto-progress var(--card-auto-duration, 8400ms) linear forwards;
-}
-@keyframes card-auto-progress {
-  from { transform: scaleX(0); }
-  to { transform: scaleX(1); }
+  box-shadow: 0 0 8px rgba(0, 33, 93, 0.18);
 }
 .card-progress-dot:hover {
   background: rgba(0, 33, 93, 0.45);
@@ -1629,10 +1627,13 @@
   transform: translate(-50%, 0);
 }
 
-/* O radar usa apenas o conector fixo círculo externo → card. */
-.solucoes-section .radar-trail-svg,
+/* As conexões entre os ícones acompanham o avanço do radar. */
+.solucoes-section .radar-trail-svg {
+  display: block;
+}
+
 .solucoes-section .radar-connection {
-  display: none !important;
+  display: inline;
 }
 
 @media (min-width: 1441px) {
