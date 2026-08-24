@@ -122,6 +122,19 @@ test('bento service cards use white surfaces without numbered titles or dark car
   }
 });
 
+test('service bento cards are ordered by descending content volume', () => {
+  assert.match(serviceRuntime, /function initBentoCardOrdering\s*\(/i);
+  assert.match(serviceRuntime, /\.bento-expanding-wrapper/);
+  assert.match(serviceRuntime, /\.ec-card-white-title/);
+  assert.match(serviceRuntime, /\.ec-card-white-checklist/);
+  assert.match(serviceRuntime, /\.ec-card-white-text/);
+  assert.match(serviceRuntime, /:scope\s*>\s*article/);
+  assert.match(serviceRuntime, /right\.score\s*-\s*left\.score/);
+  assert.match(serviceRuntime, /target\.appendChild\(entry\.card\)/);
+  assert.match(serviceRuntime, /card\.style\.order/);
+  assert.match(serviceRuntime, /initBentoCardOrdering\(\);/);
+});
+
 test('bento sidebars use rounded category badges', () => {
   const sidebarEyebrowBlock = serviceStyles.match(/\.sidebar-eyebrow\s*\{[^}]*\}/i)?.[0] || '';
   assert.match(sidebarEyebrowBlock, /border-radius:\s*999px/i);

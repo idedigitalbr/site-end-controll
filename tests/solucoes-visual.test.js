@@ -48,6 +48,8 @@ test('uses the standard navy across the solution card structure', () => {
   assert.match(styles, /\.card-side-arrow:hover\s*\{[\s\S]*?background:\s+#00215D\s*;[\s\S]*?border-color:\s+#00215D\s*;/i);
   assert.match(styles, /\.highlight-card-list li svg\s*\{[\s\S]*?color:\s+#00215D\s*;/i);
   assert.match(styles, /\.highlight-card-cta\s*\{[\s\S]*?background:\s+#00215D\s*;[\s\S]*?justify-content:\s*center/i);
+  assert.match(styles, /\.highlight-card-body\s*\{[\s\S]*?justify-content:\s*flex-start/i);
+  assert.match(styles, /\.highlight-card-cta\s*\{[\s\S]*?margin-top:\s*auto/i);
   assert.match(styles, /\.highlight-card-cta svg\s*\{[\s\S]*?position:\s*absolute[\s\S]*?right:\s*14px/i);
   assert.match(styles, /\.card-progress-dot\.active\s*\{[\s\S]*?background:\s*rgba\(0,\s*33,\s*93,\s*0\.18\)\s*;/i);
   assert.match(styles, /\.card-progress-dot\.active::after\s*\{[\s\S]*?transform-origin:\s*left center/i);
@@ -89,8 +91,16 @@ test('prioritizes the radar over the solution card on desktop', () => {
   assert.match(styles, /@media \(min-width: 1441px\)\s*\{[\s\S]*?\.solucoes-center-area\s*\{[\s\S]*?max-width:\s*min\(860px,\s*82vh\)[\s\S]*?\}/i);
   assert.match(styles, /@media \(min-width: 1441px\)\s*\{[\s\S]*?\.highlight-card(?:-wrapper)?\s*\{[\s\S]*?max-width:\s*280px[\s\S]*?\}/i);
   assert.match(styles, /@media \(min-width: 1201px\) and \(max-width: 1440px\)\s*\{[\s\S]*?\.highlight-card(?:-wrapper)?\s*\{[\s\S]*?max-width:\s*260px[\s\S]*?\}/i);
-  assert.match(styles, /@media \(min-width: 992px\)\s*\{[\s\S]*?\.highlight-card-image\s*\{[\s\S]*?height:\s*168px[\s\S]*?\}[\s\S]*?\.highlight-card-title\s*\{[\s\S]*?font-size:\s*17px[\s\S]*?\}/i);
-  assert.match(styles, /@media \(min-width: 992px\)\s*\{[\s\S]*?\.highlight-card-list li\s*\{[\s\S]*?font-size:\s*14px[\s\S]*?\}/i);
+  assert.match(styles, /@media \(min-width: 992px\) and \(max-width: 1200px\)\s*\{[\s\S]*?\.highlight-card(?:-wrapper)?\s*\{[\s\S]*?max-width:\s*240px[\s\S]*?\}/i);
+  assert.match(styles, /@media \(min-width: 992px\)\s*\{[\s\S]*?\.highlight-card-image\s*\{[\s\S]*?height:\s*145px[\s\S]*?\}[\s\S]*?\.highlight-card-title\s*\{[\s\S]*?font-size:\s*15px[\s\S]*?\}/i);
+  assert.match(styles, /@media \(min-width: 992px\)\s*\{[\s\S]*?\.highlight-card\s*\{[\s\S]*?height:\s*520px[\s\S]*?display:\s*flex/i);
+  assert.match(styles, /@media \(min-width: 992px\)\s*\{[\s\S]*?\.highlight-card-title\s*\{[\s\S]*?min-height:\s*38px/i);
+  assert.match(styles, /@media \(min-width: 992px\)\s*\{[\s\S]*?\.highlight-card-desc\s*\{[\s\S]*?min-height:\s*90px/i);
+  assert.match(styles, /@media \(min-width: 992px\)\s*\{[\s\S]*?\.highlight-card-list\s*\{[\s\S]*?min-height:\s*131px/i);
+  assert.match(styles, /@media \(min-width: 992px\)\s*\{[\s\S]*?\.highlight-card-body\s*\{[\s\S]*?padding:\s*13px\s+28px\s+14px\s+14px/i);
+  assert.match(styles, /\.highlight-card-desc\s*\{[\s\S]*?font-size:\s*12px/i);
+  assert.match(styles, /\.highlight-card-list li\s*\{[\s\S]*?font-size:\s*10px/i);
+  assert.match(styles, /\.highlight-card-cta\s*\{[\s\S]*?font-size:\s*12px/i);
   assert.match(styles, /@media \(min-width: 1201px\) and \(max-width: 1440px\)\s*\{[\s\S]*?grid-template-columns:\s*minmax\(0,\s*740px\)\s+280px[\s\S]*?\}/i);
 });
 

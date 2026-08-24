@@ -205,6 +205,37 @@
     });
   }
 
+  function initBentoCardOrdering() {
+    document.querySelectorAll('.bento-expanding-wrapper').forEach(function (wrapper) {
+      const cards = Array.prototype.slice.call(
+        wrapper.querySelectorAll(':scope > article, :scope > .bento-row > article')
+      );
+
+      const target = wrapper.querySelector('.bento-row') || wrapper;
+
+      cards
+        .map(function (card, index) {
+          const title = card.querySelector('.ec-card-white-title');
+          const details = card.querySelector('.ec-card-white-checklist, .ec-card-white-text');
+          const content = [title && title.textContent, details && details.textContent]
+            .filter(Boolean)
+            .join(' ')
+            .replace(/\s+/g, ' ')
+            .trim();
+
+          return { card: card, index: index, score: content.length };
+        })
+        .sort(function (left, right) {
+          return right.score - left.score || left.index - right.index;
+        })
+        .forEach(function (entry, index) {
+          target.appendChild(entry.card);
+          entry.card.style.order = String(index + 1);
+          entry.card.dataset.contentOrder = String(index + 1);
+        });
+    });
+  }
+
   function initWhenApplyAccordion() {
     document.querySelectorAll('#quando-aplicar').forEach(function (section) {
       const row = section.querySelector('.endo-acc-row');
@@ -349,6 +380,7 @@
   function init() {
     if (!document.body || !document.body.classList.contains('sn-page-wrapper')) return;
 
+    initBentoCardOrdering();
     normalizeWhenApplyIcons();
     initWhenApplyAccordion();
     normalizeProcessIcons();

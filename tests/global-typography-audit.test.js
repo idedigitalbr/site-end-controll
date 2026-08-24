@@ -67,9 +67,9 @@ test('all headlines (H1, H2) use 38px clamp with 800 weight across all sections 
   assert.match(radarFfsCss.match(/\.ffs-heading\s*\{([\s\S]*?)\}/i)?.[1] || '', headlineClamp);
 });
 
-test('all icon, card, step, accordion, and pillar titles use 18px across all stylesheets', () => {
-  // Soluções cards
-  assert.match(solucoesCss, /\.highlight-card-title\s*\{[\s\S]*?font-size:\s*var\(--font-size-icon-title,\s*18px\)/i);
+test('all shared icon, card, step, accordion, and pillar titles use 18px across all stylesheets', () => {
+  // The compact Soluções highlight card uses its own responsive scale.
+  assert.match(solucoesCss, /\.highlight-card-title\s*\{[\s\S]*?font-size:\s*15px/i);
   
   // Áreas / Quando Aplicar accordion titles
   assert.match(segmentosCss, /\.endo-acc-card__title\s*\{[\s\S]*?font-size:\s*var\(--font-size-icon-title,\s*18px\)/i);

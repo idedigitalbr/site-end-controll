@@ -1001,18 +1001,18 @@
   min-height: 275px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   transition: opacity 0.25s ease, transform 0.25s ease;
 }
 .highlight-card-title {
-  font-size: var(--font-size-icon-title, 18px);
+  font-size: 15px;
   font-weight: 800;
   color: #071429;
   margin: 0 0 6px 0;
   line-height: 1.25;
 }
 .highlight-card-desc {
-  font-size: var(--font-size-icon-text, 16px);
+  font-size: 12px;
   line-height: 1.5;
   color: #475569;
   margin: 0 0 10px 0;
@@ -1032,7 +1032,7 @@
   display: flex;
   align-items: center;
   gap: 7px;
-  font-size: var(--font-size-icon-text, 16px);
+  font-size: 10px;
   color: #334155;
   line-height: 1.45;
 }
@@ -1045,6 +1045,7 @@
 .highlight-card-cta {
   position: relative;
   display: flex;
+  margin-top: auto;
   width: 100%;
   box-sizing: border-box;
   align-items: center;
@@ -1055,7 +1056,7 @@
   border: none;
   border-radius: 10px;
   color: #fff;
-  font-size: var(--font-size-button, 15px);
+  font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -1689,6 +1690,11 @@
   .solucoes-right-col {
     justify-content: center;
   }
+
+  .highlight-card-wrapper,
+  .highlight-card {
+    max-width: 240px;
+  }
 }
 
 @media (max-width: 991px) {
@@ -1698,35 +1704,48 @@
 }
 
 @media (min-width: 992px) {
+  .highlight-card {
+    height: 520px;
+    display: flex;
+    flex-direction: column;
+  }
+
   .highlight-card-image {
-    height: 168px;
+    flex: 0 0 145px;
+    height: 145px;
   }
 
   .highlight-card-body {
-    padding: 15px 17px 17px;
-    min-height: 257px;
+    flex: 1 1 auto;
+    padding: 13px 28px 14px 14px;
+    min-height: 0;
+    height: auto;
+    overflow: hidden;
   }
 
   .highlight-card-title {
-    font-size: 17px;
+    font-size: 15px;
+    min-height: 38px;
   }
 
   .highlight-card-desc {
-    font-size: 15px;
+    font-size: 12px;
+    min-height: 90px;
   }
 
   .highlight-card-list li {
-    font-size: 14px;
+    font-size: 10px;
   }
 
   .highlight-card-list {
     gap: 5px;
+    min-height: 131px;
     margin-bottom: 13px;
   }
 
   .highlight-card-cta {
     padding: 9px 17px;
-    font-size: 14px;
+    font-size: 12px;
   }
 
   .highlight-card-cta svg {
@@ -1747,6 +1766,8 @@
   }
 
   .card-progress {
+    flex: 0 0 20px;
+    box-sizing: border-box;
     gap: 5px;
     padding: 0 17px 11px;
   }
