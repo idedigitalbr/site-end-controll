@@ -25,5 +25,5 @@ test('keeps the automatic radar advance on a fixed five-second cadence', () => {
 
   assert.match(solucoes, /autoAdvanceInterval:\s*5000/);
   assert.match(solucoes, /autoAdvanceInterval\s*-\s*RADAR_CONFIG\.transitionDuration/);
-  assert.match(html, /src="\.\/src\/js\/solucoes\.js\?v=67\.0"/);
+  assert.match(html, /src="\.\/src\/js\/solucoes\.js\?v=72\.0"/);
 });
