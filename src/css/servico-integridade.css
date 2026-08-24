@@ -2284,7 +2284,9 @@
   grid-area: subtitle;
   max-width: none !important;
   margin: 0 0 20px !important;
-  text-align: left !important;
+  text-align: justify !important;
+  text-justify: inter-word;
+  hyphens: auto;
 }
 
 .sn-page-wrapper .svc-solution-section > .sn-history-container > .sn-history-description {
@@ -2422,6 +2424,9 @@
 .sn-page-wrapper .svc-solution-subtitle {
   color: #00215D !important;
   margin-bottom: 22px !important;
+  text-align: justify !important;
+  text-justify: inter-word;
+  hyphens: auto;
 }
 
 .sn-page-wrapper .svc-solution-paragraphs {

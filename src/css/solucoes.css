@@ -1638,7 +1638,7 @@
 @media (min-width: 1441px) {
   .solucoes-main-content {
     width: min(1300px, calc(100% - 96px));
-    grid-template-columns: minmax(0, 860px) 300px;
+    grid-template-columns: minmax(0, 860px) 340px;
     justify-content: center;
     gap: 32px;
   }
@@ -1653,14 +1653,14 @@
 
   .highlight-card-wrapper,
   .highlight-card {
-    max-width: 280px;
+    max-width: 300px;
   }
 }
 
 @media (min-width: 1201px) and (max-width: 1440px) {
   .solucoes-main-content {
     width: min(1120px, calc(100% - 64px));
-    grid-template-columns: minmax(0, 740px) 280px;
+    grid-template-columns: minmax(0, 740px) 320px;
     justify-content: center;
     gap: 24px;
   }
@@ -1675,14 +1675,14 @@
 
   .highlight-card-wrapper,
   .highlight-card {
-    max-width: 260px;
+    max-width: 280px;
   }
 }
 
 @media (min-width: 992px) and (max-width: 1200px) {
   .solucoes-main-content {
     width: calc(100% - 48px);
-    grid-template-columns: minmax(0, 560px) 270px;
+    grid-template-columns: minmax(0, 560px) 300px;
     justify-content: center;
     gap: 20px;
   }
@@ -1693,7 +1693,7 @@
 
   .highlight-card-wrapper,
   .highlight-card {
-    max-width: 240px;
+    max-width: 260px;
   }
 }
 
@@ -1705,7 +1705,7 @@
 
 @media (min-width: 992px) {
   .highlight-card {
-    height: 520px;
+    height: 500px;
     display: flex;
     flex-direction: column;
   }
@@ -1717,7 +1717,7 @@
 
   .highlight-card-body {
     flex: 1 1 auto;
-    padding: 13px 28px 14px 14px;
+    padding: 13px 28px 14px;
     min-height: 0;
     height: auto;
     overflow: hidden;
@@ -1730,17 +1730,19 @@
 
   .highlight-card-desc {
     font-size: 12px;
-    min-height: 90px;
+    min-height: 65px;
+    margin-bottom: 4px;
   }
 
   .highlight-card-list li {
     font-size: 10px;
+    line-height: 1.35;
   }
 
   .highlight-card-list {
     gap: 5px;
-    min-height: 131px;
-    margin-bottom: 13px;
+    min-height: 120px;
+    margin: 8px 0 22px;
   }
 
   .highlight-card-cta {

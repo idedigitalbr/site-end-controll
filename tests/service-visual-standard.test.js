@@ -77,6 +77,17 @@ test('service headings and badges share the home typography pattern', () => {
   assert.match(serviceStyles, /\.sn-page-wrapper \.sn-process-description[\s\S]*?font-size:\s*var\(--font-size-body,\s*16px\)[\s\S]*?line-height:\s*1\.6[\s\S]*?text-align:\s*justify/i);
 });
 
+test('service solution subtitles use justified text across all service pages', () => {
+  assert.match(
+    serviceStyles,
+    /\.sn-page-wrapper \.svc-solution-subtitle\s*\{[\s\S]*?text-align:\s*justify\s*!important[\s\S]*?text-justify:\s*inter-word[\s\S]*?hyphens:\s*auto/i
+  );
+  assert.match(
+    serviceStyles,
+    /\.sn-page-wrapper \.svc-solution-section\s*>\s*\.sn-history-container\s*>\s*\.svc-solution-subtitle\s*\{[\s\S]*?text-align:\s*justify\s*!important/i
+  );
+});
+
 test('methodology icon hover uses the dark navy interaction state', () => {
   assert.match(serviceStyles, /\.sn-page-wrapper \.svc-method-card:hover \.svc-method-icon-box[\s\S]*?background:\s*#00215D[\s\S]*?border-color:\s*#00215D[\s\S]*?color:\s*#ffffff/i);
   assert.match(serviceStyles, /\.sn-page-wrapper \.sn-step-unit:hover \.sn-step-node[\s\S]*?background:\s*#00215D[\s\S]*?border-color:\s*#00215D[\s\S]*?color:\s*#ffffff/i);
