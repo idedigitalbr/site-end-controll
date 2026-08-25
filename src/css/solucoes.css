@@ -1426,9 +1426,10 @@
   }
   .solucoes-center-area {
     max-width: min(400px, 90vw);
-    --r-outer: 44%;
+    /* Keep the CSS rings aligned with the SVG paths generated from 45%/26%. */
+    --r-outer: 45%;
     --r-inner: 26%;
-    --sweep-radius-initial: 26%;
+    --sweep-radius-initial: 29.2%;
   }
   .orbital-center-logo {
     min-width: 80px;
@@ -1484,9 +1485,9 @@
 @media (max-width: 480px) {
   .solucoes-center-area {
     max-width: min(320px, 92vw);
-    --r-outer: 42%;
-    --r-inner: 25%;
-    --sweep-radius-initial: 25%;
+    --r-outer: 45%;
+    --r-inner: 26%;
+    --sweep-radius-initial: 29.2%;
   }
   .orbital-center-logo {
     min-width: 64px;

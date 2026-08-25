@@ -169,6 +169,20 @@
     overflow: hidden;
   }
 
+  .site-header.site-header--light-hero {
+    background: #ffffff !important;
+    color: #00215d !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border-bottom-color: rgba(0, 33, 93, 0.12) !important;
+    box-shadow: 0 4px 16px rgba(0, 33, 93, 0.08) !important;
+  }
+
+  .hero-static-container {
+    height: clamp(820px, 72svh, 1100px);
+    min-height: clamp(820px, 72svh, 1100px);
+  }
+
   .main-menu {
     top: 74px;
     max-height: calc(100vh - 90px);
@@ -354,7 +368,8 @@
   }
 
   .hero-static-container {
-    min-height: calc(100svh - 64px);
+    height: clamp(820px, 72svh, 1100px);
+    min-height: clamp(820px, 72svh, 1100px);
   }
 
   .hero-content-wrapper {

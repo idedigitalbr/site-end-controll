@@ -5,6 +5,7 @@ const test = require('node:test');
 
 const root = path.resolve(__dirname, '..');
 const styles = fs.readFileSync(path.join(root, 'src', 'css', 'hero.css'), 'utf8');
+const responsiveStyles = fs.readFileSync(path.join(root, 'src', 'css', 'responsive.css'), 'utf8');
 const home = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
 
 test('uses Lucide icons for navigation and CTAs while keeping indicators text-only', () => {
@@ -79,6 +80,11 @@ test('adds breathing room before the primary Hero CTA', () => {
 
 test('fits the desktop Hero below the fixed header', () => {
   assert.match(styles, /\.hero-static-container\s*\{[\s\S]*?height:\s*calc\(100vh - 96px\)[\s\S]*?min-height:\s*calc\(100vh - 96px\)/i);
+});
+
+test('reduces the mobile Hero banner height without removing its minimum content space', () => {
+  assert.match(responsiveStyles, /@media \(max-width: 980px\)[\s\S]*?\.hero-static-container\s*\{[\s\S]*?height:\s*clamp\(820px,\s*72svh,\s*1100px\)[\s\S]*?min-height:\s*clamp\(820px,\s*72svh,\s*1100px\)/i);
+  assert.match(responsiveStyles, /@media \(max-width: 768px\)[\s\S]*?\.hero-static-container\s*\{[\s\S]*?height:\s*clamp\(820px,\s*72svh,\s*1100px\)[\s\S]*?min-height:\s*clamp\(820px,\s*72svh,\s*1100px\)/i);
 });
 
 test('shifts Hero photography right of the text gradient', () => {

@@ -60,6 +60,11 @@ test('uses the standard navy across the solution card structure', () => {
   assert.match(styles, /\.card-footer-btn\s*\{[\s\S]*?border:\s*1px\s+solid\s+#00215D\s*;/i);
 });
 
+test('keeps mobile radar rings aligned with the SVG connection geometry', () => {
+  assert.match(styles, /@media \(max-width: 768px\)[\s\S]*?\.solucoes-center-area\s*\{[\s\S]*?--r-outer:\s*45%[\s\S]*?--r-inner:\s*26%/i);
+  assert.match(styles, /@media \(max-width: 480px\)[\s\S]*?\.solucoes-center-area\s*\{[\s\S]*?--r-outer:\s*45%[\s\S]*?--r-inner:\s*26%/i);
+});
+
 test('justifies all dynamic solution card descriptions', () => {
   assert.match(styles, /\.highlight-card-desc\s*\{[\s\S]*?text-align:\s*justify[\s\S]*?text-justify:\s*inter-word[\s\S]*?hyphens:\s*auto/i);
   assert.match(home, /<p class="highlight-card-desc" id="cardDesc">/i);

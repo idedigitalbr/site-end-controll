@@ -25,3 +25,7 @@ test('uses a white mobile menu with navy navigation text', () => {
   assert.match(responsiveCss, /\.main-menu \.dropdown-rich-menu\s*\{[\s\S]*?background:\s*#ffffff\s*!important/i);
   assert.match(responsiveCss, /\.main-menu \.dropdown > \.drop-link\s*\{[\s\S]*?color:\s*#00215D\s*!important/i);
 });
+
+test('keeps the light hero header white on mobile', () => {
+  assert.match(responsiveCss, /@media \(max-width: 980px\)[\s\S]*?\.site-header\.site-header--light-hero\s*\{[\s\S]*?background:\s*#ffffff\s*!important[\s\S]*?backdrop-filter:\s*none\s*!important/i);
+});
