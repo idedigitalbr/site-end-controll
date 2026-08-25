@@ -673,3 +673,52 @@
     transform-origin: left;
   }
 }
+
+/* ==========================================================================
+   Passe final mobile: setas fora da leitura e áreas de toque acessíveis
+   ========================================================================== */
+@media (max-width: 768px) {
+  .hero-static-container {
+    min-height: calc(100svh - 64px);
+  }
+
+  .hero-content-wrapper {
+    padding: 42px 20px 82px;
+  }
+
+  .hero-title-main {
+    font-size: clamp(1.5rem, 6.5vw, 1.95rem);
+    line-height: 1.18;
+  }
+
+  .hero-lead-desc {
+    max-width: 36rem;
+    font-size: 0.86rem;
+  }
+
+  .hero-actions-container .btn.primary,
+  .btn-hero {
+    min-height: 48px;
+  }
+
+  .hero-arrow-btn {
+    top: auto;
+    bottom: 22px;
+    width: 42px;
+    height: 42px;
+    transform: none;
+  }
+
+  .hero-arrow-btn:hover,
+  .hero-arrow-btn:active {
+    transform: none;
+  }
+
+  .hero-arrow-prev {
+    left: 16px;
+  }
+
+  .hero-arrow-next {
+    right: 16px;
+  }
+}

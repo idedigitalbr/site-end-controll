@@ -1775,3 +1775,132 @@
     padding: 0 17px 11px;
   }
 }
+
+/* ==========================================================================
+   Passe final mobile: card fixo, leitura confortável e setas fora do texto
+   ========================================================================== */
+@media (max-width: 768px) {
+  .solucoes-main-content {
+    gap: 24px;
+    padding: 24px 0 40px;
+  }
+
+  .solucoes-center-area {
+    max-width: min(400px, calc(100vw - 32px));
+  }
+
+  .solucoes-right-col {
+    width: 100%;
+    padding: 0 12px;
+    box-sizing: border-box;
+  }
+
+  .highlight-card-wrapper {
+    width: min(100%, 360px);
+    max-width: 360px;
+  }
+
+  .highlight-card {
+    width: 100%;
+    max-width: none;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .highlight-card-image {
+    flex: 0 0 145px;
+    height: 145px;
+  }
+
+  .highlight-card-body {
+    flex: 1 1 auto;
+    min-height: 0;
+    height: auto;
+    padding: 14px 20px 12px;
+    overflow: hidden;
+  }
+
+  .highlight-card-title {
+    min-height: 38px;
+    margin-bottom: 7px;
+    font-size: 15px;
+    line-height: 1.25;
+  }
+
+  .highlight-card-desc {
+    min-height: 65px;
+    margin-bottom: 6px;
+    font-size: 12px;
+    line-height: 1.45;
+  }
+
+  .highlight-card-list {
+    flex: 1 1 auto;
+    min-height: 124px;
+    max-height: 142px;
+    margin: 8px 0 14px;
+    gap: 6px;
+    overflow: hidden;
+  }
+
+  .highlight-card-list li {
+    align-items: flex-start;
+    font-size: 10px;
+    line-height: 1.35;
+  }
+
+  .highlight-card-cta {
+    flex: 0 0 auto;
+    min-height: 42px;
+    padding: 9px 18px;
+    font-size: 12px;
+  }
+
+  .card-progress {
+    flex: 0 0 22px;
+    padding: 0 14px 10px;
+  }
+
+  .card-progress-dot {
+    width: 8px;
+    height: 8px;
+  }
+
+  .card-side-arrow {
+    width: 40px;
+    height: 40px;
+    z-index: 12;
+  }
+
+  .card-side-arrow.prev {
+    left: -20px;
+  }
+
+  .card-side-arrow.next {
+    right: -20px;
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
+  .solucoes-section .highlight-card:hover {
+    transform: none;
+    box-shadow: 0 20px 50px rgba(7, 20, 41, 0.08), 0 2px 8px rgba(7, 20, 41, 0.04);
+  }
+
+  .solucoes-section .highlight-card:hover .highlight-card-image img {
+    transform: none;
+  }
+
+  .solucoes-section .card-side-arrow:hover {
+    background: #ffffff;
+    border-color: #00215D;
+    color: #00215D;
+    box-shadow: 0 4px 14px rgba(0, 20, 60, 0.08);
+    transform: translateY(-50%);
+  }
+
+  .solucoes-section .card-side-arrow:hover svg {
+    color: #00215D;
+  }
+}

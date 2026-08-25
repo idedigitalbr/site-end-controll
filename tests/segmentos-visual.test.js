@@ -28,3 +28,10 @@ test('uses Lucide icons without generated inline SVGs or icon shadows', () => {
   assert.doesNotMatch(styles, /\.endo-acc-row:hover \.endo-acc-panel\.is-active[^}]*\.endo-acc-icon[\s\S]*?filter:\s*drop-shadow/i);
   assert.match(home, /unpkg\.com\/lucide@0\.321\.0/);
 });
+
+test('mobile areas of activity use one full-width touch slide at a time', () => {
+  assert.match(styles, /@media \(max-width: 860px\)[\s\S]*?\.segmentos-secao \.endo-acc-row\s*\{[\s\S]*?scroll-snap-type:\s*x mandatory[\s\S]*?touch-action:\s*pan-x[\s\S]*?\.segmentos-secao \.endo-acc-panel\s*\{[\s\S]*?flex:\s*0 0 100%[\s\S]*?min-width:\s*100%/i);
+  assert.match(styles, /\.segmentos-secao \.endo-acc-row:hover \.endo-acc-panel\.is-active[^}]*flex:\s*0 0 100%\s*!important/i);
+  assert.match(styles, /\.segmentos-secao \.endo-acc-nav--prev\s*\{\s*left:\s*10px/i);
+  assert.match(styles, /\.segmentos-secao \.endo-acc-nav--next\s*\{\s*right:\s*10px/i);
+});

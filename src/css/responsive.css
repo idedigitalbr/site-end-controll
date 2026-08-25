@@ -339,3 +339,81 @@
   }
 }
 
+/* ==========================================================================
+   Passe final mobile: navegação, hero e áreas de toque
+   ========================================================================== */
+@media (max-width: 768px) {
+  html,
+  body {
+    overflow-x: hidden;
+  }
+
+  .site-header .header-container {
+    min-height: 64px;
+    padding-inline: 16px;
+  }
+
+  .hero-static-container {
+    min-height: calc(100svh - 64px);
+  }
+
+  .hero-content-wrapper {
+    padding: 42px 20px 82px;
+  }
+
+  .hero-title-main {
+    font-size: clamp(1.5rem, 6.5vw, 1.95rem);
+    line-height: 1.18;
+  }
+
+  .hero-lead-desc {
+    max-width: 36rem;
+    font-size: 0.86rem;
+  }
+
+  .hero-actions-container .btn.primary,
+  .btn-hero {
+    min-height: 48px;
+  }
+
+  .hero-arrow-btn {
+    width: 42px;
+    height: 42px;
+    top: auto;
+    bottom: 22px;
+    transform: none;
+  }
+
+  .hero-arrow-btn:hover,
+  .hero-arrow-btn:active {
+    transform: none;
+  }
+
+  .hero-arrow-prev {
+    left: 16px;
+  }
+
+  .hero-arrow-next {
+    right: 16px;
+  }
+
+  .main-menu .btn-contacts-menu {
+    min-height: 48px;
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
+  .hero-arrow-btn:hover {
+    color: #00215D;
+    background: #f4f9fc;
+    border-color: rgba(0, 33, 93, 0.18);
+  }
+
+  .hero-actions-container .btn.primary:hover {
+    background: #ffffff !important;
+    border-color: #00215d !important;
+    color: #00215d !important;
+    box-shadow: 0 4px 12px rgba(0, 33, 93, 0.14) !important;
+  }
+}
+
