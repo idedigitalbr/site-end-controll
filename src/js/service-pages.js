@@ -66,6 +66,39 @@
     [/continuidade|disponib|operação|operacional|segurança/i, 'shield-check']
   ];
 
+  const whenApplyImageSets = {
+    '01-integridade-estrutural': ['01.jpeg', '02.jpeg', '03.jpg', '04.png', '05.jpg', '06.jpeg', '07.jpg', '08.jpeg'],
+    '02-obras-artes-especiais': ['01.jpeg', '02.jpg', '03.jpeg', '04.jpeg', '05.jpeg', '06.jpeg', '07.jpg', '08.jpeg'],
+    '03-ensaios-nao-destrutivos': ['01.jpeg', '02.jpeg', '03.jpeg', '04.jpg', '05.jpeg', '06.jpg', '07.jpeg', '08.jpeg'],
+    '04-engenharia-de-soldagem': ['01.jpeg', '02.jpeg', '03.jpeg', '04.jpeg', '05.jpeg', '06.jpg', '07.jpeg', '08.jpeg'],
+    '05-gerenciamento-de-projetos': ['01.jpeg', '02.jpeg', '03.jpeg', '04.jpeg', '05.jpeg', '06.jpeg', '07.jpeg', '08.png'],
+    '06-projetos-mecanicos': ['01.jpeg', '02.jpeg', '03.jpeg', '04.jpeg', '05.jpeg', '06.jpeg', '07.jpeg', '08.jpeg'],
+    '07-solucoes-tecnologicas': ['01.jpeg', '02.jpeg', '03.jpeg', '04.jpeg', '05.jpeg', '06.jpeg', '07.jpeg', '08.jpeg'],
+    '08-adequacao-normativa': ['01.jpeg', '02.png', '03.jpeg', '04.jpeg', '05.jpeg', '06.jpeg', '07.jpeg', '08.jpeg'],
+    '09-calibracao-instrumentos': ['01.jpeg', '02.jpeg', '03.jpeg', '04.jpeg', '05.jpeg', '06.jpeg', '07.jpeg', '08.jpeg'],
+    '10-hot-tapping': ['01.jpg', '02.jpeg', '03.jpeg', '04.png', '05.jpeg', '06.jpeg', '07.jpeg', '08.jpeg'],
+    '11-certificacao-materia-prima': ['01.jpeg', '02.jpeg', '03.jpeg', '04.jpeg', '05.jpeg', '06.jpeg', '07.jpeg', '08.jpeg'],
+    '12-consultoria-assessoria': ['01.jpeg', '02.jpeg', '03.jpeg', '04.jpeg', '05.jpg', '06.jpg', '07.jpeg', '08.jpeg']
+  };
+
+  function normalizeWhenApplyImages() {
+    const imageRoot = './assets/Paginas Imgs/SOLUCOES/QUANDO APLICAR/';
+
+    document.querySelectorAll('#quando-aplicar[data-when-apply-image-set]').forEach(function (section) {
+      const imageSet = whenApplyImageSets[section.dataset.whenApplyImageSet];
+      if (!imageSet) return;
+
+      section.querySelectorAll('.endo-acc-panel').forEach(function (panel, index) {
+        const image = panel.querySelector('.endo-acc-card__img');
+        const filename = imageSet[index];
+        if (!image || !filename) return;
+
+        image.src = imageRoot + section.dataset.whenApplyImageSet + '/' + filename;
+        image.loading = index === 0 ? 'eager' : 'lazy';
+      });
+    });
+  }
+
   function replaceSvgWithLucide(svg, name, className) {
     if (!svg || !name) return;
 
@@ -381,6 +414,7 @@
     if (!document.body || !document.body.classList.contains('sn-page-wrapper')) return;
 
     initBentoCardOrdering();
+    normalizeWhenApplyImages();
     normalizeWhenApplyIcons();
     initWhenApplyAccordion();
     normalizeProcessIcons();
