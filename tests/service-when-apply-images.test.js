@@ -78,11 +78,21 @@ test('cada página de serviço aponta para seu conjunto de imagens Quando Aplica
       new RegExp(`id="quando-aplicar"[^>]*data-when-apply-image-set="${service.slug}"`),
       `${service.page} precisa apontar para ${service.slug}`,
     );
+
+    const imageSources = [...html.matchAll(/<img class="endo-acc-card__img"[^>]*src="([^"]+)"/g)]
+      .map((match) => match[1]);
+    assert.equal(imageSources.length, 8, `${service.page} precisa declarar oito imagens Quando Aplicar`);
+    assert.deepEqual(
+      imageSources,
+      service.files.map((filename) => `./assets/Paginas Imgs/SOLUCOES/QUANDO APLICAR/${service.slug}/${filename}`),
+      `${service.page} não deve iniciar com imagens antigas ou de outro serviço`,
+    );
   }
 });
 
 test('cada conjunto tem oito arquivos locais e está registrado no runtime', () => {
   assert.match(runtime, /function normalizeWhenApplyImages\(\)/);
+  assert.match(runtime, /const nextSrc = imageRoot[\s\S]*?if \(image\.getAttribute\('src'\) !== nextSrc\) image\.src = nextSrc/);
   assert.match(runtime, /image\.loading = index === 0 \? 'eager' : 'lazy'/);
 
   for (const service of services) {

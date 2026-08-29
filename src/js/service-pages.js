@@ -93,7 +93,8 @@
         const filename = imageSet[index];
         if (!image || !filename) return;
 
-        image.src = imageRoot + section.dataset.whenApplyImageSet + '/' + filename;
+        const nextSrc = imageRoot + section.dataset.whenApplyImageSet + '/' + filename;
+        if (image.getAttribute('src') !== nextSrc) image.src = nextSrc;
         image.loading = index === 0 ? 'eager' : 'lazy';
       });
     });
