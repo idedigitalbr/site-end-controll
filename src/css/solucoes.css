@@ -58,17 +58,19 @@
   position: absolute;
   left: 0;
   right: 0;
+  top: 0;
   height: 1px;
   z-index: 1;
   pointer-events: none;
   background: linear-gradient(90deg, transparent, rgba(0, 33, 93, 0.2), transparent);
+  will-change: transform, opacity;
   animation: scanDown 14s linear infinite;
 }
 @keyframes scanDown {
-  0% { top: -2%; opacity: 0; }
+  0% { transform: translateY(-10px); opacity: 0; }
   5% { opacity: 1; }
   95% { opacity: 1; }
-  100% { top: 102%; opacity: 0; }
+  100% { transform: translateY(880px); opacity: 0; }
 }
 
 .particle {

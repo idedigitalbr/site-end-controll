@@ -1,5 +1,102 @@
 # Changelog — ENDCONTROL Engenharia
 
+## [2026-09-05] - Remoção de Vagas e Fale com Especialista do Menu Mobile
+
+- **Arquivos:** `index.html`, `src/css/responsive.css`, `tests/header-nav-visual.test.js`, `MD/changelog.md`.
+- **Limpeza e Otimização do Menu Mobile:**
+  - Removido o link residual `Vagas` (`<a href="index.html#oportunidades">Vagas</a>`) em `index.html`.
+  - Ocultado o botão `Fale com Especialista` (`.main-menu .btn-contacts-menu`) e qualquer link de `oportunidades` no menu gaveta responsivo (`src/css/responsive.css` sob `@media (max-width: 980px)`), mantendo o menu mobile limpo, direto e focado nas páginas principais (Home, Sobre Nós e Nossas Soluções).
+  - No desktop, o botão principal de WhatsApp `Fale com Especialista` segue ativo e preservado na barra do topo.
+  - Atualizado o parâmetro de cache para `responsive.css?v=38.0` em todas as páginas e criado teste automatizado de verificação.
+
+## [2026-09-05] - Remoção da Seção Legada de Depoimentos da Home
+
+- **Arquivos:** `index.html`, `tests/depoimentos-oportunidades.test.js`, `tests/footer-visual.test.js`, `tests/home-refinements-and-fps.test.js`, `MD/changelog.md`.
+- **Exclusão da Seção de Depoimentos Solicitada:**
+  - Removida a seção `<section class="testimonials-section-premium" id="depoimentos">` de `index.html` a pedido do cliente (os vídeos verticais institucionais já foram integrados no novo layout com moldura HUD em `#sobre-2`).
+  - Atualizadas as suítes de testes (`tests/depoimentos-oportunidades.test.js`, `tests/footer-visual.test.js` e `tests/home-refinements-and-fps.test.js`), mantendo 100% de integridade com 200/200 testes aprovados.
+
+## [2026-09-05] - Padronização das Faixas de Indicadores e Valores em Linha Única no Mobile
+
+- **Arquivos:** `src/css/hero.css`, `src/css/sections.css`, `tests/hero-visual.test.js`, `tests/home-refinements-and-fps.test.js`, `MD/changelog.md`.
+- **Faixa de Indicadores do Hero (`.hero-benefits-bar` / `.benefits-grid`):**
+  - Corrigido o layout no mobile (`max-width: 768px` e `max-width: 480px`) e tablet (`max-width: 991px`) para manter os 4 indicadores (`+18 anos`, `+300`, `100%`, `+1.250`) em **1 única linha horizontal** (`repeat(4, 1fr)`), eliminando o empilhamento vertical anterior em 4 linhas que ocupava quase o viewport inteiro.
+  - Escala tipográfica responsiva otimizada com `clamp` (`.benefit-title` a 0.95rem–1.18rem e `.benefit-desc` a 0.55rem–0.65rem) e paddings compactos, garantindo encaixe fluido, legibilidade impecável e altura ultra-reduzida do componente no celular (~65px vs ~380px anteriores).
+- **Faixa de Valores da Seção Sobre Nós / Soluções Integradas (`.about-values-banner`):**
+  - Convertido o bloco vertical de 4 linhas com divisórias (Segurança, Confiabilidade, Eficiência, Sustentabilidade) em uma **linha única horizontal deslizante (Carrossel touch suave)** no mobile (`max-width: 768px`).
+  - Utilizado `overflow-x: auto; scroll-snap-type: x mandatory;` com cards de largura proporcional (`flex: 0 0 82%`), permitindo ao usuário visualizar o primeiro card com uma dica visual do próximo à direita para incentivar o swipe natural.
+  - Preservados os ícones circulares, títulos em destaque e textos explicativos completos com tipografia 100% legível (sem necessidade de texto microscópico ou cortes), reduzindo a altura da seção no celular de **~450px para ~90px**.
+  - **200/200 testes automatizados aprovados (100% de sucesso)**.
+
+## [2026-09-05] - Reposicionamento da Seção Soluções Integradas e Otimizações de FPS / Fluidez
+
+- **Arquivos:** `index.html`, `src/css/header.css`, `src/css/responsive.css`, `src/css/clients-carousel.css`, `src/css/sections.css`, `src/css/solucoes.css`, `src/css/sobre-nos.css`, `src/js/main.js`, `src/js/solucoes.js`, `src/js/presenca-nacional.js`, `tests/home-refinements-and-fps.test.js`, `MD/changelog.md`, `MD/features.md`, `MD/notion.md`.
+- **Manutenção do Tamanho Original da Logo:**
+  - Preservado rigorosamente o dimensionamento original da logo principal (`.brand-main`: 30px no desktop e 24px no mobile), atendendo à solicitação de manter o padrão visual já aprovado pelo cliente.
+- **Reposicionamento da Seção "Soluções Integradas" (#sobre):**
+  - Mapeada e movida a seção clara `#sobre` (Excelência técnica que gera confiança e resultado, com os 4 pilares: Segurança, Confiabilidade, Eficiência, Sustentabilidade) para ficar imediatamente depois da seção do Radar (`#solucoes`).
+  - Nova sequência visual na Home: **Hero → Benefícios → Clientes (fundo branco) → Radar #solucoes (fundo escuro) → Soluções Integradas #sobre (fundo branco) → Depoimentos #depoimentos (fundo escuro)**.
+  - A alternância rítmica clara/escura valoriza a transição visual do Radar e elimina a justaposição anterior de dois blocos brancos seguidos.
+  - Atualizadas as regras de adjacência em `clients-carousel.css` (`#clientes + #solucoes { margin-top: 0 !important; }`) e `sections.css` (`#solucoes + #sobre` e `#sobre + #depoimentos`).
+- **Auditoria de Performance e Otimizações de FPS / Fluidez (~60 FPS):**
+  - **Eliminação de Layout Thrashing em Scroll (`main.js`):** Em `initSectionSpotlights`, removido o ouvinte global de scroll que executava `getBoundingClientRect()` síncrono repetidamente em todas as seções escuras durante a rolagem. O `rect` agora é obtido pontualmente no `mouseenter`, sem qualquer recalculo de layout desnecessário.
+  - **rAF Throttling no Header (`main.js`):** A função `initHeaderScroll` agora utiliza `requestAnimationFrame` para limitar as verificações de rolagem e alternância de classes a no máximo uma vez por frame renderizado.
+  - **Pausa de Animações e Timers Off-screen (`solucoes.js`, `main.js`, `presenca-nacional.js`):**
+    - `solucoes.js`: Integrado `IntersectionObserver` que suspende automaticamente o ciclo de auto-avanço e o sweep do radar quando `#solucoes` não está no viewport, reativando ao entrar na tela.
+    - `main.js` (`initHeroSlider`): Pausa o autoplay do slider de fotos do Hero quando o usuário rolar além dele.
+    - `presenca-nacional.js`: Pausa o loop de rotação e cálculo de curvas SVG do mapa quando a seção está fora do viewport.
+  - **Aceleração 100% em GPU para Scanlines e Linhas Tecnológicas:**
+    - Substituídas as propriedades de layout (`top`) por `transform: translateY(...)` e `will-change: transform` em `solucoes.css` (`@keyframes scanDown`), `sections.css` (`@keyframes scanLineMove`) e `sobre-nos.css` (`@keyframes snCommitmentScanMove`), eliminando reflows contínuos da thread de renderização da CPU.
+  - **Otimização de Renderização do Carrossel de Logos:** Adicionado `content-visibility: auto; contain-intrinsic-size: 140px;` em `.clients-carousel-section`.
+- **Garantia de Qualidade & Testes:**
+  - Criada nova suíte de testes automatizados `tests/home-refinements-and-fps.test.js`.
+  - **198/198 testes automatizados aprovados (100% de sucesso)** com tempo de execução de ~1.4s.
+
+## [2026-09-04] - Carrossel Infinito de Logos de Clientes (Infinite Scroll Marquee) na Home
+
+- **Arquivos:** `index.html`, `src/css/clients-carousel.css`, `assets/Logos Clientes/`, `MD/changelog.md`, `MD/features.md`, `MD/notion.md`.
+- **Implementação do Carrossel Contínuo de Prova Social (Smashing Magazine & StudUP Style):**
+  - Desenvolvida nova seção de prova social e autoridade institucional posicionada estrategicamente logo após a barra de indicadores (`.hero-benefits-bar`) e antes da seção institucional `#sobre`.
+  - Inclusão dos 15 logotipos corporativos oficiais de clientes atendidos: Artemys, ANDRITZ, Belém Bioenergia Brasil, Conportce, Estaleiro Atlântico Sul, Estaleiro ERAM, Estaleiro Rio Maguari, Hidrovias do Brasil, Hydro, Ipiranga, Jirau Energia, M. Dias Branco, Natura, Cimento Nassau e Unitapajós.
+  - Arquitetura técnica de alta performance com técnica Dual-Track Flex e aceleração por GPU (`transform: translate3d(-100%, 0, 0)`), garantindo 60/120 FPS sem reflow ou saltos no loop contínuo.
+  - Efeito gradiente suave de máscara nas extremidades laterais (`mask-image: linear-gradient`) conforme consagrado no artigo de referência da Smashing Magazine.
+  - Estética visual minimalista com título em caixa alta espaçado `CONFIAM EM NÓS` e acabamento monocromático de alta fidelidade (`filter: grayscale(100%) opacity(0.72)`), revelando cores vibrantes e escala interativa no `:hover`.
+  - Suporte completo a acessibilidade (`prefers-reduced-motion: reduce`) e ocultação semântica do track espelho para leitores de tela via `aria-hidden="true"`.
+
+## [2026-09-04] - Reativação de Depoimentos, Vagas, Correção do FAQ, LGPD e Infraestrutura SEO
+
+- **Arquivos:** `index.html`, `sobre-nos.html`, `1-solucao-...html` a `12-solucao-...html`, `politica-de-privacidade.html`, `404.html`, `robots.txt`, `sitemap.xml`, `tests/footer-visual.test.js`, `tests/depoimentos-oportunidades.test.js`, `MD/changelog.md`.
+
+### Melhorias Estruturais & Correções de Conteúdo
+- **Reativação da Seção de Depoimentos (`#depoimentos`):**
+  - Removido o atributo `hidden` da seção na Home.
+  - Restaurada a Coluna 1 institucional (`.testimonials-copy-col`) com badge `DEPOIMENTOS`, headline *"Confiança comprovada por quem move a indústria"* e subtítulo focado em ativos críticos e segurança operacional.
+  - Mantidos os cards de vídeo (9:16) totalmente interativos com suporte a tela cheia e controles de áudio customizados.
+- **Remoção da Seção de Oportunidades & Carreiras (`#oportunidades`) e Link de Vagas:**
+  - Removida integralmente a seção `#oportunidades` de `index.html` (cards de solicitação de proposta e carreiras, decorações de radar e blueprint) atendendo à solicitação direta do cliente.
+  - Removido o item de menu "Vagas" (`<a href="index.html#oportunidades">Vagas</a>`) de todas as 16 páginas do projeto (`index.html`, `sobre-nos.html`, 12 páginas de soluções, `politica-de-privacidade.html` e `404.html`).
+  - Atualizadas as suítes de testes (`tests/depoimentos-oportunidades.test.js`, `tests/header-nav-visual.test.js`, `tests/footer-visual.test.js`, `tests/oportunidades-visual.test.js` e auditoria de âncoras em `tests/site-full-audit.test.js`), mantendo 100% de aprovação (185/185 testes).
+- **Correção Técnica do FAQ da Home:**
+  - Substituídas as menções incorretas a engenharia elétrica, SPDA, baixa tensão e NR-10 pelo escopo real da empresa: Engenharia de Integridade Estrutural, Avaliações FFS, Ensaios Não Destrutivos (ENDs), Inspeção NR-13, Engenharia de Soldagem, Calibração de Válvulas PSV e Hot Tapping.
+  - Atualizadas as certificações oficiais: CREA, SNQC/ABENDI, ASME, API, AWS, ISO, NR-13, NR-12 e ARTs.
+- **Página de Política de Privacidade e Termos de Uso (`politica-de-privacidade.html`):**
+  - Desenvolvida página completa em conformidade com a LGPD (Lei 13.709/2018), com direitos dos titulares, canais do DPO e termos de governança técnica.
+  - Atualizado o rodapé de todas as 14 páginas do site com link ativo para a página de privacidade.
+- **Página de Erro 404 Personalizada (`404.html`):**
+  - Criada página 404 aderente à identidade corporativa para reter tráfego e direcionar para a Home ou canal de WhatsApp.
+- **Infraestrutura SEO & Crawlers:**
+  - Criados `robots.txt` e `sitemap.xml` estruturados com prioridades e frequência de atualização das 15 páginas públicas.
+- **Limpeza de Código Morto:**
+  - Removido modal quebrado que referenciava `links.html` no DOM da Home.
+- **Eliminação Definitiva do Duplo Scroll na Home:**
+  - Identificada a causa raiz da barra de rolagem duplicada: o arquivo legado `links.css` aplicava `html { overflow-y: auto; }` no escopo global e `#wf-main-content` continha `overflow-x: hidden;`, o que computava automaticamente `overflow-y: auto` no container interno, gerando dois contextos de rolagem concorrentes lado a lado.
+  - Atualizado `#wf-main-content` em `src/css/sections.css` para `overflow-x: clip;`, eliminando a criação do scroller vertical secundário.
+  - Removida a importação de `links.css` de `index.html` e neutralizada a regra global em `src/css/links.css`.
+  - Atualizado `src/css/base.css` e `src/css/responsive.css` para manter o scroller vertical exclusivamente nativo no viewport.
+- **Testes & Qualidade:**
+  - Criada suíte `tests/depoimentos-oportunidades.test.js` e atualizada `tests/footer-visual.test.js`.
+  - 185/185 testes automatizados executados e 100% aprovados.
+
 ## [2026-08-22] - Ajuste do Título da Sidebar Bento para 26px e Remoção do Texto/Parágrafo Explicativo
 
 - **Arquivos:** `src/css/servico-integridade.css`, `componentes-cards-.html`, `1-solucao-engenharia-de-integridade-estrutural.html` a `12-solucao-consultoria-e-assessoria-tecnica.html`, `tests/global-typography-audit.test.js`, `MD/changelog.md`, `MD/features.md`, `MD/notion.md`.

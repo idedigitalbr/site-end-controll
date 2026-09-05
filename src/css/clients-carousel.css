@@ -1,0 +1,215 @@
+/* ==========================================================================
+   CARROSSEL INFINITO DE LOGOS DE CLIENTES (INFINITE SCROLL MARQUEE)
+   EndControl Engenharia — Alta Performance (60/120 FPS)
+   Inspirado no artigo da Smashing Magazine e padrão visual StudUP
+   ========================================================================== */
+
+.clients-carousel-section {
+  position: relative;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 34px 0 38px !important;
+  background-color: #ffffff;
+  border-top: 1px solid rgba(0, 33, 93, 0.07);
+  border-bottom: 1px solid rgba(0, 33, 93, 0.07);
+  overflow: hidden !important;
+  border-radius: 0 !important;
+  z-index: 6;
+  content-visibility: auto;
+  contain-intrinsic-size: 140px;
+}
+
+/* Evitar que a seção seguinte sobreponha o carrossel */
+#clientes.clients-carousel-section + #solucoes.solucoes-section {
+  margin-top: 0 !important;
+}
+
+#clientes.clients-carousel-section + #sobre.about-premium-section {
+  margin-top: 0 !important;
+  padding-top: 80px !important;
+}
+
+.clients-carousel-container {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Título da Seção: "CONFIAM EM NÓS" (Estética StudUP)
+   ───────────────────────────────────────────────────────────── */
+.clients-carousel-header {
+  text-align: center;
+  margin-bottom: 24px;
+  padding: 0 20px;
+}
+
+.clients-carousel-title {
+  font-family: var(--font-primary, 'Inter', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: 0.8125rem; /* ~13px */
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #00215D;
+  margin: 0;
+  line-height: 1.4;
+  opacity: 0.92;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Container do Marquee com Máscara de Desvanecimento (Fade Edges)
+   Técnica recomendada pelo artigo da Smashing Magazine
+   ───────────────────────────────────────────────────────────── */
+.logo-marquee {
+  position: relative;
+  width: 100%;
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(0, 0, 0, 0.5) 3%,
+    black 10%,
+    black 90%,
+    rgba(0, 0, 0, 0.5) 97%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(0, 0, 0, 0.5) 3%,
+    black 10%,
+    black 90%,
+    rgba(0, 0, 0, 0.5) 97%,
+    transparent 100%
+  );
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Tracks de Logos (Dual-Track perfeitamente sincronizado)
+   ───────────────────────────────────────────────────────────── */
+.logo-marquee__track {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  gap: 52px;
+  padding-right: 52px;
+  will-change: transform;
+  animation: logoMarqueeScroll 38s linear infinite;
+}
+
+@keyframes logoMarqueeScroll {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+/* Pausa suave no hover (Smashing Magazine UX best practice) */
+.logo-marquee:hover .logo-marquee__track {
+  animation-play-state: paused;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Itens e Imagens dos Logotipos (Efeito Monocromático & Hover)
+   ───────────────────────────────────────────────────────────── */
+.logo-marquee__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  height: 56px;
+  padding: 0 6px;
+}
+
+.logo-marquee__item img {
+  display: block;
+  height: 46px;
+  width: auto;
+  max-width: 185px;
+  object-fit: contain;
+  /* Monocromático de alta fidelidade como na referência da StudUP */
+  filter: grayscale(100%) contrast(1.12) opacity(0.72);
+  transition: filter 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Ao passar o mouse sobre uma logo específica: realce colorido e suave escala */
+.logo-marquee__item:hover img {
+  filter: grayscale(0%) contrast(1) opacity(1);
+  transform: translateY(-2px) scale(1.05);
+  cursor: pointer;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Acessibilidade: Redução de Movimento (Vestibular Sensitivities)
+   ───────────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .logo-marquee__track {
+    animation: none !important;
+  }
+  .logo-marquee {
+    overflow-x: auto;
+    -webkit-mask-image: none;
+    mask-image: none;
+    scrollbar-width: thin;
+    padding-bottom: 8px;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Responsividade: Tablets e Telas Menores
+   ───────────────────────────────────────────────────────────── */
+@media (max-width: 992px) {
+  .clients-carousel-section {
+    padding: 30px 0 34px !important;
+  }
+  .logo-marquee__track {
+    gap: 44px;
+    padding-right: 44px;
+    animation-duration: 32s;
+  }
+  .logo-marquee__item {
+    height: 48px;
+  }
+  .logo-marquee__item img {
+    height: 38px;
+    max-width: 155px;
+  }
+}
+
+@media (max-width: 576px) {
+  .clients-carousel-section {
+    padding: 24px 0 28px !important;
+  }
+  .clients-carousel-header {
+    margin-bottom: 18px;
+  }
+  .clients-carousel-title {
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+  }
+  .logo-marquee__track {
+    gap: 32px;
+    padding-right: 32px;
+    animation-duration: 26s;
+  }
+  .logo-marquee__item {
+    height: 42px;
+  }
+  .logo-marquee__item img {
+    height: 32px;
+    max-width: 130px;
+  }
+}

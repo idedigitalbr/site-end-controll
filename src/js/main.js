@@ -299,12 +299,14 @@
   }
 
   /* ===================================================================
-     Header Scroll Inteligente
+     Header Scroll Inteligente (Otimizado com rAF Throttling)
      =================================================================== */
   function initHeaderScroll() {
     const header = document.querySelector('.site-header');
     if (!header) return;
     let lastScrollY = window.scrollY;
+    let ticking = false;
+
     function checkScroll() {
       const currentScrollY = window.scrollY;
       if (currentScrollY > 40) {
@@ -322,8 +324,15 @@
         header.classList.remove('hidden');
       }
       lastScrollY = currentScrollY;
+      ticking = false;
     }
-    window.addEventListener('scroll', checkScroll, { passive: true });
+
+    window.addEventListener('scroll', function () {
+      if (!ticking) {
+        window.requestAnimationFrame(checkScroll);
+        ticking = true;
+      }
+    }, { passive: true });
     checkScroll();
   }
 
@@ -348,7 +357,7 @@
       if (!animationFrameId) {
         animationFrameId = requestAnimationFrame(animate);
       }
-    });
+    }, { passive: true });
 
     document.addEventListener('mouseleave', function () {
       glow.style.opacity = '0';
@@ -372,7 +381,7 @@
   }
 
   /* ===================================================================
-     Efeito de Ponto de Luz de Fundo (Mouse Spotlight Global)
+     Efeito de Ponto de Luz de Fundo (Mouse Spotlight Global - Zero Layout Thrashing)
      =================================================================== */
   function initSectionSpotlights() {
     if (window.matchMedia('(hover: none)').matches) return;
@@ -393,12 +402,27 @@
       }
       
       let rect = null;
+      let isHovering = false;
       function updateRect() {
         rect = section.getBoundingClientRect();
       }
-      section.addEventListener('mouseenter', updateRect);
-      window.addEventListener('resize', updateRect);
-      window.addEventListener('scroll', updateRect, { passive: true });
+
+      section.addEventListener('mouseenter', function () {
+        isHovering = true;
+        updateRect();
+      }, { passive: true });
+
+      section.addEventListener('mouseleave', function () {
+        isHovering = false;
+      }, { passive: true });
+
+      window.addEventListener('resize', function () {
+        if (isHovering) updateRect();
+      }, { passive: true });
+
+      window.addEventListener('scroll', function () {
+        if (isHovering) updateRect();
+      }, { passive: true });
       
       let ticking = false;
       section.addEventListener('mousemove', function (e) {
@@ -414,7 +438,7 @@
           });
           ticking = true;
         }
-      });
+      }, { passive: true });
     });
   }
 
@@ -653,7 +677,7 @@
      =================================================================== */
   function initTestimonialsCarousel() {
     const track = document.getElementById('dep-track') || document.querySelector('.testimonials-carousel-track');
-    const cards = track ? track.querySelectorAll('.dep-video-card') : document.querySelectorAll('.dep-video-card');
+    const cards = document.querySelectorAll('.dep-video-card');
 
     if (!cards || cards.length === 0) return;
 
@@ -1520,8 +1544,11 @@
       goToSlide(currentIndex - 1);
     }
 
+    var isHeroVisible = true;
+
     function startTimer() {
       stopTimer();
+      if (!isHeroVisible || document.hidden) return;
       slideInterval = setInterval(nextSlide, INTERVAL_TIME);
     }
 
@@ -1557,12 +1584,27 @@
     document.addEventListener('visibilitychange', function () {
       if (document.hidden) {
         stopTimer();
-      } else {
+      } else if (isHeroVisible) {
         startTimer();
       }
     });
 
-    startTimer();
+    // Pausar transição quando a seção Hero rolar para fora do viewport
+    if ('IntersectionObserver' in window) {
+      var heroObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          isHeroVisible = entry.isIntersecting;
+          if (isHeroVisible && !document.hidden) {
+            startTimer();
+          } else {
+            stopTimer();
+          }
+        });
+      }, { threshold: 0.05 });
+      heroObserver.observe(sliderContainer);
+    } else {
+      startTimer();
+    }
   }
 
   /* ===================================================================

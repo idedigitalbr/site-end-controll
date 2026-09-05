@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /tests/
+Disallow: /docs/
+Disallow: /MD/
+Disallow: /src/data/
+
+Sitemap: https://endcontrol.suporteide.digital/sitemap.xml

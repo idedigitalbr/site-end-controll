@@ -624,6 +624,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Interaction and pause state management
   let isHovered = false;
   let manualPauseUntil = 0;
+  let isRadarVisible = true;
 
   function updateRadarStates(displayIndex = activeIndex) {
     const progressState = RadarProgress.getProgressState(servicesData, displayIndex);
@@ -921,7 +922,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function startAutoPlay() {
     clearResumeTimer();
     stopAutoPlay();
-    if (reducedMotionQuery.matches || isHovered) return;
+    if (reducedMotionQuery.matches || isHovered || !isRadarVisible) return;
 
     autoPlayEnabled = true;
     scheduleNextSweep();
@@ -1064,7 +1065,24 @@ document.addEventListener('DOMContentLoaded', () => {
   updateCard(activeIndex, false);
   serviceNodes[activeIndex]?.classList.add('is-selected');
   window.requestAnimationFrame(() => updateRadarCardConnector(activeIndex));
-  startAutoPlay();
+  if ('IntersectionObserver' in window) {
+    const radarObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        isRadarVisible = entry.isIntersecting;
+        if (isRadarVisible) {
+          if (!isHovered && performance.now() >= manualPauseUntil) {
+            startAutoPlay();
+          }
+        } else {
+          stopAutoPlay();
+          stopSweepAtCurrentPosition();
+        }
+      });
+    }, { threshold: 0.08 });
+    radarObserver.observe(orbitalDiagram);
+  } else {
+    startAutoPlay();
+  }
 
   window.RadarSweepController = Object.freeze({
     config: RADAR_CONFIG,

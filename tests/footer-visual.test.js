@@ -19,12 +19,11 @@ test('uses white text and icons throughout the minimal footer accents', () => {
   assert.match(styles, /\.footer-wsp-button\s*\{[\s\S]*?border:\s*1px solid rgba\(255,\s*255,\s*255,\s*0\.7\)[\s\S]*?color:\s*#ffffff\s*;/i);
 });
 
-test('removes the presidency testimonials section from the rendered Home', () => {
-  assert.match(home, /<section class="testimonials-section-premium"[^>]*\bhidden\b/i);
-  assert.match(sectionStyles, /\.testimonials-section-premium\[hidden\]\s*\{[\s\S]*?display:\s*none\s*!important\s*;/i);
+test('testimonials section was removed from Home per user request', () => {
+  assert.doesNotMatch(home, /<section class="testimonials-section-premium"/i);
 });
 
-test('removes the opportunities and careers section from the rendered Home', () => {
-  assert.match(home, /<section class="oportunidades-section[^>]*\bhidden\b/i);
-  assert.match(sectionStyles, /\.oportunidades-section\[hidden\]\s*\{[\s\S]*?display:\s*none\s*!important\s*;/i);
+test('opportunities and careers section was removed from Home per user request', () => {
+  assert.doesNotMatch(home, /id="oportunidades"/i);
+  assert.doesNotMatch(home, /class="oportunidades-section/i);
 });

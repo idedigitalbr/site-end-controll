@@ -1,5 +1,20 @@
 # Histórico de sincronização — DB_IDE
 
+## 2026-09-05 - Reposicionamento de Seção e Otimizações Globais de FPS / Fluidez
+
+- Projeto: site-end-controll
+- Tarefa: Preservação rigorosa do dimensionamento original da logo (30px desktop / 24px mobile), reposicionamento da seção clara (#sobre - Soluções Integradas) imediatamente após o Radar (#solucoes) estabelecendo alternância harmônica claro/escuro, e otimização global de performance eliminando layout thrashing em scroll, pausando timers e ciclos off-screen com IntersectionObserver (radar, hero, mapa) e acelerando animações 100% por GPU.
+- Status local: Concluída.
+- Testes: 198/198 testes automatizados aprovados (100% de sucesso).
+- Observação: Memória persistente no Obsidian (`MD/`) e changelog sincronizados.
+
+## 2026-09-04 - Carrossel Infinito de Logos de Clientes (Infinite Scroll Marquee) na Home
+
+- Projeto: site-end-controll
+- Tarefa: Implementação do carrossel contínuo de logotipos dos 15 clientes da EndControl na página inicial (`index.html`) com padrão visual StudUP (`CONFIAM EM NÓS`), técnica Dual-Track Flex acelerada por GPU, máscaras laterais gradientes (Smashing Magazine) e acabamento monocromático interativo.
+- Status local: Concluída.
+- Observação: Memória persistente no Obsidian (`MD/`) e changelog sincronizados.
+
 ## 2026-08-22 - Ajuste do Título da Sidebar Bento (26px) e Remoção do Texto Explicativo
 
 - Projeto: site-end-controll

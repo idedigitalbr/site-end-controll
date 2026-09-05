@@ -1358,32 +1358,34 @@
   position: absolute;
   left: 15px;
   right: 15px;
+  top: 0;
   height: 2px;
   background: linear-gradient(90deg, transparent, rgba(0, 213, 255, 0.9), transparent);
   box-shadow: 0 0 8px rgba(0, 213, 255, 0.8), 0 0 4px #00d5ff;
   z-index: 3;
   pointer-events: none;
+  will-change: transform, opacity;
   animation: snCommitmentScanMove 4.5s ease-in-out infinite;
   opacity: 0.65;
 }
 
 @keyframes snCommitmentScanMove {
   0% {
-    top: 15px;
+    transform: translateY(15px);
     opacity: 0.15;
   }
   15% {
     opacity: 0.7;
   }
   50% {
-    top: calc(100% - 30px);
+    transform: translateY(330px);
     opacity: 0.75;
   }
   85% {
     opacity: 0.7;
   }
   100% {
-    top: 15px;
+    transform: translateY(15px);
     opacity: 0.15;
   }
 }

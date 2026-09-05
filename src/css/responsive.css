@@ -357,9 +357,8 @@
    Passe final mobile: navegação, hero e áreas de toque
    ========================================================================== */
 @media (max-width: 768px) {
-  html,
   body {
-    overflow-x: hidden;
+    overflow-x: clip;
   }
 
   .site-header .header-container {
@@ -412,8 +411,9 @@
     right: 16px;
   }
 
+  .main-menu a[href*="oportunidades"],
   .main-menu .btn-contacts-menu {
-    min-height: 48px;
+    display: none !important;
   }
 }
 

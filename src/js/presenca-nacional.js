@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let rotationInterval = null;
   let resumeTimeout = null;
   let isPaused = false;
+  let isMapVisible = true;
 
   const regionItems = document.querySelectorAll('.panel-card-list li[data-region]');
 
@@ -41,6 +42,18 @@ document.addEventListener('DOMContentLoaded', () => {
       activeItem.setAttribute('aria-expanded', 'true');
     }
 
+    // Resetar marcadores no mapa
+    const mapMarkers = document.querySelectorAll('.map-anchor');
+    mapMarkers.forEach(marker => {
+      marker.classList.remove('active');
+    });
+
+    // Ativar o marcador no mapa correspondente
+    const targetMarker = document.getElementById(`anchor-${regionKey}`);
+    if (targetMarker) {
+      targetMarker.classList.add('active');
+    }
+
     // Atualizar classe ativa nas linhas de conexão
     document.querySelectorAll('.connection-line').forEach(line => {
       line.classList.remove('active');
@@ -48,15 +61,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const activeLine = document.getElementById(`line-${regionKey}`);
     if (activeLine) {
       activeLine.classList.add('active');
-    }
-
-    // Atualizar classe ativa nas âncoras do mapa
-    document.querySelectorAll('.map-anchor').forEach(anchor => {
-      anchor.classList.remove('active');
-    });
-    const activeAnchor = document.getElementById(`anchor-${regionKey}`);
-    if (activeAnchor) {
-      activeAnchor.classList.add('active');
     }
 
     // Atualizar os overlays de spotlight e glow no mapa
@@ -88,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // --- Função: Rotação Automática ---
   function startRotation() {
-    if (isPaused) return;
+    if (isPaused || !isMapVisible) return;
     clearInterval(rotationInterval);
     
     rotationInterval = setInterval(() => {
@@ -226,8 +230,25 @@ document.addEventListener('DOMContentLoaded', () => {
   // Ativar primeira região padrão (norte)
   activateRegion("norte");
   
-  // Iniciar ciclo de rotação
-  startRotation();
+  // Iniciar ciclo de rotação com IntersectionObserver
+  const mapSection = document.querySelector('.presenca-nacional-light') || document.getElementById('presenca-nacional-rodapé');
+  if (mapSection && 'IntersectionObserver' in window) {
+    const mapObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        isMapVisible = entry.isIntersecting;
+        if (isMapVisible) {
+          startRotation();
+          updateConnectionLines();
+        } else {
+          clearInterval(rotationInterval);
+          clearTimeout(resumeTimeout);
+        }
+      });
+    }, { threshold: 0.08 });
+    mapObserver.observe(mapSection);
+  } else {
+    startRotation();
+  }
 
   // Primeira renderização das curvas de conexão
   setTimeout(updateConnectionLines, 200);

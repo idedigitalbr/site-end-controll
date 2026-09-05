@@ -549,17 +549,21 @@
   }
 
   .benefits-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-  }
-  
-  .benefit-item:nth-child(2)::after,
-  .benefit-item:last-child::after {
-    display: none;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    align-items: center;
   }
 
   .benefit-item {
-    padding: 0 16px;
+    padding: 0 10px;
+  }
+
+  .benefit-title {
+    font-size: 1.5rem;
+  }
+
+  .benefit-desc {
+    font-size: 0.72rem;
   }
 }
 
@@ -599,28 +603,38 @@
     width: 100% !important;
   }
 
-      .hero-benefits-bar {
-        margin: 20px 20px 30px;
-        padding: 14px 10px;
-        border-radius: var(--radius-md);
+  .hero-benefits-bar {
+    margin: 16px 14px 28px;
+    padding: 12px 6px;
+    border-radius: var(--radius-md);
   }
 
   .benefits-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    align-items: center;
   }
 
   .benefit-item {
-    padding: 0 10px;
+    padding: 0 5px;
+  }
+
+  .benefit-title {
+    font-size: 1.18rem;
+  }
+
+  .benefit-desc {
+    font-size: 0.65rem;
+    line-height: 1.25;
   }
 
   .benefit-item:not(:last-child)::after {
     display: none !important;
   }
 
-  }
+}
 
-/* Celulares pequenos — garantia de 2 linhas no headline */
+/* Celulares pequenos — garantia de proporção em 1 linha e headline */
 @media (max-width: 480px) {
   .hero-title-main {
     font-size: 1.2rem;
@@ -635,6 +649,25 @@
   .hero-badge-text {
     font-size: 9px;
     letter-spacing: 0.12em;
+  }
+
+  .hero-benefits-bar {
+    margin: 12px 8px 22px;
+    padding: 10px 4px;
+    border-radius: 14px;
+  }
+
+  .benefit-item {
+    padding: 0 3px;
+  }
+
+  .benefit-title {
+    font-size: clamp(0.92rem, 3.4vw, 1.08rem);
+  }
+
+  .benefit-desc {
+    font-size: clamp(0.55rem, 1.9vw, 0.62rem);
+    line-height: 1.2;
   }
 }
 

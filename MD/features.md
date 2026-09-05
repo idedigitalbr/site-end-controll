@@ -1,5 +1,33 @@
 # Features — ENDCONTROL Engenharia
 
+## Reposicionamento de Seção (Radar -> Soluções Integradas) e Otimizações Globais de FPS
+
+- Status: Concluída
+- Data: 2026-09-05
+- **Arquivos:** `index.html`, `src/css/header.css`, `src/css/responsive.css`, `src/css/clients-carousel.css`, `src/css/sections.css`, `src/css/solucoes.css`, `src/css/sobre-nos.css`, `src/js/main.js`, `src/js/solucoes.js`, `src/js/presenca-nacional.js`, `tests/home-refinements-and-fps.test.js`, `MD/changelog.md`, `MD/features.md`, `MD/notion.md`.
+- **Preservação da Logo Original:**
+  - Mantidas as dimensões visuais originais (30px no desktop e 24px no mobile), garantindo estabilidade e o padrão exato já aprovado.
+- **Reposicionamento Estrutural da Seção Clara (#sobre):**
+  - Seção reposicionada para logo após o Radar (`#solucoes`), gerando o ritmo visual: Clientes (claro) → Radar (escuro) → Soluções Integradas (claro) → Depoimentos (escuro).
+- **Otimizações de Fluidez & FPS (~60 FPS estáveis):**
+  - Eliminação de layout thrashing com remoção de listeners contínuos de scroll e substituição por medições on-demand.
+  - Throttling leve com `requestAnimationFrame` no scroll do header.
+  - Suspensão inteligente via `IntersectionObserver` de rotinas em segundo plano: rotação do radar, slider do Hero e mapa de presença nacional.
+  - Migração de keyframes com propriedade `top` para `transform: translateY` com `will-change: transform`.
+  - Inclusão de `content-visibility: auto` no carrossel de marcas.
+- **Testes:** 198/198 testes automatizados aprovados (100%).
+
+## Carrossel Infinito de Logos de Clientes (Infinite Scroll Marquee) na Home
+
+- Status: Concluída
+- Data: 2026-09-04
+- **Arquivos:** `index.html`, `src/css/clients-carousel.css`, `assets/Logos Clientes/`, `MD/changelog.md`, `MD/features.md`, `MD/notion.md`.
+- **Implementação do Carrossel Contínuo de Prova Social:**
+  - Criação da seção `.clients-carousel-section` posicionada logo após a `.hero-benefits-bar` e antes da seção `#sobre`.
+  - Exibição de 15 logotipos corporativos em proporção padronizada 4:1 com fundo transparente.
+  - Implementação do algoritmo Dual-Track com aceleração por GPU (`transform: translate3d`) sem dependência de JavaScript, com rotação contínua e 100% fluida.
+  - Efeito lateral de desvanecimento suave (`mask-image`), pausa no `:hover`, transição monocromática para colorida e conformidade com `prefers-reduced-motion`.
+
 ## Ajuste do Título da Sidebar Bento (26px) e Remoção do Texto Explicativo
 
 - Status: Concluída

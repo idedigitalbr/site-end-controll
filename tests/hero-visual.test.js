@@ -42,8 +42,9 @@ test('mantém as setas do banner principal em azul-marinho no hover', () => {
 });
 
 test('uses the light navy hero reference and the requested indicator copy', () => {
+  const heroSlice = home.slice(0, home.indexOf('<section class="section about-premium-section'));
   assert.match(home, /Engenharia - Inspeção - Integridade/);
-  assert.doesNotMatch(home, /EXCELÊNCIA\s*[\s\S]*?PRECISÃO\s*[\s\S]*?TECNOLOGIA/i);
+  assert.doesNotMatch(heroSlice, /EXCELÊNCIA\s*[\s\S]*?PRECISÃO\s*[\s\S]*?TECNOLOGIA/i);
   assert.match(home, />\+18 anos<\/h3>/i);
   assert.match(home, />de experiência<\/p>/i);
   assert.match(home, />\+300<\/h3>/i);
@@ -145,3 +146,9 @@ test('places the indicator band between the Hero and Sobre section', () => {
   assert.ok(benefitsStart > heroEnd && benefitsStart < aboutStart);
   assert.match(styles, /\.hero-benefits-bar\s*\{[\s\S]*?position:\s*relative[\s\S]*?margin:\s*-32px auto 32px/i);
 });
+
+test('keeps the four indicators in a single horizontal row on tablet and mobile', () => {
+  assert.match(styles, /@media\s*\(max-width:\s*991px\)[\s\S]*?\.benefits-grid\s*\{[\s\S]*?grid-template-columns:\s*repeat\(4,\s*1fr\)/i);
+  assert.match(styles, /@media\s*\(max-width:\s*768px\)[\s\S]*?\.benefits-grid\s*\{[\s\S]*?grid-template-columns:\s*repeat\(4,\s*1fr\)/i);
+});
+

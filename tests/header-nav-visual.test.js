@@ -37,8 +37,8 @@ test('keeps internal solution navigation text white on navy active and hover sta
   );
 });
 
-test('adds Vagas and turns Fale com Especialista into a direct WhatsApp link', () => {
-  assert.match(home, /<a href="index\.html#oportunidades">Vagas<\/a>/i);
+test('removes Vagas and turns Fale com Especialista into a direct WhatsApp link', () => {
+  assert.doesNotMatch(home, /<a href="index\.html#oportunidades">Vagas<\/a>/i);
   assert.match(home, /<a class="btn-contacts-menu" href="https:\/\/wa\.me\/5591984040710"[^>]*>Fale com Especialista<\/a>/i);
   assert.doesNotMatch(home, /contacts-dropdown/i);
 });
@@ -53,3 +53,16 @@ test('removes the blue glow from the Home contact button hover', () => {
     /(?:^|\r?\n)\.main-menu \.btn-contacts-menu:hover\s*\{[^}]*?box-shadow:\s*none\s*!important;/i
   );
 });
+
+test('hides Vagas and Fale com Especialista from the mobile menu', () => {
+  const responsiveStyles = fs.readFileSync(path.join(root, 'src', 'css', 'responsive.css'), 'utf8');
+  assert.match(
+    responsiveStyles,
+    /\.main-menu\s+\.btn-contacts-menu\s*\{[^}]*?display:\s*none\s*!important;/i
+  );
+  assert.match(
+    responsiveStyles,
+    /\.main-menu\s+a\[href\*="oportunidades"\]/i
+  );
+});
+
