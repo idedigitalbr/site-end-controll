@@ -1,5 +1,15 @@
 # Histórico de sincronização — DB_IDE
 
+## 2026-09-05 - Padronização das Faixas de Indicadores e Valores em Linha Única no Mobile
+
+- Projeto: site-end-controll
+- Tarefa: Ajuste responsivo no mobile para transformar a faixa de indicadores do Hero (.hero-benefits-bar) em 1 linha horizontal (4 colunas) e a faixa de valores institucionais (.about-values-banner) em 1 linha única horizontal deslizante (Carrossel Touch / Swipe) com cards proporcionais (82% de largura). Reestruturação da Home sem a seção legada de depoimentos e vagas, preservando os vídeos institucionais emoldurados em #sobre-2 e o carrossel contínuo de clientes.
+- Status local: Concluída.
+- Commit: 69945c0
+- Deploy VPS: Concluído e verificado em https://endcontrol.suporteide.digital/
+- Testes: 201/201 testes automatizados aprovados (100% de sucesso).
+- Observação: Memória persistente no Obsidian (`MD/`) e changelog sincronizados.
+
 ## 2026-09-05 - Reposicionamento de Seção e Otimizações Globais de FPS / Fluidez
 
 - Projeto: site-end-controll
