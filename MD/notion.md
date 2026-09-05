@@ -13,6 +13,8 @@
 - Projeto: site-end-controll
 - Tarefa: Atualização da redação da seção institucional para "PALAVRA DOS SÓCIOS-DIRETORES", mantendo a tipografia e escala visual oficiais (headline "Excelência técnica começa com responsabilidade", 3 parágrafos institucionais focados em experiência, conhecimento e compromisso) com remoção do botão redundante e elementos de assinatura para um layout mais limpo e refinado. Preservação da inversão da seção antes de Metodologia e das thumbnails WebP dos vídeos reais de campo.
 - Status local: Concluída.
+- Commit: b058357
+- Deploy VPS: Concluído e verificado em https://endcontrol.suporteide.digital/ e https://endcontrol.suporteide.digital/sobre-nos.html
 - Testes: 201/201 testes automatizados aprovados (100% de sucesso).
 - Observação: Memória persistente no Obsidian (`MD/`) e changelog sincronizados.
 
