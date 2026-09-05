@@ -1,5 +1,33 @@
 # Changelog — ENDCONTROL Engenharia
 
+## [2026-09-05] - Correção do Layout Mobile da Seção Nossa Metodologia nas Páginas de Solução
+
+- **Arquivos:** `src/css/servico-integridade.css`, `tests/service-pages-layout.test.js`, todas as 12 páginas de soluções (`1-solucao-...html` a `12-solucao-...html`), `MD/changelog.md`.
+- **Diagnóstico e Resolução do Colapso de Altura:**
+  - Identificado que em visualizações mobile/tablet (<= 1100px), a regra `.svc-method-card` mantinha `flex: 1 1 0;` (com `flex-basis: 0` na direção de coluna) combinado a `min-height: 0;` e `overflow: hidden;`.
+  - Isso fazia com que os 4 cards colapsassem para ~60px de altura, ocultando totalmente os títulos e descrições técnicas, além de espremer o círculo do ícone em formato oval.
+- **Correções Estruturais e Responsivas:**
+  - Adicionado `flex-shrink: 0;` em `.svc-method-icon-box` para blindar o formato perfeitamente circular de 60px/68px contra qualquer distorção de proporção.
+  - Atualizado `.svc-method-card` em `@media (max-width: 1100px)` e `@media (max-width: 768px)` com `flex: 0 0 auto;`, `height: auto;` e `min-height: auto;`, permitindo que os cards se adaptem com folga e fluidez ao conteúdo completo.
+  - Refinada a hierarquia visual sob `.sn-page-wrapper` em `@media (max-width: 900px)` e `@media (max-width: 600px)` com paddings confortáveis (`26px 18px 22px;`), cantos arredondados elegantes (`border-radius: 20px;`) e tipografia justificada e legível.
+  - Bump de versão de cache para `servico-integridade.css?v=176.0` em todas as 12 páginas de soluções.
+- **Validação:** Suíte de testes automatizados (`tests/service-pages-layout.test.js` e `tests/service-*.test.js`) 100% aprovada.
+
+
+## [2026-09-05] - Atualização da Seção Palavra dos Sócios-Diretores e Bloco de Assinatura
+
+- **Arquivos:** `sobre-nos.html`, `src/css/sections.css`, `assets/Videos/Depoimentos/thumb-carlos-eduardo.webp`, `assets/Videos/Depoimentos/thumb-marcus-oliveira.webp`, `MD/changelog.md`, `MD/notion.md`.
+- **Nova Redação Institucional (Palavra dos Sócios-Diretores):**
+  - Etiqueta atualizada para `PALAVRA DOS SÓCIOS-DIRETORES`.
+  - Headline atualizada para `Excelência técnica começa com responsabilidade` mantendo a tipografia, proporções e destaque em gradiente/itálico azul marinho aprovados.
+  - Parágrafos atualizados com foco em conhecimento, experiência, responsabilidade nas decisões e visão de longo prazo na liderança da EndControl.
+- **Remoção de Elementos Redundantes:**
+  - Removidos o botão redundante e o bloco de assinatura da seção dos sócios-diretores a pedido do cliente, mantendo o layout limpo, direto e sofisticado, com foco total na mensagem executiva e nos vídeos.
+- **Thumbnails e Inversão:**
+  - Thumbnails WebP extraídas diretamente dos frames reais dos vídeos via ffmpeg.
+  - Ordem das seções posicionada harmoniosamente após Identidade Corporativa e antes de Metodologia.
+- **Validação:** 201/201 testes automatizados aprovados (100% de sucesso).
+
 ## [2026-09-05] - Remoção de Vagas e Fale com Especialista do Menu Mobile
 
 - **Arquivos:** `index.html`, `src/css/responsive.css`, `tests/header-nav-visual.test.js`, `MD/changelog.md`.

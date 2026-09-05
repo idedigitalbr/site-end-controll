@@ -1,5 +1,21 @@
 # Histórico de sincronização — DB_IDE
 
+## 2026-09-05 - Correção do Layout Mobile da Seção Nossa Metodologia nas Páginas de Solução
+
+- Projeto: site-end-controll
+- Tarefa: Correção do colapso de altura dos cards de metodologia (.svc-method-card) em telas mobile/tablet, onde flex-basis: 0 e min-height: 0 provocavam o encolhimento para ~60px e ocultavam os textos técnicos por overflow: hidden, além de distorcer o círculo do ícone em formato oval. Adicionado flex-shrink: 0 nos ícones, reset de flex: 0 0 auto e height: auto nos cards, refinamento tipográfico e bump de versão para servico-integridade.css?v=176.0 em todas as 12 páginas de soluções.
+- Status local: Concluída.
+- Testes: Suíte de testes automatizados aprovada com 100% de sucesso.
+- Observação: Memória persistente no Obsidian (`MD/`) e changelog sincronizados.
+
+## 2026-09-05 - Transferência de Seção de Vídeos Institucionais (#sobre-2) para Sobre Nós
+
+- Projeto: site-end-controll
+- Tarefa: Atualização da redação da seção institucional para "PALAVRA DOS SÓCIOS-DIRETORES", mantendo a tipografia e escala visual oficiais (headline "Excelência técnica começa com responsabilidade", 3 parágrafos institucionais focados em experiência, conhecimento e compromisso) com remoção do botão redundante e elementos de assinatura para um layout mais limpo e refinado. Preservação da inversão da seção antes de Metodologia e das thumbnails WebP dos vídeos reais de campo.
+- Status local: Concluída.
+- Testes: 201/201 testes automatizados aprovados (100% de sucesso).
+- Observação: Memória persistente no Obsidian (`MD/`) e changelog sincronizados.
+
 ## 2026-09-05 - Padronização das Faixas de Indicadores e Valores em Linha Única no Mobile
 
 - Projeto: site-end-controll

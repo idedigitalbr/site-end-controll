@@ -100,7 +100,9 @@ test('methodology sections use the shared badge, headline, copy and card pattern
   assert.match(styles, /\.svc-methodology-headline\s+em\s*\{[\s\S]*?font-style:\s*italic;[\s\S]*?font-weight:\s*300;[\s\S]*?color:\s*#00215D;/i);
   assert.match(styles, /\.svc-method-desc\s*\{[\s\S]*?font-size:\s*var\(--font-size-icon-text,\s*16px\);[\s\S]*?line-height:\s*1\.[5-6]+;[\s\S]*?color:\s*#475569;[\s\S]*?text-align:\s*justify;/i);
   assert.match(styles, /\.svc-methodology-flow\s*\{[\s\S]*?display:\s*flex;[\s\S]*?gap:\s*18px;/i);
+  assert.match(styles, /\.svc-method-icon-box\s*\{[\s\S]*?flex-shrink:\s*0;/i);
   assert.match(styles, /@media\s*\(max-width:\s*1100px\)[\s\S]*?\.svc-methodology-flow\s*\{[\s\S]*?flex-direction:\s*column;[\s\S]*?\.svc-method-arrow-connector\s*\{[\s\S]*?display:\s*none;/i);
+  assert.match(styles, /@media\s*\(max-width:\s*1100px\)[\s\S]*?\.svc-method-card\s*\{[\s\S]*?flex:\s*0\s+0\s+auto;[\s\S]*?height:\s*auto;[\s\S]*?min-height:\s*auto;/i);
 
   for (const filename of servicePages) {
     const html = fs.readFileSync(path.join(root, filename), 'utf8');

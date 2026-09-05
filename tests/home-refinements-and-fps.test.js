@@ -25,8 +25,9 @@ test('a logo principal do header preserva o tamanho original aprovado', () => {
   assert.match(responsiveCss, /@media\s*\(max-width:\s*620px\)\s*\{[\s\S]*?\.brand-main\s*\{[\s\S]*?height:\s*24px;/);
 });
 
-test('a ordem das seções na Home segue Clientes -> Radar (#solucoes) -> Soluções Integradas (#sobre) -> #sobre-2 sem #depoimentos', () => {
+test('a ordem das seções na Home segue Clientes -> Radar (#solucoes) -> Soluções Integradas (#sobre) sem #sobre-2 e sem #depoimentos', () => {
   const html = fs.readFileSync(indexPath, 'utf8');
+  const sobreNosHtml = fs.readFileSync(path.join(rootDir, 'sobre-nos.html'), 'utf8');
 
   const idxClientes = html.indexOf('id="clientes"');
   const idxSolucoes = html.indexOf('id="solucoes"');
@@ -36,12 +37,15 @@ test('a ordem das seções na Home segue Clientes -> Radar (#solucoes) -> Soluç
   assert.ok(idxClientes > 0, '#clientes deve existir');
   assert.ok(idxSolucoes > 0, '#solucoes deve existir');
   assert.ok(idxSobre > 0, '#sobre deve existir');
-  assert.ok(idxSobre2 > 0, '#sobre-2 deve existir');
+  assert.equal(idxSobre2, -1, '#sobre-2 foi movido para a página sobre-nos.html');
   assert.doesNotMatch(html, /id="depoimentos"/, '#depoimentos foi removido conforme solicitação');
 
   assert.ok(idxClientes < idxSolucoes, 'Clientes deve vir antes do Radar');
   assert.ok(idxSolucoes < idxSobre, 'Radar deve vir antes de Soluções Integradas (#sobre)');
-  assert.ok(idxSobre < idxSobre2, '#sobre deve vir antes de #sobre-2');
+
+  assert.ok(sobreNosHtml.includes('id="sobre-2"'), 'sobre-nos.html deve conter a seção #sobre-2');
+  assert.ok(sobreNosHtml.includes('depoimento-carlos-eduardo-socio.mp4'), 'vídeo do Carlos Eduardo atualizado em sobre-nos.html');
+  assert.ok(sobreNosHtml.includes('depoimento-marcus-oliveira-socio.mp4'), 'vídeo do Marcus Oliveira atualizado em sobre-nos.html');
 });
 
 test('as transições CSS entre as seções reposicionadas estão configuradas', () => {

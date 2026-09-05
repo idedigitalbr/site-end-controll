@@ -683,6 +683,7 @@
 .svc-method-icon-box {
   width: 68px;
   height: 68px;
+  flex-shrink: 0;
   border-radius: 50%;
   background: #ffffff;
   border: 2px solid rgba(0, 33, 93, 0.35);
@@ -828,9 +829,16 @@
   }
 
   .svc-method-card {
+    flex: 0 0 auto;
     width: 100%;
-    min-height: 0;
+    height: auto;
+    min-height: auto;
+    padding: 32px 24px 28px;
     box-sizing: border-box;
+  }
+
+  .svc-method-icon-box {
+    flex-shrink: 0;
   }
 
   .segmentos-secao {
@@ -868,8 +876,37 @@
     margin-bottom: 12px;
   }
 
+  .svc-method-card {
+    padding: 28px 20px 24px;
+    border-radius: 20px;
+    height: auto;
+    min-height: auto;
+  }
+
+  .svc-method-icon-box {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 14px;
+    flex-shrink: 0;
+  }
+
+  .svc-method-icon-box svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  .svc-method-title {
+    font-size: 1.15rem;
+    margin-bottom: 8px;
+    text-align: center;
+  }
+
   .svc-method-desc {
     text-align: justify;
+    text-justify: inter-word;
+    hyphens: auto;
+    font-size: 0.95rem;
+    line-height: 1.55;
   }
 
   .svc-solution-benefits-bar {
@@ -3079,6 +3116,36 @@
     width: min(100% - 32px, 680px);
     max-width: 680px;
   }
+
+  .sn-page-wrapper .svc-methodology-container {
+    width: min(100% - 32px, 680px);
+    max-width: 680px;
+    padding-inline: 0;
+  }
+
+  .sn-page-wrapper .svc-methodology-flow {
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 28px;
+    width: 100%;
+  }
+
+  .sn-page-wrapper .svc-method-arrow-connector {
+    display: none;
+  }
+
+  .sn-page-wrapper .svc-method-card {
+    flex: 0 0 auto;
+    width: 100%;
+    height: auto;
+    min-height: auto;
+    padding: 30px 22px 26px;
+    box-sizing: border-box;
+  }
+
+  .sn-page-wrapper .svc-method-icon-box {
+    flex-shrink: 0;
+  }
 }
 
 @media (max-width: 600px) {
@@ -3171,6 +3238,59 @@
   .sn-page-wrapper .sn-step-desc {
     max-width: 100%;
     font-size: 0.9rem;
+  }
+
+  .sn-page-wrapper .svc-methodology-section {
+    padding: 56px 0 68px !important;
+    border-radius: 24px !important;
+  }
+
+  .sn-page-wrapper .svc-methodology-container {
+    width: calc(100% - 32px);
+    padding-inline: 0;
+  }
+
+  .sn-page-wrapper .svc-methodology-flow {
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 24px;
+    width: 100%;
+  }
+
+  .sn-page-wrapper .svc-method-card {
+    flex: 0 0 auto;
+    width: 100%;
+    height: auto;
+    min-height: auto;
+    padding: 26px 18px 22px;
+    border-radius: 20px;
+    box-sizing: border-box;
+  }
+
+  .sn-page-wrapper .svc-method-icon-box {
+    width: 58px;
+    height: 58px;
+    flex-shrink: 0;
+    margin-bottom: 12px;
+  }
+
+  .sn-page-wrapper .svc-method-icon-box svg {
+    width: 26px;
+    height: 26px;
+  }
+
+  .sn-page-wrapper .svc-method-title {
+    font-size: 1.12rem;
+    margin-bottom: 8px;
+    text-align: center;
+  }
+
+  .sn-page-wrapper .svc-method-desc {
+    font-size: 0.92rem;
+    line-height: 1.55;
+    text-align: justify;
+    text-justify: inter-word;
+    hyphens: auto;
   }
 }
 
