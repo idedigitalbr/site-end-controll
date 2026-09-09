@@ -5,6 +5,8 @@
 - Projeto: site-end-controll
 - Tarefa: Remoção da borda inferior de 1px da seção do carrossel de clientes (.clients-carousel-section com border-bottom: none !important) eliminando a divisória com a seção subsequente de soluções e bump para clients-carousel.css?v=2.0. Remoção do bloco residual duplicado do indicador 4 (+1.250 / projetos entregues) e tags de fechamento órfãs fora da hero-benefits-bar.
 - Status local: Concluída.
+- Commit: 548ae94
+- Deploy VPS: Concluído e verificado em https://endcontrol.suporteide.digital/
 - Testes: 201/201 testes automatizados aprovados (100% de sucesso).
 - Observação: Memória persistente no Obsidian (`MD/`) e changelog sincronizados.
 
