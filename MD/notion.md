@@ -1,5 +1,13 @@
 # Histórico de sincronização — DB_IDE
 
+## 2026-09-09 - Remoção da Borda Inferior da Seção de Clientes e Limpeza de Indicador Residual
+
+- Projeto: site-end-controll
+- Tarefa: Remoção da borda inferior de 1px da seção do carrossel de clientes (.clients-carousel-section com border-bottom: none !important) eliminando a divisória com a seção subsequente de soluções e bump para clients-carousel.css?v=2.0. Remoção do bloco residual duplicado do indicador 4 (+1.250 / projetos entregues) e tags de fechamento órfãs fora da hero-benefits-bar.
+- Status local: Concluída.
+- Testes: 201/201 testes automatizados aprovados (100% de sucesso).
+- Observação: Memória persistente no Obsidian (`MD/`) e changelog sincronizados.
+
 ## 2026-09-05 - Correção do Layout Mobile da Seção Nossa Metodologia nas Páginas de Solução
 
 - Projeto: site-end-controll

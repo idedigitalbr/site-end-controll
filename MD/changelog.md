@@ -1,5 +1,15 @@
 # Changelog — ENDCONTROL Engenharia
 
+## [2026-09-09] - Remoção da Borda Inferior da Seção de Clientes e Limpeza de Indicador Residual
+
+- **Arquivos:** `src/css/clients-carousel.css`, `index.html`, `MD/changelog.md`, `MD/notion.md`.
+- **Remoção da Borda Inferior:**
+  - Alterada a propriedade na classe `.clients-carousel-section` em `src/css/clients-carousel.css` para `border-bottom: none !important;`, removendo a linha divisória de 1px entre o carrossel de logos e a seção subsequente de soluções.
+  - Bump de versão do arquivo de estilos em `index.html` para `clients-carousel.css?v=2.0`.
+- **Limpeza de Indicador Residual:**
+  - Removido bloco HTML duplicado do indicador 4 (`+1.250 / projetos entregues`) e tags `</div>` excedentes que estavam renderizados soltos fora da barra de indicadores oficial.
+- **Validação:** 201/201 testes automatizados aprovados (100% de sucesso).
+
 ## [2026-09-05] - Correção do Layout Mobile da Seção Nossa Metodologia nas Páginas de Solução
 
 - **Arquivos:** `src/css/servico-integridade.css`, `tests/service-pages-layout.test.js`, todas as 12 páginas de soluções (`1-solucao-...html` a `12-solucao-...html`), `MD/changelog.md`.
