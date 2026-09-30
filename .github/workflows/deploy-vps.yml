@@ -1,9 +1,10 @@
 name: Deploy VPS
 
 on:
-  push:
-    branches:
-      - main
+  # Desativado: deploy automático via push desativado a pedido do usuário
+  # push:
+  #   branches:
+  #     - main
   workflow_dispatch:
 
 concurrency:
