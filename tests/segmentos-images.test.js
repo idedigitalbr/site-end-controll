@@ -15,7 +15,6 @@ const expectedImages = [
   ['6', 'Naval.png'],
   ['7', 'Oleo-Gas.png'],
   ['8', 'Papel-Celulose.png'],
-  ['9', 'Quimico-Petroquimico.png'],
 ];
 
 test('atualiza as imagens das áreas com os arquivos fornecidos em FORMATO', () => {
@@ -25,6 +24,12 @@ test('atualiza as imagens das áreas com os arquivos fornecidos em FORMATO', () 
     assert.match(panel, new RegExp(`src="assets/Paginas Imgs/HOME/CARDS-AREAS-ATUACAO/FORMATO/${filename}"`, 'i'));
     assert.ok(fs.existsSync(path.join(assetRoot, filename)), `o asset ${filename} precisa existir`);
   }
+});
+
+test('utiliza a fotografia otimizada para Químico e Petroquímico', () => {
+  const panel = home.match(/<li class="endo-acc-panel[^>]*data-index="9"[\s\S]*?<\/li>/i)?.[0] || '';
+  assert.match(panel, /src="assets\/Fotografias\/Endcontrol-Fotos-Videos-Escolhidos\/otimizados\/fotos\/integridade-estrutural-planta-industrial-tanques-tubulacoes\.webp"/i);
+  assert.ok(fs.existsSync(path.join(root, 'assets', 'Fotografias', 'Endcontrol-Fotos-Videos-Escolhidos', 'otimizados', 'fotos', 'integridade-estrutural-planta-industrial-tanques-tubulacoes.webp')));
 });
 
 test('mantém Alimentício e Mineração com as imagens originais sem correspondente no lote', () => {

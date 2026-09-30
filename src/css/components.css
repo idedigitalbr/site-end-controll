@@ -330,9 +330,9 @@
 .section-badge .badge-dot {
   width: 6px;
   height: 6px;
-  background-color: #00d2ff;
+  background-color: var(--brand-secondary, #00ACE4);
   border-radius: 50%;
   display: inline-block;
-  box-shadow: 0 0 8px #00d2ff;
+  box-shadow: 0 0 8px var(--brand-secondary, #00ACE4);
   flex-shrink: 0;
 }

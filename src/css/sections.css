@@ -781,7 +781,7 @@ p {
   cursor: pointer;
   background:
     linear-gradient(#060b1e, #060b1e) padding-box,
-    linear-gradient(180deg, #00d2ff 0%, #0044ff 100%) border-box !important;
+    linear-gradient(180deg, var(--brand-secondary, #00ACE4) 0%, #0044ff 100%) border-box !important;
   border: 2px solid transparent !important;
   box-shadow:
     0 12px 36px rgba(0, 0, 0, 0.6),
@@ -797,9 +797,9 @@ p {
   transform: translateY(-8px) scale(1.02);
   box-shadow:
     0 20px 48px rgba(0, 0, 0, 0.7),
-    0 0 40px rgba(0, 210, 255, 0.8),
+    0 0 40px rgba(var(--brand-secondary-rgb, 0, 172, 228), 0.8),
     0 0 15px rgba(255, 255, 255, 0.5),
-    inset 0 0 20px rgba(0, 210, 255, 0.3) !important;
+    inset 0 0 20px rgba(var(--brand-secondary-rgb, 0, 172, 228), 0.3) !important;
 }
 
 /* Inner wrapper: fill the card */
@@ -870,7 +870,7 @@ p {
   height: 72px;
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease, box-shadow 0.3s ease;
   border-radius: 50%;
-  box-shadow: 0 0 15px rgba(0, 210, 255, 0.4);
+  box-shadow: 0 0 15px rgba(var(--brand-secondary-rgb, 0, 172, 228), 0.4);
 }
 
 .dep-play-btn svg {
@@ -881,7 +881,7 @@ p {
 
 .dep-play-btn svg circle {
   fill: rgba(6, 11, 30, 0.6) !important;
-  stroke: #00d2ff !important;
+  stroke: var(--brand-secondary, #00ACE4) !important;
   stroke-width: 2px !important;
   transition: fill 0.3s ease, stroke 0.3s ease;
 }
@@ -893,7 +893,7 @@ p {
 
 .dep-play-btn:hover {
   transform: translate(-50%, -50%) scale(1.12);
-  box-shadow: 0 0 25px rgba(0, 210, 255, 0.7);
+  box-shadow: 0 0 25px rgba(var(--brand-secondary-rgb, 0, 172, 228), 0.7);
 }
 
 .dep-play-btn:hover svg circle {
@@ -922,7 +922,7 @@ p {
   background: rgba(6, 11, 30, 0.75) !important;
   backdrop-filter: blur(12px) !important;
   -webkit-backdrop-filter: blur(12px) !important;
-  border: 1px solid rgba(0, 210, 255, 0.15) !important;
+  border: 1px solid rgba(var(--brand-secondary-rgb, 0, 172, 228), 0.15) !important;
   border-radius: 14px !important;
   padding: 8px 12px !important;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5) !important;
@@ -980,7 +980,7 @@ p {
   display: block;
   width: 20px;
   height: 3px;
-  background: linear-gradient(90deg, #00d2ff 0%, var(--brand-primary) 100%) !important;
+  background: linear-gradient(90deg, var(--brand-secondary, #00ACE4) 0%, var(--brand-primary) 100%) !important;
   border-radius: 1.5px;
   margin-bottom: 3px;
 }
@@ -1014,9 +1014,9 @@ p {
   font-family: 'DM Sans', sans-serif;
   font-size: 0.7rem !important;
   font-weight: 800 !important;
-  color: #00d2ff !important;
-  background: rgba(0, 210, 255, 0.12) !important;
-  border: 1px solid rgba(0, 210, 255, 0.35) !important;
+  color: var(--brand-secondary, #00ACE4) !important;
+  background: rgba(var(--brand-secondary-rgb, 0, 172, 228), 0.12) !important;
+  border: 1px solid rgba(var(--brand-secondary-rgb, 0, 172, 228), 0.35) !important;
   border-radius: 8px;
   padding: 3px 7px !important;
   letter-spacing: 0.03em;
@@ -1098,7 +1098,7 @@ p {
   width: 0%;
   background: var(--brand-primary) !important;
   border-radius: inherit;
-  box-shadow: 0 0 8px rgba(0, 210, 255, 0.8) !important;
+  box-shadow: 0 0 8px rgba(var(--brand-secondary-rgb, 0, 172, 228), 0.8) !important;
 }
 
 /* Linha de botões */
@@ -2685,7 +2685,7 @@ textarea.form-control {
   border-radius: 16px !important;
   overflow: hidden !important;
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35) !important;
-  border: 1px solid rgba(0, 210, 255, 0.3) !important;
+  border: 1px solid rgba(var(--brand-secondary-rgb, 0, 172, 228), 0.3) !important;
   margin: 0 !important;
   position: relative !important;
   background: #060b1e !important;
@@ -2696,7 +2696,7 @@ textarea.form-control {
 
 #sobre-2 .about-media-dual-videos .dep-video-card:hover {
   transform: translateY(-4px) !important;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 24px rgba(0, 210, 255, 0.5) !important;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 24px rgba(var(--brand-secondary-rgb, 0, 172, 228), 0.5) !important;
 }
 
 #sobre-2 .about-media-dual-videos .dep-video-inner {
@@ -2757,7 +2757,7 @@ textarea.form-control {
   background: rgba(6, 11, 30, 0.85) !important;
   backdrop-filter: blur(10px) !important;
   -webkit-backdrop-filter: blur(10px) !important;
-  border: 1px solid rgba(0, 210, 255, 0.25) !important;
+  border: 1px solid rgba(var(--brand-secondary-rgb, 0, 172, 228), 0.25) !important;
   border-radius: 9px !important;
   display: flex !important;
   flex-direction: row !important;

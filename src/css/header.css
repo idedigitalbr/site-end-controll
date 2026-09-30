@@ -80,12 +80,12 @@
 }
 
 .site-header--light-hero .dropdown-rich-menu .dropdown-item-text {
-  color: var(--brand-primary) !important;
-  font-weight: 600 !important;
+  color: #071429 !important;
+  font-weight: 700 !important;
 }
 
 .site-header--light-hero .dropdown-rich-menu .dropdown-item-rich:hover .dropdown-item-text {
-  color: #ffffff !important;
+  color: #071429 !important;
 }
 
 .site-header.hidden {

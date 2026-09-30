@@ -408,78 +408,129 @@
 }
 
 /* ==========================================================================
-   Faixa Inferior de Indicadores
+   Faixa Inferior de Indicadores — Esteira Contínua Infinita (Hero Marquee)
+   12 Indicadores de alta performance, 60/120 FPS, pausa no hover e escala reduzida
    ========================================================================== */
 .hero-benefits-bar {
   position: relative;
   left: auto;
   right: auto;
   width: calc(100% - 80px);
-  max-width: 1200px;
-  margin: -32px auto 32px;
+  max-width: 1140px;
+  margin: -24px auto 30px;
   z-index: 10;
   background: var(--brand-primary);
-  border: 1px solid rgba(var(--brand-primary-rgb), 0.45);
-  border-radius: 18px;
-  padding: 14px 8px;
-  box-shadow: 0 8px 20px rgba(var(--brand-primary-rgb), 0.08);
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
-  animation: none;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 14px;
+  padding: 10px 0;
+  box-shadow: 0 8px 24px rgba(var(--brand-primary-rgb), 0.16), 0 2px 6px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
-.benefits-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+.hero-indicators-marquee {
+  position: relative;
+  width: 100%;
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 36px,
+    black calc(100% - 36px),
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 36px,
+    black calc(100% - 36px),
+    transparent 100%
+  );
+}
+
+.hero-indicators-track {
+  display: flex;
   align-items: center;
+  flex-shrink: 0;
+  will-change: transform;
+  animation: heroIndicatorsMarquee 42s linear infinite;
+}
+
+@keyframes heroIndicatorsMarquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+/* Pausa suave da animação ao passar o mouse ou segurar toque no mobile */
+.hero-benefits-bar:hover .hero-indicators-track,
+.hero-benefits-bar:active .hero-indicators-track {
+  animation-play-state: paused;
 }
 
 .benefit-item {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0;
-  padding: 0 20px;
-  text-align: center;
+  flex-shrink: 0;
+  padding: 0 26px;
   position: relative;
-  transition: all 0.3s ease;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.benefit-item:not(:last-child)::after {
+.benefit-item::after {
   content: '';
   position: absolute;
   right: 0;
   top: 15%;
   height: 70%;
   width: 1px;
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.22);
 }
 
-/* Hover nos itens da barra de benefícios */
+/* Micro-interação elegante ao focar ou hover */
 .benefit-item:hover {
-  transform: translateY(-2px);
+  transform: translateY(-1px) scale(1.03);
+}
+
+.benefit-item:hover .benefit-title {
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.55);
 }
 
 .benefit-text-box {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 3px;
+  gap: 2px;
   text-align: center;
 }
 
 .benefit-title {
-  font-size: 1.95rem;
+  font-family: var(--font-primary, 'Inter', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: 1.35rem;
   font-weight: 700;
   color: #ffffff;
+  line-height: 1.15;
   margin: 0;
+  letter-spacing: -0.015em;
+  white-space: nowrap;
 }
 
 .benefit-desc {
-  font-size: 0.78rem;
-  line-height: 1.35;
-  color: #ffffff;
+  font-family: var(--font-primary, 'Inter', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: 0.72rem;
+  font-weight: 500;
+  line-height: 1.25;
+  color: rgba(255, 255, 255, 0.92);
   margin: 0;
+  white-space: nowrap;
+  letter-spacing: 0.01em;
 }
 
 /* Detalhe estético neon centralizado no fundo da barra */
@@ -527,13 +578,13 @@
     flex-grow: 1;
   }
   
-      .hero-benefits-bar {
-        position: relative;
-        width: auto;
-        max-width: none;
-        transform: none;
-        margin: 24px 40px 32px;
-      }
+  .hero-benefits-bar {
+    position: relative;
+    width: auto;
+    max-width: none;
+    transform: none;
+    margin: 20px 32px 28px;
+  }
 }
 
 @media (max-width: 991px) {
@@ -548,22 +599,21 @@
     max-width: 100%;
   }
 
-  .benefits-grid {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 0;
-    align-items: center;
+  .hero-benefits-bar {
+    margin: 18px 24px 24px;
+    padding: 9px 0;
   }
 
   .benefit-item {
-    padding: 0 10px;
+    padding: 0 20px;
   }
 
   .benefit-title {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
   }
 
   .benefit-desc {
-    font-size: 0.72rem;
+    font-size: 0.68rem;
   }
 }
 
@@ -604,37 +654,46 @@
   }
 
   .hero-benefits-bar {
-    margin: 16px 14px 28px;
-    padding: 12px 6px;
-    border-radius: var(--radius-md);
+    margin: 14px 16px 20px;
+    padding: 8px 0;
+    border-radius: 12px;
   }
 
-  .benefits-grid {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 0;
-    align-items: center;
+  .hero-indicators-marquee {
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      black 22px,
+      black calc(100% - 22px),
+      transparent 100%
+    );
+    mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      black 22px,
+      black calc(100% - 22px),
+      transparent 100%
+    );
+  }
+
+  .hero-indicators-track {
+    animation-duration: 36s;
   }
 
   .benefit-item {
-    padding: 0 5px;
+    padding: 0 16px;
   }
 
   .benefit-title {
-    font-size: 1.18rem;
+    font-size: 1.15rem;
   }
 
   .benefit-desc {
-    font-size: 0.65rem;
-    line-height: 1.25;
+    font-size: 0.64rem;
   }
-
-  .benefit-item:not(:last-child)::after {
-    display: none !important;
-  }
-
 }
 
-/* Celulares pequenos — garantia de proporção em 1 linha e headline */
+/* Celulares pequenos — proporção refinada e suave */
 @media (max-width: 480px) {
   .hero-title-main {
     font-size: 1.2rem;
@@ -652,22 +711,48 @@
   }
 
   .hero-benefits-bar {
-    margin: 12px 8px 22px;
-    padding: 10px 4px;
-    border-radius: 14px;
+    margin: 10px 10px 18px;
+    padding: 7px 0;
+    border-radius: 10px;
+  }
+
+  .hero-indicators-marquee {
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      black 16px,
+      black calc(100% - 16px),
+      transparent 100%
+    );
+    mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      black 16px,
+      black calc(100% - 16px),
+      transparent 100%
+    );
+  }
+
+  .hero-indicators-track {
+    animation-duration: 32s;
   }
 
   .benefit-item {
-    padding: 0 3px;
+    padding: 0 13px;
   }
 
   .benefit-title {
-    font-size: clamp(0.92rem, 3.4vw, 1.08rem);
+    font-size: 1.05rem;
   }
 
   .benefit-desc {
-    font-size: clamp(0.55rem, 1.9vw, 0.62rem);
-    line-height: 1.2;
+    font-size: 0.60rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-indicators-track {
+    animation-play-state: paused;
   }
 }
 
