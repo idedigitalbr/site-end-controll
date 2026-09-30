@@ -1,5 +1,13 @@
 # Histórico de sincronização — DB_IDE
 
+## 2026-09-30 - Carrossel Dinâmico de Indicadores no Hero e Padronização do Rodapé Minimalista
+
+- Projeto: site-end-controll
+- Tarefa: Implementação do carrossel dinâmico de indicadores com contador numérico progressivo no Hero (main.js e hero.css), padronização e remoção de slogan redundante no rodapé minimalista de todas as páginas institucionais e de serviços com normalização de codificação UTF-8.
+- Status local: Concluída.
+- Commit: b8ca36e
+- Observação: Memória persistente no Obsidian (`MD/`) e changelog sincronizados.
+
 ## 2026-09-30 - Atualização da Imagem de Química e Petroquímica nas Áreas de Atuação
 
 - Projeto: site-end-controll

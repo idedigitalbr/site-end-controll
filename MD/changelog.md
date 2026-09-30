@@ -1,5 +1,16 @@
 # Changelog — ENDCONTROL Engenharia
 
+## [2026-09-30] - Carrossel Dinâmico de Indicadores no Hero e Padronização do Rodapé Minimalista
+
+- **Arquivos:** `index.html`, páginas de soluções (`1-solucao-...html` a `12-solucao-...html`), `404.html`, `politica-de-privacidade.html`, `sobre-nos.html`, `src/js/main.js`, `src/css/hero.css`, `src/css/work-units-footer.css`, `assets/Logos/logo-endcontrol-vertical-cor.webp`.
+- **Carrossel Dinâmico dos Indicadores no Hero:**
+  - Implementado carrossel sequencial contínuo com contagem numérica animada (`initHeroIndicatorsCarousel`) para os 12 indicadores de autoridade da EndControl.
+  - Transição fluida deslizante com easing cúbico, pausa automática em hover/touch e suporte responsivo (2 a 4 indicadores simultâneos).
+- **Padronização do Rodapé Minimalista:**
+  - Remoção do slogan redundante e unificação de contraste e cores dos ícones via tokens de marca.
+  - Higienização e garantia estrita de codificação UTF-8 em todos os arquivos HTML do projeto.
+- **Commit:** `b8ca36e`
+
 ## [2026-09-30] - Atualização da Imagem de Química e Petroquímica nas Áreas de Atuação
 
 - **Arquivos:** `index.html`, `tests/segmentos-images.test.js`, `MD/changelog.md`, `MD/notion.md`.
