@@ -67,119 +67,77 @@
   <link rel="stylesheet" href="./src/css/hero.css?v=120.0" />
   <link rel="stylesheet" href="./src/css/clients-carousel.css?v=120.0" />
   <link rel="stylesheet" href="./src/css/solucoes.css?v=120.0" />
-  <link rel="stylesheet" href="./src/css/sections.css?v=120.0" />
-  <link rel="stylesheet" href="./src/css/work-units-footer.css?v=131.0" />
+  <link rel="stylesheet" href="./src/css/sections.css?v=121.0" />
+  <link rel="stylesheet" href="./src/css/work-units-footer.css?v=132.0" />
   <link rel="stylesheet" href="./src/css/presenca-nacional.css?v=120.0" />
   <link rel="stylesheet" href="./src/css/components.css?v=120.0" />
   <link rel="stylesheet" href="./src/css/brand-pages.css?v=120.0" />
     <link rel="stylesheet" href="./src/css/timeline.css?v=120.0" />
   <link rel="stylesheet" href="./src/css/album.css?v=120.0" />
-  <link rel="stylesheet" href="./src/css/segmentos.css?v=130.0" />
+  <link rel="stylesheet" href="./src/css/segmentos.css?v=140.0" />
   <link rel="stylesheet" href="./src/css/responsive.css?v=130.0" />
 
   <!-- ENDCONTROL DESIGN SYSTEM - Estilização Oficial de Destaque (Cards & Rodapé) -->
   <style id="endcontrol-brand-highlights">
-    /* 1. CARDS DA HOME (Segmentos / Áreas de Atuação) */
+    /* 1. CARDS DA HOME (Segmentos / Áreas de Atuação - Especificação Oficial Anexo 2) */
     .endo-acc-card__img {
-      filter: grayscale(100%) contrast(1.1) brightness(0.95) !important;
+      filter: grayscale(100%) contrast(0.95) !important;
+      transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1), filter 0.45s ease !important;
     }
-
-    .endo-acc-panel::after {
-      content: '' !important;
-      position: absolute !important;
-      bottom: 0 !important;
-      left: 0 !important;
-      right: 0 !important;
-      height: 3px !important;
-      background: var(--brand-primary, #67A8B8) !important;
-      opacity: 0.5 !important;
-      transition: all 0.35s ease !important;
-      z-index: 5 !important;
+    .endo-acc-panel:hover .endo-acc-card__img,
+    .endo-acc-panel:focus-within .endo-acc-card__img,
+    .endo-acc-panel.is-active .endo-acc-card__img {
+      transform: scale(1.05) !important;
+      filter: grayscale(20%) contrast(1.05) !important;
     }
-    .endo-acc-panel:hover::after,
-    .endo-acc-panel.is-active::after {
-      height: 4px !important;
-      background: linear-gradient(90deg, var(--brand-primary, #67A8B8), var(--brand-secondary, #00ACE4)) !important;
-      opacity: 1 !important;
-      box-shadow: 0 0 14px rgba(0, 172, 228, 0.75) !important;
-    }
-
     .endo-acc-card__overlay {
       position: absolute !important;
       inset: 0 !important;
       background: linear-gradient(
-        to top,
-        rgba(7, 20, 41, 0.98) 0%,
-        rgba(7, 20, 41, 0.94) 20%,
-        rgba(7, 20, 41, 0.85) 35%,
-        rgba(7, 20, 41, 0.65) 48%,
-        rgba(7, 20, 41, 0.22) 62%,
-        rgba(7, 20, 41, 0) 78%,
-        transparent 100%
+        to bottom,
+        rgba(33, 166, 188, 0.43) 0%,
+        rgba(7, 27, 44, 0.9) 80%
       ) !important;
       z-index: 1 !important;
       pointer-events: none !important;
-      transition: background 0.6s cubic-bezier(0.25, 1, 0.5, 1) !important;
+      transition: background 0.4s ease !important;
     }
-
     .endo-acc-card__overlay::before {
-      content: '' !important;
-      position: absolute !important;
-      inset: 0 !important;
-      background-color: var(--brand-primary, #67A8B8) !important;
-      mix-blend-mode: color !important;
-      z-index: -1 !important;
-      pointer-events: none !important;
+      display: none !important;
     }
-
-    .endo-acc-panel:hover .endo-acc-card__overlay,
-    .endo-acc-panel:focus-within .endo-acc-card__overlay,
-    .endo-acc-panel.is-active .endo-acc-card__overlay {
-      background: linear-gradient(
-        to top,
-        rgba(7, 20, 41, 0.99) 0%,
-        rgba(7, 20, 41, 0.95) 22%,
-        rgba(7, 20, 41, 0.88) 36%,
-        rgba(7, 20, 41, 0.70) 50%,
-        rgba(7, 20, 41, 0.25) 65%,
-        rgba(7, 20, 41, 0) 80%,
-        transparent 100%
-      ) !important;
+    .endo-acc-panel::after {
+      display: none !important;
     }
-
     .endo-acc-icon {
-      width: 38px !important;
-      height: 38px !important;
-      min-width: 38px !important;
-      min-height: 38px !important;
-      color: var(--brand-secondary, #00ACE4) !important;
+      width: 32px !important;
+      height: 32px !important;
+      min-width: 32px !important;
+      min-height: 32px !important;
+      color: #21a6bc !important;
+      stroke: #21a6bc !important;
       background: transparent !important;
       border: none !important;
       border-radius: 0 !important;
       padding: 0 !important;
-      margin-bottom: 10px !important;
+      margin-bottom: 8px !important;
       flex-shrink: 0 !important;
-      stroke-width: 2px !important;
-      transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1) !important;
-      filter: none !important;
+      stroke-width: 1.85px !important;
+      transition: all 0.35s ease !important;
+      filter: drop-shadow(0 0 6px rgba(33, 166, 188, 0.5)) !important;
     }
-
     .endo-acc-panel:hover .endo-acc-icon,
     .endo-acc-panel:focus-within .endo-acc-icon,
     .endo-acc-panel.is-active .endo-acc-icon {
-      color: var(--brand-secondary, #00ACE4) !important;
-      background: transparent !important;
-      border-color: transparent !important;
-      transform: translateY(-2px) scale(1.08) !important;
-      filter: none !important;
+      color: #00d2ff !important;
+      stroke: #00d2ff !important;
+      transform: translateY(-2px) scale(1.1) !important;
+      filter: drop-shadow(0 0 10px rgba(0, 210, 255, 0.7)) !important;
     }
-
     .endo-acc-row:hover .endo-acc-panel.is-active:not(:hover):not(:focus-within) .endo-acc-icon {
       transform: scale(1) !important;
-      color: var(--brand-secondary, #00ACE4) !important;
-      background: transparent !important;
-      border-color: transparent !important;
-      filter: none !important;
+      color: #21a6bc !important;
+      stroke: #21a6bc !important;
+      filter: drop-shadow(0 0 6px rgba(33, 166, 188, 0.5)) !important;
     }
   </style>
 
@@ -926,8 +884,8 @@
         <ul class="endo-acc-row" id="accTrackIndex">
 
             <!-- PAINEL 1: Aeroespacial -->
-            <li class="endo-acc-panel is-active" data-index="0" tabindex="0">
-                <img class="endo-acc-card__img" src="assets/Paginas Imgs/HOME/CARDS-AREAS-ATUACAO/FORMATO/Aeroespacial.png" alt="Área Aeroespacial" loading="eager">
+            <li class="endo-acc-panel" data-index="0" tabindex="0">
+                <img class="endo-acc-card__img" src="assets/Paginas Imgs/HOME/CARDS-AREAS-ATUACAO/FORMATO/Aeroespacial.png" alt="Área Aeroespacial" loading="lazy">
                 <div class="endo-acc-card__overlay"></div>
                 <div class="endo-acc-card__content">
                     <i class="endo-acc-icon" data-lucide="plane" aria-hidden="true"></i>
@@ -1043,8 +1001,8 @@
             </li>
 
             <!-- PAINEL 10: Químico e Petroquímico -->
-            <li class="endo-acc-panel" data-index="9" tabindex="0">
-                <img class="endo-acc-card__img" src="assets/Fotografias/Endcontrol-Fotos-Videos-Escolhidos/otimizados/fotos/integridade-estrutural-planta-industrial-tanques-tubulacoes.webp" alt="Área Química e Petroquímica" loading="lazy">
+            <li class="endo-acc-panel is-active" data-index="9" tabindex="0">
+                <img class="endo-acc-card__img" src="assets/Fotografias/Endcontrol-Fotos-Videos-Escolhidos/otimizados/fotos/integridade-estrutural-planta-industrial-tanques-tubulacoes.webp" alt="Área Química e Petroquímica" loading="eager">
                 <div class="endo-acc-card__overlay"></div>
                 <div class="endo-acc-card__content">
                     <i class="endo-acc-icon" data-lucide="flask-conical" aria-hidden="true"></i>
@@ -1323,7 +1281,7 @@
         <!-- Coluna 2: Logo Central + Redes Sociais -->
         <div class="footer-col-center">
           <div class="footer-logo-glow-wrapper">
-            <img src="./assets/Logos/logo-endcontrol-vertical-mono-negativo.webp" alt="ENDCONTROL Engenharia" class="footer-minimal-logo" width="115" height="115" style="max-width: 115px; width: 115px; height: auto;">
+            <img src="./assets/Logos/logo-endcontrol-vertical-mono-negativo.webp" alt="ENDCONTROL Engenharia" class="footer-minimal-logo" width="135" height="135" style="max-width: 135px; width: 135px; height: auto;">
           </div>
           <div class="footer-minimal-social-row">
             <a href="https://www.instagram.com/endcontrol" target="_blank" rel="noopener" aria-label="Instagram" class="social-circle-minimal">
@@ -1507,7 +1465,11 @@
       const dotsContainerIndex = document.getElementById('accDotsIndex');
 
       if (trackIndex && panelsIndex.length > 0) {
-        let currentIndex = 0;
+        let initialActiveIndex = -1;
+        panelsIndex.forEach((p, idx) => {
+          if (p.classList.contains('is-active')) initialActiveIndex = idx;
+        });
+        let currentIndex = initialActiveIndex >= 0 ? initialActiveIndex : 9;
         let scrollSyncTimer = null;
         let programmaticScrollTimer = null;
         let isProgrammaticScroll = false;
@@ -1519,7 +1481,7 @@
             const dot = document.createElement('button');
             dot.classList.add('endo-acc-dot');
             dot.setAttribute('aria-label', `Ir para segmento ${index + 1}`);
-            if (index === 0) dot.classList.add('is-active');
+            if (index === currentIndex) dot.classList.add('is-active');
             
             dot.addEventListener('click', () => {
               openPanelIndex(index);
