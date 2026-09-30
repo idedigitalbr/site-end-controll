@@ -408,15 +408,15 @@
 }
 
 /* ==========================================================================
-   Faixa Inferior de Indicadores — Esteira Contínua Infinita (Hero Marquee)
-   12 Indicadores de alta performance, 60/120 FPS, pausa no hover e escala reduzida
+   Faixa Inferior de Indicadores — Carrossel Dinâmico com Contador e Troca Suave
+   4 Indicadores estáticos visíveis, animação de contagem, saída lateral fluida
    ========================================================================== */
 .hero-benefits-bar {
   position: relative;
   left: auto;
   right: auto;
   width: calc(100% - 80px);
-  max-width: 1140px;
+  max-width: 1120px;
   margin: -24px auto 30px;
   z-index: 10;
   background: var(--brand-primary);
@@ -429,24 +429,23 @@
   -webkit-backdrop-filter: blur(8px);
 }
 
-.hero-indicators-marquee {
+.hero-indicators-viewport {
   position: relative;
   width: 100%;
-  display: flex;
   overflow: hidden;
   user-select: none;
   -webkit-mask-image: linear-gradient(
     to right,
     transparent 0%,
-    black 36px,
-    black calc(100% - 36px),
+    black 24px,
+    black calc(100% - 24px),
     transparent 100%
   );
   mask-image: linear-gradient(
     to right,
     transparent 0%,
-    black 36px,
-    black calc(100% - 36px),
+    black 24px,
+    black calc(100% - 24px),
     transparent 100%
   );
 }
@@ -454,34 +453,22 @@
 .hero-indicators-track {
   display: flex;
   align-items: center;
-  flex-shrink: 0;
+  width: 100%;
   will-change: transform;
-  animation: heroIndicatorsMarquee 42s linear infinite;
-}
-
-@keyframes heroIndicatorsMarquee {
-  0% {
-    transform: translate3d(0, 0, 0);
-  }
-  100% {
-    transform: translate3d(-100%, 0, 0);
-  }
-}
-
-/* Pausa suave da animação ao passar o mouse ou segurar toque no mobile */
-.hero-benefits-bar:hover .hero-indicators-track,
-.hero-benefits-bar:active .hero-indicators-track {
-  animation-play-state: paused;
+  transform: translate3d(0, 0, 0);
 }
 
 .benefit-item {
-  display: inline-flex;
+  flex: 0 0 25%;
+  min-width: 25%;
+  max-width: 25%;
+  box-sizing: border-box;
+  display: flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
-  padding: 0 26px;
+  padding: 0 16px;
   position: relative;
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 0.65s cubic-bezier(0.25, 1, 0.5, 1), transform 0.65s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .benefit-item::after {
@@ -494,13 +481,35 @@
   background: rgba(255, 255, 255, 0.22);
 }
 
-/* Micro-interação elegante ao focar ou hover */
+/* Animaçãozinha do primeiro item saindo de lado para fora */
+.benefit-item.benefit-item--exiting {
+  opacity: 0.12;
+  transform: translateX(-18px) scale(0.92);
+}
+
+/* Animação do próximo item chegando de lado */
+.benefit-item.benefit-item--entering {
+  animation: benefitItemSlideIn 0.65s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+@keyframes benefitItemSlideIn {
+  from {
+    opacity: 0.2;
+    transform: translateX(18px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+/* Micro-interação suave no hover */
 .benefit-item:hover {
-  transform: translateY(-1px) scale(1.03);
+  transform: translateY(-1px) scale(1.02);
 }
 
 .benefit-item:hover .benefit-title {
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.55);
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.65);
 }
 
 .benefit-text-box {
@@ -509,22 +518,25 @@
   align-items: center;
   gap: 2px;
   text-align: center;
+  width: 100%;
 }
 
 .benefit-title {
   font-family: var(--font-primary, 'Inter', -apple-system, BlinkMacSystemFont, sans-serif);
-  font-size: 1.35rem;
+  font-size: 1.32rem;
   font-weight: 700;
   color: #ffffff;
   line-height: 1.15;
   margin: 0;
   letter-spacing: -0.015em;
   white-space: nowrap;
+  display: inline-block;
+  transition: transform 0.2s ease, text-shadow 0.2s ease;
 }
 
 .benefit-desc {
   font-family: var(--font-primary, 'Inter', -apple-system, BlinkMacSystemFont, sans-serif);
-  font-size: 0.72rem;
+  font-size: 0.70rem;
   font-weight: 500;
   line-height: 1.25;
   color: rgba(255, 255, 255, 0.92);
@@ -605,15 +617,18 @@
   }
 
   .benefit-item {
-    padding: 0 20px;
+    flex: 0 0 33.333%;
+    min-width: 33.333%;
+    max-width: 33.333%;
+    padding: 0 12px;
   }
 
   .benefit-title {
-    font-size: 1.25rem;
+    font-size: 1.22rem;
   }
 
   .benefit-desc {
-    font-size: 0.68rem;
+    font-size: 0.66rem;
   }
 }
 
@@ -659,37 +674,36 @@
     border-radius: 12px;
   }
 
-  .hero-indicators-marquee {
+  .hero-indicators-viewport {
     -webkit-mask-image: linear-gradient(
       to right,
       transparent 0%,
-      black 22px,
-      black calc(100% - 22px),
+      black 16px,
+      black calc(100% - 16px),
       transparent 100%
     );
     mask-image: linear-gradient(
       to right,
       transparent 0%,
-      black 22px,
-      black calc(100% - 22px),
+      black 16px,
+      black calc(100% - 16px),
       transparent 100%
     );
   }
 
-  .hero-indicators-track {
-    animation-duration: 36s;
-  }
-
   .benefit-item {
-    padding: 0 16px;
+    flex: 0 0 50%;
+    min-width: 50%;
+    max-width: 50%;
+    padding: 0 10px;
   }
 
   .benefit-title {
-    font-size: 1.15rem;
+    font-size: 1.12rem;
   }
 
   .benefit-desc {
-    font-size: 0.64rem;
+    font-size: 0.62rem;
   }
 }
 
@@ -716,37 +730,36 @@
     border-radius: 10px;
   }
 
-  .hero-indicators-marquee {
+  .hero-indicators-viewport {
     -webkit-mask-image: linear-gradient(
       to right,
       transparent 0%,
-      black 16px,
-      black calc(100% - 16px),
+      black 12px,
+      black calc(100% - 12px),
       transparent 100%
     );
     mask-image: linear-gradient(
       to right,
       transparent 0%,
-      black 16px,
-      black calc(100% - 16px),
+      black 12px,
+      black calc(100% - 12px),
       transparent 100%
     );
   }
 
-  .hero-indicators-track {
-    animation-duration: 32s;
-  }
-
   .benefit-item {
-    padding: 0 13px;
+    flex: 0 0 50%;
+    min-width: 50%;
+    max-width: 50%;
+    padding: 0 8px;
   }
 
   .benefit-title {
-    font-size: 1.05rem;
+    font-size: 1.02rem;
   }
 
   .benefit-desc {
-    font-size: 0.60rem;
+    font-size: 0.58rem;
   }
 }
 

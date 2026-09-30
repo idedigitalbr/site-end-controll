@@ -43,8 +43,8 @@ document.addEventListener('DOMContentLoaded', function() {
       html: `
         <div class="custom-pin-wrapper" title="${unit.name}">
           <svg class="custom-pin-svg" viewBox="0 0 36 46" xmlns="http://www.w3.org/2000/svg">
-            <path d="M18 0C8.06 0 0 8.06 0 18c0 12.42 16.2 26.78 16.88 27.38a1.5 1.5 0 0 0 2.24 0C19.8 44.78 36 30.42 36 18 36 8.06 27.94 0 18 0z" fill="#00215D" />
-            <circle cx="18" cy="18" r="12" fill="#080c14" stroke="#00215D" stroke-width="1.5" />
+            <path d="M18 0C8.06 0 0 8.06 0 18c0 12.42 16.2 26.78 16.88 27.38a1.5 1.5 0 0 0 2.24 0C19.8 44.78 36 30.42 36 18 36 8.06 27.94 0 18 0z" fill="#67A8B8" />
+            <circle cx="18" cy="18" r="12" fill="#ffffff" stroke="#67A8B8" stroke-width="1.5" />
           </svg>
           <div class="pin-logo-container" style="top:7px; left:7px; width:22px; height:22px; position:absolute; display:flex; align-items:center; justify-content:center;">
             <img src="${defaultPinLogo}" alt="${unit.name}" style="max-width:18px; max-height:18px; object-fit:contain;" />
@@ -97,9 +97,9 @@ document.addEventListener('DOMContentLoaded', function() {
       // Popup simples
       const popupContent = `
         <div class="map-popup-card">
-          <strong style="color:#00215D; font-size:14px;">${unit.shortName}</strong>
-          <p style="margin:4px 0; font-size:12px; color:#ccc;">${unit.address}</p>
-          <a href="javascript:void(0)" onclick="window.selectUnitFromMap('${unit.id}')" style="color:#00215D; font-size:12px; text-decoration:underline; font-weight:bold;">Ver Detalhes da Base &rarr;</a>
+          <strong style="color:#071429; font-size:14px;">${unit.shortName}</strong>
+          <p style="margin:4px 0; font-size:12px; color:#52627A;">${unit.address}</p>
+          <a href="javascript:void(0)" onclick="window.selectUnitFromMap('${unit.id}')" style="color:#67A8B8; font-size:12px; text-decoration:underline; font-weight:bold;">Ver Detalhes da Base &rarr;</a>
         </div>
       `;
       marker.bindPopup(popupContent);
@@ -239,7 +239,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="unit-contact-box" style="background:rgba(22,31,44,0.8); padding:12px; border-radius:8px; border:1px solid rgba(0, 33, 93, 0.2);">
           <p style="font-size:13px; margin:0 0 6px 0;"><strong>Contato Operacional:</strong> ${unit.phone}</p>
           <p style="font-size:13px; margin:0 0 8px 0;"><strong>E-mail:</strong> ${unit.email}</p>
-          <a href="${unit.googleMapsUrl}" target="_blank" rel="noopener" style="display:inline-block; background:#00215D; color:#080c14; padding:6px 12px; border-radius:4px; font-weight:bold; font-size:12px; text-decoration:none;">Abrir no Google Maps &rarr;</a>
+          <a href="${unit.googleMapsUrl}" target="_blank" rel="noopener" style="display:inline-block; background:#67A8B8; color:#ffffff; padding:6px 12px; border-radius:4px; font-weight:bold; font-size:12px; text-decoration:none;">Abrir no Google Maps &rarr;</a>
         </div>
       </div>
     `;

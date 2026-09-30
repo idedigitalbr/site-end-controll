@@ -8,7 +8,7 @@
 body.theme-villa-plaza {
   background: radial-gradient(circle at 12% 0%, rgba(255, 138, 0, 0.1), transparent 40%), 
               radial-gradient(circle at 88% 14%, rgba(255, 138, 0, 0.04), transparent 30%), 
-              #0a1128;
+              var(--surface-dark, #071429);
 }
 .theme-villa-plaza .btn.primary {
   background: var(--orange);
@@ -31,9 +31,9 @@ body.theme-villa-plaza {
    2. Theme: The Wine Experience (Vinho + Dourado)
    -------------------------------------------------------------------------- */
 body.theme-the-wine {
-  background: radial-gradient(circle at 12% 0%, rgba(10, 17, 40, 0.22), transparent 40%), 
+  background: radial-gradient(circle at 12% 0%, rgba(7, 20, 41, 0.22), transparent 40%), 
               radial-gradient(circle at 88% 14%, rgba(var(--brand-primary-rgb), 0.06), transparent 30%), 
-              #0a1128;
+              var(--surface-dark, #071429);
 }
 body.theme-the-wine h1, 
 body.theme-the-wine h2, 
@@ -46,12 +46,12 @@ body.theme-the-wine .serif-font {
   background: var(--wine);
   color: #ffffff;
   border: 1px solid rgba(var(--brand-primary-rgb), 0.4);
-  box-shadow: 0 10px 25px rgba(10, 17, 40, 0.35);
+  box-shadow: 0 10px 25px rgba(7, 20, 41, 0.35);
 }
 .theme-the-wine .btn.primary:hover {
   background: #5d1428;
   border-color: var(--yellow);
-  box-shadow: 0 12px 30px rgba(10, 17, 40, 0.5);
+  box-shadow: 0 12px 30px rgba(7, 20, 41, 0.5);
   transform: translateY(-2px);
 }
 .theme-the-wine .eyebrow {
@@ -67,7 +67,7 @@ body.theme-the-wine .serif-font {
 body.theme-farma {
   background: radial-gradient(circle at 12% 0%, rgba(var(--brand-primary-rgb), 0.12), transparent 40%), 
               radial-gradient(circle at 88% 14%, rgba(255, 255, 255, 0.04), transparent 30%), 
-              #0a1128;
+              var(--surface-dark, #071429);
 }
 .theme-farma .btn.primary {
   background: var(--red);
@@ -92,7 +92,7 @@ body.theme-farma {
 body.theme-park {
   background: radial-gradient(circle at 12% 0%, rgba(22, 163, 74, 0.12), transparent 40%), 
               radial-gradient(circle at 88% 14%, rgba(22, 163, 74, 0.04), transparent 30%), 
-              #0a1128;
+              var(--surface-dark, #071429);
 }
 .theme-park .btn.primary {
   background: var(--green);
@@ -338,8 +338,8 @@ body.theme-holding .serif-accent {
 
 /* 1. Seções Escuras (Dark Mode) */
 body.theme-holding .dark-section {
-  background: #0a1128 !important;
-  background: radial-gradient(circle at 50% 50%, #161616, #0a1128) !important;
+  background: var(--surface-dark, #071429) !important;
+  background: radial-gradient(circle at 50% 50%, #161616, var(--surface-dark, #071429)) !important;
   border-top: 1px solid rgba(255, 255, 255, 0.05) !important;
   border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
   color: #ffffff !important;
@@ -657,18 +657,18 @@ body.theme-holding .brand-red-section .menu-card ul li::marker {
 
 /* Variação Neon 4: Blue / Azul (Visão, CD) */
 .neon-icon-wrapper.neon-blue {
-  color: #3b82f6;
-  background: rgba(59, 130, 246, 0.03);
-  border-color: rgba(59, 130, 246, 0.15);
-  box-shadow: 0 0 15px rgba(59, 130, 246, 0.05), inset 0 0 8px rgba(59, 130, 246, 0.02);
+  color: var(--brand-secondary, #00ACE4);
+  background: rgba(var(--brand-secondary-rgb, 0, 172, 228), 0.03);
+  border-color: rgba(var(--brand-secondary-rgb, 0, 172, 228), 0.15);
+  box-shadow: 0 0 15px rgba(var(--brand-secondary-rgb, 0, 172, 228), 0.05), inset 0 0 8px rgba(var(--brand-secondary-rgb, 0, 172, 228), 0.02);
 }
 .neon-icon-wrapper.neon-blue svg {
-  filter: drop-shadow(0 0 6px rgba(59, 130, 246, 0.7));
+  filter: drop-shadow(0 0 6px rgba(var(--brand-secondary-rgb, 0, 172, 228), 0.7));
 }
 .neon-icon-wrapper.neon-blue:hover {
-  background: rgba(59, 130, 246, 0.08);
-  border-color: rgba(59, 130, 246, 0.45);
-  box-shadow: 0 0 25px rgba(59, 130, 246, 0.25), inset 0 0 10px rgba(59, 130, 246, 0.05);
+  background: rgba(var(--brand-secondary-rgb, 0, 172, 228), 0.08);
+  border-color: rgba(var(--brand-secondary-rgb, 0, 172, 228), 0.45);
+  box-shadow: 0 0 25px rgba(var(--brand-secondary-rgb, 0, 172, 228), 0.25), inset 0 0 10px rgba(var(--brand-secondary-rgb, 0, 172, 228), 0.05);
 }
 
 /* Variação Neon 5: Green / Verde (Valores, Plaza Park) */
@@ -814,7 +814,7 @@ body.theme-holding .dark-section .eyebrow::before {
     width: 12px !important;
     height: 12px !important;
     background-color: var(--yellow) !important;
-    border: 3px solid #0a1128 !important;
+    border: 3px solid var(--surface-dark, #071429) !important;
     box-shadow: 0 0 10px var(--yellow) !important;
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     z-index: 2;
@@ -860,7 +860,7 @@ body.theme-holding .dark-section .eyebrow::before {
   .wf-timeline-item::before {
     left: -31px !important;
     top: 6px !important;
-    border: 2px solid #0a1128 !important;
+    border: 2px solid var(--surface-dark, #071429) !important;
     box-shadow: 0 0 8px var(--yellow) !important;
   }
   

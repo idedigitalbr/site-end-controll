@@ -2942,10 +2942,10 @@
 .gps-dot {
   width: 12px;
   height: 12px;
-  background: #2563eb;
+  background: var(--brand-secondary, #00ACE4);
   border: 2px solid #ffffff;
   border-radius: 50%;
-  box-shadow: 0 0 10px rgba(37, 99, 235, 0.8);
+  box-shadow: 0 0 10px rgba(var(--brand-secondary-rgb, 0, 172, 228), 0.8);
   z-index: 2;
 }
 
@@ -2953,7 +2953,7 @@
   position: absolute;
   width: 30px;
   height: 30px;
-  background: rgba(37, 99, 235, 0.3);
+  background: rgba(var(--brand-secondary-rgb, 0, 172, 228), 0.3);
   border-radius: 50%;
   animation: gps-ping 1.5s infinite ease-out;
   z-index: 1;
@@ -3106,7 +3106,7 @@
   font-size: 0.85rem;
   font-weight: 700;
   letter-spacing: 0.1em;
-  color: var(--brand-primary);
+  color: var(--brand-secondary, #00ACE4);
   text-transform: uppercase;
 }
 
@@ -3119,6 +3119,7 @@
 
 .footer-header-icon {
   flex-shrink: 0;
+  stroke: var(--brand-secondary, #00ACE4) !important;
 }
 
 .footer-location-details {
@@ -3153,7 +3154,7 @@
 
 .footer-logo-glow-wrapper {
   position: relative;
-  margin-bottom: 10px;
+  margin-bottom: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -3200,25 +3201,25 @@
 }
 
 .social-circle-minimal {
-  width: 38px;
-  height: 38px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
-  border: 1px solid rgba(var(--brand-primary-rgb), 0.35);
+  border: 1.5px solid rgba(var(--brand-primary-rgb), 0.5);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgba(240, 246, 255, 0.88);
+  color: var(--brand-primary, #67A8B8);
   transition: all 0.3s ease;
-  background: rgba(var(--brand-primary-rgb), 0.06);
+  background: rgba(var(--brand-primary-rgb), 0.12);
   text-decoration: none;
 }
 
 .social-circle-minimal:hover {
-  border-color: var(--brand-secondary);
-  color: #ffffff;
+  border-color: var(--brand-secondary, #00ACE4);
+  color: #071429;
   transform: translateY(-2px);
-  box-shadow: 0 0 14px rgba(var(--brand-secondary-rgb), 0.4);
-  background: var(--brand-secondary);
+  box-shadow: 0 0 16px rgba(var(--brand-secondary-rgb), 0.6);
+  background: var(--brand-secondary, #00ACE4);
 }
 
 /* Coluna 3: Fale Conosco + WhatsApp */
@@ -3248,15 +3249,15 @@
 .footer-title-divider .divider-line {
   flex: 1;
   height: 1px;
-  background: rgba(255, 255, 255, 0.35);
+  background: rgba(var(--brand-secondary-rgb, 0, 172, 228), 0.4);
 }
 
 .footer-title-divider .divider-dot {
-  width: 4px;
-  height: 4px;
+  width: 5px;
+  height: 5px;
   border-radius: 50%;
-  background: #ffffff;
-  box-shadow: 0 0 6px rgba(255, 255, 255, 0.45);
+  background: var(--brand-secondary, #00ACE4);
+  box-shadow: 0 0 8px rgba(var(--brand-secondary-rgb, 0, 172, 228), 0.8);
 }
 
 .footer-whatsapp-row {
@@ -3277,7 +3278,7 @@
   flex-shrink: 0;
   width: 32px;
   height: 32px;
-  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.22));
+  filter: drop-shadow(0 0 8px rgba(var(--brand-secondary-rgb, 0, 172, 228), 0.4));
 }
 
 .footer-phone-number {
@@ -3285,6 +3286,11 @@
   font-weight: 700;
   color: #ffffff;
   letter-spacing: 0.02em;
+  transition: color 0.2s ease;
+}
+
+.footer-phone-number:hover {
+  color: var(--brand-secondary, #00ACE4);
 }
 
 .footer-email-row {
@@ -3300,55 +3306,55 @@
 }
 
 .footer-email-row:hover {
-  color: #ffffff;
+  color: var(--brand-secondary, #00ACE4);
   transform: translateY(-1px);
 }
 
 .footer-email-icon {
   flex-shrink: 0;
-  filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.18));
+  filter: drop-shadow(0 0 3px rgba(var(--brand-secondary-rgb, 0, 172, 228), 0.3));
 }
 
 /* Mantém os ícones dos rodapés internos iguais ao padrão visual da Home. */
 .sn-page-wrapper .footer-minimal-glow-section .footer-header-icon,
 .sn-page-wrapper .footer-minimal-glow-section .footer-email-icon {
-  stroke: #ffffff !important;
+  stroke: var(--brand-secondary, #00ACE4) !important;
 }
 
 .sn-page-wrapper .footer-minimal-glow-section .footer-whatsapp-icon path:first-child {
-  stroke: #ffffff !important;
+  stroke: var(--brand-secondary, #00ACE4) !important;
   fill: none !important;
 }
 
 .sn-page-wrapper .footer-minimal-glow-section .footer-whatsapp-icon path:last-child {
   stroke: none !important;
-  fill: #ffffff !important;
+  fill: var(--brand-secondary, #00ACE4) !important;
 }
 
 .footer-wsp-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 10px 22px;
-  border: 1.5px solid var(--brand-primary);
+  padding: 11px 24px;
+  border: 1.5px solid var(--brand-secondary, #00ACE4);
   border-radius: 8px;
-  background: rgba(var(--brand-primary-rgb), 0.15);
-  color: #ffffff;
-  font-size: 0.78rem;
+  background: linear-gradient(135deg, var(--brand-primary, #67A8B8) 0%, var(--brand-secondary, #00ACE4) 100%);
+  color: #071429;
+  font-size: 0.8rem;
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   text-decoration: none;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 14px rgba(var(--brand-primary-rgb), 0.25);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 18px rgba(var(--brand-secondary-rgb, 0, 172, 228), 0.4);
 }
 
 .footer-wsp-button:hover {
-  background: var(--brand-primary);
-  border-color: var(--brand-primary);
+  background: linear-gradient(135deg, var(--brand-secondary, #00ACE4) 0%, var(--brand-primary, #67A8B8) 100%);
+  border-color: #ffffff;
   color: #ffffff;
-  box-shadow: 0 0 18px rgba(var(--brand-primary-rgb), 0.5);
-  transform: translateY(-1px);
+  box-shadow: 0 6px 24px rgba(var(--brand-secondary-rgb, 0, 172, 228), 0.7);
+  transform: translateY(-2px) scale(1.02);
 }
 
 /* Barra Inferior (Copyright / Legal / Dev) */

@@ -59,11 +59,11 @@
   <link rel="icon" type="image/webp" href="./assets/Logos/icon-endcontrol.webp" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Inter:wght@200;300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   <link rel="preload" href="./assets/Logos/logo-principal-original-horizontal-endcontrol.png" as="image" />
   <link rel="stylesheet" href="./src/css/tokens.css?v=120.0" />
   <link rel="stylesheet" href="./src/css/base.css?v=120.0" />
-  <link rel="stylesheet" href="./src/css/header.css?v=120.0" />
+  <link rel="stylesheet" href="./src/css/header.css?v=121.0" />
   <link rel="stylesheet" href="./src/css/hero.css?v=120.0" />
   <link rel="stylesheet" href="./src/css/clients-carousel.css?v=120.0" />
   <link rel="stylesheet" href="./src/css/solucoes.css?v=120.0" />
@@ -74,8 +74,188 @@
   <link rel="stylesheet" href="./src/css/brand-pages.css?v=120.0" />
     <link rel="stylesheet" href="./src/css/timeline.css?v=120.0" />
   <link rel="stylesheet" href="./src/css/album.css?v=120.0" />
-  <link rel="stylesheet" href="./src/css/segmentos.css?v=120.0" />
-  <link rel="stylesheet" href="./src/css/responsive.css?v=120.0" />
+  <link rel="stylesheet" href="./src/css/segmentos.css?v=130.0" />
+  <link rel="stylesheet" href="./src/css/responsive.css?v=130.0" />
+
+  <!-- ENDCONTROL DESIGN SYSTEM - Estilização Oficial de Destaque (Cards & Rodapé) -->
+  <style id="endcontrol-brand-highlights">
+    /* 1. CARDS DA HOME (Segmentos / Áreas de Atuação) */
+    .endo-acc-card__img {
+      filter: grayscale(100%) contrast(1.1) brightness(0.95) !important;
+    }
+
+    .endo-acc-panel::after {
+      content: '' !important;
+      position: absolute !important;
+      bottom: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      height: 3px !important;
+      background: var(--brand-primary, #67A8B8) !important;
+      opacity: 0.5 !important;
+      transition: all 0.35s ease !important;
+      z-index: 5 !important;
+    }
+    .endo-acc-panel:hover::after,
+    .endo-acc-panel.is-active::after {
+      height: 4px !important;
+      background: linear-gradient(90deg, var(--brand-primary, #67A8B8), var(--brand-secondary, #00ACE4)) !important;
+      opacity: 1 !important;
+      box-shadow: 0 0 14px rgba(0, 172, 228, 0.75) !important;
+    }
+
+    .endo-acc-card__overlay {
+      position: absolute !important;
+      inset: 0 !important;
+      background: linear-gradient(
+        to top,
+        rgba(7, 20, 41, 0.98) 0%,
+        rgba(7, 20, 41, 0.94) 20%,
+        rgba(7, 20, 41, 0.85) 35%,
+        rgba(7, 20, 41, 0.65) 48%,
+        rgba(7, 20, 41, 0.22) 62%,
+        rgba(7, 20, 41, 0) 78%,
+        transparent 100%
+      ) !important;
+      z-index: 1 !important;
+      pointer-events: none !important;
+      transition: background 0.6s cubic-bezier(0.25, 1, 0.5, 1) !important;
+    }
+
+    .endo-acc-card__overlay::before {
+      content: '' !important;
+      position: absolute !important;
+      inset: 0 !important;
+      background-color: var(--brand-primary, #67A8B8) !important;
+      mix-blend-mode: color !important;
+      z-index: -1 !important;
+      pointer-events: none !important;
+    }
+
+    .endo-acc-panel:hover .endo-acc-card__overlay,
+    .endo-acc-panel:focus-within .endo-acc-card__overlay,
+    .endo-acc-panel.is-active .endo-acc-card__overlay {
+      background: linear-gradient(
+        to top,
+        rgba(7, 20, 41, 0.99) 0%,
+        rgba(7, 20, 41, 0.95) 22%,
+        rgba(7, 20, 41, 0.88) 36%,
+        rgba(7, 20, 41, 0.70) 50%,
+        rgba(7, 20, 41, 0.25) 65%,
+        rgba(7, 20, 41, 0) 80%,
+        transparent 100%
+      ) !important;
+    }
+
+    .endo-acc-icon {
+      width: 38px !important;
+      height: 38px !important;
+      min-width: 38px !important;
+      min-height: 38px !important;
+      color: var(--brand-secondary, #00ACE4) !important;
+      background: transparent !important;
+      border: none !important;
+      border-radius: 0 !important;
+      padding: 0 !important;
+      margin-bottom: 10px !important;
+      flex-shrink: 0 !important;
+      stroke-width: 2px !important;
+      transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1) !important;
+      filter: none !important;
+    }
+
+    .endo-acc-panel:hover .endo-acc-icon,
+    .endo-acc-panel:focus-within .endo-acc-icon,
+    .endo-acc-panel.is-active .endo-acc-icon {
+      color: var(--brand-secondary, #00ACE4) !important;
+      background: transparent !important;
+      border-color: transparent !important;
+      transform: translateY(-2px) scale(1.08) !important;
+      filter: none !important;
+    }
+
+    .endo-acc-row:hover .endo-acc-panel.is-active:not(:hover):not(:focus-within) .endo-acc-icon {
+      transform: scale(1) !important;
+      color: var(--brand-secondary, #00ACE4) !important;
+      background: transparent !important;
+      border-color: transparent !important;
+      filter: none !important;
+    }
+
+    /* 2. RODAPÉ (Footer Minimal Glow) */
+    .footer-minimal-glow-section {
+      border-top: 3px solid var(--brand-primary, #67A8B8) !important;
+      box-shadow: 0 -12px 35px rgba(103, 168, 184, 0.22) !important;
+    }
+
+    .footer-header-title {
+      color: var(--brand-secondary, #00ACE4) !important;
+    }
+
+    .footer-header-icon {
+      stroke: var(--brand-secondary, #00ACE4) !important;
+    }
+
+    .footer-title-divider .divider-line {
+      background: rgba(0, 172, 228, 0.45) !important;
+    }
+
+    .footer-title-divider .divider-dot {
+      background: var(--brand-secondary, #00ACE4) !important;
+      box-shadow: 0 0 8px rgba(0, 172, 228, 0.8) !important;
+    }
+
+    .footer-whatsapp-row:hover .footer-phone-number {
+      color: var(--brand-secondary, #00ACE4) !important;
+    }
+
+    .footer-whatsapp-icon {
+      color: var(--brand-secondary, #00ACE4) !important;
+      filter: drop-shadow(0 0 8px rgba(0, 172, 228, 0.45)) !important;
+    }
+
+    .footer-email-row:hover {
+      color: var(--brand-secondary, #00ACE4) !important;
+    }
+
+    .footer-email-icon {
+      color: var(--brand-secondary, #00ACE4) !important;
+    }
+
+    .social-circle-minimal {
+      border: 1.5px solid rgba(103, 168, 184, 0.5) !important;
+      color: var(--brand-primary, #67A8B8) !important;
+      background: rgba(103, 168, 184, 0.12) !important;
+    }
+
+    .social-circle-minimal:hover {
+      border-color: var(--brand-secondary, #00ACE4) !important;
+      background: var(--brand-secondary, #00ACE4) !important;
+      color: #071429 !important;
+      box-shadow: 0 0 16px rgba(0, 172, 228, 0.6) !important;
+    }
+
+    .footer-wsp-button {
+      padding: 11px 24px !important;
+      border: 1.5px solid var(--brand-secondary, #00ACE4) !important;
+      border-radius: 8px !important;
+      background: linear-gradient(135deg, var(--brand-primary, #67A8B8) 0%, var(--brand-secondary, #00ACE4) 100%) !important;
+      color: #071429 !important;
+      font-weight: 800 !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.08em !important;
+      box-shadow: 0 4px 18px rgba(0, 172, 228, 0.4) !important;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    }
+
+    .footer-wsp-button:hover {
+      background: linear-gradient(135deg, var(--brand-secondary, #00ACE4) 0%, var(--brand-primary, #67A8B8) 100%) !important;
+      border-color: #ffffff !important;
+      color: #ffffff !important;
+      box-shadow: 0 6px 24px rgba(0, 172, 228, 0.75) !important;
+      transform: translateY(-2px) scale(1.02) !important;
+    }
+  </style>
 
   <!-- Script de Fallback Automático de Imagens e Vídeos -->
   <script>
@@ -375,162 +555,95 @@
 
     </section>
 
-    <!-- Faixa de indicadores entre o Hero e a seção Sobre (Esteira Contínua Infinita) -->
+    <!-- Faixa de indicadores entre o Hero e a seção Sobre (Carrossel Dinâmico com Contador) -->
     <div class="hero-benefits-bar" role="region" aria-label="Indicadores de performance e credenciais EndControl">
-      <div class="hero-indicators-marquee">
-
-        <!-- Track Primário (12 Indicadores Oficiais) -->
-        <div class="hero-indicators-track">
-          <div class="benefit-item">
+      <div class="hero-indicators-viewport">
+        <div class="hero-indicators-track" id="heroIndicatorsTrack">
+          <!-- Indicador 1 -->
+          <div class="benefit-item" data-target="18" data-prefix="+" data-suffix=" anos">
             <div class="benefit-text-box">
               <span class="benefit-title">+18 anos</span>
               <span class="benefit-desc">de experiência</span>
             </div>
           </div>
-          <div class="benefit-item">
+          <!-- Indicador 2 -->
+          <div class="benefit-item" data-target="300" data-prefix="+">
             <div class="benefit-text-box">
               <span class="benefit-title">+300</span>
               <span class="benefit-desc">especialistas técnicos</span>
             </div>
           </div>
-          <div class="benefit-item">
+          <!-- Indicador 3 -->
+          <div class="benefit-item" data-target="100" data-suffix="%">
             <div class="benefit-text-box">
               <span class="benefit-title">100%</span>
               <span class="benefit-desc">atuação em todo o Brasil</span>
             </div>
           </div>
-          <div class="benefit-item">
+          <!-- Indicador 4 -->
+          <div class="benefit-item" data-target="1250" data-prefix="+" data-format="thousands">
             <div class="benefit-text-box">
               <span class="benefit-title">+1.250</span>
               <span class="benefit-desc">projetos entregues</span>
             </div>
           </div>
-          <div class="benefit-item">
+          <!-- Indicador 5 -->
+          <div class="benefit-item" data-target="120" data-prefix="+">
             <div class="benefit-text-box">
               <span class="benefit-title">+120</span>
               <span class="benefit-desc">grandes clientes atendidos</span>
             </div>
           </div>
-          <div class="benefit-item">
+          <!-- Indicador 6 -->
+          <div class="benefit-item" data-target="0" data-suffix="%">
             <div class="benefit-text-box">
               <span class="benefit-title">0%</span>
               <span class="benefit-desc">paradas não programadas</span>
             </div>
           </div>
-          <div class="benefit-item">
+          <!-- Indicador 7 -->
+          <div class="benefit-item" data-target="50" data-prefix="+" data-suffix=" mil">
             <div class="benefit-text-box">
               <span class="benefit-title">+50 mil</span>
               <span class="benefit-desc">horas de inspeção e ensaios</span>
             </div>
           </div>
-          <div class="benefit-item">
+          <!-- Indicador 8 -->
+          <div class="benefit-item" data-target="100" data-suffix="%">
             <div class="benefit-text-box">
               <span class="benefit-title">100%</span>
               <span class="benefit-desc">conformidade com NRs e ASME</span>
             </div>
           </div>
-          <div class="benefit-item">
+          <!-- Indicador 9 -->
+          <div class="benefit-item" data-target="500" data-prefix="+">
             <div class="benefit-text-box">
               <span class="benefit-title">+500</span>
               <span class="benefit-desc">laudos e perícias emitidos</span>
             </div>
           </div>
-          <div class="benefit-item">
+          <!-- Indicador 10 -->
+          <div class="benefit-item" data-static="24/7">
             <div class="benefit-text-box">
               <span class="benefit-title">24/7</span>
               <span class="benefit-desc">prontidão operacional</span>
             </div>
           </div>
-          <div class="benefit-item">
+          <!-- Indicador 11 -->
+          <div class="benefit-item" data-static="ISO 9001">
             <div class="benefit-text-box">
               <span class="benefit-title">ISO 9001</span>
               <span class="benefit-desc">qualidade e rigor certificados</span>
             </div>
           </div>
-          <div class="benefit-item">
+          <!-- Indicador 12 -->
+          <div class="benefit-item" data-target="15000" data-prefix="+" data-format="thousands">
             <div class="benefit-text-box">
               <span class="benefit-title">+15.000</span>
               <span class="benefit-desc">ativos industriais avaliados</span>
             </div>
           </div>
         </div>
-
-        <!-- Track Secundário (Espelhamento para loop infinito contínuo e suave) -->
-        <div class="hero-indicators-track" aria-hidden="true">
-          <div class="benefit-item">
-            <div class="benefit-text-box">
-              <span class="benefit-title">+18 anos</span>
-              <span class="benefit-desc">de experiência</span>
-            </div>
-          </div>
-          <div class="benefit-item">
-            <div class="benefit-text-box">
-              <span class="benefit-title">+300</span>
-              <span class="benefit-desc">especialistas técnicos</span>
-            </div>
-          </div>
-          <div class="benefit-item">
-            <div class="benefit-text-box">
-              <span class="benefit-title">100%</span>
-              <span class="benefit-desc">atuação em todo o Brasil</span>
-            </div>
-          </div>
-          <div class="benefit-item">
-            <div class="benefit-text-box">
-              <span class="benefit-title">+1.250</span>
-              <span class="benefit-desc">projetos entregues</span>
-            </div>
-          </div>
-          <div class="benefit-item">
-            <div class="benefit-text-box">
-              <span class="benefit-title">+120</span>
-              <span class="benefit-desc">grandes clientes atendidos</span>
-            </div>
-          </div>
-          <div class="benefit-item">
-            <div class="benefit-text-box">
-              <span class="benefit-title">0%</span>
-              <span class="benefit-desc">paradas não programadas</span>
-            </div>
-          </div>
-          <div class="benefit-item">
-            <div class="benefit-text-box">
-              <span class="benefit-title">+50 mil</span>
-              <span class="benefit-desc">horas de inspeção e ensaios</span>
-            </div>
-          </div>
-          <div class="benefit-item">
-            <div class="benefit-text-box">
-              <span class="benefit-title">100%</span>
-              <span class="benefit-desc">conformidade com NRs e ASME</span>
-            </div>
-          </div>
-          <div class="benefit-item">
-            <div class="benefit-text-box">
-              <span class="benefit-title">+500</span>
-              <span class="benefit-desc">laudos e perícias emitidos</span>
-            </div>
-          </div>
-          <div class="benefit-item">
-            <div class="benefit-text-box">
-              <span class="benefit-title">24/7</span>
-              <span class="benefit-desc">prontidão operacional</span>
-            </div>
-          </div>
-          <div class="benefit-item">
-            <div class="benefit-text-box">
-              <span class="benefit-title">ISO 9001</span>
-              <span class="benefit-desc">qualidade e rigor certificados</span>
-            </div>
-          </div>
-          <div class="benefit-item">
-            <div class="benefit-text-box">
-              <span class="benefit-title">+15.000</span>
-              <span class="benefit-desc">ativos industriais avaliados</span>
-            </div>
-          </div>
-        </div>
-
       </div>
     </div>
 
@@ -1264,7 +1377,7 @@
         <!-- Coluna 1: Localização -->
         <div class="footer-col-location">
           <div class="footer-col-header">
-            <svg class="footer-header-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg class="footer-header-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
               <circle cx="12" cy="10" r="3"></circle>
             </svg>
@@ -1280,12 +1393,11 @@
         <!-- Divisor Vertical 1 -->
         <div class="footer-v-divider" aria-hidden="true"></div>
 
-        <!-- Coluna 2: Logo Central + Slogan + Redes Sociais -->
+        <!-- Coluna 2: Logo Central + Redes Sociais -->
         <div class="footer-col-center">
           <div class="footer-logo-glow-wrapper">
             <img src="./assets/Logos/logo-endcontrol-vertical-mono-negativo.webp" alt="ENDCONTROL Engenharia" class="footer-minimal-logo" width="115" height="115" style="max-width: 115px; width: 115px; height: auto;">
           </div>
-          <p class="footer-minimal-slogan">Excelência em Engenharia de Integridade e Soluções Industriais.</p>
           <div class="footer-minimal-social-row">
             <a href="https://www.instagram.com/endcontrol" target="_blank" rel="noopener" aria-label="Instagram" class="social-circle-minimal">
               <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
@@ -1312,13 +1424,13 @@
           </div>
           <a href="https://api.whatsapp.com/send?phone=5591984040710" target="_blank" rel="noopener" class="footer-whatsapp-row">
             <svg class="footer-whatsapp-icon" viewBox="0 0 24 24" width="32" height="32" fill="none">
-              <path d="M20.5 11.5a8.5 8.5 0 0 1-12.8 7.3L3 20l1.3-4.6A8.5 8.5 0 1 1 20.5 11.5z" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-              <path d="M16.5 14.2c-.25-.13-1.47-.73-1.7-.81-.23-.08-.39-.13-.56.13-.16.25-.64.81-.79.98-.14.16-.29.19-.54.06-.25-.13-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.38-1.72-.14-.25-.01-.38.11-.51.11-.11.25-.29.38-.44.13-.14.17-.25.25-.41.08-.16.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.84-.2-.48-.41-.42-.56-.43h-.48c-.16 0-.44.06-.67.31-.23.25-.87.85-.87 2.08s.89 2.41 1.01 2.58c.13.16 1.75 2.67 4.24 3.75.59.26 1.05.41 1.41.53.6.19 1.14.16 1.57.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.21-.16-.46-.29z" fill="#ffffff"/>
+              <path d="M20.5 11.5a8.5 8.5 0 0 1-12.8 7.3L3 20l1.3-4.6A8.5 8.5 0 1 1 20.5 11.5z" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              <path d="M16.5 14.2c-.25-.13-1.47-.73-1.7-.81-.23-.08-.39-.13-.56.13-.16.25-.64.81-.79.98-.14.16-.29.19-.54.06-.25-.13-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.38-1.72-.14-.25-.01-.38.11-.51.11-.11.25-.29.38-.44.13-.14.17-.25.25-.41.08-.16.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.84-.2-.48-.41-.42-.56-.43h-.48c-.16 0-.44.06-.67.31-.23.25-.87.85-.87 2.08s.89 2.41 1.01 2.58c.13.16 1.75 2.67 4.24 3.75.59.26 1.05.41 1.41.53.6.19 1.14.16 1.57.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.21-.16-.46-.29z" fill="currentColor"/>
             </svg>
             <span class="footer-phone-number">(91) 9.8404-0710</span>
           </a>
           <a href="mailto:contato@endcontrol.com.br" class="footer-email-row">
-            <svg class="footer-email-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <svg class="footer-email-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
               <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
               <polyline points="22,6 12,13 2,6"></polyline>
             </svg>

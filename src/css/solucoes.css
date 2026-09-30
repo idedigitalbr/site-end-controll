@@ -561,9 +561,10 @@
   max-width: 120px;
   max-height: 120px;
   border-radius: 50%;
-  background: #061226;
-  border: 2px solid var(--brand-primary);
-  box-shadow: 0 10px 30px rgba(7, 20, 41, 0.25), 0 0 20px rgba(var(--brand-primary-rgb), 0.22);
+  background: var(--brand-primary);
+  border: 2px solid #ffffff;
+  outline: 1.5px solid var(--brand-primary);
+  box-shadow: 0 8px 24px rgba(var(--brand-primary-rgb), 0.35);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -574,7 +575,7 @@
   max-width: 86%;
   max-height: 86%;
   object-fit: contain;
-  filter: brightness(1.12) drop-shadow(0 0 8px rgba(var(--brand-primary-rgb), 0.3));
+  filter: brightness(1.05) drop-shadow(0 1px 3px rgba(0, 0, 0, 0.15));
 }
 
 /* Service Nodes Layer */

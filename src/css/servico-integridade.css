@@ -2001,7 +2001,7 @@
 
 .ec-card-white:hover .card-chevron,
 .ec-card-white:focus-visible .card-chevron {
-  color: #00d2ff;
+  color: var(--brand-secondary, #00ACE4);
 }
 
 .ec-card-white:hover .ec-card-badge,

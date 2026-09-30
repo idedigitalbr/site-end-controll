@@ -1729,6 +1729,209 @@
   }
 
   /* ===================================================================
+     Carrossel Dinâmico de Indicadores do Hero com Contagem Numérica
+     =================================================================== */
+  function initHeroIndicatorsCarousel() {
+    var container = document.querySelector('.hero-benefits-bar');
+    if (!container) return;
+
+    var track = container.querySelector('.hero-indicators-track');
+    if (!track) return;
+
+    var items = track.querySelectorAll('.benefit-item');
+    if (items.length < 3) return;
+
+    var isAnimating = false;
+    var isPaused = false;
+    var autoTimer = null;
+    var STEP_INTERVAL = 3800; // Tempo parado entre as trocas para leitura confortável
+
+    function getVisibleCount() {
+      var w = window.innerWidth;
+      if (w <= 480) return 2;
+      if (w <= 991) return 3;
+      return 4;
+    }
+
+    function runCounterAnimation(item, duration) {
+      if (!item) return;
+      var titleEl = item.querySelector('.benefit-title');
+      if (!titleEl) return;
+
+      var staticVal = item.getAttribute('data-static');
+      if (staticVal) {
+        titleEl.textContent = staticVal;
+        titleEl.style.transform = 'scale(1.08)';
+        setTimeout(function () {
+          titleEl.style.transform = 'scale(1)';
+        }, 220);
+        return;
+      }
+
+      var targetStr = item.getAttribute('data-target');
+      if (targetStr === null) return;
+
+      var target = parseFloat(targetStr);
+      var prefix = item.getAttribute('data-prefix') || '';
+      var suffix = item.getAttribute('data-suffix') || '';
+      var isThousands = item.getAttribute('data-format') === 'thousands';
+      var dur = duration || 1200;
+
+      if (target === 0) {
+        titleEl.textContent = prefix + '0' + suffix;
+        return;
+      }
+
+      var startTime = performance.now();
+
+      function update(now) {
+        var elapsed = now - startTime;
+        var progress = Math.min(elapsed / dur, 1);
+        var ease = 1 - Math.pow(1 - progress, 3);
+        var current = Math.round(target * ease);
+
+        var formatted = isThousands ? current.toLocaleString('pt-BR') : current;
+        titleEl.textContent = prefix + formatted + suffix;
+
+        if (progress < 1) {
+          requestAnimationFrame(update);
+        } else {
+          var finalFormatted = isThousands ? target.toLocaleString('pt-BR') : target;
+          titleEl.textContent = prefix + finalFormatted + suffix;
+        }
+      }
+
+      requestAnimationFrame(update);
+    }
+
+    // 1. Contagem inicial nos itens visíveis
+    var initialVisible = getVisibleCount();
+    var children = track.children;
+    for (var i = 0; i < initialVisible && i < children.length; i++) {
+      runCounterAnimation(children[i], 1300);
+    }
+
+    // 2. Transição passo a passo: sai o primeiro e vem o próximo
+    function stepToNext() {
+      if (isAnimating || isPaused) return;
+
+      var firstItem = track.firstElementChild;
+      if (!firstItem) return;
+
+      isAnimating = true;
+      var itemWidth = firstItem.getBoundingClientRect().width;
+      var visibleCount = getVisibleCount();
+      var incomingItem = track.children[visibleCount];
+
+      // O primeiro item faz animação de saída para a esquerda
+      firstItem.classList.add('benefit-item--exiting');
+
+      // O próximo item que entra pela direita inicia a contagem e animação
+      if (incomingItem) {
+        incomingItem.classList.add('benefit-item--entering');
+        runCounterAnimation(incomingItem, 1000);
+      }
+
+      // Desliza a esteira suavemente
+      track.style.transition = 'transform 0.68s cubic-bezier(0.25, 1, 0.5, 1)';
+      track.style.transform = 'translate3d(-' + itemWidth + 'px, 0, 0)';
+
+      var transitionFired = false;
+      function onEnd() {
+        if (transitionFired) return;
+        transitionFired = true;
+        track.removeEventListener('transitionend', onEnd);
+
+        firstItem.classList.remove('benefit-item--exiting');
+        if (incomingItem) {
+          incomingItem.classList.remove('benefit-item--entering');
+        }
+
+        // Move o primeiro item para o final do track
+        track.appendChild(firstItem);
+
+        // Reseta o transform instantaneamente sem salto visual
+        track.style.transition = 'none';
+        track.style.transform = 'translate3d(0, 0, 0)';
+        void track.offsetWidth; // Força reflow
+
+        isAnimating = false;
+      }
+
+      track.addEventListener('transitionend', onEnd);
+      // Fallback de segurança caso transitionend não dispare
+      setTimeout(onEnd, 720);
+    }
+
+    // 3. Controle do timer automático
+    function startTimer() {
+      stopTimer();
+      autoTimer = setInterval(stepToNext, STEP_INTERVAL);
+    }
+
+    function stopTimer() {
+      if (autoTimer) {
+        clearInterval(autoTimer);
+        autoTimer = null;
+      }
+    }
+
+    startTimer();
+
+    // 4. Pausa no hover e toque
+    container.addEventListener('mouseenter', function () {
+      isPaused = true;
+    });
+
+    container.addEventListener('mouseleave', function () {
+      isPaused = false;
+    });
+
+    var touchStartX = 0;
+    container.addEventListener('touchstart', function (e) {
+      isPaused = true;
+      if (e.touches && e.touches.length > 0) {
+        touchStartX = e.touches[0].clientX;
+      }
+    }, { passive: true });
+
+    container.addEventListener('touchend', function (e) {
+      if (e.changedTouches && e.changedTouches.length > 0) {
+        var diffX = touchStartX - e.changedTouches[0].clientX;
+        if (diffX > 40) {
+          stepToNext();
+        }
+      }
+      setTimeout(function () {
+        isPaused = false;
+      }, 1800);
+    }, { passive: true });
+
+    // 5. Pausar quando aba não estiver visível
+    document.addEventListener('visibilitychange', function () {
+      if (document.hidden) {
+        stopTimer();
+      } else {
+        startTimer();
+      }
+    });
+
+    // 6. Intersection Observer: só gira quando na tela
+    if ('IntersectionObserver' in window) {
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            startTimer();
+          } else {
+            stopTimer();
+          }
+        });
+      }, { threshold: 0.1 });
+      observer.observe(container);
+    }
+  }
+
+  /* ===================================================================
      Bootstrap
      =================================================================== */
   document.addEventListener('DOMContentLoaded', function () {
@@ -1745,6 +1948,7 @@
     initTrajetoriaTimeline();
     initMobileScrollHighlights();
     initHeroSlider();
+    initHeroIndicatorsCarousel();
     initSectorsMarquee();
     initProcessInteractions();
   });

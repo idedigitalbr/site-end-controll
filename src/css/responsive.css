@@ -75,10 +75,10 @@
     box-shadow: 0 0 15px rgba(22, 163, 74, 0.45) !important;
   }
   .main-menu .dropdown-item-rich.brand-wine {
-    background: rgba(10, 17, 40, 0.2) !important;
+    background: rgba(7, 20, 41, 0.2) !important;
     border-color: #4b1020 !important;
     color: #ffffff !important;
-    box-shadow: 0 0 15px rgba(10, 17, 40, 0.45) !important;
+    box-shadow: 0 0 15px rgba(7, 20, 41, 0.45) !important;
   }
 
   /* 3. Contatos Submenu: clean and integrated style */
@@ -308,7 +308,7 @@
     min-height: 44px;
     border-color: transparent !important;
     background: transparent !important;
-    color: var(--brand-primary) !important;
+    color: #071429 !important;
   }
 
   .dropdown-rich-menu .menu-service-item:hover {
@@ -318,7 +318,7 @@
 
   .site-header--light-hero .dropdown-rich-menu .menu-service-item .dropdown-item-text,
   .site-header--light-hero .dropdown-rich-menu .menu-service-item:hover .dropdown-item-text {
-    color: var(--brand-primary) !important;
+    color: #071429 !important;
   }
 
   .dropdown-rich-menu .menu-service-item .dropdown-item-logo {
