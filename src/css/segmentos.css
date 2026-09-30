@@ -185,10 +185,10 @@
   inset: 0;
   background: linear-gradient(
     to top,
-    #0a1128 0%,
-    #0a1128 10%,
-    rgba(10, 17, 40, 0.8) 15%,
-    rgba(10, 17, 40, 0) 35%,
+    var(--surface-dark, #071429) 0%,
+    var(--surface-dark, #071429) 10%,
+    rgba(7, 20, 41, 0.8) 15%,
+    rgba(7, 20, 41, 0) 35%,
     transparent 35%
   );
   z-index: 1;
@@ -201,11 +201,11 @@
 .endo-acc-panel.is-active .endo-acc-card__overlay {
   background: linear-gradient(
     to top,
-    #0a1128 0%,
-    #0a1128 15%,
-    rgba(10, 17, 40, 0.85) 25%,
-    rgba(10, 17, 40, 0.4) 38%,
-    rgba(10, 17, 40, 0) 50%,
+    var(--surface-dark, #071429) 0%,
+    var(--surface-dark, #071429) 15%,
+    rgba(7, 20, 41, 0.85) 25%,
+    rgba(7, 20, 41, 0.4) 38%,
+    rgba(7, 20, 41, 0) 50%,
     transparent 50%
   );
 }
@@ -213,10 +213,10 @@
 .endo-acc-row:hover .endo-acc-panel.is-active:not(:hover):not(:focus-within) .endo-acc-card__overlay {
   background: linear-gradient(
     to top,
-    #0a1128 0%,
-    #0a1128 10%,
-    rgba(10, 17, 40, 0.8) 15%,
-    rgba(10, 17, 40, 0) 35%,
+    var(--surface-dark, #071429) 0%,
+    var(--surface-dark, #071429) 10%,
+    rgba(7, 20, 41, 0.8) 15%,
+    rgba(7, 20, 41, 0) 35%,
     transparent 35%
   );
 }
@@ -242,20 +242,20 @@
   height: 40px;
   min-width: 40px;
   min-height: 40px;
-  color: #00a9df;
+  color: var(--brand-secondary, #00ACE4);
   margin-bottom: 10px;
   flex-shrink: 0;
   stroke-width: 1.8px;
-  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), color 0.4s ease;
-  filter: none;
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), color 0.4s ease, filter 0.4s ease;
+  filter: drop-shadow(0 2px 6px rgba(var(--brand-secondary-rgb, 0, 172, 228), 0.35));
 }
 
 .endo-acc-panel:hover .endo-acc-icon,
 .endo-acc-panel:focus-within .endo-acc-icon,
 .endo-acc-panel.is-active .endo-acc-icon {
   transform: scale(1.1);
-  color: #00a9df;
-  filter: none;
+  color: var(--brand-secondary, #00ACE4);
+  filter: drop-shadow(0 0 10px rgba(var(--brand-secondary-rgb, 0, 172, 228), 0.6));
 }
 
 .endo-acc-row:hover .endo-acc-panel.is-active:not(:hover):not(:focus-within) .endo-acc-icon {

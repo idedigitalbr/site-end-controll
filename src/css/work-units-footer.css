@@ -3032,17 +3032,17 @@
    ========================================================================== */
 
 .footer-minimal-glow-section {
-  background: #040918;
+  background: var(--surface-dark, #071429);
   padding: 38px 20px 18px 20px;
   position: relative;
   overflow: hidden;
-  border-top: 1px solid rgba(var(--brand-primary-rgb), 0.2);
+  border-top: 2px solid var(--brand-primary);
   border-radius: 36px 36px 0 0;
   margin-top: -36px;
   z-index: 11;
   box-shadow: 0 -18px 45px rgba(0, 0, 0, 0.45);
   width: 100%;
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-primary, 'Inter', sans-serif);
 }
 
 /* Efeito de Ponto de Luz Ambiental Azul Suave EndControl */
@@ -3056,8 +3056,8 @@
   height: 250px;
   background: radial-gradient(
     ellipse 65% 55% at 50% 85%,
-    rgba(0, 156, 255, 0.14) 0%,
-    rgba(var(--brand-primary-rgb), 0.06) 45%,
+    rgba(var(--brand-secondary-rgb), 0.16) 0%,
+    rgba(var(--brand-primary-rgb), 0.08) 45%,
     rgba(var(--brand-primary-rgb), 0.01) 75%,
     transparent 90%
   );
@@ -3086,8 +3086,8 @@
 .footer-v-divider {
   width: 1px;
   height: 115px;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.65) 50%, rgba(255, 255, 255, 0.05) 100%);
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.18);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, rgba(var(--brand-primary-rgb), 0.5) 50%, rgba(255, 255, 255, 0.05) 100%);
+  box-shadow: 0 0 10px rgba(var(--brand-primary-rgb), 0.2);
   flex-shrink: 0;
   align-self: center;
 }
@@ -3105,8 +3105,8 @@
 .footer-header-title {
   font-size: 0.85rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
-  color: #ffffff;
+  letter-spacing: 0.1em;
+  color: var(--brand-primary);
   text-transform: uppercase;
 }
 
@@ -3164,7 +3164,7 @@
   position: absolute;
   width: 100px;
   height: 100px;
-  background: radial-gradient(circle, rgba(var(--brand-primary-rgb), 0.12) 0%, rgba(0, 156, 255, 0.02) 60%, transparent 80%);
+  background: radial-gradient(circle, rgba(var(--brand-primary-rgb), 0.18) 0%, rgba(var(--brand-secondary-rgb), 0.04) 60%, transparent 80%);
   filter: blur(16px);
   pointer-events: none;
   z-index: 1;
@@ -3177,7 +3177,7 @@
   position: relative;
   z-index: 2;
   display: block;
-  filter: drop-shadow(0 3px 8px rgba(0, 156, 255, 0.15));
+  filter: drop-shadow(0 3px 8px rgba(var(--brand-secondary-rgb), 0.2));
 }
 
 .footer-minimal-slogan {
@@ -3203,22 +3203,22 @@
   width: 38px;
   height: 38px;
   border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(var(--brand-primary-rgb), 0.35);
   display: flex;
   align-items: center;
   justify-content: center;
   color: rgba(240, 246, 255, 0.88);
   transition: all 0.3s ease;
-  background: rgba(0, 156, 255, 0.03);
+  background: rgba(var(--brand-primary-rgb), 0.06);
   text-decoration: none;
 }
 
 .social-circle-minimal:hover {
-  border-color: rgba(255, 255, 255, 0.7);
+  border-color: var(--brand-secondary);
   color: #ffffff;
   transform: translateY(-2px);
-  box-shadow: 0 0 12px rgba(255, 255, 255, 0.18);
-  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 14px rgba(var(--brand-secondary-rgb), 0.4);
+  background: var(--brand-secondary);
 }
 
 /* Coluna 3: Fale Conosco + WhatsApp */

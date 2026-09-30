@@ -2518,15 +2518,15 @@
 .sn-page-wrapper .endo-acc-panel:hover .endo-acc-card__overlay,
 .sn-page-wrapper .endo-acc-panel:focus-within .endo-acc-card__overlay,
 .sn-page-wrapper .endo-acc-panel.is-active .endo-acc-card__overlay {
-  background: linear-gradient(to top, rgba(7, 18, 43, 0.96) 0%, rgba(7, 18, 43, 0.72) 38%, rgba(7, 18, 43, 0.08) 78%, transparent 100%);
+  background: linear-gradient(to top, rgba(7, 20, 41, 0.96) 0%, rgba(7, 20, 41, 0.72) 38%, rgba(7, 20, 41, 0.08) 78%, transparent 100%);
 }
 
 .sn-page-wrapper .endo-acc-icon,
 .sn-page-wrapper .endo-acc-panel:hover .endo-acc-icon,
 .sn-page-wrapper .endo-acc-panel:focus-within .endo-acc-icon,
 .sn-page-wrapper .endo-acc-panel.is-active .endo-acc-icon {
-  color: #00a9df;
-  filter: none !important;
+  color: var(--brand-secondary, #00ACE4);
+  filter: drop-shadow(0 2px 6px rgba(var(--brand-secondary-rgb, 0, 172, 228), 0.35)) !important;
   transform: none;
 }
 
