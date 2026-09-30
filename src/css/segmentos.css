@@ -23,7 +23,7 @@
   font-weight: 700;
   letter-spacing: 0.14em;
   color: #ffffff;
-  background: #00215D;
+  background: var(--brand-primary);
   border-radius: 999px;
   padding: 8px 14px;
   text-transform: uppercase;
@@ -40,7 +40,7 @@
 }
 
 .segmentos-highlight {
-  color: #00215D;
+  color: var(--brand-primary);
   font-style: italic;
   font-weight: 300;
   text-shadow: none;
@@ -78,15 +78,15 @@
   border-radius: 50%;
   background: rgba(10, 17, 40, 0.88);
   backdrop-filter: blur(8px);
-  border: 2px solid #00215D;
-  color: #00215D;
+  border: 2px solid var(--brand-primary);
+  color: var(--brand-primary);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   z-index: 30;
   transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6), 0 0 18px rgba(0, 33, 93, 0.35);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6), 0 0 18px rgba(var(--brand-primary-rgb), 0.35);
   outline: none;
   user-select: none;
 }
@@ -95,10 +95,10 @@
 .endo-acc-nav--next { right: 15px; }
 
 .endo-acc-nav:hover {
-  background: #00215D;
+  background: var(--brand-primary);
   color: #FFFFFF;
   transform: translateY(-50%) scale(1.12);
-  box-shadow: 0 12px 30px rgba(0, 33, 93, 0.6);
+  box-shadow: 0 12px 30px rgba(var(--brand-primary-rgb), 0.6);
 }
 
 .endo-acc-nav:active {
@@ -351,10 +351,10 @@
 }
 
 .endo-acc-dot.is-active {
-  background: #00215D;
+  background: var(--brand-primary);
   width: 28px;
   border-radius: 12px;
-  box-shadow: 0 0 12px rgba(0, 33, 93, 0.5);
+  box-shadow: 0 0 12px rgba(var(--brand-primary-rgb), 0.5);
 }
 
 @media (max-width: 1400px) {
@@ -444,7 +444,7 @@
     width: 42px;
     height: 42px;
     background: #ffffff;
-    color: #00215D;
+    color: var(--brand-primary);
     border-width: 1px;
     box-shadow: 0 6px 18px rgba(7, 20, 41, 0.24);
   }
@@ -452,7 +452,7 @@
   .segmentos-secao .endo-acc-nav--next { right: 10px; }
   .segmentos-secao .endo-acc-nav:hover {
     background: #ffffff;
-    color: #00215D;
+    color: var(--brand-primary);
     transform: translateY(-50%);
     box-shadow: 0 6px 18px rgba(7, 20, 41, 0.24);
   }

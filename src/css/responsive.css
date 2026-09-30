@@ -40,7 +40,7 @@
     display: block !important;
     flex: 1 !important;
     height: 1px !important;
-    background: rgba(0, 33, 93, 0.25) !important;
+    background: rgba(var(--brand-primary-rgb), 0.25) !important;
     margin: 0 15px !important;
     position: static !important;
     inset: auto !important;
@@ -51,16 +51,16 @@
 
   /* 2. Brand items permanent hover active state */
   .main-menu .dropdown-item-rich.brand-super {
-    background: rgba(0, 33, 93, 0.12) !important;
-    border-color: #00215D !important;
+    background: rgba(var(--brand-primary-rgb), 0.12) !important;
+    border-color: var(--brand-primary) !important;
     color: #ffffff !important;
-    box-shadow: 0 0 15px rgba(0, 33, 93, 0.45) !important;
+    box-shadow: 0 0 15px rgba(var(--brand-primary-rgb), 0.45) !important;
   }
   .main-menu .dropdown-item-rich.brand-farma {
-    background: rgba(0, 33, 93, 0.12) !important;
-    border-color: #00215D !important;
+    background: rgba(var(--brand-primary-rgb), 0.12) !important;
+    border-color: var(--brand-primary) !important;
     color: #ffffff !important;
-    box-shadow: 0 0 15px rgba(0, 33, 93, 0.45) !important;
+    box-shadow: 0 0 15px rgba(var(--brand-primary-rgb), 0.45) !important;
   }
   .main-menu .dropdown-item-rich.brand-plaza {
     background: rgba(255, 138, 0, 0.12) !important;
@@ -116,7 +116,7 @@
     position: absolute !important;
     inset: 0 !important;
     border-radius: 999px !important;
-    background: radial-gradient(ellipse at center, rgba(0, 33, 93, 0.25) 0%, rgba(0, 33, 93, 0.05) 55%, rgba(0, 33, 93, 0) 100%) !important;
+    background: radial-gradient(ellipse at center, rgba(var(--brand-primary-rgb), 0.25) 0%, rgba(var(--brand-primary-rgb), 0.05) 55%, rgba(var(--brand-primary-rgb), 0) 100%) !important;
     opacity: 0 !important;
     transition: opacity 0.3s ease !important;
     pointer-events: none !important;
@@ -128,7 +128,7 @@
 
   .main-menu .contacts-dropdown .drop-panel a:hover {
     color: var(--yellow) !important;
-    text-shadow: 0 0 8px rgba(0, 33, 93, 0.6), 0 0 15px rgba(0, 33, 93, 0.3) !important;
+    text-shadow: 0 0 8px rgba(var(--brand-primary-rgb), 0.6), 0 0 15px rgba(var(--brand-primary-rgb), 0.3) !important;
   }
 
   /* CTA style for 'Nossos Links' on mobile */
@@ -138,7 +138,7 @@
     justify-content: center !important;
     font-weight: 800 !important;
     margin-top: 10px !important;
-    box-shadow: 0 4px 12px rgba(0, 33, 93, 0.3) !important;
+    box-shadow: 0 4px 12px rgba(var(--brand-primary-rgb), 0.3) !important;
     border-radius: 999px !important;
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
   }
@@ -150,7 +150,7 @@
   .main-menu .contacts-dropdown .drop-panel a#menu-link-links:hover {
     background: var(--red) !important;
     color: #ffffff !important;
-    box-shadow: 0 0 15px rgba(0, 33, 93, 0.5) !important;
+    box-shadow: 0 0 15px rgba(var(--brand-primary-rgb), 0.5) !important;
     text-shadow: none !important;
   }
 }
@@ -171,11 +171,11 @@
 
   .site-header.site-header--light-hero {
     background: #ffffff !important;
-    color: #00215d !important;
+    color: var(--brand-primary) !important;
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
-    border-bottom-color: rgba(0, 33, 93, 0.12) !important;
-    box-shadow: 0 4px 16px rgba(0, 33, 93, 0.08) !important;
+    border-bottom-color: rgba(var(--brand-primary-rgb), 0.12) !important;
+    box-shadow: 0 4px 16px rgba(var(--brand-primary-rgb), 0.08) !important;
   }
 
   .hero-static-container {
@@ -188,13 +188,13 @@
     max-height: calc(100vh - 90px);
     overflow-y: auto;
     overscroll-behavior: contain;
-    border: 1px solid rgba(0, 33, 93, 0.18) !important;
+    border: 1px solid rgba(var(--brand-primary-rgb), 0.18) !important;
     background: #ffffff !important;
-    color: #00215D !important;
+    color: var(--brand-primary) !important;
   }
 
   .main-menu > a:not(.btn-contacts-menu) {
-    color: #00215D !important;
+    color: var(--brand-primary) !important;
   }
 
   .main-menu .dropdown > .drop-link {
@@ -207,7 +207,7 @@
     border: 0 !important;
     border-radius: 12px !important;
     background: transparent !important;
-    color: #00215D !important;
+    color: var(--brand-primary) !important;
     font-size: 0.9rem !important;
     font-weight: 800 !important;
     letter-spacing: normal !important;
@@ -234,7 +234,7 @@
     display: block !important;
     width: 16px;
     height: 16px;
-    color: #00215D !important;
+    color: var(--brand-primary) !important;
     transform: none;
   }
 
@@ -252,7 +252,7 @@
     min-width: 0 !important;
     margin: 6px 0 10px !important;
     padding: 10px !important;
-    border: 1px solid #00215D !important;
+    border: 1px solid var(--brand-primary) !important;
     border-radius: 16px !important;
     background: #ffffff !important;
     box-shadow: none !important;
@@ -263,7 +263,7 @@
   }
 
   .menu-group {
-    border-bottom: 1px solid rgba(0, 33, 93, 0.18);
+    border-bottom: 1px solid rgba(var(--brand-primary-rgb), 0.18);
   }
 
   .menu-group:last-child {
@@ -273,13 +273,13 @@
   .menu-group-title {
     padding: 13px 5px;
     border-bottom: 0;
-    color: #00215D;
+    color: var(--brand-primary);
     font-size: 0.72rem;
   }
 
   .menu-group-chevron {
     display: block;
-    color: #00215D;
+    color: var(--brand-primary);
     transition: transform 0.2s ease;
   }
 
@@ -308,34 +308,34 @@
     min-height: 44px;
     border-color: transparent !important;
     background: transparent !important;
-    color: #00215D !important;
+    color: var(--brand-primary) !important;
   }
 
   .dropdown-rich-menu .menu-service-item:hover {
-    border-color: rgba(0, 33, 93, 0.18) !important;
+    border-color: rgba(var(--brand-primary-rgb), 0.18) !important;
     background: #eef6fa !important;
   }
 
   .site-header--light-hero .dropdown-rich-menu .menu-service-item .dropdown-item-text,
   .site-header--light-hero .dropdown-rich-menu .menu-service-item:hover .dropdown-item-text {
-    color: #00215D !important;
+    color: var(--brand-primary) !important;
   }
 
   .dropdown-rich-menu .menu-service-item .dropdown-item-logo {
     width: 27px;
     height: 27px;
     flex-basis: 27px;
-    border-color: #00215D;
+    border-color: var(--brand-primary);
     background: #ffffff;
-    color: #00215D;
+    color: var(--brand-primary);
   }
 
   .solutions-menu-aside {
     min-height: 0;
     margin-top: 14px;
     padding: 20px;
-    background-color: #00215d !important;
-    background-image: linear-gradient(180deg, rgba(0, 33, 93, 0.95) 0%, rgba(0, 33, 93, 0.85) 42%, rgba(0, 33, 93, 0.48) 72%, rgba(0, 24, 69, 0.8) 100%), url('../../assets/Fotografias/originais-16-9/megamenu-foto.webp') !important;
+    background-color: var(--brand-primary) !important;
+    background-image: linear-gradient(180deg, rgba(var(--brand-primary-rgb), 0.95) 0%, rgba(var(--brand-primary-rgb), 0.85) 42%, rgba(var(--brand-primary-rgb), 0.48) 72%, rgba(0, 24, 69, 0.8) 100%), url('../../assets/Fotografias/originais-16-9/megamenu-foto.webp') !important;
     background-position: center top, center bottom !important;
     background-size: cover, cover !important;
     background-repeat: no-repeat, no-repeat !important;
@@ -419,16 +419,16 @@
 
 @media (hover: none), (pointer: coarse) {
   .hero-arrow-btn:hover {
-    color: #00215D;
+    color: var(--brand-primary);
     background: #f4f9fc;
-    border-color: rgba(0, 33, 93, 0.18);
+    border-color: rgba(var(--brand-primary-rgb), 0.18);
   }
 
   .hero-actions-container .btn.primary:hover {
     background: #ffffff !important;
-    border-color: #00215d !important;
-    color: #00215d !important;
-    box-shadow: 0 4px 12px rgba(0, 33, 93, 0.14) !important;
+    border-color: var(--brand-primary) !important;
+    color: var(--brand-primary) !important;
+    box-shadow: 0 4px 12px rgba(var(--brand-primary-rgb), 0.14) !important;
   }
 }
 

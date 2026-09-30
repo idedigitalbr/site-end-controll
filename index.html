@@ -325,15 +325,15 @@
         <!-- SVG Circuitos -->
         <svg class="hud-circuit-svg" viewBox="0 0 800 600" fill="none">
           <!-- Linhas de Conexão -->
-          <path d="M 520 220 L 590 290 L 710 290" stroke="rgba(0, 33, 93, 0.28)" stroke-width="1.5" />
-          <path d="M 610 120 L 680 190 L 680 340 L 650 370" stroke="rgba(0, 33, 93, 0.2)" stroke-dasharray="4 4" stroke-width="1.5" />
-          <path d="M 740 180 L 740 400 L 760 420" stroke="rgba(0, 33, 93, 0.15)" stroke-width="1" />
+          <path d="M 520 220 L 590 290 L 710 290" stroke="rgba(var(--brand-primary-rgb), 0.28)" stroke-width="1.5" />
+          <path d="M 610 120 L 680 190 L 680 340 L 650 370" stroke="rgba(var(--brand-primary-rgb), 0.2)" stroke-dasharray="4 4" stroke-width="1.5" />
+          <path d="M 740 180 L 740 400 L 760 420" stroke="rgba(var(--brand-primary-rgb), 0.15)" stroke-width="1" />
           
           <!-- Nós Circulares -->
-          <circle cx="590" cy="290" r="4.5" fill="#00215D" class="hud-pulsing-node" />
-          <circle cx="710" cy="290" r="3" fill="#00215D" />
-          <circle cx="680" cy="190" r="3" fill="#00215D" />
-          <circle cx="650" cy="370" r="4" fill="#00215D" class="hud-pulsing-node" />
+          <circle cx="590" cy="290" r="4.5" fill="var(--brand-primary)" class="hud-pulsing-node" />
+          <circle cx="710" cy="290" r="3" fill="var(--brand-primary)" />
+          <circle cx="680" cy="190" r="3" fill="var(--brand-primary)" />
+          <circle cx="650" cy="370" r="4" fill="var(--brand-primary)" class="hud-pulsing-node" />
         </svg>
 
         <!-- Grid de Pontos -->
@@ -670,8 +670,9 @@
               <span class="about-hud-corner corner-br"></span>
               <div class="about-media-scan-line"></div>
               
-              <div class="about-media-single">
-                <img src="./assets/Fotografias/originais-16-9/endcontrol-equipe-escritorio-projetos-mecanicos-engenharia.webp" alt="Equipe de engenharia da EndControl desenvolvendo análises e projetos no escritório corporativo" loading="lazy" />
+              <div class="about-media-single" id="aboutMediaCarousel">
+                <img src="./assets/Paginas Imgs/HOME/SORBE/foto-home-sobre2x-.jpeg" alt="Equipe técnica da EndControl desenvolvendo projetos de integridade estrutural e engenharia" class="about-slide-img is-active" loading="eager" />
+                <img src="./assets/Paginas Imgs/HOME/SORBE/foto-home-sobrex-.jpeg" alt="Engenheiros da EndControl em planejamento técnico e consultoria de integridade industrial" class="about-slide-img" loading="eager" />
               </div>
             </div>
           </div>
@@ -1262,22 +1263,22 @@
           <div class="dep-controls-buttons-row">
             <div class="dep-controls-left-buttons">
               <button class="dep-ctrl-btn dep-play-pause-btn" aria-label="Reproduzir/Pausar">
-                <svg class="icon-play" viewBox="0 0 24 24" width="16" height="16"><polygon points="5 3 19 12 5 21 5 3" fill="#00215D"/></svg>
-                <svg class="icon-pause" viewBox="0 0 24 24" width="16" height="16" style="display:none;"><rect x="6" y="4" width="4" height="16" fill="#00215D"/><rect x="14" y="4" width="4" height="16" fill="#00215D"/></svg>
+                <svg class="icon-play" viewBox="0 0 24 24" width="16" height="16"><polygon points="5 3 19 12 5 21 5 3" fill="var(--brand-primary)"/></svg>
+                <svg class="icon-pause" viewBox="0 0 24 24" width="16" height="16" style="display:none;"><rect x="6" y="4" width="4" height="16" fill="var(--brand-primary)"/><rect x="14" y="4" width="4" height="16" fill="var(--brand-primary)"/></svg>
               </button>
               <button class="dep-ctrl-btn dep-rewind-btn" aria-label="Voltar 10 segundos">
-                <svg viewBox="0 0 24 24" width="14" height="14"><path d="M12 5V1L7 6l5 5V7c3.3 0 6 2.7 6 6s-2.7 6-6 6-6-2.7-6-6H4c0 4.4 3.6 8 8 8s8-3.6 8-8-3.6-8-8-8zm-1 5.5h-1v5h1v-5zm3 0h-2v5h2v-5z" fill="#00215D"/></svg>
+                <svg viewBox="0 0 24 24" width="14" height="14"><path d="M12 5V1L7 6l5 5V7c3.3 0 6 2.7 6 6s-2.7 6-6 6-6-2.7-6-6H4c0 4.4 3.6 8 8 8s8-3.6 8-8-3.6-8-8-8zm-1 5.5h-1v5h1v-5zm3 0h-2v5h2v-5z" fill="var(--brand-primary)"/></svg>
               </button>
               <button class="dep-ctrl-btn dep-forward-btn" aria-label="Avançar 10 segundos">
-                <svg viewBox="0 0 24 24" width="14" height="14"><path d="M12 5V1l5 5-5 5V7c-3.3 0-6 2.7-6 6s2.7 6 6 6 6-2.7 6-6h2c0 4.4-3.6 8-8 8s-8-3.6-8-8 3.6-8 8-8zm-1 5.5h-1v5h1v-5zm3 0h-2v5h2v-5z" fill="#00215D"/></svg>
+                <svg viewBox="0 0 24 24" width="14" height="14"><path d="M12 5V1l5 5-5 5V7c-3.3 0-6 2.7-6 6s2.7 6 6 6 6-2.7 6-6h2c0 4.4-3.6 8-8 8s-8-3.6-8-8 3.6-8 8-8zm-1 5.5h-1v5h1v-5zm3 0h-2v5h2v-5z" fill="var(--brand-primary)"/></svg>
               </button>
               <span class="dep-ctrl-time">00:00 / 00:00</span>
             </div>
             <div class="dep-controls-right-buttons">
               <div class="dep-volume-control-wrapper">
                 <button class="dep-ctrl-btn dep-volume-btn" aria-label="Volume">
-                  <svg class="icon-volume-on" viewBox="0 0 24 24" width="16" height="16"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z" fill="#00215D"/></svg>
-                  <svg class="icon-volume-off" viewBox="0 0 24 24" width="16" height="16" style="display:none;"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.21.05-.42.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71z" fill="#00215D"/></svg>
+                  <svg class="icon-volume-on" viewBox="0 0 24 24" width="16" height="16"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z" fill="var(--brand-primary)"/></svg>
+                  <svg class="icon-volume-off" viewBox="0 0 24 24" width="16" height="16" style="display:none;"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.21.05-.42.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71z" fill="var(--brand-primary)"/></svg>
                 </button>
                 <input type="range" class="dep-volume-slider" min="0" max="1" step="0.05" value="1" aria-label="Ajustar Volume">
               </div>
@@ -1309,6 +1310,33 @@
     document.addEventListener('DOMContentLoaded', function() {
       if (typeof lucide !== 'undefined') {
         lucide.createIcons();
+      }
+
+      // CARROSSEL DA SEÇÃO SOBRE (Alterna fotos a cada 30 segundos)
+      const aboutCarousel = document.getElementById('aboutMediaCarousel');
+      if (aboutCarousel) {
+        const slides = aboutCarousel.querySelectorAll('.about-slide-img');
+        if (slides.length > 1) {
+          let currentSlideIndex = 0;
+          setInterval(function() {
+            const prevSlide = slides[currentSlideIndex];
+            currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+            const nextSlide = slides[currentSlideIndex];
+
+            // Coloca o slide anterior em 'is-prev' (mantém visível por baixo sem flash)
+            prevSlide.classList.remove('is-active');
+            prevSlide.classList.add('is-prev');
+
+            // Ativa o próximo slide (fade in suave por cima)
+            nextSlide.classList.remove('is-prev');
+            nextSlide.classList.add('is-active');
+
+            // Após a transição (1.2s), limpa a classe 'is-prev' do slide anterior
+            setTimeout(function() {
+              prevSlide.classList.remove('is-prev');
+            }, 1300);
+          }, 30000); // 30 segundos
+        }
       }
 
       // CONTROLE DO ACCORDION VERTICAL (10 CARDS)

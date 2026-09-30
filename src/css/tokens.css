@@ -10,21 +10,50 @@
   --font-size-eyebrow: 12px;
   --font-size-button: 15px;
 
-  /* Paleta oficial ENDCONTROL */
+  /* ==========================================================================
+     DESIGN SYSTEM ENDCONTROL - PALETA OFICIAL (SINGLE SOURCE OF TRUTH)
+     Altere as variáveis abaixo para mudar as cores em TODO o site e páginas!
+     ========================================================================== */
+
+  /* COR PRIMÁRIA: Azul Cinza Oficial (Badges, Botões CTA, Métricas, Títulos) */
+  --brand-primary: #67A8B8;
+  --brand-primary-rgb: 103, 168, 184;
+  --brand-primary-hover: #538e9c;
+  --brand-primary-light: #7bbac8;
+  --brand-primary-dark: #457884;
+
+  /* COR SECUNDÁRIA: Azul Claro Tecnológico (Detalhes, Ícones, Gradientes, Destaques) */
+  --brand-secondary: #00ACE4;
+  --brand-secondary-rgb: 0, 172, 228;
+  --brand-secondary-hover: #0093c4;
+
+  /* COR DE APOIO: Slate / Cinza Forte Institucional */
+  --brand-slate: #9ac3cd;
+  --brand-slate-rgb: 154, 195, 205;
+
+  /* Cores de Fundo / Backgrounds */
+  --color-bg-page: #FFFFFF;
+  --color-bg-subtle: #F0F5F7;
   --color-bg-primary: #071429;
   --color-bg-secondary: #0A1B33;
   --color-bg-deep: #020B18;
 
-  --color-primary: #009CFF;
-  --color-primary-strong: #007BFF;
-  --color-primary-light: #18B7FF;
-  --color-cyan: #00215D;
+  /* Mapeamento Semântico e Compatibilidade Global */
+  --color-primary: var(--brand-primary);
+  --color-primary-rgb: var(--brand-primary-rgb);
+  --color-primary-strong: var(--brand-primary);
+  --color-primary-light: var(--brand-secondary);
+  --color-cyan: var(--brand-secondary);
+  --color-slate: var(--brand-slate);
+  --yellow: var(--brand-primary);
+  --red: var(--brand-primary);
+  --blue: var(--brand-primary);
 
-  --color-text-primary: #F5F7FB;
-  --color-text-secondary: #C7D0DE;
+  --color-text-primary: #071429;
+  --color-text-secondary: #52627A;
   --color-text-muted: #8FA3BC;
 
-  --color-border-blue: rgba(0, 156, 255, 0.35);
+  --color-border-blue: rgba(var(--brand-secondary-rgb), 0.35);
   --color-card-bg: rgba(7, 20, 41, 0.78);
   --color-card-bg-solid: #0B1B31;
 
@@ -35,7 +64,7 @@
   --radius-pill: 999px;
 
   --shadow-card: 0 24px 80px rgba(0, 0, 0, 0.35);
-  --shadow-blue: 0 18px 48px rgba(0, 156, 255, 0.25);
+  --shadow-blue: 0 18px 48px rgba(var(--brand-secondary-rgb), 0.25);
 
   --container-max: 1440px;
   --container-padding-desktop: 72px;
@@ -46,8 +75,8 @@
   --color-industrial-copper: #994E35;
   --color-industrial-orange: #C57049;
   --color-metal-gray: #67768C;
-  --color-logo-slate: #68A1AF;
-  --color-logo-slate-rgb: 104, 161, 175;
+  --color-logo-slate: #67A8B8;
+  --color-logo-slate-rgb: 103, 168, 184;
 
   /* Identidade Visual EndControl (Cores de apoio) */
   --color-azul-fraco: #67a8b8;
@@ -61,16 +90,14 @@
   --text-muted: #52627A;
   --black: var(--color-bg-deep);
   --graphite: var(--color-bg-secondary);
-  --yellow: var(--color-primary);
-  --red: #00215D;
 
-  /* Neutros de interface remapeados para visual escuro premium */
+  /* Neutros de interface */
   --ink: var(--color-text-primary);
   --cream: var(--color-bg-secondary);
   --paper: var(--color-bg-primary);
   --muted: var(--color-text-muted);
-  --line: rgba(0, 156, 255, 0.15);
-  --line-dark: rgba(0, 156, 255, 0.25);
+  --line: rgba(var(--brand-secondary-rgb), 0.15);
+  --line-dark: rgba(var(--brand-secondary-rgb), 0.25);
 
   /* Cores de atmosfera */
   --green: #10b981;
@@ -78,13 +105,13 @@
   --orange: var(--color-industrial-orange);
 
   /* Estilização Premium e Glassmorphism */
-  --gold-gradient: linear-gradient(135deg, var(--color-primary-strong), #00215D);
-  --bg-gradient: radial-gradient(circle at 12% 0%, rgba(0, 156, 255, 0.12), transparent 38%), 
-                 radial-gradient(circle at 88% 14%, rgba(0, 33, 93, 0.08), transparent 28%), 
+  --gold-gradient: linear-gradient(135deg, var(--brand-secondary), var(--brand-primary));
+  --bg-gradient: radial-gradient(circle at 12% 0%, rgba(var(--brand-secondary-rgb), 0.12), transparent 38%), 
+                 radial-gradient(circle at 88% 14%, rgba(var(--brand-primary-rgb), 0.08), transparent 28%), 
                  var(--color-bg-primary);
   --glass-surface: var(--color-card-bg);
   --glass-border: var(--color-border-blue);
-  --glass-border-glow: rgba(0, 33, 93, 0.35);
+  --glass-border-glow: rgba(var(--brand-primary-rgb), 0.35);
 
   --radius: var(--radius-lg);
   --shadow: var(--shadow-card);
