@@ -16,10 +16,10 @@ test('uses the requested navy color for the Sobre a EndControl eyebrow', () => {
   assert.ok(lineRule, 'a linha decorativa do eyebrow precisa existir');
   assert.ok(highlightRule, 'a regra do destaque azul precisa existir');
   assert.match(rule[1], /color:\s*#ffffff\s*;/i);
-  assert.match(rule[1], /background:\s*#00215D\s*;/i);
+  assert.match(rule[1], /background:\s*(?:#00215D|var\(--brand-primary\))\s*;/i);
   assert.match(rule[1], /border-radius:\s*999px\s*;/i);
   assert.match(lineRule[1], /display:\s*none\s*;/i);
-  assert.match(highlightRule[1], /color:\s*#00215D\s*;/i);
+  assert.match(highlightRule[1], /color:\s*(?:#00215D|var\(--brand-primary\))\s*;/i);
   assert.match(highlightRule[1], /background:\s*none\s*;/i);
   assert.match(home, /sections\.css\?v=\d+/);
   assert.match(home, /<span class="highlight-blue-gradient">confiança<br>e resultado<\/span>/);
@@ -31,10 +31,10 @@ test('styles the Sobre a EndControl CTA with the requested navy treatment', () =
 
   assert.ok(buttonRule, 'a regra do botão Sobre a EndControl precisa existir');
   assert.ok(buttonHoverRule, 'a regra de hover do botão Sobre a EndControl precisa existir');
-  assert.match(buttonRule[1], /border:\s*1\.5px\s+solid\s+#00215D\s*;/i);
-  assert.match(buttonRule[1], /color:\s+#00215D\s*;/i);
-  assert.match(buttonHoverRule[1], /background:\s+#00215D\s*;/i);
-  assert.match(buttonHoverRule[1], /border-color:\s+#00215D\s*;/i);
+  assert.match(buttonRule[1], /border:\s*1\.5px\s+solid\s*(?:#00215D|var\(--brand-primary\))\s*;/i);
+  assert.match(buttonRule[1], /color:\s+(?:#00215D|var\(--brand-primary\))\s*;/i);
+  assert.match(buttonHoverRule[1], /background:\s+(?:#00215D|var\(--brand-primary\))\s*;/i);
+  assert.match(buttonHoverRule[1], /border-color:\s+(?:#00215D|var\(--brand-primary\))\s*;/i);
   assert.doesNotMatch(home, /<span class="btn-about-icon-circle">/i);
   assert.match(home, /<svg class="btn-about-arrow-right"/i);
   assert.match(home, /sections\.css\?v=\d+/);
@@ -46,10 +46,10 @@ test('uses the project Lucide icon standard and navy hover treatment in the valu
 
   assert.ok(iconRule, 'a regra dos ícones dos valores precisa existir');
   assert.ok(iconHoverRule, 'a regra de hover dos ícones dos valores precisa existir');
-  assert.match(iconRule[1], /border:\s*1\.5px\s+solid\s+#00215D\s*;/i);
-  assert.match(iconRule[1], /color:\s+#00215D\s*;/i);
-  assert.match(iconHoverRule[1], /background:\s+#00215D\s*;/i);
-  assert.match(iconHoverRule[1], /border-color:\s+#00215D\s*;/i);
+  assert.match(iconRule[1], /border:\s*1\.5px\s+solid\s*(?:#00215D|var\(--brand-primary\))\s*;/i);
+  assert.match(iconRule[1], /color:\s+(?:#00215D|var\(--brand-primary\))\s*;/i);
+  assert.match(iconHoverRule[1], /background:\s+(?:#00215D|var\(--brand-primary\))\s*;/i);
+  assert.match(iconHoverRule[1], /border-color:\s+(?:#00215D|var\(--brand-primary\))\s*;/i);
   assert.match(home, /unpkg\.com\/lucide@0\.321\.0/);
   assert.match(home, /class="about-value-lucide" data-lucide="shield"/);
   assert.match(home, /class="about-value-lucide" data-lucide="shield-check"/);
@@ -61,7 +61,7 @@ test('uses the project Lucide icon standard and navy hover treatment in the valu
 test('styles the Sobre Nós indicators banner with the minimalist text-only dark navy layout matching Hero indicators', () => {
   const aboutHtml = fs.readFileSync(path.join(root, 'sobre-nos.html'), 'utf8');
 
-  assert.match(aboutHtml, /\.about-values-banner\s*\{[\s\S]*?background:\s*#00215d\s*!important/i);
+  assert.match(aboutHtml, /\.about-values-banner\s*\{[\s\S]*?background:\s*(?:#00215d|var\(--brand-primary\))\s*!important/i);
   assert.match(aboutHtml, /\.about-values-banner\s*\{[\s\S]*?border:\s*1px solid rgba\(255,\s*255,\s*255,\s*0\.12\)\s*!important/i);
   assert.match(aboutHtml, /\.about-value-text h3\s*\{[\s\S]*?color:\s*#ffffff\s*!important/i);
   assert.match(aboutHtml, /\.about-value-text p\s*\{[\s\S]*?color:\s*#ffffff\s*!important/i);

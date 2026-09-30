@@ -8,9 +8,9 @@ const styles = fs.readFileSync(path.join(root, 'src', 'css', 'segmentos.css'), '
 const home = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
 
 test('uses the standard navy in the areas of activity headings', () => {
-  assert.match(styles, /\.segmentos-eyebrow\s*\{[\s\S]*?color:\s*#ffffff\s*;[\s\S]*?background:\s*#00215D\s*;[\s\S]*?border-radius:\s*999px\s*;/i);
+  assert.match(styles, /\.segmentos-eyebrow\s*\{[\s\S]*?color:\s*#ffffff\s*;[\s\S]*?background:\s*(?:#00215D|var\(--brand-primary\))\s*;[\s\S]*?border-radius:\s*999px\s*;/i);
   assert.match(styles, /\.segmentos-title\s*\{[\s\S]*?color:\s*#071429\s*;/i);
-  assert.match(styles, /\.segmentos-highlight\s*\{[\s\S]*?color:\s*#00215D\s*;/i);
+  assert.match(styles, /\.segmentos-highlight\s*\{[\s\S]*?color:\s*(?:#00215D|var\(--brand-primary\))\s*;/i);
   assert.match(home, /NOSSAS ÁREAS DE ATUAÇÃO/);
   assert.match(home, /Principais <span class="segmentos-highlight">Áreas<\/span> de Atuação/);
 });

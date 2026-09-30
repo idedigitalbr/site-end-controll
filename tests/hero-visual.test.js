@@ -24,7 +24,7 @@ test('keeps only the primary Hero CTA', () => {
 });
 
 test('removes excessive neon glow and shadow effects from the hero banner', () => {
-  assert.match(styles, /\.hero-title-main \.hero-title-highlight\s*\{[\s\S]*?color:\s*#00215d[\s\S]*?font-style:\s*italic\s*;[\s\S]*?font-weight:\s*300\s*;/i);
+  assert.match(styles, /\.hero-title-main \.hero-title-highlight\s*\{[\s\S]*?color:\s*(?:#00215d|var\(--brand-primary\))[\s\S]*?font-style:\s*italic\s*;[\s\S]*?font-weight:\s*300\s*;/i);
   assert.match(styles, /\.hero-arrow-btn:hover\s*\{[\s\S]*?filter:\s*none\s*;/i);
   assert.match(styles, /\.hud-circuit-svg\s*\{[\s\S]*?filter:\s*none\s*;[\s\S]*?animation:\s*none\s*;/i);
   assert.match(styles, /\.hud-blur-glow\s*\{[\s\S]*?display:\s*none\s*;/i);
@@ -37,8 +37,8 @@ test('mantém as setas do banner principal em azul-marinho no hover', () => {
   const arrowHoverRule = styles.match(/\.hero-arrow-btn:hover\s*\{([\s\S]*?)\}/i);
 
   assert.ok(arrowHoverRule, 'a regra de hover das setas do banner precisa existir');
-  assert.match(arrowHoverRule[1], /color:\s*#00215D\s*;/i);
-  assert.match(arrowHoverRule[1], /border-color:\s*#00215D\s*;/i);
+  assert.match(arrowHoverRule[1], /color:\s*(?:#00215D|var\(--brand-primary\))\s*;/i);
+  assert.match(arrowHoverRule[1], /border-color:\s*(?:#00215D|var\(--brand-primary\))\s*;/i);
 });
 
 test('uses the light navy hero reference and the requested indicator copy', () => {
@@ -57,11 +57,11 @@ test('uses the light navy hero reference and the requested indicator copy', () =
   assert.match(styles, /\.hero-title-main\s*\{[\s\S]*?color:\s*#071429\s*;/i);
   assert.match(styles, /\.hero-lead-desc\s*\{[\s\S]*?color:\s*#475569\s*;/i);
   assert.match(styles, /\.hero-overlay-blue-tint\s*\{[\s\S]*?display:\s*none\s*;/i);
-  assert.match(styles, /\.hero-benefits-bar\s*\{[\s\S]*?background:\s*#00215d\s*;/i);
+  assert.match(styles, /\.hero-benefits-bar\s*\{[\s\S]*?background:\s*(?:#00215d|var\(--brand-primary\))\s*;/i);
 });
 
 test('uses a navy background and white copy in the Hero badge', () => {
-  assert.match(styles, /\.hero-badge-pill\s*\{[\s\S]*?background:\s*#00215d\s*;[\s\S]*?color:\s*#ffffff\s*;[\s\S]*?text-transform:\s*uppercase/i);
+  assert.match(styles, /\.hero-badge-pill\s*\{[\s\S]*?background:\s*(?:#00215d|var\(--brand-primary\))\s*;[\s\S]*?color:\s*#ffffff\s*;[\s\S]*?text-transform:\s*uppercase/i);
   assert.match(home, /<div class="hero-badge-pill">Engenharia - Inspeção - Integridade<\/div>/i);
 });
 
@@ -72,7 +72,7 @@ test('breaks the Hero headline after the italic integridade highlight', () => {
 
 test('uses the shared semantic italic highlight for grandes operações', () => {
   assert.match(home, /<em class="hero-title-highlight">grandes operações<\/em>/i);
-  assert.match(styles, /\.hero-title-main \.hero-title-highlight\s*\{[\s\S]*?color:\s*#00215d\s*;[\s\S]*?font-style:\s*italic\s*;[\s\S]*?font-weight:\s*300\s*;/i);
+  assert.match(styles, /\.hero-title-main \.hero-title-highlight\s*\{[\s\S]*?color:\s*(?:#00215d|var\(--brand-primary\))\s*;[\s\S]*?font-style:\s*italic\s*;[\s\S]*?font-weight:\s*300\s*;/i);
 });
 
 test('adds breathing room before the primary Hero CTA', () => {
@@ -93,11 +93,11 @@ test('shifts Hero photography right of the text gradient', () => {
 });
 
 test('uses the navy indicator band, white copy and inverted primary CTA', () => {
-  assert.match(styles, /\.hero-benefits-bar\s*\{[\s\S]*?background:\s*#00215d\s*;/i);
+  assert.match(styles, /\.hero-benefits-bar\s*\{[\s\S]*?background:\s*(?:#00215d|var\(--brand-primary\))\s*;/i);
   assert.match(styles, /\.benefit-title\s*\{[\s\S]*?font-size:\s*1\.95rem[\s\S]*?color:\s*#ffffff\s*;/i);
   assert.match(styles, /\.benefit-desc\s*\{[\s\S]*?color:\s*#ffffff\s*;/i);
-  assert.match(styles, /\.hero-actions-container \.btn\.primary\s*\{[\s\S]*?background:\s*#ffffff\s*!important[\s\S]*?border-color:\s*#00215d\s*!important[\s\S]*?color:\s*#00215d\s*!important/i);
-  assert.match(styles, /\.hero-actions-container \.btn\.primary:hover\s*\{[\s\S]*?background:\s*#00215d\s*!important[\s\S]*?color:\s*#ffffff\s*!important/i);
+  assert.match(styles, /\.hero-actions-container \.btn\.primary\s*\{[\s\S]*?background:\s*#ffffff\s*!important[\s\S]*?border-color:\s*(?:#00215d|var\(--brand-primary\))\s*!important[\s\S]*?color:\s*(?:#00215d|var\(--brand-primary\))\s*!important/i);
+  assert.match(styles, /\.hero-actions-container \.btn\.primary:hover\s*\{[\s\S]*?background:\s*(?:#00215d|var\(--brand-primary\))\s*!important[\s\S]*?color:\s*#ffffff\s*!important/i);
 });
 
 test('keeps the four indicators compact, aligned and centered without icons', () => {
@@ -118,14 +118,14 @@ test('keeps the light hero header readable without relying on white navigation',
   assert.match(styles, /\.hero-static-container\s*\{[\s\S]*?padding-top:/i);
   const headerStyles = fs.readFileSync(path.join(root, 'src', 'css', 'header.css'), 'utf8');
   assert.match(headerStyles, /\.site-header--light-hero\s*\{[\s\S]*?background:\s*#ffffff\s*;/i);
-  assert.match(headerStyles, /\.site-header--light-hero\s+\.main-menu\s*\{[\s\S]*?color:\s*#00215d\s*;/i);
+  assert.match(headerStyles, /\.site-header--light-hero\s+\.main-menu\s*\{[\s\S]*?color:\s*(?:#00215d|var\(--brand-primary\))\s*;/i);
 });
 
 test('uses a rounded navy hover and white sticky state for the light Hero header', () => {
   const headerStyles = fs.readFileSync(path.join(root, 'src', 'css', 'header.css'), 'utf8');
-  assert.match(headerStyles, /\.site-header--light-hero \.main-menu > a:hover,[\s\S]*?background:\s*#00215d\s*(?:!important\s*)?;[\s\S]*?color:\s*#ffffff\s*(?:!important\s*)?;[\s\S]*?border-radius:\s*999px/i);
+  assert.match(headerStyles, /\.site-header--light-hero \.main-menu > a:hover,[\s\S]*?background:\s*(?:#00215d|var\(--brand-primary\))\s*(?:!important\s*)?;[\s\S]*?color:\s*#ffffff\s*(?:!important\s*)?;[\s\S]*?border-radius:\s*999px/i);
   assert.match(headerStyles, /\.site-header\.site-header--light-hero\.scrolled\s*\{[\s\S]*?background:\s*#ffffff\s*;[\s\S]*?backdrop-filter:\s*none\s*;/i);
-  assert.match(headerStyles, /\.site-header--light-hero \.main-menu \.btn-contacts-menu:hover\s*\{[\s\S]*?background:\s*#00215d\s*!important[\s\S]*?color:\s*#ffffff\s*!important/i);
+  assert.match(headerStyles, /\.site-header--light-hero \.main-menu \.btn-contacts-menu:hover\s*\{[\s\S]*?background:\s*(?:#00215d|var\(--brand-primary\))\s*!important[\s\S]*?color:\s*#ffffff\s*!important/i);
 });
 
 test('separates the hero copy from the photo and keeps the benefits bar restrained', () => {

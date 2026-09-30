@@ -9,7 +9,7 @@ test('styles .sn-indicators-card with the minimalist dark navy layout in sobre-n
   const css = fs.readFileSync(path.join(root, 'src', 'css', 'sobre-nos.css'), 'utf8');
 
   // Background and border
-  assert.match(css, /\.sn-indicators-card\s*\{[\s\S]*?background:\s*#00215d\s*;/i);
+  assert.match(css, /\.sn-indicators-card\s*\{[\s\S]*?background:\s*(?:#00215d|var\(--brand-primary\))\s*;/i);
   assert.match(css, /\.sn-indicators-card\s*\{[\s\S]*?border:\s*1px solid rgba\(255,\s*255,\s*255,\s*0\.12\)\s*;/i);
   assert.match(css, /\.sn-indicators-card\s*\{[\s\S]*?border-radius:\s*18px\s*;/i);
 

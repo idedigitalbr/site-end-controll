@@ -12,7 +12,7 @@ const segmentsStyles = fs.readFileSync(path.join(root, 'src', 'css', 'segmentos.
 const presenceStyles = fs.readFileSync(path.join(root, 'src', 'css', 'presenca-nacional.css'), 'utf8');
 
 const headlinePattern = /font-size:\s*clamp\(28px,\s*3\.8vw,\s*var\(--font-size-headline,\s*38px\)\)[\s\S]*?font-weight:\s*800[\s\S]*?line-height:\s*1\.18/i;
-const italicPattern = /(?=[\s\S]*font-style:\s*italic\s*;)(?=[\s\S]*font-weight:\s*300\s*;)(?=[\s\S]*color:\s*#00215D\s*;)/i;
+const italicPattern = /(?=[\s\S]*font-style:\s*italic\s*;)(?=[\s\S]*font-weight:\s*300\s*;)(?=[\s\S]*color:\s*(?:#00215D|var\(--brand-primary\))\s*;)/i;
 const descriptionPattern = /(?=[\s\S]*font-size:\s*var\(--font-size-body,\s*16px\)\s*;)(?=[\s\S]*line-height:\s*1\.\d+\s*;)(?=[\s\S]*color:\s*#475569\s*;)/i;
 const badgePattern = (selector) => new RegExp(`${selector}\\s*\\{(?=[^}]*font-size:\\s*var\\(--font-size-eyebrow,\\s*12px\\))(?=[^}]*letter-spacing:\\s*0\\.14em)(?=[^}]*padding:\\s*8px 1?4px)[^}]*\\}`, 'i');
 

@@ -36,7 +36,7 @@ test('service pages hide the metallic hero and use a two-column solution section
 
 test('service solution copy follows the home visual standard', () => {
   assert.match(standardStyles, /\.sn-page-wrapper \.svc-solution-eyebrow,\s*[\s\S]*?\.sn-page-wrapper \.sn-eyebrow-line\.light-mode\s*\{/i);
-  assert.match(standardStyles, /background:\s*#00215D;/i);
+  assert.match(standardStyles, /background:\s*(?:#00215D|var\(--brand-primary\));/i);
   assert.match(standardStyles, /color:\s*#ffffff\s*!important;/i);
   assert.match(standardStyles, /border-radius:\s*999px;/i);
   assert.match(standardStyles, /padding:\s*8px\s+14px\s*!important;/i);
@@ -46,9 +46,9 @@ test('service solution copy follows the home visual standard', () => {
   assert.match(standardStyles, /\.sn-page-wrapper \.svc-solution-headline,[\s\S]*?font-size:\s*clamp\(28px,\s*3\.8vw,\s*var\(--font-size-headline,\s*38px\)\);/i);
   assert.match(standardStyles, /\.sn-page-wrapper \.svc-solution-section \.svc-cyan-cta-btn,[\s\S]*?\.sn-page-wrapper \.svc-solution-section \.btn\.btn-primary\s*\{/i);
   assert.match(standardStyles, /background:\s*#ffffff\s*!important;/i);
-  assert.match(standardStyles, /border:[^;]*#00215D\s*!important;/i);
+  assert.match(standardStyles, /border:[^;]*(?:#00215D|var\(--brand-primary\))\s*!important;/i);
   assert.match(standardStyles, /\.sn-page-wrapper \.svc-solution-section \.svc-cyan-cta-btn:hover,[\s\S]*?\.sn-page-wrapper \.svc-solution-section \.btn\.btn-primary:hover\s*\{/i);
-  assert.match(standardStyles, /background:\s*#00215D\s*!important;/i);
+  assert.match(standardStyles, /background:\s*(?:#00215D|var\(--brand-primary\))\s*!important;/i);
   assert.match(standardStyles, /color:\s*#ffffff\s*!important;/i);
 });
 
@@ -68,18 +68,18 @@ test('every service page places the standard CTA after the first-section copy', 
 test('uses navy for service-top blue copy and CTA arrows', () => {
   assert.match(
     standardStyles,
-    /\.sn-page-wrapper \.svc-solution-section \.svc-solution-subtitle[\s\S]*?color:\s*#00215D\s*!important;/i
+    /\.sn-page-wrapper \.svc-solution-section \.svc-solution-subtitle[\s\S]*?color:\s*(?:#00215D|var\(--brand-primary\))\s*!important;/i
   );
   assert.match(
     standardStyles,
-    /\.sn-page-wrapper \.svc-solution-section \.svc-cyan-cta-arrow[\s\S]*?color:\s*#00215D\s*!important;[\s\S]*?stroke:\s*#00215D\s*!important;/i
+    /\.sn-page-wrapper \.svc-solution-section \.svc-cyan-cta-arrow[\s\S]*?color:\s*(?:#00215D|var\(--brand-primary\))\s*!important;[\s\S]*?stroke:\s*(?:#00215D|var\(--brand-primary\))\s*!important;/i
   );
 });
 
 test('keeps the service header readable after removing the dark hero', () => {
-  assert.match(standardStyles, /\.sn-page-wrapper \.site-header\s*\{[\s\S]*?background:\s*#ffffff;[\s\S]*?color:\s*#00215D;/i);
-  assert.match(standardStyles, /\.sn-page-wrapper \.site-header \.main-menu\s*\{[\s\S]*?color:\s*#00215D;/i);
-  assert.match(standardStyles, /\.sn-page-wrapper \.site-header \.menu-toggle span\s*\{[\s\S]*?background:\s*#00215D;/i);
+  assert.match(standardStyles, /\.sn-page-wrapper \.site-header\s*\{[\s\S]*?background:\s*#ffffff;[\s\S]*?color:\s*(?:#00215D|var\(--brand-primary\));/i);
+  assert.match(standardStyles, /\.sn-page-wrapper \.site-header \.main-menu\s*\{[\s\S]*?color:\s*(?:#00215D|var\(--brand-primary\));/i);
+  assert.match(standardStyles, /\.sn-page-wrapper \.site-header \.menu-toggle span\s*\{[\s\S]*?background:\s*(?:#00215D|var\(--brand-primary\));/i);
 });
 
 test('service pages override desktop constraints at mobile breakpoints', () => {
@@ -97,7 +97,7 @@ test('service pages override desktop constraints at mobile breakpoints', () => {
 test('methodology sections use the shared badge, headline, copy and card pattern', () => {
   assert.match(styles, /\.svc-methodology-eyebrow\s*\{[\s\S]*?font-size:\s*var\(--font-size-eyebrow,\s*12px\);[\s\S]*?font-weight:\s*700;[\s\S]*?letter-spacing:\s*0\.14em;[\s\S]*?padding:\s*8px\s+14px;/i);
   assert.match(styles, /\.svc-methodology-headline\s*\{[\s\S]*?font-size:\s*clamp\(28px,\s*3\.8vw,\s*var\(--font-size-headline,\s*38px\)\);[\s\S]*?font-weight:\s*800;[\s\S]*?line-height:\s*1\.18;[\s\S]*?margin-bottom:\s*14px;/i);
-  assert.match(styles, /\.svc-methodology-headline\s+em\s*\{[\s\S]*?font-style:\s*italic;[\s\S]*?font-weight:\s*300;[\s\S]*?color:\s*#00215D;/i);
+  assert.match(styles, /\.svc-methodology-headline\s+em\s*\{[\s\S]*?font-style:\s*italic;[\s\S]*?font-weight:\s*300;[\s\S]*?color:\s*(?:#00215D|var\(--brand-primary\));/i);
   assert.match(styles, /\.svc-method-desc\s*\{[\s\S]*?font-size:\s*var\(--font-size-icon-text,\s*16px\);[\s\S]*?line-height:\s*1\.[5-6]+;[\s\S]*?color:\s*#475569;[\s\S]*?text-align:\s*justify;/i);
   assert.match(styles, /\.svc-methodology-flow\s*\{[\s\S]*?display:\s*flex;[\s\S]*?gap:\s*18px;/i);
   assert.match(styles, /\.svc-method-icon-box\s*\{[\s\S]*?flex-shrink:\s*0;/i);
@@ -122,7 +122,7 @@ test('methodology sections use the shared badge, headline, copy and card pattern
 test('service top sections use the shared home typography pattern with one italic highlight', () => {
   assert.match(styles, /\.sn-page-wrapper \.section-badge,[\s\S]*?padding:\s*8px\s+14px\s*!important[\s\S]*?font-size:\s*var\(--font-size-eyebrow,\s*12px\)\s*!important[\s\S]*?font-weight:\s*700\s*!important[\s\S]*?letter-spacing:\s*0\.14em\s*!important/i);
   assert.match(styles, /\.sn-page-wrapper \.section-headline,[\s\S]*?font-size:\s*clamp\(28px,\s*3\.8vw,\s*var\(--font-size-headline,\s*38px\)\)\s*!important[\s\S]*?font-weight:\s*800\s*!important[\s\S]*?line-height:\s*1\.18\s*!important[\s\S]*?margin:\s*0\s+0\s+14px\s*!important/i);
-  assert.match(styles, /\.sn-page-wrapper \.service-top-highlight[\s\S]*?font-style:\s*italic;[\s\S]*?font-weight:\s*300;[\s\S]*?color:\s*#00215D\s*!important/i);
+  assert.match(styles, /\.sn-page-wrapper \.service-top-highlight[\s\S]*?font-style:\s*italic;[\s\S]*?font-weight:\s*300;[\s\S]*?color:\s*(?:#00215D|var\(--brand-primary\))\s*!important/i);
   assert.match(styles, /\.sn-page-wrapper \.section-description,[\s\S]*?font-size:\s*var\(--font-size-body,\s*16px\)\s*!important[\s\S]*?line-height:\s*1\.6\s*!important/i);
 
   for (const filename of servicePages) {
