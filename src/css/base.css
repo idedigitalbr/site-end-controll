@@ -54,7 +54,7 @@ a {
    Configuração Padrão de Botões (ENDCONTROL)
    ========================================================================== */
 
-/* 1. Botão Preenchido (Anexo 2): Azul Sólido, Compacto, Cantos Arredondados (12px), Sombra Azul */
+/* 1. Botão Preenchido (Anexo 2): Cor Secundária (#00ACE4), Compacto, Cantos Arredondados (12px), Hover na Cor Primária (#67A8B8) */
 .btn.primary,
 .btn-primary,
 .btn-primary-blue,
@@ -74,8 +74,8 @@ a {
   font-weight: 700 !important;
   font-size: 15px !important;
   color: #ffffff !important;
-  background: var(--color-primary) !important; /* Azul Preenchido */
-  box-shadow: 0 4px 15px rgba(0, 156, 255, 0.25) !important;
+  background: var(--brand-secondary) !important; /* Cor Secundária Oficial (#00ACE4) */
+  box-shadow: 0 4px 15px rgba(var(--brand-secondary-rgb), 0.28) !important;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
   cursor: pointer !important;
   text-decoration: none !important;
@@ -87,8 +87,9 @@ a {
 .btn-filled:hover,
 .btn-contacts-menu:hover,
 .btn-card-primary:hover {
-  background: #0056b3 !important;
-  box-shadow: 0 6px 20px rgba(0, 156, 255, 0.45) !important;
+  background: var(--brand-primary) !important; /* No hover passa para a Cor Primária Oficial (#67A8B8) */
+  border-color: var(--brand-primary) !important;
+  box-shadow: 0 6px 20px rgba(var(--brand-primary-rgb), 0.45) !important;
   transform: translateY(-2px) !important;
   color: #ffffff !important;
 }

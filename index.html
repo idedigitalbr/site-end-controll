@@ -63,7 +63,7 @@
   <link rel="preload" href="./assets/Logos/logo-principal-original-horizontal-endcontrol.png" as="image" />
   <link rel="stylesheet" href="./src/css/tokens.css?v=120.0" />
   <link rel="stylesheet" href="./src/css/base.css?v=120.0" />
-  <link rel="stylesheet" href="./src/css/header.css?v=121.0" />
+  <link rel="stylesheet" href="./src/css/header.css?v=122.0" />
   <link rel="stylesheet" href="./src/css/hero.css?v=120.0" />
   <link rel="stylesheet" href="./src/css/clients-carousel.css?v=120.0" />
   <link rel="stylesheet" href="./src/css/solucoes.css?v=120.0" />
@@ -74,70 +74,194 @@
   <link rel="stylesheet" href="./src/css/brand-pages.css?v=120.0" />
     <link rel="stylesheet" href="./src/css/timeline.css?v=120.0" />
   <link rel="stylesheet" href="./src/css/album.css?v=120.0" />
-  <link rel="stylesheet" href="./src/css/segmentos.css?v=140.0" />
+  <link rel="stylesheet" href="./src/css/segmentos.css?v=250.0" />
   <link rel="stylesheet" href="./src/css/responsive.css?v=130.0" />
 
   <!-- ENDCONTROL DESIGN SYSTEM - Estilização Oficial de Destaque (Cards & Rodapé) -->
   <style id="endcontrol-brand-highlights">
-    /* 1. CARDS DA HOME (Segmentos / Áreas de Atuação - Especificação Oficial Anexo 2) */
+    /* 1. CARDS DA HOME (Segmentos / Áreas de Atuação - Efeito Photoshop Duotone: Base Grayscale Luminosa + Camada Oficial #67A8B8 Predominante) */
+    .endo-acc-panel {
+      isolation: isolate !important;
+    }
     .endo-acc-card__img {
-      filter: grayscale(100%) contrast(0.95) !important;
+      position: absolute !important;
+      inset: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
+      filter: grayscale(100%) contrast(1.04) brightness(1.55) !important;
       transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1), filter 0.45s ease !important;
+      z-index: 1 !important;
     }
     .endo-acc-panel:hover .endo-acc-card__img,
     .endo-acc-panel:focus-within .endo-acc-card__img,
     .endo-acc-panel.is-active .endo-acc-card__img {
       transform: scale(1.05) !important;
-      filter: grayscale(20%) contrast(1.05) !important;
+      filter: grayscale(100%) contrast(1.08) brightness(1.65) !important;
     }
+    /* Camada Oficial de Cor #67A8B8 com blend mode Multiply (efeito clássico Photoshop) */
     .endo-acc-card__overlay {
       position: absolute !important;
       inset: 0 !important;
-      background: linear-gradient(
-        to bottom,
-        rgba(33, 166, 188, 0.43) 0%,
-        rgba(7, 27, 44, 0.9) 80%
-      ) !important;
-      z-index: 1 !important;
+      background-color: #67A8B8 !important;
+      mix-blend-mode: multiply !important;
+      z-index: 2 !important;
       pointer-events: none !important;
-      transition: background 0.4s ease !important;
+      transition: background-color 0.4s ease !important;
+    }
+    .endo-acc-panel:hover .endo-acc-card__overlay,
+    .endo-acc-panel:focus-within .endo-acc-card__overlay,
+    .endo-acc-panel.is-active .endo-acc-card__overlay {
+      background-color: #72b9cb !important;
     }
     .endo-acc-card__overlay::before {
       display: none !important;
     }
+    /* Vinheta Baixa Padrão para Cards Fechados/Recolhidos:
+       Não sobe alto! Fica concentrada no terço inferior, mantendo ~70% do card totalmente luminoso e predominante no azul #67A8B8 */
     .endo-acc-panel::after {
-      display: none !important;
+      content: "" !important;
+      position: absolute !important;
+      inset: 0 !important;
+      background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        transparent 62%,
+        rgba(7, 27, 44, 0.35) 75%,
+        rgba(7, 27, 44, 0.80) 86%,
+        rgba(7, 27, 44, 0.98) 100%
+      ) !important;
+      z-index: 3 !important;
+      pointer-events: none !important;
+      display: block !important;
     }
+    /* Vinheta Alta Dinâmica (quando o card abre no hover/ativo com a descrição visível):
+       Sobe suavemente acima do ícone para criar o fundo escuro uniforme ideal para ícone + título + descrição */
+    .endo-acc-panel::before {
+      content: "" !important;
+      position: absolute !important;
+      inset: 0 !important;
+      background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        transparent 36%,
+        rgba(7, 27, 44, 0.45) 50%,
+        rgba(7, 27, 44, 0.85) 64%,
+        rgba(7, 27, 44, 0.96) 78%,
+        rgba(7, 27, 44, 0.99) 100%
+      ) !important;
+      z-index: 4 !important;
+      pointer-events: none !important;
+      opacity: 0 !important;
+      transition: opacity 0.45s cubic-bezier(0.25, 1, 0.5, 1) !important;
+      display: block !important;
+    }
+    .endo-acc-panel:hover::before,
+    .endo-acc-panel:focus-within::before,
+    .endo-acc-panel.is-active::before {
+      opacity: 1 !important;
+    }
+    .endo-acc-row:hover .endo-acc-panel.is-active:not(:hover):not(:focus-within)::before {
+      opacity: 0 !important;
+    }
+    .endo-acc-card__content {
+      position: absolute !important;
+      bottom: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      z-index: 5 !important;
+      padding: 20px 12px 32px !important;
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: flex-end !important;
+      align-items: center !important;
+      text-align: center !important;
+      box-sizing: border-box !important;
+      width: 100% !important;
+      pointer-events: none !important;
+    }
+    /* Ícone nítido, elegante e limpo na cor secundária oficial (#00ACE4 - Azul Claro Tecnológico) */
     .endo-acc-icon {
       width: 32px !important;
       height: 32px !important;
       min-width: 32px !important;
       min-height: 32px !important;
-      color: #21a6bc !important;
-      stroke: #21a6bc !important;
+      color: #00ACE4 !important;
+      stroke: #00ACE4 !important;
       background: transparent !important;
       border: none !important;
       border-radius: 0 !important;
       padding: 0 !important;
-      margin-bottom: 8px !important;
+      margin-bottom: 10px !important;
       flex-shrink: 0 !important;
-      stroke-width: 1.85px !important;
+      stroke-width: 2px !important;
       transition: all 0.35s ease !important;
-      filter: drop-shadow(0 0 6px rgba(33, 166, 188, 0.5)) !important;
+      filter: drop-shadow(0 2px 4px rgba(0, 172, 228, 0.5)) !important;
     }
     .endo-acc-panel:hover .endo-acc-icon,
     .endo-acc-panel:focus-within .endo-acc-icon,
     .endo-acc-panel.is-active .endo-acc-icon {
-      color: #00d2ff !important;
-      stroke: #00d2ff !important;
+      color: #00ACE4 !important;
+      stroke: #00ACE4 !important;
       transform: translateY(-2px) scale(1.1) !important;
-      filter: drop-shadow(0 0 10px rgba(0, 210, 255, 0.7)) !important;
+      filter: drop-shadow(0 0 8px rgba(0, 172, 228, 0.85)) !important;
     }
     .endo-acc-row:hover .endo-acc-panel.is-active:not(:hover):not(:focus-within) .endo-acc-icon {
       transform: scale(1) !important;
-      color: #21a6bc !important;
-      stroke: #21a6bc !important;
-      filter: drop-shadow(0 0 6px rgba(33, 166, 188, 0.5)) !important;
+      color: #00ACE4 !important;
+      stroke: #00ACE4 !important;
+      filter: drop-shadow(0 2px 4px rgba(0, 172, 228, 0.5)) !important;
+    }
+    .endo-acc-card__title {
+      font-size: 13.5px !important;
+      word-break: keep-all !important;
+      overflow-wrap: normal !important;
+      hyphens: none !important;
+    }
+    .endo-acc-panel:hover .endo-acc-card__title,
+    .endo-acc-panel:focus-within .endo-acc-card__title,
+    .endo-acc-panel.is-active .endo-acc-card__title {
+      font-size: 18px !important;
+      font-weight: 700 !important;
+    }
+    .endo-acc-row:hover .endo-acc-panel.is-active:not(:hover):not(:focus-within) .endo-acc-card__title {
+      font-size: 13.5px !important;
+      font-weight: 600 !important;
+    }
+    .endo-acc-card__extra {
+      max-height: 0 !important;
+      opacity: 0 !important;
+      overflow: hidden !important;
+      transition: max-height 0.4s cubic-bezier(0.25, 1, 0.5, 1),
+                  opacity 0.3s ease 0.05s,
+                  margin-top 0.3s ease !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      width: 100% !important;
+    }
+    .endo-acc-panel:hover .endo-acc-card__extra,
+    .endo-acc-panel:focus-within .endo-acc-card__extra,
+    .endo-acc-panel.is-active .endo-acc-card__extra {
+      max-height: 120px !important;
+      opacity: 1 !important;
+      margin-top: 10px !important;
+    }
+    .endo-acc-row:hover .endo-acc-panel.is-active:not(:hover):not(:focus-within) .endo-acc-card__extra {
+      max-height: 0 !important;
+      opacity: 0 !important;
+      margin-top: 0 !important;
+    }
+    .endo-acc-card__desc {
+      font-size: 13.5px !important;
+      color: rgba(255, 255, 255, 0.95) !important;
+      line-height: 1.5 !important;
+      text-align: center !important;
+    }
+    @media (max-width: 860px) {
+      .segmentos-secao .endo-acc-panel::before {
+        opacity: 1 !important;
+      }
     }
   </style>
 
@@ -439,96 +563,57 @@
 
     </section>
 
-    <!-- Faixa de indicadores entre o Hero e a seção Sobre (Carrossel Dinâmico com Contador) -->
-    <div class="hero-benefits-bar" role="region" aria-label="Indicadores de performance e credenciais EndControl">
-      <div class="hero-indicators-viewport">
-        <div class="hero-indicators-track" id="heroIndicatorsTrack">
-          <!-- Indicador 1 -->
-          <div class="benefit-item" data-target="18" data-prefix="+" data-suffix=" anos">
-            <div class="benefit-text-box">
-              <span class="benefit-title">+18 anos</span>
-              <span class="benefit-desc">de experiência</span>
+    <!-- Faixa de indicadores entre o Hero e a seção Sobre (Carrossel Interativo com Contador Individual) -->
+    <div class="hero-benefits-bar theme-color-a" id="heroBenefitsBar" role="region" aria-label="Indicadores de performance e credenciais EndControl">
+      <!-- Seta Anterior Minimalista -->
+      <button class="hero-ind-nav hero-ind-nav--prev" id="heroIndPrevBtn" type="button" aria-label="Indicador anterior">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+      </button>
+
+      <!-- Viewport / Stage -->
+      <div class="hero-ind-viewport" id="heroIndViewport">
+        <div class="hero-ind-stage" id="heroIndStage">
+          <!-- Grupo 1 pré-renderizado no HTML para SEO e CLS zero -->
+          <div class="hero-ind-row" data-group="0">
+            <div class="hero-stat benefit-item active" data-index="0">
+              <button class="hero-focus-zone focus-zone" type="button" aria-label="Focar de experiência">
+                <span class="hero-stat-num benefit-title"><span class="hero-stat-num-inner num-inner">+18 anos</span></span>
+                <span class="hero-stat-label benefit-desc">de experiência</span>
+              </button>
+              <div class="hero-mini-progress" aria-hidden="true"><i></i></div>
             </div>
-          </div>
-          <!-- Indicador 2 -->
-          <div class="benefit-item" data-target="300" data-prefix="+">
-            <div class="benefit-text-box">
-              <span class="benefit-title">+300</span>
-              <span class="benefit-desc">especialistas técnicos</span>
+            <div class="hero-stat benefit-item" data-index="1">
+              <button class="hero-focus-zone focus-zone" type="button" aria-label="Focar especialistas técnicos">
+                <span class="hero-stat-num benefit-title"><span class="hero-stat-num-inner num-inner">+300</span></span>
+                <span class="hero-stat-label benefit-desc">especialistas técnicos</span>
+              </button>
+              <div class="hero-mini-progress" aria-hidden="true"><i></i></div>
             </div>
-          </div>
-          <!-- Indicador 3 -->
-          <div class="benefit-item" data-target="100" data-suffix="%">
-            <div class="benefit-text-box">
-              <span class="benefit-title">100%</span>
-              <span class="benefit-desc">atuação em todo o Brasil</span>
+            <div class="hero-stat benefit-item" data-index="2">
+              <button class="hero-focus-zone focus-zone" type="button" aria-label="Focar atuação em todo o Brasil">
+                <span class="hero-stat-num benefit-title"><span class="hero-stat-num-inner num-inner">100%</span></span>
+                <span class="hero-stat-label benefit-desc">atuação em todo o Brasil</span>
+              </button>
+              <div class="hero-mini-progress" aria-hidden="true"><i></i></div>
             </div>
-          </div>
-          <!-- Indicador 4 -->
-          <div class="benefit-item" data-target="1250" data-prefix="+" data-format="thousands">
-            <div class="benefit-text-box">
-              <span class="benefit-title">+1.250</span>
-              <span class="benefit-desc">projetos entregues</span>
-            </div>
-          </div>
-          <!-- Indicador 5 -->
-          <div class="benefit-item" data-target="120" data-prefix="+">
-            <div class="benefit-text-box">
-              <span class="benefit-title">+120</span>
-              <span class="benefit-desc">grandes clientes atendidos</span>
-            </div>
-          </div>
-          <!-- Indicador 6 -->
-          <div class="benefit-item" data-target="0" data-suffix="%">
-            <div class="benefit-text-box">
-              <span class="benefit-title">0%</span>
-              <span class="benefit-desc">paradas não programadas</span>
-            </div>
-          </div>
-          <!-- Indicador 7 -->
-          <div class="benefit-item" data-target="50" data-prefix="+" data-suffix=" mil">
-            <div class="benefit-text-box">
-              <span class="benefit-title">+50 mil</span>
-              <span class="benefit-desc">horas de inspeção e ensaios</span>
-            </div>
-          </div>
-          <!-- Indicador 8 -->
-          <div class="benefit-item" data-target="100" data-suffix="%">
-            <div class="benefit-text-box">
-              <span class="benefit-title">100%</span>
-              <span class="benefit-desc">conformidade com NRs e ASME</span>
-            </div>
-          </div>
-          <!-- Indicador 9 -->
-          <div class="benefit-item" data-target="500" data-prefix="+">
-            <div class="benefit-text-box">
-              <span class="benefit-title">+500</span>
-              <span class="benefit-desc">laudos e perícias emitidos</span>
-            </div>
-          </div>
-          <!-- Indicador 10 -->
-          <div class="benefit-item" data-static="24/7">
-            <div class="benefit-text-box">
-              <span class="benefit-title">24/7</span>
-              <span class="benefit-desc">prontidão operacional</span>
-            </div>
-          </div>
-          <!-- Indicador 11 -->
-          <div class="benefit-item" data-static="ISO 9001">
-            <div class="benefit-text-box">
-              <span class="benefit-title">ISO 9001</span>
-              <span class="benefit-desc">qualidade e rigor certificados</span>
-            </div>
-          </div>
-          <!-- Indicador 12 -->
-          <div class="benefit-item" data-target="15000" data-prefix="+" data-format="thousands">
-            <div class="benefit-text-box">
-              <span class="benefit-title">+15.000</span>
-              <span class="benefit-desc">ativos industriais avaliados</span>
+            <div class="hero-stat benefit-item" data-index="3">
+              <button class="hero-focus-zone focus-zone" type="button" aria-label="Focar projetos entregues">
+                <span class="hero-stat-num benefit-title"><span class="hero-stat-num-inner num-inner">+1.250</span></span>
+                <span class="hero-stat-label benefit-desc">projetos entregues</span>
+              </button>
+              <div class="hero-mini-progress" aria-hidden="true"><i></i></div>
             </div>
           </div>
         </div>
       </div>
+
+      <!-- Seta Próximo Minimalista -->
+      <button class="hero-ind-nav hero-ind-nav--next" id="heroIndNextBtn" type="button" aria-label="Próximo indicador">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+      </button>
+
+      <!-- Dots Indicadores de Grupos -->
+      <div class="hero-ind-dots" id="heroIndDots" role="tablist" aria-label="Grupos de indicadores"></div>
     </div>
 
     <!-- ════════════════════════════════════════════════════════════════════════
@@ -666,6 +751,7 @@
 
         <svg class="radar-card-connector" id="radarCardConnector" viewBox="0 0 1 1" preserveAspectRatio="none" aria-hidden="true">
           <path id="radarCardConnectorPath" class="radar-card-connector-path" d="" />
+          <circle id="radarConnectorNodeDot" class="radar-connector-node-dot" cx="0" cy="0" r="4.5" />
         </svg>
 
         <!-- COL CENTRAL — ORBITAL RADAR -->
@@ -693,33 +779,102 @@
           </div>
         </div>
 
-        <!-- COL DIREITA — Card -->
+        <!-- COL DIREITA — Card Principal Protagonista -->
         <div class="solucoes-right-col">
-          <div class="highlight-card-wrapper">
-            <!-- Minimalist Vertical-Center Arrow Controls -->
-            <button type="button" class="card-side-arrow prev" id="cardSidePrev" aria-label="Solução anterior">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-            </button>
-            <button type="button" class="card-side-arrow next" id="cardSideNext" aria-label="Próxima solução">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-            </button>
+          <div class="solucoes-outer-panel highlight-card-wrapper">
+            <div class="panel-hud-corner panel-hud-corner--tl" aria-hidden="true"></div>
+            <div class="panel-hud-corner panel-hud-corner--br" aria-hidden="true"></div>
 
+            <!-- Cabeçalho da Camada Externa: NOSSAS SOLUÇÕES + Contador + Botões Prev/Next -->
+            <div class="card-header-bar">
+              <div class="card-header-eyebrow">
+                <span class="card-header-line" aria-hidden="true"></span>
+                <span class="card-header-label">NOSSAS SOLUÇÕES</span>
+              </div>
+              <div class="card-header-controls">
+                <span class="card-counter" id="cardCounter" aria-label="Contador de soluções">01 / 12</span>
+                <div class="card-nav-buttons">
+                  <button type="button" class="card-side-arrow prev" id="cardSidePrev" aria-label="Solução anterior">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+                  </button>
+                  <button type="button" class="card-side-arrow next" id="cardSideNext" aria-label="Próxima solução">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card Principal Protagonista Branco (Camada Flutuante) -->
             <div class="highlight-card" id="highlightCard">
-              <div class="highlight-card-image">
-                <img id="cardImage" src="./assets/Fotografias/originais-16-9/endcontrol-inspecao-integridade-dutos-adutoras-sensores-campo.webp" alt="Engenharia de Integridade Estrutural" />
-                <div class="highlight-card-image-overlay"></div>
+
+              <!-- Conteúdo interno: 2 colunas -->
+              <div class="highlight-card-grid">
+                <!-- Coluna Esquerda: Imagem Grande + Tag + Benefícios -->
+                <div class="card-media-col">
+                  <div class="highlight-card-image">
+                    <img id="cardImage" src="./assets/Fotografias/originais-16-9/endcontrol-inspecao-integridade-dutos-adutoras-sensores-campo.webp" alt="Engenharia de Integridade Estrutural" />
+                    <div class="highlight-card-image-overlay"></div>
+                    <div class="card-image-badge" id="cardImageBadge">
+                      <span class="badge-icon-circle">
+                        <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                      </span>
+                      <span id="cardImageTag">INTEGRIDADE</span>
+                    </div>
+                  </div>
+
+                  <!-- Faixa de benefícios inferiores -->
+                  <div class="card-benefits-strip">
+                    <div class="benefit-item">
+                      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                      <div class="benefit-text">
+                        <span class="benefit-word">MAIS</span>
+                        <span class="benefit-word">SEGURANÇA</span>
+                      </div>
+                    </div>
+                    <div class="benefit-separator" aria-hidden="true"></div>
+                    <div class="benefit-item">
+                      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                      <div class="benefit-text">
+                        <span class="benefit-word">MAIOR</span>
+                        <span class="benefit-word">DISPONIBILIDADE</span>
+                      </div>
+                    </div>
+                    <div class="benefit-separator" aria-hidden="true"></div>
+                    <div class="benefit-item">
+                      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>
+                      <div class="benefit-text">
+                        <span class="benefit-word">OPERAÇÃO</span>
+                        <span class="benefit-word">CONFIÁVEL</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Coluna Direita: Categoria + Título + Descrição + Lista de Tópicos + CTA -->
+                <div class="highlight-card-body" id="cardBody" role="region" aria-live="polite" aria-labelledby="cardTitle">
+                  <div class="card-category-row">
+                    <span class="card-category-icon" id="cardCategoryIcon">
+                      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </span>
+                    <span class="card-category-label" id="cardCategoryLabel">INTEGRIDADE E CONFIABILIDADE</span>
+                  </div>
+                  <h3 class="highlight-card-title" id="cardTitle">Engenharia de Integridade Estrutural</h3>
+                  <p class="highlight-card-desc" id="cardDesc">Gestão completa de empreendimentos industriais com foco em prazos, custos e padrões de qualidade.</p>
+                  <ul class="highlight-card-list" id="cardList">
+                    <li><span class="card-list-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></span><span class="card-list-text">Planejamento e controle de escopo</span></li>
+                    <li><span class="card-list-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></span><span class="card-list-text">Gestão de riscos e contingências</span></li>
+                    <li><span class="card-list-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></span><span class="card-list-text">Acompanhamento físico-financeiro</span></li>
+                    <li><span class="card-list-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></span><span class="card-list-text">Relatórios executivos e dashboards</span></li>
+                  </ul>
+                  <div class="card-cta-wrapper">
+                    <a href="1-solucao-engenharia-de-integridade-estrutural.html" class="highlight-card-cta" id="cardCta">Saiba Mais <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+                  </div>
+                </div>
               </div>
-              <div class="highlight-card-body" id="cardBody" role="region" aria-live="polite" aria-labelledby="cardTitle">
-                <h3 class="highlight-card-title" id="cardTitle">Engenharia de Integridade Estrutural</h3>
-                <p class="highlight-card-desc" id="cardDesc">Gestão completa de empreendimentos industriais com foco em prazos, custos e padrões de qualidade.</p>
-                <ul class="highlight-card-list" id="cardList">
-                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Planejamento e controle de escopo</li>
-                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Gestão de riscos e contingências</li>
-                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Acompanhamento físico-financeiro</li>
-                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Relatórios executivos e dashboards</li>
-                </ul>
-                <a href="1-solucao-engenharia-de-integridade-estrutural.html" class="highlight-card-cta" id="cardCta">Saiba Mais <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-              </div>
+            </div>
+
+            <!-- Trilho de Paginação Inferior da Camada Externa -->
+            <div class="panel-progress-wrapper">
               <div class="card-progress" id="cardProgress"></div>
             </div>
           </div>

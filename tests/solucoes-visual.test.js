@@ -98,25 +98,19 @@ test('centers the radar-card composition and renders a connector for the selecte
   assert.match(solutionsScript, /radarCardConnectorPath\.setAttribute\(\s*'d',\s*`M[\s\S]*?L \$\{/);
 });
 
-test('prioritizes the radar over the solution card on desktop', () => {
-  assert.match(styles, /@media \(min-width: 1441px\)\s*\{[\s\S]*?grid-template-columns:\s*minmax\(0,\s*860px\)\s+340px[\s\S]*?gap:\s*32px[\s\S]*?\}/i);
-  assert.match(styles, /@media \(min-width: 1441px\)\s*\{[\s\S]*?\.solucoes-center-area\s*\{[\s\S]*?max-width:\s*min\(860px,\s*82vh\)[\s\S]*?\}/i);
-  assert.match(styles, /@media \(min-width: 1441px\)\s*\{[\s\S]*?\.highlight-card(?:-wrapper)?\s*\{[\s\S]*?max-width:\s*300px[\s\S]*?\}/i);
-  assert.match(styles, /@media \(min-width: 1201px\) and \(max-width: 1440px\)\s*\{[\s\S]*?\.highlight-card(?:-wrapper)?\s*\{[\s\S]*?max-width:\s*280px[\s\S]*?\}/i);
-  assert.match(styles, /@media \(min-width: 992px\) and \(max-width: 1200px\)\s*\{[\s\S]*?\.highlight-card(?:-wrapper)?\s*\{[\s\S]*?max-width:\s*260px[\s\S]*?\}/i);
-  assert.match(styles, /@media \(min-width: 992px\)\s*\{[\s\S]*?\.highlight-card-image\s*\{[\s\S]*?height:\s*145px[\s\S]*?\}[\s\S]*?\.highlight-card-title\s*\{[\s\S]*?font-size:\s*15px[\s\S]*?\}/i);
-  assert.match(styles, /@media \(min-width: 992px\)\s*\{[\s\S]*?\.highlight-card\s*\{[\s\S]*?height:\s*500px[\s\S]*?display:\s*flex/i);
-  assert.match(styles, /@media \(min-width: 992px\)\s*\{[\s\S]*?\.highlight-card-title\s*\{[\s\S]*?min-height:\s*38px/i);
-  assert.match(styles, /@media \(min-width: 992px\)\s*\{[\s\S]*?\.highlight-card-desc\s*\{[\s\S]*?min-height:\s*65px/i);
-  assert.match(styles, /@media \(min-width: 992px\)\s*\{[\s\S]*?\.highlight-card-desc\s*\{[\s\S]*?margin-bottom:\s*4px/i);
-  assert.match(styles, /@media \(min-width: 992px\)\s*\{[\s\S]*?\.highlight-card-list\s*\{[\s\S]*?min-height:\s*120px/i);
-  assert.match(styles, /@media \(min-width: 992px\)\s*\{[\s\S]*?\.highlight-card-list\s*\{[\s\S]*?margin:\s*8px\s+0\s+22px/i);
-  assert.match(styles, /@media \(min-width: 992px\)\s*\{[\s\S]*?\.highlight-card-list li\s*\{[\s\S]*?line-height:\s*1\.35/i);
-  assert.match(styles, /@media \(min-width: 992px\)\s*\{[\s\S]*?\.highlight-card-body\s*\{[\s\S]*?padding:\s*13px\s+28px\s+14px/i);
-  assert.match(styles, /\.highlight-card-desc\s*\{[\s\S]*?font-size:\s*12px/i);
-  assert.match(styles, /\.highlight-card-list li\s*\{[\s\S]*?font-size:\s*10px/i);
-  assert.match(styles, /\.highlight-card-cta\s*\{[\s\S]*?font-size:\s*12px/i);
-  assert.match(styles, /@media \(min-width: 1201px\) and \(max-width: 1440px\)\s*\{[\s\S]*?grid-template-columns:\s*minmax\(0,\s*740px\)\s+320px[\s\S]*?\}/i);
+test('prioritizes the solution card over the radar on desktop', () => {
+  assert.match(styles, /@media \(min-width: 1441px\)\s*\{[\s\S]*?grid-template-columns:\s*minmax\(360px,\s*36%\)\s+minmax\(0,\s*1fr\)/i);
+  assert.match(styles, /@media \(min-width: 1441px\)\s*\{[\s\S]*?\.solucoes-center-area\s*\{[\s\S]*?max-width:\s*490px/i);
+  assert.match(styles, /@media \(min-width: 1441px\)\s*\{[\s\S]*?\.highlight-card(?:-wrapper)?\s*\{[\s\S]*?max-width:\s*1060px/i);
+  assert.match(styles, /@media \(min-width: 1201px\) and \(max-width: 1440px\)\s*\{[\s\S]*?grid-template-columns:\s*minmax\(330px,\s*36%\)\s+minmax\(0,\s*1fr\)/i);
+  assert.match(styles, /@media \(min-width: 1201px\) and \(max-width: 1440px\)\s*\{[\s\S]*?\.solucoes-center-area\s*\{[\s\S]*?max-width:\s*450px/i);
+  assert.match(styles, /@media \(min-width: 992px\) and \(max-width: 1200px\)\s*\{[\s\S]*?grid-template-columns:\s*minmax\(290px,\s*34%\)\s+minmax\(0,\s*1fr\)/i);
+  assert.match(styles, /@media \(min-width: 992px\) and \(max-width: 1200px\)\s*\{[\s\S]*?\.solucoes-center-area\s*\{[\s\S]*?max-width:\s*380px/i);
+  assert.match(styles, /\.highlight-card-title\s*\{[\s\S]*?font-size:\s*clamp\(30px,\s*2\.2vw,\s*46px\)/i);
+  assert.match(styles, /\.highlight-card-title\s*\{[\s\S]*?font-weight:\s*750/i);
+  assert.match(styles, /\.highlight-card-desc\s*\{[\s\S]*?text-align:\s*justify/i);
+  assert.match(styles, /\.highlight-card-cta\s*\{[\s\S]*?height:\s*56px/i);
+  assert.match(styles, /\.highlight-card-grid\s*\{[\s\S]*?grid-template-columns:\s*48%\s+52%/i);
 });
 
 test('torna a navegação do card acessível por teclado e leitura assistiva', () => {

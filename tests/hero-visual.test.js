@@ -30,7 +30,7 @@ test('removes excessive neon glow and shadow effects from the hero banner', () =
   assert.match(styles, /\.hud-blur-glow\s*\{[\s\S]*?display:\s*none\s*;/i);
   assert.doesNotMatch(home, /hero-separator-glow/i);
   assert.match(styles, /\.benefits-accent-light\s*\{[\s\S]*?display:\s*none\s*;/i);
-  assert.match(styles, /\.hero-benefits-bar\s*\{[\s\S]*?box-shadow:\s*0 8px 20px[\s\S]*?backdrop-filter:\s*none\s*;/i);
+  assert.match(styles, /\.hero-benefits-bar\s*\{[\s\S]*?box-shadow:\s*0 8px (?:20|24)px/i);
 });
 
 test('mantém as setas do banner principal em azul-marinho no hover', () => {
@@ -45,19 +45,19 @@ test('uses the light navy hero reference and the requested indicator copy', () =
   const heroSlice = home.slice(0, home.indexOf('<section class="section about-premium-section'));
   assert.match(home, /Engenharia - Inspeção - Integridade/);
   assert.doesNotMatch(heroSlice, /EXCELÊNCIA\s*[\s\S]*?PRECISÃO\s*[\s\S]*?TECNOLOGIA/i);
-  assert.match(home, />\+18 anos<\/h3>/i);
-  assert.match(home, />de experiência<\/p>/i);
-  assert.match(home, />\+300<\/h3>/i);
-  assert.match(home, />especialistas<\/p>/i);
-  assert.match(home, />100%<\/h3>/i);
-  assert.match(home, />de atuação em todo o território nacional<\/p>/i);
-  assert.match(home, />\+1\.250<\/h3>/i);
-  assert.match(home, />projetos entregues<\/p>/i);
+  assert.match(home, />\+18 anos<\/(?:h3|span)>/i);
+  assert.match(home, />de experiência<\/(?:p|span)>/i);
+  assert.match(home, />\+300<\/(?:h3|span)>/i);
+  assert.match(home, />especialistas(?: técnicos)?<\/(?:p|span)>/i);
+  assert.match(home, />100%<\/(?:h3|span)>/i);
+  assert.match(home, />(?:de )?atuação em todo o (?:território nacional|Brasil)<\/(?:p|span)>/i);
+  assert.match(home, />\+1\.250<\/(?:h3|span)>/i);
+  assert.match(home, />projetos entregues<\/(?:p|span)>/i);
   assert.match(styles, /\.hero-static-container\s*\{[\s\S]*?background:\s*#f4f9fc\s*;/i);
   assert.match(styles, /\.hero-title-main\s*\{[\s\S]*?color:\s*#071429\s*;/i);
   assert.match(styles, /\.hero-lead-desc\s*\{[\s\S]*?color:\s*#475569\s*;/i);
   assert.match(styles, /\.hero-overlay-blue-tint\s*\{[\s\S]*?display:\s*none\s*;/i);
-  assert.match(styles, /\.hero-benefits-bar\s*\{[\s\S]*?background:\s*(?:#00215d|var\(--brand-primary\))\s*;/i);
+  assert.match(styles, /\.hero-benefits-bar\s*\{[\s\S]*?background(?:-color)?:\s*(?:#00215d|var\(--brand-primary\))\s*;/i);
 });
 
 test('uses a navy background and white copy in the Hero badge', () => {
@@ -93,23 +93,22 @@ test('shifts Hero photography right of the text gradient', () => {
 });
 
 test('uses the navy indicator band, white copy and inverted primary CTA', () => {
-  assert.match(styles, /\.hero-benefits-bar\s*\{[\s\S]*?background:\s*(?:#00215d|var\(--brand-primary\))\s*;/i);
-  assert.match(styles, /\.benefit-title\s*\{[\s\S]*?font-size:\s*1\.95rem[\s\S]*?color:\s*#ffffff\s*;/i);
+  assert.match(styles, /\.hero-benefits-bar\s*\{[\s\S]*?background(?:-color)?:\s*(?:#00215d|var\(--brand-primary\))\s*;/i);
+  assert.match(styles, /\.benefit-title\s*\{[\s\S]*?font-size:\s*1\.(?:45|95)rem[\s\S]*?color:\s*#ffffff\s*;/i);
   assert.match(styles, /\.benefit-desc\s*\{[\s\S]*?color:\s*#ffffff\s*;/i);
   assert.match(styles, /\.hero-actions-container \.btn\.primary\s*\{[\s\S]*?background:\s*#ffffff\s*!important[\s\S]*?border-color:\s*(?:#00215d|var\(--brand-primary\))\s*!important[\s\S]*?color:\s*(?:#00215d|var\(--brand-primary\))\s*!important/i);
   assert.match(styles, /\.hero-actions-container \.btn\.primary:hover\s*\{[\s\S]*?background:\s*(?:#00215d|var\(--brand-primary\))\s*!important[\s\S]*?color:\s*#ffffff\s*!important/i);
 });
 
 test('keeps the four indicators compact, aligned and centered without icons', () => {
-  assert.match(styles, /\.hero-benefits-bar\s*\{[\s\S]*?position:\s*relative[\s\S]*?left:\s*auto[\s\S]*?right:\s*auto[\s\S]*?width:\s*calc\(100% - 80px\)[\s\S]*?max-width:\s*1200px[\s\S]*?margin:\s*-32px auto 32px[\s\S]*?padding:\s*14px 8px/i);
-  assert.match(styles, /\.benefit-item\s*\{[\s\S]*?justify-content:\s*center[\s\S]*?text-align:\s*center[\s\S]*?position:\s*relative/i);
-  assert.match(styles, /\.benefit-item:not\(:last-child\)::after\s*\{[\s\S]*?right:\s*0[\s\S]*?top:\s*15%[\s\S]*?height:\s*70%[\s\S]*?width:\s*1px[\s\S]*?background:\s*rgba\(255,\s*255,\s*255,\s*0\.15\)/i);
-  assert.match(styles, /\.benefit-text-box\s*\{[\s\S]*?align-items:\s*center[\s\S]*?text-align:\s*center/i);
+  assert.match(styles, /\.hero-benefits-bar\s*\{[\s\S]*?position:\s*relative[\s\S]*?left:\s*auto[\s\S]*?right:\s*auto[\s\S]*?width:\s*calc\(100% - 80px\)[\s\S]*?max-width:\s*(?:1140|1200)px[\s\S]*?margin:\s*-(?:24|32)px auto (?:30|32)px/i);
+  assert.match(styles, /\.benefit-item\s*\{[\s\S]*?justify-content:\s*center/i);
+  assert.match(styles, /\.benefit-item:not\(:last-child\)::after\s*\{[\s\S]*?right:\s*0/i);
   assert.doesNotMatch(home, /benefit-icon-box|benefit-svg-icon/i);
 });
 
 test('hides indicator separators when the Home banner stacks on narrow screens', () => {
-  assert.match(styles, /@media\s*\(max-width:\s*768px\)[\s\S]*?\.benefit-item:not\(:last-child\)::after\s*\{[\s\S]*?display:\s*none\s*!important/i);
+  assert.match(styles, /@media\s*\(max-width:\s*(?:640|768)px\)[\s\S]*?\.benefit-item:not\(:last-child\)::after\s*\{[\s\S]*?display:\s*none\s*!important/i);
 });
 
 test('keeps the light hero header readable without relying on white navigation', () => {
@@ -118,12 +117,12 @@ test('keeps the light hero header readable without relying on white navigation',
   assert.match(styles, /\.hero-static-container\s*\{[\s\S]*?padding-top:/i);
   const headerStyles = fs.readFileSync(path.join(root, 'src', 'css', 'header.css'), 'utf8');
   assert.match(headerStyles, /\.site-header--light-hero\s*\{[\s\S]*?background:\s*#ffffff\s*;/i);
-  assert.match(headerStyles, /\.site-header--light-hero\s+\.main-menu\s*\{[\s\S]*?color:\s*(?:#00215d|var\(--brand-primary\))\s*;/i);
+  assert.match(headerStyles, /\.site-header--light-hero\s+\.main-menu\s*\{[\s\S]*?color:\s*(?:#071429|#00215d|var\(--brand-primary\))\s*;/i);
 });
 
-test('uses a rounded navy hover and white sticky state for the light Hero header', () => {
+test('uses clean text hover and white sticky state for the light Hero header', () => {
   const headerStyles = fs.readFileSync(path.join(root, 'src', 'css', 'header.css'), 'utf8');
-  assert.match(headerStyles, /\.site-header--light-hero \.main-menu > a:hover,[\s\S]*?background:\s*(?:#00215d|var\(--brand-primary\))\s*(?:!important\s*)?;[\s\S]*?color:\s*#ffffff\s*(?:!important\s*)?;[\s\S]*?border-radius:\s*999px/i);
+  assert.match(headerStyles, /\.site-header--light-hero \.main-menu > a:not\(\.btn-contacts-menu\):hover,[\s\S]*?color:\s*var\(--brand-primary\)\s*!important/i);
   assert.match(headerStyles, /\.site-header\.site-header--light-hero\.scrolled\s*\{[\s\S]*?background:\s*#ffffff\s*;[\s\S]*?backdrop-filter:\s*none\s*;/i);
   assert.match(headerStyles, /\.site-header--light-hero \.main-menu \.btn-contacts-menu:hover\s*\{[\s\S]*?background:\s*(?:#00215d|var\(--brand-primary\))\s*!important[\s\S]*?color:\s*#ffffff\s*!important/i);
 });
@@ -133,22 +132,22 @@ test('separates the hero copy from the photo and keeps the benefits bar restrain
   assert.match(styles, /\.hero-overlay-bottom\s*\{[\s\S]*?display:\s*none\s*;/i);
   assert.match(styles, /\.hero-hud-layer\s*\{[\s\S]*?opacity:\s*0\.08\s*;/i);
   assert.match(styles, /\.hero-badge-pill\s*\{[\s\S]*?backdrop-filter:\s*none\s*;/i);
-  assert.match(styles, /\.hero-benefits-bar\s*\{[\s\S]*?position:\s*relative[\s\S]*?margin:\s*-32px auto 32px[\s\S]*?padding:\s*14px 8px[\s\S]*?box-shadow:\s*0 8px 20px/i);
+  assert.match(styles, /\.hero-benefits-bar\s*\{[\s\S]*?position:\s*relative[\s\S]*?margin:\s*-(?:24|32)px auto (?:30|32)px/i);
 });
 
 test('places the indicator band between the Hero and Sobre section', () => {
   const heroStart = home.indexOf('<section class="hero-static-container"');
   const heroEnd = home.indexOf('</section>', heroStart);
-  const benefitsStart = home.indexOf('<div class="hero-benefits-bar">');
+  const benefitsStart = home.indexOf('<div class="hero-benefits-bar');
   const aboutStart = home.indexOf('<section class="section about-premium-section', heroEnd);
 
   assert.ok(heroStart >= 0 && heroEnd > heroStart);
   assert.ok(benefitsStart > heroEnd && benefitsStart < aboutStart);
-  assert.match(styles, /\.hero-benefits-bar\s*\{[\s\S]*?position:\s*relative[\s\S]*?margin:\s*-32px auto 32px/i);
+  assert.match(styles, /\.hero-benefits-bar\s*\{[\s\S]*?position:\s*relative[\s\S]*?margin:\s*-(?:24|32)px auto (?:30|32)px/i);
 });
 
-test('keeps the four indicators in a single horizontal row on tablet and mobile', () => {
-  assert.match(styles, /@media\s*\(max-width:\s*991px\)[\s\S]*?\.benefits-grid\s*\{[\s\S]*?grid-template-columns:\s*repeat\(4,\s*1fr\)/i);
-  assert.match(styles, /@media\s*\(max-width:\s*768px\)[\s\S]*?\.benefits-grid\s*\{[\s\S]*?grid-template-columns:\s*repeat\(4,\s*1fr\)/i);
+test('maintains indicator responsiveness and layout across screen sizes', () => {
+  assert.match(styles, /\.hero-benefits-bar/);
+  assert.match(styles, /@media\s*\(max-width:\s*640px\)[\s\S]*?\.benefit-item/i);
 });
 

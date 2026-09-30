@@ -24,7 +24,7 @@ test('uses white project subitems with navy hover', () => {
   assert.match(styles, /\.submenuzinho-item:hover\s*\{[\s\S]*?background:\s*(?:#00215d|var\(--brand-primary\))\s*!important[\s\S]*?color:\s*#ffffff\s*!important/i);
 });
 
-test('keeps internal solution navigation text white on navy active and hover states', () => {
+test('keeps clean navigation text color on hover and active states without pill background', () => {
   assert.doesNotMatch(
     styles,
     /\.site-header--light-hero\s+\.drop-link\.active\s*\{[^}]*color:\s*#0066ff/i,
@@ -32,8 +32,8 @@ test('keeps internal solution navigation text white on navy active and hover sta
   );
   assert.match(
     styles,
-    /\.site-header--light-hero\s+\.drop-link:hover\s*\{[^}]*color:\s*#ffffff\s*!important/i,
-    'the internal solutions link hover must override legacy inline colors'
+    /\.site-header--light-hero\s+\.drop-link:hover\s*\{[^}]*color:\s*var\(--brand-primary\)\s*!important/i,
+    'the internal solutions link hover must use brand-primary'
   );
 });
 

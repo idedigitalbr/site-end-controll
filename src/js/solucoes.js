@@ -210,6 +210,21 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   ];
 
+  const serviceCategories = [
+    { tag: 'INTEGRIDADE', category: 'INTEGRIDADE E CONFIABILIDADE', icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>` },
+    { tag: 'OAE', category: 'INFRAESTRUTURA & ESTRUTURAS ESPECIAIS', icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20"/><path d="M4 20v-4"/><path d="M8 20v-8"/><path d="M12 20V8"/><path d="M16 20v-8"/><path d="M20 20v-4"/><path d="M4 16l4-4 4 0 4 0 4 4"/><path d="M8 12l4-4 4 4"/></svg>` },
+    { tag: 'END', category: 'INTEGRIDADE E CONFIABILIDADE', icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M3 10h18M5 10v11M19 10v11M9 10v11M15 10v11M12 2l10 5H2l10-5z"/></svg>` },
+    { tag: 'SOLDAGEM', category: 'QUALIFICAÇÃO & CONFORMIDADE', icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 3z"/></svg>` },
+    { tag: 'GESTÃO', category: 'GESTÃO & GOVERNANÇA TÉCNICA', icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4"/><path d="M12 16h4"/></svg>` },
+    { tag: 'PROJETOS', category: 'ENGENHARIA MECÂNICA & MODELAGEM', icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>` },
+    { tag: 'TECNOLOGIA', category: 'INOVAÇÃO & DIAGNÓSTICO', icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>` },
+    { tag: 'NR-13', category: 'CONFORMIDADE & NORMAS REGULAMENTADORAS', icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>` },
+    { tag: 'CALIBRAÇÃO', category: 'METROLOGIA & RASTREABILIDADE RBC', icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 12l3-3"/><path d="M8 16a5 5 0 0 1 0-7"/></svg>` },
+    { tag: 'HOT TAPPING', category: 'INTERVENÇÃO EM CARGA', icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="3" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="21"/></svg>` },
+    { tag: 'MATERIAIS', category: 'CONTROLE DE QUALIDADE & LABORATÓRIO', icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>` },
+    { tag: 'CONSULTORIA', category: 'ASSESSORIA TÉCNICA ESPECIALIZADA', icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>` }
+  ];
+
   const serviceOrder = [4, 1, 2, 3, 0, 11, 5, 6, 7, 8, 9, 10];
   const RING_SIZE = 6;
   const servicesData = serviceOrder.map((sourceIndex, stepIndex) => {
@@ -217,9 +232,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const ringIndex = stepIndex < RING_SIZE ? 0 : 1;
     const title = sourceService.title.replace(/^\d+\.\s*/, '');
     const shortTitle = sourceService.shortTitle.replace(/^\d+\.\s*/, '');
+    const meta = serviceCategories[stepIndex] || { tag: 'END', category: 'INTEGRIDADE E CONFIABILIDADE', icon: '' };
 
     return {
       ...sourceService,
+      tag: meta.tag,
+      category: meta.category,
+      categoryIcon: meta.icon,
       iconName: ['shield', 'landmark', 'scan-line', 'flame', 'clipboard-list', 'share-2', 'file-text', 'gauge', 'crosshair', 'award', 'message-square', 'settings'][stepIndex],
       id: stepIndex,
       title,
@@ -251,6 +270,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const cardDesc = document.getElementById('cardDesc');
   const cardList = document.getElementById('cardList');
   const cardCta = document.getElementById('cardCta');
+  const cardCounter = document.getElementById('cardCounter');
+  const cardImageTag = document.getElementById('cardImageTag');
+  const cardCategoryLabel = document.getElementById('cardCategoryLabel');
+  const cardCategoryIcon = document.getElementById('cardCategoryIcon');
   const highlightCard = document.getElementById('highlightCard');
   const cardProgress = document.getElementById('cardProgress');
   const solutionsMainContent = document.querySelector('.solucoes-main-content');
@@ -346,6 +369,15 @@ document.addEventListener('DOMContentLoaded', () => {
       'd',
       `M ${startX.toFixed(2)} ${startY.toFixed(2)} L ${endX.toFixed(2)} ${endY.toFixed(2)}`
     );
+
+    const connectorDot = document.getElementById('radarConnectorNodeDot');
+    if (connectorDot) {
+      const dotProgress = 0.68;
+      const dotX = startX + (endX - startX) * dotProgress;
+      const dotY = startY + (endY - startY) * dotProgress;
+      connectorDot.setAttribute('cx', dotX.toFixed(2));
+      connectorDot.setAttribute('cy', dotY.toFixed(2));
+    }
 
     radarCardConnector.classList.toggle('is-visible', endX > startX + 8);
   }
@@ -677,8 +709,22 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  const topicIcons = [
+    `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12h2l1-3 2 6 1.5-3H16"/></svg>`,
+    `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>`,
+    `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="3" x2="12" y2="9"/><line x1="12" y1="15" x2="12" y2="21"/><line x1="4.22" y1="7.5" x2="9.42" y2="10.5"/><line x1="14.58" y1="13.5" x2="19.78" y2="16.5"/><line x1="4.22" y1="16.5" x2="9.42" y2="13.5"/><line x1="14.58" y1="10.5" x2="19.78" y2="7.5"/></svg>`,
+    `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="2" x2="12" y2="22"/><line x1="17" y1="5" x2="17" y2="19"/><line x1="7" y1="5" x2="7" y2="19"/><line x1="22" y1="9" x2="22" y2="15"/><line x1="2" y1="9" x2="2" y2="15"/></svg>`
+  ];
+
   function updateCard(index, animate = true) {
     const data = servicesData[index];
+    const totalCount = servicesData.length;
+    const formattedCounter = `${String(index + 1).padStart(2, '0')} / ${String(totalCount).padStart(2, '0')}`;
+
+    if (cardCounter) {
+      cardCounter.textContent = formattedCounter;
+    }
+
     if (animate && !isTransitioning) {
       isTransitioning = true;
       highlightCard.classList.add('is-transitioning');
@@ -689,7 +735,10 @@ document.addEventListener('DOMContentLoaded', () => {
         cardImage.alt = data.title;
         cardTitle.textContent = data.title;
         cardDesc.textContent = data.desc;
-        cardList.innerHTML = data.topics.map(t => `<li>${checkSvg} ${t}</li>`).join('');
+        if (cardImageTag) cardImageTag.textContent = data.tag || 'END';
+        if (cardCategoryLabel) cardCategoryLabel.textContent = data.category || 'INTEGRIDADE E CONFIABILIDADE';
+        if (cardCategoryIcon && data.categoryIcon) cardCategoryIcon.innerHTML = data.categoryIcon;
+        cardList.innerHTML = data.topics.map((t, i) => `<li><span class="card-list-icon">${topicIcons[i % topicIcons.length]}</span><span class="card-list-text">${t}</span></li>`).join('');
         cardCta.innerHTML = `${data.ctaText} ${arrowSvg}`;
         cardCta.href = data.url || '1-solucao-engenharia-de-integridade-estrutural.html';
         window.requestAnimationFrame(() => updateRadarCardConnector(index));
@@ -708,7 +757,10 @@ document.addEventListener('DOMContentLoaded', () => {
       cardImage.alt = data.title;
       cardTitle.textContent = data.title;
       cardDesc.textContent = data.desc;
-      cardList.innerHTML = data.topics.map(t => `<li>${checkSvg} ${t}</li>`).join('');
+      if (cardImageTag) cardImageTag.textContent = data.tag || 'END';
+      if (cardCategoryLabel) cardCategoryLabel.textContent = data.category || 'INTEGRIDADE E CONFIABILIDADE';
+      if (cardCategoryIcon && data.categoryIcon) cardCategoryIcon.innerHTML = data.categoryIcon;
+      cardList.innerHTML = data.topics.map((t, i) => `<li><span class="card-list-icon">${topicIcons[i % topicIcons.length]}</span><span class="card-list-text">${t}</span></li>`).join('');
       cardCta.innerHTML = `${data.ctaText} ${arrowSvg}`;
       cardCta.href = data.url || '1-solucao-engenharia-de-integridade-estrutural.html';
       window.requestAnimationFrame(() => updateRadarCardConnector(index));

@@ -15,17 +15,22 @@
      Altere as variáveis abaixo para mudar as cores em TODO o site e páginas!
      ========================================================================== */
 
-  /* COR PRIMÁRIA: Azul Cinza Oficial (Badges, Botões CTA, Métricas, Títulos) */
+  /* COR PRIMÁRIA: Azul Cinza Oficial (Badges, Métricas, Títulos, Hover de Botões CTA) */
   --brand-primary: #67A8B8;
   --brand-primary-rgb: 103, 168, 184;
   --brand-primary-hover: #538e9c;
   --brand-primary-light: #7bbac8;
   --brand-primary-dark: #457884;
 
-  /* COR SECUNDÁRIA: Azul Claro Tecnológico (Detalhes, Ícones, Gradientes, Destaques) */
+  /* COR SECUNDÁRIA: Azul Claro Tecnológico (Botões CTA Preenchidos, Detalhes, Ícones, Gradientes, Destaques) */
   --brand-secondary: #00ACE4;
   --brand-secondary-rgb: 0, 172, 228;
   --brand-secondary-hover: #0093c4;
+
+  /* TOKENS SEMÂNTICOS DE CTA */
+  --cta-btn-bg: var(--brand-secondary);
+  --cta-btn-hover: var(--brand-primary);
+  --cta-btn-text: #FFFFFF;
 
   /* COR DE APOIO: Slate / Cinza Forte Institucional */
   --brand-slate: #9ac3cd;

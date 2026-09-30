@@ -1729,206 +1729,519 @@
   }
 
   /* ===================================================================
-     Carrossel Dinâmico de Indicadores do Hero com Contagem Numérica
+     Carrossel Interativo de Indicadores do Hero com Destaque Individual
+     - 3 grupos de 4 indicadores (todos os 12 indicadores oficiais da Home)
+     - Destaque individual com contagem fluida e barra de progresso suave
+     - Alternância suave de cor de fundo entre os grupos (#67A8B8 e #00ACE4)
+     - Navegação por setas (1 a 1 com avanço contínuo entre grupos)
+     - Dots centralizados na base da seção
+     - Hover desktop preciso na .hero-focus-zone com retomada suave
+     - Mobile: 2 indicadores por vez, swipe com scroll-snap e pausa ao toque
+     - Pausa em abas ocultas e fora da tela (IntersectionObserver)
+     - Total suporte a acessibilidade (aria-labels, teclado, prefers-reduced-motion)
      =================================================================== */
   function initHeroIndicatorsCarousel() {
-    var container = document.querySelector('.hero-benefits-bar');
+    var container = document.getElementById('heroBenefitsBar') || document.querySelector('.hero-benefits-bar');
     if (!container) return;
 
-    var track = container.querySelector('.hero-indicators-track');
-    if (!track) return;
+    var viewport = container.querySelector('.hero-ind-viewport');
+    var stage = container.querySelector('.hero-ind-stage');
+    var prevBtn = container.querySelector('.hero-ind-nav--prev');
+    var nextBtn = container.querySelector('.hero-ind-nav--next');
+    var dotsContainer = container.querySelector('.hero-ind-dots');
+    if (!viewport || !stage) return;
 
-    var items = track.querySelectorAll('.benefit-item');
-    if (items.length < 3) return;
+    // Os 12 indicadores oficiais da Home organizados rigorosamente em 3 grupos de 4
+    var GROUPS = [
+      // Grupo 1: Cor Primária (#67A8B8)
+      [
+        { value: 18, prefix: '+', suffix: ' anos', label: 'de experiência' },
+        { value: 300, prefix: '+', label: 'especialistas técnicos' },
+        { value: 100, suffix: '%', label: 'atuação em todo o Brasil' },
+        { value: 1250, prefix: '+', formatThousands: true, label: 'projetos entregues' }
+      ],
+      // Grupo 2: Cor Secundária (#00ACE4)
+      [
+        { value: 120, prefix: '+', label: 'grandes clientes atendidos' },
+        { value: 0, suffix: '%', label: 'paradas não programadas' },
+        { value: 50, prefix: '+', suffix: ' mil', label: 'horas de inspeção e ensaios' },
+        { value: 100, suffix: '%', label: 'conformidade com NRs e ASME' }
+      ],
+      // Grupo 3: Cor Primária (#67A8B8)
+      [
+        { value: 500, prefix: '+', label: 'laudos e perícias emitidos' },
+        { staticVal: '24/7', label: 'prontidão operacional' },
+        { staticVal: 'ISO 9001', label: 'qualidade e rigor certificados' },
+        { value: 15000, prefix: '+', formatThousands: true, label: 'ativos industriais avaliados' }
+      ]
+    ];
 
-    var isAnimating = false;
-    var isPaused = false;
-    var autoTimer = null;
-    var STEP_INTERVAL = 3800; // Tempo parado entre as trocas para leitura confortável
+    // Constantes de tempo refinadas para leitura premium e confortável
+    var ITEM_TIME = 3200; // Tempo de cada indicador ativo
+    var COUNT_TIME = 1000; // Duração da contagem animada
+    var GROUP_TRANSITION = 540; // Tempo de transição entre grupos
+    var RESUME_AFTER_HOVER = 480; // Retomada suave após hover
 
-    function getVisibleCount() {
-      var w = window.innerWidth;
-      if (w <= 480) return 2;
-      if (w <= 991) return 3;
-      return 4;
+    var groupIndex = 0;
+    var itemIndex = 0;
+    var row = stage.querySelector('.hero-ind-row');
+    var timer = null;
+    var hoverLock = false;
+    var pointerLock = false;
+    var switching = false;
+    var isOffscreen = false;
+    var isTabHidden = false;
+    var progressRaf = null;
+    var progressElapsed = 0;
+    var scrollDebounce = null;
+    var countRafMap = new WeakMap();
+
+    function prefersReducedMotion() {
+      return window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     }
 
-    function runCounterAnimation(item, duration) {
-      if (!item) return;
-      var titleEl = item.querySelector('.benefit-title');
-      if (!titleEl) return;
+    function isMobile() {
+      return window.matchMedia('(max-width: 640px)').matches;
+    }
 
-      var staticVal = item.getAttribute('data-static');
-      if (staticVal) {
-        titleEl.textContent = staticVal;
-        titleEl.style.transform = 'scale(1.08)';
-        setTimeout(function () {
-          titleEl.style.transform = 'scale(1)';
-        }, 220);
+    function formatNumber(n, isThousands) {
+      var rounded = Math.round(n);
+      if (isThousands || rounded >= 1000) {
+        return new Intl.NumberFormat('pt-BR').format(rounded);
+      }
+      return rounded.toString();
+    }
+
+    function display(item, n) {
+      if (item.staticVal) return item.staticVal;
+      var numVal = n !== undefined ? n : item.value;
+      return (item.prefix || '') + formatNumber(numVal, item.formatThousands) + (item.suffix || '');
+    }
+
+    // Alternância de cor suave do container
+    function setTheme(idx) {
+      var isSecondary = (idx % 2 === 1);
+      container.classList.toggle('theme-color-a', !isSecondary);
+      container.classList.toggle('theme-color-b', isSecondary);
+    }
+
+    // Renderização dos dots de grupo
+    function renderDots() {
+      if (!dotsContainer) return;
+      dotsContainer.innerHTML = GROUPS.map(function (_, i) {
+        var activeClass = i === groupIndex ? ' class="active"' : '';
+        var selected = i === groupIndex ? 'true' : 'false';
+        return '<button type="button" role="tab" data-group="' + i + '"' + activeClass +
+          ' aria-label="Ir para o grupo ' + (i + 1) + '" aria-selected="' + selected + '"></button>';
+      }).join('');
+
+      var buttons = dotsContainer.querySelectorAll('button');
+      buttons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var target = Number(btn.getAttribute('data-group'));
+          if (target !== groupIndex) {
+            goToGroup(target, target > groupIndex ? 1 : -1);
+          }
+        });
+      });
+    }
+
+    // Criação do elemento DOM do grupo de 4 indicadores
+    function makeRow(group, gIdx) {
+      var el = document.createElement('div');
+      el.className = 'hero-ind-row';
+      el.setAttribute('data-group', gIdx);
+      el.innerHTML = group.map(function (item, i) {
+        var initialDisplay = item.staticVal ? item.staticVal : (item.prefix || '') + '0' + (item.suffix || '');
+        return (
+          '<div class="hero-stat benefit-item" data-index="' + i + '">' +
+            '<button class="hero-focus-zone focus-zone" type="button" aria-label="Focar ' + item.label + '">' +
+              '<span class="hero-stat-num benefit-title"><span class="hero-stat-num-inner num-inner">' + initialDisplay + '</span></span>' +
+              '<span class="hero-stat-label benefit-desc">' + item.label + '</span>' +
+            '</button>' +
+            '<div class="hero-mini-progress" aria-hidden="true"><i></i></div>' +
+          '</div>'
+        );
+      }).join('');
+      return el;
+    }
+
+    // Animação de contagem numérica fluida com curva cúbica
+    function animateCount(el, item, duration) {
+      if (!el) return;
+      if (item.staticVal) {
+        el.textContent = item.staticVal;
+        return;
+      }
+      if (prefersReducedMotion()) {
+        el.textContent = display(item, item.value);
         return;
       }
 
-      var targetStr = item.getAttribute('data-target');
-      if (targetStr === null) return;
+      var prevRaf = countRafMap.get(el);
+      if (prevRaf) cancelAnimationFrame(prevRaf);
 
-      var target = parseFloat(targetStr);
-      var prefix = item.getAttribute('data-prefix') || '';
-      var suffix = item.getAttribute('data-suffix') || '';
-      var isThousands = item.getAttribute('data-format') === 'thousands';
-      var dur = duration || 1200;
+      var dur = duration || COUNT_TIME;
+      var start = performance.now();
+      var end = item.value;
 
-      if (target === 0) {
-        titleEl.textContent = prefix + '0' + suffix;
-        return;
-      }
-
-      var startTime = performance.now();
-
-      function update(now) {
-        var elapsed = now - startTime;
-        var progress = Math.min(elapsed / dur, 1);
-        var ease = 1 - Math.pow(1 - progress, 3);
-        var current = Math.round(target * ease);
-
-        var formatted = isThousands ? current.toLocaleString('pt-BR') : current;
-        titleEl.textContent = prefix + formatted + suffix;
-
-        if (progress < 1) {
-          requestAnimationFrame(update);
+      function frame(now) {
+        var p = Math.min(1, (now - start) / dur);
+        var eased = 1 - Math.pow(1 - p, 3);
+        el.textContent = display(item, end * eased);
+        if (p < 1) {
+          var nextId = requestAnimationFrame(frame);
+          countRafMap.set(el, nextId);
         } else {
-          var finalFormatted = isThousands ? target.toLocaleString('pt-BR') : target;
-          titleEl.textContent = prefix + finalFormatted + suffix;
+          el.textContent = display(item, end);
+          countRafMap.delete(el);
         }
       }
 
-      requestAnimationFrame(update);
+      var initialId = requestAnimationFrame(frame);
+      countRafMap.set(el, initialId);
     }
 
-    // 1. Contagem inicial nos itens visíveis
-    var initialVisible = getVisibleCount();
-    var children = track.children;
-    for (var i = 0; i < initialVisible && i < children.length; i++) {
-      runCounterAnimation(children[i], 1300);
-    }
-
-    // 2. Transição passo a passo: sai o primeiro e vem o próximo
-    function stepToNext() {
-      if (isAnimating || isPaused) return;
-
-      var firstItem = track.firstElementChild;
-      if (!firstItem) return;
-
-      isAnimating = true;
-      var itemWidth = firstItem.getBoundingClientRect().width;
-      var visibleCount = getVisibleCount();
-      var incomingItem = track.children[visibleCount];
-
-      // O primeiro item faz animação de saída para a esquerda
-      firstItem.classList.add('benefit-item--exiting');
-
-      // O próximo item que entra pela direita inicia a contagem e animação
-      if (incomingItem) {
-        incomingItem.classList.add('benefit-item--entering');
-        runCounterAnimation(incomingItem, 1000);
-      }
-
-      // Desliza a esteira suavemente
-      track.style.transition = 'transform 0.68s cubic-bezier(0.25, 1, 0.5, 1)';
-      track.style.transform = 'translate3d(-' + itemWidth + 'px, 0, 0)';
-
-      var transitionFired = false;
-      function onEnd() {
-        if (transitionFired) return;
-        transitionFired = true;
-        track.removeEventListener('transitionend', onEnd);
-
-        firstItem.classList.remove('benefit-item--exiting');
-        if (incomingItem) {
-          incomingItem.classList.remove('benefit-item--entering');
-        }
-
-        // Move o primeiro item para o final do track
-        track.appendChild(firstItem);
-
-        // Reseta o transform instantaneamente sem salto visual
-        track.style.transition = 'none';
-        track.style.transform = 'translate3d(0, 0, 0)';
-        void track.offsetWidth; // Força reflow
-
-        isAnimating = false;
-      }
-
-      track.addEventListener('transitionend', onEnd);
-      // Fallback de segurança caso transitionend não dispare
-      setTimeout(onEnd, 720);
-    }
-
-    // 3. Controle do timer automático
-    function startTimer() {
-      stopTimer();
-      autoTimer = setInterval(stepToNext, STEP_INTERVAL);
-    }
-
-    function stopTimer() {
-      if (autoTimer) {
-        clearInterval(autoTimer);
-        autoTimer = null;
+    function clearAuto() {
+      if (timer) {
+        clearTimeout(timer);
+        timer = null;
       }
     }
 
-    startTimer();
-
-    // 4. Pausa no hover e toque
-    container.addEventListener('mouseenter', function () {
-      isPaused = true;
-    });
-
-    container.addEventListener('mouseleave', function () {
-      isPaused = false;
-    });
-
-    var touchStartX = 0;
-    container.addEventListener('touchstart', function (e) {
-      isPaused = true;
-      if (e.touches && e.touches.length > 0) {
-        touchStartX = e.touches[0].clientX;
+    function cancelProgress() {
+      if (progressRaf) {
+        cancelAnimationFrame(progressRaf);
+        progressRaf = null;
       }
-    }, { passive: true });
+    }
 
-    container.addEventListener('touchend', function (e) {
-      if (e.changedTouches && e.changedTouches.length > 0) {
-        var diffX = touchStartX - e.changedTouches[0].clientX;
-        if (diffX > 40) {
-          stepToNext();
+    function runProgress(duration) {
+      cancelProgress();
+      if (!row || isOffscreen || isTabHidden) return;
+      var bar = row.querySelector('.hero-stat[data-index="' + itemIndex + '"] .hero-mini-progress i');
+      if (!bar) return;
+
+      if (prefersReducedMotion()) {
+        bar.style.width = '100%';
+        return;
+      }
+
+      var dur = duration || ITEM_TIME;
+      var start = performance.now();
+      var from = progressElapsed;
+
+      function frame(now) {
+        var elapsed = from + (now - start);
+        progressElapsed = Math.min(dur, elapsed);
+        var p = Math.min(1, progressElapsed / dur);
+        bar.style.width = (p * 100).toFixed(2) + '%';
+        if (p < 1) {
+          progressRaf = requestAnimationFrame(frame);
+        } else {
+          progressRaf = null;
         }
       }
+      progressRaf = requestAnimationFrame(frame);
+    }
+
+    // Associa eventos de hover preciso, foco por teclado e clique aos indicadores
+    function bindStats() {
+      if (!row) return;
+      var stats = row.querySelectorAll('.hero-stat');
+      stats.forEach(function (stat) {
+        var idx = Number(stat.getAttribute('data-index'));
+        var target = stat.querySelector('.hero-focus-zone');
+        if (!target) return;
+
+        // Hover Desktop: ativa somente ao entrar na .hero-focus-zone (número + label)
+        target.addEventListener('mouseenter', function () {
+          if (isMobile() || switching) return;
+          stat.classList.add('hovering');
+          hoverLock = true;
+          clearAuto();
+          focusItem(idx, { scroll: false, restartProgress: true, schedule: false });
+          runProgress();
+        });
+
+        target.addEventListener('mouseleave', function () {
+          if (isMobile() || switching) return;
+          stat.classList.remove('hovering');
+          hoverLock = false;
+          if (progressElapsed >= ITEM_TIME) {
+            clearAuto();
+            timer = setTimeout(function () { step(1); }, RESUME_AFTER_HOVER);
+          } else {
+            scheduleAuto(ITEM_TIME - progressElapsed);
+          }
+        });
+
+        // Acessibilidade por teclado (Tab)
+        target.addEventListener('focus', function () {
+          if (switching) return;
+          clearAuto();
+          focusItem(idx, { scroll: false, restartProgress: true, schedule: false });
+          runProgress();
+        });
+
+        target.addEventListener('blur', function () {
+          stat.classList.remove('hovering');
+          if (!hoverLock && !pointerLock) {
+            scheduleAuto(ITEM_TIME - progressElapsed);
+          }
+        });
+
+        // Clique (Mobile ou Desktop)
+        target.addEventListener('click', function () {
+          if (switching) return;
+          if (isMobile()) {
+            focusItem(idx, { scroll: true, restartProgress: true, schedule: true });
+          } else {
+            focusItem(idx, { scroll: false, restartProgress: true, schedule: true });
+          }
+        });
+      });
+    }
+
+    // Foca um indicador específico dentro da linha
+    function focusItem(index, opts) {
+      if (!row) return;
+      opts = opts || {};
+      var scroll = opts.scroll !== undefined ? opts.scroll : true;
+      var restartProgress = opts.restartProgress !== undefined ? opts.restartProgress : true;
+      var schedule = opts.schedule !== undefined ? opts.schedule : true;
+
+      itemIndex = Math.max(0, Math.min(3, index));
+      var stats = Array.prototype.slice.call(row.querySelectorAll('.hero-stat'));
+
+      stats.forEach(function (stat, i) {
+        stat.classList.toggle('active', i === itemIndex);
+        stat.classList.toggle('done', i < itemIndex);
+        if (i !== itemIndex) {
+          var bar = stat.querySelector('.hero-mini-progress i');
+          if (bar) bar.style.width = '0%';
+        }
+      });
+
+      var current = stats[itemIndex];
+      if (current) {
+        var numEl = current.querySelector('.hero-stat-num-inner');
+        var itemData = GROUPS[groupIndex][itemIndex];
+        if (numEl && itemData) {
+          animateCount(numEl, itemData, COUNT_TIME);
+        }
+      }
+
+      if (restartProgress) {
+        progressElapsed = 0;
+        if (current) {
+          var currentBar = current.querySelector('.hero-mini-progress i');
+          if (currentBar) currentBar.style.width = '0%';
+        }
+      }
+      runProgress();
+
+      if (scroll && isMobile() && current) {
+        current.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+      }
+
+      if (schedule && !hoverLock && !pointerLock && !isOffscreen && !isTabHidden) {
+        scheduleAuto();
+      }
+    }
+
+    // Agendamento do próximo passo automático
+    function scheduleAuto(delay) {
+      clearAuto();
+      if (hoverLock || pointerLock || switching || isOffscreen || isTabHidden) return;
+      var waitTime = delay !== undefined ? Math.max(300, delay) : ITEM_TIME;
+      timer = setTimeout(function () {
+        step(1);
+      }, waitTime);
+    }
+
+    // Transição suave para outro grupo (4 indicadores novos)
+    function goToGroup(target, direction) {
+      if (switching) return;
+      direction = direction !== undefined ? direction : 1;
+      target = (target + GROUPS.length) % GROUPS.length;
+      if (target === groupIndex) {
+        focusItem(0, { scroll: true, restartProgress: true, schedule: true });
+        return;
+      }
+
+      switching = true;
+      clearAuto();
+      cancelProgress();
+
+      var oldRow = row;
+      if (oldRow) {
+        oldRow.classList.remove('enter', 'from-next', 'from-prev');
+        oldRow.classList.add(direction >= 0 ? 'exit-next' : 'exit-prev');
+        setTimeout(function () {
+          if (oldRow && oldRow.parentNode) {
+            oldRow.parentNode.removeChild(oldRow);
+          }
+        }, GROUP_TRANSITION);
+      }
+
+      groupIndex = target;
+      itemIndex = direction >= 0 ? 0 : 3;
+      setTheme(groupIndex);
+      renderDots();
+
+      row = makeRow(GROUPS[groupIndex], groupIndex);
+      row.classList.add(direction >= 0 ? 'from-next' : 'from-prev');
+      stage.appendChild(row);
+      viewport.scrollLeft = 0;
+      bindStats();
+
       setTimeout(function () {
-        isPaused = false;
-      }, 1800);
+        switching = false;
+        focusItem(itemIndex, { scroll: isMobile(), restartProgress: true, schedule: true });
+      }, 50);
+    }
+
+    // Passo de navegação de 1 em 1
+    function step(direction) {
+      if (switching) return;
+      clearAuto();
+      hoverLock = false;
+      pointerLock = false;
+
+      var next = itemIndex + direction;
+      if (next > 3) {
+        goToGroup((groupIndex + 1) % GROUPS.length, 1);
+        return;
+      }
+      if (next < 0) {
+        goToGroup((groupIndex - 1 + GROUPS.length) % GROUPS.length, -1);
+        return;
+      }
+      focusItem(next, { scroll: true, restartProgress: true, schedule: true });
+    }
+
+    // Mobile Swipe / Touch Drag
+    viewport.addEventListener('pointerdown', function () {
+      if (!isMobile()) return;
+      pointerLock = true;
+      clearAuto();
+      cancelProgress();
     }, { passive: true });
 
-    // 5. Pausar quando aba não estiver visível
+    function syncToNearestMobileCard() {
+      if (!isMobile() || !row) return;
+      var cards = Array.prototype.slice.call(row.querySelectorAll('.hero-stat'));
+      var viewRect = viewport.getBoundingClientRect();
+      var center = viewRect.left + (viewport.clientWidth / 2);
+      var best = 0;
+      var dist = Number.POSITIVE_INFINITY;
+
+      cards.forEach(function (card, i) {
+        var r = card.getBoundingClientRect();
+        var cardCenter = r.left + (r.width / 2);
+        var d = Math.abs(cardCenter - center);
+        if (d < dist) {
+          dist = d;
+          best = i;
+        }
+      });
+      focusItem(best, { scroll: false, restartProgress: true, schedule: false });
+    }
+
+    viewport.addEventListener('scroll', function () {
+      if (!isMobile()) return;
+      clearTimeout(scrollDebounce);
+      scrollDebounce = setTimeout(function () {
+        syncToNearestMobileCard();
+        pointerLock = false;
+        scheduleAuto();
+      }, 110);
+    }, { passive: true });
+
+    viewport.addEventListener('pointerup', function () {
+      if (!isMobile()) return;
+      setTimeout(function () {
+        syncToNearestMobileCard();
+        pointerLock = false;
+        scheduleAuto();
+      }, 70);
+    }, { passive: true });
+
+    viewport.addEventListener('pointercancel', function () {
+      pointerLock = false;
+      scheduleAuto();
+    }, { passive: true });
+
+    // Setas minimalistas
+    if (prevBtn) {
+      prevBtn.addEventListener('click', function () { step(-1); });
+    }
+    if (nextBtn) {
+      nextBtn.addEventListener('click', function () { step(1); });
+    }
+
+    // Reajuste responsivo ao redimensionar tela
+    window.addEventListener('resize', function () {
+      clearTimeout(window.__heroIndResizeTimer);
+      window.__heroIndResizeTimer = setTimeout(function () {
+        if (isMobile() && row) {
+          var activeCard = row.querySelector('.hero-stat[data-index="' + itemIndex + '"]');
+          if (activeCard) {
+            activeCard.scrollIntoView({ behavior: 'auto', inline: 'center', block: 'nearest' });
+          }
+        } else {
+          viewport.scrollLeft = 0;
+        }
+      }, 100);
+    });
+
+    // Pausa quando aba estiver em segundo plano
     document.addEventListener('visibilitychange', function () {
-      if (document.hidden) {
-        stopTimer();
-      } else {
-        startTimer();
+      isTabHidden = document.hidden;
+      if (isTabHidden) {
+        clearAuto();
+        cancelProgress();
+      } else if (!isOffscreen) {
+        focusItem(itemIndex, { scroll: false, restartProgress: true, schedule: true });
       }
     });
 
-    // 6. Intersection Observer: só gira quando na tela
+    // IntersectionObserver: só executa animações e timers quando visível na tela
     if ('IntersectionObserver' in window) {
       var observer = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {
           if (entry.isIntersecting) {
-            startTimer();
+            isOffscreen = false;
+            if (!isTabHidden) {
+              focusItem(itemIndex, { scroll: false, restartProgress: true, schedule: true });
+            }
           } else {
-            stopTimer();
+            isOffscreen = true;
+            clearAuto();
+            cancelProgress();
           }
         });
-      }, { threshold: 0.1 });
+      }, { threshold: 0.15 });
       observer.observe(container);
     }
+
+    // Inicialização da montagem
+    setTheme(groupIndex);
+    renderDots();
+
+    // Se já houver uma linha pré-renderizada no HTML, aproveita e liga os eventos; caso contrário, cria
+    if (!row) {
+      row = makeRow(GROUPS[groupIndex], groupIndex);
+      row.classList.add('enter');
+      stage.innerHTML = '';
+      stage.appendChild(row);
+    } else {
+      row.classList.add('enter');
+    }
+
+    bindStats();
+    focusItem(itemIndex, { scroll: false, restartProgress: true, schedule: true });
   }
 
   /* ===================================================================

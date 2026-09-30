@@ -58,14 +58,14 @@
    ========================================================================== */
 .endo-acc-full-wrapper {
   position: relative;
-  width: min(1440px, calc(100% - 96px));
+  width: min(1440px, calc(100% - 64px));
   max-width: 1440px;
   margin: 36px auto 0 auto;
-  height: 360px;
-  background: var(--surface-dark, #071429);
-  border-radius: 24px;
+  height: 450px;
+  background: #071b2c;
+  border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 20px 50px rgba(7, 20, 41, 0.25);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
 /* SETAS LATERAIS DE NAVEGAÇÃO (MOBILE / TABLET) */
@@ -134,7 +134,9 @@
   list-style: none;
   margin: 0;
   padding: 0;
+  gap: 0;
   overflow: hidden;
+  border-radius: 20px;
 }
 
 .endo-acc-panel {
@@ -144,23 +146,29 @@
   position: relative;
   overflow: hidden;
   cursor: pointer;
-  transition: flex 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  transition: flex 0.45s cubic-bezier(0.25, 1, 0.5, 1);
   will-change: flex;
   transform: translateZ(0);
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  isolation: isolate;
 }
 
-.endo-acc-panel + .endo-acc-panel {
-  border-left: 1px solid rgba(255, 255, 255, 0.15);
+.endo-acc-panel:last-child {
+  border-right: none;
 }
 
 .endo-acc-panel:hover,
 .endo-acc-panel:focus-within,
 .endo-acc-panel.is-active {
-  flex: 2.0 1 0;
+  flex: 3.0 1 0;
 }
 
 .endo-acc-row:hover .endo-acc-panel.is-active:not(:hover):not(:focus-within) {
   flex: 1 1 0;
+}
+
+.endo-acc-row:hover .endo-acc-panel:hover {
+  flex: 3.0 1 0;
 }
 
 .endo-acc-card__img {
@@ -170,91 +178,92 @@
   height: 100%;
   object-fit: cover;
   object-position: center;
-  transition: transform 0.7s cubic-bezier(0.25, 1, 0.5, 1), object-position 0.4s ease;
-  filter: grayscale(100%) contrast(1.1) brightness(0.95);
+  transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1), filter 0.45s ease;
+  filter: grayscale(100%) contrast(1.02) brightness(1.58);
+  z-index: 1;
 }
 
 .endo-acc-panel:hover .endo-acc-card__img,
 .endo-acc-panel:focus-within .endo-acc-card__img,
 .endo-acc-panel.is-active .endo-acc-card__img {
-  transform: scale(1.06);
+  transform: scale(1.05);
+  filter: grayscale(100%) contrast(1.06) brightness(1.68);
 }
 
-.endo-acc-panel::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: var(--brand-primary, #67A8B8);
-  opacity: 0.45;
-  transition: all 0.35s ease;
-  z-index: 5;
+.endo-acc-panel[data-index="9"] .endo-acc-card__img {
+  object-position: 62% center;
 }
 
-.endo-acc-panel:hover::after,
-.endo-acc-panel.is-active::after {
-  height: 4px;
-  background: linear-gradient(90deg, var(--brand-primary, #67A8B8), var(--brand-secondary, #00ACE4));
-  opacity: 1;
-  box-shadow: 0 0 12px rgba(var(--brand-secondary-rgb, 0, 172, 228), 0.7);
-}
-
+/* Camada Oficial de Cor #67A8B8 com blend mode Multiply (efeito Photoshop Duotone) */
 .endo-acc-card__overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    to top,
-    rgba(7, 20, 41, 0.98) 0%,
-    rgba(7, 20, 41, 0.94) 20%,
-    rgba(7, 20, 41, 0.85) 35%,
-    rgba(7, 20, 41, 0.65) 48%,
-    rgba(7, 20, 41, 0.22) 62%,
-    rgba(7, 20, 41, 0) 78%,
-    transparent 100%
-  );
-  z-index: 1;
+  background-color: #67A8B8;
+  mix-blend-mode: multiply;
+  z-index: 2;
   pointer-events: none;
-  transition: background 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-}
-
-.endo-acc-card__overlay::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-color: var(--brand-primary, #67A8B8);
-  mix-blend-mode: color;
-  z-index: -1;
-  pointer-events: none;
+  transition: background-color 0.4s ease;
 }
 
 .endo-acc-panel:hover .endo-acc-card__overlay,
 .endo-acc-panel:focus-within .endo-acc-card__overlay,
 .endo-acc-panel.is-active .endo-acc-card__overlay {
-  background: linear-gradient(
-    to top,
-    rgba(7, 20, 41, 0.99) 0%,
-    rgba(7, 20, 41, 0.95) 22%,
-    rgba(7, 20, 41, 0.88) 36%,
-    rgba(7, 20, 41, 0.70) 50%,
-    rgba(7, 20, 41, 0.25) 65%,
-    rgba(7, 20, 41, 0) 80%,
-    transparent 100%
-  );
+  background-color: #72b9cb;
 }
 
-.endo-acc-row:hover .endo-acc-panel.is-active:not(:hover):not(:focus-within) .endo-acc-card__overlay {
+.endo-acc-card__overlay::before {
+  display: none !important;
+}
+
+/* Vinheta Baixa Padrão para Cards Fechados/Recolhidos:
+   Não sobe alto! Fica concentrada no terço inferior, mantendo ~70% do card totalmente luminoso e predominante no azul #67A8B8 */
+.endo-acc-panel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
   background: linear-gradient(
-    to top,
-    rgba(7, 20, 41, 0.98) 0%,
-    rgba(7, 20, 41, 0.94) 20%,
-    rgba(7, 20, 41, 0.85) 35%,
-    rgba(7, 20, 41, 0.65) 48%,
-    rgba(7, 20, 41, 0.22) 62%,
-    rgba(7, 20, 41, 0) 78%,
-    transparent 100%
+    to bottom,
+    transparent 0%,
+    transparent 62%,
+    rgba(7, 27, 44, 0.35) 75%,
+    rgba(7, 27, 44, 0.80) 86%,
+    rgba(7, 27, 44, 0.98) 100%
   );
+  z-index: 3;
+  pointer-events: none;
+  display: block;
+}
+
+/* Vinheta Alta Dinâmica (quando o card abre no hover/ativo com a descrição visível):
+   Sobe suavemente acima do ícone para criar o fundo escuro uniforme ideal para ícone + título + descrição */
+.endo-acc-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    transparent 36%,
+    rgba(7, 27, 44, 0.45) 50%,
+    rgba(7, 27, 44, 0.85) 64%,
+    rgba(7, 27, 44, 0.96) 78%,
+    rgba(7, 27, 44, 0.99) 100%
+  );
+  z-index: 4;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+  display: block;
+}
+
+.endo-acc-panel:hover::before,
+.endo-acc-panel:focus-within::before,
+.endo-acc-panel.is-active::before {
+  opacity: 1;
+}
+
+.endo-acc-row:hover .endo-acc-panel.is-active:not(:hover):not(:focus-within)::before {
+  opacity: 0;
 }
 
 .endo-acc-card__content {
@@ -262,8 +271,8 @@
   bottom: 0;
   left: 0;
   right: 0;
-  z-index: 2;
-  padding: 16px 6px 26px;
+  z-index: 5;
+  padding: 20px 12px 32px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -271,14 +280,17 @@
   text-align: center;
   box-sizing: border-box;
   width: 100%;
+  pointer-events: none;
 }
 
+/* Ícone nítido, elegante e limpo na cor secundária oficial (#00ACE4 - Azul Claro Tecnológico) */
 .endo-acc-icon {
-  width: 38px;
-  height: 38px;
-  min-width: 38px;
-  min-height: 38px;
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+  min-height: 32px;
   color: var(--brand-secondary, #00ACE4);
+  stroke: var(--brand-secondary, #00ACE4);
   background: transparent;
   border: none;
   border-radius: 0;
@@ -286,64 +298,65 @@
   margin-bottom: 10px;
   flex-shrink: 0;
   stroke-width: 2px;
-  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-  filter: none;
+  transition: all 0.35s ease;
+  filter: drop-shadow(0 2px 4px rgba(0, 172, 228, 0.5));
 }
 
 .endo-acc-panel:hover .endo-acc-icon,
 .endo-acc-panel:focus-within .endo-acc-icon,
 .endo-acc-panel.is-active .endo-acc-icon {
   color: var(--brand-secondary, #00ACE4);
-  background: transparent;
-  border-color: transparent;
-  transform: translateY(-2px) scale(1.08);
-  filter: none;
+  stroke: var(--brand-secondary, #00ACE4);
+  transform: translateY(-2px) scale(1.1);
+  filter: drop-shadow(0 0 8px rgba(0, 172, 228, 0.85));
 }
 
 .endo-acc-row:hover .endo-acc-panel.is-active:not(:hover):not(:focus-within) .endo-acc-icon {
   transform: scale(1);
   color: var(--brand-secondary, #00ACE4);
-  background: transparent;
-  border-color: transparent;
-  filter: none;
+  stroke: var(--brand-secondary, #00ACE4);
+  filter: drop-shadow(0 2px 4px rgba(0, 172, 228, 0.5));
 }
 
 .endo-acc-card__title {
   color: #FFFFFF;
   font-family: var(--font-primary, "Inter", sans-serif);
   font-size: var(--font-size-icon-title, 18px);
-  font-weight: 700;
-  line-height: 1.22;
+  font-weight: 600;
+  line-height: 1.25;
   text-align: center;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95);
   margin: 0;
-  padding: 0 2px;
-  transition: font-size 0.4s ease;
+  padding: 0 4px;
   white-space: normal;
-  word-break: normal;
-  overflow-wrap: break-word;
+  word-break: keep-all;
+  overflow-wrap: normal;
+  hyphens: none;
   max-width: 100%;
   width: 100%;
+  transition: font-size 0.35s ease, font-weight 0.35s ease;
 }
 
 .endo-acc-panel:hover .endo-acc-card__title,
 .endo-acc-panel:focus-within .endo-acc-card__title,
 .endo-acc-panel.is-active .endo-acc-card__title {
-  font-size: var(--font-size-icon-title, 18px);
-  font-weight: 800;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.2;
 }
 
 .endo-acc-row:hover .endo-acc-panel.is-active:not(:hover):not(:focus-within) .endo-acc-card__title {
-  font-size: var(--font-size-icon-title, 18px);
+  font-size: 13.5px;
+  font-weight: 600;
 }
 
 .endo-acc-card__extra {
   max-height: 0;
   opacity: 0;
   overflow: hidden;
-  transition: max-height 0.5s cubic-bezier(0.25, 1, 0.5, 1),
-              opacity 0.4s ease 0.05s,
-              margin-top 0.4s ease;
+  transition: max-height 0.4s cubic-bezier(0.25, 1, 0.5, 1),
+              opacity 0.3s ease 0.05s,
+              margin-top 0.3s ease;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -367,13 +380,14 @@
 .endo-acc-card__desc {
   font-family: var(--font-primary, "Inter", sans-serif);
   font-size: var(--font-size-icon-text, 16px);
-  color: rgba(255, 255, 255, 0.9);
-  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.95);
+  line-height: 1.45;
   font-weight: 400;
-  max-width: 280px;
+  max-width: 290px;
   text-shadow: 0 1px 6px rgba(0, 0, 0, 0.95);
   margin: 0;
   padding: 0 4px;
+  text-align: center;
 }
 
 .endo-acc-dots {

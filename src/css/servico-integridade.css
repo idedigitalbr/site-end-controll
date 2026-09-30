@@ -2134,17 +2134,30 @@
   color: var(--brand-primary);
 }
 
-.sn-page-wrapper .site-header .main-menu > a,
+.sn-page-wrapper .site-header .main-menu > a:not(.btn-contacts-menu),
 .sn-page-wrapper .site-header .drop-link {
-  color: var(--brand-primary);
-  text-shadow: none;
+  color: #071429 !important;
+  background: transparent !important;
+  text-shadow: none !important;
+  transition: color 0.22s ease;
 }
 
-.sn-page-wrapper .site-header .drop-link.active {
-  background: var(--brand-primary) !important;
-  color: #ffffff !important;
-  border-radius: 999px;
+.sn-page-wrapper .site-header .main-menu > a:not(.btn-contacts-menu):hover,
+.sn-page-wrapper .site-header .drop-link:hover {
+  background: transparent !important;
+  color: var(--brand-primary) !important;
+  border-radius: 0 !important;
   text-shadow: none !important;
+}
+
+.sn-page-wrapper .site-header .main-menu > a:not(.btn-contacts-menu).active,
+.sn-page-wrapper .site-header .main-menu > a.active,
+.sn-page-wrapper .site-header .drop-link.active {
+  background: transparent !important;
+  color: var(--brand-secondary) !important;
+  border-radius: 0 !important;
+  text-shadow: none !important;
+  font-weight: 700;
 }
 
 .sn-page-wrapper .site-header .menu-toggle span {

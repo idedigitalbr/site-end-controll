@@ -33,3 +33,24 @@ test('mobile solutions menu is collapsed by default and expands by category', ()
   assert.match(responsiveCss, /max-height:\s*0/);
   assert.match(responsiveCss, /\.menu-group\.is-expanded \.menu-group-items/);
 });
+
+test('desktop solutions menu is positioned to the right of the header container and does not overflow screens', () => {
+  assert.match(headerCss, /@media\s*\(min-width:\s*981px\)\s*\{[\s\S]*?\.site-header\s+\.dropdown\s*\{[\s\S]*?position:\s*static/);
+  assert.match(headerCss, /@media\s*\(min-width:\s*981px\)\s*\{[\s\S]*?\.site-header\s+\.drop-panel\.dropdown-rich-menu\s*\{[\s\S]*?right:\s*max\(/);
+  assert.match(headerCss, /@media\s*\(min-width:\s*981px\)\s*\{[\s\S]*?transform:\s*translateY\(10px\)/);
+  assert.match(headerCss, /\.dropdown-rich-menu\s*\{[\s\S]*?max-width:\s*calc\(100vw\s*-\s*32px\)/);
+});
+
+test('category title does not have a border line separating it from the description text', () => {
+  assert.match(headerCss, /\.menu-group-title\s*\{[\s\S]*?border-bottom:\s*0;/);
+  assert.doesNotMatch(headerCss, /\.menu-group-title\s*\{[^}]*?border-bottom:\s*1px/);
+});
+
+test('solutions menu item fills the icon container with brand color and turns icon white on hover', () => {
+  assert.match(headerCss, /\.dropdown-rich-menu \.menu-service-item:hover \.dropdown-item-logo[\s\S]*?background:\s*var\(--brand-primary\)\s*!important/);
+  assert.match(headerCss, /\.dropdown-rich-menu \.menu-service-item:hover \.dropdown-item-logo[\s\S]*?color:\s*#ffffff\s*!important/);
+  assert.match(headerCss, /\.dropdown-rich-menu \.menu-service-item:hover \.dropdown-item-logo svg[\s\S]*?stroke:\s*#ffffff\s*!important/);
+  assert.match(responsiveCss, /\.dropdown-rich-menu \.menu-service-item:hover \.dropdown-item-logo[\s\S]*?background:\s*var\(--brand-primary\)\s*!important/);
+});
+
+

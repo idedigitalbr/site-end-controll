@@ -48,9 +48,9 @@ test('Home header styling is explicitly shared by internal pages', () => {
   const aboutHtml = fs.readFileSync(path.join(root, 'sobre-nos.html'), 'utf8');
   assert.match(headerCss, /\.site-header--light-hero \.drop-link\.active/);
   assert.match(headerCss, /\.site-header--light-hero \.main-menu > a\.active/);
-  assert.match(headerCss, /\.site-header--light-hero \.drop-link\.active[\s\S]{0,220}color: #ffffff !important/);
+  assert.match(headerCss, /\.site-header--light-hero \.drop-link\.active[\s\S]{0,220}color: var\(--brand-secondary\) !important/);
   assert.match(headerCss, /\.site-header--light-hero \.dropdown-rich-menu \.dropdown-item-text/);
   assert.match(headerCss, /\.site-header--light-hero \.main-menu \.btn-contacts-menu/);
-  assert.match(serviceCss, /\.sn-page-wrapper \.site-header \.drop-link\.active[\s\S]{0,220}color: #ffffff !important/);
+  assert.match(serviceCss, /\.sn-page-wrapper \.site-header \.drop-link\.active[\s\S]{0,220}color: var\(--brand-secondary\) !important/);
   assert.match(aboutHtml, /<a href="sobre-nos\.html" class="active">Sobre Nós<\/a>/);
 });

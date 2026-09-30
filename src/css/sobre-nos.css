@@ -1397,14 +1397,14 @@
   gap: 10px;
   margin-top: 28px;
   padding: 13px 26px;
-  background: var(--brand-primary);
-  color: #ffffff;
+  background: var(--brand-secondary) !important;
+  color: #ffffff !important;
   border-radius: 12px;
   font-family: var(--font-primary, sans-serif);
   font-size: var(--font-size-button, 15px);
   font-weight: 700;
   text-decoration: none;
-  box-shadow: 0 6px 20px rgba(var(--brand-primary-rgb), 0.22);
+  box-shadow: 0 6px 20px rgba(var(--brand-secondary-rgb), 0.28);
   white-space: nowrap;
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   z-index: 5;
@@ -1415,8 +1415,8 @@
 .sn-commitment-wsp-float-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 10px 25px rgba(var(--brand-primary-rgb), 0.35);
-  color: #ffffff;
-  background: #00358e;
+  color: #ffffff !important;
+  background: var(--brand-primary) !important;
 }
 
 .sn-wsp-float-icon {
@@ -1518,10 +1518,10 @@
 }
 
 .sn-cta-btn-primary {
-  background: var(--brand-primary) !important;
+  background: var(--brand-secondary) !important;
   border: none !important;
   color: #ffffff !important;
-  box-shadow: 0 8px 30px rgba(var(--brand-primary-rgb), 0.45) !important;
+  box-shadow: 0 8px 30px rgba(var(--brand-secondary-rgb), 0.45) !important;
   border-radius: 12px !important;
   padding: 16px 36px !important;
   font-weight: 700 !important;
@@ -1529,6 +1529,7 @@
 }
 
 .sn-cta-btn-primary:hover {
+  background: var(--brand-primary) !important;
   transform: translateY(-2px) scale(1.02) !important;
   box-shadow: 0 12px 40px rgba(var(--brand-primary-rgb), 0.65) !important;
 }
@@ -2435,10 +2436,15 @@
 }
 
 .sn-page-wrapper.light-theme .sn-cta-buttons-row .btn-primary {
-  background: var(--brand-primary);
-  color: #ffffff;
-  border-color: var(--brand-primary);
-  box-shadow: 0 8px 24px rgba(var(--brand-primary-rgb), 0.3);
+  background: var(--brand-secondary) !important;
+  color: #ffffff !important;
+  border-color: var(--brand-secondary) !important;
+  box-shadow: 0 8px 24px rgba(var(--brand-secondary-rgb), 0.3) !important;
+}
+
+.sn-page-wrapper.light-theme .sn-cta-buttons-row .btn-primary:hover {
+  background: var(--brand-primary) !important;
+  border-color: var(--brand-primary) !important;
 }
 
 .sn-page-wrapper.light-theme .sn-cta-buttons-row .btn-secondary {

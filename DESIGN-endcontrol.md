@@ -192,10 +192,10 @@ Exemplos canônicos:
 ---
 
 ## 3. Padrão de Botões e CTAs
-- **CTA Primário (Header / Ação Principal):** Fundo `var(--brand-primary)` (`#67A8B8`), texto `#FFFFFF`, bordas arredondadas `9999px` ou `12px`.
-- **CTA WhatsApp Oficial:** Fundo `var(--brand-primary)`, ícone oficial do WhatsApp, sombra com canal RGB `rgba(var(--brand-primary-rgb), 0.35)`.
-- **CTA Outline Secundário:** Fundo `#FFFFFF`, borda `1.5px solid var(--brand-primary)`, texto `var(--brand-primary)`. No hover, preenchimento total.
-- **CTA Tecnológico:** Fundo `var(--brand-secondary)` (`#00ACE4`), texto `#FFFFFF`.
+- **CTA Primário Preenchido (Header / Ações Principais / WhatsApp):** Fundo `var(--brand-secondary)` (`#00ACE4`), texto `#FFFFFF`, bordas arredondadas `9999px` ou `12px`, sombra suave `rgba(var(--brand-secondary-rgb), 0.28)`. No **hover**, transição para a Cor Primária `var(--brand-primary)` (`#67A8B8`) com sombra `rgba(var(--brand-primary-rgb), 0.45)`.
+- **CTA WhatsApp Oficial:** Fundo `var(--brand-secondary)`, ícone oficial do WhatsApp, sombra com canal RGB `rgba(var(--brand-secondary-rgb), 0.28)`. No **hover**, preenchimento com `var(--brand-primary)`.
+- **CTA Outline Secundário:** Fundo `#FFFFFF` ou transparente, borda `1.5px solid var(--brand-primary)`, texto `var(--brand-primary)`. No hover, preenchimento total com `var(--brand-primary)`.
+- **CTA Tecnológico:** Fundo `var(--brand-secondary)` (`#00ACE4`), texto `#FFFFFF`. No hover, transição para `var(--brand-primary)`.
 
 ---
 

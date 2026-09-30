@@ -44,7 +44,7 @@ test('normalizes every mega menu service icon through the shared Lucide map', ()
   }
 });
 
-test('keeps the active desktop solutions chevron visible in white', () => {
-  assert.match(headerCss, /\.site-header--light-hero \.main-menu \.dropdown\.is-open > \.drop-link \.menu-chevron[\s\S]*?\{[\s\S]*?color:\s*#ffffff\s*!important/i);
+test('keeps the active desktop solutions chevron visible with brand color', () => {
+  assert.match(headerCss, /\.site-header--light-hero \.main-menu \.dropdown\.is-open > \.drop-link \.menu-chevron[\s\S]*?\{[\s\S]*?color:\s*var\(--brand-primary\)\s*!important/i);
   assert.match(responsiveCss, /\.main-menu \.dropdown\.is-open > \.drop-link \.menu-chevron\s*\{[\s\S]*?color:\s*(?:#00215D|var\(--brand-primary\))\s*!important/i);
 });
