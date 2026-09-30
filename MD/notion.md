@@ -1,5 +1,15 @@
 # Histórico de sincronização — DB_IDE
 
+## 2026-09-30 - Atualização da Imagem de Química e Petroquímica nas Áreas de Atuação
+
+- Projeto: site-end-controll
+- Tarefa: Atualização da imagem do painel da área "Químico e Petroquímico" na seção de Áreas de Atuação para a fotografia industrial otimizada integridade-estrutural-planta-industrial-tanques-tubulacoes.webp. Atualização dos testes automatizados em tests/segmentos-images.test.js.
+- Status local: Concluída.
+- Commit: 2faa0a9
+- GitHub: Push realizado com sucesso em https://github.com/idedigitalbr/site-end-controll.git (main).
+- Testes: Suíte de testes automatizados aprovada com 100% de sucesso.
+- Observação: Memória persistente no Obsidian (`MD/`) e changelog sincronizados.
+
 ## 2026-09-09 - Remoção da Borda Inferior da Seção de Clientes e Limpeza de Indicador Residual
 
 - Projeto: site-end-controll

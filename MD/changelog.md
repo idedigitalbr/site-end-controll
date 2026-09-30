@@ -1,5 +1,14 @@
 # Changelog — ENDCONTROL Engenharia
 
+## [2026-09-30] - Atualização da Imagem de Química e Petroquímica nas Áreas de Atuação
+
+- **Arquivos:** `index.html`, `tests/segmentos-images.test.js`, `MD/changelog.md`, `MD/notion.md`.
+- **Substituição de Imagem do Segmento:**
+  - Atualizada a imagem do painel interativo da área "Químico e Petroquímico" (`data-index="9"`) para a fotografia otimizada `assets/Fotografias/Endcontrol-Fotos-Videos-Escolhidos/otimizados/fotos/integridade-estrutural-planta-industrial-tanques-tubulacoes.webp`.
+  - Atualizada a esteira contínua de indicadores e sincronizadas as variáveis visuais de componentes.
+- **Validação de Testes:** Suíte de testes em `tests/segmentos-images.test.js` atualizada e aprovada com 100% de sucesso.
+- **Commit:** `2faa0a9` enviado para `main` no GitHub.
+
 ## [2026-09-09] - Remoção da Borda Inferior da Seção de Clientes e Limpeza de Indicador Residual
 
 - **Arquivos:** `src/css/clients-carousel.css`, `index.html`, `MD/changelog.md`, `MD/notion.md`.
