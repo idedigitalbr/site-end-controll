@@ -1,5 +1,12 @@
 # Changelog — ENDCONTROL Engenharia
 
+## [2026-10-01] - Atualização do Logotipo Ipiranga no Carrossel de Clientes
+
+- **Arquivos:** `assets/Logos Clientes/10.ipiranga-logo.png`, `MD/changelog.md`, `MD/notion.md`.
+- **Carrossel de Clientes:**
+  - Atualização do asset gráfico oficial do logotipo da Ipiranga (`10.ipiranga-logo.png`) para otimização visual e fidelidade gráfica no carrossel de parceiros e clientes.
+- **Validação Automatizada:** Testes de integridade e suíte de testes 100% aprovados.
+
 ## [2026-10-01] - Padronização Global de Botões Tecnológicos, Refinamento das Seções Soluções e Segmentos
 
 - **Arquivos:** `src/css/base.css`, `src/css/solucoes.css`, `src/css/segmentos.css`, `src/css/header.css`, `src/css/hero.css`, `src/css/links.css`, `src/css/brand-pages.css`, `src/css/servico-integridade.css`, `src/css/sobre-nos.css`, `index.html`, `tests/hero-visual.test.js`, `tests/service-pages-layout.test.js`, `tests/presenca-visual.test.js`, `tests/solucoes-visual.test.js`, `MD/changelog.md`, `MD/notion.md`.

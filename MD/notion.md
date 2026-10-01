@@ -1,5 +1,13 @@
 # Histórico de sincronização — DB_IDE
 
+## 2026-10-01 - Atualização do Logotipo Ipiranga no Carrossel de Clientes
+
+- Projeto: site-end-controll
+- Tarefa: Atualização do logotipo oficial da Ipiranga (assets/Logos Clientes/10.ipiranga-logo.png) exibido no carrossel institucional de clientes e parceiros.
+- Status local: Concluída.
+- GitHub: Push realizado com sucesso em https://github.com/idedigitalbr/site-end-controll.git (main).
+- Observação: Memória persistente no Obsidian (`MD/`) e changelog sincronizados.
+
 ## 2026-10-01 - Padronização Global de Botões Tecnológicos, Refinamento das Seções Soluções e Segmentos
 
 - Projeto: site-end-controll
