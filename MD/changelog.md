@@ -9,8 +9,9 @@
   - Botões vazados (outline) atualizados com borda e texto em `#00ACE4` e mesma resposta tátil de clique.
 - **Refinamento da Seção Soluções:**
   - Eliminação de sobreposições de cores fora do Design System (`#00758B` e `#0087a0`), restaurando a identidade oficial (`--brand-primary: #67A8B8` e hover `#538E9C`).
-  - Alinhamento de proporções do Highlight Card: imagem com altura otimizada, faixa de benefícios em duas linhas com divisórias verticais discretas e tooltip de nó ativo ancorado lateralmente.
+  - Alinhamento de proporções do Highlight Card: imagem com altura otimizada, faixa de benefícios em duas linhas com divisórias verticais discretas.
   - Correção estrita da media query desktop e padding inferior (`40px 0 var(--section-space-desktop) 0`).
+  - **Correção Definitiva dos Tooltips do Radar:** Ajustado o stacking context (`z-index: 25` na coluna do radar e `100` nos tooltips) eliminando sobreposição por trás do card, e implementado posicionamento direcional voltado para o interior do radar (`label-pos-right` para dentro/esquerda, `label-pos-left` para dentro/direita), evitando corte lateral em telas de notebook (1366px).
 - **Refinamento da Seção Segmentos / Áreas de Atuação:**
   - Aplicação do filtro fotográfico em escala de cinza com camada azul institucional (`#67A8B8`) sob mesclagem `multiply`.
   - Vinheta inferior progressiva sutil no estado recolhido e expansão de realce textual apenas com foco/hover no card ativo.

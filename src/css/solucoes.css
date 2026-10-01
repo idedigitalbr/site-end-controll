@@ -311,7 +311,7 @@
   max-width: 490px;
   aspect-ratio: 1;
   margin: 0 auto;
-  z-index: 2;
+  z-index: 25;
   --r-outer: 45%;
   --r-inner: 26%;
   --sweep-radius-initial: 29.2%;
@@ -1823,34 +1823,84 @@
 .solucoes-section .service-node[data-tooltip]::after {
   content: attr(data-tooltip);
   position: absolute;
-  top: calc(100% + 10px);
-  left: 50%;
   width: max-content;
-  max-width: 280px;
+  max-width: 240px;
   padding: 6px 14px;
-  border: 1px solid rgba(var(--brand-primary-rgb), 0.3);
   border-radius: 8px;
   background: #ffffff;
-  color: var(--brand-primary);
+  color: #071429;
+  font-family: var(--font-primary, "Inter", sans-serif);
   font-size: 0.72rem;
   font-weight: 700;
   line-height: 1.25;
-  text-align: center;
+  box-shadow: 0 4px 18px rgba(7, 20, 41, 0.12), 0 1px 4px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(var(--brand-primary-rgb), 0.28);
   white-space: nowrap;
-  box-shadow: 0 6px 18px rgba(7, 20, 41, 0.1);
+  pointer-events: none;
   opacity: 0;
   visibility: hidden;
-  pointer-events: none;
-  transform: translate(-50%, 4px);
   transition: opacity 160ms ease, transform 160ms ease, visibility 160ms ease;
-  z-index: 20;
+  z-index: 100 !important;
+}
+
+/* Posicionamento Inteligente para Dentro do Radar (nunca corta na tela nem entra no card) */
+.solucoes-section .service-node.label-pos-right[data-tooltip]::after {
+  top: calc(100% + 8px);
+  right: 0;
+  left: auto;
+  bottom: auto;
+  transform: none;
+  text-align: right;
+}
+
+.solucoes-section .service-node.label-pos-left[data-tooltip]::after {
+  top: calc(100% + 8px);
+  left: 0;
+  right: auto;
+  bottom: auto;
+  transform: none;
+  text-align: left;
+}
+
+.solucoes-section .service-node.label-pos-top[data-tooltip]::after {
+  top: calc(100% + 8px);
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.solucoes-section .service-node.label-pos-bottom[data-tooltip]::after {
+  bottom: calc(100% + 8px);
+  top: auto;
+  left: 50%;
+  right: auto;
+  transform: translateX(-50%);
+  text-align: center;
 }
 
 .solucoes-section .service-node[data-tooltip]:hover::after,
 .solucoes-section .service-node[data-tooltip]:focus-visible::after {
   opacity: 1;
   visibility: visible;
-  transform: translate(-50%, 0);
+}
+
+.solucoes-section .service-node.label-pos-right[data-tooltip]:hover::after,
+.solucoes-section .service-node.label-pos-right[data-tooltip]:focus-visible::after,
+.solucoes-section .service-node.label-pos-left[data-tooltip]:hover::after,
+.solucoes-section .service-node.label-pos-left[data-tooltip]:focus-visible::after {
+  transform: translateY(2px);
+}
+
+.solucoes-section .service-node.label-pos-top[data-tooltip]:hover::after,
+.solucoes-section .service-node.label-pos-top[data-tooltip]:focus-visible::after {
+  transform: translate(-50%, 2px);
+}
+
+.solucoes-section .service-node.label-pos-bottom[data-tooltip]:hover::after,
+.solucoes-section .service-node.label-pos-bottom[data-tooltip]:focus-visible::after {
+  transform: translate(-50%, -2px);
 }
 
 .solucoes-section .service-node:focus-visible .service-node-icon {
@@ -1886,27 +1936,33 @@
   filter: none !important;
 }
 
+/* Nó Ativo: Tooltip sempre visível com destaque oficial */
 .solucoes-section .service-node.is-active[data-tooltip]::after {
-  top: 50%;
-  left: calc(100% + 14px);
-  transform: translateY(-50%);
   opacity: 1;
   visibility: visible;
-  text-align: left;
-  border-left: 2.5px solid var(--brand-primary);
   background: #ffffff;
   color: #071429;
   font-size: 0.74rem;
   font-weight: 700;
+  border: 1.5px solid var(--brand-secondary, #00ACE4);
+  box-shadow: 0 4px 18px rgba(0, 172, 228, 0.22), 0 2px 8px rgba(7, 20, 41, 0.08);
+  z-index: 120 !important;
 }
 
-/* When active node is on the left side of radar, tooltip goes right */
+.solucoes-section .service-node.is-active.label-pos-right[data-tooltip]::after {
+  border-right: 3px solid var(--brand-secondary, #00ACE4);
+}
+
 .solucoes-section .service-node.is-active.label-pos-left[data-tooltip]::after {
-  left: auto;
-  right: calc(100% + 14px);
-  text-align: right;
-  border-left: none;
-  border-right: 2.5px solid var(--brand-primary);
+  border-left: 3px solid var(--brand-secondary, #00ACE4);
+}
+
+.solucoes-section .service-node.is-active.label-pos-top[data-tooltip]::after {
+  border-top: 3px solid var(--brand-secondary, #00ACE4);
+}
+
+.solucoes-section .service-node.is-active.label-pos-bottom[data-tooltip]::after {
+  border-bottom: 3px solid var(--brand-secondary, #00ACE4);
 }
 
 /* As conexões entre os ícones acompanham o avanço do radar. */
