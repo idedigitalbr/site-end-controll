@@ -299,7 +299,7 @@
   flex-shrink: 0;
   stroke-width: 2px;
   transition: all 0.35s ease;
-  filter: drop-shadow(0 2px 4px rgba(0, 172, 228, 0.5));
+  filter: none;
 }
 
 .endo-acc-panel:hover .endo-acc-icon,
@@ -308,14 +308,14 @@
   color: var(--brand-secondary, #00ACE4);
   stroke: var(--brand-secondary, #00ACE4);
   transform: translateY(-2px) scale(1.1);
-  filter: drop-shadow(0 0 8px rgba(0, 172, 228, 0.85));
+  opacity: 1;
 }
 
 .endo-acc-row:hover .endo-acc-panel.is-active:not(:hover):not(:focus-within) .endo-acc-icon {
   transform: scale(1);
   color: var(--brand-secondary, #00ACE4);
   stroke: var(--brand-secondary, #00ACE4);
-  filter: drop-shadow(0 2px 4px rgba(0, 172, 228, 0.5));
+  opacity: 0.9;
 }
 
 .endo-acc-card__title {

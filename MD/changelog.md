@@ -1,5 +1,22 @@
 # Changelog — ENDCONTROL Engenharia
 
+## [2026-10-01] - Padronização Global de Botões Tecnológicos, Refinamento das Seções Soluções e Segmentos
+
+- **Arquivos:** `src/css/base.css`, `src/css/solucoes.css`, `src/css/segmentos.css`, `src/css/header.css`, `src/css/hero.css`, `src/css/links.css`, `src/css/brand-pages.css`, `src/css/servico-integridade.css`, `src/css/sobre-nos.css`, `index.html`, `tests/hero-visual.test.js`, `tests/service-pages-layout.test.js`, `tests/presenca-visual.test.js`, `tests/solucoes-visual.test.js`, `MD/changelog.md`, `MD/notion.md`.
+- **Padronização Global de Botões e CTAs:**
+  - Unificação de todos os botões primários preenchidos para a cor secundária oficial `--brand-secondary` (`#00ACE4` - Azul Claro Tecnológico).
+  - No estado hover, transição para tonalidade secundária mais escura (`--brand-secondary-hover` / `#0093c4`) combinada com animação física de compressão/press-down (`transform: scale(0.97) translateY(1px)`).
+  - Botões vazados (outline) atualizados com borda e texto em `#00ACE4` e mesma resposta tátil de clique.
+- **Refinamento da Seção Soluções:**
+  - Eliminação de sobreposições de cores fora do Design System (`#00758B` e `#0087a0`), restaurando a identidade oficial (`--brand-primary: #67A8B8` e hover `#538E9C`).
+  - Alinhamento de proporções do Highlight Card: imagem com altura otimizada, faixa de benefícios em duas linhas com divisórias verticais discretas e tooltip de nó ativo ancorado lateralmente.
+  - Correção estrita da media query desktop e padding inferior (`40px 0 var(--section-space-desktop) 0`).
+- **Refinamento da Seção Segmentos / Áreas de Atuação:**
+  - Aplicação do filtro fotográfico em escala de cinza com camada azul institucional (`#67A8B8`) sob mesclagem `multiply`.
+  - Vinheta inferior progressiva sutil no estado recolhido e expansão de realce textual apenas com foco/hover no card ativo.
+  - Ícones atualizados com stroke na cor secundária tecnológica `#00ACE4`.
+- **Validação Automatizada:** 41 suítes de testes Node + script de integridade (`site-integrity.ps1`) 100% aprovados sem falhas (0 erros).
+
 ## [2026-09-30] - Carrossel Dinâmico de Indicadores no Hero e Padronização do Rodapé Minimalista
 
 - **Arquivos:** `index.html`, páginas de soluções (`1-solucao-...html` a `12-solucao-...html`), `404.html`, `politica-de-privacidade.html`, `sobre-nos.html`, `src/js/main.js`, `src/css/hero.css`, `src/css/work-units-footer.css`, `assets/Logos/logo-endcontrol-vertical-cor.webp`.

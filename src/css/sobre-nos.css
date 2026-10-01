@@ -1413,10 +1413,10 @@
 }
 
 .sn-commitment-wsp-float-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(var(--brand-primary-rgb), 0.35);
+  transform: scale(0.97) translateY(1px);
+  box-shadow: 0 4px 12px rgba(var(--brand-secondary-rgb), 0.25);
   color: #ffffff !important;
-  background: var(--brand-primary) !important;
+  background: var(--brand-secondary-hover) !important;
 }
 
 .sn-wsp-float-icon {
@@ -1529,27 +1529,28 @@
 }
 
 .sn-cta-btn-primary:hover {
-  background: var(--brand-primary) !important;
-  transform: translateY(-2px) scale(1.02) !important;
-  box-shadow: 0 12px 40px rgba(var(--brand-primary-rgb), 0.65) !important;
+  background: var(--brand-secondary-hover) !important;
+  transform: scale(0.97) translateY(1px) !important;
+  box-shadow: 0 4px 14px rgba(var(--brand-secondary-rgb), 0.25) !important;
 }
 
 .sn-cta-btn-secondary {
-  background: rgba(3, 14, 30, 0.75) !important;
-  border: 1.5px solid var(--brand-primary) !important;
-  color: #ffffff !important;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4), 0 0 15px rgba(var(--brand-primary-rgb), 0.3) !important;
+  background: transparent !important;
+  border: 1.5px solid var(--brand-secondary) !important;
+  color: var(--brand-secondary) !important;
+  box-shadow: none !important;
   border-radius: 12px !important;
   padding: 16px 36px !important;
   font-weight: 700 !important;
-  transition: all 0.35s ease !important;
+  transition: border-color 0.18s ease, color 0.18s ease, transform 0.14s ease !important;
 }
 
 .sn-cta-btn-secondary:hover {
-  background: var(--brand-primary) !important;
-  color: #020813 !important;
-  box-shadow: 0 12px 35px rgba(var(--brand-primary-rgb), 0.7) !important;
-  transform: translateY(-2px) scale(1.02) !important;
+  background: transparent !important;
+  border-color: var(--brand-secondary-hover) !important;
+  color: var(--brand-secondary-hover) !important;
+  box-shadow: none !important;
+  transform: scale(0.97) translateY(1px) !important;
 }
 
 .sn-cta-emblem-wrapper {
@@ -2443,8 +2444,9 @@
 }
 
 .sn-page-wrapper.light-theme .sn-cta-buttons-row .btn-primary:hover {
-  background: var(--brand-primary) !important;
-  border-color: var(--brand-primary) !important;
+  background: var(--brand-secondary-hover) !important;
+  border-color: transparent !important;
+  transform: scale(0.97) translateY(1px) !important;
 }
 
 .sn-page-wrapper.light-theme .sn-cta-buttons-row .btn-secondary {

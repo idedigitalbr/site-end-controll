@@ -102,8 +102,8 @@ test('prioritizes the solution card over the radar on desktop', () => {
   assert.match(styles, /@media \(min-width: 1441px\)\s*\{[\s\S]*?grid-template-columns:\s*minmax\(360px,\s*36%\)\s+minmax\(0,\s*1fr\)/i);
   assert.match(styles, /@media \(min-width: 1441px\)\s*\{[\s\S]*?\.solucoes-center-area\s*\{[\s\S]*?max-width:\s*490px/i);
   assert.match(styles, /@media \(min-width: 1441px\)\s*\{[\s\S]*?\.highlight-card(?:-wrapper)?\s*\{[\s\S]*?max-width:\s*1060px/i);
-  assert.match(styles, /@media \(min-width: 1201px\) and \(max-width: 1440px\)\s*\{[\s\S]*?grid-template-columns:\s*minmax\(330px,\s*36%\)\s+minmax\(0,\s*1fr\)/i);
-  assert.match(styles, /@media \(min-width: 1201px\) and \(max-width: 1440px\)\s*\{[\s\S]*?\.solucoes-center-area\s*\{[\s\S]*?max-width:\s*450px/i);
+  assert.match(styles, /@media \((?:min-width: 1201px\) and \(max-width: 1440px|max-width: 1440px\) and \(min-width: 1201px)\)\s*\{[\s\S]*?grid-template-columns:\s*minmax\(330px,\s*36%\)\s+minmax\(0,\s*1fr\)/i);
+  assert.match(styles, /@media \((?:min-width: 1201px\) and \(max-width: 1440px|max-width: 1440px\) and \(min-width: 1201px)\)\s*\{[\s\S]*?\.solucoes-center-area\s*\{[\s\S]*?max-width:\s*450px/i);
   assert.match(styles, /@media \(min-width: 992px\) and \(max-width: 1200px\)\s*\{[\s\S]*?grid-template-columns:\s*minmax\(290px,\s*34%\)\s+minmax\(0,\s*1fr\)/i);
   assert.match(styles, /@media \(min-width: 992px\) and \(max-width: 1200px\)\s*\{[\s\S]*?\.solucoes-center-area\s*\{[\s\S]*?max-width:\s*380px/i);
   assert.match(styles, /\.highlight-card-title\s*\{[\s\S]*?font-size:\s*clamp\(30px,\s*2\.2vw,\s*46px\)/i);

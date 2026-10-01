@@ -390,17 +390,18 @@
 }
 
 .hero-actions-container .btn.primary {
-  background: #ffffff !important;
-  border-color: var(--brand-primary) !important;
-  color: var(--brand-primary) !important;
-  box-shadow: 0 4px 12px rgba(var(--brand-primary-rgb), 0.14) !important;
+  background: var(--brand-secondary) !important;
+  border-color: transparent !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 12px rgba(var(--brand-secondary-rgb), 0.30) !important;
 }
 
 .hero-actions-container .btn.primary:hover {
-  background: var(--brand-primary) !important;
-  border-color: var(--brand-primary) !important;
+  background: var(--brand-secondary-hover) !important;
+  border-color: transparent !important;
   color: #ffffff !important;
-  box-shadow: 0 6px 16px rgba(var(--brand-primary-rgb), 0.18) !important;
+  box-shadow: 0 2px 6px rgba(var(--brand-secondary-rgb), 0.20) !important;
+  transform: scale(0.97) translateY(1px) !important;
 }
 
 .btn:hover svg {

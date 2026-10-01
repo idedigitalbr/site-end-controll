@@ -713,11 +713,11 @@ body.theme-holding .brand-red-section .menu-card ul li::marker {
 }
 
 .theme-holding .btn.primary:hover {
-  background: var(--brand-primary) !important;
-  border-color: var(--brand-primary) !important;
+  background: var(--brand-secondary-hover) !important;
+  border-color: transparent !important;
   color: #ffffff !important;
-  box-shadow: 0 12px 30px rgba(var(--brand-primary-rgb), 0.4) !important;
-  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(var(--brand-secondary-rgb), 0.20) !important;
+  transform: scale(0.97) translateY(1px);
 }
 
 .theme-holding .btn:not(.primary) {

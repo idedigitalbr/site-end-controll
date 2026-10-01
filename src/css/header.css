@@ -73,9 +73,10 @@
 }
 
 .site-header--light-hero .main-menu .btn-contacts-menu:hover {
-  background: var(--brand-primary) !important;
+  background: var(--brand-secondary-hover) !important;
   color: #ffffff !important;
   box-shadow: none;
+  transform: scale(0.97) translateY(1px);
 }
 
 .site-header--light-hero .menu-toggle span {
@@ -270,11 +271,11 @@
 }
 
 .main-menu .btn-contacts-menu:hover {
-  background: var(--brand-primary) !important;
+  background: var(--brand-secondary-hover) !important;
   color: #ffffff !important;
   text-shadow: none !important;
   box-shadow: none !important;
-  transform: translateY(-2px);
+  transform: scale(0.97) translateY(1px);
 }
 
 .dropdown {

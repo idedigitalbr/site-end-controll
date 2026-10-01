@@ -96,8 +96,8 @@ test('uses the navy indicator band, white copy and inverted primary CTA', () => 
   assert.match(styles, /\.hero-benefits-bar\s*\{[\s\S]*?background(?:-color)?:\s*(?:#00215d|var\(--brand-primary\))\s*;/i);
   assert.match(styles, /\.benefit-title\s*\{[\s\S]*?font-size:\s*1\.(?:45|95)rem[\s\S]*?color:\s*#ffffff\s*;/i);
   assert.match(styles, /\.benefit-desc\s*\{[\s\S]*?color:\s*#ffffff\s*;/i);
-  assert.match(styles, /\.hero-actions-container \.btn\.primary\s*\{[\s\S]*?background:\s*#ffffff\s*!important[\s\S]*?border-color:\s*(?:#00215d|var\(--brand-primary\))\s*!important[\s\S]*?color:\s*(?:#00215d|var\(--brand-primary\))\s*!important/i);
-  assert.match(styles, /\.hero-actions-container \.btn\.primary:hover\s*\{[\s\S]*?background:\s*(?:#00215d|var\(--brand-primary\))\s*!important[\s\S]*?color:\s*#ffffff\s*!important/i);
+  assert.match(styles, /\.hero-actions-container \.btn\.primary\s*\{[\s\S]*?background:\s*var\(--brand-secondary\)\s*!important[\s\S]*?color:\s*#ffffff\s*!important/i);
+  assert.match(styles, /\.hero-actions-container \.btn\.primary:hover\s*\{[\s\S]*?background:\s*var\(--brand-secondary-hover\)\s*!important[\s\S]*?color:\s*#ffffff\s*!important/i);
 });
 
 test('keeps the four indicators compact, aligned and centered without icons', () => {

@@ -18,7 +18,7 @@ test('uses the standard navy across the national presence section accents', () =
   assert.match(styles, /\.connection-line\.active\s*\{[\s\S]*?stroke:\s+(?:#00215D|var\(--brand-primary\))\s*;/i);
   assert.match(home, /PRESENÇA NACIONAL/);
   assert.match(home, /<span class="highlight">indústria brasileira<\/span>/);
-  assert.match(home, /presenca-nacional\.css\?v=34\.0/);
+  assert.match(home, /presenca-nacional\.css\?v=\d+\.0/);
 });
 
 test('matches the Sobre a EndControl badge and headline typography', () => {

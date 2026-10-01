@@ -1,5 +1,13 @@
 # Histórico de sincronização — DB_IDE
 
+## 2026-10-01 - Padronização Global de Botões Tecnológicos, Refinamento das Seções Soluções e Segmentos
+
+- Projeto: site-end-controll
+- Tarefa: Unificação dos botões CTA para cor secundária oficial (#00ACE4) com animação tátil press-down no hover (#0093c4), eliminação de cores arbitrárias em Soluções (#00758B e #0087a0) restaurando a paleta oficial (#67A8B8 e #538E9C), refinamento do layout de Soluções e dos Segmentos (grayscale com multiply azul e vinheta adaptativa). 100% dos testes aprovados (41 suítes + integridade).
+- Status local: Concluída.
+- GitHub: Push realizado com sucesso em https://github.com/idedigitalbr/site-end-controll.git (main).
+- Observação: Memória persistente no Obsidian (`MD/`) e changelog sincronizados.
+
 ## 2026-09-30 - Carrossel Dinâmico de Indicadores no Hero e Padronização do Rodapé Minimalista
 
 - Projeto: site-end-controll
