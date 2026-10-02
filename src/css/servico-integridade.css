@@ -2513,65 +2513,335 @@
 }
 
 .sn-page-wrapper .endo-acc-full-wrapper {
-  height: 344px;
-  border: 1px solid rgba(var(--brand-primary-rgb), 0.16);
-  border-radius: 24px;
-  box-shadow: 0 12px 28px rgba(var(--brand-primary-rgb), 0.06) !important;
+  position: relative;
+  width: min(1440px, calc(100% - 64px));
+  max-width: 1440px;
+  margin: 36px auto 0 auto;
+  height: 450px;
+  background: #071b2c;
+  border-radius: 20px;
+  border: none !important;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15) !important;
+}
+
+.sn-page-wrapper .endo-acc-row {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 0;
+  overflow: hidden;
+  border-radius: 20px;
 }
 
 .sn-page-wrapper .endo-acc-panel {
+  flex: 1 1 0;
+  min-width: 0;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: flex 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+  will-change: flex;
+  transform: translateZ(0);
+  border-right: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-left: none !important;
+  isolation: isolate !important;
   box-shadow: none !important;
 }
 
-.sn-page-wrapper .endo-acc-panel + .endo-acc-panel {
-  border-left-color: rgba(255, 255, 255, 0.2);
+.sn-page-wrapper .endo-acc-panel:last-child {
+  border-right: none !important;
 }
 
-.sn-page-wrapper .endo-acc-card__overlay,
+.sn-page-wrapper .endo-acc-panel:hover,
+.sn-page-wrapper .endo-acc-panel:focus-within,
+.sn-page-wrapper .endo-acc-panel.is-active {
+  flex: 3.0 1 0;
+}
+
+.sn-page-wrapper .endo-acc-row:hover .endo-acc-panel.is-active:not(:hover):not(:focus-within) {
+  flex: 1 1 0;
+}
+
+.sn-page-wrapper .endo-acc-row:hover .endo-acc-panel:hover {
+  flex: 3.0 1 0;
+}
+
+.sn-page-wrapper .endo-acc-card__img {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  filter: grayscale(100%) contrast(1.04) brightness(1.55) !important;
+  transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1), filter 0.45s ease !important;
+  z-index: 1 !important;
+}
+
+.sn-page-wrapper .endo-acc-panel:hover .endo-acc-card__img,
+.sn-page-wrapper .endo-acc-panel:focus-within .endo-acc-card__img,
+.sn-page-wrapper .endo-acc-panel.is-active .endo-acc-card__img {
+  transform: scale(1.05) !important;
+  filter: grayscale(100%) contrast(1.08) brightness(1.65) !important;
+}
+
+/* Camada Oficial de Cor #67A8B8 com blend mode Multiply (efeito clássico Photoshop Duotone) */
+.sn-page-wrapper .endo-acc-card__overlay {
+  position: absolute !important;
+  inset: 0 !important;
+  background-color: #67A8B8 !important;
+  mix-blend-mode: multiply !important;
+  z-index: 2 !important;
+  pointer-events: none !important;
+  transition: background-color 0.4s ease !important;
+}
+
 .sn-page-wrapper .endo-acc-panel:hover .endo-acc-card__overlay,
 .sn-page-wrapper .endo-acc-panel:focus-within .endo-acc-card__overlay,
 .sn-page-wrapper .endo-acc-panel.is-active .endo-acc-card__overlay {
-  background: linear-gradient(to top, rgba(7, 20, 41, 0.96) 0%, rgba(7, 20, 41, 0.72) 38%, rgba(7, 20, 41, 0.08) 78%, transparent 100%);
+  background-color: #72b9cb !important;
 }
 
-.sn-page-wrapper .endo-acc-icon,
+.sn-page-wrapper .endo-acc-card__overlay::before {
+  display: none !important;
+}
+
+/* Vinheta Baixa Padrão para Cards Fechados/Recolhidos */
+.sn-page-wrapper .endo-acc-panel::after {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    transparent 62%,
+    rgba(7, 27, 44, 0.35) 75%,
+    rgba(7, 27, 44, 0.80) 86%,
+    rgba(7, 27, 44, 0.98) 100%
+  ) !important;
+  z-index: 3 !important;
+  pointer-events: none !important;
+  display: block !important;
+}
+
+/* Vinheta Alta Dinâmica (quando o card abre no hover/ativo com a descrição visível) */
+.sn-page-wrapper .endo-acc-panel::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    transparent 36%,
+    rgba(7, 27, 44, 0.45) 50%,
+    rgba(7, 27, 44, 0.85) 64%,
+    rgba(7, 27, 44, 0.96) 78%,
+    rgba(7, 27, 44, 0.99) 100%
+  ) !important;
+  z-index: 4 !important;
+  pointer-events: none !important;
+  opacity: 0 !important;
+  transition: opacity 0.45s cubic-bezier(0.25, 1, 0.5, 1) !important;
+  display: block !important;
+}
+
+.sn-page-wrapper .endo-acc-panel:hover::before,
+.sn-page-wrapper .endo-acc-panel:focus-within::before,
+.sn-page-wrapper .endo-acc-panel.is-active::before {
+  opacity: 1 !important;
+}
+
+.sn-page-wrapper .endo-acc-row:hover .endo-acc-panel.is-active:not(:hover):not(:focus-within)::before {
+  opacity: 0 !important;
+}
+
+.sn-page-wrapper .endo-acc-card__content {
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 5 !important;
+  padding: 20px 12px 32px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-end !important;
+  align-items: center !important;
+  text-align: center !important;
+  box-sizing: border-box !important;
+  width: 100% !important;
+  pointer-events: none !important;
+}
+
+/* Ícone nítido, elegante e limpo na cor secundária oficial (#00ACE4 - Azul Claro Tecnológico) */
+.sn-page-wrapper .endo-acc-icon {
+  width: 32px !important;
+  height: 32px !important;
+  min-width: 32px !important;
+  min-height: 32px !important;
+  color: #00ACE4 !important;
+  stroke: #00ACE4 !important;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  margin-bottom: 10px !important;
+  flex-shrink: 0 !important;
+  stroke-width: 2px !important;
+  transition: all 0.35s ease !important;
+  filter: none !important;
+}
+
 .sn-page-wrapper .endo-acc-panel:hover .endo-acc-icon,
 .sn-page-wrapper .endo-acc-panel:focus-within .endo-acc-icon,
 .sn-page-wrapper .endo-acc-panel.is-active .endo-acc-icon {
-  color: var(--brand-secondary, #00ACE4);
-  filter: drop-shadow(0 2px 6px rgba(var(--brand-secondary-rgb, 0, 172, 228), 0.35)) !important;
-  transform: none;
+  color: #00ACE4 !important;
+  stroke: #00ACE4 !important;
+  transform: translateY(-2px) scale(1.1) !important;
+  opacity: 1 !important;
 }
 
-.sn-page-wrapper .endo-acc-card__title,
-.sn-page-wrapper .endo-acc-card__desc {
-  text-shadow: none;
+.sn-page-wrapper .endo-acc-row:hover .endo-acc-panel.is-active:not(:hover):not(:focus-within) .endo-acc-icon {
+  transform: scale(1) !important;
+  color: #00ACE4 !important;
+  stroke: #00ACE4 !important;
+  opacity: 0.9 !important;
+}
+
+.sn-page-wrapper .endo-acc-card__title {
+  color: #FFFFFF !important;
+  font-family: var(--font-primary, "Inter", sans-serif) !important;
+  font-size: 13.5px !important;
+  font-weight: 600 !important;
+  line-height: 1.25 !important;
+  text-align: center !important;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95) !important;
+  margin: 0 !important;
+  padding: 0 4px !important;
+  white-space: normal !important;
+  word-break: keep-all !important;
+  overflow-wrap: normal !important;
+  hyphens: none !important;
+  max-width: 100% !important;
+  width: 100% !important;
+  transition: font-size 0.35s ease, font-weight 0.35s ease !important;
 }
 
 .sn-page-wrapper .endo-acc-panel:hover .endo-acc-card__title,
 .sn-page-wrapper .endo-acc-panel:focus-within .endo-acc-card__title,
 .sn-page-wrapper .endo-acc-panel.is-active .endo-acc-card__title {
-  font-size: var(--font-size-icon-title, 18px);
+  font-size: var(--font-size-icon-title, 18px) !important;
+  font-weight: 700 !important;
+}
+
+.sn-page-wrapper .endo-acc-row:hover .endo-acc-panel.is-active:not(:hover):not(:focus-within) .endo-acc-card__title {
+  font-size: 13.5px !important;
+  font-weight: 600 !important;
+}
+
+.sn-page-wrapper .endo-acc-card__extra {
+  max-height: 0 !important;
+  opacity: 0 !important;
+  overflow: hidden !important;
+  transition: max-height 0.4s cubic-bezier(0.25, 1, 0.5, 1),
+              opacity 0.3s ease 0.05s,
+              margin-top 0.3s ease !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  width: 100% !important;
 }
 
 .sn-page-wrapper .endo-acc-panel:hover .endo-acc-card__extra,
 .sn-page-wrapper .endo-acc-panel:focus-within .endo-acc-card__extra,
 .sn-page-wrapper .endo-acc-panel.is-active .endo-acc-card__extra {
-  max-height: 112px;
+  max-height: 120px !important;
+  opacity: 1 !important;
+  margin-top: 10px !important;
 }
 
-.sn-page-wrapper .endo-acc-nav {
-  background: #ffffff;
-  border: 1.5px solid var(--brand-primary);
-  color: var(--brand-primary);
-  box-shadow: 0 4px 14px rgba(var(--brand-primary-rgb), 0.08);
+.sn-page-wrapper .endo-acc-row:hover .endo-acc-panel.is-active:not(:hover):not(:focus-within) .endo-acc-card__extra {
+  max-height: 0 !important;
+  opacity: 0 !important;
+  margin-top: 0 !important;
 }
+
+.sn-page-wrapper .endo-acc-card__desc {
+  font-size: 13.5px !important;
+  color: rgba(255, 255, 255, 0.95) !important;
+  line-height: 1.5 !important;
+  text-align: center !important;
+  text-shadow: none !important;
+  margin: 0 !important;
+}
+
+/* SETAS LATERAIS DE NAVEGAÇÃO */
+.sn-page-wrapper .endo-acc-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: rgba(7, 20, 41, 0.88);
+  backdrop-filter: blur(8px);
+  border: 2px solid var(--brand-primary);
+  color: var(--brand-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 30;
+  transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6), 0 0 18px rgba(var(--brand-primary-rgb), 0.35);
+  outline: none;
+  user-select: none;
+}
+
+.sn-page-wrapper .endo-acc-nav--prev { left: 15px; }
+.sn-page-wrapper .endo-acc-nav--next { right: 15px; }
 
 .sn-page-wrapper .endo-acc-nav:hover {
   background: var(--brand-primary);
   border-color: var(--brand-primary);
-  color: #ffffff;
-  box-shadow: 0 8px 20px rgba(var(--brand-primary-rgb), 0.16);
+  color: #FFFFFF;
+  transform: translateY(-50%) scale(1.12);
+  box-shadow: 0 12px 30px rgba(var(--brand-primary-rgb), 0.6);
+}
+
+.sn-page-wrapper .endo-acc-nav:active {
+  transform: translateY(-50%) scale(0.96);
+}
+
+.sn-page-wrapper .endo-acc-nav--disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  pointer-events: none;
+  border-color: rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.4);
+  box-shadow: none;
+}
+
+.sn-page-wrapper .endo-acc-nav svg {
+  width: 24px;
+  height: 24px;
+  stroke-width: 2.5;
+}
+
+@media (min-width: 861px) {
+  .sn-page-wrapper .endo-acc-nav,
+  .sn-page-wrapper .endo-acc-dots {
+    display: none !important;
+  }
+}
+
+@media (max-width: 860px) {
+  .sn-page-wrapper .segmentos-secao .endo-acc-panel::before {
+    opacity: 1 !important;
+  }
 }
 
 .sn-page-wrapper .sn-process-section {
@@ -3309,19 +3579,19 @@
 
 /* SERVICE ACCORDION INTERACTION */
 .sn-page-wrapper .endo-acc-panel {
-  transition: flex 0.42s ease, flex-basis 0.42s ease;
+  transition: flex 0.45s cubic-bezier(0.25, 1, 0.5, 1), flex-basis 0.45s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .sn-page-wrapper .endo-acc-panel:hover .endo-acc-card__img,
 .sn-page-wrapper .endo-acc-panel:focus-within .endo-acc-card__img,
 .sn-page-wrapper .endo-acc-panel.is-active .endo-acc-card__img {
-  transform: scale(1.03);
+  transform: scale(1.05);
 }
 
 .sn-page-wrapper .endo-acc-panel:hover .endo-acc-icon,
 .sn-page-wrapper .endo-acc-panel:focus-within .endo-acc-icon,
 .sn-page-wrapper .endo-acc-panel.is-active .endo-acc-icon {
-  transform: scale(1.04);
+  transform: translateY(-2px) scale(1.1);
 }
 
 .sn-page-wrapper .endo-acc-nav {
@@ -3330,8 +3600,8 @@
 
 @media (hover: hover) and (pointer: fine) {
   .sn-page-wrapper .endo-acc-nav:hover {
-    box-shadow: 0 8px 18px rgba(var(--brand-primary-rgb), 0.14);
-    transform: translateY(-1px);
+    box-shadow: 0 12px 30px rgba(var(--brand-primary-rgb), 0.6);
+    transform: translateY(-50%) scale(1.12);
   }
 }
 

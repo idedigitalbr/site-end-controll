@@ -50,6 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Ativar o marcador no mapa correspondente
     const targetMarker = document.getElementById(`anchor-${regionKey}`);
+    const activeAnchor = targetMarker;
     if (targetMarker) {
       targetMarker.classList.add('active');
     }

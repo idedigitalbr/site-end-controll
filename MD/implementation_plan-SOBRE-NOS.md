@@ -21,8 +21,8 @@ Implementação da nova página institucional **Sobre Nós** da **EndControl Eng
   - Modais institucionais e overlays de vídeo.
 - **Acervo Fotográfico Identificado:**
   - Fotografias operacionais reais de alta qualidade em `assets/Fotografias/originais-16-9/` (ensaios de ultrassom phased array, calibração, inspeção de bombas, reuniões técnicas, técnicos em refinaria, alpinismo industrial).
-  - Imagens setoriais em `assets/Paginas Imgs/HOME/S_SEGMENTOS/` e `assets/Paginas Imgs/HOME/CARDS-AREAS-ATUACAO/`.
-  - Logotipos vetorizados e webp em `assets/Logos/`.
+  - Imagens setoriais em `assets/Paginas Imgs/HOME/S_SEGMENTOS/` e `assets/Paginas/HOME/S3-AREAS-ATUACAO/`.
+  - Logotipos vetorizados e webp em `assets/Imagens-Diversas/Logos/`.
 
 ---
 
@@ -68,7 +68,7 @@ graph TD
 
 ### Seção 01 — Hero / Sobre a EndControl
 - **Composição:** Centralizada, elegante e compacta.
-- **Elementos:** Tag superior `—— SOBRE A ——` com linhas ciano, logotipo vertical centralizado `assets/Logos/logo-endcontrol-vertical-negativo.webp`, fundo escuro industrial com máscara de profundidade azul profundo.
+- **Elementos:** Tag superior `—— SOBRE A ——` com linhas ciano, logotipo vertical centralizado `assets/Imagens-Diversas/Logos/logo-endcontrol-vertical-negativo.webp`, fundo escuro industrial com máscara de profundidade azul profundo.
 
 ### Seção 02 — Indicadores
 - **Composição:** Card flutuante branco com cantos arredondados (24px) e sombra suave com glow azul, sobrepondo Hero e História.

@@ -6,13 +6,13 @@ const test = require('node:test');
 const rootDir = path.resolve(__dirname, '..');
 const indexPath = path.join(rootDir, 'index.html');
 const cssPath = path.join(rootDir, 'src', 'css', 'clients-carousel.css');
-const logosDir = path.join(rootDir, 'assets', 'Logos Clientes');
+const logosDir = path.join(rootDir, 'assets', 'Paginas', 'HOME', 'S4-CLIENTES');
 
 test('deve existir o arquivo src/css/clients-carousel.css', () => {
   assert.ok(fs.existsSync(cssPath), 'Arquivo clients-carousel.css deve existir');
 });
 
-test('deve existir a pasta assets/Logos Clientes com 15 logos', () => {
+test('deve existir a pasta assets/Paginas/HOME/S4-CLIENTES com 15 logos', () => {
   assert.ok(fs.existsSync(logosDir), 'Pasta Logos Clientes deve existir');
   const files = fs.readdirSync(logosDir).filter(f => f.endsWith('.png'));
   assert.strictEqual(files.length, 15, 'Devem existir exatamente 15 logos PNG');
@@ -47,7 +47,7 @@ test('deve conter dois tracks no marquee com aria-hidden no espelho', () => {
 test('todos os 15 logos devem estar referenciados em ambos os tracks e existir em disco', () => {
   const html = fs.readFileSync(indexPath, 'utf-8');
   for (let i = 1; i <= 15; i++) {
-    const regex = new RegExp(`assets/Logos Clientes/${i}\\.[a-z0-9-]+\\.png`, 'i');
+    const regex = new RegExp(`assets/Paginas/HOME/S4-CLIENTES/${i}\\.[a-z0-9-]+\\.png`, 'i');
     assert.ok(
       regex.test(html),
       `Logo de índice ${i} deve estar referenciada no HTML`

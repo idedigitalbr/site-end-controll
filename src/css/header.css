@@ -332,14 +332,39 @@
   width: 42px;
   height: 42px;
   cursor: pointer;
+  position: relative;
+  padding: 8px;
+  border-radius: 10px;
+  transition: background-color 0.2s ease;
 }
 
 .menu-toggle span {
   display: block;
   height: 2px;
   background: #fff;
-  margin: 7px 0;
+  margin: 6px 0;
   border-radius: 10px;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease, background-color 0.2s ease;
+  transform-origin: center;
+}
+
+.menu-toggle.open span:nth-child(1),
+.menu-toggle.is-active span:nth-child(1),
+.menu-toggle[aria-expanded="true"] span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.menu-toggle.open span:nth-child(2),
+.menu-toggle.is-active span:nth-child(2),
+.menu-toggle[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.menu-toggle.open span:nth-child(3),
+.menu-toggle.is-active span:nth-child(3),
+.menu-toggle[aria-expanded="true"] span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
 }
 
 /* Submenu Rico com Logos à Esquerda e Glow temático */
@@ -711,7 +736,7 @@
   border: 0;
   border-bottom: 0;
   background: transparent;
-  color: var(--brand-primary);
+  color: #071429;
   font: inherit;
   font-size: 0.72rem;
   font-weight: 800;
@@ -727,7 +752,7 @@
   width: 16px;
   height: 16px;
   flex: 0 0 16px;
-  color: var(--brand-primary);
+  color: #071429;
 }
 
 .menu-group-description {
@@ -833,7 +858,7 @@
   padding: 24px 20px 20px;
   border-radius: 18px;
   background-color: var(--brand-primary);
-  background-image: linear-gradient(180deg, rgba(var(--brand-primary-rgb), 0.96) 0%, rgba(var(--brand-primary-rgb), 0.86) 38%, rgba(var(--brand-primary-rgb), 0.45) 68%, rgba(0, 24, 69, 0.78) 100%), url('../../assets/Fotografias/originais-16-9/megamenu-foto.webp');
+  background-image: linear-gradient(180deg, rgba(var(--brand-primary-rgb), 0.96) 0%, rgba(var(--brand-primary-rgb), 0.86) 38%, rgba(var(--brand-primary-rgb), 0.45) 68%, rgba(0, 24, 69, 0.78) 100%), url('../../assets/Paginas/HOME/S1-TOPO-HERO/megamenu-foto.webp');
   background-position: center top, center bottom;
   background-size: cover, cover;
   background-repeat: no-repeat, no-repeat;
@@ -870,7 +895,7 @@
 }
 
 .dropdown-rich-menu .solutions-menu-cta {
-  display: inline-flex;
+  display: none !important;
   align-items: center;
   justify-content: space-between;
   gap: 10px;

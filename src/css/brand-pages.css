@@ -897,7 +897,7 @@ body.theme-holding .diretrizes-neon-section .diretrizes-section-bg {
   inset: 0;
   width: 100%;
   height: 100%;
-  background-image: url('../../assets/Fotografias/originais-16-9/endcontrol-integridade-estrutural-aquisicao-dados-planta-industrial.webp');
+  background-image: url('../../assets/Paginas/SOLUCOES/01-integridade-estrutural/endcontrol-integridade-estrutural-aquisicao-dados-planta-industrial.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -999,16 +999,16 @@ body.theme-holding .diretrizes-neon-section::before {
 
 /* Card-specific background images */
 .neon-card.card-missao .neon-card-bg {
-  background-image: url('../../assets/Fotografias/originais-16-9/endcontrol-inspecao-integridade-dutos-adutoras-sensores-campo.webp');
+  background-image: url('../../assets/Imagens-Diversas/Institucional/endcontrol-inspecao-integridade-dutos-adutoras-sensores-campo.webp');
 }
 
 .neon-card.card-visao .neon-card-bg {
-  background-image: url('../../assets/Fotografias/originais-16-9/endcontrol-inspecao-altura-nr35-escada-tanque-industrial.webp');
+  background-image: url('../../assets/Paginas/SOLUCOES/08-adequacao-normativa/endcontrol-inspecao-altura-nr35-escada-tanque-industrial.webp');
   background-position: 85% center;
 }
 
 .neon-card.card-valores .neon-card-bg {
-  background-image: url('../../assets/Fotografias/originais-16-9/endcontrol-equipe-escritorio-projetos-mecanicos-engenharia.webp');
+  background-image: url('../../assets/Paginas/SOLUCOES/06-projetos-mecanicos/endcontrol-equipe-escritorio-projetos-mecanicos-engenharia.webp');
 }
 
 .neon-card:hover .neon-card-bg,

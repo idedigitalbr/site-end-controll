@@ -1,5 +1,15 @@
 # Features — ENDCONTROL Engenharia
 
+## Reestruturação e Padronização Completa da Arquitetura de Mídias (assets/Paginas e assets/Imagens-Diversas)
+
+- Status: Concluída
+- Data: 2026-10-02
+- **Arquivos:** `assets/Paginas/`, `assets/Imagens-Diversas/`, `.gitignore`, todas as 14 páginas HTML, CSS, scripts JS, suíte de testes.
+- **Estruturação por Páginas e Seções:**
+  - Migração de todas as fotos ativas para `assets/Paginas/HOME/`, `assets/Paginas/SOBRE-NOS/` e `assets/Paginas/SOLUCOES/`.
+  - Normalização de nomes técnicos em kebab-case e isolamento de mídias obsoletas em `lixos-nao-utilizados/`.
+- **Testes:** 211/211 testes automatizados aprovados (100%).
+
 ## Reposicionamento de Seção (Radar -> Soluções Integradas) e Otimizações Globais de FPS
 
 - Status: Concluída
@@ -21,7 +31,7 @@
 
 - Status: Concluída
 - Data: 2026-09-04
-- **Arquivos:** `index.html`, `src/css/clients-carousel.css`, `assets/Logos Clientes/`, `MD/changelog.md`, `MD/features.md`, `MD/notion.md`.
+- **Arquivos:** `index.html`, `src/css/clients-carousel.css`, `assets/Paginas/HOME/S4-CLIENTES/`, `MD/changelog.md`, `MD/features.md`, `MD/notion.md`.
 - **Implementação do Carrossel Contínuo de Prova Social:**
   - Criação da seção `.clients-carousel-section` posicionada logo após a `.hero-benefits-bar` e antes da seção `#sobre`.
   - Exibição de 15 logotipos corporativos em proporção padronizada 4:1 com fundo transparente.
@@ -368,7 +378,7 @@
 
 - Status: Concluida
 - Data: 2026-08-14
-- Substituida a logo SVG embutida do credito "Desenvolvido por" pela imagem oficial `assets/Logos/logo-dev-idedigital.png`.
+- Substituida a logo SVG embutida do credito "Desenvolvido por" pela imagem oficial `assets/Imagens-Diversas/Logos/logo-dev-idedigital.png`.
 - Mantidos o link para o site da ide digital, o texto alternativo, o hover e a responsividade.
 
 ## Radar Sweep sincronizado

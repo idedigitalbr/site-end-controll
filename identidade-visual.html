@@ -6,7 +6,7 @@
   <title>Central de Identidade Visual | ENDCONTROL Engenharia</title>
   <meta name="description" content="Manual interativo para comparativo das identidades visuais: Atual (+B), Proposta (ENDCONTROL) e Referência." />
   
-  <link rel="icon" type="image/webp" href="./assets/Logos/icon-endcontrol.webp" />
+  <link rel="icon" type="image/webp" href="./assets/Imagens-Diversas/Logos/icon-endcontrol.webp" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -986,7 +986,7 @@
   <div class="guide-container">
     <header>
       <div class="logo-container">
-        <img class="logo-img" src="./assets/Logos/logo-principal-original-horizontal-endcontrol.png" alt="ENDCONTROL Engenharia" />
+        <img class="logo-img" src="./assets/Imagens-Diversas/Logos/logo-principal-original-horizontal-endcontrol.png" alt="ENDCONTROL Engenharia" />
       </div>
       <h1>Central de Identidade Visual</h1>
       <p class="subtitle">Análise e comparativo de cores, tipografias e diretrizes estéticas</p>
@@ -1110,7 +1110,7 @@
                   <div class="play-overlay-btn">
                     <svg class="play-icon-svg" viewBox="0 0 24 24" fill="#F20D18"><polygon points="5 3 19 12 5 21 5 3"/></svg>
                   </div>
-                  <img src="./assets/Fotografias/Supermercado +B/01_Fachadas/unid-alcindo-foto-de-fachada-da-loja.webp" alt="Estrutura Grupo +B" />
+                  <img src="./assets/Paginas/SOLUCOES/09-calibracao-instrumentos/endcontrol-calibracao-medicao-vazao-ultrassonica-duto-industrial.webp" alt="Estrutura Grupo +B" />
                 </div>
                 <!-- Overlap Glass Card -->
                 <div class="floating-overlap-card">
@@ -1145,7 +1145,7 @@
                   <div class="play-overlay-btn">
                     <svg class="play-icon-svg" viewBox="0 0 24 24" fill="#F20D18"><polygon points="5 3 19 12 5 21 5 3"/></svg>
                   </div>
-                  <img src="./assets/Fotografias/Supermercado +B/01_Fachadas/unid-tapana-foto-de-fachada-frontal-da-loja.webp" alt="Varejo Grupo +B" />
+                  <img src="./assets/Paginas/SOLUCOES/09-calibracao-instrumentos/endcontrol-calibracao-manometros-pressao-em-campo-nr13.webp" alt="Varejo Grupo +B" />
                 </div>
                 <!-- Overlap Glass Card -->
                 <div class="floating-overlap-card">
@@ -1271,7 +1271,7 @@
               </div>
               <div class="right-frame-wrapper">
                 <div class="right-media-card">
-                  <img src="./assets/Fotografias/Estrutura Fisica/estrutura-fisica-planta-industrial-3d.webp" alt="Estrutura ENDCONTROL" />
+                  <img src="./assets/Paginas/SOLUCOES/01-integridade-estrutural/endcontrol-integridade-estrutural-aquisicao-dados-planta-industrial.webp" alt="Estrutura ENDCONTROL" />
                 </div>
                 <!-- Overlap Glass Card -->
                 <div class="floating-overlap-card">
@@ -1302,7 +1302,7 @@
               </div>
               <div class="right-frame-wrapper">
                 <div class="right-media-card">
-                  <img src="./assets/Fotografias/originais-16-9/endcontrol-laboratorio-ensaio-dureza-digimess-certificacao-materiais.webp" alt="Laboratório ENDCONTROL" />
+                  <img src="./assets/Paginas/SOLUCOES/11-certificacao-materia-prima/endcontrol-laboratorio-ensaio-dureza-digimess-certificacao-materiais.webp" alt="Laboratório ENDCONTROL" />
                 </div>
                 <!-- Overlap Glass Card -->
                 <div class="floating-overlap-card">
@@ -1428,7 +1428,7 @@
               </div>
               <div class="right-frame-wrapper">
                 <div class="right-media-card">
-                  <img src="./assets/Fotografias/Estrutura Fisica/estrutura-fisica-planta-industrial-3d.webp" alt="Estrutura ENDCONTROL" />
+                  <img src="./assets/Paginas/SOLUCOES/01-integridade-estrutural/endcontrol-integridade-estrutural-aquisicao-dados-planta-industrial.webp" alt="Estrutura ENDCONTROL" />
                 </div>
                 <!-- Overlap Glass Card -->
                 <div class="floating-overlap-card">
@@ -1459,7 +1459,7 @@
               </div>
               <div class="right-frame-wrapper">
                 <div class="right-media-card">
-                  <img src="./assets/Fotografias/originais-16-9/endcontrol-laboratorio-ensaio-dureza-digimess-certificacao-materiais.webp" alt="Laboratório ENDCONTROL" />
+                  <img src="./assets/Paginas/SOLUCOES/11-certificacao-materia-prima/endcontrol-laboratorio-ensaio-dureza-digimess-certificacao-materiais.webp" alt="Laboratório ENDCONTROL" />
                 </div>
                 <!-- Overlap Glass Card -->
                 <div class="floating-overlap-card">
@@ -1556,6 +1556,11 @@
       const btnPrev = document.getElementById('slide-prev');
       const btnNext = document.getElementById('slide-next');
       const thumbListInner = document.getElementById('thumb-list-inner');
+
+      stageImg.onerror = function() {
+        const viewerBox = document.querySelector('.slide-viewer-box');
+        if (viewerBox) viewerBox.innerHTML = '<p style="text-align:center; padding:2rem; color:var(--text-muted); font-size:0.9rem;">(Apresentação de slides disponível sob demanda no drive corporativo.)</p>';
+      };
 
       // Gerar os thumbnails dinamicamente
       for (let i = 1; i <= totalSlides; i++) {

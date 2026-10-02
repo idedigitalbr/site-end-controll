@@ -26,7 +26,7 @@ test('todas as páginas usam a mesma logo horizontal da Home no menu', () => {
     const html = fs.readFileSync(path.join(root, page), 'utf8');
     assert.match(
       html,
-      /<header class="site-header[^>]*>[\s\S]*?<a class="brand-main"[\s\S]*?<img src="\.\/assets\/Logos\/logo-principal-original-horizontal-endcontrol\.png" alt="Logo ENDCONTROL" width="468" height="54" \/>/i,
+      /<header class="site-header[^>]*>[\s\S]*?<a class="brand-main"[\s\S]*?<img src="\.\/assets\/Imagens-Diversas\/Logos\/logo-principal-original-horizontal-endcontrol\.png" alt="Logo ENDCONTROL" width="468" height="54" \/>/i,
       `${page} não usa a logo padrão da Home no menu`,
     );
   }

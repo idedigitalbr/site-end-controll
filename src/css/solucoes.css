@@ -1127,7 +1127,6 @@
 .card-media-col {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   height: 100%;
   padding-right: clamp(16px, 1.8vw, 26px);
   box-sizing: border-box;
@@ -1137,11 +1136,14 @@
 .highlight-card-image {
   position: relative;
   width: 100%;
-  height: clamp(320px, 28vw, 440px);
+  height: 100%;
+  min-height: clamp(340px, 28vw, 440px);
   border-radius: clamp(14px, 1.4vw, 18px);
   overflow: hidden;
   background: #0f172a;
   box-shadow: 0 10px 28px rgba(7, 20, 41, 0.1);
+  display: flex;
+  flex: 1;
 }
 
 .highlight-card-image img {
@@ -1213,12 +1215,19 @@
   background: transparent;
   border-radius: 0;
   border: none;
+  width: 100%;
 }
 
-.benefit-item {
+.benefit-item,
+.card-benefits-strip .benefit-item {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 7px;
+  justify-content: center;
+  text-align: center;
+  flex: 1 1 0;
+  min-width: 0;
+  padding: 0 4px;
   font-size: clamp(8.5px, 0.68vw, 10px);
   font-weight: 700;
   letter-spacing: 0.07em;
@@ -1227,28 +1236,32 @@
   white-space: nowrap;
 }
 
-.benefit-item svg {
-  color: var(--brand-primary);
-  width: 18px;
-  height: 18px;
-  stroke-width: 1.8;
-  flex-shrink: 0;
-}
-
-.benefit-text {
+.benefit-text,
+.card-benefits-strip .benefit-text {
   display: flex;
   flex-direction: column;
-  line-height: 1.15;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  line-height: 1.25;
 }
 
-.benefit-word {
+.benefit-word,
+.card-benefits-strip .benefit-word {
   display: block;
+  font-size: clamp(8.5px, 0.68vw, 10.5px);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--color-text-secondary, #52627A);
+  text-transform: uppercase;
+  white-space: nowrap;
 }
 
-.benefit-separator {
+.benefit-separator,
+.card-benefits-strip .benefit-separator {
   width: 1px;
   height: 22px;
-  background: rgba(0, 20, 60, 0.08);
+  background: rgba(0, 33, 93, 0.12);
   flex-shrink: 0;
 }
 
@@ -1362,7 +1375,7 @@
 .card-cta-wrapper {
   margin-top: auto;
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   width: 100%;
 }
 
@@ -2000,7 +2013,8 @@
   }
 
   .highlight-card-image {
-    height: clamp(360px, 28vw, 450px);
+    height: 100%;
+    min-height: clamp(360px, 28vw, 450px);
   }
 }
 
@@ -2032,7 +2046,8 @@
   }
 
   .highlight-card-image {
-    height: clamp(310px, 24vw, 390px);
+    height: 100%;
+    min-height: clamp(310px, 24vw, 390px);
   }
 
   .highlight-card-title {
@@ -2068,7 +2083,8 @@
   }
 
   .highlight-card-image {
-    height: 290px;
+    height: 100%;
+    min-height: 290px;
   }
 
   .highlight-card-title {
@@ -2128,9 +2144,9 @@
   }
 
   .card-benefits-strip {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 8px 14px;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    gap: 8px 12px;
   }
 }
 
@@ -2160,9 +2176,9 @@
   }
 
   .card-benefits-strip {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 8px 12px;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    gap: 6px 10px;
   }
 }
 
@@ -2187,9 +2203,57 @@
   }
 
   .card-benefits-strip {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 4px;
+    padding: 8px 4px;
+    width: 100%;
+  }
+
+  .card-benefits-strip .benefit-item {
+    display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    gap: 6px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex: 1 1 0;
+    min-width: 0;
+    padding: 0 2px;
+  }
+
+  .card-benefits-strip .benefit-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 0;
+  }
+
+  .card-benefits-strip .benefit-word {
+    font-size: 0.62rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #475569;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+  }
+
+  .card-benefits-strip .benefit-separator {
+    width: 1px;
+    height: 22px;
+    background: rgba(var(--brand-primary-rgb), 0.15);
+    flex-shrink: 0;
+  }
+
+  .highlight-card-desc {
+    font-size: 0.88rem;
+    line-height: 1.5;
+    text-align: left;
+    text-justify: auto;
+    word-spacing: normal;
   }
 }
 

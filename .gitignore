@@ -19,6 +19,7 @@ build/
 !.env.example
 
 # Pastas locais pesadas ignoradas
+lixos-nao-utilizados/
 assets-nao-usados/
 assets/FOTOS ORIGINAIS ENDCONTROL/
 bckp/

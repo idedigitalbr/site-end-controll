@@ -82,7 +82,7 @@
   };
 
   function normalizeWhenApplyImages() {
-    const imageRoot = './assets/Paginas Imgs/SOLUCOES/QUANDO APLICAR/';
+    const imageRoot = './assets/Paginas/SOLUCOES/';
 
     document.querySelectorAll('#quando-aplicar[data-when-apply-image-set]').forEach(function (section) {
       const imageSet = whenApplyImageSets[section.dataset.whenApplyImageSet];
@@ -93,7 +93,7 @@
         const filename = imageSet[index];
         if (!image || !filename) return;
 
-        const nextSrc = imageRoot + section.dataset.whenApplyImageSet + '/' + filename;
+        const nextSrc = imageRoot + section.dataset.whenApplyImageSet + '/QUANDO-APLICAR/' + filename;
         if (image.getAttribute('src') !== nextSrc) image.src = nextSrc;
         image.loading = index === 0 ? 'eager' : 'lazy';
       });

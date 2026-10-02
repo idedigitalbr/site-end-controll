@@ -1,8 +1,55 @@
 # Changelog — ENDCONTROL Engenharia
 
+## [2026-10-02] - Reestruturação Completa da Arquitetura de Mídias por Páginas e Seções, Isolamento de Lixos e Testes 100% Aprovados
+
+- **Commit:** `212648b`
+- **Arquivos:** `assets/Paginas/`, `assets/Imagens-Diversas/`, `.gitignore`, todas as 14 páginas HTML, CSS, scripts JS, suíte de testes.
+- **Reestruturação e Organização de Pastas (`assets/`):**
+  - **Arquitetura Intuitiva:** Eliminação definitiva de pastas legadas e desordenadas (`Fotografias`, `banco de imagem`, `originais`, `Paginas Imgs`, `Logos Clientes`, `Videos`).
+  - **Divisão Estrita por Páginas:** Criação da pasta oficial `assets/Paginas/` dividida em `HOME/` (`S1-TOPO-HERO/`, `S2-SOBRE/`, `S3-AREAS-ATUACAO/`, `S4-CLIENTES/`, `S5-RODAPE/`), `SOBRE-NOS/` (`DEPOIMENTOS/`, vídeo institucional) e `SOLUCOES/` (subpastas dos 12 serviços `01-integridade-estrutural/` a `12-consultoria-assessoria/` com suas respectivas pastas `QUANDO-APLICAR/` e pasta `GERAL/`).
+  - **Imagens Diversas & Logos:** Criação de `assets/Imagens-Diversas/` agrupando `Logos/` (identidade visual) e `Institucional/`.
+- **Eliminação de Nomes de IA e Padronização Técnica:**
+  - Substituição de nomes gerados por IA (`ChatGPT Image 17 de ago...`) por nomenclatura técnica profissional em kebab-case (`trepanacao-hot-tapping-...`, `engenharia-soldagem-supervisao-...`).
+  - Correção de erros ortográficos em diretórios e arquivos (`SORBE/` corrigido para `SOBRE/`, hífens soltos eliminados).
+- **Isolamento de Lixos e Mídias Não Utilizadas:**
+  - Transferência e quarentena segura de ~165 MB de arquivos não utilizados, arquivos RAW pesados e lotes de fotos em `lixos-nao-utilizados/` (incluindo `fotos-outubro-2026/`).
+  - Atualização do `.gitignore` para ignorar `lixos-nao-utilizados/`, preservando a leveza do repositório no Git e GitHub.
+- **Validação Automatizada e Integridade:**
+  - Sincronização de todos os caminhos em HTML, CSS e JavaScript.
+  - 0 links quebrados em todo o projeto.
+  - **211 de 211 testes automatizados aprovados (100% de sucesso).**
+
+## [2026-10-02] - Alinhamento Perfeito do Card de Soluções: Remoção da Faixa Inferior e Botão Alinhado à Foto
+
+- **Arquivos:** `index.html`, `src/css/solucoes.css`, `MD/changelog.md`, `MD/notion.md`.
+- **Card de Soluções (Home):**
+  - **Remoção da Faixa de Benefícios:** Exclusão definitiva do container `.card-benefits-strip` abaixo da imagem em `index.html`, eliminando o desnível vertical que empurrava o rodapé da coluna esquerda.
+  - **Alinhamento do Botão CTA à Esquerda:** Ajuste de `.card-cta-wrapper` de `justify-content: flex-end` para `justify-content: flex-start`, alinhando o botão "SAIBA MAIS" diretamente com o início do texto (categoria, título, descrição e lista de tópicos).
+  - **Equalização da Altura da Foto:** Configuração de `.highlight-card-image` e `.card-media-col` para preencher 100% da altura da coluna (`height: 100%`, `flex: 1`), fazendo com que a base inferior da fotografia fique perfeitamente nivelada com a base inferior do botão de CTA em todas as resoluções desktop.
+- **Validação Automatizada:** 211 testes automatizados aprovados (100%).
+
+## [2026-10-02] - Refinamento do Mega Menu de Soluções: Remoção do Botão CTA e Títulos de Categoria em Azul-Marinho Escuro
+
+- **Arquivos:** `src/js/main.js`, `src/css/header.css`, `src/css/responsive.css`, `tests/header-menu-professional.test.js`, `MD/changelog.md`, `MD/notion.md`.
+- **Mega Menu de Soluções:**
+  - **Remoção do Botão CTA:** Exclusão do botão "Fale com um especialista" (`.solutions-menu-cta`) do painel lateral do mega menu em `src/js/main.js` e reforço com `display: none !important;` em `src/css/header.css`, mantendo a mensagem institucional limpa e sem elementos de clique concorrentes com os serviços.
+  - **Padronização de Cor dos Títulos de Categoria:** Alteração da cor dos títulos das categorias ("Engenharia e Integridade", "Inspeção e Conformidade", "Projetos e Tecnologia") e seus respectivos chevrons de `--brand-primary` (`#67A8B8`) para a tonalidade mais escura do design system (`#071429` - Dark Navy Institucional), tanto na versão desktop (`src/css/header.css`) quanto mobile/responsiva (`src/css/responsive.css`).
+- **Validação Automatizada:** 211 testes Node aprovados sem regressões.
+
+## [2026-10-01] - Padronização do Accordion "Quando Aplicar" das Páginas de Serviço com o Padrão da Home
+
+- **Arquivos:** `src/css/servico-integridade.css`, `src/css/segmentos.css`, `tests/service-visual-standard.test.js`, `MD/changelog.md`, `MD/notion.md`.
+- **Padronização Visual Completa do Accordion nas 12 Páginas de Serviço:**
+  - **Efeito Photoshop Duotone Unificado:** Remoção do gradiente escurecido legado de `servico-integridade.css` que deixava os cards em preto e branco monocromático; aplicação da camada oficial `#67A8B8` com `mix-blend-mode: multiply` sobre a base em escala de cinza (`contrast: 1.04`, `brightness: 1.55`), com clareamento dinâmico para `#72b9cb` no estado ativo/hover.
+  - **Dimensões e Proporções Oficiais:** Altura do container elevada de 344px para 450px (`height: 450px`), container em azul-marinho institucional (`#071b2c`) com raio de 20px (`border-radius: 20px`), sem bordas artificiais e com sombra suave `0 10px 30px rgba(0, 0, 0, 0.15)`.
+  - **Vinhetas Adaptativas:** Inclusão das vinhetas duplas de transição (`::after` inferior para cards recolhidos e `::before` de altura dinâmica para o card expandido).
+  - **Ícones e Tipografia Tecnológica:** Ícones Lucide limpos em `#00ACE4` (sem drop-shadow pesado), títulos recolhidos em 13.5px com expansão suave para 18px bold no hover/foco, e descrições com transição fluida de `max-height`.
+  - **Controles de Navegação:** Botões circulares em vidro azul escuro com borda e realce em ciano, idênticos à Home.
+- **Validação Automatizada:** 210 testes Node (incluindo novo teste em `service-visual-standard.test.js`) 100% aprovados.
+
 ## [2026-10-01] - Atualização do Logotipo Ipiranga no Carrossel de Clientes
 
-- **Arquivos:** `assets/Logos Clientes/10.ipiranga-logo.png`, `MD/changelog.md`, `MD/notion.md`.
+- **Arquivos:** `assets/Paginas/HOME/S4-CLIENTES/10.ipiranga-logo.png`, `MD/changelog.md`, `MD/notion.md`.
 - **Carrossel de Clientes:**
   - Atualização do asset gráfico oficial do logotipo da Ipiranga (`10.ipiranga-logo.png`) para otimização visual e fidelidade gráfica no carrossel de parceiros e clientes.
 - **Validação Automatizada:** Testes de integridade e suíte de testes 100% aprovados.
@@ -27,7 +74,7 @@
 
 ## [2026-09-30] - Carrossel Dinâmico de Indicadores no Hero e Padronização do Rodapé Minimalista
 
-- **Arquivos:** `index.html`, páginas de soluções (`1-solucao-...html` a `12-solucao-...html`), `404.html`, `politica-de-privacidade.html`, `sobre-nos.html`, `src/js/main.js`, `src/css/hero.css`, `src/css/work-units-footer.css`, `assets/Logos/logo-endcontrol-vertical-cor.webp`.
+- **Arquivos:** `index.html`, páginas de soluções (`1-solucao-...html` a `12-solucao-...html`), `404.html`, `politica-de-privacidade.html`, `sobre-nos.html`, `src/js/main.js`, `src/css/hero.css`, `src/css/work-units-footer.css`, `assets/Imagens-Diversas/Logos/logo-endcontrol-vertical-cor.webp`.
 - **Carrossel Dinâmico dos Indicadores no Hero:**
   - Implementado carrossel sequencial contínuo com contagem numérica animada (`initHeroIndicatorsCarousel`) para os 12 indicadores de autoridade da EndControl.
   - Transição fluida deslizante com easing cúbico, pausa automática em hover/touch e suporte responsivo (2 a 4 indicadores simultâneos).
@@ -40,7 +87,7 @@
 
 - **Arquivos:** `index.html`, `tests/segmentos-images.test.js`, `MD/changelog.md`, `MD/notion.md`.
 - **Substituição de Imagem do Segmento:**
-  - Atualizada a imagem do painel interativo da área "Químico e Petroquímico" (`data-index="9"`) para a fotografia otimizada `assets/Fotografias/Endcontrol-Fotos-Videos-Escolhidos/otimizados/fotos/integridade-estrutural-planta-industrial-tanques-tubulacoes.webp`.
+  - Atualizada a imagem do painel interativo da área "Químico e Petroquímico" (`data-index="9"`) para a fotografia otimizada `assets/Paginas/HOME/S3-AREAS-ATUACAO/integridade-estrutural-planta-industrial-tanques-tubulacoes.webp`.
   - Atualizada a esteira contínua de indicadores e sincronizadas as variáveis visuais de componentes.
 - **Validação de Testes:** Suíte de testes em `tests/segmentos-images.test.js` atualizada e aprovada com 100% de sucesso.
 - **Commit:** `2faa0a9` enviado para `main` no GitHub.
@@ -71,7 +118,7 @@
 
 ## [2026-09-05] - Atualização da Seção Palavra dos Sócios-Diretores e Bloco de Assinatura
 
-- **Arquivos:** `sobre-nos.html`, `src/css/sections.css`, `assets/Videos/Depoimentos/thumb-carlos-eduardo.webp`, `assets/Videos/Depoimentos/thumb-marcus-oliveira.webp`, `MD/changelog.md`, `MD/notion.md`.
+- **Arquivos:** `sobre-nos.html`, `src/css/sections.css`, `assets/Paginas/SOBRE-NOS/DEPOIMENTOS/thumb-carlos-eduardo.webp`, `assets/Paginas/SOBRE-NOS/DEPOIMENTOS/thumb-marcus-oliveira.webp`, `MD/changelog.md`, `MD/notion.md`.
 - **Nova Redação Institucional (Palavra dos Sócios-Diretores):**
   - Etiqueta atualizada para `PALAVRA DOS SÓCIOS-DIRETORES`.
   - Headline atualizada para `Excelência técnica começa com responsabilidade` mantendo a tipografia, proporções e destaque em gradiente/itálico azul marinho aprovados.
@@ -137,7 +184,7 @@
 
 ## [2026-09-04] - Carrossel Infinito de Logos de Clientes (Infinite Scroll Marquee) na Home
 
-- **Arquivos:** `index.html`, `src/css/clients-carousel.css`, `assets/Logos Clientes/`, `MD/changelog.md`, `MD/features.md`, `MD/notion.md`.
+- **Arquivos:** `index.html`, `src/css/clients-carousel.css`, `assets/Paginas/HOME/S4-CLIENTES/`, `MD/changelog.md`, `MD/features.md`, `MD/notion.md`.
 - **Implementação do Carrossel Contínuo de Prova Social (Smashing Magazine & StudUP Style):**
   - Desenvolvida nova seção de prova social e autoridade institucional posicionada estrategicamente logo após a barra de indicadores (`.hero-benefits-bar`) e antes da seção institucional `#sobre`.
   - Inclusão dos 15 logotipos corporativos oficiais de clientes atendidos: Artemys, ANDRITZ, Belém Bioenergia Brasil, Conportce, Estaleiro Atlântico Sul, Estaleiro ERAM, Estaleiro Rio Maguari, Hidrovias do Brasil, Hydro, Ipiranga, Jirau Energia, M. Dias Branco, Natura, Cimento Nassau e Unitapajós.
@@ -296,7 +343,7 @@
 
 ### UI Enhancement & Polish
 - **Card Lateral de Soluções (`.solutions-menu-aside`):**
-  - Aplicada a imagem de fundo `assets/Fotografias/originais-16-9/megamenu-foto.webp` com enquadramento em alta resolução (`center bottom / cover`).
+  - Aplicada a imagem de fundo `assets/Paginas/HOME/S1-TOPO-HERO/megamenu-foto.webp` com enquadramento em alta resolução (`center bottom / cover`).
   - Adicionado filtro com gradiente corporativo multicamadas (`linear-gradient(180deg, rgba(0, 33, 93, 0.96) 0%, rgba(0, 33, 93, 0.86) 38%, rgba(0, 33, 93, 0.45) 68%, rgba(0, 24, 69, 0.78) 100%)`), garantindo contraste legível para os textos no topo e visibilidade estilizada do especialista com capacete e tablet na parte inferior.
   - **Kicker (`.solutions-menu-kicker`):** Destaque em ciano/azul celeste vibrante (`#38bdf8`), caixa alta e espaçamento entre letras.
   - **Título (`strong`) & Descrição (`p`):** Tipografia nítida em branco (`#ffffff` / `rgba(255, 255, 255, 0.88)`), com peso 800 e entrelinhamento calibrado.
@@ -1117,7 +1164,7 @@
 - **1. Compressão em Lote e Isolamento de Originais em `bckp/originais/` (Todas as 12 Pastas):**
   - Isoladas e organizadas todas as **83 fotografias originais em alta resolução** na pasta dedicada [`bckp/originais/`](file:///g:/Meu%20Drive/.PROJETOS/Sites%20Institucionais/site-end-controll/bckp/originais) com subpastas por serviço (totalizando **156,54 MB**).
   - Adicionado `bckp/` ao `.gitignore` para manter o repositório git leve e limpo.
-  - Convertidas e comprimidas todas as fotos para o padrão moderno de alta fidelidade **WebP (qualidade 85)** na raiz de cada pasta em `assets/Fotografias/Serviços - Banco de Imagens/` (totalizando apenas **12,75 MB**).
+  - Convertidas e comprimidas todas as fotos para o padrão moderno de alta fidelidade **WebP (qualidade 85)** na raiz de cada pasta em `assets/Fotografias/banco-de-imagens/` (totalizando apenas **12,75 MB**).
   - **Redução global de 91,9% (economia de 143,79 MB)** no diretório de assets públicos do site.
   - Atualizadas as referências de imagem em `3-solucao-ensaios-nao-destrutivos-ends.html`.
 
@@ -1338,7 +1385,7 @@
 ## [2026-08-14] - Substituicao da logo do credito do rodape
 
 ### Changed
-- **Credito ide digital (`index.html`):** substituido o SVG embutido por `assets/Logos/logo-dev-idedigital.png`, mantendo o link externo, texto alternativo e o estilo visual do rodape.
+- **Credito ide digital (`index.html`):** substituido o SVG embutido por `assets/Imagens-Diversas/Logos/logo-dev-idedigital.png`, mantendo o link externo, texto alternativo e o estilo visual do rodape.
 
 ### Changed
 - A seção seguinte agora sobrepõe a anterior em `28px`, cobrindo os cantos expostos e eliminando as faixas escuras entre blocos.

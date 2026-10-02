@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
   let currentAlbumIndex = 0;
 
   // Logo padrão para pins do mapa
-  const defaultPinLogo = './assets/Logos/icon-endcontrol.webp';
+  const defaultPinLogo = './assets/Imagens-Diversas/Logos/icon-endcontrol.webp';
 
   // --- Ícone Customizado do Mapa ---
   function createCustomIcon(unit) {

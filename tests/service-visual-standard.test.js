@@ -180,4 +180,30 @@ test('first process node deactivates when another node is hovered', () => {
   );
 });
 
-
+test('service accordion follows the official Home duotone design system', () => {
+  assert.match(
+    serviceStyles,
+    /\.sn-page-wrapper \.endo-acc-full-wrapper\s*\{[\s\S]*?height:\s*450px;[\s\S]*?background:\s*#071b2c;[\s\S]*?border-radius:\s*20px;/i,
+    'service accordion wrapper should match Home 450px height, #071b2c background and 20px radius'
+  );
+  assert.match(
+    serviceStyles,
+    /\.sn-page-wrapper \.endo-acc-card__overlay\s*\{[\s\S]*?background-color:\s*#67A8B8[\s\S]*?mix-blend-mode:\s*multiply/i,
+    'service accordion overlay must use official #67A8B8 with multiply blend mode'
+  );
+  assert.match(
+    serviceStyles,
+    /\.sn-page-wrapper \.endo-acc-panel:hover \.endo-acc-card__overlay[\s\S]*?background-color:\s*#72b9cb/i,
+    'service accordion overlay must brighten to #72b9cb on hover'
+  );
+  assert.match(
+    serviceStyles,
+    /\.sn-page-wrapper \.endo-acc-icon\s*\{[\s\S]*?color:\s*#00ACE4[\s\S]*?filter:\s*none/i,
+    'service accordion icon must use #00ACE4 without drop-shadow'
+  );
+  assert.match(
+    serviceStyles,
+    /\.sn-page-wrapper \.endo-acc-card__img\s*\{[\s\S]*?filter:\s*grayscale\(100%\)\s*contrast\(1\.04\)\s*brightness\(1\.55\)/i,
+    'service accordion image must use high-contrast high-brightness grayscale filter'
+  );
+});

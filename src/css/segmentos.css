@@ -179,7 +179,7 @@
   object-fit: cover;
   object-position: center;
   transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1), filter 0.45s ease;
-  filter: grayscale(100%) contrast(1.02) brightness(1.58);
+  filter: grayscale(100%) contrast(1.04) brightness(1.55);
   z-index: 1;
 }
 
@@ -187,7 +187,7 @@
 .endo-acc-panel:focus-within .endo-acc-card__img,
 .endo-acc-panel.is-active .endo-acc-card__img {
   transform: scale(1.05);
-  filter: grayscale(100%) contrast(1.06) brightness(1.68);
+  filter: grayscale(100%) contrast(1.08) brightness(1.65);
 }
 
 .endo-acc-panel[data-index="9"] .endo-acc-card__img {

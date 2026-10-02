@@ -15,8 +15,15 @@ test('professional solutions menu keeps all services and creates grouped navigat
   assert.match(mainJs, /Engenharia e Integridade/);
   assert.match(mainJs, /Inspeção e Conformidade/);
   assert.match(mainJs, /Projetos e Tecnologia/);
-  assert.match(mainJs, /Fale com um especialista/);
+  assert.doesNotMatch(mainJs, /solutions-menu-cta/);
   assert.match(home, /data-service-id="12"/);
+});
+
+test('solutions menu category titles use the dark brand color', () => {
+  assert.match(headerCss, /\.menu-group-title\s*\{[\s\S]*?color:\s*#071429;/);
+  assert.match(headerCss, /\.menu-group-chevron\s*\{[\s\S]*?color:\s*#071429;/);
+  assert.match(responsiveCss, /\.menu-group-title\s*\{[\s\S]*?color:\s*#071429;/);
+  assert.match(responsiveCss, /\.menu-group-chevron\s*\{[\s\S]*?color:\s*#071429;/);
 });
 
 test('solutions menu uses an accessible button trigger and keyboard dismissal', () => {

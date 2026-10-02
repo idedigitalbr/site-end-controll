@@ -173,8 +173,7 @@
     menuAside.innerHTML = [
       '<span class="solutions-menu-kicker">ENCONTRE A SOLUÇÃO CERTA</span>',
       '<strong>Seu desafio técnico começa com uma conversa.</strong>',
-      '<p>Conte com a equipe Endcontrol para avaliar o seu ativo e indicar o melhor caminho.</p>',
-      '<a class="solutions-menu-cta" href="https://wa.me/5591984040710" target="_blank" rel="noopener noreferrer">Fale com um especialista <span aria-hidden="true">→</span></a>'
+      '<p>Conte com a equipe Endcontrol para avaliar o seu ativo e indicar o melhor caminho.</p>'
     ].join('');
 
     while (panel.firstChild) panel.removeChild(panel.firstChild);
@@ -232,13 +231,16 @@
       menuToggle.dataset.initialized = 'true';
       menuToggle.addEventListener('click', function () {
         const isOpen = menu.classList.toggle('open');
+        menuToggle.classList.toggle('open', isOpen);
+        menuToggle.classList.toggle('is-active', isOpen);
         menuToggle.setAttribute('aria-expanded', String(isOpen));
         menuToggle.setAttribute('aria-label', isOpen ? 'Fechar menu' : 'Abrir menu');
         document.body.classList.toggle('menu-is-open', isOpen);
       });
-      menu.querySelectorAll('a').forEach(function (link) {
+      menu.querySelectorAll('a:not(.drop-link):not(.item-has-children)').forEach(function (link) {
         link.addEventListener('click', function () {
           menu.classList.remove('open');
+          menuToggle.classList.remove('open', 'is-active');
           menuToggle.setAttribute('aria-expanded', 'false');
           menuToggle.setAttribute('aria-label', 'Abrir menu');
           document.body.classList.remove('menu-is-open');
@@ -290,6 +292,7 @@
       closeAllDropdowns();
       if (menu) menu.classList.remove('open');
       if (menuToggle) {
+        menuToggle.classList.remove('open', 'is-active');
         menuToggle.setAttribute('aria-expanded', 'false');
         menuToggle.setAttribute('aria-label', 'Abrir menu');
       }
@@ -1156,31 +1159,31 @@
         year: "2015",
         title: "Fundação da ENDCONTROL Engenharia",
         desc: "Fundação em Belém (PA), focada em integridade mecânica, ensaios não destrutivos (ENDs) e inspeções de vasos sob pressão e caldeiras (NR-13).",
-        img: "./assets/Fotografias/originais-16-9/endcontrol-institucional-lideranca-gestao-projetos-escritorio.webp"
+        img: "./assets/Paginas/SOLUCOES/05-gerenciamento-de-projetos/endcontrol-institucional-lideranca-gestao-projetos-escritorio.webp"
       },
       {
         year: "2017",
         title: "Expansão para Mineração & Siderurgia",
         desc: "Parcerias estratégicas e consolidação em grandes complexos minerários e de alumina no Pará (Marabá, Paragominas e Carajás).",
-        img: "./assets/Fotografias/originais-16-9/endcontrol-ultrassom-phased-array-inspecao-solda-dutos-tubulacoes.webp"
+        img: "./assets/Imagens-Diversas/Institucional/endcontrol-ultrassom-phased-array-inspecao-solda-dutos-tubulacoes.webp"
       },
       {
         year: "2019",
         title: "Pioneirismo em RBI e Acesso por Cordas",
         desc: "Implementação da metodologia de Inspeção Baseada em Risco (RBI) e certificação em Acesso por Cordas para auditorias em estruturas de grande altura.",
-        img: "./assets/Fotografias/originais-16-9/endcontrol-inspecao-altura-nr35-escada-tanque-industrial.webp"
+        img: "./assets/Paginas/SOLUCOES/08-adequacao-normativa/endcontrol-inspecao-altura-nr35-escada-tanque-industrial.webp"
       },
       {
         year: "2021",
         title: "Consolidação Offshore & Petroquímica",
         desc: "Expansão da atuação para o setor de Óleo & Gás na Bacia de Campos (RJ) e indústrias petroquímicas no Polo de Camaçari (BA).",
-        img: "./assets/Fotografias/originais-16-9/endcontrol-ensaios-nao-destrutivos-ultrassom-medicao-espessura-naval.webp"
+        img: "./assets/Paginas/SOLUCOES/03-ensaios-nao-destrutivos/endcontrol-ensaios-nao-destrutivos-ultrassom-medicao-espessura-naval.webp"
       },
       {
         year: "2024",
         title: "Inteligência Artificial & Diagnósticos Preditivos",
         desc: "Integração de modelos de IA e simulação 3D para previsibilidade de integridade, ultrapassando 1.300 equipamentos inspecionados e 800+ projetos concluídos.",
-        img: "./assets/Fotografias/originais-16-9/endcontrol-integridade-estrutural-aquisicao-dados-planta-industrial.webp"
+        img: "./assets/Paginas/SOLUCOES/01-integridade-estrutural/endcontrol-integridade-estrutural-aquisicao-dados-planta-industrial.webp"
       }
     ];
 

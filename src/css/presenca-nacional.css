@@ -624,13 +624,20 @@
 @media (max-width: 992px) {
   .presenca-light-grid {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 36px;
+  }
+  .presenca-info-column {
+    order: 1;
   }
   .presenca-map-column {
-    order: -1;
+    order: 2;
   }
   .presenca-cards-column {
+    order: 3;
     grid-column: span 1;
+  }
+  .connection-lines-svg {
+    display: none !important;
   }
 }
 

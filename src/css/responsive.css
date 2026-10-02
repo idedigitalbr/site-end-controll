@@ -297,13 +297,13 @@
   .menu-group-title {
     padding: 13px 5px;
     border-bottom: 0;
-    color: var(--brand-primary);
+    color: #071429;
     font-size: 0.72rem;
   }
 
   .menu-group-chevron {
     display: block;
-    color: var(--brand-primary);
+    color: #071429;
     transition: transform 0.2s ease;
   }
 
@@ -378,7 +378,7 @@
     margin-top: 14px;
     padding: 20px;
     background-color: var(--brand-primary) !important;
-    background-image: linear-gradient(180deg, rgba(var(--brand-primary-rgb), 0.95) 0%, rgba(var(--brand-primary-rgb), 0.85) 42%, rgba(var(--brand-primary-rgb), 0.48) 72%, rgba(0, 24, 69, 0.8) 100%), url('../../assets/Fotografias/originais-16-9/megamenu-foto.webp') !important;
+    background-image: linear-gradient(180deg, rgba(var(--brand-primary-rgb), 0.95) 0%, rgba(var(--brand-primary-rgb), 0.85) 42%, rgba(var(--brand-primary-rgb), 0.48) 72%, rgba(0, 24, 69, 0.8) 100%), url('../../assets/Paginas/HOME/S1-TOPO-HERO/megamenu-foto.webp') !important;
     background-position: center top, center bottom !important;
     background-size: cover, cover !important;
     background-repeat: no-repeat, no-repeat !important;
@@ -433,12 +433,44 @@
     min-height: 48px;
   }
 
+  .hero-overlay-dark {
+    background: linear-gradient(
+      180deg,
+      rgba(244, 249, 252, 0.96) 0%,
+      rgba(244, 249, 252, 0.90) 50%,
+      rgba(244, 249, 252, 0.72) 75%,
+      rgba(244, 249, 252, 0.35) 100%
+    ) !important;
+  }
+
+  .about-paragraphs p,
+  .sn-essence-card-body,
+  .sn-process-description,
+  .sn-step-desc,
+  .presenca-paragraph,
+  .svc-method-desc {
+    text-align: left !important;
+    text-justify: auto !important;
+    word-spacing: normal !important;
+    hyphens: auto !important;
+  }
+
   .hero-arrow-btn {
     width: 42px;
     height: 42px;
     top: auto;
     bottom: 22px;
     transform: none;
+    background: #ffffff !important;
+    border: 1px solid rgba(var(--brand-primary-rgb), 0.22) !important;
+    box-shadow: 0 2px 8px rgba(7, 20, 41, 0.12) !important;
+  }
+
+  .hero-arrow-btn svg,
+  .hero-arrow-btn .hero-arrow-icon {
+    stroke: var(--brand-primary) !important;
+    color: var(--brand-primary) !important;
+    display: block;
   }
 
   .hero-arrow-btn:hover,
@@ -458,9 +490,19 @@
   .main-menu .btn-contacts-menu {
     display: none !important;
   }
+
+  #cursor-glow,
+  .cursor-glow {
+    display: none !important;
+  }
 }
 
 @media (hover: none), (pointer: coarse) {
+  #cursor-glow,
+  .cursor-glow {
+    display: none !important;
+  }
+
   .hero-arrow-btn:hover {
     color: var(--brand-primary);
     background: #f4f9fc;

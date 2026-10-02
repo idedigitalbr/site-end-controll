@@ -3,12 +3,12 @@
 
 window.driveAssets = {
   logos: {
-    principalHorizontal: './assets/Logos/logo-principal-original-horizontal-endcontrol.png',
-    horizontalNegativo: './assets/Logos/logo-principal-original-horizontal-endcontrol.png',
-    icon: './assets/Logos/icon-endcontrol.webp'
+    principalHorizontal: './assets/Imagens-Diversas/Logos/logo-principal-original-horizontal-endcontrol.png',
+    horizontalNegativo: './assets/Imagens-Diversas/Logos/logo-principal-original-horizontal-endcontrol.png',
+    icon: './assets/Imagens-Diversas/Logos/icon-endcontrol.webp'
   },
   photos: {
-    heroStaticBg: './assets/Fotografias/originais-16-9/endcontrol-integridade-estrutural-aquisicao-dados-planta-industrial.webp',
-    sobreNosCover: './assets/Fotografias/foto-pro-roda-pe.webp'
+    heroStaticBg: './assets/Paginas/SOLUCOES/01-integridade-estrutural/endcontrol-integridade-estrutural-aquisicao-dados-planta-industrial.webp',
+    sobreNosCover: './assets/Paginas/SOLUCOES/GERAL/foto-pro-roda-pe.webp'
   }
 };

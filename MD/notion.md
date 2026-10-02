@@ -1,9 +1,30 @@
 # Histórico de sincronização — DB_IDE
 
+## 2026-10-02 - Alinhamento Perfeito do Card de Soluções: Remoção da Faixa Inferior e Botão Alinhado à Foto
+
+- Projeto: site-end-controll
+- Tarefa: Remoção definitiva da faixa de benefícios (.card-benefits-strip) em index.html, alinhamento do botão CTA à esquerda (.card-cta-wrapper com justify-content: flex-start) e equalização da altura da fotografia (height: 100%, flex: 1) para nivelamento perfeito da base inferior da foto com o botão em solucoes.css. 211 testes automatizados aprovados.
+- Status local: Concluída.
+- Observação: Memória persistente no Obsidian (`MD/`) e changelog sincronizados.
+
+## 2026-10-02 - Refinamento do Mega Menu de Soluções: Remoção de CTA e Títulos de Categoria em Azul-Marinho Escuro
+
+- Projeto: site-end-controll
+- Tarefa: Remoção do botão "Fale com um especialista" do mega menu de soluções (main.js e header.css) e aplicação da cor mais escura da identidade visual (#071429) nos títulos de categoria e chevrons em desktop e mobile (header.css e responsive.css). 211 testes automatizados aprovados.
+- Status local: Concluída.
+- Observação: Memória persistente no Obsidian (`MD/`) e changelog sincronizados.
+
+## 2026-10-01 - Padronização do Accordion "Quando Aplicar" das Páginas de Serviço com o Padrão da Home
+
+- Projeto: site-end-controll
+- Tarefa: Unificação visual e técnica da seção de accordion "Quando Aplicar" em todas as 12 páginas de serviço com o padrão oficial da Home (Photoshop Duotone com camada #67A8B8 em mix-blend-mode multiply sobre fotos grayscale luminosas, altura ajustada de 344px para 450px, remoção de gradientes escuros e bordas residuais, vinhetas adaptativas, ícones #00ACE4 e botões de navegação em vidro escuro). 210 testes aprovados.
+- Status local: Concluída.
+- Observação: Memória persistente no Obsidian (`MD/`) e changelog sincronizados.
+
 ## 2026-10-01 - Atualização do Logotipo Ipiranga no Carrossel de Clientes
 
 - Projeto: site-end-controll
-- Tarefa: Atualização do logotipo oficial da Ipiranga (assets/Logos Clientes/10.ipiranga-logo.png) exibido no carrossel institucional de clientes e parceiros.
+- Tarefa: Atualização do logotipo oficial da Ipiranga (assets/Paginas/HOME/S4-CLIENTES/10.ipiranga-logo.png) exibido no carrossel institucional de clientes e parceiros.
 - Status local: Concluída.
 - GitHub: Push realizado com sucesso em https://github.com/idedigitalbr/site-end-controll.git (main).
 - Observação: Memória persistente no Obsidian (`MD/`) e changelog sincronizados.
@@ -341,7 +362,7 @@
 - Projeto: site-end-controll
 - Tarefa: substituir a logo SVG do credito "Desenvolvido por" pela imagem oficial da ide digital.
 - Status local: Concluida.
-- Registro: `index.html` agora utiliza `assets/Logos/logo-dev-idedigital.png`, preservando link, acessibilidade e dimensionamento.
+- Registro: `index.html` agora utiliza `assets/Imagens-Diversas/Logos/logo-dev-idedigital.png`, preservando link, acessibilidade e dimensionamento.
 - Observacao: memoria local atualizada; nenhuma sincronizacao externa foi executada nesta etapa.
 
 ## 2026-08-13 - Radar Sweep das solucoes

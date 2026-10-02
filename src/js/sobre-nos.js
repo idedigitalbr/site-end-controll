@@ -35,8 +35,19 @@ document.addEventListener('DOMContentLoaded', function () {
       const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
       menuToggle.setAttribute('aria-expanded', !isExpanded);
       mainMenu.classList.toggle('open', !isExpanded);
+      menuToggle.classList.toggle('open', !isExpanded);
+      menuToggle.classList.toggle('is-active', !isExpanded);
       menuToggle.setAttribute('aria-label', isExpanded ? 'Abrir menu' : 'Fechar menu');
       document.body.classList.toggle('menu-is-open', !isExpanded);
+    });
+    mainMenu.querySelectorAll('a:not(.drop-link):not(.item-has-children)').forEach(function (link) {
+      link.addEventListener('click', function () {
+        mainMenu.classList.remove('open');
+        menuToggle.classList.remove('open', 'is-active');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.setAttribute('aria-label', 'Abrir menu');
+        document.body.classList.remove('menu-is-open');
+      });
     });
   }
 

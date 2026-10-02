@@ -12,5 +12,5 @@ Dependencies:
 - `src/js/main.js`
 - `src/js/solucoes.js`
 - `src/js/presenca-nacional.js`
-- `assets/Logos/logo-principal-original-horizontal-endcontrol.png`
+- `assets/Imagens-Diversas/Logos/logo-principal-original-horizontal-endcontrol.png`
 - hero background images under `assets/Fotografias/originais-16-9/`

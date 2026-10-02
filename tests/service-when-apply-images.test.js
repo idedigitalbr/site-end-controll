@@ -4,7 +4,7 @@ const path = require('node:path');
 const test = require('node:test');
 
 const root = path.resolve(__dirname, '..');
-const imageRoot = path.join(root, 'assets', 'Paginas Imgs', 'SOLUCOES', 'QUANDO APLICAR');
+const imageRoot = path.join(root, 'assets', 'Paginas', 'SOLUCOES');
 const runtime = fs.readFileSync(path.join(root, 'src', 'js', 'service-pages.js'), 'utf8');
 
 const services = [
@@ -84,7 +84,7 @@ test('cada página de serviço aponta para seu conjunto de imagens Quando Aplica
     assert.equal(imageSources.length, 8, `${service.page} precisa declarar oito imagens Quando Aplicar`);
     assert.deepEqual(
       imageSources,
-      service.files.map((filename) => `./assets/Paginas Imgs/SOLUCOES/QUANDO APLICAR/${service.slug}/${filename}`),
+      service.files.map((filename) => `./assets/Paginas/SOLUCOES/${service.slug}/QUANDO-APLICAR/${filename}`),
       `${service.page} não deve iniciar com imagens antigas ou de outro serviço`,
     );
   }
@@ -96,7 +96,7 @@ test('cada conjunto tem oito arquivos locais e está registrado no runtime', () 
   assert.match(runtime, /image\.loading = index === 0 \? 'eager' : 'lazy'/);
 
   for (const service of services) {
-    const sourceFolder = path.join(imageRoot, service.slug);
+    const sourceFolder = path.join(imageRoot, service.slug, 'QUANDO-APLICAR');
     assert.ok(fs.existsSync(sourceFolder), `${service.slug} precisa existir`);
     assert.equal(fs.readdirSync(sourceFolder).length, 8, `${service.slug} precisa ter oito imagens`);
 
