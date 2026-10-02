@@ -1,5 +1,20 @@
 # Changelog — ENDCONTROL Engenharia
 
+## [2026-10-02] - Limpeza e Organização Estrutural da Raiz e Quarentena Categorizada em lixos-nao-utilizados/
+
+- **Arquivos:** Raiz do projeto, `.dockerignore`, `tests/service-1-structure.test.js`, `lixos-nao-utilizados/`.
+- **Limpeza e Despoluição da Raiz:**
+  - **Eliminação de Duplicatas e Protótipos:** Remoção da duplicata exata `design-system-preview.html`, do playground `componentes-cards-.html` e do backup `backup-secao-cta-final.html` da raiz, transferindo-os com segurança para `lixos-nao-utilizados/prototipos-legados/` e `lixos-nao-utilizados/backups/`.
+  - **Remoção de Código Legado Não Utilizado:** Remoção de `src/css/index2-custom.css` e `src/js/reveal.js`, transferindo-os para `lixos-nao-utilizados/codigo-legado/`.
+  - **Remoção de Ferramentas Antigas:** Transferência de `.superdesign/` e `docs/superpowers/` para `lixos-nao-utilizados/ferramentas-antigas/` e eliminação da pasta vazia `docs/`.
+  - **Preservação das 12 Páginas de Soluções:** Mantidas as 12 páginas HTML de soluções diretamente na raiz para assegurar estabilidade de rotas, SEO, canonical links e sitemap sem quebras.
+- **Isolamento e Segurança:**
+  - Adicionado `lixos-nao-utilizados/` ao `.dockerignore` garantindo que o contexto de build do Docker permaneça 100% enxuto.
+- **Validação Automatizada:**
+  - Atualização do teste `tests/service-1-structure.test.js` para validar o arquivo de backup em sua nova pasta oficial.
+  - **211 de 211 testes automatizados aprovados (100% de sucesso).**
+  - Script `site-integrity.ps1` aprovado com sucesso.
+
 ## [2026-10-02] - Reestruturação Completa da Arquitetura de Mídias por Páginas e Seções, Isolamento de Lixos e Testes 100% Aprovados
 
 - **Commit:** `bee7279`

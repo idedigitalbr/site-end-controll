@@ -1,5 +1,12 @@
 # Histórico de sincronização — DB_IDE
 
+## 2026-10-02 - Limpeza e Organização Estrutural da Raiz e Quarentena Categorizada em lixos-nao-utilizados/
+
+- Projeto: site-end-controll
+- Tarefa: Limpeza completa da raiz do projeto: isolamento da duplicata exata (design-system-preview.html), protótipo legado (componentes-cards-.html), backup (backup-secao-cta-final.html), sobras de código (index2-custom.css, reveal.js) e ferramentas antigas (.superdesign/, docs/superpowers/) dentro de subpastas categorizadas em lixos-nao-utilizados/ (backups, prototipos-legados, codigo-legado, ferramentas-antigas). 12 páginas de soluções preservadas na raiz para integridade total de rotas e SEO. 211 testes automatizados e integridade aprovados (100%).
+- Status local: Concluída.
+- Observação: Memória persistente no Obsidian (`MD/`) e changelog sincronizados.
+
 ## 2026-10-02 - Reestruturação Completa da Arquitetura de Mídias por Páginas e Seções, Isolamento de Lixos e Deploy VPS
 
 - Projeto: site-end-controll

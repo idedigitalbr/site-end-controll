@@ -86,8 +86,8 @@ test('7. Section Nosso Compromisso matches Sobre Nós official standard (badge, 
 });
 
 test('8. Standalone backup-secao-cta-final.html exists and contains the complete CTA final markup', () => {
-  const backupPath = path.join(root, 'backup-secao-cta-final.html');
-  assert.ok(fs.existsSync(backupPath), 'backup-secao-cta-final.html must exist');
+  const backupPath = path.join(root, 'lixos-nao-utilizados', 'backups', 'backup-secao-cta-final.html');
+  assert.ok(fs.existsSync(backupPath), 'backup-secao-cta-final.html must exist in backups');
   const backupHtml = fs.readFileSync(backupPath, 'utf8');
   assert.ok(backupHtml.includes('class="sn-cta-section"'));
   assert.ok(backupHtml.includes('SOLUÇÕES QUE GERAM CONFIANÇA'));
