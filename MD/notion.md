@@ -1,5 +1,15 @@
 # Histórico de sincronização — DB_IDE
 
+## 2026-10-02 - Reestruturação Completa da Arquitetura de Mídias por Páginas e Seções, Isolamento de Lixos e Deploy VPS
+
+- Projeto: site-end-controll
+- Tarefa: Reorganização total da estrutura de pastas em assets/Paginas/ (HOME, SOBRE-NOS, SOLUCOES) e assets/Imagens-Diversas/ (Logos, Institucional), substituição de nomenclaturas de IA para kebab-case técnico oficial, isolamento seguro de ~165MB de mídias obsoletas e duplicatas em lixos-nao-utilizados/ (.gitignore), validação de 0 links quebrados em todas as 14 páginas HTML e 211 testes automatizados aprovados (100%).
+- Commit: bee7279
+- GitHub: Push realizado com sucesso em https://github.com/idedigitalbr/site-end-controll.git (main).
+- Deploy VPS: Concluído com sucesso via GitHub Actions / Docker Compose em https://endcontrol.suporteide.digital/ (HTTP 200).
+- Status local: Concluída.
+- Observação: Memória persistente no Obsidian (`MD/`), Notion e deploy sincronizados.
+
 ## 2026-10-02 - Alinhamento Perfeito do Card de Soluções: Remoção da Faixa Inferior e Botão Alinhado à Foto
 
 - Projeto: site-end-controll
