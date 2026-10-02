@@ -419,9 +419,26 @@
    ========================================================================== */
 
 :root {
-  --hero-ind-ease: cubic-bezier(0.16, 1, 0.3, 1);
-  --hero-ind-item-time: 3200ms;
+  --bar-h: 88px;
+  --radius: 16px;
+
+  --digit-w: 20px;
+  --digit-h: 31px;
+
+  /* flip a little more visible than V7, still minimal */
+  --digit-flip: 145ms;
+  --group-close: 620ms;
+  --group-pause: 110ms;
+  --group-open: 620ms;
+
+  --focus-step: 1450ms;
+  --all-white-hold: 1500ms;
+  --font-display: "Roboto Condensed", "Inter", sans-serif;
 }
+
+/* =========================================================
+   BAR (SPLIT-FLAP INDICATORS — V15 FADE RESIDUAL)
+   ========================================================= */
 
 .hero-benefits-bar {
   position: relative;
@@ -430,532 +447,753 @@
   width: calc(100% - 80px);
   max-width: 1140px;
   margin: -24px auto 30px;
-  height: 86px;
-  border-radius: 16px;
-  background-color: var(--brand-primary);
-  border: 1px solid rgba(255, 255, 255, 0.28);
-  box-shadow: 0 8px 24px rgba(var(--brand-primary-rgb), 0.20), 0 2px 6px rgba(0, 0, 0, 0.04);
-  transition: background-color 0.85s var(--hero-ind-ease), box-shadow 0.85s var(--hero-ind-ease);
-  isolation: isolate;
-  overflow: hidden;
-  z-index: 10;
+  min-height: var(--bar-h);
+  border-radius: var(--radius);
+  perspective: 1500px;
   user-select: none;
+  z-index: 10;
+  transition: box-shadow .38s ease;
+  box-shadow: 0 8px 24px rgba(103, 168, 184, 0.22), 0 2px 6px rgba(0, 0, 0, 0.04);
 }
 
-/* Alternância suave entre Grupos: Cor A (#67A8B8) e Cor B (#00ACE4) */
 .hero-benefits-bar.theme-color-a {
-  background-color: var(--brand-primary); /* #67A8B8 */
-  box-shadow: 0 8px 24px rgba(var(--brand-primary-rgb), 0.22);
+  box-shadow: 0 8px 24px rgba(103, 168, 184, 0.22), 0 2px 6px rgba(0, 0, 0, 0.04);
 }
 
 .hero-benefits-bar.theme-color-b {
-  background-color: var(--brand-secondary); /* #00ACE4 */
-  box-shadow: 0 8px 26px rgba(var(--brand-secondary-rgb), 0.25);
+  box-shadow: 0 8px 26px rgba(0, 172, 228, 0.26), 0 2px 6px rgba(0, 0, 0, 0.04);
 }
 
-/* Viewport & Stage */
-.hero-ind-viewport {
-  position: absolute;
-  inset: 0 34px;
+.hero-benefits-bar .live {
+  position: relative;
+  min-height: var(--bar-h);
   overflow: hidden;
+  border-radius: inherit;
+  background: var(--brand-primary);
+  transition:
+    background-color .38s ease,
+    opacity .08s linear;
 }
 
-.hero-ind-stage {
-  width: 100%;
-  height: 100%;
-  position: relative;
-}
-
-/* Grid de 4 Indicadores por Grupo no Desktop */
-.hero-ind-row {
-  position: absolute;
-  inset: 0;
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  align-items: center;
-  opacity: 1;
-  will-change: transform, opacity, filter;
-}
-
-/* Transições elegantes entre grupos */
-.hero-ind-row.enter {
-  animation: heroIndRowIn 0.68s var(--hero-ind-ease) both;
-}
-.hero-ind-row.exit-next {
-  animation: heroIndRowOutLeft 0.54s var(--hero-ind-ease) forwards;
-}
-.hero-ind-row.exit-prev {
-  animation: heroIndRowOutRight 0.54s var(--hero-ind-ease) forwards;
-}
-.hero-ind-row.from-next {
-  animation: heroIndRowInRight 0.68s var(--hero-ind-ease) both;
-}
-.hero-ind-row.from-prev {
-  animation: heroIndRowInLeft 0.68s var(--hero-ind-ease) both;
-}
-
-@keyframes heroIndRowIn {
-  0% { opacity: 0; transform: translateY(10px); filter: blur(4px); }
-  100% { opacity: 1; transform: none; filter: none; }
-}
-@keyframes heroIndRowOutLeft {
-  to { opacity: 0; transform: translateX(-34px); filter: blur(5px); }
-}
-@keyframes heroIndRowOutRight {
-  to { opacity: 0; transform: translateX(34px); filter: blur(5px); }
-}
-@keyframes heroIndRowInRight {
-  0% { opacity: 0; transform: translateX(34px); filter: blur(5px); }
-  100% { opacity: 1; transform: none; filter: none; }
-}
-@keyframes heroIndRowInLeft {
-  0% { opacity: 0; transform: translateX(-34px); filter: blur(5px); }
-  100% { opacity: 1; transform: none; filter: none; }
-}
-
-/* Item de Indicador Individual */
-.hero-stat,
-.benefit-item {
-  position: relative;
-  min-width: 0;
-  height: 58px;
+.hero-benefits-bar .track {
   display: flex;
-  flex-direction: column;
+  align-items: stretch;
+  min-height: var(--bar-h);
+  overflow: hidden;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+.hero-benefits-bar .metric {
+  position: relative;
+  flex: 0 0 25%;
+  min-width: 0;
+  display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2px 14px 8px;
-  color: #ffffff;
-  opacity: 0.38;
-  transform: translateY(0) scale(0.975);
-  transition: opacity 0.55s var(--hero-ind-ease), transform 0.55s var(--hero-ind-ease), filter 0.55s var(--hero-ind-ease);
-  cursor: default;
-  outline: none;
-  box-sizing: border-box;
+  padding: 8px 16px 11px;
+  /* All begin quieter */
+  opacity: .42;
+  transition: opacity .30s ease;
 }
 
-/* Separador vertical sutil entre colunas */
-.hero-stat:not(:last-child)::after,
-.benefit-item:not(:last-child)::after {
+/*
+  Progressive state:
+  once illuminated it STAYS white.
+*/
+.hero-benefits-bar .metric.lit {
+  opacity: 1;
+}
+
+.hero-benefits-bar .metric.focused {
+  opacity: 1;
+}
+
+.hero-benefits-bar .metric.focused .label {
+  opacity: 1;
+}
+
+.hero-benefits-bar .metric:not(.lit):not(.focused) .label {
+  opacity: .58;
+}
+
+.hero-benefits-bar .metric:not(:last-child)::after {
   content: "";
   position: absolute;
   right: 0;
-  top: 9px;
+  top: 26%;
   width: 1px;
-  height: 40px;
-  background: rgba(255, 255, 255, 0.22);
+  height: 46%;
+  background: rgba(255, 255, 255, .20);
 }
 
-/* Estado Ativo: Destaque visual refinado */
-.hero-stat.active,
-.benefit-item.active {
-  opacity: 1;
-  transform: translateY(-2px) scale(1.035);
-  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.12));
-}
+/* =========================================================
+   TIGHT HOVER TARGET
+   ========================================================= */
 
-/* Itens já percorridos no mesmo grupo: opacidade intermediária */
-.hero-stat.done,
-.benefit-item.done {
-  opacity: 0.65;
-  transform: none;
-}
-
-/* Área Interativa Exclusiva (Hover Desktop): Apenas ao redor de Número + Título */
-.hero-focus-zone,
-.focus-zone {
+.hero-benefits-bar .hit {
   position: relative;
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: auto;
+  z-index: 5;
+  width: max-content;
   max-width: 100%;
-  min-width: 110px;
-  padding: 5px 12px 6px;
-  border: 1px solid transparent;
-  border-radius: 10px;
-  background: transparent;
-  color: inherit;
-  font-family: var(--font-primary, 'Inter', sans-serif);
-  cursor: pointer;
+  padding: 4px 9px 5px;
+  border-radius: 8px;
+  text-align: center;
   outline: none;
-  transition: background 0.24s ease, border-color 0.24s ease, box-shadow 0.24s ease, transform 0.24s var(--hero-ind-ease);
+  cursor: pointer;
+  transition:
+    background .16s ease,
+    box-shadow .16s ease;
 }
 
-/* Micro-linha discreta no topo da focus-zone para feedback visual suave */
-.hero-focus-zone::before,
-.focus-zone::before {
+.hero-benefits-bar .hit::before {
   content: "";
   position: absolute;
   left: 50%;
-  top: 1px;
-  width: 16px;
-  height: 2px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0);
-  transform: translateX(-50%) scaleX(0.4);
-  transition: background 0.24s ease, transform 0.24s var(--hero-ind-ease), opacity 0.24s ease;
+  top: 0;
+  width: 18px;
+  height: 1px;
+  background: rgba(255, 255, 255, .72);
+  transform:
+    translateX(-50%)
+    scaleX(.22);
+  transform-origin: center;
   opacity: 0;
+  transition:
+    opacity .16s ease,
+    transform .16s ease;
 }
 
-@media (hover: hover) and (pointer: fine) {
-  .hero-focus-zone:hover,
-  .focus-zone:hover {
-    background: rgba(255, 255, 255, 0.10);
-    border-color: rgba(255, 255, 255, 0.24);
-    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
-    transform: translateY(-1px);
+@media(hover: hover) and (pointer: fine) {
+  .hero-benefits-bar .hit:hover {
+    background: rgba(255, 255, 255, .045);
+    box-shadow:
+      inset 0 0 0 1px
+      rgba(255, 255, 255, .095);
   }
-  .hero-focus-zone:hover::before,
-  .focus-zone:hover::before {
-    background: rgba(255, 255, 255, 0.95);
-    transform: translateX(-50%) scaleX(1);
+
+  .hero-benefits-bar .hit:hover::before {
     opacity: 1;
+    transform:
+      translateX(-50%)
+      scaleX(1);
   }
 }
 
-.hero-focus-zone:focus-visible,
-.focus-zone:focus-visible {
-  background: rgba(255, 255, 255, 0.12);
-  border-color: rgba(255, 255, 255, 0.40);
-  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.25);
+.hero-benefits-bar .hit:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.4);
+  outline-offset: 2px;
 }
 
-.hero-stat.hovering .hero-focus-zone,
-.benefit-item.hovering .focus-zone {
-  background: rgba(255, 255, 255, 0.11);
-  border-color: rgba(255, 255, 255, 0.26);
+/* =========================================================
+   VALUE
+   Roboto Condensed = official "authority numbers"
+   ========================================================= */
+
+.hero-benefits-bar .value {
+  height: 33px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  color: #fff;
+  font-family: var(--font-display);
 }
 
-.hero-stat.hovering .hero-focus-zone::before,
-.benefit-item.hovering .focus-zone::before {
-  background: rgba(255, 255, 255, 0.95);
-  transform: translateX(-50%) scaleX(1);
-  opacity: 1;
-}
-
-/* Tipografia Oficial: Número */
-.hero-stat-num,
-.benefit-title {
-  font-family: var(--font-primary, 'Inter', -apple-system, BlinkMacSystemFont, sans-serif);
+.hero-benefits-bar .affix {
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 23px;
+  line-height: var(--digit-h);
   font-weight: 800;
-  font-size: 1.45rem; /* ~23px */
-  line-height: 1;
-  letter-spacing: -0.03em;
-  white-space: nowrap;
-  color: #ffffff;
-  display: inline-block;
-  margin: 0;
+  letter-spacing: -.02em;
 }
 
-.hero-stat-num-inner,
-.num-inner {
-  display: inline-block;
-  transform-origin: 50% 80%;
-}
+/* =========================================================
+   REAL DIGIT-BY-DIGIT SPLIT FLAP
 
-.hero-stat.active .hero-stat-num-inner,
-.benefit-item.active .num-inner {
-  animation: heroIndNumberFocus 0.65s var(--hero-ind-ease) both;
-}
+   Important:
+   - no permanent cards
+   - no permanent shadow
+   - only temporary shading DURING the physical fold
+   ========================================================= */
 
-@keyframes heroIndNumberFocus {
-  0% { opacity: 0.3; transform: translateY(6px) scale(0.95); filter: blur(3px); }
-  100% { opacity: 1; transform: none; filter: none; }
-}
-
-/* Tipografia Oficial: Título / Label */
-.hero-stat-label,
-.benefit-desc {
-  font-family: var(--font-primary, 'Inter', -apple-system, BlinkMacSystemFont, sans-serif);
-  margin-top: 5px;
-  font-size: 0.68rem; /* ~11px */
-  line-height: 1.15;
-  font-weight: 600;
+.hero-benefits-bar .digit {
+  position: relative;
+  width: var(--digit-w);
+  height: var(--digit-h);
+  perspective: 720px;
+  transform-style: preserve-3d;
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 23px;
+  line-height: var(--digit-h);
+  font-weight: 800;
+  letter-spacing: -.035em;
   text-align: center;
-  white-space: nowrap;
-  color: rgba(255, 255, 255, 0.95);
-  letter-spacing: 0.01em;
-  margin-bottom: 0;
 }
 
-/* Barra de Progresso Fina e Elegante no Indicador Ativo */
-.hero-mini-progress {
+.hero-benefits-bar .digit .upper,
+.hero-benefits-bar .digit .lower,
+.hero-benefits-bar .digit .flip-upper,
+.hero-benefits-bar .digit .flip-lower {
   position: absolute;
-  left: 20px;
-  right: 20px;
-  bottom: 0;
-  height: 2.5px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.18);
+  left: 0;
+  right: 0;
+  height: 50%;
   overflow: hidden;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform-style: preserve-3d;
+  background: transparent;
+}
+
+.hero-benefits-bar .digit .upper,
+.hero-benefits-bar .digit .flip-upper {
+  top: 0;
+}
+
+.hero-benefits-bar .digit .lower,
+.hero-benefits-bar .digit .flip-lower {
+  bottom: 0;
+}
+
+.hero-benefits-bar .digit span span {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: var(--digit-h);
+  line-height: var(--digit-h);
+  text-align: center;
+}
+
+.hero-benefits-bar .digit .upper > span,
+.hero-benefits-bar .digit .flip-upper > span {
+  top: 0;
+}
+
+.hero-benefits-bar .digit .lower > span,
+.hero-benefits-bar .digit .flip-lower > span {
+  bottom: 0;
+}
+
+.hero-benefits-bar .digit .flip-upper {
+  z-index: 5;
+  transform-origin: center bottom;
+}
+
+.hero-benefits-bar .digit .flip-lower {
+  z-index: 6;
+  transform-origin: center top;
+  transform: rotateX(90deg);
+}
+
+/*
+  Hinge is normally invisible.
+  It only appears during the flip.
+*/
+.hero-benefits-bar .digit::after {
+  content: "";
+  position: absolute;
+  z-index: 10;
+  left: 1px;
+  right: 1px;
+  top: 50%;
+  height: 1px;
+  background: rgba(255, 255, 255, .19);
   opacity: 0;
-  transition: opacity 0.24s ease;
+  transition: opacity .025s linear;
   pointer-events: none;
 }
 
-.hero-mini-progress i {
-  display: block;
-  width: 0%;
-  height: 100%;
-  border-radius: inherit;
-  background: #ffffff;
-  box-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+.hero-benefits-bar .digit.flipping::after {
+  opacity: .80;
 }
 
-.hero-stat.active .hero-mini-progress,
-.benefit-item.active .hero-mini-progress {
-  opacity: 1;
+/*
+  Temporary contrast on the moving halves.
+  This is what makes the fold readable without
+  turning the number into a permanent "card".
+*/
+.hero-benefits-bar .digit.flipping .flip-upper {
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, .07),
+      rgba(0, 0, 0, .08)
+    );
+  animation:
+    digitTop
+    var(--digit-flip)
+    cubic-bezier(.54, .02, .78, .34)
+    forwards;
 }
 
-/* Setas Minimalistas (Ângulo Fino) */
-.hero-ind-nav {
+.hero-benefits-bar .digit.flipping .flip-lower {
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, .10),
+      rgba(255, 255, 255, .035)
+    );
+  animation:
+    digitBottom
+    var(--digit-flip)
+    cubic-bezier(.15, .76, .24, 1)
+    forwards;
+}
+
+@keyframes digitTop {
+  0% {
+    transform: rotateX(0deg);
+    filter: brightness(1);
+  }
+  55% {
+    filter: brightness(.78);
+  }
+  100% {
+    transform: rotateX(-90deg);
+    filter: brightness(.62);
+  }
+}
+
+@keyframes digitBottom {
+  0%,
+  42% {
+    transform: rotateX(90deg);
+    filter: brightness(.65);
+  }
+  100% {
+    transform: rotateX(0deg);
+    filter: brightness(1);
+  }
+}
+
+/* =========================================================
+   LABEL
+   Inter = official primary typeface
+   ========================================================= */
+
+.hero-benefits-bar .label {
+  margin-top: 0;
+  color: #fff;
+  font-family: var(--font-primary);
+  font-size: 10px;
+  line-height: 1.2;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* =========================================================
+   FULL BAR SPLIT-FLAP — V13 TRUE FLIP-CLOCK
+
+   This is NOT a card with front/back.
+
+   Sequence:
+   1. OLD top half folds to ~90deg.
+   2. tiny mechanical stop at the hinge.
+   3. NEW bottom half opens from ~90deg to 0deg.
+
+   No text ever rotates past 90deg.
+   Therefore no mirrored/upside-down text can appear.
+   ========================================================= */
+
+.hero-benefits-bar .group-flip {
   position: absolute;
+  inset: 0;
+  z-index: 30;
+  display: none;
+  border-radius: inherit;
+  perspective: 1800px;
+  transform-style: preserve-3d;
+  pointer-events: none;
+}
+
+.hero-benefits-bar .group-flip.running {
+  display: block;
+}
+
+/*
+  Important:
+  these are REAL half-height pieces,
+  not full layers merely clipped after rotation.
+*/
+.hero-benefits-bar .group-half {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 50%;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  will-change: transform, filter;
+}
+
+.hero-benefits-bar .group-half.top {
+  top: 0;
+  border-radius:
+    var(--radius)
+    var(--radius)
+    0
+    0;
+}
+
+.hero-benefits-bar .group-half.bottom {
+  bottom: 0;
+  border-radius:
+    0
+    0
+    var(--radius)
+    var(--radius);
+}
+
+/*
+  Full-height content sits inside each physical half.
+
+  Top half sees the TOP of the content.
+  Bottom half sees the BOTTOM of the content.
+*/
+.hero-benefits-bar .half-content {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: var(--bar-h);
+  min-height: var(--bar-h);
+  overflow: hidden;
+}
+
+.hero-benefits-bar .group-half.top .half-content {
+  top: 0;
+}
+
+.hero-benefits-bar .group-half.bottom .half-content {
+  bottom: 0;
+}
+
+/*
+  Static surfaces behind the moving flaps.
+*/
+.hero-benefits-bar .static-new-top {
+  z-index: 1;
+}
+
+.hero-benefits-bar .static-old-bottom {
+  z-index: 1;
+}
+
+/*
+  OLD upper flap.
+  It only moves 0 -> -89.6deg.
+  It is never allowed to expose an upside-down backside.
+*/
+.hero-benefits-bar .moving-old-top {
+  z-index: 5;
+  transform-origin: center bottom;
+  transform: rotateX(0deg);
+}
+
+/*
+  NEW lower flap.
+  Starts almost edge-on and opens 89.6deg -> 0.
+*/
+.hero-benefits-bar .moving-new-bottom {
+  z-index: 6;
+  transform-origin: center top;
+  transform: rotateX(89.6deg);
+}
+
+/*
+  Tiny temporary depth cue.
+  Still minimal — no boxy permanent shadows.
+*/
+.hero-benefits-bar .moving-old-top::after,
+.hero-benefits-bar .moving-new-bottom::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .12s ease;
+}
+
+.hero-benefits-bar .group-flip.phase-close .moving-old-top::after {
+  opacity: 1;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, .015) 15%,
+      rgba(0, 0, 0, .09) 100%
+    );
+}
+
+.hero-benefits-bar .group-flip.phase-open .moving-new-bottom::after {
+  opacity: 1;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, .10) 0%,
+      rgba(255, 255, 255, .01) 75%
+    );
+}
+
+/*
+  Mechanical hinge.
+  Only exists during the transition.
+*/
+.hero-benefits-bar .group-hinge {
+  position: absolute;
+  z-index: 25;
+  left: 1%;
+  right: 1%;
   top: 50%;
-  transform: translateY(-50%);
-  z-index: 10;
+  height: 1px;
+  background: rgba(255, 255, 255, .13);
+  box-shadow:
+    0 1px 0
+    rgba(0, 0, 0, .055);
+  opacity: .85;
+  pointer-events: none;
+}
+
+/* =========================================================
+   CONTENT FADE AROUND THE FULL-BAR FLIP — V14
+
+   Numbers and labels do NOT ride on the mechanical flap.
+   They fade away first, the clean bar flips, then the new
+   content fades back in after the bar has settled.
+   ========================================================= */
+
+.hero-benefits-bar .live .metric {
+  transition: opacity .30s ease;
+}
+
+.hero-benefits-bar .live.content-leaving .metric {
+  opacity: 0 !important;
+}
+
+.hero-benefits-bar .live.content-entering .metric {
+  opacity: 0 !important;
+}
+
+.hero-benefits-bar .live.content-visible .metric {
+  transition: opacity .38s ease;
+}
+
+/*
+  During the whole-bar flip, hide text/numbers completely.
+  Keep only the bar surface and the vertical separators.
+*/
+.hero-benefits-bar .group-flip .metric .hit {
+  opacity: 0 !important;
+}
+
+.hero-benefits-bar .group-flip .metric::after {
+  opacity: .72;
+}
+
+/*
+  V15 — tiny incoming-content residue during the mechanical turn.
+  The new numbers/text become barely visible only in the opening phase,
+  so the transition feels continuous without bringing back sliced text.
+*/
+.hero-benefits-bar .group-flip.phase-open .static-new-top .metric .hit {
+  opacity: .07 !important;
+  transition: opacity .18s ease;
+}
+
+.hero-benefits-bar .group-flip.phase-open .moving-new-bottom .metric .hit {
+  opacity: .10 !important;
+  transition: opacity .18s ease;
+}
+
+/* Keep old content fully gone while the new half opens. */
+.hero-benefits-bar .group-flip.phase-open .static-old-bottom .metric .hit,
+.hero-benefits-bar .group-flip.phase-open .moving-old-top .metric .hit {
+  opacity: 0 !important;
+}
+
+/* =========================================================
+   CONTROLS
+   ========================================================= */
+
+.hero-benefits-bar .nav {
+  position: absolute;
+  z-index: 60;
+  top: 50%;
   width: 28px;
-  height: 48px;
-  border: 0;
+  height: 28px;
+  margin-top: -14px;
   padding: 0;
   display: grid;
   place-items: center;
-  color: #ffffff;
-  background: transparent;
-  opacity: 0.55;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .07);
+  color: #fff;
+  opacity: .58;
   cursor: pointer;
-  transition: opacity 0.25s ease, transform 0.25s ease, background 0.25s ease;
+  transition:
+    opacity .16s ease,
+    background .16s ease,
+    transform .16s ease;
 }
 
-.hero-ind-nav:hover,
-.hero-ind-nav:focus-visible {
+.hero-benefits-bar .nav:hover {
   opacity: 1;
-  background: rgba(255, 255, 255, 0.10);
+  background: rgba(255, 255, 255, .13);
 }
 
-.hero-ind-nav:active {
-  transform: translateY(-50%) scale(0.92);
+.hero-benefits-bar .nav:active {
+  transform: scale(.92);
 }
 
-.hero-ind-nav--prev {
-  left: 4px;
-  border-radius: 0 10px 10px 0;
-}
+.hero-benefits-bar .nav.prev { left: 5px; }
+.hero-benefits-bar .nav.next { right: 5px; }
 
-.hero-ind-nav--next {
-  right: 4px;
-  border-radius: 10px 0 0 10px;
-}
-
-.hero-ind-nav svg {
-  width: 18px;
-  height: 18px;
+.hero-benefits-bar .nav svg {
+  width: 12px;
+  height: 12px;
   stroke: currentColor;
-  stroke-width: 2;
   fill: none;
+  stroke-width: 1.7;
   stroke-linecap: round;
   stroke-linejoin: round;
 }
 
-/* Dots Centralizados na Base da Seção (Não aumentam a altura) */
-.hero-ind-dots {
+.hero-benefits-bar .dots {
   position: absolute;
+  z-index: 60;
   left: 50%;
-  bottom: 4px;
+  bottom: 3px;
   transform: translateX(-50%);
   display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  z-index: 8;
-  pointer-events: auto;
+  gap: 5px;
 }
 
-.hero-ind-dots button {
-  appearance: none;
-  border: 0;
+.hero-benefits-bar .dot {
+  width: 4px;
+  height: 4px;
   padding: 0;
-  width: 6px;
-  height: 6px;
+  border: 0;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, .32);
   cursor: pointer;
-  transition: width 0.35s var(--hero-ind-ease), background 0.35s var(--hero-ind-ease), opacity 0.25s ease;
+  transition:
+    width .18s ease,
+    background .18s ease;
 }
 
-.hero-ind-dots button:hover {
-  background: rgba(255, 255, 255, 0.75);
+.hero-benefits-bar .dot.active {
+  width: 13px;
+  background: rgba(255, 255, 255, .90);
 }
 
-.hero-ind-dots button.active {
-  width: 18px;
-  background: #ffffff;
-}
+/* =========================================================
+   TABLET
+   ========================================================= */
 
-/* Detalhe estético desativado */
-.benefits-accent-light {
-  display: none;
-}
+@media(max-width: 820px) {
+  :root {
+    --bar-h: 86px;
+  }
 
-/* TABLET (Adaptação para preservar espaçamento e legibilidade) */
-@media (max-width: 900px) {
   .hero-benefits-bar {
-    height: 86px;
     width: calc(100% - 48px);
     margin: 16px auto 26px;
   }
-  .hero-ind-viewport {
-    inset: 0 30px;
+
+  .hero-benefits-bar .track {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
   }
-  .hero-stat,
-  .benefit-item {
-    padding: 2px 8px 8px;
+
+  .hero-benefits-bar .track::-webkit-scrollbar {
+    display: none;
   }
-  .hero-focus-zone,
-  .focus-zone {
-    min-width: 96px;
-    padding: 4px 8px 5px;
-  }
-  .hero-stat-num,
-  .benefit-title {
-    font-size: 1.3rem; /* ~21px */
-  }
-  .hero-stat-label,
-  .benefit-desc {
-    font-size: 0.62rem; /* ~10px */
-    white-space: normal;
-    max-width: 140px;
-  }
-  .hero-mini-progress {
-    left: 12px;
-    right: 12px;
+
+  .hero-benefits-bar .metric {
+    flex-basis: 33.333%;
+    padding-inline: 10px;
+    scroll-snap-align: start;
   }
 }
 
-/* MOBILE (Exatamente 2 indicadores visíveis simultaneamente com swipe e scroll snap) */
-@media (max-width: 640px) {
+/* =========================================================
+   MOBILE — 2 VISIBLE
+   ========================================================= */
+
+@media(max-width: 560px) {
+  :root {
+    --bar-h: 84px;
+    --digit-w: 18px;
+    --digit-h: 27px;
+  }
+
   .hero-benefits-bar {
-    height: 84px;
-    border-radius: 14px;
     width: calc(100% - 20px);
     margin: 12px auto 22px;
   }
-  .hero-ind-viewport {
-    inset: 0 24px;
-    overflow-x: auto;
-    overflow-y: hidden;
-    scrollbar-width: none;
-    overscroll-behavior-x: contain;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    touch-action: pan-x;
+
+  .hero-benefits-bar .metric {
+    flex-basis: 50%;
+    padding: 7px 7px 10px;
   }
-  .hero-ind-viewport::-webkit-scrollbar {
-    display: none;
+
+  .hero-benefits-bar .digit,
+  .hero-benefits-bar .affix {
+    font-size: 20px;
+    line-height: var(--digit-h);
   }
-  .hero-ind-stage {
-    height: 100%;
-    min-width: 100%;
+
+  .hero-benefits-bar .digit span span {
+    height: var(--digit-h);
+    line-height: var(--digit-h);
   }
-  .hero-ind-row {
-    position: relative;
-    inset: auto;
-    display: flex;
-    align-items: center;
-    width: 200%;
-    min-width: 200%;
-    height: 100%;
-    gap: 0;
+
+  .hero-benefits-bar .value {
+    height: 29px;
   }
-  .hero-stat,
-  .benefit-item {
-    /* 4 indicadores em faixa de 200% = 2 visíveis simultaneamente */
-    flex: 0 0 25%;
-    max-width: none;
-    height: 60px;
-    padding: 2px 6px 8px;
-    scroll-snap-align: center;
-    scroll-snap-stop: always;
-    opacity: 0.36;
+
+  .hero-benefits-bar .label {
+    max-width: 132px;
+    font-size: 9px;
   }
-  .hero-stat:not(:last-child)::after,
-  .benefit-item:not(:last-child)::after {
-    display: none !important;
+
+  .hero-benefits-bar .nav {
+    width: 26px;
+    height: 26px;
+    margin-top: -13px;
   }
-  .hero-focus-zone,
-  .focus-zone {
-    min-width: 0;
-    width: 92%;
-    padding: 4px 6px 5px;
-    cursor: default;
-  }
-  .hero-stat-num,
-  .benefit-title {
-    font-size: 1.22rem; /* ~19.5px */
-  }
-  .hero-stat-label,
-  .benefit-desc {
-    font-size: 0.58rem; /* ~9.2px */
-    max-width: 125px;
-    white-space: normal;
-    line-height: 1.1;
-  }
-  .hero-mini-progress {
-    left: 8px;
-    right: 8px;
-  }
-  .hero-ind-nav {
-    width: 24px;
-    height: 42px;
-    opacity: 0.70;
-  }
-  .hero-ind-nav--prev {
-    left: 0;
-  }
-  .hero-ind-nav--next {
-    right: 0;
-  }
-  .hero-ind-nav svg {
-    width: 16px;
-    height: 16px;
-  }
-  .hero-ind-dots {
-    bottom: 3px;
-  }
+
+  .hero-benefits-bar .nav.prev { left: 3px; }
+  .hero-benefits-bar .nav.next { right: 3px; }
 }
 
-/* Telas ultra compactas (<= 360px) */
-@media (max-width: 360px) {
+@media(max-width: 360px) {
   .hero-benefits-bar {
     width: calc(100% - 12px);
     margin: 10px auto 18px;
   }
-  .hero-ind-viewport {
-    inset: 0 20px;
-  }
-  .hero-stat-num,
-  .benefit-title {
-    font-size: 1.12rem;
-  }
-  .hero-stat-label,
-  .benefit-desc {
-    font-size: 0.55rem;
+
+  .hero-benefits-bar .label {
     max-width: 115px;
+    font-size: 8.5px;
   }
 }
 
-/* Acessibilidade: prefers-reduced-motion */
-@media (prefers-reduced-motion: reduce) {
+@media(prefers-reduced-motion: reduce) {
   .hero-benefits-bar,
-  .hero-ind-row,
-  .hero-stat,
-  .hero-focus-zone,
-  .hero-stat-num-inner,
-  .hero-mini-progress,
-  .hero-ind-nav,
-  .hero-ind-dots button {
-    animation-duration: 0.01ms !important;
-    transition-duration: 0.01ms !important;
+  .hero-benefits-bar *,
+  .hero-benefits-bar *::before,
+  .hero-benefits-bar *::after {
+    animation-duration: .001ms !important;
+    transition-duration: .001ms !important;
+    scroll-behavior: auto !important;
   }
 }
 

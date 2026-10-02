@@ -1743,508 +1743,800 @@
      - Pausa em abas ocultas e fora da tela (IntersectionObserver)
      - Total suporte a acessibilidade (aria-labels, teclado, prefers-reduced-motion)
      =================================================================== */
+  /* ===================================================================
+     Contador Split-Flap dos Indicadores do Hero (V15 Fade Residual)
+     - Split-Flap mecânico com folheamento 3D realista dígito a dígito
+     - 2 grupos com alternância de cor primária (#67A8B8) e secundária (#00ACE4)
+     - Dobra mecânica de barra inteira (V13/V15 Flip-Clock com Fade Residual)
+     - Avanço progressivo de foco (0 a 3) com aceleração gradual de contagem
+     - Pausa e foco ao passar o mouse ou focar por teclado
+     - Controles de navegação (setas e dots interativos)
+     - Suporte a swipe touch mobile e scroll responsivo
+     - Pausa de animações quando a aba ou seção estiver fora de vista
+     =================================================================== */
   function initHeroIndicatorsCarousel() {
-    var container = document.getElementById('heroBenefitsBar') || document.querySelector('.hero-benefits-bar');
+    var container = document.getElementById("heroBenefitsBar") || document.querySelector(".hero-benefits-bar");
     if (!container) return;
 
-    var viewport = container.querySelector('.hero-ind-viewport');
-    var stage = container.querySelector('.hero-ind-stage');
-    var prevBtn = container.querySelector('.hero-ind-nav--prev');
-    var nextBtn = container.querySelector('.hero-ind-nav--next');
-    var dotsContainer = container.querySelector('.hero-ind-dots');
-    if (!viewport || !stage) return;
+    var live = container.querySelector("#live") || document.getElementById("live");
+    var track = container.querySelector("#track") || document.getElementById("track");
+    var groupFlip = container.querySelector("#groupFlip") || document.getElementById("groupFlip");
+    var dots = container.querySelector("#dots") || document.getElementById("dots");
+    var prev = container.querySelector("#prev") || document.getElementById("prev");
+    var next = container.querySelector("#next") || document.getElementById("next");
 
-    // Os 12 indicadores oficiais da Home organizados rigorosamente em 3 grupos de 4
+    if (!live || !track || !groupFlip || !dots || !prev || !next) return;
+
     var GROUPS = [
-      // Grupo 1: Cor Primária (#67A8B8)
-      [
-        { value: 18, prefix: '+', suffix: ' anos', label: 'de experiência' },
-        { value: 300, prefix: '+', label: 'especialistas técnicos' },
-        { value: 100, suffix: '%', label: 'atuação em todo o Brasil' },
-        { value: 1250, prefix: '+', formatThousands: true, label: 'projetos entregues' }
-      ],
-      // Grupo 2: Cor Secundária (#00ACE4)
-      [
-        { value: 120, prefix: '+', label: 'grandes clientes atendidos' },
-        { value: 0, suffix: '%', label: 'paradas não programadas' },
-        { value: 50, prefix: '+', suffix: ' mil', label: 'horas de inspeção e ensaios' },
-        { value: 100, suffix: '%', label: 'conformidade com NRs e ASME' }
-      ],
-      // Grupo 3: Cor Primária (#67A8B8)
-      [
-        { value: 500, prefix: '+', label: 'laudos e perícias emitidos' },
-        { staticVal: '24/7', label: 'prontidão operacional' },
-        { staticVal: 'ISO 9001', label: 'qualidade e rigor certificados' },
-        { value: 15000, prefix: '+', formatThousands: true, label: 'ativos industriais avaliados' }
-      ]
+      {
+        color: "#67A8B8",
+        items: [
+          { value: "+18", label: "anos de experiência" },
+          { value: "+27", label: "estados alcançados" },
+          { value: "96%", label: "índice de satisfação" },
+          { value: "24h", label: "monitoramento contínuo" }
+        ]
+      },
+      {
+        color: "#00ACE4",
+        items: [
+          { value: "100%", label: "atuação em todo o Brasil" },
+          { value: "+1.250", label: "projetos entregues" },
+          { value: "+120", label: "grandes clientes atendidos" },
+          { value: "0%", label: "paradas não programadas" }
+        ]
+      }
     ];
 
-    // Constantes de tempo refinadas para leitura premium e confortável
-    var ITEM_TIME = 3200; // Tempo de cada indicador ativo
-    var COUNT_TIME = 1000; // Duração da contagem animada
-    var GROUP_TRANSITION = 540; // Tempo de transição entre grupos
-    var RESUME_AFTER_HOVER = 480; // Retomada suave após hover
+    var DIGIT_FLIP = 145;
+    var GROUP_CLOSE = 500;
+    var GROUP_PAUSE = 70;
+    var GROUP_OPEN = 540;
+    var GROUP_SETTLE = 70;
+    var CONTENT_FADE_OUT = 180;
+    var CONTENT_FADE_IN_DELAY = 90;
+    var CONTENT_FADE_IN = 320;
+    var FOCUS_STEP = 1450;
+    var ALL_WHITE_HOLD = 1500;
+    var MOTION_BEAT = 185;
 
     var groupIndex = 0;
-    var itemIndex = 0;
-    var row = stage.querySelector('.hero-ind-row');
-    var timer = null;
-    var hoverLock = false;
-    var pointerLock = false;
-    var switching = false;
+    var focusStage = 0;
+
+    var focusTimer = null;
+    var groupTimer = null;
+    var motionTimer = null;
+
+    var paused = false;
+    var changing = false;
+    var motionToken = 0;
+
+    var pointerDown = false;
+    var startX = 0;
+    var startScroll = 0;
+
+    var counterState = [];
     var isOffscreen = false;
     var isTabHidden = false;
-    var progressRaf = null;
-    var progressElapsed = 0;
-    var scrollDebounce = null;
-    var countRafMap = new WeakMap();
 
-    function prefersReducedMotion() {
-      return window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    }
-
-    function isMobile() {
-      return window.matchMedia('(max-width: 640px)').matches;
-    }
-
-    function formatNumber(n, isThousands) {
-      var rounded = Math.round(n);
-      if (isThousands || rounded >= 1000) {
-        return new Intl.NumberFormat('pt-BR').format(rounded);
-      }
-      return rounded.toString();
-    }
-
-    function display(item, n) {
-      if (item.staticVal) return item.staticVal;
-      var numVal = n !== undefined ? n : item.value;
-      return (item.prefix || '') + formatNumber(numVal, item.formatThousands) + (item.suffix || '');
-    }
-
-    // Alternância de cor suave do container
-    function setTheme(idx) {
-      var isSecondary = (idx % 2 === 1);
-      container.classList.toggle('theme-color-a', !isSecondary);
-      container.classList.toggle('theme-color-b', isSecondary);
-    }
-
-    // Renderização dos dots de grupo
-    function renderDots() {
-      if (!dotsContainer) return;
-      dotsContainer.innerHTML = GROUPS.map(function (_, i) {
-        var activeClass = i === groupIndex ? ' class="active"' : '';
-        var selected = i === groupIndex ? 'true' : 'false';
-        return '<button type="button" role="tab" data-group="' + i + '"' + activeClass +
-          ' aria-label="Ir para o grupo ' + (i + 1) + '" aria-selected="' + selected + '"></button>';
-      }).join('');
-
-      var buttons = dotsContainer.querySelectorAll('button');
-      buttons.forEach(function (btn) {
-        btn.addEventListener('click', function () {
-          var target = Number(btn.getAttribute('data-group'));
-          if (target !== groupIndex) {
-            goToGroup(target, target > groupIndex ? 1 : -1);
-          }
-        });
+    var wait = function (ms) {
+      return new Promise(function (resolve) {
+        setTimeout(resolve, ms);
       });
+    };
+
+    function parseValue(raw) {
+      var prefixMatch = raw.match(/^[^\d]*/);
+      var suffixMatch = raw.match(/[^\d]*$/);
+      var prefix = prefixMatch ? prefixMatch[0] : "";
+      var suffix = suffixMatch ? suffixMatch[0] : "";
+      var digits = raw.replace(/\D/g, "");
+      var target = Number(digits || 0);
+      var thousands = /\d\.\d{3}/.test(raw);
+      return { prefix: prefix, suffix: suffix, target: target, thousands: thousands };
     }
 
-    // Criação do elemento DOM do grupo de 4 indicadores
-    function makeRow(group, gIdx) {
-      var el = document.createElement('div');
-      el.className = 'hero-ind-row';
-      el.setAttribute('data-group', gIdx);
-      el.innerHTML = group.map(function (item, i) {
-        var initialDisplay = item.staticVal ? item.staticVal : (item.prefix || '') + '0' + (item.suffix || '');
-        return (
-          '<div class="hero-stat benefit-item" data-index="' + i + '">' +
-            '<button class="hero-focus-zone focus-zone" type="button" aria-label="Focar ' + item.label + '">' +
-              '<span class="hero-stat-num benefit-title"><span class="hero-stat-num-inner num-inner">' + initialDisplay + '</span></span>' +
-              '<span class="hero-stat-label benefit-desc">' + item.label + '</span>' +
-            '</button>' +
-            '<div class="hero-mini-progress" aria-hidden="true"><i></i></div>' +
-          '</div>'
-        );
-      }).join('');
-      return el;
+    function digitHTML(value) {
+      return (
+        '<span class="digit" data-value="' + value + '">' +
+          '<span class="upper"><span>' + value + '</span></span>' +
+          '<span class="lower"><span>' + value + '</span></span>' +
+          '<span class="flip-upper"><span>' + value + '</span></span>' +
+          '<span class="flip-lower"><span>' + value + '</span></span>' +
+        '</span>'
+      );
     }
 
-    // Animação de contagem numérica fluida com curva cúbica
-    function animateCount(el, item, duration) {
-      if (!el) return;
-      if (item.staticVal) {
-        el.textContent = item.staticVal;
-        return;
-      }
-      if (prefersReducedMotion()) {
-        el.textContent = display(item, item.value);
-        return;
-      }
-
-      var prevRaf = countRafMap.get(el);
-      if (prevRaf) cancelAnimationFrame(prevRaf);
-
-      var dur = duration || COUNT_TIME;
-      var start = performance.now();
-      var end = item.value;
-
-      function frame(now) {
-        var p = Math.min(1, (now - start) / dur);
-        var eased = 1 - Math.pow(1 - p, 3);
-        el.textContent = display(item, end * eased);
-        if (p < 1) {
-          var nextId = requestAnimationFrame(frame);
-          countRafMap.set(el, nextId);
-        } else {
-          el.textContent = display(item, end);
-          countRafMap.delete(el);
-        }
-      }
-
-      var initialId = requestAnimationFrame(frame);
-      countRafMap.set(el, initialId);
+    function getDigits(number, width) {
+      return String(number).padStart(width, "0").split("");
     }
 
-    function clearAuto() {
-      if (timer) {
-        clearTimeout(timer);
-        timer = null;
-      }
-    }
+    function valueHTML(item, final) {
+      var meta = parseValue(item.value);
+      var width = Math.max(1, String(meta.target).length);
+      var initial = final ? meta.target : 0;
+      var chars = getDigits(initial, width);
 
-    function cancelProgress() {
-      if (progressRaf) {
-        cancelAnimationFrame(progressRaf);
-        progressRaf = null;
-      }
-    }
+      var html = "";
 
-    function runProgress(duration) {
-      cancelProgress();
-      if (!row || isOffscreen || isTabHidden) return;
-      var bar = row.querySelector('.hero-stat[data-index="' + itemIndex + '"] .hero-mini-progress i');
-      if (!bar) return;
-
-      if (prefersReducedMotion()) {
-        bar.style.width = '100%';
-        return;
+      if (meta.prefix) {
+        html += '<span class="affix">' + meta.prefix + '</span>';
       }
 
-      var dur = duration || ITEM_TIME;
-      var start = performance.now();
-      var from = progressElapsed;
+      chars.forEach(function (character, index) {
+        html += digitHTML(character);
 
-      function frame(now) {
-        var elapsed = from + (now - start);
-        progressElapsed = Math.min(dur, elapsed);
-        var p = Math.min(1, progressElapsed / dur);
-        bar.style.width = (p * 100).toFixed(2) + '%';
-        if (p < 1) {
-          progressRaf = requestAnimationFrame(frame);
-        } else {
-          progressRaf = null;
-        }
-      }
-      progressRaf = requestAnimationFrame(frame);
-    }
-
-    // Associa eventos de hover preciso, foco por teclado e clique aos indicadores
-    function bindStats() {
-      if (!row) return;
-      var stats = row.querySelectorAll('.hero-stat');
-      stats.forEach(function (stat) {
-        var idx = Number(stat.getAttribute('data-index'));
-        var target = stat.querySelector('.hero-focus-zone');
-        if (!target) return;
-
-        // Hover Desktop: ativa somente ao entrar na .hero-focus-zone (número + label)
-        target.addEventListener('mouseenter', function () {
-          if (isMobile() || switching) return;
-          stat.classList.add('hovering');
-          hoverLock = true;
-          clearAuto();
-          focusItem(idx, { scroll: false, restartProgress: true, schedule: false });
-          runProgress();
-        });
-
-        target.addEventListener('mouseleave', function () {
-          if (isMobile() || switching) return;
-          stat.classList.remove('hovering');
-          hoverLock = false;
-          if (progressElapsed >= ITEM_TIME) {
-            clearAuto();
-            timer = setTimeout(function () { step(1); }, RESUME_AFTER_HOVER);
-          } else {
-            scheduleAuto(ITEM_TIME - progressElapsed);
-          }
-        });
-
-        // Acessibilidade por teclado (Tab)
-        target.addEventListener('focus', function () {
-          if (switching) return;
-          clearAuto();
-          focusItem(idx, { scroll: false, restartProgress: true, schedule: false });
-          runProgress();
-        });
-
-        target.addEventListener('blur', function () {
-          stat.classList.remove('hovering');
-          if (!hoverLock && !pointerLock) {
-            scheduleAuto(ITEM_TIME - progressElapsed);
-          }
-        });
-
-        // Clique (Mobile ou Desktop)
-        target.addEventListener('click', function () {
-          if (switching) return;
-          if (isMobile()) {
-            focusItem(idx, { scroll: true, restartProgress: true, schedule: true });
-          } else {
-            focusItem(idx, { scroll: false, restartProgress: true, schedule: true });
-          }
-        });
-      });
-    }
-
-    // Foca um indicador específico dentro da linha
-    function focusItem(index, opts) {
-      if (!row) return;
-      opts = opts || {};
-      var scroll = opts.scroll !== undefined ? opts.scroll : true;
-      var restartProgress = opts.restartProgress !== undefined ? opts.restartProgress : true;
-      var schedule = opts.schedule !== undefined ? opts.schedule : true;
-
-      itemIndex = Math.max(0, Math.min(3, index));
-      var stats = Array.prototype.slice.call(row.querySelectorAll('.hero-stat'));
-
-      stats.forEach(function (stat, i) {
-        stat.classList.toggle('active', i === itemIndex);
-        stat.classList.toggle('done', i < itemIndex);
-        if (i !== itemIndex) {
-          var bar = stat.querySelector('.hero-mini-progress i');
-          if (bar) bar.style.width = '0%';
+        if (meta.thousands && chars.length - index - 1 === 3) {
+          html += '<span class="affix">.</span>';
         }
       });
 
-      var current = stats[itemIndex];
-      if (current) {
-        var numEl = current.querySelector('.hero-stat-num-inner');
-        var itemData = GROUPS[groupIndex][itemIndex];
-        if (numEl && itemData) {
-          animateCount(numEl, itemData, COUNT_TIME);
-        }
+      if (meta.suffix) {
+        html += '<span class="affix">' + meta.suffix + '</span>';
       }
 
-      if (restartProgress) {
-        progressElapsed = 0;
-        if (current) {
-          var currentBar = current.querySelector('.hero-mini-progress i');
-          if (currentBar) currentBar.style.width = '0%';
-        }
-      }
-      runProgress();
-
-      if (scroll && isMobile() && current) {
-        current.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
-      }
-
-      if (schedule && !hoverLock && !pointerLock && !isOffscreen && !isTabHidden) {
-        scheduleAuto();
-      }
+      return '<div class="value" data-width="' + width + '">' + html + '</div>';
     }
 
-    // Agendamento do próximo passo automático
-    function scheduleAuto(delay) {
-      clearAuto();
-      if (hoverLock || pointerLock || switching || isOffscreen || isTabHidden) return;
-      var waitTime = delay !== undefined ? Math.max(300, delay) : ITEM_TIME;
-      timer = setTimeout(function () {
-        step(1);
-      }, waitTime);
+    function metricHTML(item, index, final) {
+      return (
+        '<article class="metric" data-i="' + index + '">' +
+          '<div class="hit" tabindex="0" aria-label="' + item.value + ', ' + item.label + '">' +
+            valueHTML(item, final) +
+            '<div class="label">' + item.label + '</div>' +
+          '</div>' +
+        '</article>'
+      );
     }
 
-    // Transição suave para outro grupo (4 indicadores novos)
-    function goToGroup(target, direction) {
-      if (switching) return;
-      direction = direction !== undefined ? direction : 1;
-      target = (target + GROUPS.length) % GROUPS.length;
-      if (target === groupIndex) {
-        focusItem(0, { scroll: true, restartProgress: true, schedule: true });
-        return;
-      }
+    function groupHTML(group, final) {
+      if (final === undefined) final = true;
+      return (
+        '<div class="track">' +
+          group.items.map(function (item, index) {
+            return metricHTML(item, index, final);
+          }).join("") +
+        '</div>'
+      );
+    }
 
-      switching = true;
-      clearAuto();
-      cancelProgress();
+    function metrics() {
+      return Array.prototype.slice.call(track.querySelectorAll(".metric"));
+    }
 
-      var oldRow = row;
-      if (oldRow) {
-        oldRow.classList.remove('enter', 'from-next', 'from-prev');
-        oldRow.classList.add(direction >= 0 ? 'exit-next' : 'exit-prev');
-        setTimeout(function () {
-          if (oldRow && oldRow.parentNode) {
-            oldRow.parentNode.removeChild(oldRow);
-          }
-        }, GROUP_TRANSITION);
-      }
+    function render() {
+      var group = GROUPS[groupIndex];
 
-      groupIndex = target;
-      itemIndex = direction >= 0 ? 0 : 3;
-      setTheme(groupIndex);
+      live.style.backgroundColor = group.color;
+      container.classList.toggle("theme-color-a", groupIndex === 0);
+      container.classList.toggle("theme-color-b", groupIndex === 1);
+
+      track.innerHTML = group.items.map(function (item, index) {
+        return metricHTML(item, index, false);
+      }).join("");
+
+      counterState = group.items.map(function (item) {
+        var meta = parseValue(item.value);
+        return {
+          current: 0,
+          target: meta.target,
+          item: item,
+          busy: false,
+          finished: meta.target === 0
+        };
+      });
+
+      wireHover();
       renderDots();
 
-      row = makeRow(GROUPS[groupIndex], groupIndex);
-      row.classList.add(direction >= 0 ? 'from-next' : 'from-prev');
-      stage.appendChild(row);
-      viewport.scrollLeft = 0;
-      bindStats();
+      focusStage = 0;
+      paintFocus();
 
-      setTimeout(function () {
-        switching = false;
-        focusItem(itemIndex, { scroll: isMobile(), restartProgress: true, schedule: true });
-      }, 50);
+      startMotionEngine();
+      scheduleFocusAdvance();
     }
 
-    // Passo de navegação de 1 em 1
-    function step(direction) {
-      if (switching) return;
-      clearAuto();
-      hoverLock = false;
-      pointerLock = false;
+    function renderDots() {
+      dots.innerHTML = GROUPS.map(function (_, index) {
+        return (
+          '<button class="dot ' + (index === groupIndex ? "active" : "") + '" ' +
+            'data-g="' + index + '" aria-label="Grupo ' + (index + 1) + '">' +
+          '</button>'
+        );
+      }).join("");
 
-      var next = itemIndex + direction;
-      if (next > 3) {
-        goToGroup((groupIndex + 1) % GROUPS.length, 1);
-        return;
-      }
-      if (next < 0) {
-        goToGroup((groupIndex - 1 + GROUPS.length) % GROUPS.length, -1);
-        return;
-      }
-      focusItem(next, { scroll: true, restartProgress: true, schedule: true });
+      var dotEls = dots.querySelectorAll(".dot");
+      dotEls.forEach(function (dot) {
+        dot.addEventListener("click", function () {
+          var target = Number(dot.dataset.g);
+          if (target !== groupIndex) {
+            flipToGroup(target);
+          }
+        });
+      });
     }
 
-    // Mobile Swipe / Touch Drag
-    viewport.addEventListener('pointerdown', function () {
-      if (!isMobile()) return;
-      pointerLock = true;
-      clearAuto();
-      cancelProgress();
-    }, { passive: true });
+    function flipDigit(element, newValue) {
+      var oldValue = element.dataset.value;
 
-    function syncToNearestMobileCard() {
-      if (!isMobile() || !row) return;
-      var cards = Array.prototype.slice.call(row.querySelectorAll('.hero-stat'));
-      var viewRect = viewport.getBoundingClientRect();
-      var center = viewRect.left + (viewport.clientWidth / 2);
-      var best = 0;
-      var dist = Number.POSITIVE_INFINITY;
+      if (oldValue === newValue) {
+        return Promise.resolve();
+      }
 
-      cards.forEach(function (card, i) {
-        var r = card.getBoundingClientRect();
-        var cardCenter = r.left + (r.width / 2);
-        var d = Math.abs(cardCenter - center);
-        if (d < dist) {
-          dist = d;
-          best = i;
+      var upper = element.querySelector(".upper > span");
+      var lower = element.querySelector(".lower > span");
+      var movingUpper = element.querySelector(".flip-upper > span");
+      var movingLower = element.querySelector(".flip-lower > span");
+
+      upper.textContent = newValue;
+      lower.textContent = newValue;
+      movingUpper.textContent = oldValue;
+      movingLower.textContent = newValue;
+
+      element.classList.remove("flipping");
+      void element.offsetWidth;
+      element.classList.add("flipping");
+
+      return new Promise(function (resolve) {
+        setTimeout(function () {
+          element.dataset.value = newValue;
+          element.classList.remove("flipping");
+
+          upper.textContent = newValue;
+          lower.textContent = newValue;
+          movingUpper.textContent = newValue;
+          movingLower.textContent = newValue;
+
+          resolve();
+        }, DIGIT_FLIP + 8);
+      });
+    }
+
+    async function setNumber(valueElement, number, item, token) {
+      if (token !== motionToken) {
+        return false;
+      }
+
+      var meta = parseValue(item.value);
+      var width = Number(valueElement.dataset.width);
+      var wanted = getDigits(number, width);
+      var digitElements = Array.prototype.slice.call(valueElement.querySelectorAll(".digit"));
+
+      var flips = [];
+
+      digitElements.forEach(function (digit, index) {
+        if (digit.dataset.value !== wanted[index]) {
+          flips.push(flipDigit(digit, wanted[index]));
         }
       });
-      focusItem(best, { scroll: false, restartProgress: true, schedule: false });
+
+      if (flips.length) {
+        await Promise.all(flips);
+      }
+
+      return token === motionToken;
     }
 
-    viewport.addEventListener('scroll', function () {
-      if (!isMobile()) return;
-      clearTimeout(scrollDebounce);
-      scrollDebounce = setTimeout(function () {
-        syncToNearestMobileCard();
-        pointerLock = false;
-        scheduleAuto();
-      }, 110);
-    }, { passive: true });
+    function velocityFor(index, state) {
+      if (state.finished) {
+        return 0;
+      }
 
-    viewport.addEventListener('pointerup', function () {
-      if (!isMobile()) return;
-      setTimeout(function () {
-        syncToNearestMobileCard();
-        pointerLock = false;
-        scheduleAuto();
-      }, 70);
-    }, { passive: true });
+      var remaining = state.target - state.current;
 
-    viewport.addEventListener('pointercancel', function () {
-      pointerLock = false;
-      scheduleAuto();
-    }, { passive: true });
+      if (remaining <= 0) {
+        return 0;
+      }
 
-    // Setas minimalistas
-    if (prevBtn) {
-      prevBtn.addEventListener('click', function () { step(-1); });
+      var distance = index - focusStage;
+
+      if (distance < 0) {
+        return remaining;
+      }
+
+      if (distance === 0) {
+        return Math.max(1, Math.ceil(remaining * 0.22));
+      }
+
+      if (distance === 1) {
+        return Math.max(1, Math.ceil(state.target * 0.035));
+      }
+
+      if (distance === 2) {
+        return Math.max(1, Math.ceil(state.target * 0.018));
+      }
+
+      return Math.max(1, Math.ceil(state.target * 0.009));
     }
-    if (nextBtn) {
-      nextBtn.addEventListener('click', function () { step(1); });
-    }
 
-    // Reajuste responsivo ao redimensionar tela
-    window.addEventListener('resize', function () {
-      clearTimeout(window.__heroIndResizeTimer);
-      window.__heroIndResizeTimer = setTimeout(function () {
-        if (isMobile() && row) {
-          var activeCard = row.querySelector('.hero-stat[data-index="' + itemIndex + '"]');
-          if (activeCard) {
-            activeCard.scrollIntoView({ behavior: 'auto', inline: 'center', block: 'nearest' });
-          }
-        } else {
-          viewport.scrollLeft = 0;
+    async function motionBeat(token) {
+      if (changing || paused || token !== motionToken || isOffscreen || isTabHidden) {
+        return;
+      }
+
+      var allMetrics = metrics();
+
+      var updates = counterState.map(async function (state, index) {
+        if (state.busy || state.finished) {
+          return;
         }
-      }, 100);
+
+        var velocity = velocityFor(index, state);
+
+        if (velocity <= 0) {
+          return;
+        }
+
+        var nextValue = Math.min(state.target, state.current + velocity);
+
+        if (nextValue === state.current) {
+          return;
+        }
+
+        var metric = allMetrics[index];
+        if (!metric) {
+          return;
+        }
+
+        var valueElement = metric.querySelector(".value");
+
+        state.busy = true;
+
+        var valid = await setNumber(
+          valueElement,
+          nextValue,
+          state.item,
+          token
+        );
+
+        if (valid) {
+          state.current = nextValue;
+
+          if (state.current >= state.target) {
+            state.current = state.target;
+            state.finished = true;
+          }
+        }
+
+        state.busy = false;
+      });
+
+      await Promise.all(updates);
+    }
+
+    function startMotionEngine() {
+      clearInterval(motionTimer);
+
+      var token = ++motionToken;
+
+      motionBeat(token);
+
+      motionTimer = setInterval(function () {
+        motionBeat(token);
+      }, MOTION_BEAT);
+    }
+
+    function paintFocus() {
+      metrics().forEach(function (metric, index) {
+        metric.classList.toggle("lit", index <= focusStage);
+        metric.classList.toggle("focused", index === focusStage);
+      });
+
+      ensureVisible(focusStage);
+    }
+
+    function clearSequenceTimers() {
+      clearTimeout(focusTimer);
+      clearTimeout(groupTimer);
+    }
+
+    function scheduleFocusAdvance() {
+      clearSequenceTimers();
+
+      if (paused || changing || isOffscreen || isTabHidden) {
+        return;
+      }
+
+      if (focusStage < 3) {
+        focusTimer = setTimeout(function () {
+          focusStage += 1;
+          paintFocus();
+          scheduleFocusAdvance();
+        }, FOCUS_STEP);
+
+        return;
+      }
+
+      groupTimer = setTimeout(async function () {
+        var allMetrics = metrics();
+        var token = motionToken;
+
+        await Promise.all(
+          counterState.map(async function (state, index) {
+            if (state.current < state.target) {
+              var value = allMetrics[index] ? allMetrics[index].querySelector(".value") : null;
+
+              if (value) {
+                await setNumber(value, state.target, state.item, token);
+                state.current = state.target;
+                state.finished = true;
+              }
+            }
+          })
+        );
+
+        await wait(320);
+
+        flipToGroup((groupIndex + 1) % GROUPS.length);
+
+      }, FOCUS_STEP + ALL_WHITE_HOLD);
+    }
+
+    function resume() {
+      if (paused || changing || isOffscreen || isTabHidden) {
+        return;
+      }
+
+      startMotionEngine();
+      scheduleFocusAdvance();
+    }
+
+    function manualFocus(index) {
+      focusStage = Math.max(0, Math.min(index, 3));
+      paintFocus();
+    }
+
+    function stepIndicator(direction) {
+      if (changing) {
+        return;
+      }
+
+      clearSequenceTimers();
+
+      var nextFocus = focusStage + direction;
+
+      if (nextFocus > 3) {
+        flipToGroup((groupIndex + 1) % GROUPS.length);
+        return;
+      }
+
+      if (nextFocus < 0) {
+        var target =
+          (groupIndex - 1 + GROUPS.length) %
+          GROUPS.length;
+
+        flipToGroup(target, 3);
+        return;
+      }
+
+      manualFocus(nextFocus);
+
+      if (!paused && !isOffscreen && !isTabHidden) {
+        focusTimer = setTimeout(scheduleFocusAdvance, 700);
+      }
+    }
+
+    async function flipToGroup(targetGroup, startingFocus) {
+      if (startingFocus === undefined) startingFocus = 0;
+      if (changing || targetGroup === groupIndex) {
+        return;
+      }
+
+      changing = true;
+
+      clearSequenceTimers();
+      clearInterval(motionTimer);
+
+      ++motionToken;
+
+      var oldGroup = GROUPS[groupIndex];
+      var newGroup = GROUPS[targetGroup];
+
+      /* Remove os números/labels atuais antes da dobra mecânica */
+      live.classList.remove(
+        "content-entering",
+        "content-visible"
+      );
+      live.classList.add("content-leaving");
+
+      await wait(CONTENT_FADE_OUT);
+
+      groupFlip.innerHTML = (
+        '<!-- NEW TOP fica aguardando atrás da aba superior antiga -->' +
+        '<div class="group-half top static-new-top">' +
+          '<div class="half-content" style="background:' + newGroup.color + '">' +
+            groupHTML(newGroup, true) +
+          '</div>' +
+        '</div>' +
+
+        '<!-- OLD BOTTOM permanece estático até a abertura da nova metade inferior -->' +
+        '<div class="group-half bottom static-old-bottom">' +
+          '<div class="half-content" style="background:' + oldGroup.color + '">' +
+            groupHTML(oldGroup, true) +
+          '</div>' +
+        '</div>' +
+
+        '<!-- Aba física superior antiga -->' +
+        '<div class="group-half top moving-old-top">' +
+          '<div class="half-content" style="background:' + oldGroup.color + '">' +
+            groupHTML(oldGroup, true) +
+          '</div>' +
+        '</div>' +
+
+        '<!-- Aba física inferior nova -->' +
+        '<div class="group-half bottom moving-new-bottom">' +
+          '<div class="half-content" style="background:' + newGroup.color + '">' +
+            groupHTML(newGroup, true) +
+          '</div>' +
+        '</div>' +
+
+        '<div class="group-hinge"></div>'
+      );
+
+      groupFlip.classList.add("running");
+
+      var oldTop = groupFlip.querySelector(".moving-old-top");
+      var newBottom = groupFlip.querySelector(".moving-new-bottom");
+
+      await new Promise(function (resolve) {
+        requestAnimationFrame(function () {
+          requestAnimationFrame(resolve);
+        });
+      });
+
+      live.style.opacity = "0";
+
+      var reducedMotion =
+        window.matchMedia &&
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      if (!reducedMotion && oldTop && newBottom) {
+        /* FASE 1: Aba superior antiga fecha de 0deg a -89.6deg */
+        groupFlip.classList.add("phase-close");
+
+        var closeAnimation = oldTop.animate(
+          [
+            { offset: 0, transform: "rotateX(0deg)", filter: "brightness(1)" },
+            { offset: 0.30, transform: "rotateX(-18deg)", filter: "brightness(.98)" },
+            { offset: 0.65, transform: "rotateX(-54deg)", filter: "brightness(.88)" },
+            { offset: 0.88, transform: "rotateX(-79deg)", filter: "brightness(.77)" },
+            { offset: 1, transform: "rotateX(-89.6deg)", filter: "brightness(.70)" }
+          ],
+          {
+            duration: GROUP_CLOSE,
+            easing: "cubic-bezier(.40,.02,.61,1)",
+            fill: "forwards"
+          }
+        );
+
+        if (closeAnimation && closeAnimation.finished) {
+          await closeAnimation.finished;
+        } else {
+          await wait(GROUP_CLOSE);
+        }
+
+        groupFlip.classList.remove("phase-close");
+
+        /* Parada mecânica na dobradiça */
+        await wait(GROUP_PAUSE);
+
+        /* FASE 2: Aba inferior nova abre de +89.6deg a 0deg */
+        groupFlip.classList.add("phase-open");
+
+        var openAnimation = newBottom.animate(
+          [
+            { offset: 0, transform: "rotateX(89.6deg)", filter: "brightness(.70)" },
+            { offset: 0.18, transform: "rotateX(79deg)", filter: "brightness(.76)" },
+            { offset: 0.52, transform: "rotateX(48deg)", filter: "brightness(.87)" },
+            { offset: 0.82, transform: "rotateX(14deg)", filter: "brightness(.97)" },
+            { offset: 1, transform: "rotateX(0deg)", filter: "brightness(1)" }
+          ],
+          {
+            duration: GROUP_OPEN,
+            easing: "cubic-bezier(.18,.72,.22,1)",
+            fill: "forwards"
+          }
+        );
+
+        if (openAnimation && openAnimation.finished) {
+          await openAnimation.finished;
+        } else {
+          await wait(GROUP_OPEN);
+        }
+
+        groupFlip.classList.remove("phase-open");
+
+        await wait(GROUP_SETTLE);
+      }
+
+      groupFlip.classList.remove("running");
+      groupFlip.innerHTML = "";
+
+      groupIndex = targetGroup;
+
+      live.classList.remove(
+        "content-leaving",
+        "content-visible"
+      );
+      live.classList.add("content-entering");
+
+      live.style.opacity = "1";
+      changing = false;
+
+      render();
+
+      await wait(CONTENT_FADE_IN_DELAY);
+
+      live.classList.remove("content-entering");
+      live.classList.add("content-visible");
+
+      await wait(CONTENT_FADE_IN);
+
+      live.classList.remove("content-visible");
+
+      if (startingFocus === 3) {
+        clearSequenceTimers();
+        focusStage = 3;
+        paintFocus();
+
+        groupTimer = setTimeout(function () {
+          flipToGroup((groupIndex + 1) % GROUPS.length);
+        }, FOCUS_STEP + ALL_WHITE_HOLD);
+      }
+    }
+
+    function ensureVisible(index) {
+      if (window.innerWidth > 820) {
+        return;
+      }
+
+      var all = metrics();
+      var metric = all[index];
+
+      if (!metric) {
+        return;
+      }
+
+      var left = metric.offsetLeft;
+      var right = left + metric.offsetWidth;
+      var viewLeft = track.scrollLeft;
+      var viewRight = viewLeft + track.clientWidth;
+
+      if (left < viewLeft) {
+        track.scrollTo({ left: left, behavior: "smooth" });
+      } else if (right > viewRight) {
+        track.scrollTo({
+          left: right - track.clientWidth,
+          behavior: "smooth"
+        });
+      }
+    }
+
+    function wireHover() {
+      track.querySelectorAll(".metric").forEach(function (metric) {
+        var index = Number(metric.dataset.i);
+        var hit = metric.querySelector(".hit");
+        if (!hit) return;
+
+        hit.addEventListener("mouseenter", function () {
+          if (!window.matchMedia("(hover:hover) and (pointer:fine)").matches) {
+            return;
+          }
+
+          paused = true;
+          clearSequenceTimers();
+
+          focusStage = index;
+          paintFocus();
+        });
+
+        hit.addEventListener("mouseleave", function () {
+          if (!window.matchMedia("(hover:hover) and (pointer:fine)").matches) {
+            return;
+          }
+
+          paused = false;
+          setTimeout(resume, 380);
+        });
+
+        hit.addEventListener("focus", function () {
+          paused = true;
+          clearSequenceTimers();
+          focusStage = index;
+          paintFocus();
+        });
+
+        hit.addEventListener("blur", function () {
+          paused = false;
+          setTimeout(resume, 380);
+        });
+      });
+    }
+
+    prev.addEventListener("click", function () { stepIndicator(-1); });
+    next.addEventListener("click", function () { stepIndicator(1); });
+
+    track.addEventListener("pointerdown", function (event) {
+      if (window.innerWidth > 820) {
+        return;
+      }
+
+      pointerDown = true;
+      paused = true;
+      clearSequenceTimers();
+
+      startX = event.clientX;
+      startScroll = track.scrollLeft;
+
+      if (track.setPointerCapture) {
+        track.setPointerCapture(event.pointerId);
+      }
     });
 
-    // Pausa quando aba estiver em segundo plano
-    document.addEventListener('visibilitychange', function () {
+    track.addEventListener("pointermove", function (event) {
+      if (!pointerDown) {
+        return;
+      }
+
+      track.scrollLeft = startScroll - (event.clientX - startX);
+    });
+
+    track.addEventListener("pointerup", function (event) {
+      if (!pointerDown) {
+        return;
+      }
+
+      pointerDown = false;
+
+      var dx = event.clientX - startX;
+
+      paused = false;
+
+      if (Math.abs(dx) > 36) {
+        stepIndicator(dx < 0 ? 1 : -1);
+      } else {
+        setTimeout(resume, 350);
+      }
+    });
+
+    track.addEventListener("pointercancel", function () {
+      pointerDown = false;
+      paused = false;
+      setTimeout(resume, 350);
+    });
+
+    // Pausa animações se a aba for colocada em background
+    document.addEventListener("visibilitychange", function () {
       isTabHidden = document.hidden;
       if (isTabHidden) {
-        clearAuto();
-        cancelProgress();
+        clearSequenceTimers();
+        clearInterval(motionTimer);
       } else if (!isOffscreen) {
-        focusItem(itemIndex, { scroll: false, restartProgress: true, schedule: true });
+        resume();
       }
     });
 
     // IntersectionObserver: só executa animações e timers quando visível na tela
-    if ('IntersectionObserver' in window) {
+    if ("IntersectionObserver" in window) {
       var observer = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {
           if (entry.isIntersecting) {
             isOffscreen = false;
             if (!isTabHidden) {
-              focusItem(itemIndex, { scroll: false, restartProgress: true, schedule: true });
+              resume();
             }
           } else {
             isOffscreen = true;
-            clearAuto();
-            cancelProgress();
+            clearSequenceTimers();
+            clearInterval(motionTimer);
           }
         });
       }, { threshold: 0.15 });
+
       observer.observe(container);
     }
 
-    // Inicialização da montagem
-    setTheme(groupIndex);
-    renderDots();
-
-    // Se já houver uma linha pré-renderizada no HTML, aproveita e liga os eventos; caso contrário, cria
-    if (!row) {
-      row = makeRow(GROUPS[groupIndex], groupIndex);
-      row.classList.add('enter');
-      stage.innerHTML = '';
-      stage.appendChild(row);
-    } else {
-      row.classList.add('enter');
-    }
-
-    bindStats();
-    focusItem(itemIndex, { scroll: false, restartProgress: true, schedule: true });
+    render();
   }
 
   /* ===================================================================

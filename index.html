@@ -562,57 +562,111 @@
 
     </section>
 
-    <!-- Faixa de indicadores entre o Hero e a seção Sobre (Carrossel Interativo com Contador Individual) -->
-    <div class="hero-benefits-bar theme-color-a" id="heroBenefitsBar" role="region" aria-label="Indicadores de performance e credenciais EndControl">
-      <!-- Seta Anterior Minimalista -->
-      <button class="hero-ind-nav hero-ind-nav--prev" id="heroIndPrevBtn" type="button" aria-label="Indicador anterior">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
-      </button>
+    <!-- Faixa de indicadores entre o Hero e a seção Sobre (Split-Flap V15 Fade Residual) -->
+    <div class="hero-benefits-bar shell theme-color-a" id="heroBenefitsBar" role="region" aria-label="Indicadores de performance e credenciais EndControl">
 
-      <!-- Viewport / Stage -->
-      <div class="hero-ind-viewport" id="heroIndViewport">
-        <div class="hero-ind-stage" id="heroIndStage">
+      <div class="live" id="live">
+        <div class="track" id="track">
           <!-- Grupo 1 pré-renderizado no HTML para SEO e CLS zero -->
-          <div class="hero-ind-row" data-group="0">
-            <div class="hero-stat benefit-item active" data-index="0">
-              <button class="hero-focus-zone focus-zone" type="button" aria-label="Focar de experiência">
-                <span class="hero-stat-num benefit-title"><span class="hero-stat-num-inner num-inner">+18 anos</span></span>
-                <span class="hero-stat-label benefit-desc">de experiência</span>
-              </button>
-              <div class="hero-mini-progress" aria-hidden="true"><i></i></div>
+          <article class="metric lit focused" data-i="0">
+            <div class="hit" tabindex="0" aria-label="+18, anos de experiência">
+              <div class="value" data-width="2">
+                <span class="affix">+</span>
+                <span class="digit" data-value="1">
+                  <span class="upper"><span>1</span></span>
+                  <span class="lower"><span>1</span></span>
+                  <span class="flip-upper"><span>1</span></span>
+                  <span class="flip-lower"><span>1</span></span>
+                </span>
+                <span class="digit" data-value="8">
+                  <span class="upper"><span>8</span></span>
+                  <span class="lower"><span>8</span></span>
+                  <span class="flip-upper"><span>8</span></span>
+                  <span class="flip-lower"><span>8</span></span>
+                </span>
+              </div>
+              <div class="label">anos de experiência</div>
             </div>
-            <div class="hero-stat benefit-item" data-index="1">
-              <button class="hero-focus-zone focus-zone" type="button" aria-label="Focar especialistas técnicos">
-                <span class="hero-stat-num benefit-title"><span class="hero-stat-num-inner num-inner">+300</span></span>
-                <span class="hero-stat-label benefit-desc">especialistas técnicos</span>
-              </button>
-              <div class="hero-mini-progress" aria-hidden="true"><i></i></div>
+          </article>
+          <article class="metric" data-i="1">
+            <div class="hit" tabindex="0" aria-label="+27, estados alcançados">
+              <div class="value" data-width="2">
+                <span class="affix">+</span>
+                <span class="digit" data-value="2">
+                  <span class="upper"><span>2</span></span>
+                  <span class="lower"><span>2</span></span>
+                  <span class="flip-upper"><span>2</span></span>
+                  <span class="flip-lower"><span>2</span></span>
+                </span>
+                <span class="digit" data-value="7">
+                  <span class="upper"><span>7</span></span>
+                  <span class="lower"><span>7</span></span>
+                  <span class="flip-upper"><span>7</span></span>
+                  <span class="flip-lower"><span>7</span></span>
+                </span>
+              </div>
+              <div class="label">estados alcançados</div>
             </div>
-            <div class="hero-stat benefit-item" data-index="2">
-              <button class="hero-focus-zone focus-zone" type="button" aria-label="Focar atuação em todo o Brasil">
-                <span class="hero-stat-num benefit-title"><span class="hero-stat-num-inner num-inner">100%</span></span>
-                <span class="hero-stat-label benefit-desc">atuação em todo o Brasil</span>
-              </button>
-              <div class="hero-mini-progress" aria-hidden="true"><i></i></div>
+          </article>
+          <article class="metric" data-i="2">
+            <div class="hit" tabindex="0" aria-label="96%, índice de satisfação">
+              <div class="value" data-width="2">
+                <span class="digit" data-value="9">
+                  <span class="upper"><span>9</span></span>
+                  <span class="lower"><span>9</span></span>
+                  <span class="flip-upper"><span>9</span></span>
+                  <span class="flip-lower"><span>9</span></span>
+                </span>
+                <span class="digit" data-value="6">
+                  <span class="upper"><span>6</span></span>
+                  <span class="lower"><span>6</span></span>
+                  <span class="flip-upper"><span>6</span></span>
+                  <span class="flip-lower"><span>6</span></span>
+                </span>
+                <span class="affix">%</span>
+              </div>
+              <div class="label">índice de satisfação</div>
             </div>
-            <div class="hero-stat benefit-item" data-index="3">
-              <button class="hero-focus-zone focus-zone" type="button" aria-label="Focar projetos entregues">
-                <span class="hero-stat-num benefit-title"><span class="hero-stat-num-inner num-inner">+1.250</span></span>
-                <span class="hero-stat-label benefit-desc">projetos entregues</span>
-              </button>
-              <div class="hero-mini-progress" aria-hidden="true"><i></i></div>
+          </article>
+          <article class="metric" data-i="3">
+            <div class="hit" tabindex="0" aria-label="24h, monitoramento contínuo">
+              <div class="value" data-width="2">
+                <span class="digit" data-value="2">
+                  <span class="upper"><span>2</span></span>
+                  <span class="lower"><span>2</span></span>
+                  <span class="flip-upper"><span>2</span></span>
+                  <span class="flip-lower"><span>2</span></span>
+                </span>
+                <span class="digit" data-value="4">
+                  <span class="upper"><span>4</span></span>
+                  <span class="lower"><span>4</span></span>
+                  <span class="flip-upper"><span>4</span></span>
+                  <span class="flip-lower"><span>4</span></span>
+                </span>
+                <span class="affix">h</span>
+              </div>
+              <div class="label">monitoramento contínuo</div>
             </div>
-          </div>
+          </article>
         </div>
       </div>
 
-      <!-- Seta Próximo Minimalista -->
-      <button class="hero-ind-nav hero-ind-nav--next" id="heroIndNextBtn" type="button" aria-label="Próximo indicador">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+      <div class="group-flip" id="groupFlip"></div>
+
+      <button class="nav prev" id="prev" aria-label="Indicador anterior">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M15 18l-6-6 6-6"/>
+        </svg>
       </button>
 
-      <!-- Dots Indicadores de Grupos -->
-      <div class="hero-ind-dots" id="heroIndDots" role="tablist" aria-label="Grupos de indicadores"></div>
+      <button class="nav next" id="next" aria-label="Próximo indicador">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M9 18l6-6-6-6"/>
+        </svg>
+      </button>
+
+      <div class="dots" id="dots"></div>
+
     </div>
 
     <!-- ════════════════════════════════════════════════════════════════════════
