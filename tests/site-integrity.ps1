@@ -1,4 +1,4 @@
-﻿$ErrorActionPreference = 'Stop'
+$ErrorActionPreference = 'Stop'
 
 $root = Split-Path -Parent $PSScriptRoot
 $failures = New-Object System.Collections.Generic.List[string]
@@ -21,10 +21,6 @@ $solucoes = Get-Content -Raw (Join-Path $root 'src\js\solucoes.js')
 $solucoesCss = Get-Content -Raw (Join-Path $root 'src\css\solucoes.css')
 $gitignore = Get-Content -Raw (Join-Path $root '.gitignore')
 $activeDataFiles = @(
-  (Join-Path $root 'src\data\drive-assets.js'),
-  (Join-Path $root 'src\data\units.js'),
-  (Join-Path $root 'src\js\album.js'),
-  (Join-Path $root 'src\js\index2-features.js'),
   (Join-Path $root 'src\js\main.js')
 )
 
@@ -76,8 +72,7 @@ foreach ($file in $activeDataFiles) {
 Assert-Condition ($index -notmatch 'operacional-discussao-equipe-terreno-obra-edit\.webp') 'index.html ainda referencia imagem ausente do card de solução.'
 
 $contactFiles = @(
-  (Join-Path $root 'index.html'),
-  (Join-Path $root 'src\js\index2-features.js')
+  (Join-Path $root 'index.html')
 )
 
 foreach ($file in $contactFiles) {

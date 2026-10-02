@@ -19,6 +19,8 @@ build/
 !.env.example
 
 # Pastas locais pesadas ignoradas
+LIXADA/
+lixos/
 lixos-nao-utilizados/
 assets-nao-usados/
 assets/FOTOS ORIGINAIS ENDCONTROL/
