@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'Determinação da taxa de corrosão e vida útil residual',
         'Avaliação conforme API 579-1 / ASME FFS-1 Parte 4'
       ],
-      image: './assets/Paginas/SOLUCOES/01-integridade-estrutural/Nao usada na pagina de solucao/inspecao-corrosao-viga-metalica-eng-integridade.webp',
+      image: './assets/Paginas/SOLUCOES/01-integridade-estrutural/S2 CARD/endcontrol-integridade-estrutural-aquisicao-dados-planta-industrial.webp',
       ctaText: 'Falar com Especialista',
       iconSvg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="4" r="1.5"/><circle cx="12" cy="20" r="1.5"/><circle cx="4" cy="12" r="1.5"/><circle cx="20" cy="12" r="1.5"/><line x1="12" y1="5.5" x2="12" y2="9"/><line x1="12" y1="15" x2="12" y2="18.5"/><line x1="5.5" y1="12" x2="9" y2="12"/><line x1="15" y1="12" x2="18.5" y2="12"/></svg>`
     },
@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'Cálculo de tensões residuais em juntas soldadas',
         'Avaliação conforme API 579-1 / ASME FFS-1 Parte 9'
       ],
-      image: './assets/Paginas/SOLUCOES/01-integridade-estrutural/Nao usada na pagina de solucao/ensaio-ultrassom-solda-coluna-estrutura-metalica.webp',
+      image: './assets/Paginas/SOLUCOES/01-integridade-estrutural/S2 CARD/endcontrol-integridade-estrutural-aquisicao-dados-planta-industrial.webp',
       ctaText: 'Falar com Especialista',
       iconSvg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 4L14 9l3 2-6 8"/><line x1="4" y1="20" x2="8" y2="16"/><line x1="14" y1="4" x2="16" y2="2"/></svg>`
     },

@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'Relatórios técnicos e pareceres',
         'Suporte à gestão de ativos'
       ],
-      image: './assets/Paginas/SOLUCOES/08-adequacao-normativa/S2 CARD/endcontrol-inspecao-altura-nr35-escada-tanque-industrial.webp',
+      image: './assets/Paginas/SOLUCOES/02-obras-artes-especiais/S2 CARD/obras_arte_especiais_06.webp',
       url: '2-solucao-inspecao-em-obras-de-artes-especiais.html',
       ctaText: 'Saiba Mais',
       iconSvg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20"/><path d="M4 20v-4"/><path d="M8 20v-8"/><path d="M12 20V8"/><path d="M16 20v-8"/><path d="M20 20v-4"/><path d="M4 16l4-4 4 0 4 0 4 4"/><path d="M8 12l4-4 4 4"/></svg>`
@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'Radiografia e gamagrafia industrial',
         'Emissão acústica e TOFD'
       ],
-      image: './assets/Imagens-Diversas/Institucional/endcontrol-ultrassom-phased-array-inspecao-solda-dutos-tubulacoes.webp',
+      image: './assets/Paginas/SOLUCOES/03-ensaios-nao-destrutivos/S2 CARD/endcontrol-ensaios-nao-destrutivos-ultrassom-medicao-espessura-naval.webp',
       url: '3-solucao-ensaios-nao-destrutivos-ends.html',
       ctaText: 'Saiba Mais',
       iconSvg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="3" width="12" height="18" rx="2"/><circle cx="12" cy="15" r="2"/><path d="M9 8h6"/><path d="M9 5.5h6"/></svg>`
@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'Consultoria em metalurgia e soldabilidade',
         'Definição de consumíveis e tratamento térmico'
       ],
-      image: './assets/Paginas/SOLUCOES/01-integridade-estrutural/Nao usada na pagina de solucao/ensaio-ultrassom-solda-coluna-estrutura-metalica.webp',
+      image: './assets/Paginas/SOLUCOES/04-engenharia-de-soldagem/S2 CARD/endcontrol-engenharia-soldagem-qualificacao-soldadores-eps-rqps.webp',
       url: '4-solucao-engenharia-de-soldagem.html',
       ctaText: 'Saiba Mais',
       iconSvg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 3z"/></svg>`
@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'Software de gestão de ativos',
         'Digitalização e modelagem 3D'
       ],
-      image: './assets/Paginas/SOLUCOES/12-consultoria-assessoria/S2 CARD/endcontrol-consultoria-tecnica-demonstracao-scanner-ultrassom-tubos.webp',
+      image: './assets/Paginas/SOLUCOES/07-solucoes-tecnologicas/S2 CARD/endcontrol-consultoria-tecnica-demonstracao-scanner-ultrassom-tubos.webp',
       ctaText: 'Saiba Mais',
       iconSvg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>`
     },
@@ -153,7 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'Soldagem de sapatas e trepanos',
         'Procedimentos operacionais de alta segurança'
       ],
-      image: './assets/Paginas/SOLUCOES/09-calibracao-instrumentos/Nao usada na pagina de solucao/endcontrol-calibracao-medicao-vazao-ultrassonica-duto-industrial.webp',
+      image: './assets/Paginas/SOLUCOES/10-hot-tapping/S2 CARD/trepanacao-hot-tapping-valvula-bloqueio.webp',
       ctaText: 'Saiba Mais',
       iconSvg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="3" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="21"/><line x1="3" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="21" y2="12"/></svg>`
     },
@@ -204,7 +204,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'Modelagem 3D e detalhamento técnico',
         'Projetos de modificação e retrofitting'
       ],
-      image: './assets/Paginas/SOLUCOES/06-projetos-mecanicos/Nao usada na pagina de solucao/elaboracao_projetos_mecanicos_01.webp',
+      image: './assets/Paginas/SOLUCOES/06-projetos-mecanicos/S2 CARD/endcontrol-equipe-escritorio-projetos-mecanicos-engenharia.webp',
       ctaText: 'Saiba Mais',
       iconSvg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>`
     }
