@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'Determinação da taxa de corrosão e vida útil residual',
         'Avaliação conforme API 579-1 / ASME FFS-1 Parte 4'
       ],
-      image: './assets/Paginas/SOLUCOES/01-integridade-estrutural/inspecao-corrosao-viga-metalica-eng-integridade.webp',
+      image: './assets/Paginas/SOLUCOES/01-integridade-estrutural/Nao usada na pagina de solucao/inspecao-corrosao-viga-metalica-eng-integridade.webp',
       ctaText: 'Falar com Especialista',
       iconSvg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="4" r="1.5"/><circle cx="12" cy="20" r="1.5"/><circle cx="4" cy="12" r="1.5"/><circle cx="20" cy="12" r="1.5"/><line x1="12" y1="5.5" x2="12" y2="9"/><line x1="12" y1="15" x2="12" y2="18.5"/><line x1="5.5" y1="12" x2="9" y2="12"/><line x1="15" y1="12" x2="18.5" y2="12"/></svg>`
     },
@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'Avaliação da integridade contra pressão interna',
         'Avaliação conforme API 579-1 / ASME FFS-1 Parte 6'
       ],
-      image: './assets/Paginas/SOLUCOES/03-ensaios-nao-destrutivos/endcontrol-ensaios-nao-destrutivos-ultrassom-medicao-espessura-naval.webp',
+      image: './assets/Paginas/SOLUCOES/03-ensaios-nao-destrutivos/S2 CARD/endcontrol-ensaios-nao-destrutivos-ultrassom-medicao-espessura-naval.webp',
       ctaText: 'Falar com Especialista',
       iconSvg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/><circle cx="12" cy="14" r="2"/></svg>`
     },
@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'Cálculo de tensões residuais em juntas soldadas',
         'Avaliação conforme API 579-1 / ASME FFS-1 Parte 9'
       ],
-      image: './assets/Paginas/SOLUCOES/01-integridade-estrutural/ensaio-ultrassom-solda-coluna-estrutura-metalica.webp',
+      image: './assets/Paginas/SOLUCOES/01-integridade-estrutural/Nao usada na pagina de solucao/ensaio-ultrassom-solda-coluna-estrutura-metalica.webp',
       ctaText: 'Falar com Especialista',
       iconSvg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 4L14 9l3 2-6 8"/><line x1="4" y1="20" x2="8" y2="16"/><line x1="14" y1="4" x2="16" y2="2"/></svg>`
     },
@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'Monitoramento de taxas de deformação permanente',
         'Avaliação conforme API 579-1 / ASME FFS-1 Parte 10'
       ],
-      image: './assets/Paginas/SOLUCOES/11-certificacao-materia-prima/endcontrol-laboratorio-ensaio-dureza-digimess-certificacao-materiais.webp',
+      image: './assets/Paginas/SOLUCOES/11-certificacao-materia-prima/S2 CARD/endcontrol-laboratorio-ensaio-dureza-digimess-certificacao-materiais.webp',
       ctaText: 'Falar com Especialista',
       iconSvg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><line x1="8" y1="15" x2="16" y2="15"/><path d="M9 12a3 3 0 0 1 6 0"/><line x1="12" y1="7" x2="12" y2="9"/></svg>`
     },
@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'Análise de taxa de propagação de trincas por fadiga (Lei de Paris)',
         'Avaliação conforme API 579-1 / ASME FFS-1 Parte 14'
       ],
-      image: './assets/Paginas/SOLUCOES/12-consultoria-assessoria/endcontrol-consultoria-tecnica-demonstracao-scanner-ultrassom-tubos.webp',
+      image: './assets/Paginas/SOLUCOES/12-consultoria-assessoria/S2 CARD/endcontrol-consultoria-tecnica-demonstracao-scanner-ultrassom-tubos.webp',
       ctaText: 'Falar com Especialista',
       iconSvg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h4l3-8 4 16 3-8h6"/></svg>`
     },
@@ -136,7 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'Análise de severidade combinada mossa + perda de metal',
         'Avaliação conforme API 579-1 / ASME FFS-1 Parte 12'
       ],
-      image: './assets/Paginas/SOLUCOES/08-adequacao-normativa/endcontrol-inspecao-altura-nr35-escada-tanque-industrial.webp',
+      image: './assets/Paginas/SOLUCOES/08-adequacao-normativa/S2 CARD/endcontrol-inspecao-altura-nr35-escada-tanque-industrial.webp',
       ctaText: 'Falar com Especialista',
       iconSvg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M7 10c2.5 4 7.5 4 10 0"/></svg>`
     },
@@ -155,7 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'Inspeção dimensional de empenamentos e deformação plástica',
         'Avaliação conforme API 579-1 / ASME FFS-1 Parte 11'
       ],
-      image: './assets/Paginas/SOLUCOES/09-calibracao-instrumentos/endcontrol-calibracao-manometros-pressao-em-campo-nr13.webp',
+      image: './assets/Paginas/SOLUCOES/09-calibracao-instrumentos/S2 CARD/endcontrol-calibracao-manometros-pressao-em-campo-nr13.webp',
       ctaText: 'Falar com Especialista',
       iconSvg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 3z"/></svg>`
     }

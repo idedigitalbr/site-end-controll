@@ -93,7 +93,7 @@
         const filename = imageSet[index];
         if (!image || !filename) return;
 
-        const nextSrc = imageRoot + section.dataset.whenApplyImageSet + '/QUANDO-APLICAR/' + filename;
+        const nextSrc = imageRoot + section.dataset.whenApplyImageSet + '/S4 CARDS - Quando aplicar/' + filename;
         if (image.getAttribute('src') !== nextSrc) image.src = nextSrc;
         image.loading = index === 0 ? 'eager' : 'lazy';
       });
