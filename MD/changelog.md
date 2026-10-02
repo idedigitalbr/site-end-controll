@@ -1,5 +1,21 @@
 # Changelog — ENDCONTROL Engenharia
 
+## [2026-10-02] - Migração Definitiva para GitHub Pages, Desativação de VPS e Atualização Global de URLs
+
+- **Arquivos:** Todas as 14 páginas HTML, `robots.txt`, `sitemap.xml`, `tests/site-integrity.ps1`, `tests/site-full-audit.test.js`, `tests/depoimentos-oportunidades.test.js`, `GEMINI.md`, `AGENTS.md`.
+- **Desativação Completa da VPS:**
+  - Remoção definitiva de pipelines de deploy na VPS (`deploy-vps.yml`).
+  - Proibição absoluta do link `https://endcontrol.suporteide.digital/`.
+- **Adoção do Domínio Oficial GitHub Pages:**
+  - Atualização de todas as tags canônicas, OpenGraph (`og:url`, `og:image`), Twitter Cards, schema JSON-LD e fallbacks locais em todas as páginas para: `https://idedigitalbr.github.io/site-end-controll/`.
+  - Atualização do `robots.txt` e `sitemap.xml` para apontar exclusivamente para o GitHub Pages.
+- **Criação de Memória Permanente:**
+  - Arquivos `GEMINI.md` e `AGENTS.md` criados na raiz garantindo que a IA nunca esqueça que o projeto usa GitHub Pages e não usa VPS.
+  - Atualização da skill global `commit-vps-github-obsidian-notion` com exceção mandatória para o projeto EndControl.
+- **Validação Automatizada:**
+  - 211 de 211 testes automatizados aprovados (100% de sucesso).
+  - Script `site-integrity.ps1` validado com o novo domínio oficial GitHub Pages.
+
 ## [2026-10-02] - Limpeza e Organização Estrutural da Raiz e Quarentena Categorizada em lixos-nao-utilizados/
 
 - **Arquivos:** Raiz do projeto, `.dockerignore`, `tests/service-1-structure.test.js`, `lixos-nao-utilizados/`.

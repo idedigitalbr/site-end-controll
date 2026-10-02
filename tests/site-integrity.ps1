@@ -1,4 +1,4 @@
-$ErrorActionPreference = 'Stop'
+﻿$ErrorActionPreference = 'Stop'
 
 $root = Split-Path -Parent $PSScriptRoot
 $failures = New-Object System.Collections.Generic.List[string]
@@ -14,7 +14,7 @@ function Assert-Condition {
   }
 }
 
-$officialDomain = 'https://endcontrol.suporteide.digital'
+$officialDomain = 'https://idedigitalbr.github.io/site-end-controll'
 $index = Get-Content -Raw (Join-Path $root 'index.html')
 $identity = Get-Content -Raw (Join-Path $root 'identidade-visual.html')
 $solucoes = Get-Content -Raw (Join-Path $root 'src\js\solucoes.js')

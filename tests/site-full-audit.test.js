@@ -39,7 +39,7 @@ test('all 14 main pages have complete SEO tags: Title, Description, Canonical an
     const content = fs.readFileSync(path.join(rootDir, page), 'utf8');
     assert.match(content, /<title>.+<\/title>/i, `Page ${page} should have a non-empty title`);
     assert.match(content, /<meta\s+name=["']description["']\s+content=["'].+["']/i, `Page ${page} should have a meta description`);
-    assert.match(content, /<link\s+rel=["']canonical["']\s+href=["']https:\/\/endcontrol\.suporteide\.digital\/.+["']/i, `Page ${page} should have a canonical URL`);
+    assert.match(content, /<link\s+rel=["']canonical["']\s+href=["']https:\/\/idedigitalbr\.github\.io\/site-end-controll\/.+["']/i, `Page ${page} should have a canonical URL`);
     assert.match(content, /<meta\s+property=["']og:title["']\s+content=["'].+["']/i, `Page ${page} should have og:title`);
     assert.match(content, /<meta\s+property=["']og:image["']\s+content=["'].+["']/i, `Page ${page} should have og:image`);
   }

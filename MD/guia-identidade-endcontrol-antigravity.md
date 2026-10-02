@@ -1,5 +1,11 @@
 # Guia de Identidade Visual — Site EndControl Engenharia
 
+> [!CRITICAL]
+> ### 🚨 DOMÍNIO OFICIAL & DEPLOY EXCLUSIVO GITHUB PAGES (ZERO VPS)
+> 1. **LINK OFICIAL:** O link oficial do projeto é **`https://idedigitalbr.github.io/site-end-controll/`** (GitHub Pages).
+> 2. **DOMÍNIO PROIBIDO:** O domínio `https://endcontrol.suporteide.digital/` está **DESATIVADO E TOTALMENTE PROIBIDO**.
+> 3. **ZERO VPS:** O projeto NÃO utiliza VPS nem Docker/SSH. O deploy é 100% automático via GitHub Pages a cada commit/push na branch `main`.
+
 > [!CAUTION]
 > ### 🛑 REGRA DE OURO MANDATÓRIA — ZERO NEON, ZERO BLUR E ZERO GLOW
 > 1. **NUNCA UTILIZAR CORES NEON NO PROJETO:** Proibido usar a cor azul claro neon `#00C2FF` em fundos, bordas, ícones, textos ou gradientes.

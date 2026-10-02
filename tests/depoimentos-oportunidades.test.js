@@ -33,9 +33,9 @@ test('arquivos de infraestrutura robots.txt e sitemap.xml existem e contêm URLs
   const robots = fs.readFileSync(path.join(root, 'robots.txt'), 'utf8');
   const sitemap = fs.readFileSync(path.join(root, 'sitemap.xml'), 'utf8');
 
-  assert.match(robots, /Sitemap:\s*https:\/\/endcontrol\.suporteide\.digital\/sitemap\.xml/i);
-  assert.match(sitemap, /<loc>https:\/\/endcontrol\.suporteide\.digital\/index\.html<\/loc>/i);
-  assert.match(sitemap, /<loc>https:\/\/endcontrol\.suporteide\.digital\/politica-de-privacidade\.html<\/loc>/i);
+  assert.match(robots, /Sitemap:\s*https:\/\/idedigitalbr\.github\.io\/site-end-controll\/sitemap\.xml/i);
+  assert.match(sitemap, /<loc>https:\/\/idedigitalbr\.github\.io\/site-end-controll\/index\.html<\/loc>/i);
+  assert.match(sitemap, /<loc>https:\/\/idedigitalbr\.github\.io\/site-end-controll\/politica-de-privacidade\.html<\/loc>/i);
 });
 
 test('página politica-de-privacidade.html existe com DOCTYPE, meta tags e rodapé oficial', () => {

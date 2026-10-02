@@ -1,5 +1,12 @@
 # Histórico de sincronização — DB_IDE
 
+## 2026-10-02 - Migração Definitiva para GitHub Pages, Desativação de VPS e Atualização Global de URLs
+
+- Projeto: site-end-controll
+- Tarefa: Migração definitiva de todas as URLs do projeto para o GitHub Pages (https://idedigitalbr.github.io/site-end-controll/), desativação total de VPS/Docker, remoção de workflow de VPS, criação de memória permanente em GEMINI.md e AGENTS.md, e sincronização de 100% das páginas, sitemaps, robots e testes automatizados.
+- Status local: Concluída.
+- Observação: Memória persistente no Obsidian (`MD/`) e Notion sincronizados.
+
 ## 2026-10-02 - Limpeza e Organização Estrutural da Raiz e Quarentena Categorizada em lixos-nao-utilizados/
 
 - Projeto: site-end-controll
