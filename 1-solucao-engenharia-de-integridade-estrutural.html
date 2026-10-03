@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8" />
@@ -37,6 +37,7 @@
   <link rel="stylesheet" href="./src/css/segmentos.css?v=96.0" />
   <link rel="stylesheet" href="./src/css/sobre-nos.css?v=171.0" />
   <link rel="stylesheet" href="./src/css/servico-integridade.css?v=176.0" />
+  <link rel="stylesheet" href="./src/css/solution-gallery.css?v=1.0" />
   <link rel="stylesheet" href="./src/css/work-units-footer.css?v=132.0" />
   <link rel="stylesheet" href="./src/css/responsive.css?v=38.0" />
 
@@ -264,23 +265,115 @@
             </div>
           </div>
 
-          <!-- Coluna Direita: Foto Única Grande com Moldura HUD e Glow da Home -->
-          <div class="about-photo-col">
+          <!-- Coluna Direita: Galeria Editorial Dinâmica com Múltiplas Composições (Carrossel) -->
+          <div class="about-photo-col ec-gallery-col">
             <div class="about-media-bloom"></div>
-            <div class="about-media-wrapper">
-              <div class="about-media-glow"></div>
-              <div class="about-hud-frame"></div>
-              <span class="about-hud-corner corner-tl"></span>
-              <span class="about-hud-corner corner-tr"></span>
-              <span class="about-hud-corner corner-bl"></span>
-              <span class="about-hud-corner corner-br"></span>
-              <div class="about-media-scan-line"></div>
-              
-              <div class="svc-single-photo-wrapper">
-                <img src="./assets/Paginas/SOLUCOES/01-integridade-estrutural/S1 TOPO/integridade-estrutural-planta-industrial-tanques-tubulacoes.webp" alt="Engenharia de Integridade Estrutural em complexo industrial com tanques, colunas e tubulações da EndControl" loading="eager" />
-                <div class="svc-photo-overlay-glow"></div>
+            
+            <div class="ec-gallery-container" id="solutionGallery" data-autoplay="5500" aria-label="Galeria visual de serviços EndControl">
+              <div class="ec-gallery-hud-wrapper">
+                <div class="about-media-glow"></div>
+                <div class="ec-gallery-frame-border"></div>
+                <span class="about-hud-corner corner-tl"></span>
+                <span class="about-hud-corner corner-tr"></span>
+                <span class="about-hud-corner corner-bl"></span>
+                <span class="about-hud-corner corner-br"></span>
+                <div class="ec-gallery-scan-line"></div>
+
+                <!-- Track de Slides com Múltiplas Composições Editoriais -->
+                <div class="ec-gallery-track">
+                  
+                  <!-- SLIDE 1: Layout Single (1 Foto Grande em Destaque) -->
+                  <div class="ec-gallery-slide gallery-layout-single is-active" data-layout="single" data-slide-index="0" aria-label="Composição 1: Complexo industrial com tanques e tubulações">
+                    <div class="ec-single-photo-box">
+                      <img src="./assets/Paginas/SOLUCOES/01-integridade-estrutural/S1 TOPO/integridade-estrutural-planta-industrial-tanques-tubulacoes.webp" 
+                           alt="Engenharia de Integridade Estrutural em complexo industrial com tanques, colunas e tubulações da EndControl" 
+                           loading="eager" />
+                      <div class="svc-photo-overlay-glow"></div>
+                    </div>
+                  </div>
+
+                  <!-- SLIDE 2: Layout Double (2 Fotos Sobrepostas / Deslocadas com Molduras HUD) -->
+                  <div class="ec-gallery-slide gallery-layout-double" data-layout="double" data-slide-index="1" aria-label="Composição 2: Engenharia de campo e ensaios técnicos estruturais">
+                    <div class="ec-double-container">
+                      <!-- Foto Superior Esquerda -->
+                      <div class="ec-double-box ec-double-box--top-left">
+                        <div class="ec-photo-hud-card">
+                          <span class="svc-hud-bracket corner-tl"></span>
+                          <span class="svc-hud-bracket corner-tr"></span>
+                          <span class="svc-hud-bracket corner-bl"></span>
+                          <span class="svc-hud-bracket corner-br"></span>
+                          <div class="ec-photo-inner">
+                            <img src="./assets/Paginas/SOLUCOES/01-integridade-estrutural/S1 TOPO/equipe-engenharia-integridade-estrutural-planta-industrial.webp" 
+                                 alt="Equipe de engenharia de integridade estrutural em campo" 
+                                 loading="lazy" />
+                          </div>
+                        </div>
+                      </div>
+                      <!-- Foto Inferior Direita -->
+                      <div class="ec-double-box ec-double-box--bottom-right">
+                        <div class="ec-photo-hud-card">
+                          <span class="svc-hud-bracket corner-tl"></span>
+                          <span class="svc-hud-bracket corner-tr"></span>
+                          <span class="svc-hud-bracket corner-bl"></span>
+                          <span class="svc-hud-bracket corner-br"></span>
+                          <div class="ec-photo-inner">
+                            <img src="./assets/Paginas/SOLUCOES/01-integridade-estrutural/S1 TOPO/ensaio-ultrassom-solda-coluna-estrutura-metalica.webp" 
+                                 alt="Ensaio ultrassom em junta e coluna de estrutura metálica" 
+                                 loading="lazy" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- SLIDE 3: Layout Triple (3 Fotos em Composição Editorial Assimétrica) -->
+                  <div class="ec-gallery-slide gallery-layout-triple" data-layout="triple" data-slide-index="2" aria-label="Composição 3: Diagnóstico de corrosão, ultrassom e integridade naval">
+                    <div class="ec-triple-container">
+                      <!-- Foto Principal Esquerda (Vertical Alta) -->
+                      <div class="ec-triple-main-col">
+                        <img src="./assets/Paginas/SOLUCOES/01-integridade-estrutural/S1 TOPO/inspecao-corrosao-viga-metalica-eng-integridade.webp" 
+                             alt="Inspeção de corrosão e integridade de vigas estruturais" 
+                             loading="lazy" />
+                      </div>
+                      <!-- Coluna Direita (2 Fotos Empilhadas) -->
+                      <div class="ec-triple-stacked-col">
+                        <div class="ec-triple-stacked-item">
+                          <img src="./assets/Paginas/SOLUCOES/01-integridade-estrutural/S1 TOPO/analise-ultrassom-a-scan-perfil-espessura-viga-metalica.webp" 
+                               alt="Medição ultrassom A-scan de perfil e espessura de viga metálica" 
+                               loading="lazy" />
+                        </div>
+                        <div class="ec-triple-stacked-item">
+                          <img src="./assets/Paginas/SOLUCOES/01-integridade-estrutural/S1 TOPO/integridade-estrutural-naval-embarcacao-dique-flutuante-estaleiro.webp" 
+                               alt="Integridade estrutural em ativos navais e dique flutuante" 
+                               loading="lazy" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div> <!-- /.ec-gallery-track -->
+
+              </div> <!-- /.ec-gallery-hud-wrapper -->
+
+              <!-- Controles: Setas Posicionadas Fora da Imagem -->
+              <button class="ec-gallery-arrow ec-gallery-prev" aria-label="Composição anterior" type="button">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+              </button>
+              <button class="ec-gallery-arrow ec-gallery-next" aria-label="Próxima composição" type="button">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </button>
+
+              <!-- Indicadores / Dots Posicionados Fora da Imagem (Abaixo do Card) -->
+              <div class="ec-gallery-dots-bar">
+                <div class="ec-gallery-dots" role="tablist" aria-label="Indicadores de fotos"></div>
               </div>
-            </div>
+
+            </div> <!-- /.ec-gallery-container -->
+
           </div>
 
         </div>
@@ -1036,6 +1129,7 @@
   <script src="./src/js/sobre-nos.js?v=68.0" defer></script>
   <script src="https://unpkg.com/lucide@0.321.0" defer></script>
       <script src="./src/js/service-pages.js?v=1.7" defer></script>
+      <script src="./src/js/solution-gallery.js?v=1.0" defer></script>
 
   <!-- Script Controlador do Accordion de "Quando Aplicar" (Idêntico ao da Home) -->
   <script>

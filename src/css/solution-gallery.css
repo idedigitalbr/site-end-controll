@@ -1,0 +1,593 @@
+/* ==========================================================================
+   ENDCONTROL ENGENHARIA — CARROSSEL DE GALERIA EDITORIAL DAS SOLUÇÕES
+   Design System Oficial: Limpo, Técnico, Corporativo e Responsivo
+   Controles posicionados 100% PARA FORA da imagem
+   ========================================================================== */
+
+/* Coluna Direita Container */
+.about-photo-col.ec-gallery-col,
+.sn-page-wrapper .svc-solution-main-grid > .about-photo-col,
+.sn-page-wrapper .svc-solution-main-grid > .ec-gallery-col,
+.sn-page-wrapper .svc-solution-section > .sn-history-container > .about-photo-col,
+.sn-page-wrapper .svc-solution-section > .sn-history-container > .ec-gallery-col {
+  grid-area: media;
+  position: relative;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+/* Container Principal do Carrossel */
+.ec-gallery-container {
+  position: relative;
+  width: 100%;
+  max-width: 610px;
+  margin: 0 auto;
+  padding: 0 28px;
+  box-sizing: border-box;
+  user-select: none;
+}
+
+/* Moldura Externa HUD & Glow Padrão EndControl */
+.ec-gallery-hud-wrapper {
+  position: relative;
+  width: 100%;
+  height: 420px;
+  padding: 12px;
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 16px 40px rgba(0, 20, 60, 0.08), 0 2px 10px rgba(0, 102, 255, 0.04);
+  box-sizing: border-box;
+}
+
+.ec-gallery-frame-border {
+  position: absolute;
+  inset: 0;
+  border: 1.5px solid rgba(105, 156, 168, 0.32);
+  border-radius: 28px;
+  pointer-events: none;
+  z-index: 6;
+}
+
+/* Cantoneiras HUD Externas (Navy Técnico #0b1a30) */
+.ec-gallery-hud-wrapper .about-hud-corner {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-color: #0b1a30;
+  border-style: solid;
+  pointer-events: none;
+  z-index: 7;
+}
+
+.ec-gallery-hud-wrapper .corner-tl {
+  top: -2px;
+  left: -2px;
+  border-width: 2.5px 0 0 2.5px;
+  border-top-left-radius: 6px;
+}
+
+.ec-gallery-hud-wrapper .corner-tr {
+  top: -2px;
+  right: -2px;
+  border-width: 2.5px 2.5px 0 0;
+  border-top-right-radius: 6px;
+}
+
+.ec-gallery-hud-wrapper .corner-bl {
+  bottom: -2px;
+  left: -2px;
+  border-width: 0 0 2.5px 2.5px;
+  border-bottom-left-radius: 6px;
+}
+
+.ec-gallery-hud-wrapper .corner-br {
+  bottom: -2px;
+  right: -2px;
+  border-width: 0 2.5px 2.5px 0;
+  border-bottom-right-radius: 6px;
+}
+
+/* Scan-line sutil no topo */
+.ec-gallery-scan-line {
+  position: absolute;
+  top: 0;
+  left: 24px;
+  right: 24px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(0, 213, 255, 0.8), transparent);
+  pointer-events: none;
+  z-index: 8;
+}
+
+/* Track de Slides */
+.ec-gallery-track {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #f7faff;
+}
+
+/* Slide Base: Transição suave de Fade + deslocamento horizontal */
+.ec-gallery-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  padding: 4px;
+  box-sizing: border-box;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(18px);
+  transition: opacity 0.55s cubic-bezier(0.25, 1, 0.5, 1),
+              transform 0.55s cubic-bezier(0.25, 1, 0.5, 1),
+              visibility 0.55s cubic-bezier(0.25, 1, 0.5, 1);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.ec-gallery-slide.is-active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+  pointer-events: auto;
+  z-index: 2;
+}
+
+.ec-gallery-slide.is-prev-leave {
+  transform: translateX(-18px);
+}
+
+/* --------------------------------------------------------------------------
+   LAYOUT 1: gallery-layout-single (1 Foto Grande de Destaque)
+   -------------------------------------------------------------------------- */
+.gallery-layout-single .ec-single-photo-box {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #0b1a30;
+  box-shadow: 0 14px 32px rgba(0, 20, 60, 0.12);
+}
+
+.gallery-layout-single .ec-single-photo-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gallery-layout-single:hover .ec-single-photo-box img {
+  transform: scale(1.025);
+}
+
+/* --------------------------------------------------------------------------
+   LAYOUT 2: gallery-layout-double (2 Fotos Sobrepostas / Deslocadas)
+   -------------------------------------------------------------------------- */
+.gallery-layout-double .ec-double-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 50% 50%, rgba(220, 238, 252, 0.4) 0%, rgba(240, 247, 255, 0.8) 100%);
+  border-radius: 18px;
+}
+
+.ec-double-box {
+  position: absolute;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ec-double-box--top-left {
+  top: 8px;
+  left: 8px;
+  width: 60%;
+  height: 220px;
+  z-index: 3;
+}
+
+.ec-double-box--bottom-right {
+  bottom: 8px;
+  right: 8px;
+  width: 76%;
+  height: 260px;
+  z-index: 2;
+}
+
+.ec-gallery-slide.is-active:hover .ec-double-box--top-left {
+  transform: translate(-3px, -3px) scale(1.015);
+}
+
+.ec-gallery-slide.is-active:hover .ec-double-box--bottom-right {
+  transform: translate(3px, 3px) scale(1.01);
+}
+
+/* Moldura Interna com Cantoneiras HUD para as fotos sobrepostas */
+.ec-photo-hud-card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 6px;
+  box-sizing: border-box;
+  background: #ffffff;
+  border: 1px solid rgba(0, 102, 255, 0.16);
+  border-radius: 20px;
+  box-shadow: 0 16px 36px rgba(0, 30, 80, 0.16);
+}
+
+.ec-photo-hud-card .svc-hud-bracket {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-color: #0b1a30;
+  border-style: solid;
+  pointer-events: none;
+  z-index: 4;
+}
+
+.ec-photo-hud-card .svc-hud-bracket.corner-tl {
+  top: -2px;
+  left: -2px;
+  border-width: 2px 0 0 2px;
+  border-top-left-radius: 5px;
+}
+
+.ec-photo-hud-card .svc-hud-bracket.corner-tr {
+  top: -2px;
+  right: -2px;
+  border-width: 2px 2px 0 0;
+  border-top-right-radius: 5px;
+}
+
+.ec-photo-hud-card .svc-hud-bracket.corner-bl {
+  bottom: -2px;
+  left: -2px;
+  border-width: 0 0 2px 2px;
+  border-bottom-left-radius: 5px;
+}
+
+.ec-photo-hud-card .svc-hud-bracket.corner-br {
+  bottom: -2px;
+  right: -2px;
+  border-width: 0 2px 2px 0;
+  border-bottom-right-radius: 5px;
+}
+
+.ec-photo-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  overflow: hidden;
+  background: #0b1a30;
+}
+
+.ec-photo-inner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ec-photo-hud-card:hover .ec-photo-inner img {
+  transform: scale(1.03);
+}
+
+/* --------------------------------------------------------------------------
+   LAYOUT 3: gallery-layout-triple (3 Fotos em Composição Editorial Assimétrica)
+   -------------------------------------------------------------------------- */
+.gallery-layout-triple .ec-triple-container {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 10px;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.ec-triple-main-col {
+  position: relative;
+  height: 100%;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #0b1a30;
+  border: 1.5px solid rgba(0, 102, 255, 0.18);
+  box-shadow: 0 12px 30px rgba(0, 20, 60, 0.12);
+}
+
+.ec-triple-main-col img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ec-triple-main-col:hover img {
+  transform: scale(1.03);
+}
+
+.ec-triple-stacked-col {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 100%;
+}
+
+.ec-triple-stacked-item {
+  position: relative;
+  flex: 1;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #0b1a30;
+  border: 1.5px solid rgba(0, 102, 255, 0.18);
+  box-shadow: 0 10px 24px rgba(0, 20, 60, 0.1);
+}
+
+.ec-triple-stacked-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ec-triple-stacked-item:hover img {
+  transform: scale(1.03);
+}
+
+/* --------------------------------------------------------------------------
+   CONTROLES DO CARROSSEL: 100% PARA FORA DA IMAGEM
+   -------------------------------------------------------------------------- */
+/* Setas Laterais Externas Flutuantes */
+.ec-gallery-arrow {
+  position: absolute;
+  top: 210px;
+  transform: translateY(-50%);
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1.5px solid rgba(0, 102, 255, 0.22);
+  color: #0c1a30;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 15;
+  box-shadow: 0 6px 18px rgba(0, 20, 60, 0.12), 0 2px 6px rgba(0, 102, 255, 0.08);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ec-gallery-arrow:hover {
+  background: var(--brand-primary, #0066ff);
+  color: #ffffff;
+  border-color: var(--brand-primary, #0066ff);
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 8px 24px rgba(0, 102, 255, 0.35);
+}
+
+.ec-gallery-arrow:focus-visible {
+  outline: 2px solid var(--brand-primary, #0066ff);
+  outline-offset: 2px;
+}
+
+/* Seta Esquerda: posicionada fora do card da foto */
+.ec-gallery-prev {
+  left: 4px;
+}
+
+/* Seta Direita: posicionada fora do card da foto */
+.ec-gallery-next {
+  right: 4px;
+}
+
+/* Barra de Dots Abaixo da Imagem (Externa) */
+.ec-gallery-dots-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 14px;
+}
+
+.ec-gallery-dots {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background: rgba(11, 26, 48, 0.06);
+  border-radius: 999px;
+  border: 1px solid rgba(0, 102, 255, 0.14);
+  box-shadow: 0 2px 8px rgba(0, 20, 60, 0.04);
+  pointer-events: auto;
+}
+
+/* Botão do Dot Individual */
+.ec-gallery-dot {
+  appearance: none;
+  -webkit-appearance: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #a8c0d8;
+  cursor: pointer;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ec-gallery-dot:hover {
+  background: var(--brand-primary, #0066ff);
+  transform: scale(1.25);
+}
+
+.ec-gallery-dot.is-active {
+  width: 24px;
+  border-radius: 999px;
+  background: var(--brand-primary, #0066ff);
+  box-shadow: 0 2px 8px rgba(0, 102, 255, 0.35);
+}
+
+.ec-gallery-dot:focus-visible {
+  outline: 1.5px solid var(--brand-primary, #0066ff);
+  outline-offset: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   RESPONSIVIDADE (Desktop Médio, Tablet e Mobile)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1100px) {
+  .ec-gallery-container {
+    max-width: 540px;
+    padding: 0 24px;
+  }
+
+  .ec-gallery-hud-wrapper {
+    height: 380px;
+  }
+
+  .ec-gallery-arrow {
+    top: 190px;
+  }
+
+  .ec-double-box--top-left {
+    height: 200px;
+  }
+
+  .ec-double-box--bottom-right {
+    height: 240px;
+  }
+}
+
+@media (max-width: 860px) {
+  .ec-gallery-container {
+    max-width: 100%;
+    padding: 0 22px;
+  }
+  
+  .ec-gallery-hud-wrapper {
+    height: 360px;
+  }
+
+  .ec-gallery-arrow {
+    top: 180px;
+    width: 36px;
+    height: 36px;
+  }
+
+  .ec-gallery-prev {
+    left: 2px;
+  }
+
+  .ec-gallery-next {
+    right: 2px;
+  }
+}
+
+@media (max-width: 600px) {
+  .ec-gallery-container {
+    padding: 0 18px;
+  }
+
+  .ec-gallery-hud-wrapper {
+    height: 310px;
+    padding: 8px;
+    border-radius: 22px;
+  }
+
+  .ec-gallery-frame-border {
+    border-radius: 22px;
+  }
+
+  .ec-gallery-track {
+    border-radius: 16px;
+  }
+
+  .ec-gallery-slide {
+    padding: 2px;
+  }
+
+  /* Ajuste no layout duplo no mobile */
+  .ec-double-box--top-left {
+    top: 4px;
+    left: 4px;
+    width: 62%;
+    height: 170px;
+  }
+
+  .ec-double-box--bottom-right {
+    bottom: 4px;
+    right: 4px;
+    width: 74%;
+    height: 195px;
+  }
+
+  .ec-photo-hud-card {
+    border-radius: 16px;
+    padding: 4px;
+  }
+
+  .ec-photo-inner {
+    border-radius: 12px;
+  }
+
+  /* Ajuste no layout triplo no mobile */
+  .gallery-layout-triple .ec-triple-container {
+    gap: 6px;
+    grid-template-columns: 1.1fr 1fr;
+  }
+
+  .ec-triple-main-col {
+    border-radius: 14px;
+  }
+
+  .ec-triple-stacked-col {
+    gap: 6px;
+  }
+
+  .ec-triple-stacked-item {
+    border-radius: 12px;
+  }
+
+  .ec-gallery-arrow {
+    top: 155px;
+    width: 32px;
+    height: 32px;
+  }
+
+  .ec-gallery-prev {
+    left: 0;
+  }
+
+  .ec-gallery-next {
+    right: 0;
+  }
+
+  .ec-gallery-dots-bar {
+    margin-top: 10px;
+  }
+
+  .ec-gallery-dots {
+    padding: 4px 10px;
+    gap: 6px;
+  }
+
+  .ec-gallery-dot {
+    width: 6px;
+    height: 6px;
+  }
+
+  .ec-gallery-dot.is-active {
+    width: 18px;
+  }
+}
