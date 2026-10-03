@@ -17,17 +17,35 @@
   box-sizing: border-box;
 }
 
-/* Proporção com Destaque Máximo para a Foto: 35% Texto / 65% Galeria */
+/* ==========================================================================
+   OPÇÃO 3: FULL-BLEED À DIREITA (SANGRAMENTO LATERAL)
+   O texto da esquerda permanece 100% alinhado na guia padrão do site (1240px)
+   A coluna da galeria sangra suavemente até o canto direito da tela com safe margin
+   ========================================================================== */
 @media (min-width: 901px) {
+  .sn-page-wrapper .svc-solution-section:has(.ec-gallery-col) {
+    overflow-x: clip;
+  }
+
+  .sn-page-wrapper .svc-solution-section:has(.ec-gallery-col) .svc-solution-container,
+  .sn-page-wrapper .svc-solution-section:has(.ec-gallery-col) > .sn-history-container {
+    max-width: 100% !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding-left: max(32px, calc((100vw - 1240px) / 2 + 24px)) !important;
+    padding-right: clamp(16px, 2.5vw, 44px) !important;
+    box-sizing: border-box !important;
+  }
+
   .sn-page-wrapper .svc-solution-main-grid {
-    grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr) !important;
-    column-gap: clamp(40px, 4.5vw, 72px) !important;
+    grid-template-columns: minmax(360px, 460px) minmax(0, 1fr) !important;
+    column-gap: clamp(40px, 4vw, 68px) !important;
     align-items: center;
   }
 
   .sn-page-wrapper .svc-solution-section > .sn-history-container {
-    grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr) !important;
-    column-gap: clamp(40px, 4.5vw, 72px) !important;
+    grid-template-columns: minmax(360px, 460px) minmax(0, 1fr) !important;
+    column-gap: clamp(40px, 4vw, 68px) !important;
     align-items: center;
   }
 }
@@ -36,8 +54,8 @@
 .ec-gallery-container {
   position: relative;
   width: 100%;
-  max-width: 780px;
-  margin: 0 auto;
+  max-width: 100%;
+  margin: 0;
   padding: 0 28px;
   box-sizing: border-box;
   user-select: none;
@@ -47,7 +65,7 @@
 .ec-gallery-hud-wrapper {
   position: relative;
   width: 100%;
-  height: 450px;
+  height: 480px;
   padding: 12px;
   border-radius: 28px;
   background: rgba(255, 255, 255, 0.7);
@@ -201,7 +219,7 @@
   top: 8px;
   left: 8px;
   width: 60%;
-  height: 250px;
+  height: 270px;
   z-index: 3;
 }
 
@@ -209,7 +227,7 @@
   bottom: 8px;
   right: 8px;
   width: 76%;
-  height: 290px;
+  height: 310px;
   z-index: 2;
 }
 
@@ -365,7 +383,7 @@
 /* Setas Laterais Externas Flutuantes */
 .ec-gallery-arrow {
   position: absolute;
-  top: 225px;
+  top: 240px;
   transform: translateY(-50%);
   width: 38px;
   height: 38px;
