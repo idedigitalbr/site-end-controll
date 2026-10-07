@@ -94,6 +94,48 @@
   right: 28px;
 }
 
+/* Dots Dinâmicos de Navegação do Hero Slider */
+.hero-slider-dots {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 10;
+  padding: 6px 14px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(var(--brand-primary-rgb), 0.18);
+  border-radius: 20px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+.hero-slider-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(var(--brand-primary-rgb), 0.28);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-slider-dot:hover {
+  background: var(--brand-primary);
+  transform: scale(1.25);
+}
+
+.hero-slider-dot.active {
+  width: 24px;
+  border-radius: 12px;
+  background: var(--brand-primary);
+  box-shadow: 0 0 8px rgba(var(--brand-primary-rgb), 0.4);
+}
+
 @media (max-width: 768px) {
   .hero-bg-photo {
     object-position: 50% top;
@@ -104,6 +146,19 @@
   }
   .hero-arrow-next {
     right: 12px;
+  }
+
+  .hero-slider-dots {
+    bottom: 16px;
+    gap: 6px;
+    padding: 4px 10px;
+  }
+  .hero-slider-dot {
+    width: 6px;
+    height: 6px;
+  }
+  .hero-slider-dot.active {
+    width: 18px;
   }
 }
 

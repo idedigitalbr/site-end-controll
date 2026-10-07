@@ -1499,9 +1499,37 @@
     var nextBtn = document.getElementById('heroArrowNext');
 
     var currentIndex = 0;
+    photos.forEach(function (p, idx) {
+      if (p.classList.contains('active')) {
+        currentIndex = idx;
+      }
+    });
+
     var slideInterval = null;
     var transitionTimeout = null;
     var INTERVAL_TIME = 5000; // 5 segundos por fotografia
+
+    // Geração dinâmica de dots de navegação do Hero
+    var dotsContainer = document.getElementById('heroSliderDots');
+    var dots = [];
+    if (dotsContainer) {
+      dotsContainer.innerHTML = '';
+      photos.forEach(function (_, i) {
+        var dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = 'hero-slider-dot' + (i === currentIndex ? ' active' : '');
+        dot.setAttribute('aria-label', 'Ir para fotografia ' + (i + 1) + ' de ' + photos.length);
+        dot.setAttribute('role', 'tab');
+        dot.setAttribute('aria-selected', i === currentIndex ? 'true' : 'false');
+        dot.addEventListener('click', function (e) {
+          e.stopPropagation();
+          goToSlide(i);
+          resetTimer();
+        });
+        dotsContainer.appendChild(dot);
+        dots.push(dot);
+      });
+    }
 
     // Pre-carregar imagens para transição fluida
     photos.forEach(function (img) {
@@ -1532,6 +1560,19 @@
 
       // Nova foto entra por cima com fade suave
       nextPhoto.classList.add('active');
+
+      // Sincronizar dots de navegação
+      if (dots && dots.length) {
+        dots.forEach(function (d, i) {
+          if (i === currentIndex) {
+            d.classList.add('active');
+            d.setAttribute('aria-selected', 'true');
+          } else {
+            d.classList.remove('active');
+            d.setAttribute('aria-selected', 'false');
+          }
+        });
+      }
 
       // Remove prev-active após a transição de 1.6s
       transitionTimeout = setTimeout(function () {

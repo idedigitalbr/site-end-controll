@@ -64,7 +64,7 @@
   <link rel="stylesheet" href="./src/css/tokens.css?v=120.0" />
   <link rel="stylesheet" href="./src/css/base.css?v=120.0" />
   <link rel="stylesheet" href="./src/css/header.css?v=122.0" />
-  <link rel="stylesheet" href="./src/css/hero.css?v=120.0" />
+  <link rel="stylesheet" href="./src/css/hero.css?v=121.0" />
   <link rel="stylesheet" href="./src/css/clients-carousel.css?v=120.0" />
   <link rel="stylesheet" href="./src/css/solucoes.css?v=120.0" />
   <link rel="stylesheet" href="./src/css/sections.css?v=121.0" />
@@ -468,14 +468,17 @@
       
       <!-- Carrossel de Fundo Dinâmico do Hero com Fotos Originais 16:9 Widescreen -->
       <div class="hero-bg-slider" id="heroBgSlider">
-        <img src="./assets/Paginas/SOLUCOES/08-adequacao-normativa/S2 CARD/endcontrol-inspecao-altura-nr35-escada-tanque-industrial.webp" 
-             alt="Inspeção técnica em altura e conformidade normativa NR-35 em tanques industriais" 
-             class="hero-bg-photo active" loading="eager" />
         <img src="./assets/Paginas/HOME/S1-TOPO-HERO/hero-consultoria-tecnica-engenheiros-inspecao.webp" 
              alt="Consultoria e assessoria técnica com equipe de engenheiros especialistas em campo" 
-             class="hero-bg-photo" loading="lazy" />
+             class="hero-bg-photo active" loading="eager" />
         <img src="./assets/Paginas/SOLUCOES/03-ensaios-nao-destrutivos/S1 TOPO/ensaios-nao-destrutivos-ultrassom-phased-array-tubulacoes.webp" 
              alt="Inspeção por ultrassom Phased Array em soldas e tubulações industriais" 
+             class="hero-bg-photo" loading="lazy" />
+        <img src="./assets/Paginas/HOME/S1-TOPO-HERO/hero-engenharia-soldagem-oficina-qualificacao.webp" 
+             alt="Centro de treinamento e qualificação de procedimentos de soldagem" 
+             class="hero-bg-photo" loading="lazy" />
+        <img src="./assets/Paginas/SOLUCOES/08-adequacao-normativa/S2 CARD/endcontrol-inspecao-altura-nr35-escada-tanque-industrial.webp" 
+             alt="Inspeção técnica em altura e conformidade normativa NR-35 em tanques industriais" 
              class="hero-bg-photo" loading="lazy" />
         <img src="./assets/Paginas/SOLUCOES/03-ensaios-nao-destrutivos/S2 CARD/endcontrol-ensaios-nao-destrutivos-ultrassom-medicao-espessura-naval.webp" 
              alt="Ensaios não destrutivos e medição de espessura por ultrassom em estruturas pesadas e navais" 
@@ -497,9 +500,6 @@
              class="hero-bg-photo" loading="lazy" />
         <img src="./assets/Paginas/SOLUCOES/01-integridade-estrutural/S2 CARD/endcontrol-integridade-estrutural-aquisicao-dados-planta-industrial.webp" 
              alt="Engenharia de integridade estrutural e aquisição de dados em planta industrial" 
-             class="hero-bg-photo" loading="lazy" />
-        <img src="./assets/Paginas/HOME/S1-TOPO-HERO/hero-engenharia-soldagem-oficina-qualificacao.webp" 
-             alt="Centro de treinamento e qualificação de procedimentos de soldagem" 
              class="hero-bg-photo" loading="lazy" />
         <img src="./assets/Paginas/SOLUCOES/02-obras-artes-especiais/S2 CARD/obras_arte_especiais_06.webp" 
              alt="Inspeção técnica e integridade de pontes, viadutos e obras de arte especiais" 
@@ -524,6 +524,9 @@
       <button class="hero-arrow-btn hero-arrow-next" id="heroArrowNext" aria-label="Próxima fotografia" title="Próxima fotografia">
         <i class="hero-arrow-icon" data-lucide="chevron-right" aria-hidden="true"></i>
       </button>
+
+      <!-- Dots Dinâmicos de Navegação do Hero Slider (14 Fotografias) -->
+      <div class="hero-slider-dots" id="heroSliderDots" role="tablist" aria-label="Navegação de fotos do Hero"></div>
 
       <!-- Camada de Elementos Tecnológicos HUD -->
       <div class="hero-hud-layer">
@@ -1610,7 +1613,7 @@
 
 
 
-  <script src="./src/js/main.js?v=33.0" defer></script>
+  <script src="./src/js/main.js?v=34.0" defer></script>
   <script src="./src/js/radar-progress.js?v=6.1" defer></script>
       <script src="./src/js/solucoes.js?v=72.0" defer></script>
   <!-- Lucide Icons CDN -->
