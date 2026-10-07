@@ -58,7 +58,7 @@
       dot.className = 'ec-gallery-dot' + (index === currentIndex ? ' is-active' : '');
       dot.setAttribute('role', 'tab');
       dot.setAttribute('aria-selected', index === currentIndex ? 'true' : 'false');
-      dot.setAttribute('aria-label', `Ver composição visual ${index + 1} de ${slides.length}`);
+      dot.setAttribute('aria-label', `Ver foto ${index + 1} de ${slides.length}`);
       
       dot.addEventListener('click', (e) => {
         e.preventDefault();
