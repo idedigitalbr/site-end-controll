@@ -81,6 +81,7 @@
     /* 1. CARDS DA HOME (Segmentos / Áreas de Atuação - Efeito Photoshop Duotone: Base Grayscale Luminosa + Camada Oficial #67A8B8 Predominante) */
     .endo-acc-panel {
       isolation: isolate !important;
+      --endo-acc-shade-rgb: 7, 27, 44;
     }
     .endo-acc-card__img {
       position: absolute !important;
@@ -98,20 +99,30 @@
       transform: scale(1.05) !important;
       filter: grayscale(100%) contrast(1.08) brightness(1.65) !important;
     }
-    /* Camada Oficial de Cor #67A8B8 com blend mode Multiply (efeito clássico Photoshop) */
+    /* Camada azul institucional: permanece visível no card ativo e em todos
+       os cards sem hover, inclusive no mobile. */
     .endo-acc-card__overlay {
       position: absolute !important;
       inset: 0 !important;
       background-color: #67A8B8 !important;
       mix-blend-mode: multiply !important;
+      opacity: 1 !important;
       z-index: 2 !important;
       pointer-events: none !important;
-      transition: background-color 0.4s ease !important;
+      transition: opacity 0.45s ease !important;
     }
-    .endo-acc-panel:hover .endo-acc-card__overlay,
-    .endo-acc-panel:focus-within .endo-acc-card__overlay,
-    .endo-acc-panel.is-active .endo-acc-card__overlay {
-      background-color: #72b9cb !important;
+    /* Somente hover real do mouse revela a fotografia original.
+       Com hover, a vinheta inferior fica preta (não azul). */
+    @media (hover: hover) and (pointer: fine) {
+      .endo-acc-panel:hover {
+        --endo-acc-shade-rgb: 0, 0, 0;
+      }
+      .endo-acc-panel:hover .endo-acc-card__img {
+        filter: none !important;
+      }
+      .endo-acc-panel:hover .endo-acc-card__overlay {
+        opacity: 0 !important;
+      }
     }
     .endo-acc-card__overlay::before {
       display: none !important;
@@ -126,9 +137,9 @@
         to bottom,
         transparent 0%,
         transparent 62%,
-        rgba(7, 27, 44, 0.35) 75%,
-        rgba(7, 27, 44, 0.80) 86%,
-        rgba(7, 27, 44, 0.98) 100%
+        rgba(var(--endo-acc-shade-rgb), 0.35) 75%,
+        rgba(var(--endo-acc-shade-rgb), 0.80) 86%,
+        rgba(var(--endo-acc-shade-rgb), 0.98) 100%
       ) !important;
       z-index: 3 !important;
       pointer-events: none !important;
@@ -144,10 +155,10 @@
         to bottom,
         transparent 0%,
         transparent 36%,
-        rgba(7, 27, 44, 0.45) 50%,
-        rgba(7, 27, 44, 0.85) 64%,
-        rgba(7, 27, 44, 0.96) 78%,
-        rgba(7, 27, 44, 0.99) 100%
+        rgba(var(--endo-acc-shade-rgb), 0.45) 50%,
+        rgba(var(--endo-acc-shade-rgb), 0.85) 64%,
+        rgba(var(--endo-acc-shade-rgb), 0.96) 78%,
+        rgba(var(--endo-acc-shade-rgb), 0.99) 100%
       ) !important;
       z-index: 4 !important;
       pointer-events: none !important;
