@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+function bootstrapSolutions() {
   const sourceServicesData = [
     {
       id: 0,
@@ -210,6 +210,61 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   ];
 
+  const serviceRoutePaths = [
+    '/5-solucao-gerenciamento-de-projetos.html',
+    '/2-solucao-inspecao-em-obras-de-artes-especiais.html',
+    '/3-solucao-ensaios-nao-destrutivos-ends.html',
+    '/4-solucao-engenharia-de-soldagem.html',
+    '/1-solucao-engenharia-de-integridade-estrutural.html',
+    '/7-solucao-solucoes-tecnologicas-integradas.html',
+    '/8-solucao-inspecao-e-adequacao-normativa.html',
+    '/9-solucao-calibracao-de-instrumentos.html',
+    '/10-solucao-trepanacao-hot-tapping.html',
+    '/11-solucao-certificacao-materia-prima.html',
+    '/12-solucao-consultoria-e-assessoria-tecnica.html',
+    '/6-solucao-elaboracao-de-projetos-mecanicos.html'
+  ];
+  const solutionContentElement = document.getElementById('cms-public-solutions');
+  let publishedSolutionOverrides = {};
+
+  if (solutionContentElement) {
+    try {
+      publishedSolutionOverrides = JSON.parse(solutionContentElement.textContent || '{}');
+    } catch (error) {
+      console.error('[cms] Não foi possível ler os conteúdos publicados das soluções.', error);
+    }
+  }
+
+  sourceServicesData.forEach((service, index) => {
+    service.cmsRoutePath = serviceRoutePaths[index];
+  });
+
+  function escapeHtmlText(value) {
+    return String(value).replace(/[&<>"']/g, character => ({
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      '"': '&quot;',
+      "'": '&#39;'
+    })[character]);
+  }
+
+  function formatShortTitle(title, reference) {
+    const words = title.trim().split(/\s+/).filter(Boolean);
+    const referenceLineCount = (reference.match(/<br\s*\/?\s*>/gi) || []).length + 1;
+    const lineCount = Math.min(referenceLineCount, words.length);
+    let nextWord = 0;
+
+    return Array.from({ length: lineCount }, (_, lineIndex) => {
+      const linesRemaining = lineCount - lineIndex;
+      const wordsRemaining = words.length - nextWord;
+      const wordsForLine = Math.ceil(wordsRemaining / linesRemaining);
+      const line = words.slice(nextWord, nextWord + wordsForLine).map(escapeHtmlText).join(' ');
+      nextWord += wordsForLine;
+      return line;
+    }).join('<br>');
+  }
+
   const serviceCategories = [
     { tag: 'INTEGRIDADE', category: 'INTEGRIDADE E CONFIABILIDADE', icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>` },
     { tag: 'OAE', category: 'INFRAESTRUTURA & ESTRUTURAS ESPECIAIS', icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20"/><path d="M4 20v-4"/><path d="M8 20v-8"/><path d="M12 20V8"/><path d="M16 20v-8"/><path d="M20 20v-4"/><path d="M4 16l4-4 4 0 4 0 4 4"/><path d="M8 12l4-4 4 4"/></svg>` },
@@ -225,24 +280,87 @@ document.addEventListener('DOMContentLoaded', () => {
     { tag: 'CONSULTORIA', category: 'ASSESSORIA TÉCNICA ESPECIALIZADA', icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>` }
   ];
 
-  const serviceOrder = [4, 1, 2, 3, 0, 11, 5, 6, 7, 8, 9, 10];
+  const defaultServiceOrder = [4, 1, 2, 3, 0, 11, 5, 6, 7, 8, 9, 10];
+  const orderElement = document.getElementById('cms-home-service-order');
+  const publishedRoutesElement = document.getElementById('cms-published-routes');
+  let configuredServiceOrder = null;
+  let publishedRoutes = null;
+
+  if (orderElement) {
+    try {
+      const candidate = JSON.parse(orderElement.textContent || 'null');
+      if (Array.isArray(candidate) && candidate.length === sourceServicesData.length &&
+        candidate.every(id => Number.isInteger(id) && id >= 0 && id < sourceServicesData.length) &&
+        new Set(candidate).size === sourceServicesData.length) {
+        configuredServiceOrder = candidate;
+      }
+    } catch (error) {
+      console.error('[cms] Não foi possível ler a ordem das soluções da Home.', error);
+    }
+  }
+
+  if (publishedRoutesElement) {
+    try {
+      const candidate = JSON.parse(publishedRoutesElement.textContent || 'null');
+      if (Array.isArray(candidate) && candidate.every(route => typeof route === 'string' && route.startsWith('/'))) {
+        publishedRoutes = new Set(candidate);
+      }
+    } catch (error) {
+      console.error('[cms] Não foi possível ler as páginas publicadas.', error);
+    }
+  }
+
+  const serviceOrder = (configuredServiceOrder || defaultServiceOrder).filter(sourceIndex => {
+    const route = serviceRoutePaths[sourceIndex];
+    return !publishedRoutes || publishedRoutes.has(route);
+  });
+  const serviceCategoryBySourceIndex = new Map(defaultServiceOrder.map((sourceIndex, index) => [sourceIndex, serviceCategories[index]]));
+  const serviceIconBySourceIndex = new Map(defaultServiceOrder.map((sourceIndex, index) => [
+    sourceIndex,
+    ['shield', 'landmark', 'scan-line', 'flame', 'clipboard-list', 'share-2', 'file-text', 'gauge', 'crosshair', 'award', 'message-square', 'settings'][index]
+  ]));
+  if (serviceOrder.length === 0) {
+    const solutionsSection = document.getElementById('solucoes');
+    if (solutionsSection) solutionsSection.hidden = true;
+    return;
+  }
+
   const RING_SIZE = 6;
   const servicesData = serviceOrder.map((sourceIndex, stepIndex) => {
     const sourceService = sourceServicesData[sourceIndex];
     const ringIndex = stepIndex < RING_SIZE ? 0 : 1;
-    const title = sourceService.title.replace(/^\d+\.\s*/, '');
-    const shortTitle = sourceService.shortTitle.replace(/^\d+\.\s*/, '');
-    const meta = serviceCategories[stepIndex] || { tag: 'END', category: 'INTEGRIDADE E CONFIABILIDADE', icon: '' };
+    const publishedContent = publishedSolutionOverrides[sourceService.cmsRoutePath];
+    const publishedTitle = typeof publishedContent?.title === 'string' ? publishedContent.title.trim() : '';
+    const originalTitle = sourceService.title.replace(/^\d+\.\s*/, '');
+    const title = (publishedTitle || originalTitle).replace(/^\d+\.\s*/, '');
+    const shortTitle = publishedTitle
+      ? formatShortTitle(title, sourceService.shortTitle)
+      : sourceService.shortTitle.replace(/^\d+\.\s*/, '');
+    const desc = typeof publishedContent?.summary === 'string' && publishedContent.summary.trim()
+      ? publishedContent.summary.trim()
+      : sourceService.desc;
+    const image = typeof publishedContent?.imageUrl === 'string'
+      && /^\/media\/[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}\.(?:jpe?g|png|webp|gif|avif)$/i.test(publishedContent.imageUrl)
+      ? publishedContent.imageUrl
+      : sourceService.image;
+    const imageAlt = typeof publishedContent?.imageAltText === 'string' && publishedContent.imageAltText.trim()
+      ? publishedContent.imageAltText.trim()
+      : title;
+    const meta = serviceCategoryBySourceIndex.get(sourceIndex) || { tag: 'END', category: 'INTEGRIDADE E CONFIABILIDADE', icon: '' };
 
     return {
       ...sourceService,
       tag: meta.tag,
       category: meta.category,
       categoryIcon: meta.icon,
-      iconName: ['shield', 'landmark', 'scan-line', 'flame', 'clipboard-list', 'share-2', 'file-text', 'gauge', 'crosshair', 'award', 'message-square', 'settings'][stepIndex],
+      iconName: serviceIconBySourceIndex.get(sourceIndex) || 'shield',
       id: stepIndex,
       title,
       shortTitle,
+      desc,
+      image,
+      imageAlt,
+      url: sourceService.cmsRoutePath.replace(/^\/+/, ''),
       ring: ringIndex === 0 ? 'outer' : 'inner',
       angle: ringIndex === 0
         ? -90 + stepIndex * 60
@@ -732,7 +850,7 @@ document.addEventListener('DOMContentLoaded', () => {
       cardImage.style.opacity = '0.3';
       setTimeout(() => {
         cardImage.src = data.image;
-        cardImage.alt = data.title;
+        cardImage.alt = data.imageAlt || data.title;
         cardTitle.textContent = data.title;
         cardDesc.textContent = data.desc;
         if (cardImageTag) cardImageTag.textContent = data.tag || 'END';
@@ -754,7 +872,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 260);
     } else {
       cardImage.src = data.image;
-      cardImage.alt = data.title;
+      cardImage.alt = data.imageAlt || data.title;
       cardTitle.textContent = data.title;
       cardDesc.textContent = data.desc;
       if (cardImageTag) cardImageTag.textContent = data.tag || 'END';
@@ -1199,4 +1317,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const img = new Image();
     img.src = s.image;
   });
-});
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', bootstrapSolutions, { once: true });
+} else {
+  bootstrapSolutions();
+}

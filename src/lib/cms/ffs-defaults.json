@@ -1,0 +1,62 @@
+[
+  {
+    "id": 0,
+    "title": "Fratura Frágil",
+    "desc": "Avaliação da suscetibilidade à fratura súbita em condições críticas de operação."
+  },
+  {
+    "id": 1,
+    "title": "Perda Geral de Metal",
+    "desc": "Análise da redução uniforme de espessura causada por corrosão ou erosão."
+  },
+  {
+    "id": 2,
+    "title": "Perda Local de Metal",
+    "desc": "Verificação de regiões localizadas com perda de espessura e concentração de tensões."
+  },
+  {
+    "id": 3,
+    "title": "Corrosão por Pites",
+    "desc": "Avaliação de cavidades localizadas que podem acelerar a falha do componente."
+  },
+  {
+    "id": 4,
+    "title": "Danos por Hidrogênio",
+    "desc": "Identificação de empolamentos, trincas e demais danos associados à presença de hidrogênio."
+  },
+  {
+    "id": 5,
+    "title": "Desalinhamento e Distorção de Solda",
+    "desc": "Análise dos efeitos geométricos de juntas soldadas sobre tensões e desempenho estrutural."
+  },
+  {
+    "id": 6,
+    "title": "Descontinuidades Similares a Trincas",
+    "desc": "Caracterização de indicações com potencial de crescimento e comprometimento da integridade."
+  },
+  {
+    "id": 7,
+    "title": "Fluência",
+    "desc": "Avaliação de deformação progressiva em materiais submetidos a temperatura e tensão elevadas."
+  },
+  {
+    "id": 8,
+    "title": "Danos por Incêndio",
+    "desc": "Análise dos efeitos térmicos sobre resistência, propriedades e estabilidade do ativo."
+  },
+  {
+    "id": 9,
+    "title": "Mossas e Sulcos",
+    "desc": "Avaliação de deformações mecânicas e seus impactos na capacidade de operação segura."
+  },
+  {
+    "id": 10,
+    "title": "Delaminação",
+    "desc": "Verificação de separações internas e descontinuidades entre camadas do material."
+  },
+  {
+    "id": 11,
+    "title": "Danos por Fadiga",
+    "desc": "Análise de solicitações cíclicas e do risco de iniciação ou propagação de trincas."
+  }
+]

@@ -1,0 +1,34 @@
+{
+  "version": "7",
+  "dialect": "mysql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1793744235652,
+      "tag": "0000_typical_nightshade",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1793744388535,
+      "tag": "0001_lame_otto_octavius",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1793750223794,
+      "tag": "0002_workable_tomas",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "5",
+      "when": 1794663821907,
+      "tag": "0003_editorial_history",
+      "breakpoints": true
+    }
+  ]
+}

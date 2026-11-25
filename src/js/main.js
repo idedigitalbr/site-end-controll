@@ -14,8 +14,26 @@
   /* ===================================================================
      Menu Mobile + Dropdown Inteligente
      =================================================================== */
+  function readCmsJson(id) {
+    var element = document.getElementById(id);
+    if (!element) return null;
+    try {
+      return JSON.parse(element.textContent || "null");
+    } catch (error) {
+      console.error("[cms] Não foi possível ler as configurações do menu.", error);
+      return null;
+    }
+  }
+
+  function readPublishedRouteSet() {
+    var routes = readCmsJson("cms-published-routes");
+    if (!Array.isArray(routes)) return null;
+    return new Set(routes.filter(function (route) { return typeof route === "string" && route.startsWith("/"); }));
+  }
+
   function initCanonicalSolutionsMenu() {
     document.querySelectorAll('.dropdown-rich-menu .dropdown-item-text, .dropdown-rich-menu .submenuzinho-item span:not(.submenuzinho-bullet)').forEach(function (label) {
+      if (label.closest('[data-cms-nav-service]')) return;
       label.textContent = label.textContent.replace(/^\s*\d+\.\s*/, '');
     });
   }
@@ -75,23 +93,65 @@
       }
     });
 
-    const groups = [
+    const defaultGroups = [
       {
+        id: 'engineering',
         title: 'Engenharia e Integridade',
         description: 'Confiabilidade para ativos críticos e operações industriais.',
         ids: ['0', '3', '10']
       },
       {
+        id: 'inspection',
         title: 'Inspeção e Conformidade',
         description: 'Controle técnico, segurança e adequação às normas.',
         ids: ['1', '2', '8', '9']
       },
       {
+        id: 'projects',
         title: 'Projetos e Tecnologia',
         description: 'Soluções sob medida para cada desafio de engenharia.',
         ids: ['4', '5', '6', '11', '12']
       }
     ];
+    const navigationContent = readCmsJson('cms-navigation-content');
+    const groups = Array.isArray(navigationContent && navigationContent.groups)
+      ? navigationContent.groups.map(function (configured) {
+        const base = defaultGroups.find(function (group) { return group.id === configured.id; });
+        if (!base) return null;
+        return {
+          id: base.id,
+          title: typeof configured.title === 'string' ? configured.title : base.title,
+          description: typeof configured.description === 'string' ? configured.description : base.description,
+          ids: Array.isArray(configured.serviceIds)
+            ? configured.serviceIds.filter(function (id) { return base.ids.includes(String(id)); }).map(String)
+            : base.ids
+        };
+      }).filter(Boolean)
+      : defaultGroups;
+    const publishedRoutes = readPublishedRouteSet();
+    const serviceRouteById = {
+      '0': '/1-solucao-engenharia-de-integridade-estrutural.html',
+      '1': '/2-solucao-inspecao-em-obras-de-artes-especiais.html',
+      '2': '/3-solucao-ensaios-nao-destrutivos-ends.html',
+      '3': '/4-solucao-engenharia-de-soldagem.html',
+      '4': '/5-solucao-gerenciamento-de-projetos.html',
+      '5': '/6-solucao-elaboracao-de-projetos-mecanicos.html',
+      '6': '/7-solucao-solucoes-tecnologicas-integradas.html',
+      '8': '/8-solucao-inspecao-e-adequacao-normativa.html',
+      '9': '/9-solucao-calibracao-de-instrumentos.html',
+      '10': '/10-solucao-trepanacao-hot-tapping.html',
+      '11': '/11-solucao-certificacao-materia-prima.html',
+      '12': '/12-solucao-consultoria-e-assessoria-tecnica.html'
+    };
+    const visibleGroups = groups.map(function (group) {
+      return {
+        ...group,
+        ids: group.ids.filter(function (id) {
+          const route = serviceRouteById[id];
+          return !publishedRoutes || !route || publishedRoutes.has(route);
+        })
+      };
+    }).filter(function (group) { return group.ids.length > 0; });
 
     const serviceIcons = {
       '0': '<i class="menu-lucide-icon" data-lucide="shield-check" aria-hidden="true"></i>',
@@ -111,7 +171,7 @@
     const groupsWrapper = document.createElement('div');
     groupsWrapper.className = 'solutions-menu-groups';
 
-    groups.forEach(function (group, groupIndex) {
+    visibleGroups.forEach(function (group, groupIndex) {
       const groupElement = document.createElement('section');
       groupElement.className = 'menu-group' + (groupIndex === 0 ? ' is-expanded' : '');
 
@@ -213,6 +273,7 @@
     const allDropdowns = document.querySelectorAll('.dropdown');
     const solutionsDropdown = document.querySelector('.main-menu .dropdown');
     const solutionsTrigger = solutionsDropdown && solutionsDropdown.querySelector('.drop-link');
+    let solutionsOpenedByHoverAt = 0;
 
     function setDropdownState(dropdown, isOpen) {
       if (!dropdown) return;
@@ -251,6 +312,8 @@
     if (solutionsDropdown && solutionsTrigger) {
       solutionsTrigger.addEventListener('click', function () {
         const isOpen = solutionsDropdown.classList.contains('is-open');
+        // A pointer press fires mouseenter (opens) right before click; without this guard the click closes it again.
+        if (isOpen && Date.now() - solutionsOpenedByHoverAt < 500) return;
         closeAllDropdowns();
         setDropdownState(solutionsDropdown, !isOpen);
       });
@@ -261,6 +324,7 @@
       dropdown.addEventListener('mouseenter', function () {
         clearTimeout(dropdownTimer);
         closeAllDropdowns(dropdown);
+        if (dropdown === solutionsDropdown && !dropdown.classList.contains('is-open')) solutionsOpenedByHoverAt = Date.now();
         setDropdownState(dropdown, true);
       });
       dropdown.addEventListener('mouseleave', function () {
@@ -2548,7 +2612,7 @@
   /* ===================================================================
      Bootstrap
      =================================================================== */
-  document.addEventListener('DOMContentLoaded', function () {
+  function bootstrapMain() {
     initCanonicalSolutionsMenu();
     initMenu();
     initHeaderScroll();
@@ -2565,5 +2629,11 @@
     initHeroIndicatorsCarousel();
     initSectorsMarquee();
     initProcessInteractions();
-  });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', bootstrapMain, { once: true });
+  } else {
+    bootstrapMain();
+  }
 })();

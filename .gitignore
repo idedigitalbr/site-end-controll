@@ -13,6 +13,10 @@ node_modules
 # Builds futuros
 dist/
 build/
+/.next/
+/out/
+/.turbo/
+*.tsbuildinfo
 
 # Segredos e configurações locais
 .env*
@@ -34,6 +38,7 @@ Desktop.ini
 # Artefatos sensíveis e backups
 /composer.phar
 *.sql
+!/drizzle/**/*.sql
 *.sqlite
 *.sqlite3
 *.dump
@@ -44,3 +49,7 @@ Desktop.ini
 *.tar.gz
 *.7z
 scratch/
+/.codegraph/
+/.playwright/
+/test-results/
+/playwright-report/

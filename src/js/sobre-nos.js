@@ -5,7 +5,7 @@
  * ==========================================================================
  */
 
-document.addEventListener('DOMContentLoaded', function () {
+function bootstrapSobreNos() {
   function initCanonicalSolutionsMenu() {
     document.querySelectorAll('.dropdown-rich-menu .dropdown-item-text, .dropdown-rich-menu .submenuzinho-item span:not(.submenuzinho-bullet)').forEach(function (label) {
       label.textContent = label.textContent.replace(/^\s*\d+\.\s*/, '');
@@ -265,4 +265,10 @@ document.addEventListener('DOMContentLoaded', function () {
   if (typeof lucide !== 'undefined') {
     lucide.createIcons();
   }
-});
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', bootstrapSobreNos, { once: true });
+} else {
+  bootstrapSobreNos();
+}

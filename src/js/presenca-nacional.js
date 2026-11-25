@@ -2,7 +2,7 @@
    Interatividade do Mapa e Painel de Presença Nacional — ENDCONTROL
    ========================================================================== */
 
-document.addEventListener('DOMContentLoaded', () => {
+function bootstrapPresencaNacional() {
   // Inicializar Lucide se existir
   if (typeof lucide !== 'undefined') {
     lucide.createIcons();
@@ -253,4 +253,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Primeira renderização das curvas de conexão
   setTimeout(updateConnectionLines, 200);
-});
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', bootstrapPresencaNacional, { once: true });
+} else {
+  bootstrapPresencaNacional();
+}
