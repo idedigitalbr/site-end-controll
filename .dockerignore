@@ -1,0 +1,18 @@
+.git
+.next
+.codegraph
+.playwright
+node_modules
+storage
+.env*
+!.env.example
+*.log
+*.tar
+*.gz
+scratch
+LIXADA
+lixos
+lixos-nao-utilizados
+assets-nao-usados
+assets/FOTOS ORIGINAIS ENDCONTROL
+bckp

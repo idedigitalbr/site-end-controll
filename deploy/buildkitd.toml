@@ -1,0 +1,6 @@
+# Copy into the project deployment directory; applies to its dedicated builder.
+[worker.oci]
+  gc = true
+  reservedSpace = "2GB"
+  maxUsedSpace = "6GB"
+  minFreeSpace = "10GB"

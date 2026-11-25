@@ -9,8 +9,9 @@
 >    - O endereço antigo da VPS continua desativado e proibido.
 >
 > 2. **🧭 DESENVOLVIMENTO LOCAL E FUTURA VPS:**
->    - Desenvolver e visualizar localmente primeiro. Nesta fase não acessar VPS, DNS, SSH nem executar deploy.
->    - Docker na VPS continua fora do escopo. A implantação planejada usa Node.js e MySQL em serviços nativos, salvo autorização posterior explícita para outra forma.
+>    - Em 2026-11-25 o usuário autorizou SSH e deploy Docker na VPS 161.97.108.92, exclusivamente na stack `endcontrol`, com backup prévio.
+>    - O alvo aprovado é `endcontrol-web`, em `https://endcontrol.suporteide.digital`; `sistema-endcontrol` é outro sistema e não deve ser alterado.
+>    - O corte depende de healthchecks e validação pública. Até esse registro, GitHub Pages permanece a produção oficial atual.
 >    - Antes do corte, atualizar esta regra com domínio, arquitetura e procedimento aprovados. Até lá, GitHub Pages permanece a publicação oficial atual.
 >
 > 3. **📱 RELATÓRIOS DO WHATSAPP, NOTION E DOCUMENTAÇÃO:**
