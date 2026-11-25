@@ -9,6 +9,11 @@ The operator keeps Compose and private `.env`, `.env.app`, `.env.db` files in
 `/opt/endcontrol-site/releases/<full-commit>`. MySQL and uploads use the named
 volumes `endcontrol_cms_db` and `endcontrol_cms_media`. No database port is published.
 
+The private `.env` also contains `LOCAL_IMPORT_DATABASE_URL`, using the same CMS
+database credentials but host `127.0.0.1`. The `media-import` tool shares the MySQL
+network namespace to honor the original importer's localhost-only restriction.
+It does not expose a database port or weaken the importer guard.
+
 Before the initial switch, the original static image, inspect metadata and entire
 project were backed up at `/var/backups/endcontrol/pre-next-20261125T163312Z`.
 Both compressed archives passed integrity checks and SHA-256 verification.

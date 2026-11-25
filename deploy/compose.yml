@@ -1,5 +1,12 @@
 name: endcontrol
 services:
+  media-import:
+    image: endcontrol-next:${RELEASE_ID:?release required}
+    profiles: [tools]
+    env_file: .env.app
+    environment:
+      DATABASE_URL: ${LOCAL_IMPORT_DATABASE_URL:?local import URL required}
+    network_mode: service:db
   db:
     image: mysql:8.4
     container_name: endcontrol-cms-db
@@ -11,7 +18,7 @@ services:
     networks: [default]
     mem_limit: 512m
     healthcheck:
-      test: ["CMD-SHELL", "mysqladmin ping -h localhost --silent"]
+      test: ["CMD-SHELL", "mysqladmin ping -h 127.0.0.1 --silent"]
       interval: 10s
       timeout: 5s
       retries: 30

@@ -4,19 +4,19 @@
 > ## 🛡️ MEMÓRIA PERMANENTE DO PROJETO (NUNCA ESQUECER)
 >
 > 1. **🌐 PRODUÇÃO ATUAL E DESTINO FUTURO:**
->    - Até o corte aprovado, a URL oficial atual continua sendo o GitHub Pages: **`https://idedigitalbr.github.io/site-end-controll/`**.
->    - O destino futuro escolhido pelo usuário é Next.js full-stack, CMS e MySQL em VPS; o novo domínio ainda será definido.
->    - O endereço antigo da VPS continua desativado e proibido.
+>    - Corte autorizado e realizado em 2026-11-25: **`https://endcontrol.suporteide.digital/`** passa a ser o endereço oficial do site Next.js e CMS.
+>    - GitHub Pages (`https://idedigitalbr.github.io/site-end-controll/`) permanece como publicação legada, sem ser o alvo deste deploy.
+>    - A stack `sistema-endcontrol` é outro sistema e permanece fora do escopo.
 >
 > 2. **🧭 DESENVOLVIMENTO LOCAL E FUTURA VPS:**
 >    - Em 2026-11-25 o usuário autorizou SSH e deploy Docker na VPS 161.97.108.92, exclusivamente na stack `endcontrol`, com backup prévio.
 >    - O alvo aprovado é `endcontrol-web`, em `https://endcontrol.suporteide.digital`; `sistema-endcontrol` é outro sistema e não deve ser alterado.
->    - O corte depende de healthchecks e validação pública. Até esse registro, GitHub Pages permanece a produção oficial atual.
->    - Antes do corte, atualizar esta regra com domínio, arquitetura e procedimento aprovados. Até lá, GitHub Pages permanece a publicação oficial atual.
+>    - A release inicial teve backup prévio verificado, healthchecks aprovados e as 15 páginas públicas validadas. Consulte `deploy/README.md` para os caminhos e rollback.
+>    - Preservar banco e uploads em volumes próprios; fazer backup atualizado antes das próximas migrações.
 >
 > 3. **📱 RELATÓRIOS DO WHATSAPP, NOTION E DOCUMENTAÇÃO:**
->    - Antes do corte, relatórios e documentação devem apontar para a URL atual do GitHub Pages.
->    - Depois do corte aprovado, usar somente o novo domínio oficial registrado nesta regra.
+>    - Relatórios atuais devem apontar para `https://endcontrol.suporteide.digital/`.
+>    - Referências ao GitHub Pages em registros antigos são históricas.
 >
 > 4. **🐙 CONFIRMAÇÃO DE REPOSITÓRIO GITHUB (REGRA DE OURO):**
 >    - Sempre solicitar confirmação antes do `git push`:

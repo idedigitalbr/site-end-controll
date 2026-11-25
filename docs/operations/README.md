@@ -1,8 +1,8 @@
-# Operação futura do Site EndControl
+# Operação do Site EndControl
 
-Estes arquivos são templates e runbooks locais para uma futura hospedagem Linux com Node.js, MySQL nativo, systemd e Nginx. Nenhum deles autoriza acesso à VPS, mudança de DNS ou corte de produção.
+O deploy Docker na stack `endcontrol` foi autorizado e realizado em 2026-11-25. A operação atual está em [deploy/README.md](../../deploy/README.md), com evidências em [validação do corte](docker-deployment-2026-11-25.md).
 
-A URL oficial permanece https://idedigitalbr.github.io/site-end-controll/ até a aprovação do corte. O domínio futuro, o sistema operacional, a instância MySQL e o destino externo de backup ainda precisam ser definidos.
+A URL atual é https://endcontrol.suporteide.digital/. Os runbooks nativos abaixo são alternativas históricas; seus comandos systemd e caminhos não descrevem os containers ativos. O destino externo e a automatização dos backups ainda precisam ser definidos.
 
 - [Implantação nativa](deployment.md)
 - [Backup e restauração](backup-restore.md)

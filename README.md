@@ -1,8 +1,8 @@
 # EndControl — Next.js e CMS
 
-Migração local do site EndControl, preservando páginas, fotos, estilos e efeitos originais. Next.js App Router/TypeScript, Tailwind, shadcn/Radix, Lucide, Better Auth, MySQL e Drizzle.
+Site EndControl, preservando páginas, fotos, estilos e efeitos originais. Next.js App Router/TypeScript, Tailwind, shadcn/Radix, Lucide, Better Auth, MySQL e Drizzle.
 
-Publicação oficial atual: https://idedigitalbr.github.io/site-end-controll/. A VPS e o domínio futuros dependem do corte aprovado. O desenvolvimento local não altera a publicação atual.
+Publicação atual: https://endcontrol.suporteide.digital/. CMS: https://endcontrol.suporteide.digital/login. O deploy Docker foi autorizado e realizado em 2026-11-25 na stack `endcontrol`, com backup prévio. Consulte [operação Docker](deploy/README.md) e [validação do corte](docs/operations/docker-deployment-2026-11-25.md). GitHub Pages permanece como publicação legada.
 
 ## Executar localmente
 

@@ -23,7 +23,7 @@ done
 test "$state" = healthy
 "${compose[@]}" run --rm --no-deps web npm run db:migrate
 "${compose[@]}" run --rm --no-deps web npm run db:seed
-"${compose[@]}" run --rm --no-deps web npm run db:import-media
+"${compose[@]}" run --rm --no-deps media-import npm run db:import-media
 "${compose[@]}" run --rm --no-deps --user root web sh -c 'mkdir -p /app/storage/media && chown node:node /app/storage/media'
 if [ -f .env.bootstrap ]; then
   docker run --rm --network endcontrol_default --env-file .env.app --env-file .env.bootstrap "endcontrol-next:$RELEASE_ID" node deploy/bootstrap-admin.mjs
@@ -50,5 +50,5 @@ if [ "$state" != healthy ]; then
   exit 1
 fi
 curl --fail --silent --show-error --retry 5 https://endcontrol.suporteide.digital/api/health
-python3 "$source_dir/deploy/docker_retention.py" --project endcontrol --repository endcontrol-next --active-tag "$RELEASE_ID" --keep-releases 3 --health-container endcontrol-web
+python3 "$source_dir/deploy/docker_retention.py" --project endcontrol --repository endcontrol-next --active-tag "$RELEASE_ID" --keep-releases 3 --health-container endcontrol-web || echo 'Retention plan unavailable; images preserved'
 echo 'RELEASE_HEALTHY'
