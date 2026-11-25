@@ -1,0 +1,5 @@
+# Optional MySQL 8.4 drop-in for a database running on the same VPS.
+# Place in the distribution's MySQL server config directory and review with
+# the installed MySQL package before restarting its service.
+[mysqld]
+bind-address=127.0.0.1

@@ -1,0 +1,32 @@
+[Unit]
+Description=EndControl Next.js application
+Wants=network-online.target
+After=network-online.target mysql.service
+Requires=mysql.service
+
+[Service]
+Type=simple
+User=endcontrol
+Group=endcontrol
+WorkingDirectory=/opt/endcontrol/current
+CacheDirectory=endcontrol
+CacheDirectoryMode=0750
+EnvironmentFile=/etc/endcontrol/endcontrol.env
+Environment=NODE_ENV=production
+Environment=HOME=/var/cache/endcontrol
+Environment=PORT=3000
+Environment=NEXT_TELEMETRY_DISABLED=1
+ExecStart=/usr/bin/npm run start -- --hostname 127.0.0.1 --port 3000
+Restart=on-failure
+RestartSec=5
+TimeoutStartSec=120
+TimeoutStopSec=45
+KillSignal=SIGTERM
+UMask=0027
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectHome=true
+ProtectSystem=full
+
+[Install]
+WantedBy=multi-user.target

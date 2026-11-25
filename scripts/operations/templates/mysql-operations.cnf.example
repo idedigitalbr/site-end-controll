@@ -1,0 +1,9 @@
+# Create this as /etc/endcontrol/mysql-operations.cnf with root:root mode 0600.
+# This account is for the backup/restore scripts only, not the Next.js runtime.
+[client]
+protocol=tcp
+host=127.0.0.1
+port=3306
+user=endcontrol_ops
+password=REPLACE_WITH_THE_GENERATED_OPERATIONS_PASSWORD
+default-character-set=utf8mb4
