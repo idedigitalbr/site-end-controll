@@ -91,12 +91,15 @@ function bootstrapPresencaNacional() {
     setTimeout(updateConnectionLines, 50);
   }
 
+  const isInlineEditing = () => document.documentElement.dataset.ecIeEditing === 'true';
+
   // --- Função: Rotação Automática ---
   function startRotation() {
-    if (isPaused || !isMapVisible) return;
+    if (isInlineEditing() || isPaused || !isMapVisible) return;
     clearInterval(rotationInterval);
     
     rotationInterval = setInterval(() => {
+      if (isInlineEditing()) return;
       currentIndex = (currentIndex + 1) % regionsOrder.length;
       const nextRegion = regionsOrder[currentIndex];
       activateRegion(nextRegion);
@@ -107,9 +110,11 @@ function bootstrapPresencaNacional() {
     isPaused = true;
     clearInterval(rotationInterval);
     clearTimeout(resumeTimeout);
+    if (isInlineEditing()) return;
     
     // Retomar rotação após 15 segundos sem interações
     resumeTimeout = setTimeout(() => {
+      if (isInlineEditing()) return;
       isPaused = false;
       startRotation();
     }, 15000);
@@ -125,6 +130,7 @@ function bootstrapPresencaNacional() {
     });
 
     item.addEventListener('mouseenter', () => {
+      if (isInlineEditing()) return;
       activateRegion(region);
       pauseRotation();
     });
@@ -141,9 +147,23 @@ function bootstrapPresencaNacional() {
     });
     
     anchor.addEventListener('mouseenter', () => {
+      if (isInlineEditing()) return;
       activateRegion(region);
       pauseRotation();
     });
+  });
+
+  new MutationObserver(() => {
+    if (isInlineEditing()) {
+      clearInterval(rotationInterval);
+      clearTimeout(resumeTimeout);
+    } else if (isMapVisible) {
+      isPaused = false;
+      startRotation();
+    }
+  }).observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ['data-ec-ie-editing']
   });
 
   // --- Funções Auxiliares: Linhas de Conexão ---

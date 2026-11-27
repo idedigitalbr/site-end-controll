@@ -1,9 +1,13 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
+import { InlineEditorShell } from "@/components/public/inline-editor/inline-editor-shell";
 import { LegacyReactTemplate } from "@/components/public/legacy-react-template";
+import { getCmsSession } from "@/lib/auth";
+import { canAccessCmsAdmin, canAccessCmsEditor } from "@/lib/cms/auth-role";
 import {
   getPublicPageDocument,
+  getPublicPageDocumentForEditor,
   publicMetadataForDocument,
 } from "@/lib/cms/public-renderer";
 
@@ -20,6 +24,39 @@ export async function generateLegacyPageMetadata(routePath: string): Promise<Met
 }
 
 export async function PublicLegacyPage({ routePath }: { routePath: string }) {
+  let editorRole: "admin" | "editor" | null = null;
+  try {
+    const session = await getCmsSession();
+    if (session && canAccessCmsEditor(session.user)) {
+      editorRole = canAccessCmsAdmin(session.user) ? "admin" : "editor";
+    }
+  } catch {
+    editorRole = null;
+  }
+
+  if (editorRole) {
+    const editorDocument = await getPublicPageDocumentForEditor(routePath, editorRole);
+    if (!editorDocument) notFound();
+
+    const templateNode = (
+      <LegacyReactTemplate
+        template={editorDocument.template}
+        pageJsonLd={editorDocument.pageJsonLd}
+        scriptKey={editorDocument.routePath}
+      />
+    );
+
+    if (editorDocument.inlineEditorBootstrap) {
+      return (
+        <InlineEditorShell bootstrap={editorDocument.inlineEditorBootstrap}>
+          {templateNode}
+        </InlineEditorShell>
+      );
+    }
+
+    return templateNode;
+  }
+
   const document = await getPublicPageDocument(routePath);
   if (!document) notFound();
 

@@ -71,12 +71,14 @@ export default async function PageEditor({
   if (!source) notFound();
 
   const fields = hydrateEditableFields(source, latestVersion?.content ?? [], page.routePath);
-  const media = (await listCmsMedia()).map(({ id: mediaId, url, altText, originalName }) => ({
-    id: mediaId,
-    url,
-    altText,
-    originalName,
-  }));
+  const media = (await listCmsMedia())
+    .filter((item) => item.mimeType.startsWith("image/"))
+    .map(({ id: mediaId, url, altText, originalName }) => ({
+      id: mediaId,
+      url,
+      altText,
+      originalName,
+    }));
   const title = latestVersion?.title ?? page.title;
   const isPublished = Boolean(page.publishedVersionId);
   const statusLabel = page.status === "published"

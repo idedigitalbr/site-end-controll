@@ -109,12 +109,14 @@
       goToSlide(prevIdx, 'prev');
     }
 
+    const isInlineEditing = () => document.documentElement.dataset.ecIeEditing === 'true';
+
     // Autoplay Inteligente
     function startAutoplay() {
       stopAutoplay();
-      if (autoplayDelay <= 0) return;
+      if (autoplayDelay <= 0 || isInlineEditing()) return;
       autoplayTimer = setInterval(() => {
-        if (!isHovered && !isTouchActive && !document.hidden) {
+        if (!isInlineEditing() && !isHovered && !isTouchActive && !document.hidden) {
           nextSlide();
         }
       }, autoplayDelay);
@@ -129,8 +131,21 @@
 
     function restartAutoplay() {
       stopAutoplay();
-      startAutoplay();
+      if (!isInlineEditing()) {
+        startAutoplay();
+      }
     }
+
+    new MutationObserver(() => {
+      if (isInlineEditing()) {
+        stopAutoplay();
+      } else {
+        startAutoplay();
+      }
+    }).observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['data-ec-ie-editing']
+    });
 
     // Eventos dos Botões
     if (nextBtn) {

@@ -1542,7 +1542,7 @@
         <div class="legal-center-links">
           <a href="politica-de-privacidade.html" class="legal-center">Termos & Privacidade</a>
           <span class="legal-sep">•</span>
-          <a href="preview-design-system.html" class="legal-preview">Preview Design System</a>
+          <a href="/login" class="legal-preview">Login</a>
         </div>
         <div class="dev-right">
           <span>Desenvolvido por:</span>
@@ -1563,7 +1563,6 @@
   <!-- Modal Links e Redes Sociais -->
   <div class="wf-modal links-fullscreen-modal" id="modal-redes-sociais" style="padding: 0 !important; overflow: hidden !important;">
     <button class="wf-modal-close" aria-label="Fechar modal">&times;</button>
-    <iframe src="./links.html" style="width: 100%; height: 100%; border: none; overflow: auto; display: block; background-color: var(--yellow);"></iframe>
   </div>
 
   <!-- Modal Fullscreen Celular Premium para Vídeo Depoimento 9:16 -->
@@ -1633,29 +1632,60 @@
         lucide.createIcons();
       }
 
-      // CARROSSEL DA SEÇÃO SOBRE (Alterna fotos a cada 30 segundos)
+      // CARROSSEL DA SEÇÃO SOBRE (Alterna fotos a cada 30 segundos, pausado no modo edição)
       const aboutCarousel = document.getElementById('aboutMediaCarousel');
       if (aboutCarousel) {
         const slides = aboutCarousel.querySelectorAll('.about-slide-img');
         if (slides.length > 1) {
           let currentSlideIndex = 0;
-          setInterval(function() {
+          const isInlineEditing = () => document.documentElement.dataset.ecIeEditing === 'true';
+
+          function goToAboutSlide(nextIdx) {
+            const targetIdx = (nextIdx + slides.length) % slides.length;
+            if (targetIdx === currentSlideIndex) return;
             const prevSlide = slides[currentSlideIndex];
-            currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+            currentSlideIndex = targetIdx;
             const nextSlide = slides[currentSlideIndex];
 
-            // Coloca o slide anterior em 'is-prev' (mantém visível por baixo sem flash)
             prevSlide.classList.remove('is-active');
             prevSlide.classList.add('is-prev');
 
-            // Ativa o próximo slide (fade in suave por cima)
             nextSlide.classList.remove('is-prev');
             nextSlide.classList.add('is-active');
 
-            // Após a transição (1.2s), limpa a classe 'is-prev' do slide anterior
             setTimeout(function() {
               prevSlide.classList.remove('is-prev');
             }, 1300);
+          }
+
+          if (!aboutCarousel.querySelector('.ec-about-slide-prev')) {
+            const prevBtn = document.createElement('button');
+            prevBtn.type = 'button';
+            prevBtn.className = 'ec-about-slide-nav ec-about-slide-prev';
+            prevBtn.setAttribute('aria-label', 'Foto anterior da seção Sobre');
+            prevBtn.textContent = '‹';
+            prevBtn.addEventListener('click', function(e) {
+              e.stopPropagation();
+              goToAboutSlide(currentSlideIndex - 1);
+            });
+
+            const nextBtn = document.createElement('button');
+            nextBtn.type = 'button';
+            nextBtn.className = 'ec-about-slide-nav ec-about-slide-next';
+            nextBtn.setAttribute('aria-label', 'Próxima foto da seção Sobre');
+            nextBtn.textContent = '›';
+            nextBtn.addEventListener('click', function(e) {
+              e.stopPropagation();
+              goToAboutSlide(currentSlideIndex + 1);
+            });
+
+            aboutCarousel.appendChild(prevBtn);
+            aboutCarousel.appendChild(nextBtn);
+          }
+
+          setInterval(function() {
+            if (isInlineEditing()) return;
+            goToAboutSlide(currentSlideIndex + 1);
           }, 30000); // 30 segundos
         }
       }

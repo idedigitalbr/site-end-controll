@@ -100,3 +100,58 @@ test("allowlisted service template exposes both source readiness targets to the 
   assert.ok(callbacks.some((callback) => callback.target === "window" && callback.event === "DOMContentLoaded"));
   assert.ok(callbacks.some((callback) => callback.target === "document" && callback.event === "DOMContentLoaded"));
 });
+
+function findElements(
+  node: ReactNode,
+  predicate: (el: ReactElement<Record<string, unknown>>) => boolean,
+): Array<ReactElement<Record<string, unknown>>> {
+  if (Array.isArray(node)) return node.flatMap((child) => findElements(child, predicate));
+  if (!isValidElement(node)) return [];
+  const el = node as ReactElement<Record<string, unknown> & { children?: ReactNode }>;
+  const matches = predicate(el) ? [el] : [];
+  return [...matches, ...findElements(el.props.children, predicate)];
+}
+
+test("converts mutable form attributes, empty media src, and boolean DOM props without React warnings", () => {
+  const prepared = prepareLegacyHtmlTemplate(`<!doctype html><html><head><title>Test</title></head><body>
+    <input type="range" class="dep-volume-slider" min="0" max="1" step="0.05" value="1" />
+    <input type="checkbox" value="yes" checked />
+    <input type="hidden" value="tok" />
+    <video id="modal-testimonial-video" src="" autoplay playsinline></video>
+  </body></html>`);
+
+  const inputs = findElements(prepared.bodyElements, (el) => el.type === "input");
+  assert.equal(inputs.length, 3);
+  assert.equal(inputs[0].props.defaultValue, "1");
+  assert.equal(inputs[0].props.value, undefined);
+  assert.equal(inputs[1].props.value, "yes");
+  assert.equal(inputs[1].props.defaultChecked, true);
+  assert.equal(inputs[1].props.checked, undefined);
+  assert.equal(inputs[2].props.value, "tok");
+
+  const videos = findElements(prepared.bodyElements, (el) => el.type === "video");
+  assert.equal(videos.length, 1);
+  assert.equal(videos[0].props.src, undefined);
+  assert.equal(videos[0].props.autoPlay, true);
+  assert.equal(videos[0].props.autoplay, undefined);
+  assert.equal(videos[0].props.playsInline, true);
+});
+
+for (const fileName of ["index.html", "sobre-nos.html"]) {
+  test(`${fileName} renders without empty src, lowercase autoplay, or controlled mutable input value`, async () => {
+    const markup = await readFile(path.resolve(process.cwd(), fileName), "utf8");
+    const prepared = prepareLegacyHtmlTemplate(markup);
+
+    const emptySrcs = findElements(prepared.bodyElements, (el) => el.props.src === "");
+    assert.equal(emptySrcs.length, 0);
+
+    const lowercaseAutoplay = findElements(prepared.bodyElements, (el) => "autoplay" in el.props);
+    assert.equal(lowercaseAutoplay.length, 0);
+
+    const controlledRanges = findElements(
+      prepared.bodyElements,
+      (el) => el.type === "input" && el.props.type === "range" && el.props.value !== undefined,
+    );
+    assert.equal(controlledRanges.length, 0);
+  });
+}

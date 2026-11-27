@@ -29,6 +29,13 @@
       "when": 1794663821907,
       "tag": "0003_editorial_history",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "5",
+      "when": 1795801028665,
+      "tag": "0004_smart_rhino",
+      "breakpoints": true
     }
   ]
 }

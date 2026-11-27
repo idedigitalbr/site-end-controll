@@ -5,7 +5,7 @@ import { redirect } from "next/navigation";
 
 import { mysqlPool } from "@/db";
 import { createCmsAuth } from "@/lib/auth-options";
-import { isCmsAdmin, isCmsEditor } from "@/lib/cms/auth-role";
+import { canAccessCmsAdmin, canAccessCmsEditor } from "@/lib/cms/auth-role";
 
 export const auth = createCmsAuth(mysqlPool);
 
@@ -18,7 +18,7 @@ export async function getCmsSession() {
 export async function requireCmsAdmin(): Promise<CmsSession> {
   const session = await getCmsSession();
 
-  if (!session || !isCmsAdmin(session.user.role)) {
+  if (!session || !canAccessCmsAdmin(session.user)) {
     redirect("/login");
   }
 
@@ -27,6 +27,6 @@ export async function requireCmsAdmin(): Promise<CmsSession> {
 
 export async function requireCmsEditor(): Promise<CmsSession> {
   const session = await getCmsSession();
-  if (!session || !isCmsEditor(session.user.role)) redirect("/login");
+  if (!session || !canAccessCmsEditor(session.user)) redirect("/login");
   return session;
 }

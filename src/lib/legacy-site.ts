@@ -1,6 +1,6 @@
 import "server-only";
 
-import { readFile } from "node:fs/promises";
+import { readFile, realpath } from "node:fs/promises";
 import path from "node:path";
 
 import { sitePages } from "@/lib/site-inventory";
@@ -87,12 +87,35 @@ export async function serveLegacySiteFile(requestedPath: string, status = 200): 
   }
 
   try {
-    const body = await readFile(absolutePath);
+    const [canonicalRoot, canonicalFile] = await Promise.all([
+      realpath(process.cwd()),
+      realpath(absolutePath),
+    ]);
+    const canonicalRelative = path.relative(canonicalRoot, canonicalFile);
+    if (
+      !canonicalRelative ||
+      canonicalRelative.startsWith("..") ||
+      path.isAbsolute(canonicalRelative) ||
+      !isAllowedLegacyPath(canonicalRelative)
+    ) {
+      return null;
+    }
+
+    const extension = path.extname(canonicalRelative).toLowerCase();
+    const isCacheableStatic =
+      extension !== ".html" &&
+      extension !== ".css" &&
+      (canonicalRelative.startsWith(`assets${path.sep}`) ||
+        canonicalRelative.startsWith(`src${path.sep}js${path.sep}`));
+
+    const body = await readFile(canonicalFile);
     return new Response(body, {
       status,
       headers: {
-        "Cache-Control": "no-store",
-        "Content-Type": getContentType(path.extname(relativePath)),
+        "Cache-Control": isCacheableStatic
+          ? "public, max-age=3600, stale-while-revalidate=86400"
+          : "no-store",
+        "Content-Type": getContentType(extension),
         "X-Content-Type-Options": "nosniff",
       },
     });

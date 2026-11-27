@@ -164,12 +164,25 @@ function MediaCard({
     }
   }
 
+  const isVideo = item.mimeType.startsWith("video/");
+
   return (
     <article className="overflow-hidden rounded-lg border border-[#e5e9eb] bg-white">
-      <div className="grid h-48 place-items-center bg-[#f5f6f7] p-3">
-        {/* These URLs are served by the public, allowlisted media handler. */}
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={item.url} alt={item.altText} loading="lazy" className="max-h-full max-w-full object-contain" />
+      <div className="relative grid h-48 place-items-center bg-[#f5f6f7] p-3">
+        {isVideo ? (
+          <>
+            <video src={item.url} muted preload="metadata" playsInline controls className="max-h-full max-w-full object-contain" />
+            <span className="pointer-events-none absolute right-2 top-2 rounded bg-[#18252c]/85 px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-white">
+              Vídeo
+            </span>
+          </>
+        ) : (
+          <>
+            {/* These URLs are served by the public, allowlisted media handler. */}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={item.url} alt={item.altText} loading="lazy" className="max-h-full max-w-full object-contain" />
+          </>
+        )}
       </div>
       <div className="space-y-3 p-4">
         <div className="min-w-0"><p className="truncate text-xs font-semibold text-[#26343c]" title={item.originalName}>{item.originalName}</p><p className="mt-1 text-[11px] text-[#879198]">{formatSize(item.sizeBytes)} · {item.mimeType.split("/")[1]?.toUpperCase()}{item.width && item.height ? ` · ${item.width} × ${item.height}` : ""}</p></div>

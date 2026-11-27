@@ -1,0 +1,1 @@
+ALTER TABLE `cms_media_assets` MODIFY COLUMN `mime_type` enum('image/jpeg','image/png','image/webp','image/gif','image/avif','video/mp4','video/webm','video/quicktime') NOT NULL;

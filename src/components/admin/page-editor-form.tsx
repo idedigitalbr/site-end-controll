@@ -89,9 +89,23 @@ function buildTextGroups(fields: EditableTextField[]): TextGroup[] {
 function serializeFields(fields: EditablePageField[]): PageContentPatch[] {
   return fields.map((field) => {
     if (field.kind === "text") return { key: field.key, kind: "text", value: field.value };
-    if (field.kind === "image") return { key: field.key, kind: "image", value: field.value, altText: field.altText };
+    if (field.kind === "richText") return { key: field.key, kind: "richText", value: field.value };
+    if (field.kind === "image") {
+      return {
+        key: field.key,
+        kind: "image",
+        value: field.value,
+        altText: field.altText,
+        ...(field.objectPosition ? { objectPosition: field.objectPosition } : {}),
+      };
+    }
     if (field.kind === "link") return { key: field.key, kind: "link", value: field.value };
     if (field.kind === "backgroundImage") return { key: field.key, kind: "backgroundImage", value: field.value };
+    if (field.kind === "indicators") return { key: field.key, kind: "indicators", value: field.value };
+    if (field.kind === "clientLogos") return { key: field.key, kind: "clientLogos", value: field.value };
+    if (field.kind === "homeSolutions") return { key: field.key, kind: "homeSolutions", value: field.value };
+    if (field.kind === "directorCards") return { key: field.key, kind: "directorCards", value: field.value };
+    if (field.kind === "cardList") return { key: field.key, kind: "cardList", value: field.value };
     return { key: field.key, kind: "sectionOrder", value: field.value };
   });
 }

@@ -223,12 +223,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const nodesElements = [];
   const linesElements = [];
   const arcElements = [];
+  const isInlineEditing = () => document.documentElement.dataset.ecIeEditing === 'true';
 
   function pauseAutoPlay(ms = 6000) {
     clearTimeout(autoCycleTimer);
     clearTimeout(clickPauseTimer);
+    if (isInlineEditing()) return;
     clickPauseTimer = setTimeout(() => {
-      scheduleNextSweep();
+      if (!isInlineEditing()) {
+        scheduleNextSweep();
+      }
     }, ms);
   }
 
@@ -320,7 +324,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function scheduleNextSweep() {
     clearTimeout(autoCycleTimer);
+    if (isInlineEditing()) return;
     autoCycleTimer = setTimeout(() => {
+      if (isInlineEditing()) return;
       const nextIndex = (activeIndex + 1) % ffsMechanisms.length;
       moveSweepTo(nextIndex, 'forward');
     }, 2200); // 2.2s de leitura no nó ativo
@@ -489,6 +495,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Render inicial
   buildFFSRadar();
+
+  new MutationObserver(() => {
+    if (isInlineEditing()) {
+      clearTimeout(autoCycleTimer);
+      clearTimeout(clickPauseTimer);
+      stopSweepAtCurrentPosition();
+    } else {
+      scheduleNextSweep();
+    }
+  }).observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ['data-ec-ie-editing']
+  });
 
   // ResizeObserver para manter conexões e nós alinhados em resize
   let resizeTimer;

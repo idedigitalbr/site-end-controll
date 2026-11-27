@@ -3,13 +3,13 @@ import { redirect } from "next/navigation";
 
 import { LoginForm } from "@/components/auth/login-form";
 import { getCmsSession } from "@/lib/auth";
-import { isCmsEditor } from "@/lib/cms/auth-role";
+import { canAccessCmsEditor } from "@/lib/cms/auth-role";
 
 export const metadata: Metadata = { title: "Acesso administrativo" };
 
 export default async function LoginPage() {
   const session = await getCmsSession();
-  if (session && isCmsEditor(session.user.role)) redirect("/admin");
+  if (session && canAccessCmsEditor(session.user)) redirect("/admin");
 
   return (
     <main className="grid min-h-screen place-items-center bg-[#f4f6f7] px-5 py-12 text-[#182127]">

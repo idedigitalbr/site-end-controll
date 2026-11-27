@@ -5,3 +5,13 @@
 @source "../components/public";
 @source "./(plain)";
 @source "./(wrapped)";
+
+.ec-accent-primary {
+  color: var(--brand-primary, #67a8b8);
+  font-style: italic;
+  font-weight: 300;
+}
+
+.ec-accent-cyan {
+  color: var(--brand-secondary, #00ace4);
+}

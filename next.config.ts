@@ -4,6 +4,8 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   experimental: {
     globalNotFound: true,
+    cpus: 2,
+    proxyClientMaxBodySize: "52mb",
   },
   turbopack: {
     root: process.cwd(),

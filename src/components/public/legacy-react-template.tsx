@@ -56,8 +56,13 @@ const booleanAttributes = new Set([
   "playsinline", "readonly", "required", "reversed", "selected",
 ]);
 
+const staticValueInputTypes = new Set(["button", "checkbox", "hidden", "image", "radio", "reset", "submit"]);
+
 const attributeNames: Record<string, string> = {
   acceptcharset: "acceptCharset",
+  allowfullscreen: "allowFullScreen",
+  autofocus: "autoFocus",
+  autoplay: "autoPlay",
   class: "className",
   crossorigin: "crossOrigin",
   datetime: "dateTime",
@@ -65,9 +70,11 @@ const attributeNames: Record<string, string> = {
   formnovalidate: "formNoValidate",
   "http-equiv": "httpEquiv",
   inputmode: "inputMode",
+  ismap: "isMap",
   maxlength: "maxLength",
   minlength: "minLength",
   nomodule: "noModule",
+  novalidate: "noValidate",
   playsinline: "playsInline",
   readonly: "readOnly",
   tabindex: "tabIndex",
@@ -120,10 +127,26 @@ function parseInlineStyle(source: string, rootRelativeUrls = false): CSSProperti
 
 function readReactAttributes(node: HtmlNode, key: string, rootRelativeUrls: boolean) {
   const props: Record<string, unknown> = { key };
+  const tagName = node.name?.toLowerCase() ?? "";
+  const inputType = tagName === "input" ? (node.attribs?.type?.trim().toLowerCase() || "text") : "";
 
   for (const [sourceName, sourceValue] of Object.entries(node.attribs ?? {})) {
     const normalizedName = sourceName.toLowerCase();
     if (normalizedName.startsWith("on")) continue;
+    if (normalizedName === "src" && sourceValue.trim() === "") continue;
+
+    if (normalizedName === "checked" && tagName === "input") {
+      props.defaultChecked = true;
+      continue;
+    }
+
+    if (
+      normalizedName === "value"
+      && (tagName === "textarea" || tagName === "select" || (tagName === "input" && !staticValueInputTypes.has(inputType)))
+    ) {
+      props.defaultValue = sourceValue;
+      continue;
+    }
 
     const name = attributeNames[normalizedName] ?? sourceName;
     if (normalizedName === "style") {

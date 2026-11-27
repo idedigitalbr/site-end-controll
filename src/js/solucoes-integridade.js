@@ -418,6 +418,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let resizeFrame = null;
   const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
   let isTransitioning = false;
+  const isInlineEditing = () => document.documentElement.dataset.ecIeEditing === 'true';
 
   function updateRadarStates() {
     const progressState = RadarProgress.getProgressState(servicesData, activeIndex);
@@ -539,7 +540,7 @@ document.addEventListener('DOMContentLoaded', () => {
     updatePagination(activeIndex);
     updateCard(activeIndex, true);
 
-    if (autoPlayEnabled && !reducedMotionQuery.matches) {
+    if (autoPlayEnabled && !isInlineEditing() && !reducedMotionQuery.matches) {
       scheduleNextSweep();
     }
   }
@@ -619,7 +620,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function startAutoPlay() {
     stopAutoPlay();
-    if (reducedMotionQuery.matches) return;
+    if (isInlineEditing() || reducedMotionQuery.matches) return;
 
     autoPlayEnabled = true;
     scheduleNextSweep();
@@ -629,9 +630,10 @@ document.addEventListener('DOMContentLoaded', () => {
     delay = Math.max(0, RADAR_CONFIG.autoAdvanceInterval - RADAR_CONFIG.transitionDuration)
   ) {
     clearTimeout(cycleTimer);
-    if (!autoPlayEnabled || reducedMotionQuery.matches || sweepAnimation) return;
+    if (!autoPlayEnabled || isInlineEditing() || reducedMotionQuery.matches || sweepAnimation) return;
 
     cycleTimer = window.setTimeout(() => {
+      if (isInlineEditing()) return;
       moveSweepTo((activeIndex + 1) % servicesData.length, 'forward');
     }, delay);
   }
@@ -645,6 +647,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function pauseAutoPlay() {
     stopAutoPlay();
     clearTimeout(resumeTimer);
+    if (isInlineEditing()) return;
     resumeTimer = window.setTimeout(startAutoPlay, RADAR_CONFIG.manualResumeDelay);
   }
 
@@ -655,7 +658,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     node.addEventListener('mouseenter', () => stopAutoPlay());
     node.addEventListener('mouseleave', () => {
-      startAutoPlay();
+      if (!isInlineEditing()) {
+        startAutoPlay();
+      }
     });
   });
 
@@ -670,7 +675,7 @@ document.addEventListener('DOMContentLoaded', () => {
     measureRadarAngles();
     setSweepAngle(measuredAngles[activeIndex]);
 
-    if (wasAutoPlaying && !reducedMotionQuery.matches) {
+    if (wasAutoPlaying && !isInlineEditing() && !reducedMotionQuery.matches) {
       autoPlayEnabled = true;
       scheduleNextSweep();
     }
@@ -696,7 +701,25 @@ document.addEventListener('DOMContentLoaded', () => {
       setSweepAngle(measuredAngles[activeIndex]);
       return;
     }
-    startAutoPlay();
+    if (!isInlineEditing()) {
+      startAutoPlay();
+    }
+  });
+
+  new MutationObserver(() => {
+    if (isInlineEditing()) {
+      clearTimeout(resumeTimer);
+      stopAutoPlay();
+      stopSweepAtCurrentPosition();
+      sweepTargetIndex = null;
+      clearTransientNodeStates();
+      setSweepAngle(measuredAngles[activeIndex]);
+    } else if (!reducedMotionQuery.matches) {
+      startAutoPlay();
+    }
+  }).observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ['data-ec-ie-editing']
   });
 
   measureRadarAngles();

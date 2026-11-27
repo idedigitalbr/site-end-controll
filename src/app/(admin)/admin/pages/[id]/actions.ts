@@ -33,7 +33,7 @@ function readPageFields(formData: FormData) {
   const summary = readText(formData, "summary", 500);
   const seoTitle = readText(formData, "seoTitle", 255);
   const seoDescription = readText(formData, "seoDescription", 320);
-  const rawContent = readText(formData, "content", 500_000) ?? "[]";
+  const rawContent = readText(formData, "content", 900_000) ?? "[]";
 
   let parsedContent: unknown;
   try {
@@ -61,11 +61,28 @@ async function loadPageTemplate(pageId: string) {
   return { page, source };
 }
 
+function extractMediaUrlsFromPatches(
+  patches: ReturnType<typeof normalizePageContentPatches>,
+): string[] {
+  return patches.flatMap((patch) => {
+    if (patch.kind === "image" || patch.kind === "backgroundImage") return [patch.value];
+    if (patch.kind === "clientLogos") return patch.value.map((item) => item.src);
+    if (patch.kind === "homeSolutions") return patch.value.map((item) => item.image);
+    if (patch.kind === "directorCards") {
+      return patch.value.flatMap((item) => (item.poster ? [item.src, item.poster] : [item.src]));
+    }
+    if (patch.kind === "cardList") {
+      return patch.value.flatMap((item) => (item.image?.src ? [item.image.src] : []));
+    }
+    return [];
+  });
+}
+
 async function persistPageDraft(pageId: string, formData: FormData, actorUserId: string) {
   const fields = readPageFields(formData);
   const { page, source } = await loadPageTemplate(pageId);
   const content = normalizePageContentPatches(fields.parsedContent, editableFieldsForRoute(source, page.routePath));
-  await assertKnownMediaUrls(content.flatMap((patch) => patch.kind === "image" || patch.kind === "backgroundImage" ? [patch.value] : []));
+  await assertKnownMediaUrls(extractMediaUrlsFromPatches(content));
   const versionId = randomUUID();
 
   await db.transaction(async (transaction) => {
@@ -132,7 +149,7 @@ export async function publishPage(formData: FormData) {
   const fields = readPageFields(formData);
   const { page, source } = await loadPageTemplate(pageId);
   const content = normalizePageContentPatches(fields.parsedContent, editableFieldsForRoute(source, page.routePath));
-  await assertKnownMediaUrls(content.flatMap((patch) => patch.kind === "image" || patch.kind === "backgroundImage" ? [patch.value] : []));
+  await assertKnownMediaUrls(extractMediaUrlsFromPatches(content));
   const versionId = randomUUID();
 
   await db.transaction(async (transaction) => {
@@ -227,7 +244,7 @@ export async function restorePageVersion(formData: FormData) {
     }
 
     const content = normalizePageContentPatches(originalVersion.content, allowedFields);
-    await assertKnownMediaUrls(content.flatMap((patch) => patch.kind === "image" || patch.kind === "backgroundImage" ? [patch.value] : []));
+    await assertKnownMediaUrls(extractMediaUrlsFromPatches(content));
     const [latestVersion] = await transaction
       .select({ version: pageVersions.version })
       .from(pageVersions)

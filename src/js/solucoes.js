@@ -325,41 +325,78 @@ function bootstrapSolutions() {
     return;
   }
 
+  const highlightCardElement = document.getElementById('highlightCard');
+  let homeSolutionCardsByRoute = new Map();
+  const rawSolutionsCardsAttr = highlightCardElement?.getAttribute('data-cms-solutions-cards');
+  if (rawSolutionsCardsAttr) {
+    try {
+      const parsedCards = JSON.parse(rawSolutionsCardsAttr);
+      if (Array.isArray(parsedCards)) {
+        parsedCards.forEach(item => {
+          if (item && typeof item.routePath === 'string') {
+            homeSolutionCardsByRoute.set(item.routePath, item);
+          }
+        });
+      }
+    } catch (error) {
+      console.error('[cms] Não foi possível ler os cards das soluções da Home.', error);
+    }
+  }
+
   const RING_SIZE = 6;
   const servicesData = serviceOrder.map((sourceIndex, stepIndex) => {
     const sourceService = sourceServicesData[sourceIndex];
     const ringIndex = stepIndex < RING_SIZE ? 0 : 1;
+    const cardOverride = homeSolutionCardsByRoute.get(sourceService.cmsRoutePath);
     const publishedContent = publishedSolutionOverrides[sourceService.cmsRoutePath];
     const publishedTitle = typeof publishedContent?.title === 'string' ? publishedContent.title.trim() : '';
     const originalTitle = sourceService.title.replace(/^\d+\.\s*/, '');
-    const title = (publishedTitle || originalTitle).replace(/^\d+\.\s*/, '');
-    const shortTitle = publishedTitle
+    const cardTitleOverride = typeof cardOverride?.title === 'string' ? cardOverride.title.trim() : '';
+    const title = (cardTitleOverride || publishedTitle || originalTitle).replace(/^\d+\.\s*/, '');
+    const shortTitle = (cardTitleOverride || publishedTitle)
       ? formatShortTitle(title, sourceService.shortTitle)
       : sourceService.shortTitle.replace(/^\d+\.\s*/, '');
-    const desc = typeof publishedContent?.summary === 'string' && publishedContent.summary.trim()
-      ? publishedContent.summary.trim()
-      : sourceService.desc;
-    const image = typeof publishedContent?.imageUrl === 'string'
+    const desc = (typeof cardOverride?.desc === 'string' && cardOverride.desc.trim())
+      ? cardOverride.desc.trim()
+      : (typeof publishedContent?.summary === 'string' && publishedContent.summary.trim()
+        ? publishedContent.summary.trim()
+        : sourceService.desc);
+    const topics = Array.isArray(cardOverride?.topics) && cardOverride.topics.length > 0
+      ? cardOverride.topics.map(t => String(t))
+      : [...sourceService.topics];
+    const cardImageOverride = typeof cardOverride?.image === 'string' && cardOverride.image.trim()
+      ? cardOverride.image.trim()
+      : '';
+    const image = cardImageOverride || (typeof publishedContent?.imageUrl === 'string'
       && /^\/media\/[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}\.(?:jpe?g|png|webp|gif|avif)$/i.test(publishedContent.imageUrl)
       ? publishedContent.imageUrl
-      : sourceService.image;
-    const imageAlt = typeof publishedContent?.imageAltText === 'string' && publishedContent.imageAltText.trim()
-      ? publishedContent.imageAltText.trim()
-      : title;
+      : sourceService.image);
+    const imageAlt = (typeof cardOverride?.imageAlt === 'string' && cardOverride.imageAlt.trim())
+      ? cardOverride.imageAlt.trim()
+      : (typeof publishedContent?.imageAltText === 'string' && publishedContent.imageAltText.trim()
+        ? publishedContent.imageAltText.trim()
+        : title);
+    const objectPosition = typeof cardOverride?.objectPosition === 'string' ? cardOverride.objectPosition : '';
     const meta = serviceCategoryBySourceIndex.get(sourceIndex) || { tag: 'END', category: 'INTEGRIDADE E CONFIABILIDADE', icon: '' };
+    const tag = (typeof cardOverride?.tag === 'string' && cardOverride.tag.trim()) ? cardOverride.tag.trim() : meta.tag;
+    const category = (typeof cardOverride?.category === 'string' && cardOverride.category.trim()) ? cardOverride.category.trim() : meta.category;
+    const ctaText = (typeof cardOverride?.ctaText === 'string' && cardOverride.ctaText.trim()) ? cardOverride.ctaText.trim() : sourceService.ctaText;
 
     return {
       ...sourceService,
-      tag: meta.tag,
-      category: meta.category,
+      tag,
+      category,
       categoryIcon: meta.icon,
       iconName: serviceIconBySourceIndex.get(sourceIndex) || 'shield',
       id: stepIndex,
       title,
       shortTitle,
       desc,
+      topics,
+      ctaText,
       image,
       imageAlt,
+      objectPosition,
       url: sourceService.cmsRoutePath.replace(/^\/+/, ''),
       ring: ringIndex === 0 ? 'outer' : 'inner',
       angle: ringIndex === 0
@@ -775,6 +812,20 @@ function bootstrapSolutions() {
   let isHovered = false;
   let manualPauseUntil = 0;
   let isRadarVisible = true;
+  const isInlineEditing = () => document.documentElement.dataset.ecIeEditing === 'true';
+
+  function syncEditablePrimarySlide() {
+    if (!servicesData[0]) return;
+    if (highlightCard.hasAttribute('data-ec-solutions-key') || highlightCard.hasAttribute('data-cms-solutions-cards')) return;
+    const currentSrc = cardImage.getAttribute('src');
+    if (currentSrc) servicesData[0].image = currentSrc;
+    if (cardImage.alt) servicesData[0].imageAlt = cardImage.alt;
+    servicesData[0].objectPosition = cardImage.style.objectPosition || '';
+    if (cardTitle?.textContent?.trim()) servicesData[0].title = cardTitle.textContent.trim();
+    if (cardDesc?.textContent?.trim()) servicesData[0].desc = cardDesc.textContent.trim();
+    if (cardImageTag?.textContent?.trim()) servicesData[0].tag = cardImageTag.textContent.trim();
+    if (cardCategoryLabel?.textContent?.trim()) servicesData[0].category = cardCategoryLabel.textContent.trim();
+  }
 
   function updateRadarStates(displayIndex = activeIndex) {
     const progressState = RadarProgress.getProgressState(servicesData, displayIndex);
@@ -834,6 +885,57 @@ function bootstrapSolutions() {
     `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="2" x2="12" y2="22"/><line x1="17" y1="5" x2="17" y2="19"/><line x1="7" y1="5" x2="7" y2="19"/><line x1="22" y1="9" x2="22" y2="15"/><line x1="2" y1="9" x2="2" y2="15"/></svg>`
   ];
 
+  function renderCardContent(data, index) {
+    highlightCard.dataset.activeSolutionRoute = data.cmsRoutePath || '';
+    if (cardImage.dataset.ecRepositioning !== 'true') {
+      if (cardImage.getAttribute('src') !== data.image) cardImage.src = data.image;
+      cardImage.alt = data.imageAlt || data.title;
+      cardImage.style.objectPosition = data.objectPosition || '';
+    }
+    cardImage.dataset.ecSolImage = data.cmsRoutePath || '';
+
+    if (cardTitle.dataset.ecInlineActive !== 'true') {
+      cardTitle.textContent = data.title;
+    }
+    cardTitle.dataset.ecSolField = 'title';
+
+    if (cardDesc.dataset.ecInlineActive !== 'true') {
+      cardDesc.textContent = data.desc;
+    }
+    cardDesc.dataset.ecSolField = 'desc';
+
+    if (cardImageTag) {
+      if (cardImageTag.dataset.ecInlineActive !== 'true') {
+        cardImageTag.textContent = data.tag || 'END';
+      }
+      cardImageTag.dataset.ecSolField = 'tag';
+    }
+    if (cardCategoryLabel) {
+      if (cardCategoryLabel.dataset.ecInlineActive !== 'true') {
+        cardCategoryLabel.textContent = data.category || 'INTEGRIDADE E CONFIABILIDADE';
+      }
+      cardCategoryLabel.dataset.ecSolField = 'category';
+    }
+    if (cardCategoryIcon && data.categoryIcon) cardCategoryIcon.innerHTML = data.categoryIcon;
+
+    const activeTopicEl = cardList.querySelector('[data-ec-inline-active="true"]');
+    if (!activeTopicEl) {
+      cardList.innerHTML = data.topics.map((t, i) =>
+        `<li data-ec-sol-topic-row="${i}"><span class="card-list-icon">${topicIcons[i % topicIcons.length]}</span><span class="card-list-text" data-ec-sol-field="topic" data-ec-sol-topic-idx="${i}">${escapeHtmlText(t)}</span></li>`
+      ).join('');
+    }
+
+    const activeCtaEl = cardCta.querySelector('[data-ec-inline-active="true"]');
+    if (!activeCtaEl) {
+      cardCta.innerHTML = `<span class="card-cta-label" data-ec-sol-field="ctaText">${escapeHtmlText(data.ctaText)}</span> ${arrowSvg}`;
+    }
+    cardCta.href = data.url || '1-solucao-engenharia-de-integridade-estrutural.html';
+    window.requestAnimationFrame(() => updateRadarCardConnector(index));
+    window.dispatchEvent(new CustomEvent('ec-solucoes-slide-change', {
+      detail: { routePath: data.cmsRoutePath || '', index }
+    }));
+  }
+
   function updateCard(index, animate = true) {
     const data = servicesData[index];
     const totalCount = servicesData.length;
@@ -849,17 +951,7 @@ function bootstrapSolutions() {
       cardImage.style.transition = 'opacity 0.2s ease';
       cardImage.style.opacity = '0.3';
       setTimeout(() => {
-        cardImage.src = data.image;
-        cardImage.alt = data.imageAlt || data.title;
-        cardTitle.textContent = data.title;
-        cardDesc.textContent = data.desc;
-        if (cardImageTag) cardImageTag.textContent = data.tag || 'END';
-        if (cardCategoryLabel) cardCategoryLabel.textContent = data.category || 'INTEGRIDADE E CONFIABILIDADE';
-        if (cardCategoryIcon && data.categoryIcon) cardCategoryIcon.innerHTML = data.categoryIcon;
-        cardList.innerHTML = data.topics.map((t, i) => `<li><span class="card-list-icon">${topicIcons[i % topicIcons.length]}</span><span class="card-list-text">${t}</span></li>`).join('');
-        cardCta.innerHTML = `${data.ctaText} ${arrowSvg}`;
-        cardCta.href = data.url || '1-solucao-engenharia-de-integridade-estrutural.html';
-        window.requestAnimationFrame(() => updateRadarCardConnector(index));
+        renderCardContent(data, index);
         const onReady = () => {
           cardImage.style.opacity = '1';
           setTimeout(() => {
@@ -871,22 +963,50 @@ function bootstrapSolutions() {
         if (cardImage.complete) onReady();
       }, 260);
     } else {
-      cardImage.src = data.image;
-      cardImage.alt = data.imageAlt || data.title;
-      cardTitle.textContent = data.title;
-      cardDesc.textContent = data.desc;
-      if (cardImageTag) cardImageTag.textContent = data.tag || 'END';
-      if (cardCategoryLabel) cardCategoryLabel.textContent = data.category || 'INTEGRIDADE E CONFIABILIDADE';
-      if (cardCategoryIcon && data.categoryIcon) cardCategoryIcon.innerHTML = data.categoryIcon;
-      cardList.innerHTML = data.topics.map((t, i) => `<li><span class="card-list-icon">${topicIcons[i % topicIcons.length]}</span><span class="card-list-text">${t}</span></li>`).join('');
-      cardCta.innerHTML = `${data.ctaText} ${arrowSvg}`;
-      cardCta.href = data.url || '1-solucao-engenharia-de-integridade-estrutural.html';
-      window.requestAnimationFrame(() => updateRadarCardConnector(index));
+      renderCardContent(data, index);
     }
   }
 
+  highlightCard.__ecUpdateSolutionCards = function (items) {
+    if (!Array.isArray(items)) return;
+    const byRoute = new Map(items.filter(it => it && typeof it.routePath === 'string').map(it => [it.routePath, it]));
+    servicesData.forEach((service, idx) => {
+      const override = byRoute.get(service.cmsRoutePath);
+      if (!override) return;
+      if (typeof override.tag === 'string' && override.tag.trim()) service.tag = override.tag.trim();
+      if (typeof override.category === 'string' && override.category.trim()) service.category = override.category.trim();
+      if (typeof override.title === 'string' && override.title.trim()) {
+        service.title = override.title.trim();
+        service.shortTitle = formatShortTitle(service.title, sourceServicesData[serviceOrder[idx]]?.shortTitle || service.shortTitle);
+        const nodeEl = serviceNodes[idx];
+        if (nodeEl) {
+          nodeEl.dataset.tooltip = service.title;
+          nodeEl.title = service.title;
+          nodeEl.setAttribute('aria-label', service.title);
+          const labelSpan = nodeEl.querySelector('.service-node-label');
+          if (labelSpan) {
+            labelSpan.innerHTML = service.shortTitle.split('<br>').map(line => `<span class="label-line">${line}</span>`).join('');
+          }
+        }
+      }
+      if (typeof override.desc === 'string' && override.desc.trim()) service.desc = override.desc.trim();
+      if (Array.isArray(override.topics) && override.topics.length > 0) service.topics = override.topics.map(t => String(t));
+      if (typeof override.ctaText === 'string' && override.ctaText.trim()) service.ctaText = override.ctaText.trim();
+      if (typeof override.image === 'string' && override.image.trim()) service.image = override.image.trim();
+      if (typeof override.imageAlt === 'string') service.imageAlt = override.imageAlt;
+      service.objectPosition = typeof override.objectPosition === 'string' ? override.objectPosition : '';
+    });
+    const currentIdx = Number.isInteger(selectedIndex) ? selectedIndex : activeIndex;
+    if (servicesData[currentIdx]) {
+      renderCardContent(servicesData[currentIdx], currentIdx);
+    }
+  };
+
   function previewService(index) {
     if (!Number.isInteger(index) || index < 0 || index >= servicesData.length) return;
+    if (activeIndex === 0 && index !== 0) {
+      syncEditablePrimarySlide();
+    }
 
     selectedIndex = index;
     updateSelectedNode(index);
@@ -955,7 +1075,7 @@ function bootstrapSolutions() {
     updateCard(activeIndex, true);
     window.requestAnimationFrame(() => updateRadarCardConnector(activeIndex));
 
-    if (autoPlayEnabled && !isHovered && performance.now() >= manualPauseUntil && !reducedMotionQuery.matches) {
+    if (autoPlayEnabled && !isInlineEditing() && !isHovered && performance.now() >= manualPauseUntil && !reducedMotionQuery.matches) {
       scheduleNextSweep();
     }
   }
@@ -1026,6 +1146,9 @@ function bootstrapSolutions() {
 
   function goToService(index, direction = 'nearest') {
     if (!Number.isInteger(index) || index < 0 || index >= servicesData.length) return;
+    if (activeIndex === 0 && index !== 0) {
+      syncEditablePrimarySlide();
+    }
     previewService(index);
     moveSweepTo(index, direction);
   }
@@ -1080,11 +1203,12 @@ function bootstrapSolutions() {
     delay = Math.max(0, RADAR_CONFIG.autoAdvanceInterval - RADAR_CONFIG.transitionDuration)
   ) {
     clearTimeout(cycleTimer);
-    if (!autoPlayEnabled || reducedMotionQuery.matches || sweepAnimation || isHovered) return;
+    if (!autoPlayEnabled || isInlineEditing() || reducedMotionQuery.matches || sweepAnimation || isHovered) return;
 
     setNextConnectionLoading(RADAR_CONFIG.autoAdvanceInterval);
 
     cycleTimer = window.setTimeout(() => {
+      if (isInlineEditing()) return;
       moveSweepTo((activeIndex + 1) % servicesData.length, 'forward', true);
     }, delay);
   }
@@ -1092,7 +1216,7 @@ function bootstrapSolutions() {
   function startAutoPlay() {
     clearResumeTimer();
     stopAutoPlay();
-    if (reducedMotionQuery.matches || isHovered || !isRadarVisible) return;
+    if (isInlineEditing() || reducedMotionQuery.matches || isHovered || !isRadarVisible) return;
 
     autoPlayEnabled = true;
     scheduleNextSweep();
@@ -1110,7 +1234,7 @@ function bootstrapSolutions() {
   function handleHoverLeave() {
     isHovered = false;
     clearResumeTimer();
-    if (reducedMotionQuery.matches) return;
+    if (isInlineEditing() || reducedMotionQuery.matches) return;
 
     const now = performance.now();
     const remainingManual = manualPauseUntil - now;
@@ -1120,7 +1244,7 @@ function bootstrapSolutions() {
 
     resumeTimer = window.setTimeout(() => {
       resumeTimer = null;
-      if (!isHovered && performance.now() >= manualPauseUntil) {
+      if (!isInlineEditing() && !isHovered && performance.now() >= manualPauseUntil) {
         startAutoPlay();
       }
     }, delay);
@@ -1131,10 +1255,10 @@ function bootstrapSolutions() {
     stopAutoPlay();
     clearResumeTimer();
 
-    if (!isHovered && !reducedMotionQuery.matches) {
+    if (!isInlineEditing() && !isHovered && !reducedMotionQuery.matches) {
       resumeTimer = window.setTimeout(() => {
         resumeTimer = null;
-        if (!isHovered && performance.now() >= manualPauseUntil) {
+        if (!isInlineEditing() && !isHovered && performance.now() >= manualPauseUntil) {
           startAutoPlay();
         }
       }, RADAR_CONFIG.manualResumeDelay);
@@ -1163,7 +1287,9 @@ function bootstrapSolutions() {
     });
         node.addEventListener('mouseenter', () => {
           handleHoverEnter();
-          goToService(parseInt(node.dataset.index, 10));
+          if (!isInlineEditing()) {
+            goToService(parseInt(node.dataset.index, 10));
+          }
         });
     node.addEventListener('mouseleave', handleHoverLeave);
   });
@@ -1187,7 +1313,7 @@ function bootstrapSolutions() {
     }
     updateRadarCardConnector(selectedIndex);
 
-    if (wasAutoPlaying && !isHovered && performance.now() >= manualPauseUntil && !reducedMotionQuery.matches) {
+    if (wasAutoPlaying && !isInlineEditing() && !isHovered && performance.now() >= manualPauseUntil && !reducedMotionQuery.matches) {
       autoPlayEnabled = true;
       scheduleNextSweep();
     }
@@ -1224,6 +1350,7 @@ function bootstrapSolutions() {
     startAutoPlay();
   });
 
+  syncEditablePrimarySlide();
   adjustLabelPlacements();
   measureRadarMetrics();
   setSweepAngle(measuredAngles[activeIndex]);
@@ -1240,7 +1367,7 @@ function bootstrapSolutions() {
       entries.forEach((entry) => {
         isRadarVisible = entry.isIntersecting;
         if (isRadarVisible) {
-          if (!isHovered && performance.now() >= manualPauseUntil) {
+          if (!isInlineEditing() && !isHovered && performance.now() >= manualPauseUntil) {
             startAutoPlay();
           }
         } else {
@@ -1253,6 +1380,22 @@ function bootstrapSolutions() {
   } else {
     startAutoPlay();
   }
+
+  new MutationObserver(() => {
+    if (isInlineEditing()) {
+      clearResumeTimer();
+      stopAutoPlay();
+      stopSweepAtCurrentPosition();
+      sweepTargetIndex = null;
+      clearTransientNodeStates();
+      setSweepAngle(measuredAngles[activeIndex]);
+    } else if (isRadarVisible && !isHovered && !reducedMotionQuery.matches) {
+      startAutoPlay();
+    }
+  }).observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ['data-ec-ie-editing']
+  });
 
   window.RadarSweepController = Object.freeze({
     config: RADAR_CONFIG,

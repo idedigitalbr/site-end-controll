@@ -2694,6 +2694,75 @@ textarea.form-control {
   display: block !important;
 }
 
+#sobre-2 .about-media-dual-videos[data-card-count="1"] .dep-video-card {
+  flex: 1 1 100% !important;
+  width: 100% !important;
+}
+
+#sobre-2 .about-media-dual-videos[data-card-count-multi="true"] {
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+}
+
+#sobre-2 .about-media-dual-videos[data-card-count-multi="true"]::-webkit-scrollbar {
+  display: none;
+}
+
+#sobre-2 .about-media-dual-videos[data-card-count-multi="true"] .dep-video-card {
+  flex: 0 0 calc(50% - 4px) !important;
+  width: calc(50% - 4px) !important;
+  scroll-snap-align: start;
+}
+
+#sobre-2 .about-media-dual-videos .dep-card-image {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  display: block !important;
+}
+
+#sobre-2 .about-media-dual-videos .dep-image-card {
+  cursor: default;
+}
+
+#sobre-2 .about-media-wrapper .about-dual-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 32px;
+  height: 32px;
+  border-radius: 9999px;
+  border: 1px solid rgba(var(--brand-secondary-rgb, 0, 172, 228), 0.45);
+  background: rgba(6, 11, 30, 0.78);
+  color: #ffffff;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+  transition: background 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
+}
+
+#sobre-2 .about-media-wrapper .about-dual-nav-btn:hover {
+  background: #00ace4;
+  border-color: #00ace4;
+  transform: translateY(-50%) scale(1.06);
+}
+
+#sobre-2 .about-media-wrapper .about-dual-nav-btn.is-prev {
+  left: 4px;
+}
+
+#sobre-2 .about-media-wrapper .about-dual-nav-btn.is-next {
+  right: 4px;
+}
+
 #sobre-2 .about-media-dual-videos .dep-video-card:hover {
   transform: translateY(-4px) !important;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 24px rgba(var(--brand-secondary-rgb, 0, 172, 228), 0.5) !important;

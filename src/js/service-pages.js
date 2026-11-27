@@ -85,6 +85,7 @@
     const imageRoot = './assets/Paginas/SOLUCOES/';
 
     document.querySelectorAll('#quando-aplicar[data-when-apply-image-set]').forEach(function (section) {
+      if (section.querySelector('[data-cms-cardlist-custom="true"]')) return;
       const imageSet = whenApplyImageSets[section.dataset.whenApplyImageSet];
       if (!imageSet) return;
 
@@ -94,7 +95,8 @@
         if (!image || !filename) return;
 
         const nextSrc = imageRoot + section.dataset.whenApplyImageSet + '/S4 CARDS - Quando aplicar/' + filename;
-        if (image.getAttribute('src') !== nextSrc) image.src = nextSrc;
+        const currentSrc = image.getAttribute('src') || '';
+        if (!/^\/media\//i.test(currentSrc) && currentSrc !== nextSrc) image.src = nextSrc;
         image.loading = index === 0 ? 'eager' : 'lazy';
       });
     });

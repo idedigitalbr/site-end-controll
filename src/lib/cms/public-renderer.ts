@@ -1,19 +1,21 @@
 import "server-only";
 
 import { cache } from "react";
+import { load } from "cheerio";
 import { desc, eq, inArray } from "drizzle-orm";
 import type { Metadata } from "next";
 
 import { db } from "@/db";
 import { pageVersions, pages } from "@/db/schema";
 import { prepareLegacyHtmlTemplate, type PreparedLegacyPageTemplate } from "@/components/public/legacy-react-template";
+import { annotateCardListDom, hasCustomFfsCardListPatch } from "@/lib/cms/card-list";
 import { appendFfsOverrides } from "@/lib/cms/ffs-content";
 import { getFfsOverrides } from "@/lib/cms/ffs-data";
-import { applyGlobalContent } from "@/lib/cms/global-content";
+import { applyGlobalContent, globalContentFields } from "@/lib/cms/global-content";
 import { getGlobalContent } from "@/lib/cms/global-content-data";
 import { appendHomeServiceOrder } from "@/lib/cms/home-services-content";
 import { getHomeServiceOrder } from "@/lib/cms/home-services-data";
-import { applyNavigationContent } from "@/lib/cms/navigation-content";
+import { applyNavigationContent, defaultNavigationContent } from "@/lib/cms/navigation-content";
 import { getNavigationContent } from "@/lib/cms/navigation-data";
 import { applyBackgroundOverrides } from "@/lib/cms/background-content";
 import { getBackgroundContent } from "@/lib/cms/background-data";
@@ -21,12 +23,16 @@ import {
   appendPublicSolutionOverrides,
   appendThemeOverrides,
   applyContentPatches,
+  applyContentPatchesWithInlineAnnotations,
   applyPageMetadata,
+  editableFieldsForRoute,
   getSolutionCardImageAltOverride,
   getSolutionCardImageOverride,
   resolveCmsTemplatePath,
+  type EditableCardListField,
   type PublicSolutionOverride,
 } from "@/lib/cms/page-content";
+import type { InlineEditorBootstrap } from "@/lib/cms/inline-editor-types";
 import { getPublicSiteTheme } from "@/lib/cms/settings-data";
 import { buildPublicPageJsonLd } from "@/lib/cms/public-seo";
 import { getLegacyPageTemplatePaths, readLegacyPageMarkup, serveLegacySiteFile } from "@/lib/legacy-site";
@@ -50,6 +56,10 @@ type CmsPageDocument = {
   canonicalUrl: string | null;
   template: PreparedLegacyPageTemplate;
   pageJsonLd: string | null;
+};
+
+export type CmsEditorPageDocument = CmsPageDocument & {
+  inlineEditorBootstrap: InlineEditorBootstrap | null;
 };
 
 type PublishedVersion = {
@@ -151,13 +161,27 @@ async function getPublishedSolutionOverrides(): Promise<Record<string, PublicSol
   );
 }
 
-async function applyPageOverlays(markup: string, routePath: string) {
+async function applyPageOverlays(
+  markup: string,
+  routePath: string,
+  options?: {
+    skipFfsLegacyOverride?: boolean;
+    inlineBootstrap?: InlineEditorBootstrap | null;
+  },
+) {
   let result = await applyGlobalContentSafely(markup, routePath);
 
   try {
-    result = applyNavigationContent(result, await getNavigationContent());
+    const navContent = await getNavigationContent();
+    result = applyNavigationContent(result, navContent);
+    if (options?.inlineBootstrap?.canEditMedia) {
+      options.inlineBootstrap.navigationContent = navContent ?? defaultNavigationContent;
+    }
   } catch (error) {
     console.error(`[cms] Falha ao carregar a navegação publicada para ${routePath}; mantendo os itens originais.`, error);
+    if (options?.inlineBootstrap?.canEditMedia && !options.inlineBootstrap.navigationContent) {
+      options.inlineBootstrap.navigationContent = defaultNavigationContent;
+    }
   }
 
   let publishedRoutePaths: string[];
@@ -185,9 +209,30 @@ async function applyPageOverlays(markup: string, routePath: string) {
     }
   }
 
-  if (routePath === ffsRoutePath) {
+  if (routePath === ffsRoutePath && !options?.skipFfsLegacyOverride) {
     try {
-      result = appendFfsOverrides(result, await getFfsOverrides());
+      const ffsOverrides = await getFfsOverrides();
+      result = appendFfsOverrides(result, ffsOverrides);
+      if (ffsOverrides && options?.inlineBootstrap) {
+        const ffsField = options.inlineBootstrap.fields.find(
+          (f): f is EditableCardListField =>
+            f.kind === "cardList" && f.itemSelector === "article.ffs-mechanism-card",
+        );
+        if (ffsField) {
+          ffsField.value = ffsOverrides.map((item) => {
+            const orig = ffsField.originalValue[item.id];
+            const tag = orig?.texts[0] ?? "MECANISMO FFS";
+            return {
+              id: `orig-${item.id}`,
+              sourceIndex: item.id,
+              texts: [tag, item.title, item.desc],
+            };
+          });
+          const $ffs = load(result);
+          annotateCardListDom($ffs, ffsField, ffsField.value);
+          result = $ffs.html();
+        }
+      }
     } catch (error) {
       console.error("[cms] Falha ao carregar os mecanismos FFS publicados; mantendo o conteúdo original.", error);
     }
@@ -198,11 +243,12 @@ async function applyPageOverlays(markup: string, routePath: string) {
 
 async function getPublishedVersion(routePath: string) {
   const [page] = await db.select().from(pages).where(eq(pages.routePath, routePath)).limit(1);
-  if (!page?.publishedVersionId || page.status === "archived") return { page, version: null as PublishedVersion | null };
+  if (!page?.publishedVersionId || page.status === "archived") return { page, version: null as (PublishedVersion & { version: number }) | null };
 
   const [version] = await db
     .select({
       id: pageVersions.id,
+      version: pageVersions.version,
       title: pageVersions.title,
       summary: pageVersions.summary,
       content: pageVersions.content,
@@ -220,7 +266,11 @@ async function getPublishedVersion(routePath: string) {
   };
 }
 
-export const getPublicPageDocument = cache(async (routePath: string): Promise<CmsPageDocument | null> => {
+async function buildPublicPageDocument(
+  routePath: string,
+  editorRole: "admin" | "editor" | null,
+): Promise<CmsEditorPageDocument | null> {
+  const includeInlineAnnotations = editorRole !== null;
   routePath = normalizePublicRoutePath(routePath);
   const { page, version } = await getPublishedVersion(routePath);
   const isCmsPage = cmsRoutePaths.has(routePath) || Boolean(page);
@@ -235,6 +285,7 @@ export const getPublicPageDocument = cache(async (routePath: string): Promise<Cm
   let summary: string | null = null;
   let seoTitle: string | null = null;
   let seoDescription: string | null = null;
+  let inlineEditorBootstrap: InlineEditorBootstrap | null = null;
 
   if (page && version) {
     pageTitle = version.title ?? page.title ?? sitePages.find((item) => item.routePath === routePath)?.title ?? null;
@@ -242,14 +293,82 @@ export const getPublicPageDocument = cache(async (routePath: string): Promise<Cm
     seoTitle = version.seoTitle ?? null;
     seoDescription = version.seoDescription ?? null;
 
-    try {
-      markup = applyContentPatches(source, version.content, routePath);
-    } catch (error) {
-      console.error(`[cms] Os campos publicados de ${routePath} não correspondem ao template; mantendo o conteúdo original.`, error);
+    if (includeInlineAnnotations) {
+      let globalContent: Record<string, string> = Object.fromEntries(
+        globalContentFields.map((field) => [field.key, field.value]),
+      );
+      try {
+        const storedGlobal = await getGlobalContent();
+        if (storedGlobal) {
+          globalContent = { ...globalContent, ...storedGlobal };
+        }
+      } catch {
+        // Fallback to defaults if DB lookup fails
+      }
+
+      try {
+        const annotated = applyContentPatchesWithInlineAnnotations(source, version.content, routePath);
+        markup = annotated.markup;
+        inlineEditorBootstrap = {
+          pageId: page.id,
+          routePath: page.routePath,
+          title: pageTitle ?? page.title,
+          versionNumber: version.version,
+          publishedVersionId: page.publishedVersionId,
+          userRole: editorRole,
+          canEditMedia: editorRole === "admin",
+          globalContent,
+          fields: annotated.fields,
+          cardPrototypes: annotated.cardPrototypes,
+        };
+      } catch (error) {
+        console.error(`[cms] Falha ao anotar campos inline de ${routePath}; tentando sem patches.`, error);
+        try {
+          const fallbackAnnotated = applyContentPatchesWithInlineAnnotations(source, [], routePath);
+          markup = fallbackAnnotated.markup;
+          inlineEditorBootstrap = {
+            pageId: page.id,
+            routePath: page.routePath,
+            title: pageTitle ?? page.title,
+            versionNumber: version.version,
+            publishedVersionId: page.publishedVersionId,
+            userRole: editorRole,
+            canEditMedia: editorRole === "admin",
+            globalContent,
+            fields: fallbackAnnotated.fields,
+            cardPrototypes: fallbackAnnotated.cardPrototypes,
+          };
+        } catch {
+          markup = source;
+        }
+      }
+    } else {
+      try {
+        markup = applyContentPatches(source, version.content, routePath);
+      } catch (error) {
+        console.error(`[cms] Os campos publicados de ${routePath} não correspondem ao template; mantendo o conteúdo original.`, error);
+      }
     }
   }
 
-  markup = await applyPageOverlays(markup, routePath);
+  let skipFfsLegacyOverride = false;
+  if (routePath === ffsRoutePath && version && Array.isArray(version.content)) {
+    const ffsField =
+      (inlineEditorBootstrap?.fields.find(
+        (f): f is EditableCardListField =>
+          f.kind === "cardList" && f.itemSelector === "article.ffs-mechanism-card",
+      )) ??
+      editableFieldsForRoute(source, ffsRoutePath).find(
+        (f): f is EditableCardListField =>
+          f.kind === "cardList" && f.itemSelector === "article.ffs-mechanism-card",
+      );
+    skipFfsLegacyOverride = hasCustomFfsCardListPatch(version.content, ffsField);
+  }
+
+  markup = await applyPageOverlays(markup, routePath, {
+    skipFfsLegacyOverride,
+    inlineBootstrap: inlineEditorBootstrap,
+  });
   const template = prepareLegacyHtmlTemplate(markup, { rootRelativeUrls: routePath === "/404.html" });
   const effectiveTitle = seoTitle?.trim() || pageTitle?.trim() || template.metadata.title || "EndControl";
   const effectiveSummary = seoDescription?.trim() || summary?.trim() || template.metadata.description;
@@ -264,7 +383,22 @@ export const getPublicPageDocument = cache(async (routePath: string): Promise<Cm
     canonicalUrl,
     template,
     pageJsonLd: pageJsonLd(routePath, effectiveTitle, effectiveSummary, canonicalUrl),
+    inlineEditorBootstrap,
   };
+}
+
+export const getPublicPageDocument = cache(async (routePath: string): Promise<CmsPageDocument | null> => {
+  const doc = await buildPublicPageDocument(routePath, null);
+  if (!doc) return null;
+  const { inlineEditorBootstrap: _ignored, ...publicDoc } = doc;
+  return publicDoc;
+});
+
+export const getPublicPageDocumentForEditor = cache(async (
+  routePath: string,
+  editorRole: "admin" | "editor",
+): Promise<CmsEditorPageDocument | null> => {
+  return buildPublicPageDocument(routePath, editorRole);
 });
 
 function sourceRobots(value: string | null): Metadata["robots"] {
